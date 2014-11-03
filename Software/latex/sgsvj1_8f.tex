@@ -1,0 +1,196 @@
+\hypertarget{sgsvj1_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/sgsvj1.f File Reference}
+\label{sgsvj1_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/sgsvj1.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/sgsvj1.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{sgsvj1_8f_a6f84cb1058d270d2142f738950603081}{sgsvj1} (J\+O\+B\+V, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, N1, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, S\+V\+A, M\+V, V, L\+D\+V, \hyperlink{tukey_8c_a6ebf6899d6c1c8b7b9d09be872c05aae}{E\+P\+S}, S\+F\+M\+I\+N, T\+O\+L, N\+S\+W\+E\+E\+P, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+G\+S\+V\+J1} pre-\/processor for the routine sgesvj, applies Jacobi rotations targeting only particular pivots. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{sgsvj1_8f_a6f84cb1058d270d2142f738950603081}{}\index{sgsvj1.\+f@{sgsvj1.\+f}!sgsvj1@{sgsvj1}}
+\index{sgsvj1@{sgsvj1}!sgsvj1.\+f@{sgsvj1.\+f}}
+\subsubsection[{sgsvj1}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sgsvj1 (
+\begin{DoxyParamCaption}
+\item[{character$\ast$1}]{J\+O\+B\+V, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{N1, }
+\item[{real, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{real, dimension( {\bf n} )}]{D, }
+\item[{real, dimension( {\bf n} )}]{S\+V\+A, }
+\item[{integer}]{M\+V, }
+\item[{real, dimension( ldv, $\ast$ )}]{V, }
+\item[{integer}]{L\+D\+V, }
+\item[{real}]{E\+P\+S, }
+\item[{real}]{S\+F\+M\+I\+N, }
+\item[{real}]{T\+O\+L, }
+\item[{integer}]{N\+S\+W\+E\+E\+P, }
+\item[{real, dimension( lwork )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{sgsvj1_8f_a6f84cb1058d270d2142f738950603081}
+
+
+{\bfseries S\+G\+S\+V\+J1} pre-\/processor for the routine sgesvj, applies Jacobi rotations targeting only particular pivots. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SGSVJ1 is called from SGESVJ as a pre-processor and that is its main
+ purpose. It applies Jacobi rotations in the same way as SGESVJ does, but
+ it targets only particular pivots and it does not check convergence
+ (stopping criterion). Few tunning parameters (marked by [TP]) are
+ available for the implementer.
+
+ Further Details
+ ~~~~~~~~~~~~~~~
+ SGSVJ1 applies few sweeps of Jacobi rotations in the column space of
+ the input M-by-N matrix A. The pivot pairs are taken from the (1,2)
+ off-diagonal block in the corresponding N-by-N Gram matrix A^T * A. The
+ block-entries (tiles) of the (1,2) off-diagonal block are marked by the
+ [x]'s in the following scheme:
+
+    | *  *  * [x] [x] [x]|
+    | *  *  * [x] [x] [x]|    Row-cycling in the nblr-by-nblc [x] blocks.
+    | *  *  * [x] [x] [x]|    Row-cyclic pivoting inside each [x] block.
+    |[x] [x] [x] *  *  * |
+    |[x] [x] [x] *  *  * |
+    |[x] [x] [x] *  *  * |
+
+ In terms of the columns of A, the first N1 columns are rotated 'against'
+ the remaining N-N1 columns, trying to increase the angle between the
+ corresponding subspaces. The off-diagonal block is N1-by(N-N1) and it is
+ tiled using quadratic tiles of side KBL. Here, KBL is a tunning parmeter.
+ The number of sweeps is given in NSWEEP and the orthogonality threshold
+ is given in TOL.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B\+V} & \begin{DoxyVerb}          JOBV is CHARACTER*1
+          Specifies whether the output from this procedure is used
+          to compute the matrix V:
+          = 'V': the product of the Jacobi rotations is accumulated
+                 by postmulyiplying the N-by-N array V.
+                (See the description of V.)
+          = 'A': the product of the Jacobi rotations is accumulated
+                 by postmulyiplying the MV-by-N array V.
+                (See the descriptions of MV and V.)
+          = 'N': the Jacobi rotations are not accumulated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the input matrix A.  M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the input matrix A.
+          M >= N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N1} & \begin{DoxyVerb}          N1 is INTEGER
+          N1 specifies the 2 x 2 block partition, the first N1 columns are
+          rotated 'against' the remaining N-N1 columns of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is REAL array, dimension (LDA,N)
+          On entry, M-by-N matrix A, such that A*diag(D) represents
+          the input matrix.
+          On exit,
+          A_onexit * D_onexit represents the input matrix A*diag(D)
+          post-multiplied by a sequence of Jacobi rotations, where the
+          rotation threshold and the total number of sweeps are given in
+          TOL and NSWEEP, respectively.
+          (See the descriptions of N1, D, TOL and NSWEEP.)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The array D accumulates the scaling factors from the fast scaled
+          Jacobi rotations.
+          On entry, A*diag(D) represents the input matrix.
+          On exit, A_onexit*diag(D_onexit) represents the input matrix
+          post-multiplied by a sequence of Jacobi rotations, where the
+          rotation threshold and the total number of sweeps are given in
+          TOL and NSWEEP, respectively.
+          (See the descriptions of N1, A, TOL and NSWEEP.)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em S\+V\+A} & \begin{DoxyVerb}          SVA is REAL array, dimension (N)
+          On entry, SVA contains the Euclidean norms of the columns of
+          the matrix A*diag(D).
+          On exit, SVA contains the Euclidean norms of the columns of
+          the matrix onexit*diag(D_onexit).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M\+V} & \begin{DoxyVerb}          MV is INTEGER
+          If JOBV .EQ. 'A', then MV rows of V are post-multipled by a
+                           sequence of Jacobi rotations.
+          If JOBV = 'N',   then MV is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V} & \begin{DoxyVerb}          V is REAL array, dimension (LDV,N)
+          If JOBV .EQ. 'V' then N rows of V are post-multipled by a
+                           sequence of Jacobi rotations.
+          If JOBV .EQ. 'A' then MV rows of V are post-multipled by a
+                           sequence of Jacobi rotations.
+          If JOBV = 'N',   then V is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V} & \begin{DoxyVerb}          LDV is INTEGER
+          The leading dimension of the array V,  LDV >= 1.
+          If JOBV = 'V', LDV .GE. N.
+          If JOBV = 'A', LDV .GE. MV.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E\+P\+S} & \begin{DoxyVerb}          EPS is REAL
+          EPS = SLAMCH('Epsilon')\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+F\+M\+I\+N} & \begin{DoxyVerb}          SFMIN is REAL
+          SFMIN = SLAMCH('Safe Minimum')\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+O\+L} & \begin{DoxyVerb}          TOL is REAL
+          TOL is the threshold for Jacobi rotations. For a pair
+          A(:,p), A(:,q) of pivot columns, the Jacobi rotation is
+          applied only if ABS(COS(angle(A(:,p),A(:,q)))) .GT. TOL.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+S\+W\+E\+E\+P} & \begin{DoxyVerb}          NSWEEP is INTEGER
+          NSWEEP is the number of sweeps of Jacobi rotations to be
+          performed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          LWORK is the dimension of WORK. LWORK .GE. M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0 : successful exit.
+          < 0 : if INFO = -i, then the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Zlatko Drmac (Zagreb, Croatia) and Kresimir Veselic (Hagen, Germany) 
+\end{DoxyParagraph}

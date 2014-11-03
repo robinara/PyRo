@@ -1,0 +1,81 @@
+\hypertarget{clartg_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clartg.f File Reference}
+\label{clartg_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clartg.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clartg.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clartg_8f_a0b6c1d067b32e7c6faa6e1c17ac1b78d}{clartg} (F, G, C\+S, S\+N, R)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+R\+T\+G} generates a plane rotation with real cosine and complex sine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clartg_8f_a0b6c1d067b32e7c6faa6e1c17ac1b78d}{}\index{clartg.\+f@{clartg.\+f}!clartg@{clartg}}
+\index{clartg@{clartg}!clartg.\+f@{clartg.\+f}}
+\subsubsection[{clartg}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clartg (
+\begin{DoxyParamCaption}
+\item[{{\bf complex}}]{F, }
+\item[{{\bf complex}}]{G, }
+\item[{real}]{C\+S, }
+\item[{{\bf complex}}]{S\+N, }
+\item[{{\bf complex}}]{R}
+\end{DoxyParamCaption}
+)}\label{clartg_8f_a0b6c1d067b32e7c6faa6e1c17ac1b78d}
+
+
+{\bfseries C\+L\+A\+R\+T\+G} generates a plane rotation with real cosine and complex sine. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLARTG generates a plane rotation so that
+
+    [  CS  SN  ]     [ F ]     [ R ]
+    [  __      ]  .  [   ]  =  [   ]   where CS**2 + |SN|**2 = 1.
+    [ -SN  CS  ]     [ G ]     [ 0 ]
+
+ This is a faster version of the BLAS1 routine CROTG, except for
+ the following differences:
+    F and G are unchanged on return.
+    If G=0, then CS=1 and SN=0.
+    If F=0, then CS=0 and SN is chosen so that R is real.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em F} & \begin{DoxyVerb}          F is COMPLEX
+          The first component of vector to be rotated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G} & \begin{DoxyVerb}          G is COMPLEX
+          The second component of vector to be rotated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C\+S} & \begin{DoxyVerb}          CS is REAL
+          The cosine of the rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+N} & \begin{DoxyVerb}          SN is COMPLEX
+          The sine of the rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R} & \begin{DoxyVerb}          R is COMPLEX
+          The nonzero component of the rotated vector.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2013 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  3-5-96 - Modified with a new algorithm by W. Kahan and J. Demmel
+
+  This version has a few statements commented out for thread safety
+  (machine parameters are computed on each entry). 10 feb 03, SJH.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

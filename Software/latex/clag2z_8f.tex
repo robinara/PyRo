@@ -1,0 +1,80 @@
+\hypertarget{clag2z_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clag2z.f File Reference}
+\label{clag2z_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clag2z.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clag2z.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clag2z_8f_aad8aad24d3ece881f7a4873d58fd6c68}{clag2z} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, S\+A, L\+D\+S\+A, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+G2\+Z} converts a complex single precision matrix to a complex double precision matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clag2z_8f_aad8aad24d3ece881f7a4873d58fd6c68}{}\index{clag2z.\+f@{clag2z.\+f}!clag2z@{clag2z}}
+\index{clag2z@{clag2z}!clag2z.\+f@{clag2z.\+f}}
+\subsubsection[{clag2z}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clag2z (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( ldsa, $\ast$ )}]{S\+A, }
+\item[{integer}]{L\+D\+S\+A, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{clag2z_8f_aad8aad24d3ece881f7a4873d58fd6c68}
+
+
+{\bfseries C\+L\+A\+G2\+Z} converts a complex single precision matrix to a complex double precision matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLAG2Z converts a COMPLEX matrix, SA, to a COMPLEX*16 matrix, A.
+
+ Note that while it is possible to overflow while converting
+ from double to single, it is not possible to overflow when
+ converting from single to double.
+
+ This is an auxiliary routine so there is no argument checking.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of lines of the matrix A.  M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+A} & \begin{DoxyVerb}          SA is COMPLEX array, dimension (LDSA,N)
+          On entry, the M-by-N coefficient matrix SA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+S\+A} & \begin{DoxyVerb}          LDSA is INTEGER
+          The leading dimension of the array SA.  LDSA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On exit, the M-by-N coefficient matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

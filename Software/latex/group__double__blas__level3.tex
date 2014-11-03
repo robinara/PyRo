@@ -1,0 +1,923 @@
+\hypertarget{group__double__blas__level3}{}\section{double}
+\label{group__double__blas__level3}\index{double@{double}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{group__double__blas__level3_gaeda3cbd99c8fb834a60a6412878226e1}{dgemm} (T\+R\+A\+N\+S\+A, T\+R\+A\+N\+S\+B, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, A\+L\+P\+H\+A, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, B\+E\+T\+A, C, L\+D\+C)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+G\+E\+M\+M} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__double__blas__level3_ga253c8edb8b21d1b5b1783725c2a6b692}{dsymm} (S\+I\+D\+E, U\+P\+L\+O, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, A\+L\+P\+H\+A, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, B\+E\+T\+A, C, L\+D\+C)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+S\+Y\+M\+M} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__double__blas__level3_ga51f6c38a43599163e670f0f6f5645587}{dsyr2k} (U\+P\+L\+O, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, A\+L\+P\+H\+A, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, B\+E\+T\+A, C, L\+D\+C)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+S\+Y\+R2\+K} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__double__blas__level3_gae0ba56279ae3fa27c75fefbc4cc73ddf}{dsyrk} (U\+P\+L\+O, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, A\+L\+P\+H\+A, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B\+E\+T\+A, C, L\+D\+C)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+S\+Y\+R\+K} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__double__blas__level3_gaf07edfbb2d2077687522652c9e283e1e}{dtrmm} (S\+I\+D\+E, U\+P\+L\+O, T\+R\+A\+N\+S\+A, D\+I\+A\+G, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, A\+L\+P\+H\+A, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B})
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+T\+R\+M\+M} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__double__blas__level3_ga6a0a7704f4a747562c1bd9487e89795c}{dtrsm} (S\+I\+D\+E, U\+P\+L\+O, T\+R\+A\+N\+S\+A, D\+I\+A\+G, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, A\+L\+P\+H\+A, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B})
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+T\+R\+S\+M} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of double L\+E\+V\+E\+L 3 B\+L\+A\+S routines. 
+
+\subsection{Function Documentation}
+\hypertarget{group__double__blas__level3_gaeda3cbd99c8fb834a60a6412878226e1}{}\index{double@{double}!dgemm@{dgemm}}
+\index{dgemm@{dgemm}!double@{double}}
+\subsubsection[{dgemm}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dgemm (
+\begin{DoxyParamCaption}
+\item[{character}]{T\+R\+A\+N\+S\+A, }
+\item[{character}]{T\+R\+A\+N\+S\+B, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{double {\bf precision}}]{A\+L\+P\+H\+A, }
+\item[{double {\bf precision}, dimension(lda,$\ast$)}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension(ldb,$\ast$)}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}}]{B\+E\+T\+A, }
+\item[{double {\bf precision}, dimension(ldc,$\ast$)}]{C, }
+\item[{integer}]{L\+D\+C}
+\end{DoxyParamCaption}
+)}\label{group__double__blas__level3_gaeda3cbd99c8fb834a60a6412878226e1}
+
+
+{\bfseries D\+G\+E\+M\+M} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DGEMM  performs one of the matrix-matrix operations
+
+    C := alpha*op( A )*op( B ) + beta*C,
+
+ where  op( X ) is one of
+
+    op( X ) = X   or   op( X ) = X**T,
+
+ alpha and beta are scalars, and A, B and C are matrices, with op( A )
+ an m by k matrix,  op( B )  a  k by n matrix and  C an m by n matrix.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S\+A} & \begin{DoxyVerb}          TRANSA is CHARACTER*1
+           On entry, TRANSA specifies the form of op( A ) to be used in
+           the matrix multiplication as follows:
+
+              TRANSA = 'N' or 'n',  op( A ) = A.
+
+              TRANSA = 'T' or 't',  op( A ) = A**T.
+
+              TRANSA = 'C' or 'c',  op( A ) = A**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S\+B} & \begin{DoxyVerb}          TRANSB is CHARACTER*1
+           On entry, TRANSB specifies the form of op( B ) to be used in
+           the matrix multiplication as follows:
+
+              TRANSB = 'N' or 'n',  op( B ) = B.
+
+              TRANSB = 'T' or 't',  op( B ) = B**T.
+
+              TRANSB = 'C' or 'c',  op( B ) = B**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+           On entry,  M  specifies  the number  of rows  of the  matrix
+           op( A )  and of the  matrix  C.  M  must  be at least  zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+           On entry,  N  specifies the number  of columns of the matrix
+           op( B ) and the number of columns of the matrix C. N must be
+           at least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+           On entry,  K  specifies  the number of columns of the matrix
+           op( A ) and the number of rows of the matrix op( B ). K must
+           be at least  zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is DOUBLE PRECISION.
+           On entry, ALPHA specifies the scalar alpha.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array of DIMENSION ( LDA, ka ), where ka is
+           k  when  TRANSA = 'N' or 'n',  and is  m  otherwise.
+           Before entry with  TRANSA = 'N' or 'n',  the leading  m by k
+           part of the array  A  must contain the matrix  A,  otherwise
+           the leading  k by m  part of the array  A  must contain  the
+           matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the calling (sub) program. When  TRANSA = 'N' or 'n' then
+           LDA must be at least  max( 1, m ), otherwise  LDA must be at
+           least  max( 1, k ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array of DIMENSION ( LDB, kb ), where kb is
+           n  when  TRANSB = 'N' or 'n',  and is  k  otherwise.
+           Before entry with  TRANSB = 'N' or 'n',  the leading  k by n
+           part of the array  B  must contain the matrix  B,  otherwise
+           the leading  n by k  part of the array  B  must contain  the
+           matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in the calling (sub) program. When  TRANSB = 'N' or 'n' then
+           LDB must be at least  max( 1, k ), otherwise  LDB must be at
+           least  max( 1, n ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+E\+T\+A} & \begin{DoxyVerb}          BETA is DOUBLE PRECISION.
+           On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+           supplied as zero then C need not be set on input.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array of DIMENSION ( LDC, n ).
+           Before entry, the leading  m by n  part of the array  C must
+           contain the matrix  C,  except when  beta  is zero, in which
+           case C need not be set on entry.
+           On exit, the array  C  is overwritten by the  m by n  matrix
+           ( alpha*op( A )*op( B ) + beta*C ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, m ).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  Level 3 Blas routine.
+
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__double__blas__level3_ga253c8edb8b21d1b5b1783725c2a6b692}{}\index{double@{double}!dsymm@{dsymm}}
+\index{dsymm@{dsymm}!double@{double}}
+\subsubsection[{dsymm}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dsymm (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}}]{A\+L\+P\+H\+A, }
+\item[{double {\bf precision}, dimension(lda,$\ast$)}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension(ldb,$\ast$)}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}}]{B\+E\+T\+A, }
+\item[{double {\bf precision}, dimension(ldc,$\ast$)}]{C, }
+\item[{integer}]{L\+D\+C}
+\end{DoxyParamCaption}
+)}\label{group__double__blas__level3_ga253c8edb8b21d1b5b1783725c2a6b692}
+
+
+{\bfseries D\+S\+Y\+M\+M} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DSYMM  performs one of the matrix-matrix operations
+
+    C := alpha*A*B + beta*C,
+
+ or
+
+    C := alpha*B*A + beta*C,
+
+ where alpha and beta are scalars,  A is a symmetric matrix and  B and
+ C are  m by n matrices.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+           On entry,  SIDE  specifies whether  the  symmetric matrix  A
+           appears on the  left or right  in the  operation as follows:
+
+              SIDE = 'L' or 'l'   C := alpha*A*B + beta*C,
+
+              SIDE = 'R' or 'r'   C := alpha*B*A + beta*C,\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+           On  entry,   UPLO  specifies  whether  the  upper  or  lower
+           triangular  part  of  the  symmetric  matrix   A  is  to  be
+           referenced as follows:
+
+              UPLO = 'U' or 'u'   Only the upper triangular part of the
+                                  symmetric matrix is to be referenced.
+
+              UPLO = 'L' or 'l'   Only the lower triangular part of the
+                                  symmetric matrix is to be referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+           On entry,  M  specifies the number of rows of the matrix  C.
+           M  must be at least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+           On entry, N specifies the number of columns of the matrix C.
+           N  must be at least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is DOUBLE PRECISION.
+           On entry, ALPHA specifies the scalar alpha.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array of DIMENSION ( LDA, ka ), where ka is
+           m  when  SIDE = 'L' or 'l'  and is  n otherwise.
+           Before entry  with  SIDE = 'L' or 'l',  the  m by m  part of
+           the array  A  must contain the  symmetric matrix,  such that
+           when  UPLO = 'U' or 'u', the leading m by m upper triangular
+           part of the array  A  must contain the upper triangular part
+           of the  symmetric matrix and the  strictly  lower triangular
+           part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
+           the leading  m by m  lower triangular part  of the  array  A
+           must  contain  the  lower triangular part  of the  symmetric
+           matrix and the  strictly upper triangular part of  A  is not
+           referenced.
+           Before entry  with  SIDE = 'R' or 'r',  the  n by n  part of
+           the array  A  must contain the  symmetric matrix,  such that
+           when  UPLO = 'U' or 'u', the leading n by n upper triangular
+           part of the array  A  must contain the upper triangular part
+           of the  symmetric matrix and the  strictly  lower triangular
+           part of  A  is not referenced,  and when  UPLO = 'L' or 'l',
+           the leading  n by n  lower triangular part  of the  array  A
+           must  contain  the  lower triangular part  of the  symmetric
+           matrix and the  strictly upper triangular part of  A  is not
+           referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
+           LDA must be at least  max( 1, m ), otherwise  LDA must be at
+           least  max( 1, n ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array of DIMENSION ( LDB, n ).
+           Before entry, the leading  m by n part of the array  B  must
+           contain the matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in  the  calling  (sub)  program.   LDB  must  be  at  least
+           max( 1, m ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+E\+T\+A} & \begin{DoxyVerb}          BETA is DOUBLE PRECISION.
+           On entry,  BETA  specifies the scalar  beta.  When  BETA  is
+           supplied as zero then C need not be set on input.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array of DIMENSION ( LDC, n ).
+           Before entry, the leading  m by n  part of the array  C must
+           contain the matrix  C,  except when  beta  is zero, in which
+           case C need not be set on entry.
+           On exit, the array  C  is overwritten by the  m by n updated
+           matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, m ).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  Level 3 Blas routine.
+
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__double__blas__level3_ga51f6c38a43599163e670f0f6f5645587}{}\index{double@{double}!dsyr2k@{dsyr2k}}
+\index{dsyr2k@{dsyr2k}!double@{double}}
+\subsubsection[{dsyr2k}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dsyr2k (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{double {\bf precision}}]{A\+L\+P\+H\+A, }
+\item[{double {\bf precision}, dimension(lda,$\ast$)}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension(ldb,$\ast$)}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}}]{B\+E\+T\+A, }
+\item[{double {\bf precision}, dimension(ldc,$\ast$)}]{C, }
+\item[{integer}]{L\+D\+C}
+\end{DoxyParamCaption}
+)}\label{group__double__blas__level3_ga51f6c38a43599163e670f0f6f5645587}
+
+
+{\bfseries D\+S\+Y\+R2\+K} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DSYR2K  performs one of the symmetric rank 2k operations
+
+    C := alpha*A*B**T + alpha*B*A**T + beta*C,
+
+ or
+
+    C := alpha*A**T*B + alpha*B**T*A + beta*C,
+
+ where  alpha and beta  are scalars, C is an  n by n  symmetric matrix
+ and  A and B  are  n by k  matrices  in the  first  case  and  k by n
+ matrices in the second case.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+           On  entry,   UPLO  specifies  whether  the  upper  or  lower
+           triangular  part  of the  array  C  is to be  referenced  as
+           follows:
+
+              UPLO = 'U' or 'u'   Only the  upper triangular part of  C
+                                  is to be referenced.
+
+              UPLO = 'L' or 'l'   Only the  lower triangular part of  C
+                                  is to be referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+           On entry,  TRANS  specifies the operation to be performed as
+           follows:
+
+              TRANS = 'N' or 'n'   C := alpha*A*B**T + alpha*B*A**T +
+                                        beta*C.
+
+              TRANS = 'T' or 't'   C := alpha*A**T*B + alpha*B**T*A +
+                                        beta*C.
+
+              TRANS = 'C' or 'c'   C := alpha*A**T*B + alpha*B**T*A +
+                                        beta*C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+           On entry,  N specifies the order of the matrix C.  N must be
+           at least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+           On entry with  TRANS = 'N' or 'n',  K  specifies  the number
+           of  columns  of the  matrices  A and B,  and on  entry  with
+           TRANS = 'T' or 't' or 'C' or 'c',  K  specifies  the  number
+           of rows of the matrices  A and B.  K must be at least  zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is DOUBLE PRECISION.
+           On entry, ALPHA specifies the scalar alpha.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array of DIMENSION ( LDA, ka ), where ka is
+           k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
+           Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
+           part of the array  A  must contain the matrix  A,  otherwise
+           the leading  k by n  part of the array  A  must contain  the
+           matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
+           then  LDA must be at least  max( 1, n ), otherwise  LDA must
+           be at least  max( 1, k ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array of DIMENSION ( LDB, kb ), where kb is
+           k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
+           Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
+           part of the array  B  must contain the matrix  B,  otherwise
+           the leading  k by n  part of the array  B  must contain  the
+           matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
+           then  LDB must be at least  max( 1, n ), otherwise  LDB must
+           be at least  max( 1, k ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+E\+T\+A} & \begin{DoxyVerb}          BETA is DOUBLE PRECISION.
+           On entry, BETA specifies the scalar beta.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array of DIMENSION ( LDC, n ).
+           Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+           upper triangular part of the array C must contain the upper
+           triangular part  of the  symmetric matrix  and the strictly
+           lower triangular part of C is not referenced.  On exit, the
+           upper triangular part of the array  C is overwritten by the
+           upper triangular part of the updated matrix.
+           Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+           lower triangular part of the array C must contain the lower
+           triangular part  of the  symmetric matrix  and the strictly
+           upper triangular part of C is not referenced.  On exit, the
+           lower triangular part of the array  C is overwritten by the
+           lower triangular part of the updated matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, n ).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  Level 3 Blas routine.
+
+
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__double__blas__level3_gae0ba56279ae3fa27c75fefbc4cc73ddf}{}\index{double@{double}!dsyrk@{dsyrk}}
+\index{dsyrk@{dsyrk}!double@{double}}
+\subsubsection[{dsyrk}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dsyrk (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{double {\bf precision}}]{A\+L\+P\+H\+A, }
+\item[{double {\bf precision}, dimension(lda,$\ast$)}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}}]{B\+E\+T\+A, }
+\item[{double {\bf precision}, dimension(ldc,$\ast$)}]{C, }
+\item[{integer}]{L\+D\+C}
+\end{DoxyParamCaption}
+)}\label{group__double__blas__level3_gae0ba56279ae3fa27c75fefbc4cc73ddf}
+
+
+{\bfseries D\+S\+Y\+R\+K} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DSYRK  performs one of the symmetric rank k operations
+
+    C := alpha*A*A**T + beta*C,
+
+ or
+
+    C := alpha*A**T*A + beta*C,
+
+ where  alpha and beta  are scalars, C is an  n by n  symmetric matrix
+ and  A  is an  n by k  matrix in the first case and a  k by n  matrix
+ in the second case.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+           On  entry,   UPLO  specifies  whether  the  upper  or  lower
+           triangular  part  of the  array  C  is to be  referenced  as
+           follows:
+
+              UPLO = 'U' or 'u'   Only the  upper triangular part of  C
+                                  is to be referenced.
+
+              UPLO = 'L' or 'l'   Only the  lower triangular part of  C
+                                  is to be referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+           On entry,  TRANS  specifies the operation to be performed as
+           follows:
+
+              TRANS = 'N' or 'n'   C := alpha*A*A**T + beta*C.
+
+              TRANS = 'T' or 't'   C := alpha*A**T*A + beta*C.
+
+              TRANS = 'C' or 'c'   C := alpha*A**T*A + beta*C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+           On entry,  N specifies the order of the matrix C.  N must be
+           at least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+           On entry with  TRANS = 'N' or 'n',  K  specifies  the number
+           of  columns   of  the   matrix   A,   and  on   entry   with
+           TRANS = 'T' or 't' or 'C' or 'c',  K  specifies  the  number
+           of rows of the matrix  A.  K must be at least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is DOUBLE PRECISION.
+           On entry, ALPHA specifies the scalar alpha.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array of DIMENSION ( LDA, ka ), where ka is
+           k  when  TRANS = 'N' or 'n',  and is  n  otherwise.
+           Before entry with  TRANS = 'N' or 'n',  the  leading  n by k
+           part of the array  A  must contain the matrix  A,  otherwise
+           the leading  k by n  part of the array  A  must contain  the
+           matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
+           then  LDA must be at least  max( 1, n ), otherwise  LDA must
+           be at least  max( 1, k ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+E\+T\+A} & \begin{DoxyVerb}          BETA is DOUBLE PRECISION.
+           On entry, BETA specifies the scalar beta.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array of DIMENSION ( LDC, n ).
+           Before entry  with  UPLO = 'U' or 'u',  the leading  n by n
+           upper triangular part of the array C must contain the upper
+           triangular part  of the  symmetric matrix  and the strictly
+           lower triangular part of C is not referenced.  On exit, the
+           upper triangular part of the array  C is overwritten by the
+           upper triangular part of the updated matrix.
+           Before entry  with  UPLO = 'L' or 'l',  the leading  n by n
+           lower triangular part of the array C must contain the lower
+           triangular part  of the  symmetric matrix  and the strictly
+           upper triangular part of C is not referenced.  On exit, the
+           lower triangular part of the array  C is overwritten by the
+           lower triangular part of the updated matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+           On entry, LDC specifies the first dimension of C as declared
+           in  the  calling  (sub)  program.   LDC  must  be  at  least
+           max( 1, n ).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  Level 3 Blas routine.
+
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__double__blas__level3_gaf07edfbb2d2077687522652c9e283e1e}{}\index{double@{double}!dtrmm@{dtrmm}}
+\index{dtrmm@{dtrmm}!double@{double}}
+\subsubsection[{dtrmm}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dtrmm (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{T\+R\+A\+N\+S\+A, }
+\item[{character}]{D\+I\+A\+G, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}}]{A\+L\+P\+H\+A, }
+\item[{double {\bf precision}, dimension(lda,$\ast$)}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension(ldb,$\ast$)}]{B, }
+\item[{integer}]{L\+D\+B}
+\end{DoxyParamCaption}
+)}\label{group__double__blas__level3_gaf07edfbb2d2077687522652c9e283e1e}
+
+
+{\bfseries D\+T\+R\+M\+M} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DTRMM  performs one of the matrix-matrix operations
+
+    B := alpha*op( A )*B,   or   B := alpha*B*op( A ),
+
+ where  alpha  is a scalar,  B  is an m by n matrix,  A  is a unit, or
+ non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+
+    op( A ) = A   or   op( A ) = A**T.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+           On entry,  SIDE specifies whether  op( A ) multiplies B from
+           the left or right as follows:
+
+              SIDE = 'L' or 'l'   B := alpha*op( A )*B.
+
+              SIDE = 'R' or 'r'   B := alpha*B*op( A ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+           On entry, UPLO specifies whether the matrix A is an upper or
+           lower triangular matrix as follows:
+
+              UPLO = 'U' or 'u'   A is an upper triangular matrix.
+
+              UPLO = 'L' or 'l'   A is a lower triangular matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S\+A} & \begin{DoxyVerb}          TRANSA is CHARACTER*1
+           On entry, TRANSA specifies the form of op( A ) to be used in
+           the matrix multiplication as follows:
+
+              TRANSA = 'N' or 'n'   op( A ) = A.
+
+              TRANSA = 'T' or 't'   op( A ) = A**T.
+
+              TRANSA = 'C' or 'c'   op( A ) = A**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+A\+G} & \begin{DoxyVerb}          DIAG is CHARACTER*1
+           On entry, DIAG specifies whether or not A is unit triangular
+           as follows:
+
+              DIAG = 'U' or 'u'   A is assumed to be unit triangular.
+
+              DIAG = 'N' or 'n'   A is not assumed to be unit
+                                  triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+           On entry, M specifies the number of rows of B. M must be at
+           least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+           On entry, N specifies the number of columns of B.  N must be
+           at least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is DOUBLE PRECISION.
+           On entry,  ALPHA specifies the scalar  alpha. When  alpha is
+           zero then  A is not referenced and  B need not be set before
+           entry.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}           A is DOUBLE PRECISION array of DIMENSION ( LDA, k ), where k is m
+           when  SIDE = 'L' or 'l'  and is  n  when  SIDE = 'R' or 'r'.
+           Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
+           upper triangular part of the array  A must contain the upper
+           triangular matrix  and the strictly lower triangular part of
+           A is not referenced.
+           Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
+           lower triangular part of the array  A must contain the lower
+           triangular matrix  and the strictly upper triangular part of
+           A is not referenced.
+           Note that when  DIAG = 'U' or 'u',  the diagonal elements of
+           A  are not referenced either,  but are assumed to be  unity.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
+           LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+           then LDA must be at least max( 1, n ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array of DIMENSION ( LDB, n ).
+           Before entry,  the leading  m by n part of the array  B must
+           contain the matrix  B,  and  on exit  is overwritten  by the
+           transformed matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in  the  calling  (sub)  program.   LDB  must  be  at  least
+           max( 1, m ).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  Level 3 Blas routine.
+
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__double__blas__level3_ga6a0a7704f4a747562c1bd9487e89795c}{}\index{double@{double}!dtrsm@{dtrsm}}
+\index{dtrsm@{dtrsm}!double@{double}}
+\subsubsection[{dtrsm}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dtrsm (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{T\+R\+A\+N\+S\+A, }
+\item[{character}]{D\+I\+A\+G, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}}]{A\+L\+P\+H\+A, }
+\item[{double {\bf precision}, dimension(lda,$\ast$)}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension(ldb,$\ast$)}]{B, }
+\item[{integer}]{L\+D\+B}
+\end{DoxyParamCaption}
+)}\label{group__double__blas__level3_ga6a0a7704f4a747562c1bd9487e89795c}
+
+
+{\bfseries D\+T\+R\+S\+M} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DTRSM  solves one of the matrix equations
+
+    op( A )*X = alpha*B,   or   X*op( A ) = alpha*B,
+
+ where alpha is a scalar, X and B are m by n matrices, A is a unit, or
+ non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+
+    op( A ) = A   or   op( A ) = A**T.
+
+ The matrix X is overwritten on B.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+           On entry, SIDE specifies whether op( A ) appears on the left
+           or right of X as follows:
+
+              SIDE = 'L' or 'l'   op( A )*X = alpha*B.
+
+              SIDE = 'R' or 'r'   X*op( A ) = alpha*B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+           On entry, UPLO specifies whether the matrix A is an upper or
+           lower triangular matrix as follows:
+
+              UPLO = 'U' or 'u'   A is an upper triangular matrix.
+
+              UPLO = 'L' or 'l'   A is a lower triangular matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S\+A} & \begin{DoxyVerb}          TRANSA is CHARACTER*1
+           On entry, TRANSA specifies the form of op( A ) to be used in
+           the matrix multiplication as follows:
+
+              TRANSA = 'N' or 'n'   op( A ) = A.
+
+              TRANSA = 'T' or 't'   op( A ) = A**T.
+
+              TRANSA = 'C' or 'c'   op( A ) = A**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+A\+G} & \begin{DoxyVerb}          DIAG is CHARACTER*1
+           On entry, DIAG specifies whether or not A is unit triangular
+           as follows:
+
+              DIAG = 'U' or 'u'   A is assumed to be unit triangular.
+
+              DIAG = 'N' or 'n'   A is not assumed to be unit
+                                  triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+           On entry, M specifies the number of rows of B. M must be at
+           least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+           On entry, N specifies the number of columns of B.  N must be
+           at least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is DOUBLE PRECISION.
+           On entry,  ALPHA specifies the scalar  alpha. When  alpha is
+           zero then  A is not referenced and  B need not be set before
+           entry.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array of DIMENSION ( LDA, k ),
+           where k is m when SIDE = 'L' or 'l'  
+             and k is n when SIDE = 'R' or 'r'.
+           Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
+           upper triangular part of the array  A must contain the upper
+           triangular matrix  and the strictly lower triangular part of
+           A is not referenced.
+           Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
+           lower triangular part of the array  A must contain the lower
+           triangular matrix  and the strictly upper triangular part of
+           A is not referenced.
+           Note that when  DIAG = 'U' or 'u',  the diagonal elements of
+           A  are not referenced either,  but are assumed to be  unity.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
+           LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+           then LDA must be at least max( 1, n ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array of DIMENSION ( LDB, n ).
+           Before entry,  the leading  m by n part of the array  B must
+           contain  the  right-hand  side  matrix  B,  and  on exit  is
+           overwritten by the solution matrix  X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+           On entry, LDB specifies the first dimension of B as declared
+           in  the  calling  (sub)  program.   LDB  must  be  at  least
+           max( 1, m ).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  Level 3 Blas routine.
+
+
+  -- Written on 8-February-1989.
+     Jack Dongarra, Argonne National Laboratory.
+     Iain Duff, AERE Harwell.
+     Jeremy Du Croz, Numerical Algorithms Group Ltd.
+     Sven Hammarling, Numerical Algorithms Group Ltd.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

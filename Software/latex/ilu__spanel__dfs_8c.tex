@@ -1,0 +1,91 @@
+\hypertarget{ilu__spanel__dfs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+spanel\+\_\+dfs.c File Reference}
+\label{ilu__spanel__dfs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+spanel\+\_\+dfs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+spanel\+\_\+dfs.\+c}}
+
+
+Peforms a symbolic factorization on a panel of symbols and record the entries with maximum absolute value in each column.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ilu__spanel__dfs_8c_afffee4e945eab223be6daa1759e98f60}{ilu\+\_\+spanel\+\_\+dfs} (const int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, const int w, const int jcol, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int $\ast$perm\+\_\+r, int $\ast$nseg, float $\ast$dense, float $\ast$amax, int $\ast$panel\+\_\+lsub, int $\ast$segrep, int $\ast$repfnz, int $\ast$marker, int $\ast$parent, int $\ast$xplore, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Peforms a symbolic factorization on a panel of symbols and record the entries with maximum absolute value in each column. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.0) --
+Lawrence Berkeley National Laboratory
+June 30, 2009
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{ilu__spanel__dfs_8c_afffee4e945eab223be6daa1759e98f60}{}\index{ilu\+\_\+spanel\+\_\+dfs.\+c@{ilu\+\_\+spanel\+\_\+dfs.\+c}!ilu\+\_\+spanel\+\_\+dfs@{ilu\+\_\+spanel\+\_\+dfs}}
+\index{ilu\+\_\+spanel\+\_\+dfs@{ilu\+\_\+spanel\+\_\+dfs}!ilu\+\_\+spanel\+\_\+dfs.\+c@{ilu\+\_\+spanel\+\_\+dfs.\+c}}
+\subsubsection[{ilu\+\_\+spanel\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}void ilu\+\_\+spanel\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{w, }
+\item[{const int}]{jcol, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{nseg, }
+\item[{float $\ast$}]{dense, }
+\item[{float $\ast$}]{amax, }
+\item[{int $\ast$}]{panel\+\_\+lsub, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{marker, }
+\item[{int $\ast$}]{parent, }
+\item[{int $\ast$}]{xplore, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{ilu__spanel__dfs_8c_afffee4e945eab223be6daa1759e98f60}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Performs a symbolic factorization on a panel of columns [jcol, jcol+w).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A} supernode representative is the last column of a supernode.
+  The nonzeros in U[*,j] are segments that end at supernodal
+  representatives.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  The routine returns one list of the supernodal representatives
+  in topological order of the dfs that generates them. This list is
+  a superset of the topological order of each individual column within
+  the panel.
+  The location of the first nonzero in each supernodal segment
+  (supernodal entry location) is also returned. Each column has a
+  separate list for this purpose.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Two marker arrays are used for dfs:
+    marker[i] == jj, if i was visited during dfs of current column jj;
+    marker1[i] >= jcol, if i was visited by earlier columns in this panel;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  marker: A-row --> A-row/col (0/1)
+  repfnz: SuperA-col --> PA-row
+  parent: SuperA-col --> SuperA-col
+  xplore: SuperA-col --> index to L-structure
+\end{DoxyPre}
+ 

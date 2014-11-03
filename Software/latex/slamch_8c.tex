@@ -1,0 +1,566 @@
+\hypertarget{slamch_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/slamch.c File Reference}
+\label{slamch_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/slamch.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/slamch.\+c}}
+
+
+Determines single precision machine parameters and other service routines.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+\+Cnames.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{slamch_8c_aca1e6c3771fa0306e1dad2b11d22a8e5}{T\+R\+U\+E\+\_\+}~(1)
+\item 
+\#define \hyperlink{slamch_8c_ad4986ecbba005b963f63a85f7c8c281d}{F\+A\+L\+S\+E\+\_\+}~(0)
+\item 
+\#define \hyperlink{slamch_8c_ac6afabdc09a49a433ee19d8a9486056d}{min}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) $<$= (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}) ? (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) \+: (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}))
+\item 
+\#define \hyperlink{slamch_8c_affe776513b24d84b39af8ab0930fef7f}{max}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) $>$= (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}) ? (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) \+: (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}))
+\item 
+\#define \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})~((\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) $>$= 0 ? (\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) \+: -\/(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}))
+\item 
+\#define \hyperlink{slamch_8c_ad1f46d2294c121413c66c8777190a874}{dabs}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})~(double)\hyperlink{vecuops_8cc_ac7a712d3514dc77cd3ae9de9b1be1189}{abs}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{slamch_8c_a5458a369e694e54bb5758774f492b6cb}{slamch\+\_\+} (char $\ast$cmach)
+\item 
+int \hyperlink{slamch_8c_a865afb9b3184a99ab01e8d34b147f227}{slamc1\+\_\+} (int $\ast$\hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, int $\ast$\hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t}, int $\ast$rnd, int $\ast$ieee1)
+\item 
+int \hyperlink{slamch_8c_a13ac82b8c5bbb0c2392aefba4177e4fc}{slamc2\+\_\+} (int $\ast$\hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, int $\ast$\hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t}, int $\ast$rnd, float $\ast$eps, int $\ast$emin, float $\ast$rmin, int $\ast$emax, float $\ast$rmax)
+\item 
+double \hyperlink{slamch_8c_aa422da346f4ae26603bbc9b657191e5f}{slamc3\+\_\+} (float $\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, float $\ast$\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})
+\item 
+int \hyperlink{slamch_8c_a0f5092460355cf3d3461688e37cc70a0}{slamc4\+\_\+} (int $\ast$emin, float $\ast$start, int $\ast$base)
+\item 
+int \hyperlink{slamch_8c_aed7eefa5a851c36909eee77beed124b0}{slamc5\+\_\+} (int $\ast$\hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, int $\ast$\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}, int $\ast$emin, int $\ast$ieee, int $\ast$emax, float $\ast$rmax)
+\item 
+double \hyperlink{slamch_8c_aace5d2e6dbf9c872b611447aa01539c8}{pow\+\_\+ri} (float $\ast$ap, int $\ast$bp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Determines single precision machine parameters and other service routines. 
+
+
+\begin{DoxyPre}
+  -- LAPACK auxiliary routine (version 2.0) --   
+     Univ. of Tennessee, Univ. of California Berkeley, NAG Ltd.,   
+     Courant Institute, Argonne National Lab, and Rice University   
+     October 31, 1992   
+\end{DoxyPre}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{}\index{slamch.\+c@{slamch.\+c}!abs@{abs}}
+\index{abs@{abs}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{abs}]{\setlength{\rightskip}{0pt plus 5cm}\#define abs(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~(({\bf x}) $>$= 0 ? ({\bf x}) \+: -\/({\bf x}))}\label{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}
+\hypertarget{slamch_8c_ad1f46d2294c121413c66c8777190a874}{}\index{slamch.\+c@{slamch.\+c}!dabs@{dabs}}
+\index{dabs@{dabs}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{dabs}]{\setlength{\rightskip}{0pt plus 5cm}\#define dabs(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~(double){\bf abs}({\bf x})}\label{slamch_8c_ad1f46d2294c121413c66c8777190a874}
+\hypertarget{slamch_8c_ad4986ecbba005b963f63a85f7c8c281d}{}\index{slamch.\+c@{slamch.\+c}!F\+A\+L\+S\+E\+\_\+@{F\+A\+L\+S\+E\+\_\+}}
+\index{F\+A\+L\+S\+E\+\_\+@{F\+A\+L\+S\+E\+\_\+}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{F\+A\+L\+S\+E\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+L\+S\+E\+\_\+~(0)}\label{slamch_8c_ad4986ecbba005b963f63a85f7c8c281d}
+\hypertarget{slamch_8c_affe776513b24d84b39af8ab0930fef7f}{}\index{slamch.\+c@{slamch.\+c}!max@{max}}
+\index{max@{max}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}\#define max(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~(({\bf a}) $>$= ({\bf b}) ? ({\bf a}) \+: ({\bf b}))}\label{slamch_8c_affe776513b24d84b39af8ab0930fef7f}
+\hypertarget{slamch_8c_ac6afabdc09a49a433ee19d8a9486056d}{}\index{slamch.\+c@{slamch.\+c}!min@{min}}
+\index{min@{min}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}\#define min(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~(({\bf a}) $<$= ({\bf b}) ? ({\bf a}) \+: ({\bf b}))}\label{slamch_8c_ac6afabdc09a49a433ee19d8a9486056d}
+\hypertarget{slamch_8c_aca1e6c3771fa0306e1dad2b11d22a8e5}{}\index{slamch.\+c@{slamch.\+c}!T\+R\+U\+E\+\_\+@{T\+R\+U\+E\+\_\+}}
+\index{T\+R\+U\+E\+\_\+@{T\+R\+U\+E\+\_\+}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{T\+R\+U\+E\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+R\+U\+E\+\_\+~(1)}\label{slamch_8c_aca1e6c3771fa0306e1dad2b11d22a8e5}
+
+
+\subsection{Function Documentation}
+\hypertarget{slamch_8c_aace5d2e6dbf9c872b611447aa01539c8}{}\index{slamch.\+c@{slamch.\+c}!pow\+\_\+ri@{pow\+\_\+ri}}
+\index{pow\+\_\+ri@{pow\+\_\+ri}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{pow\+\_\+ri}]{\setlength{\rightskip}{0pt plus 5cm}double pow\+\_\+ri (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{ap, }
+\item[{int $\ast$}]{bp}
+\end{DoxyParamCaption}
+)}\label{slamch_8c_aace5d2e6dbf9c872b611447aa01539c8}
+\hypertarget{slamch_8c_a865afb9b3184a99ab01e8d34b147f227}{}\index{slamch.\+c@{slamch.\+c}!slamc1\+\_\+@{slamc1\+\_\+}}
+\index{slamc1\+\_\+@{slamc1\+\_\+}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{slamc1\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int slamc1\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{beta, }
+\item[{int $\ast$}]{t, }
+\item[{int $\ast$}]{rnd, }
+\item[{int $\ast$}]{ieee1}
+\end{DoxyParamCaption}
+)}\label{slamch_8c_a865afb9b3184a99ab01e8d34b147f227}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    SLAMC1 determines the machine parameters given by BETA, T, RND, and   
+    IEEE1.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    BETA    (output) INT   
+            The base of the machine.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    T       (output) INT   
+            The number of ( BETA ) digits in the mantissa.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    RND     (output) INT   
+            Specifies whether proper rounding  ( RND = .TRUE. )  or   
+            chopping  ( RND = .FALSE. )  occurs in addition. This may not\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            be a reliable guide to the way in which the machine performs\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            its arithmetic.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    IEEE1   (output) INT   
+            Specifies whether rounding appears to be done in the IEEE   
+            'round to nearest' style.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Further Details   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    The routine is based on the routine  ENVRON  by Malcolm and   
+    incorporates suggestions by Gentleman and Marovich. See\end{DoxyPre}
+
+
+
+\begin{DoxyPre}       Malcolm M. \hyperlink{classA}{A}. (1972) Algorithms to reveal properties of   
+          floating-point arithmetic. Comms. of the ACM, 15, 949-951.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}       Gentleman W. M. and Marovich S. B. (1974) More on algorithms   
+          that reveal properties of floating point arithmetic units.   
+          Comms. of the ACM, 17, 276-277.   
+
+
+
+\end{DoxyPre}
+ \hypertarget{slamch_8c_a13ac82b8c5bbb0c2392aefba4177e4fc}{}\index{slamch.\+c@{slamch.\+c}!slamc2\+\_\+@{slamc2\+\_\+}}
+\index{slamc2\+\_\+@{slamc2\+\_\+}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{slamc2\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int slamc2\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{beta, }
+\item[{int $\ast$}]{t, }
+\item[{int $\ast$}]{rnd, }
+\item[{float $\ast$}]{eps, }
+\item[{int $\ast$}]{emin, }
+\item[{float $\ast$}]{rmin, }
+\item[{int $\ast$}]{emax, }
+\item[{float $\ast$}]{rmax}
+\end{DoxyParamCaption}
+)}\label{slamch_8c_a13ac82b8c5bbb0c2392aefba4177e4fc}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    SLAMC2 determines the machine parameters specified in its argument   
+    list.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    BETA    (output) INT   
+            The base of the machine.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    T       (output) INT   
+            The number of ( BETA ) digits in the mantissa.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    RND     (output) INT   
+            Specifies whether proper rounding  ( RND = .TRUE. )  or   
+            chopping  ( RND = .FALSE. )  occurs in addition. This may not\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            be a reliable guide to the way in which the machine performs\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            its arithmetic.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EPS     (output) FLOAT   
+            The smallest positive number such that\end{DoxyPre}
+
+
+
+\begin{DoxyPre}               fl( 1.0 - EPS ) .LT. 1.0,\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            where fl denotes the computed value.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMIN    (output) INT   
+            The minimum exponent before (gradual) underflow occurs.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    RMIN    (output) FLOAT   
+            The smallest normalized number for the machine, given by   
+            BASE**( EMIN - 1 ), where  BASE  is the floating point value\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            of BETA.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMAX    (output) INT   
+            The maximum exponent before overflow occurs.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    RMAX    (output) FLOAT   
+            The largest positive number for the machine, given by   
+            BASE**EMAX * ( 1 - EPS ), where  BASE  is the floating point\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            value of BETA.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Further Details   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    The computation of  EPS  is based on a routine PARANOIA by   
+    W. Kahan of the University of California at Berkeley.   
+
+
+
+\end{DoxyPre}
+ \hypertarget{slamch_8c_aa422da346f4ae26603bbc9b657191e5f}{}\index{slamch.\+c@{slamch.\+c}!slamc3\+\_\+@{slamc3\+\_\+}}
+\index{slamc3\+\_\+@{slamc3\+\_\+}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{slamc3\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double slamc3\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{a, }
+\item[{float $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{slamch_8c_aa422da346f4ae26603bbc9b657191e5f}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    SLAMC3  is intended to force  \hyperlink{classA}{A}  and  B  to be stored prior to doing\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    the addition of  \hyperlink{classA}{A}  and  B ,  for use in situations where optimizers\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    might hold one of these in a register.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    \hyperlink{classA}{A}, B    (input) FLOAT   
+            The values \hyperlink{classA}{A} and B.   
+
+
+
+\end{DoxyPre}
+ \hypertarget{slamch_8c_a0f5092460355cf3d3461688e37cc70a0}{}\index{slamch.\+c@{slamch.\+c}!slamc4\+\_\+@{slamc4\+\_\+}}
+\index{slamc4\+\_\+@{slamc4\+\_\+}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{slamc4\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int slamc4\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{emin, }
+\item[{float $\ast$}]{start, }
+\item[{int $\ast$}]{base}
+\end{DoxyParamCaption}
+)}\label{slamch_8c_a0f5092460355cf3d3461688e37cc70a0}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    SLAMC4 is a service routine for SLAMC2.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMIN    (output) EMIN   
+            The minimum exponent before (gradual) underflow, computed by\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            setting \hyperlink{classA}{A} = START and dividing by BASE until the previous \hyperlink{classA}{A}   
+            can not be recovered.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    START   (input) FLOAT   
+            The starting point for determining EMIN.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    BASE    (input) INT   
+            The base of the machine.   
+
+
+
+\end{DoxyPre}
+ \hypertarget{slamch_8c_aed7eefa5a851c36909eee77beed124b0}{}\index{slamch.\+c@{slamch.\+c}!slamc5\+\_\+@{slamc5\+\_\+}}
+\index{slamc5\+\_\+@{slamc5\+\_\+}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{slamc5\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int slamc5\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{beta, }
+\item[{int $\ast$}]{p, }
+\item[{int $\ast$}]{emin, }
+\item[{int $\ast$}]{ieee, }
+\item[{int $\ast$}]{emax, }
+\item[{float $\ast$}]{rmax}
+\end{DoxyParamCaption}
+)}\label{slamch_8c_aed7eefa5a851c36909eee77beed124b0}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    SLAMC5 attempts to compute RMAX, the largest machine floating-point   
+    number, without overflow.  It assumes that EMAX + \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(EMIN)} sum   
+    approximately to a power of 2.  It will fail on machines where this   
+    assumption does not hold, for example, the Cyber 205 (EMIN = -28625,\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMAX = 28718).  It will also fail if the value supplied for EMIN is   
+    too large (i.e. too close to zero), probably with overflow.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    BETA    (input) INT   
+            The base of floating-point arithmetic.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    P       (input) INT   
+            The number of base BETA digits in the mantissa of a   
+            floating-point value.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMIN    (input) INT   
+            The minimum exponent before (gradual) underflow.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    IEEE    (input) INT   
+            \hyperlink{classA}{A} logical flag specifying whether or not the arithmetic   
+            system is thought to comply with the IEEE standard.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMAX    (output) INT   
+            The largest exponent before overflow\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    RMAX    (output) FLOAT   
+            The largest machine floating-point number.   
+
+
+\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\begin{DoxyVerb}   First compute LEXP and UEXP, two powers of 2 that bound   
+   abs(EMIN). We then assume that EMAX + abs(EMIN) will sum   
+   approximately to the bound that is closest to abs(EMIN).   
+   (EMAX is the exponent of the required number RMAX). 
+\end{DoxyVerb}
+
+\end{DoxyPre}
+ \hypertarget{slamch_8c_a5458a369e694e54bb5758774f492b6cb}{}\index{slamch.\+c@{slamch.\+c}!slamch\+\_\+@{slamch\+\_\+}}
+\index{slamch\+\_\+@{slamch\+\_\+}!slamch.\+c@{slamch.\+c}}
+\subsubsection[{slamch\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}float slamch\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{cmach}
+\end{DoxyParamCaption}
+)}\label{slamch_8c_a5458a369e694e54bb5758774f492b6cb}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    SLAMCH determines single precision machine parameters.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    CMACH   (input) CHARACTER*1   
+            Specifies the value to be returned by SLAMCH:   
+            = 'E' or 'e',   SLAMCH := eps   
+            = 'S' or 's ,   SLAMCH := sfmin   
+            = 'B' or 'b',   SLAMCH := base   
+            = 'P' or 'p',   SLAMCH := eps*base   
+            = 'N' or 'n',   SLAMCH := t   
+            = 'R' or 'r',   SLAMCH := rnd   
+            = 'M' or 'm',   SLAMCH := emin   
+            = 'U' or 'u',   SLAMCH := rmin   
+            = 'L' or 'l',   SLAMCH := emax   
+            = 'O' or 'o',   SLAMCH := rmax\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            where\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            eps   = relative machine precision   
+            sfmin = safe minimum, such that 1/sfmin does not overflow   
+            base  = base of the machine   
+            prec  = eps*base   
+            t     = number of (base) digits in the mantissa   
+            rnd   = 1.0 when rounding occurs in addition, 0.0 otherwise   
+            emin  = minimum exponent before (gradual) underflow   
+            rmin  = underflow threshold - base**(emin-1)   
+            emax  = largest exponent before overflow   
+            rmax  = overflow threshold  - (base**emax)*(1-eps)   
+
+
+
+\end{DoxyPre}
+ 

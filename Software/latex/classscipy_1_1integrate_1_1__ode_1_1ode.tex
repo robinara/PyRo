@@ -1,0 +1,398 @@
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode}{}\section{scipy.\+integrate.\+\_\+ode.\+ode Class Reference}
+\label{classscipy_1_1integrate_1_1__ode_1_1ode}\index{scipy.\+integrate.\+\_\+ode.\+ode@{scipy.\+integrate.\+\_\+ode.\+ode}}
+Inheritance diagram for scipy.\+integrate.\+\_\+ode.\+ode\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classscipy_1_1integrate_1_1__ode_1_1ode}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_a85d68e880625b7404eb2c077dd7b49a7}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_af77bb2cc6ef7d8c8e5c1ff99ceb638e4}{y}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_ae42d9f8d47a2c69b90500bfc0e78c8c0}{set\+\_\+initial\+\_\+value}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_abf6839f8e3685739587cc778f2393ab7}{set\+\_\+integrator}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_a73b5c74520b37f8a10c9c03c70865e91}{integrate}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_a48ddc81b0fc00447f32903cc622a7864}{successful}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_aeafd222b5edba031baf84248155500d3}{set\+\_\+f\+\_\+params}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_a05fa753b4113555b5a14dca8f4e8b891}{set\+\_\+jac\+\_\+params}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_a7d26c39ce5d19507c31cfebefeef0bb1}{set\+\_\+solout}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_a680032936169fe91fd3e43f209860e26}{stiff}
+\item 
+\hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_ae93e599b0e818bf07f05e0f7e9c6d417}{f}
+\item 
+\hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_ae8cbb591c6c002c709eb845b3b8188bd}{jac}
+\item 
+\hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_a43a6b1b3c7f876449e3721dce0c58296}{f\+\_\+params}
+\item 
+\hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_a73985726afe87adb6139fcd1a6a3ade8}{jac\+\_\+params}
+\item 
+\hyperlink{classscipy_1_1integrate_1_1__ode_1_1ode_a68add56e453a1a3b5776695f1cbe61d1}{t}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}A generic interface class to numeric integrators.
+
+Solve an equation system :math:`y'(t) = f(t,y)` with (optional) ``jac = df/dy``.
+
+Parameters
+----------
+f : callable ``f(t, y, *f_args)``
+    Rhs of the equation. t is a scalar, ``y.shape == (n,)``.
+    ``f_args`` is set by calling ``set_f_params(*args)``.
+    `f` should return a scalar, array or list (not a tuple).
+jac : callable ``jac(t, y, *jac_args)``
+    Jacobian of the rhs, ``jac[i,j] = d f[i] / d y[j]``.
+    ``jac_args`` is set by calling ``set_f_params(*args)``.
+
+Attributes
+----------
+t : float
+    Current time.
+y : ndarray
+    Current variable values.
+
+See also
+--------
+odeint : an integrator with a simpler interface based on lsoda from ODEPACK
+quad : for finding the area under a curve
+
+Notes
+-----
+Available integrators are listed below. They can be selected using
+the `set_integrator` method.
+
+"vode"
+
+    Real-valued Variable-coefficient Ordinary Differential Equation
+    solver, with fixed-leading-coefficient implementation. It provides
+    implicit Adams method (for non-stiff problems) and a method based on
+    backward differentiation formulas (BDF) (for stiff problems).
+
+    Source: http://www.netlib.org/ode/vode.f
+
+    .. warning::
+
+       This integrator is not re-entrant. You cannot have two `ode`
+       instances using the "vode" integrator at the same time.
+
+    This integrator accepts the following parameters in `set_integrator`
+    method of the `ode` class:
+
+    - atol : float or sequence
+      absolute tolerance for solution
+    - rtol : float or sequence
+      relative tolerance for solution
+    - lband : None or int
+    - rband : None or int
+      Jacobian band width, jac[i,j] != 0 for i-lband <= j <= i+rband.
+      Setting these requires your jac routine to return the jacobian
+      in packed format, jac_packed[i-j+lband, j] = jac[i,j].
+    - method: 'adams' or 'bdf'
+      Which solver to use, Adams (non-stiff) or BDF (stiff)
+    - with_jacobian : bool
+      Whether to use the jacobian
+    - nsteps : int
+      Maximum number of (internally defined) steps allowed during one
+      call to the solver.
+    - first_step : float
+    - min_step : float
+    - max_step : float
+      Limits for the step sizes used by the integrator.
+    - order : int
+      Maximum order used by the integrator,
+      order <= 12 for Adams, <= 5 for BDF.
+
+"zvode"
+
+    Complex-valued Variable-coefficient Ordinary Differential Equation
+    solver, with fixed-leading-coefficient implementation.  It provides
+    implicit Adams method (for non-stiff problems) and a method based on
+    backward differentiation formulas (BDF) (for stiff problems).
+
+    Source: http://www.netlib.org/ode/zvode.f
+
+    .. warning::
+
+       This integrator is not re-entrant. You cannot have two `ode`
+       instances using the "zvode" integrator at the same time.
+
+    This integrator accepts the same parameters in `set_integrator`
+    as the "vode" solver.
+
+    .. note::
+
+        When using ZVODE for a stiff system, it should only be used for
+        the case in which the function f is analytic, that is, when each f(i)
+        is an analytic function of each y(j).  Analyticity means that the
+        partial derivative df(i)/dy(j) is a unique complex number, and this
+        fact is critical in the way ZVODE solves the dense or banded linear
+        systems that arise in the stiff case.  For a complex stiff ODE system
+        in which f is not analytic, ZVODE is likely to have convergence
+        failures, and for this problem one should instead use DVODE on the
+        equivalent real system (in the real and imaginary parts of y).
+
+"lsoda"
+
+    Real-valued Variable-coefficient Ordinary Differential Equation
+    solver, with fixed-leading-coefficient implementation. It provides
+    automatic method switching between implicit Adams method (for non-stiff
+    problems) and a method based on backward differentiation formulas (BDF)
+    (for stiff problems).
+
+    Source: http://www.netlib.org/odepack
+
+    .. warning::
+
+       This integrator is not re-entrant. You cannot have two `ode`
+       instances using the "lsoda" integrator at the same time.
+
+    This integrator accepts the following parameters in `set_integrator`
+    method of the `ode` class:
+
+    - atol : float or sequence
+      absolute tolerance for solution
+    - rtol : float or sequence
+      relative tolerance for solution
+    - lband : None or int
+    - rband : None or int
+      Jacobian band width, jac[i,j] != 0 for i-lband <= j <= i+rband.
+      Setting these requires your jac routine to return the jacobian
+      in packed format, jac_packed[i-j+lband, j] = jac[i,j].
+    - with_jacobian : bool
+      Whether to use the jacobian
+    - nsteps : int
+      Maximum number of (internally defined) steps allowed during one
+      call to the solver.
+    - first_step : float
+    - min_step : float
+    - max_step : float
+      Limits for the step sizes used by the integrator.
+    - max_order_ns : int
+      Maximum order used in the nonstiff case (default 12).
+    - max_order_s : int
+      Maximum order used in the stiff case (default 5).
+    - max_hnil : int
+      Maximum number of messages reporting too small step size (t + h = t)
+      (default 0)
+    - ixpr : int
+      Whether to generate extra printing at method switches (default False).
+
+"dopri5"
+
+    This is an explicit runge-kutta method of order (4)5 due to Dormand &
+    Prince (with stepsize control and dense output).
+
+    Authors:
+
+        E. Hairer and G. Wanner
+        Universite de Geneve, Dept. de Mathematiques
+        CH-1211 Geneve 24, Switzerland
+        e-mail:  ernst.hairer@math.unige.ch, gerhard.wanner@math.unige.ch
+
+    This code is described in [HNW93]_.
+
+    This integrator accepts the following parameters in set_integrator()
+    method of the ode class:
+
+    - atol : float or sequence
+      absolute tolerance for solution
+    - rtol : float or sequence
+      relative tolerance for solution
+    - nsteps : int
+      Maximum number of (internally defined) steps allowed during one
+      call to the solver.
+    - first_step : float
+    - max_step : float
+    - safety : float
+      Safety factor on new step selection (default 0.9)
+    - ifactor : float
+    - dfactor : float
+      Maximum factor to increase/decrease step size by in one step
+    - beta : float
+      Beta parameter for stabilised step size control.
+    - verbosity : int
+      Switch for printing messages (< 0 for no messages).
+
+"dop853"
+
+    This is an explicit runge-kutta method of order 8(5,3) due to Dormand
+    & Prince (with stepsize control and dense output).
+
+    Options and references the same as "dopri5".
+
+Examples
+--------
+
+A problem to integrate and the corresponding jacobian:
+
+>>> from scipy.integrate import ode
+>>>
+>>> y0, t0 = [1.0j, 2.0], 0
+>>>
+>>> def f(t, y, arg1):
+>>>     return [1j*arg1*y[0] + y[1], -arg1*y[1]**2]
+>>> def jac(t, y, arg1):
+>>>     return [[1j*arg1, 1], [0, -arg1*2*y[1]]]
+
+The integration:
+
+>>> r = ode(f, jac).set_integrator('zvode', method='bdf', with_jacobian=True)
+>>> r.set_initial_value(y0, t0).set_f_params(2.0).set_jac_params(2.0)
+>>> t1 = 10
+>>> dt = 1
+>>> while r.successful() and r.t < t1:
+>>>     r.integrate(r.t+dt)
+>>>     print("%g %g" % (r.t, r.y))
+
+References
+----------
+.. [HNW93] E. Hairer, S.P. Norsett and G. Wanner, Solving Ordinary
+    Differential Equations i. Nonstiff Problems. 2nd edition.
+    Springer Series in Computational Mathematics,
+    Springer-Verlag (1993)\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_a85d68e880625b7404eb2c077dd7b49a7}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+ode.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{f, }
+\item[{}]{jac = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1ode_a85d68e880625b7404eb2c077dd7b49a7}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_a73b5c74520b37f8a10c9c03c70865e91}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!integrate@{integrate}}
+\index{integrate@{integrate}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{integrate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+ode.\+integrate (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{t, }
+\item[{}]{step = {\ttfamily 0}, }
+\item[{}]{relax = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1ode_a73b5c74520b37f8a10c9c03c70865e91}
+\begin{DoxyVerb}Find y=y(t), set y as an initial condition, and return y.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_aeafd222b5edba031baf84248155500d3}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!set\+\_\+f\+\_\+params@{set\+\_\+f\+\_\+params}}
+\index{set\+\_\+f\+\_\+params@{set\+\_\+f\+\_\+params}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{set\+\_\+f\+\_\+params}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+ode.\+set\+\_\+f\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{args}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1ode_aeafd222b5edba031baf84248155500d3}
+\begin{DoxyVerb}Set extra parameters for user-supplied function f.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_ae42d9f8d47a2c69b90500bfc0e78c8c0}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!set\+\_\+initial\+\_\+value@{set\+\_\+initial\+\_\+value}}
+\index{set\+\_\+initial\+\_\+value@{set\+\_\+initial\+\_\+value}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{set\+\_\+initial\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+ode.\+set\+\_\+initial\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{y, }
+\item[{}]{t = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1ode_ae42d9f8d47a2c69b90500bfc0e78c8c0}
+\begin{DoxyVerb}Set initial conditions y(t) = y.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_abf6839f8e3685739587cc778f2393ab7}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!set\+\_\+integrator@{set\+\_\+integrator}}
+\index{set\+\_\+integrator@{set\+\_\+integrator}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{set\+\_\+integrator}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+ode.\+set\+\_\+integrator (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{integrator\+\_\+params}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1ode_abf6839f8e3685739587cc778f2393ab7}
+\begin{DoxyVerb}Set integrator by name.
+
+Parameters
+----------
+name : str
+    Name of the integrator.
+integrator_params :
+    Additional parameters for the integrator.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_a05fa753b4113555b5a14dca8f4e8b891}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!set\+\_\+jac\+\_\+params@{set\+\_\+jac\+\_\+params}}
+\index{set\+\_\+jac\+\_\+params@{set\+\_\+jac\+\_\+params}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{set\+\_\+jac\+\_\+params}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+ode.\+set\+\_\+jac\+\_\+params (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{args}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1ode_a05fa753b4113555b5a14dca8f4e8b891}
+\begin{DoxyVerb}Set extra parameters for user-supplied function jac.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_a7d26c39ce5d19507c31cfebefeef0bb1}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!set\+\_\+solout@{set\+\_\+solout}}
+\index{set\+\_\+solout@{set\+\_\+solout}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{set\+\_\+solout}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+ode.\+set\+\_\+solout (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{solout}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1ode_a7d26c39ce5d19507c31cfebefeef0bb1}
+\begin{DoxyVerb}Set callable to be called at every successful integration step.
+
+Parameters
+----------
+solout : callable
+    ``solout(t, y)`` is called at each internal integrator step,
+    t is a scalar providing the current independent position
+    y is the current soloution ``y.shape == (n,)``
+    solout should return -1 to stop integration
+    otherwise it should return None or 0\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_a48ddc81b0fc00447f32903cc622a7864}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!successful@{successful}}
+\index{successful@{successful}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{successful}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+ode.\+successful (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1ode_a48ddc81b0fc00447f32903cc622a7864}
+\begin{DoxyVerb}Check if integration was successful.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_af77bb2cc6ef7d8c8e5c1ff99ceb638e4}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!y@{y}}
+\index{y@{y}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+ode.\+y (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1ode_af77bb2cc6ef7d8c8e5c1ff99ceb638e4}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_ae93e599b0e818bf07f05e0f7e9c6d417}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!f@{f}}
+\index{f@{f}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{f}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+integrate.\+\_\+ode.\+ode.\+f}\label{classscipy_1_1integrate_1_1__ode_1_1ode_ae93e599b0e818bf07f05e0f7e9c6d417}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_a43a6b1b3c7f876449e3721dce0c58296}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!f\+\_\+params@{f\+\_\+params}}
+\index{f\+\_\+params@{f\+\_\+params}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{f\+\_\+params}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+integrate.\+\_\+ode.\+ode.\+f\+\_\+params}\label{classscipy_1_1integrate_1_1__ode_1_1ode_a43a6b1b3c7f876449e3721dce0c58296}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_ae8cbb591c6c002c709eb845b3b8188bd}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!jac@{jac}}
+\index{jac@{jac}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{jac}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+integrate.\+\_\+ode.\+ode.\+jac}\label{classscipy_1_1integrate_1_1__ode_1_1ode_ae8cbb591c6c002c709eb845b3b8188bd}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_a73985726afe87adb6139fcd1a6a3ade8}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!jac\+\_\+params@{jac\+\_\+params}}
+\index{jac\+\_\+params@{jac\+\_\+params}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{jac\+\_\+params}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+integrate.\+\_\+ode.\+ode.\+jac\+\_\+params}\label{classscipy_1_1integrate_1_1__ode_1_1ode_a73985726afe87adb6139fcd1a6a3ade8}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_a680032936169fe91fd3e43f209860e26}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!stiff@{stiff}}
+\index{stiff@{stiff}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{stiff}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+integrate.\+\_\+ode.\+ode.\+stiff}\label{classscipy_1_1integrate_1_1__ode_1_1ode_a680032936169fe91fd3e43f209860e26}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1ode_a68add56e453a1a3b5776695f1cbe61d1}{}\index{scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}!t@{t}}
+\index{t@{t}!scipy\+::integrate\+::\+\_\+ode\+::ode@{scipy\+::integrate\+::\+\_\+ode\+::ode}}
+\subsubsection[{t}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+integrate.\+\_\+ode.\+ode.\+t}\label{classscipy_1_1integrate_1_1__ode_1_1ode_a68add56e453a1a3b5776695f1cbe61d1}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/integrate/\hyperlink{__ode_8py}{\+\_\+ode.\+py}\end{DoxyCompactItemize}

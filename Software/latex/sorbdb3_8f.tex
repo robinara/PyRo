@@ -1,0 +1,158 @@
+\hypertarget{sorbdb3_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/sorbdb3.f File Reference}
+\label{sorbdb3_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/sorbdb3.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/sorbdb3.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{sorbdb3_8f_ae4752c68522d7218fd781383a7308c0f}{sorbdb3} (M, P, Q, X11, L\+D\+X11, X21, L\+D\+X21, T\+H\+E\+T\+A, P\+H\+I, T\+A\+U\+P1, T\+A\+U\+P2, T\+A\+U\+Q1, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+O\+R\+B\+D\+B3} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{sorbdb3_8f_ae4752c68522d7218fd781383a7308c0f}{}\index{sorbdb3.\+f@{sorbdb3.\+f}!sorbdb3@{sorbdb3}}
+\index{sorbdb3@{sorbdb3}!sorbdb3.\+f@{sorbdb3.\+f}}
+\subsubsection[{sorbdb3}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sorbdb3 (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{P, }
+\item[{integer}]{Q, }
+\item[{real, dimension(ldx11,$\ast$)}]{X11, }
+\item[{integer}]{L\+D\+X11, }
+\item[{real, dimension(ldx21,$\ast$)}]{X21, }
+\item[{integer}]{L\+D\+X21, }
+\item[{real, dimension($\ast$)}]{T\+H\+E\+T\+A, }
+\item[{real, dimension($\ast$)}]{P\+H\+I, }
+\item[{real, dimension($\ast$)}]{T\+A\+U\+P1, }
+\item[{real, dimension($\ast$)}]{T\+A\+U\+P2, }
+\item[{real, dimension($\ast$)}]{T\+A\+U\+Q1, }
+\item[{real, dimension($\ast$)}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{sorbdb3_8f_ae4752c68522d7218fd781383a7308c0f}
+
+
+{\bfseries S\+O\+R\+B\+D\+B3} 
+
+\subsection*{Purpose\+: }
+
+\begin{DoxyVerb} SORBDB3 simultaneously bidiagonalizes the blocks of a tall and skinny
+ matrix X with orthonomal columns:
+
+                            [ B11 ]
+      [ X11 ]   [ P1 |    ] [  0  ]
+      [-----] = [---------] [-----] Q1**T .
+      [ X21 ]   [    | P2 ] [ B21 ]
+                            [  0  ]
+
+ X11 is P-by-Q, and X21 is (M-P)-by-Q. M-P must be no larger than P,
+ Q, or M-Q. Routines SORBDB1, SORBDB2, and SORBDB4 handle cases in
+ which M-P is not the minimum dimension.
+
+ The orthogonal matrices P1, P2, and Q1 are P-by-P, (M-P)-by-(M-P),
+ and (M-Q)-by-(M-Q), respectively. They are represented implicitly by
+ Householder vectors.
+
+ B11 and B12 are (M-P)-by-(M-P) bidiagonal matrices represented
+ implicitly by angles THETA, PHI.\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+           The number of rows X11 plus the number of rows in X21.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P} & \begin{DoxyVerb}          P is INTEGER
+           The number of rows in X11. 0 <= P <= M. M-P <= min(P,Q,M-Q).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q} & \begin{DoxyVerb}          Q is INTEGER
+           The number of columns in X11 and X21. 0 <= Q <= M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X11} & \begin{DoxyVerb}          X11 is REAL array, dimension (LDX11,Q)
+           On entry, the top block of the matrix X to be reduced. On
+           exit, the columns of tril(X11) specify reflectors for P1 and
+           the rows of triu(X11,1) specify reflectors for Q1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X11} & \begin{DoxyVerb}          LDX11 is INTEGER
+           The leading dimension of X11. LDX11 >= P.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X21} & \begin{DoxyVerb}          X21 is REAL array, dimension (LDX21,Q)
+           On entry, the bottom block of the matrix X to be reduced. On
+           exit, the columns of tril(X21) specify reflectors for P2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X21} & \begin{DoxyVerb}          LDX21 is INTEGER
+           The leading dimension of X21. LDX21 >= M-P.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+H\+E\+T\+A} & \begin{DoxyVerb}          THETA is REAL array, dimension (Q)
+           The entries of the bidiagonal blocks B11, B21 are defined by
+           THETA and PHI. See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em P\+H\+I} & \begin{DoxyVerb}          PHI is REAL array, dimension (Q-1)
+           The entries of the bidiagonal blocks B11, B21 are defined by
+           THETA and PHI. See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U\+P1} & \begin{DoxyVerb}          TAUP1 is REAL array, dimension (P)
+           The scalar factors of the elementary reflectors that define
+           P1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U\+P2} & \begin{DoxyVerb}          TAUP2 is REAL array, dimension (M-P)
+           The scalar factors of the elementary reflectors that define
+           P2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U\+Q1} & \begin{DoxyVerb}          TAUQ1 is REAL array, dimension (Q)
+           The scalar factors of the elementary reflectors that define
+           Q1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (LWORK)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+           The dimension of the array WORK. LWORK >= M-Q.
+ 
+           If LWORK = -1, then a workspace query is assumed; the routine
+           only calculates the optimal size of the WORK array, returns
+           this value as the first entry of the WORK array, and no error
+           message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+           = 0:  successful exit.
+           < 0:  if INFO = -i, the i-th argument had an illegal value.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+July 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The upper-bidiagonal blocks B11, B21 are represented implicitly by
+  angles THETA(1), ..., THETA(Q) and PHI(1), ..., PHI(Q-1). Every entry
+  in each bidiagonal band is a product of a sine or cosine of a THETA
+  with a sine or cosine of a PHI. See [1] or SORCSD for details.
+
+  P1, P2, and Q1 are represented as products of elementary reflectors.
+  See SORCSD2BY1 for details on generating P1, P2, and Q1 using SORGQR
+  and SORGLQ.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{References\+: }
+\mbox{[}1\mbox{]} Brian D. Sutton. Computing the complete C\+S decomposition. Numer. Algorithms, 50(1)\+:33-\/65, 2009. 
+\end{DoxyParagraph}

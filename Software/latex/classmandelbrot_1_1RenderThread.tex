@@ -1,0 +1,137 @@
+\hypertarget{classmandelbrot_1_1RenderThread}{}\section{mandelbrot.\+Render\+Thread Class Reference}
+\label{classmandelbrot_1_1RenderThread}\index{mandelbrot.\+Render\+Thread@{mandelbrot.\+Render\+Thread}}
+Inheritance diagram for mandelbrot.\+Render\+Thread\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmandelbrot_1_1RenderThread}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classmandelbrot_1_1RenderThread_a91cb8115c27d80df34f304032ca53467}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classmandelbrot_1_1RenderThread_a5571f4792aa7fe57e8e915061140ac53}{\+\_\+\+\_\+del\+\_\+\+\_\+}
+\item 
+def \hyperlink{classmandelbrot_1_1RenderThread_a6cfde09e516d5e7725336bdffbf42355}{render}
+\item 
+def \hyperlink{classmandelbrot_1_1RenderThread_a6ca3a5b9c28329e8f7b52a09d060ffa0}{run}
+\item 
+def \hyperlink{classmandelbrot_1_1RenderThread_a2127758f3e5d75a467dbdc5bc95bc115}{rgb\+From\+Wave\+Length}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmandelbrot_1_1RenderThread_aba3f6009ad0b7701fbf2a595c805d956}{mutex}
+\item 
+\hyperlink{classmandelbrot_1_1RenderThread_a9315c79bac650966d0803e79ec148590}{condition}
+\item 
+\hyperlink{classmandelbrot_1_1RenderThread_a2605666e18286ef4614570905f5d9346}{center\+X}
+\item 
+\hyperlink{classmandelbrot_1_1RenderThread_a57065910d7039b2914a805c57d548af3}{center\+Y}
+\item 
+\hyperlink{classmandelbrot_1_1RenderThread_a1ed90d726ea886b5b9c6c5fd58eece84}{scale\+Factor}
+\item 
+\hyperlink{classmandelbrot_1_1RenderThread_a663e6420fadb40b7c820b9e8087e95a6}{result\+Size}
+\item 
+\hyperlink{classmandelbrot_1_1RenderThread_a1c0fe3e3f1bf38421c632e7b680baf1c}{colormap}
+\item 
+\hyperlink{classmandelbrot_1_1RenderThread_a0f46a2340aab9e04593e8a6f882a02b1}{restart}
+\item 
+\hyperlink{classmandelbrot_1_1RenderThread_a5c286700fff5badbd95cf21914b6dd13}{abort}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classmandelbrot_1_1RenderThread_a77f89dfa562101c03e39ea8ddd38b36d}{Colormap\+Size} = 512
+\item 
+tuple \hyperlink{classmandelbrot_1_1RenderThread_aa91f2aedf998232df81073d6f6e55d4d}{rendered\+Image} = Qt\+Core.\+pyqt\+Signal(Qt\+Gui.\+Q\+Image, float)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classmandelbrot_1_1RenderThread_a91cb8115c27d80df34f304032ca53467}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def mandelbrot.\+Render\+Thread.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{parent = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classmandelbrot_1_1RenderThread_a91cb8115c27d80df34f304032ca53467}
+\hypertarget{classmandelbrot_1_1RenderThread_a5571f4792aa7fe57e8e915061140ac53}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!\+\_\+\+\_\+del\+\_\+\+\_\+@{\+\_\+\+\_\+del\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+del\+\_\+\+\_\+@{\+\_\+\+\_\+del\+\_\+\+\_\+}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{\+\_\+\+\_\+del\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def mandelbrot.\+Render\+Thread.\+\_\+\+\_\+del\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classmandelbrot_1_1RenderThread_a5571f4792aa7fe57e8e915061140ac53}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classmandelbrot_1_1RenderThread_a6cfde09e516d5e7725336bdffbf42355}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!render@{render}}
+\index{render@{render}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{render}]{\setlength{\rightskip}{0pt plus 5cm}def mandelbrot.\+Render\+Thread.\+render (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{center\+X, }
+\item[{}]{center\+Y, }
+\item[{}]{scale\+Factor, }
+\item[{}]{result\+Size}
+\end{DoxyParamCaption}
+)}\label{classmandelbrot_1_1RenderThread_a6cfde09e516d5e7725336bdffbf42355}
+\hypertarget{classmandelbrot_1_1RenderThread_a2127758f3e5d75a467dbdc5bc95bc115}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!rgb\+From\+Wave\+Length@{rgb\+From\+Wave\+Length}}
+\index{rgb\+From\+Wave\+Length@{rgb\+From\+Wave\+Length}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{rgb\+From\+Wave\+Length}]{\setlength{\rightskip}{0pt plus 5cm}def mandelbrot.\+Render\+Thread.\+rgb\+From\+Wave\+Length (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{wave}
+\end{DoxyParamCaption}
+)}\label{classmandelbrot_1_1RenderThread_a2127758f3e5d75a467dbdc5bc95bc115}
+\hypertarget{classmandelbrot_1_1RenderThread_a6ca3a5b9c28329e8f7b52a09d060ffa0}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!run@{run}}
+\index{run@{run}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}def mandelbrot.\+Render\+Thread.\+run (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classmandelbrot_1_1RenderThread_a6ca3a5b9c28329e8f7b52a09d060ffa0}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classmandelbrot_1_1RenderThread_a5c286700fff5badbd95cf21914b6dd13}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!abort@{abort}}
+\index{abort@{abort}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{abort}]{\setlength{\rightskip}{0pt plus 5cm}mandelbrot.\+Render\+Thread.\+abort}\label{classmandelbrot_1_1RenderThread_a5c286700fff5badbd95cf21914b6dd13}
+\hypertarget{classmandelbrot_1_1RenderThread_a2605666e18286ef4614570905f5d9346}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!center\+X@{center\+X}}
+\index{center\+X@{center\+X}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{center\+X}]{\setlength{\rightskip}{0pt plus 5cm}mandelbrot.\+Render\+Thread.\+center\+X}\label{classmandelbrot_1_1RenderThread_a2605666e18286ef4614570905f5d9346}
+\hypertarget{classmandelbrot_1_1RenderThread_a57065910d7039b2914a805c57d548af3}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!center\+Y@{center\+Y}}
+\index{center\+Y@{center\+Y}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{center\+Y}]{\setlength{\rightskip}{0pt plus 5cm}mandelbrot.\+Render\+Thread.\+center\+Y}\label{classmandelbrot_1_1RenderThread_a57065910d7039b2914a805c57d548af3}
+\hypertarget{classmandelbrot_1_1RenderThread_a1c0fe3e3f1bf38421c632e7b680baf1c}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!colormap@{colormap}}
+\index{colormap@{colormap}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{colormap}]{\setlength{\rightskip}{0pt plus 5cm}mandelbrot.\+Render\+Thread.\+colormap}\label{classmandelbrot_1_1RenderThread_a1c0fe3e3f1bf38421c632e7b680baf1c}
+\hypertarget{classmandelbrot_1_1RenderThread_a77f89dfa562101c03e39ea8ddd38b36d}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!Colormap\+Size@{Colormap\+Size}}
+\index{Colormap\+Size@{Colormap\+Size}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{Colormap\+Size}]{\setlength{\rightskip}{0pt plus 5cm}int mandelbrot.\+Render\+Thread.\+Colormap\+Size = 512\hspace{0.3cm}{\ttfamily [static]}}\label{classmandelbrot_1_1RenderThread_a77f89dfa562101c03e39ea8ddd38b36d}
+\hypertarget{classmandelbrot_1_1RenderThread_a9315c79bac650966d0803e79ec148590}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!condition@{condition}}
+\index{condition@{condition}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{condition}]{\setlength{\rightskip}{0pt plus 5cm}mandelbrot.\+Render\+Thread.\+condition}\label{classmandelbrot_1_1RenderThread_a9315c79bac650966d0803e79ec148590}
+\hypertarget{classmandelbrot_1_1RenderThread_aba3f6009ad0b7701fbf2a595c805d956}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!mutex@{mutex}}
+\index{mutex@{mutex}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{mutex}]{\setlength{\rightskip}{0pt plus 5cm}mandelbrot.\+Render\+Thread.\+mutex}\label{classmandelbrot_1_1RenderThread_aba3f6009ad0b7701fbf2a595c805d956}
+\hypertarget{classmandelbrot_1_1RenderThread_aa91f2aedf998232df81073d6f6e55d4d}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!rendered\+Image@{rendered\+Image}}
+\index{rendered\+Image@{rendered\+Image}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{rendered\+Image}]{\setlength{\rightskip}{0pt plus 5cm}tuple mandelbrot.\+Render\+Thread.\+rendered\+Image = Qt\+Core.\+pyqt\+Signal(Qt\+Gui.\+Q\+Image, float)\hspace{0.3cm}{\ttfamily [static]}}\label{classmandelbrot_1_1RenderThread_aa91f2aedf998232df81073d6f6e55d4d}
+\hypertarget{classmandelbrot_1_1RenderThread_a0f46a2340aab9e04593e8a6f882a02b1}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!restart@{restart}}
+\index{restart@{restart}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{restart}]{\setlength{\rightskip}{0pt plus 5cm}mandelbrot.\+Render\+Thread.\+restart}\label{classmandelbrot_1_1RenderThread_a0f46a2340aab9e04593e8a6f882a02b1}
+\hypertarget{classmandelbrot_1_1RenderThread_a663e6420fadb40b7c820b9e8087e95a6}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!result\+Size@{result\+Size}}
+\index{result\+Size@{result\+Size}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{result\+Size}]{\setlength{\rightskip}{0pt plus 5cm}mandelbrot.\+Render\+Thread.\+result\+Size}\label{classmandelbrot_1_1RenderThread_a663e6420fadb40b7c820b9e8087e95a6}
+\hypertarget{classmandelbrot_1_1RenderThread_a1ed90d726ea886b5b9c6c5fd58eece84}{}\index{mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}!scale\+Factor@{scale\+Factor}}
+\index{scale\+Factor@{scale\+Factor}!mandelbrot\+::\+Render\+Thread@{mandelbrot\+::\+Render\+Thread}}
+\subsubsection[{scale\+Factor}]{\setlength{\rightskip}{0pt plus 5cm}mandelbrot.\+Render\+Thread.\+scale\+Factor}\label{classmandelbrot_1_1RenderThread_a1ed90d726ea886b5b9c6c5fd58eece84}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/examples/threads/\hyperlink{mandelbrot_8py}{mandelbrot.\+py}\end{DoxyCompactItemize}

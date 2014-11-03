@@ -1,0 +1,228 @@
+\hypertarget{slarrv_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slarrv.f File Reference}
+\label{slarrv_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slarrv.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slarrv.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slarrv_8f_af914549478e70da2caeb2612a265650f}{slarrv} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, V\+L, V\+U, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, L, P\+I\+V\+M\+I\+N, I\+S\+P\+L\+I\+T, M, D\+O\+L, D\+O\+U, M\+I\+N\+R\+G\+P, R\+T\+O\+L1, R\+T\+O\+L2, W, W\+E\+R\+R, W\+G\+A\+P, I\+B\+L\+O\+C\+K, I\+N\+D\+E\+X\+W, G\+E\+R\+S, Z, L\+D\+Z, I\+S\+U\+P\+P\+Z, W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+R\+R\+V} computes the eigenvectors of the tridiagonal matrix T = L D L\+T given L, D and the eigenvalues of L D L\+T. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slarrv_8f_af914549478e70da2caeb2612a265650f}{}\index{slarrv.\+f@{slarrv.\+f}!slarrv@{slarrv}}
+\index{slarrv@{slarrv}!slarrv.\+f@{slarrv.\+f}}
+\subsubsection[{slarrv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slarrv (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real}]{V\+L, }
+\item[{real}]{V\+U, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{L, }
+\item[{real}]{P\+I\+V\+M\+I\+N, }
+\item[{integer, dimension( $\ast$ )}]{I\+S\+P\+L\+I\+T, }
+\item[{integer}]{M, }
+\item[{integer}]{D\+O\+L, }
+\item[{integer}]{D\+O\+U, }
+\item[{real}]{M\+I\+N\+R\+G\+P, }
+\item[{real}]{R\+T\+O\+L1, }
+\item[{real}]{R\+T\+O\+L2, }
+\item[{real, dimension( $\ast$ )}]{W, }
+\item[{real, dimension( $\ast$ )}]{W\+E\+R\+R, }
+\item[{real, dimension( $\ast$ )}]{W\+G\+A\+P, }
+\item[{integer, dimension( $\ast$ )}]{I\+B\+L\+O\+C\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+N\+D\+E\+X\+W, }
+\item[{real, dimension( $\ast$ )}]{G\+E\+R\+S, }
+\item[{real, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{integer, dimension( $\ast$ )}]{I\+S\+U\+P\+P\+Z, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{slarrv_8f_af914549478e70da2caeb2612a265650f}
+
+
+{\bfseries S\+L\+A\+R\+R\+V} computes the eigenvectors of the tridiagonal matrix T = L D L\+T given L, D and the eigenvalues of L D L\+T. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLARRV computes the eigenvectors of the tridiagonal matrix
+ T = L D L**T given L, D and APPROXIMATIONS to the eigenvalues of L D L**T.
+ The input eigenvalues should have been computed by SLARRE.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V\+L} & \begin{DoxyVerb}          VL is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V\+U} & \begin{DoxyVerb}          VU is REAL
+          Lower and upper bounds of the interval that contains the desired
+          eigenvalues. VL < VU. Needed to compute gaps on the left or right
+          end of the extremal eigenvalues in the desired RANGE.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          On entry, the N diagonal elements of the diagonal matrix D.
+          On exit, D may be overwritten.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em L} & \begin{DoxyVerb}          L is REAL array, dimension (N)
+          On entry, the (N-1) subdiagonal elements of the unit
+          bidiagonal matrix L are in elements 1 to N-1 of L
+          (if the matrix is not splitted.) At the end of each block
+          is stored the corresponding shift as given by SLARRE.
+          On exit, L is overwritten.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+I\+V\+M\+I\+N} & \begin{DoxyVerb}          PIVMIN is REAL
+          The minimum pivot allowed in the Sturm sequence.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+S\+P\+L\+I\+T} & \begin{DoxyVerb}          ISPLIT is INTEGER array, dimension (N)
+          The splitting points, at which T breaks up into blocks.
+          The first block consists of rows/columns 1 to
+          ISPLIT( 1 ), the second of rows/columns ISPLIT( 1 )+1
+          through ISPLIT( 2 ), etc.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The total number of input eigenvalues.  0 <= M <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+O\+L} & \begin{DoxyVerb}          DOL is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+O\+U} & \begin{DoxyVerb}          DOU is INTEGER
+          If the user wants to compute only selected eigenvectors from all
+          the eigenvalues supplied, he can specify an index range DOL:DOU.
+          Or else the setting DOL=1, DOU=M should be applied.
+          Note that DOL and DOU refer to the order in which the eigenvalues
+          are stored in W.
+          If the user wants to compute only selected eigenpairs, then
+          the columns DOL-1 to DOU+1 of the eigenvector space Z contain the
+          computed eigenvectors. All other columns of Z are set to zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M\+I\+N\+R\+G\+P} & \begin{DoxyVerb}          MINRGP is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+T\+O\+L1} & \begin{DoxyVerb}          RTOL1 is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+T\+O\+L2} & \begin{DoxyVerb}          RTOL2 is REAL
+           Parameters for bisection.
+           An interval [LEFT,RIGHT] has converged if
+           RIGHT-LEFT.LT.MAX( RTOL1*GAP, RTOL2*MAX(|LEFT|,|RIGHT|) )\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em W} & \begin{DoxyVerb}          W is REAL array, dimension (N)
+          The first M elements of W contain the APPROXIMATE eigenvalues for
+          which eigenvectors are to be computed.  The eigenvalues
+          should be grouped by split-off block and ordered from
+          smallest to largest within the block ( The output array
+          W from SLARRE is expected here ). Furthermore, they are with
+          respect to the shift of the corresponding root representation
+          for their block. On exit, W holds the eigenvalues of the
+          UNshifted matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em W\+E\+R\+R} & \begin{DoxyVerb}          WERR is REAL array, dimension (N)
+          The first M elements contain the semiwidth of the uncertainty
+          interval of the corresponding eigenvalue in W\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em W\+G\+A\+P} & \begin{DoxyVerb}          WGAP is REAL array, dimension (N)
+          The separation from the right neighbor eigenvalue in W.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+B\+L\+O\+C\+K} & \begin{DoxyVerb}          IBLOCK is INTEGER array, dimension (N)
+          The indices of the blocks (submatrices) associated with the
+          corresponding eigenvalues in W; IBLOCK(i)=1 if eigenvalue
+          W(i) belongs to the first block from the top, =2 if W(i)
+          belongs to the second block, etc.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+D\+E\+X\+W} & \begin{DoxyVerb}          INDEXW is INTEGER array, dimension (N)
+          The indices of the eigenvalues within each block (submatrix);
+          for example, INDEXW(i)= 10 and IBLOCK(i)=2 imply that the
+          i-th eigenvalue W(i) is the 10-th eigenvalue in the second block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+E\+R\+S} & \begin{DoxyVerb}          GERS is REAL array, dimension (2*N)
+          The N Gerschgorin intervals (the i-th Gerschgorin interval
+          is (GERS(2*i-1), GERS(2*i)). The Gerschgorin intervals should
+          be computed from the original UNshifted matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Z} & \begin{DoxyVerb}          Z is REAL array, dimension (LDZ, max(1,M) )
+          If INFO = 0, the first M columns of Z contain the
+          orthonormal eigenvectors of the matrix T
+          corresponding to the input eigenvalues, with the i-th
+          column of Z holding the eigenvector associated with W(i).
+          Note: the user must ensure that at least max(1,M) columns are
+          supplied in the array Z.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDZ >= 1, and if
+          JOBZ = 'V', LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+S\+U\+P\+P\+Z} & \begin{DoxyVerb}          ISUPPZ is INTEGER array, dimension ( 2*max(1,M) )
+          The support of the eigenvectors in Z, i.e., the indices
+          indicating the nonzero elements in Z. The I-th eigenvector
+          is nonzero only in elements ISUPPZ( 2*I-1 ) through
+          ISUPPZ( 2*I ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (12*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (7*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+
+          > 0:  A problem occured in SLARRV.
+          < 0:  One of the called subroutines signaled an internal problem.
+                Needs inspection of the corresponding parameter IINFO
+                for further information.
+
+          =-1:  Problem in SLARRB when refining a child's eigenvalues.
+          =-2:  Problem in SLARRF when computing the RRR of a child.
+                When a child is inside a tight cluster, it can be difficult
+                to find an RRR. A partial remedy from the user's point of
+                view is to make the parameter MINRGP smaller and recompile.
+                However, as the orthogonality of the computed vectors is
+                proportional to 1/MINRGP, the user should be aware that
+                he might be trading in precision when he decreases MINRGP.
+          =-3:  Problem in SLARRB when refining a single eigenvalue
+                after the Rayleigh correction was rejected.
+          = 5:  The Rayleigh Quotient Iteration failed to converge to
+                full accuracy in MAXITR steps.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Beresford Parlett, University of California, Berkeley, U\+S\+A ~\newline
+ Jim Demmel, University of California, Berkeley, U\+S\+A ~\newline
+ Inderjit Dhillon, University of Texas, Austin, U\+S\+A ~\newline
+ Osni Marques, L\+B\+N\+L/\+N\+E\+R\+S\+C, U\+S\+A ~\newline
+ Christof Voemel, University of California, Berkeley, U\+S\+A 
+\end{DoxyParagraph}

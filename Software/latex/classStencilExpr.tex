@@ -1,0 +1,258 @@
+\hypertarget{classStencilExpr}{}\section{Stencil\+Expr$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$ Class Template Reference}
+\label{classStencilExpr}\index{Stencil\+Expr$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$@{Stencil\+Expr$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$}}
+
+
+{\ttfamily \#include $<$stencil-\/et.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef T\+\_\+result \hyperlink{classStencilExpr_a82c2e4135f1f023270a530fd3d08d5c3}{T\+\_\+numtype}
+\item 
+typedef \hyperlink{classArray}{Array}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank $>$ \hyperlink{classStencilExpr_a9a5d9a852bd72220519a7042927dc7c1}{T\+\_\+array}
+\item 
+typedef const \hyperlink{classStencilExpr_a9a5d9a852bd72220519a7042927dc7c1}{T\+\_\+array} \& \hyperlink{classStencilExpr_a7b74609a8262d29ae782a68e38d5fcbb}{T\+\_\+ctor\+Arg1}
+\item 
+typedef int \hyperlink{classStencilExpr_a2a9f30c710f6dece525d1890808b68f2}{T\+\_\+ctor\+Arg2}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classStencilExpr_a7b661d5d9037e03567d39074c08da91a}{Stencil\+Expr} (const \hyperlink{classStencilExpr_a9a5d9a852bd72220519a7042927dc7c1}{T\+\_\+array} \&array)
+\item 
+\hyperlink{classStencilExpr_a1d361103dde9fd44b0a9306a1dc1b47b}{$\sim$\+Stencil\+Expr} ()
+\item 
+int \hyperlink{classStencilExpr_a30503a767a874a0d7dd1f713c008578f}{ascending} (int \hyperlink{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}{rank})
+\item 
+int \hyperlink{classStencilExpr_aef96ae4298abf4d27f0f5265770205e9}{ordering} (int \hyperlink{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}{rank})
+\item 
+int \hyperlink{classStencilExpr_a9d3e50da212bc47970f8fcd66217ec78}{lbound} (int \hyperlink{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}{rank})
+\item 
+int \hyperlink{classStencilExpr_ac95e6f8f93129841499781f3bf52bd56}{ubound} (int \hyperlink{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}{rank})
+\item 
+void \hyperlink{classStencilExpr_a2c7415fb6470c96ab88c29710569b002}{push} (int position)
+\item 
+void \hyperlink{classStencilExpr_aa8308ac967f2cd028e599f7529d92b2f}{pop} (int position)
+\item 
+void \hyperlink{classStencilExpr_af5c83fc99f0293bba8a86ca14f17bfa7}{advance} ()
+\item 
+void \hyperlink{classStencilExpr_a28c15d9ff91b1ad981d40616611b9015}{advance} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{classStencilExpr_a222b76af17dff7b09d7bf2695a436404}{load\+Stride} (int \hyperlink{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}{rank})
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classStencilExpr_a47a68cb18030dc0064e48b920a4c1a41}{is\+Unit\+Stride} (int \hyperlink{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}{rank}) const 
+\item 
+void \hyperlink{classStencilExpr_a1eb7c3b0d906513d12c14a4c0c8978bc}{advance\+Unit\+Stride} ()
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classStencilExpr_a28d047f72fa5bcc8f50d19e6f12b4c88}{can\+Collapse} (int outer\+Loop\+Rank, int inner\+Loop\+Rank) const 
+\item 
+int \hyperlink{classStencilExpr_ae82fb13882e536a3446cf2b317b69d4f}{suggest\+Stride} (int \hyperlink{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}{rank}) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classStencilExpr_a9b1de8b6699d3b611ed693b57b102ae2}{is\+Stride} (int \hyperlink{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}{rank}, int stride) const 
+\item 
+void \hyperlink{classStencilExpr_a57970469e99923e7ae34b6e3c404cde9}{pretty\+Print} (\hyperlink{numinquire_8h_a2b24ffc3b4ef9803956bc7715c6c7b83}{B\+Z\+\_\+\+S\+T\+D\+\_\+\+S\+C\+O\+P\+E}(string)\&str) const 
+\item 
+void \hyperlink{classStencilExpr_a928617036c65131424d74a42faf1a05a}{pretty\+Print} (\hyperlink{numinquire_8h_a2b24ffc3b4ef9803956bc7715c6c7b83}{B\+Z\+\_\+\+S\+T\+D\+\_\+\+S\+C\+O\+P\+E}(string)\&str, \hyperlink{classprettyPrintFormat}{pretty\+Print\+Format} \&) const 
+\item 
+{\footnotesize template$<$typename T\+\_\+shape $>$ }\\\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classStencilExpr_ab0df605c5509373ae66780b38b1b3f41}{shape\+Check} (const T\+\_\+shape \&\hyperlink{shape_8h_a9d9da3dcaecbbde6cf1961063f2e838b}{shape})
+\item 
+void \hyperlink{classStencilExpr_a4813e8827392cab12bc773a25e3e4a78}{move\+To} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ int, N\+\_\+rank $>$ \&\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i})
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classStencilExpr_a20c4d644c82cdaf9af6ab1a419dc1a9d}{num\+Array\+Operands} = 1
+\item 
+static const int \hyperlink{classStencilExpr_a7fe20bd5aa8c981d33a1e06dde54f9b6}{num\+Index\+Placeholders} = 0
+\item 
+static const int \hyperlink{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}{rank} = N\+\_\+rank
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFastArrayIterator}{Fast\+Array\+Iterator}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank $>$ \hyperlink{classStencilExpr_a6b95b9fe43853c84b71550ea5c38cf35}{iter\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classStencilExpr_a9a5d9a852bd72220519a7042927dc7c1}{}\index{Stencil\+Expr@{Stencil\+Expr}!T\+\_\+array@{T\+\_\+array}}
+\index{T\+\_\+array@{T\+\_\+array}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{T\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ typedef {\bf Array}$<$T\+\_\+\+Array\+Numtype,N\+\_\+rank$>$ {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::{\bf T\+\_\+array}}\label{classStencilExpr_a9a5d9a852bd72220519a7042927dc7c1}
+\hypertarget{classStencilExpr_a7b74609a8262d29ae782a68e38d5fcbb}{}\index{Stencil\+Expr@{Stencil\+Expr}!T\+\_\+ctor\+Arg1@{T\+\_\+ctor\+Arg1}}
+\index{T\+\_\+ctor\+Arg1@{T\+\_\+ctor\+Arg1}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{T\+\_\+ctor\+Arg1}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ typedef const {\bf T\+\_\+array}\& {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::{\bf T\+\_\+ctor\+Arg1}}\label{classStencilExpr_a7b74609a8262d29ae782a68e38d5fcbb}
+\hypertarget{classStencilExpr_a2a9f30c710f6dece525d1890808b68f2}{}\index{Stencil\+Expr@{Stencil\+Expr}!T\+\_\+ctor\+Arg2@{T\+\_\+ctor\+Arg2}}
+\index{T\+\_\+ctor\+Arg2@{T\+\_\+ctor\+Arg2}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{T\+\_\+ctor\+Arg2}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ typedef int {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::{\bf T\+\_\+ctor\+Arg2}}\label{classStencilExpr_a2a9f30c710f6dece525d1890808b68f2}
+\hypertarget{classStencilExpr_a82c2e4135f1f023270a530fd3d08d5c3}{}\index{Stencil\+Expr@{Stencil\+Expr}!T\+\_\+numtype@{T\+\_\+numtype}}
+\index{T\+\_\+numtype@{T\+\_\+numtype}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{T\+\_\+numtype}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ typedef T\+\_\+result {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::{\bf T\+\_\+numtype}}\label{classStencilExpr_a82c2e4135f1f023270a530fd3d08d5c3}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classStencilExpr_a7b661d5d9037e03567d39074c08da91a}{}\index{Stencil\+Expr@{Stencil\+Expr}!Stencil\+Expr@{Stencil\+Expr}}
+\index{Stencil\+Expr@{Stencil\+Expr}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{Stencil\+Expr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::{\bf Stencil\+Expr} (
+\begin{DoxyParamCaption}
+\item[{const {\bf T\+\_\+array} \&}]{array}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a7b661d5d9037e03567d39074c08da91a}
+\hypertarget{classStencilExpr_a1d361103dde9fd44b0a9306a1dc1b47b}{}\index{Stencil\+Expr@{Stencil\+Expr}!````~Stencil\+Expr@{$\sim$\+Stencil\+Expr}}
+\index{````~Stencil\+Expr@{$\sim$\+Stencil\+Expr}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{$\sim$\+Stencil\+Expr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::$\sim${\bf Stencil\+Expr} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a1d361103dde9fd44b0a9306a1dc1b47b}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classStencilExpr_af5c83fc99f0293bba8a86ca14f17bfa7}{}\index{Stencil\+Expr@{Stencil\+Expr}!advance@{advance}}
+\index{advance@{advance}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{advance}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ void {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::advance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_af5c83fc99f0293bba8a86ca14f17bfa7}
+\hypertarget{classStencilExpr_a28c15d9ff91b1ad981d40616611b9015}{}\index{Stencil\+Expr@{Stencil\+Expr}!advance@{advance}}
+\index{advance@{advance}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{advance}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ void {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::advance (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a28c15d9ff91b1ad981d40616611b9015}
+\hypertarget{classStencilExpr_a1eb7c3b0d906513d12c14a4c0c8978bc}{}\index{Stencil\+Expr@{Stencil\+Expr}!advance\+Unit\+Stride@{advance\+Unit\+Stride}}
+\index{advance\+Unit\+Stride@{advance\+Unit\+Stride}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{advance\+Unit\+Stride}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ void {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::advance\+Unit\+Stride (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a1eb7c3b0d906513d12c14a4c0c8978bc}
+\hypertarget{classStencilExpr_a30503a767a874a0d7dd1f713c008578f}{}\index{Stencil\+Expr@{Stencil\+Expr}!ascending@{ascending}}
+\index{ascending@{ascending}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{ascending}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ int {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::ascending (
+\begin{DoxyParamCaption}
+\item[{int}]{rank}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a30503a767a874a0d7dd1f713c008578f}
+\hypertarget{classStencilExpr_a28d047f72fa5bcc8f50d19e6f12b4c88}{}\index{Stencil\+Expr@{Stencil\+Expr}!can\+Collapse@{can\+Collapse}}
+\index{can\+Collapse@{can\+Collapse}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{can\+Collapse}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ {\bf bool} {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::can\+Collapse (
+\begin{DoxyParamCaption}
+\item[{int}]{outer\+Loop\+Rank, }
+\item[{int}]{inner\+Loop\+Rank}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a28d047f72fa5bcc8f50d19e6f12b4c88}
+\hypertarget{classStencilExpr_a9b1de8b6699d3b611ed693b57b102ae2}{}\index{Stencil\+Expr@{Stencil\+Expr}!is\+Stride@{is\+Stride}}
+\index{is\+Stride@{is\+Stride}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{is\+Stride}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ {\bf bool} {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::is\+Stride (
+\begin{DoxyParamCaption}
+\item[{int}]{rank, }
+\item[{int}]{stride}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a9b1de8b6699d3b611ed693b57b102ae2}
+\hypertarget{classStencilExpr_a47a68cb18030dc0064e48b920a4c1a41}{}\index{Stencil\+Expr@{Stencil\+Expr}!is\+Unit\+Stride@{is\+Unit\+Stride}}
+\index{is\+Unit\+Stride@{is\+Unit\+Stride}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{is\+Unit\+Stride}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ {\bf bool} {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::is\+Unit\+Stride (
+\begin{DoxyParamCaption}
+\item[{int}]{rank}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a47a68cb18030dc0064e48b920a4c1a41}
+\hypertarget{classStencilExpr_a9d3e50da212bc47970f8fcd66217ec78}{}\index{Stencil\+Expr@{Stencil\+Expr}!lbound@{lbound}}
+\index{lbound@{lbound}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{lbound}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ int {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::lbound (
+\begin{DoxyParamCaption}
+\item[{int}]{rank}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a9d3e50da212bc47970f8fcd66217ec78}
+\hypertarget{classStencilExpr_a222b76af17dff7b09d7bf2695a436404}{}\index{Stencil\+Expr@{Stencil\+Expr}!load\+Stride@{load\+Stride}}
+\index{load\+Stride@{load\+Stride}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{load\+Stride}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ void {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::load\+Stride (
+\begin{DoxyParamCaption}
+\item[{int}]{rank}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a222b76af17dff7b09d7bf2695a436404}
+\hypertarget{classStencilExpr_a4813e8827392cab12bc773a25e3e4a78}{}\index{Stencil\+Expr@{Stencil\+Expr}!move\+To@{move\+To}}
+\index{move\+To@{move\+To}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{move\+To}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ void {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::move\+To (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ int, N\+\_\+rank $>$ \&}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a4813e8827392cab12bc773a25e3e4a78}
+\hypertarget{classStencilExpr_aef96ae4298abf4d27f0f5265770205e9}{}\index{Stencil\+Expr@{Stencil\+Expr}!ordering@{ordering}}
+\index{ordering@{ordering}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{ordering}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ int {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::ordering (
+\begin{DoxyParamCaption}
+\item[{int}]{rank}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_aef96ae4298abf4d27f0f5265770205e9}
+\hypertarget{classStencilExpr_aa8308ac967f2cd028e599f7529d92b2f}{}\index{Stencil\+Expr@{Stencil\+Expr}!pop@{pop}}
+\index{pop@{pop}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ void {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::pop (
+\begin{DoxyParamCaption}
+\item[{int}]{position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_aa8308ac967f2cd028e599f7529d92b2f}
+\hypertarget{classStencilExpr_a57970469e99923e7ae34b6e3c404cde9}{}\index{Stencil\+Expr@{Stencil\+Expr}!pretty\+Print@{pretty\+Print}}
+\index{pretty\+Print@{pretty\+Print}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{pretty\+Print}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ void {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::pretty\+Print (
+\begin{DoxyParamCaption}
+\item[{{\bf B\+Z\+\_\+\+S\+T\+D\+\_\+\+S\+C\+O\+P\+E}(string)\&}]{str}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a57970469e99923e7ae34b6e3c404cde9}
+\hypertarget{classStencilExpr_a928617036c65131424d74a42faf1a05a}{}\index{Stencil\+Expr@{Stencil\+Expr}!pretty\+Print@{pretty\+Print}}
+\index{pretty\+Print@{pretty\+Print}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{pretty\+Print}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ void {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::pretty\+Print (
+\begin{DoxyParamCaption}
+\item[{{\bf B\+Z\+\_\+\+S\+T\+D\+\_\+\+S\+C\+O\+P\+E}(string)\&}]{str, }
+\item[{{\bf pretty\+Print\+Format} \&}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a928617036c65131424d74a42faf1a05a}
+\hypertarget{classStencilExpr_a2c7415fb6470c96ab88c29710569b002}{}\index{Stencil\+Expr@{Stencil\+Expr}!push@{push}}
+\index{push@{push}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ void {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::push (
+\begin{DoxyParamCaption}
+\item[{int}]{position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_a2c7415fb6470c96ab88c29710569b002}
+\hypertarget{classStencilExpr_ab0df605c5509373ae66780b38b1b3f41}{}\index{Stencil\+Expr@{Stencil\+Expr}!shape\+Check@{shape\+Check}}
+\index{shape\+Check@{shape\+Check}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{shape\+Check}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ template$<$typename T\+\_\+shape $>$ {\bf bool} {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::shape\+Check (
+\begin{DoxyParamCaption}
+\item[{const T\+\_\+shape \&}]{shape}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_ab0df605c5509373ae66780b38b1b3f41}
+\hypertarget{classStencilExpr_ae82fb13882e536a3446cf2b317b69d4f}{}\index{Stencil\+Expr@{Stencil\+Expr}!suggest\+Stride@{suggest\+Stride}}
+\index{suggest\+Stride@{suggest\+Stride}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{suggest\+Stride}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ int {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::suggest\+Stride (
+\begin{DoxyParamCaption}
+\item[{int}]{rank}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_ae82fb13882e536a3446cf2b317b69d4f}
+\hypertarget{classStencilExpr_ac95e6f8f93129841499781f3bf52bd56}{}\index{Stencil\+Expr@{Stencil\+Expr}!ubound@{ubound}}
+\index{ubound@{ubound}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{ubound}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ int {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::ubound (
+\begin{DoxyParamCaption}
+\item[{int}]{rank}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classStencilExpr_ac95e6f8f93129841499781f3bf52bd56}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classStencilExpr_a6b95b9fe43853c84b71550ea5c38cf35}{}\index{Stencil\+Expr@{Stencil\+Expr}!iter\+\_\+@{iter\+\_\+}}
+\index{iter\+\_\+@{iter\+\_\+}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{iter\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ {\bf Fast\+Array\+Iterator}$<$T\+\_\+\+Array\+Numtype,N\+\_\+rank$>$ {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::iter\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classStencilExpr_a6b95b9fe43853c84b71550ea5c38cf35}
+\hypertarget{classStencilExpr_a20c4d644c82cdaf9af6ab1a419dc1a9d}{}\index{Stencil\+Expr@{Stencil\+Expr}!num\+Array\+Operands@{num\+Array\+Operands}}
+\index{num\+Array\+Operands@{num\+Array\+Operands}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{num\+Array\+Operands}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ const int {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::num\+Array\+Operands = 1\hspace{0.3cm}{\ttfamily [static]}}\label{classStencilExpr_a20c4d644c82cdaf9af6ab1a419dc1a9d}
+\hypertarget{classStencilExpr_a7fe20bd5aa8c981d33a1e06dde54f9b6}{}\index{Stencil\+Expr@{Stencil\+Expr}!num\+Index\+Placeholders@{num\+Index\+Placeholders}}
+\index{num\+Index\+Placeholders@{num\+Index\+Placeholders}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{num\+Index\+Placeholders}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ const int {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::num\+Index\+Placeholders = 0\hspace{0.3cm}{\ttfamily [static]}}\label{classStencilExpr_a7fe20bd5aa8c981d33a1e06dde54f9b6}
+\hypertarget{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}{}\index{Stencil\+Expr@{Stencil\+Expr}!rank@{rank}}
+\index{rank@{rank}!Stencil\+Expr@{Stencil\+Expr}}
+\subsubsection[{rank}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+\+Array\+Numtype , int N\+\_\+rank, typename T\+\_\+result $>$ const int {\bf Stencil\+Expr}$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$\+::rank = N\+\_\+rank\hspace{0.3cm}{\ttfamily [static]}}\label{classStencilExpr_ad3f5edc99b864f011b2d88bce7ac3b48}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/\hyperlink{stencil-et_8h}{stencil-\/et.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,102 @@
+\hypertarget{ilu__ccolumn__dfs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+ccolumn\+\_\+dfs.c File Reference}
+\label{ilu__ccolumn__dfs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+ccolumn\+\_\+dfs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+ccolumn\+\_\+dfs.\+c}}
+
+
+Performs a symbolic factorization.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+cdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ilu__ccolumn__dfs_8c_a61b8082fdb8acb13c983c11acaea87ba}{ilu\+\_\+ccolumn\+\_\+dfs} (const int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, const int jcol, int $\ast$perm\+\_\+r, int $\ast$nseg, int $\ast$lsub\+\_\+col, int $\ast$segrep, int $\ast$repfnz, int $\ast$marker, int $\ast$parent, int $\ast$xplore, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Performs a symbolic factorization. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.0) --
+Lawrence Berkeley National Laboratory
+June 30, 2009
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{ilu__ccolumn__dfs_8c_a61b8082fdb8acb13c983c11acaea87ba}{}\index{ilu\+\_\+ccolumn\+\_\+dfs.\+c@{ilu\+\_\+ccolumn\+\_\+dfs.\+c}!ilu\+\_\+ccolumn\+\_\+dfs@{ilu\+\_\+ccolumn\+\_\+dfs}}
+\index{ilu\+\_\+ccolumn\+\_\+dfs@{ilu\+\_\+ccolumn\+\_\+dfs}!ilu\+\_\+ccolumn\+\_\+dfs.\+c@{ilu\+\_\+ccolumn\+\_\+dfs.\+c}}
+\subsubsection[{ilu\+\_\+ccolumn\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+ccolumn\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{jcol, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{nseg, }
+\item[{int $\ast$}]{lsub\+\_\+col, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{marker, }
+\item[{int $\ast$}]{parent, }
+\item[{int $\ast$}]{xplore, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{ilu__ccolumn__dfs_8c_a61b8082fdb8acb13c983c11acaea87ba}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  ILU\_CCOLUMN\_DFS performs a symbolic factorization on column jcol, and
+  decide the supernode boundary.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  This routine does not use numeric values, but only use the RHS
+  row indices to start the dfs.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A} supernode representative is the last column of a supernode.
+  The nonzeros in U[*,j] are segments that end at supernodal
+  representatives. The routine returns a list of such supernodal
+  representatives in topological order of the dfs that generates them.
+  The location of the first nonzero in each such supernodal segment
+  (supernodal entry location) is also returned.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Local parameters
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  nseg: no of segments in current U[*,j]
+  jsuper: jsuper=EMPTY if column j does not belong to the same
+ supernode as j-1. Otherwise, jsuper=nsuper.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  marker2: A-row --> A-row/col (0/1)
+  repfnz: SuperA-col --> PA-row
+  parent: SuperA-col --> SuperA-col
+  xplore: SuperA-col --> index to L-structure\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Return value
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+    0  success;
+\begin{quote}
+0  number of bytes allocated when run out of space.
+\end{quote}
+\end{DoxyPre}
+ 

@@ -1,0 +1,160 @@
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode}{}\section{scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode Class Reference}
+\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode}\index{scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode@{scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode}}
+Inheritance diagram for scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classscipy_1_1integrate_1_1__ode_1_1complex__ode}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a1814bd084fc5b7873cb78c4a05f0026a}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a73b3c2211957e8789d57953b15fa0b7c}{y}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a8f13e08811bf1bf6c1002e21b936a86e}{set\+\_\+integrator}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1complex__ode_ab2094bde7583606f6b55954645f59fa7}{set\+\_\+initial\+\_\+value}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a9a4e9c8b1a3a89ad5ec2990e598b99ff}{integrate}
+\item 
+def \hyperlink{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a7150acc324cf47552a90fcedf8dbd2a5}{set\+\_\+solout}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a3e5949a7d394007ba38855a8a5747919}{cf}
+\item 
+\hyperlink{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a5afcac244dce0a8e521aef0ee869837a}{cjac}
+\item 
+\hyperlink{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a50077638244fd7cc33ffadaf3c1f05f5}{tmp}
+\item 
+\hyperlink{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a8b1c8eabea1303868f0869f532a9a8f7}{jac\+\_\+tmp}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}A wrapper of ode for complex systems.
+
+This functions similarly as `ode`, but re-maps a complex-valued
+equation system to a real-valued one before using the integrators.
+
+Parameters
+----------
+f : callable ``f(t, y, *f_args)``
+    Rhs of the equation. t is a scalar, ``y.shape == (n,)``.
+    ``f_args`` is set by calling ``set_f_params(*args)``.
+jac : callable ``jac(t, y, *jac_args)``
+    Jacobian of the rhs, ``jac[i,j] = d f[i] / d y[j]``.
+    ``jac_args`` is set by calling ``set_f_params(*args)``.
+
+Attributes
+----------
+t : float
+    Current time.
+y : ndarray
+    Current variable values.
+
+Examples
+--------
+For usage examples, see `ode`.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a1814bd084fc5b7873cb78c4a05f0026a}{}\index{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{f, }
+\item[{}]{jac = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a1814bd084fc5b7873cb78c4a05f0026a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a9a4e9c8b1a3a89ad5ec2990e598b99ff}{}\index{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}!integrate@{integrate}}
+\index{integrate@{integrate}!scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}}
+\subsubsection[{integrate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode.\+integrate (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{t, }
+\item[{}]{step = {\ttfamily 0}, }
+\item[{}]{relax = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a9a4e9c8b1a3a89ad5ec2990e598b99ff}
+\begin{DoxyVerb}Find y=y(t), set y as an initial condition, and return y.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode_ab2094bde7583606f6b55954645f59fa7}{}\index{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}!set\+\_\+initial\+\_\+value@{set\+\_\+initial\+\_\+value}}
+\index{set\+\_\+initial\+\_\+value@{set\+\_\+initial\+\_\+value}!scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}}
+\subsubsection[{set\+\_\+initial\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode.\+set\+\_\+initial\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{y, }
+\item[{}]{t = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode_ab2094bde7583606f6b55954645f59fa7}
+\begin{DoxyVerb}Set initial conditions y(t) = y.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a8f13e08811bf1bf6c1002e21b936a86e}{}\index{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}!set\+\_\+integrator@{set\+\_\+integrator}}
+\index{set\+\_\+integrator@{set\+\_\+integrator}!scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}}
+\subsubsection[{set\+\_\+integrator}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode.\+set\+\_\+integrator (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{integrator\+\_\+params}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a8f13e08811bf1bf6c1002e21b936a86e}
+\begin{DoxyVerb}Set integrator by name.
+
+Parameters
+----------
+name : str
+    Name of the integrator
+integrator_params :
+    Additional parameters for the integrator.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a7150acc324cf47552a90fcedf8dbd2a5}{}\index{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}!set\+\_\+solout@{set\+\_\+solout}}
+\index{set\+\_\+solout@{set\+\_\+solout}!scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}}
+\subsubsection[{set\+\_\+solout}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode.\+set\+\_\+solout (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{solout}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a7150acc324cf47552a90fcedf8dbd2a5}
+\begin{DoxyVerb}Set callable to be called at every successful integration step.
+
+Parameters
+----------
+solout : callable
+    ``solout(t, y)`` is called at each internal integrator step,
+    t is a scalar providing the current independent position
+    y is the current soloution ``y.shape == (n,)``
+    solout should return -1 to stop integration
+    otherwise it should return None or 0\end{DoxyVerb}
+ \hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a73b3c2211957e8789d57953b15fa0b7c}{}\index{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}!y@{y}}
+\index{y@{y}!scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode.\+y (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a73b3c2211957e8789d57953b15fa0b7c}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a3e5949a7d394007ba38855a8a5747919}{}\index{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}!cf@{cf}}
+\index{cf@{cf}!scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}}
+\subsubsection[{cf}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode.\+cf}\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a3e5949a7d394007ba38855a8a5747919}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a5afcac244dce0a8e521aef0ee869837a}{}\index{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}!cjac@{cjac}}
+\index{cjac@{cjac}!scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}}
+\subsubsection[{cjac}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode.\+cjac}\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a5afcac244dce0a8e521aef0ee869837a}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a8b1c8eabea1303868f0869f532a9a8f7}{}\index{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}!jac\+\_\+tmp@{jac\+\_\+tmp}}
+\index{jac\+\_\+tmp@{jac\+\_\+tmp}!scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}}
+\subsubsection[{jac\+\_\+tmp}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode.\+jac\+\_\+tmp}\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a8b1c8eabea1303868f0869f532a9a8f7}
+\hypertarget{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a50077638244fd7cc33ffadaf3c1f05f5}{}\index{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}!tmp@{tmp}}
+\index{tmp@{tmp}!scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode@{scipy\+::integrate\+::\+\_\+ode\+::complex\+\_\+ode}}
+\subsubsection[{tmp}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+integrate.\+\_\+ode.\+complex\+\_\+ode.\+tmp}\label{classscipy_1_1integrate_1_1__ode_1_1complex__ode_a50077638244fd7cc33ffadaf3c1f05f5}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/integrate/\hyperlink{__ode_8py}{\+\_\+ode.\+py}\end{DoxyCompactItemize}

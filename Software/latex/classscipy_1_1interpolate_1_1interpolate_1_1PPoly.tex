@@ -1,0 +1,258 @@
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1PPoly}{}\section{scipy.\+interpolate.\+interpolate.\+P\+Poly Class Reference}
+\label{classscipy_1_1interpolate_1_1interpolate_1_1PPoly}\index{scipy.\+interpolate.\+interpolate.\+P\+Poly@{scipy.\+interpolate.\+interpolate.\+P\+Poly}}
+Inheritance diagram for scipy.\+interpolate.\+interpolate.\+P\+Poly\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classscipy_1_1interpolate_1_1interpolate_1_1PPoly}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_ab92a0406f25cc8a12a9b4a69ef3f1aa1}{derivative}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_a5e23c9feb5fbfb60c2ae087066c23878}{antiderivative}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_a671fc0e3cbb7b2b5e9b93d8ef1a48d06}{integrate}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_a319b65c1f2a159fb3ca1f73cb73e3423}{roots}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_adae115fadced1e713df043474923b542}{from\+\_\+spline}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_ac12ff4a21309d27add95b0acdc4e8ca4}{from\+\_\+bernstein\+\_\+basis}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Piecewise polynomial in terms of coefficients and breakpoints
+
+The polynomial in the ith interval is ``x[i] <= xp < x[i+1]``::
+
+    S = sum(c[m, i] * (xp - x[i])**(k-m) for m in range(k+1))
+
+where ``k`` is the degree of the polynomial. This representation
+is the local power basis.
+
+Parameters
+----------
+c : ndarray, shape (k, m, ...)
+    Polynomial coefficients, order `k` and `m` intervals
+x : ndarray, shape (m+1,)
+    Polynomial breakpoints. These must be sorted in
+    increasing order.
+extrapolate : bool, optional
+    Whether to extrapolate to ouf-of-bounds points based on first
+    and last intervals, or to return NaNs. Default: True.
+
+Attributes
+----------
+x : ndarray
+    Breakpoints.
+c : ndarray
+    Coefficients of the polynomials. They are reshaped
+    to a 3-dimensional array with the last dimension representing
+    the trailing dimensions of the original coefficient array.
+
+Methods
+-------
+__call__
+derivative
+antiderivative
+integrate
+roots
+extend
+from_spline
+from_bernstein_basis
+construct_fast
+
+See also
+--------
+BPoly : piecewise polynomials in the Bernstein basis
+
+Notes
+-----
+High-order polynomials in the power basis can be numerically
+unstable.  Precision problems can start to appear for orders
+larger than 20-30.\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_a5e23c9feb5fbfb60c2ae087066c23878}{}\index{scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}!antiderivative@{antiderivative}}
+\index{antiderivative@{antiderivative}!scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}}
+\subsubsection[{antiderivative}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+P\+Poly.\+antiderivative (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{nu = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_a5e23c9feb5fbfb60c2ae087066c23878}
+\begin{DoxyVerb}Construct a new piecewise polynomial representing the antiderivative.
+
+Antiderivativative is also the indefinite integral of the function,
+and derivative is its inverse operation.
+
+Parameters
+----------
+n : int, optional
+    Order of antiderivative to evaluate. (Default: 1)
+    If negative, the derivative is returned.
+
+Returns
+-------
+pp : PPoly
+    Piecewise polynomial of order k2 = k + n representing
+    the antiderivative of this polynomial.
+
+Notes
+-----
+The antiderivative returned by this function is continuous and
+continuously differentiable to order n-1, up to floating point
+rounding error.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_ab92a0406f25cc8a12a9b4a69ef3f1aa1}{}\index{scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}!derivative@{derivative}}
+\index{derivative@{derivative}!scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}}
+\subsubsection[{derivative}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+P\+Poly.\+derivative (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{nu = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_ab92a0406f25cc8a12a9b4a69ef3f1aa1}
+\begin{DoxyVerb}Construct a new piecewise polynomial representing the derivative.
+
+Parameters
+----------
+n : int, optional
+    Order of derivative to evaluate. (Default: 1)
+    If negative, the antiderivative is returned.
+
+Returns
+-------
+pp : PPoly
+    Piecewise polynomial of order k2 = k - n representing the derivative
+    of this polynomial.
+
+Notes
+-----
+Derivatives are evaluated piecewise for each polynomial
+segment, even if the polynomial is not differentiable at the
+breakpoints. The polynomial intervals are considered half-open,
+``[a, b)``, except for the last interval which is closed
+``[a, b]``.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_ac12ff4a21309d27add95b0acdc4e8ca4}{}\index{scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}!from\+\_\+bernstein\+\_\+basis@{from\+\_\+bernstein\+\_\+basis}}
+\index{from\+\_\+bernstein\+\_\+basis@{from\+\_\+bernstein\+\_\+basis}!scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}}
+\subsubsection[{from\+\_\+bernstein\+\_\+basis}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+P\+Poly.\+from\+\_\+bernstein\+\_\+basis (
+\begin{DoxyParamCaption}
+\item[{}]{cls, }
+\item[{}]{bp, }
+\item[{}]{extrapolate = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_ac12ff4a21309d27add95b0acdc4e8ca4}
+\begin{DoxyVerb}Construct a piecewise polynomial in the power basis
+from a polynomial in Bernstein basis.
+
+Parameters
+----------
+bp : BPoly
+    A Bernstein basis polynomial, as created by BPoly
+extrapolate : bool, optional
+    Whether to extrapolate to ouf-of-bounds points based on first
+    and last intervals, or to return NaNs. Default: True.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_adae115fadced1e713df043474923b542}{}\index{scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}!from\+\_\+spline@{from\+\_\+spline}}
+\index{from\+\_\+spline@{from\+\_\+spline}!scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}}
+\subsubsection[{from\+\_\+spline}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+P\+Poly.\+from\+\_\+spline (
+\begin{DoxyParamCaption}
+\item[{}]{cls, }
+\item[{}]{tck, }
+\item[{}]{extrapolate = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_adae115fadced1e713df043474923b542}
+\begin{DoxyVerb}Construct a piecewise polynomial from a spline
+
+Parameters
+----------
+tck
+    A spline, as returned by `splrep`
+extrapolate : bool, optional
+    Whether to extrapolate to ouf-of-bounds points based on first
+    and last intervals, or to return NaNs. Default: True.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_a671fc0e3cbb7b2b5e9b93d8ef1a48d06}{}\index{scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}!integrate@{integrate}}
+\index{integrate@{integrate}!scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}}
+\subsubsection[{integrate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+P\+Poly.\+integrate (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{extrapolate = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_a671fc0e3cbb7b2b5e9b93d8ef1a48d06}
+\begin{DoxyVerb}Compute a definite integral over a piecewise polynomial.
+
+Parameters
+----------
+a : float
+    Lower integration bound
+b : float
+    Upper integration bound
+extrapolate : bool, optional
+    Whether to extrapolate to ouf-of-bounds points based on first
+    and last intervals, or to return NaNs.
+
+Returns
+-------
+ig : array_like
+    Definite integral of the piecewise polynomial over [a, b]\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_a319b65c1f2a159fb3ca1f73cb73e3423}{}\index{scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}!roots@{roots}}
+\index{roots@{roots}!scipy\+::interpolate\+::interpolate\+::\+P\+Poly@{scipy\+::interpolate\+::interpolate\+::\+P\+Poly}}
+\subsubsection[{roots}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+P\+Poly.\+roots (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{discontinuity = {\ttfamily {\bf True}}, }
+\item[{}]{extrapolate = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1PPoly_a319b65c1f2a159fb3ca1f73cb73e3423}
+\begin{DoxyVerb}Find real roots of the piecewise polynomial.
+
+Parameters
+----------
+discontinuity : bool, optional
+    Whether to report sign changes across discontinuities at
+    breakpoints as roots.
+extrapolate : bool, optional
+    Whether to return roots from the polynomial extrapolated
+    based on first and last intervals.
+
+Returns
+-------
+roots : ndarray
+    Roots of the polynomial(s).
+
+    If the PPoly object describes multiple polynomials, the
+    return value is an object array whose each element is an
+    ndarray containing the roots.
+
+Notes
+-----
+This routine works only on real-valued polynomials.
+
+If the piecewise polynomial contains sections that are
+identically zero, the root list will contain the start point
+of the corresponding interval, followed by a ``nan`` value.
+
+If the polynomial is discontinuous across a breakpoint, and
+there is a sign change across the breakpoint, this is reported
+if the `discont` parameter is True.
+
+Examples
+--------
+
+Finding roots of ``[x**2 - 1, (x - 1)**2]`` defined on intervals
+``[-2, 1], [1, 2]``:
+
+>>> from scipy.interpolate import PPoly
+>>> pp = PPoly(np.array([[1, 0, -1], [1, 0, 0]]).T, [-2, 1, 2])
+>>> pp.roots()
+array([-1.,  1.])\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{interpolate_8py}{interpolate.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,213 @@
+\hypertarget{zlalsa_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlalsa.f File Reference}
+\label{zlalsa_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlalsa.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlalsa.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlalsa_8f_adfb51762868d0b8a6ba8a5ccbd596544}{zlalsa} (I\+C\+O\+M\+P\+Q, S\+M\+L\+S\+I\+Z, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, B\+X, L\+D\+B\+X, U, L\+D\+U, V\+T, K, D\+I\+F\+L, D\+I\+F\+R, Z, P\+O\+L\+E\+S, G\+I\+V\+P\+T\+R, G\+I\+V\+C\+O\+L, L\+D\+G\+C\+O\+L, P\+E\+R\+M, G\+I\+V\+N\+U\+M, C, S, R\+W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+L\+S\+A} computes the S\+V\+D of the coefficient matrix in compact form. Used by sgelsd. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlalsa_8f_adfb51762868d0b8a6ba8a5ccbd596544}{}\index{zlalsa.\+f@{zlalsa.\+f}!zlalsa@{zlalsa}}
+\index{zlalsa@{zlalsa}!zlalsa.\+f@{zlalsa.\+f}}
+\subsubsection[{zlalsa}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlalsa (
+\begin{DoxyParamCaption}
+\item[{integer}]{I\+C\+O\+M\+P\+Q, }
+\item[{integer}]{S\+M\+L\+S\+I\+Z, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{{\bf complex}$\ast$16, dimension( ldbx, $\ast$ )}]{B\+X, }
+\item[{integer}]{L\+D\+B\+X, }
+\item[{double {\bf precision}, dimension( ldu, $\ast$ )}]{U, }
+\item[{integer}]{L\+D\+U, }
+\item[{double {\bf precision}, dimension( ldu, $\ast$ )}]{V\+T, }
+\item[{integer, dimension( $\ast$ )}]{K, }
+\item[{double {\bf precision}, dimension( ldu, $\ast$ )}]{D\+I\+F\+L, }
+\item[{double {\bf precision}, dimension( ldu, $\ast$ )}]{D\+I\+F\+R, }
+\item[{double {\bf precision}, dimension( ldu, $\ast$ )}]{Z, }
+\item[{double {\bf precision}, dimension( ldu, $\ast$ )}]{P\+O\+L\+E\+S, }
+\item[{integer, dimension( $\ast$ )}]{G\+I\+V\+P\+T\+R, }
+\item[{integer, dimension( ldgcol, $\ast$ )}]{G\+I\+V\+C\+O\+L, }
+\item[{integer}]{L\+D\+G\+C\+O\+L, }
+\item[{integer, dimension( ldgcol, $\ast$ )}]{P\+E\+R\+M, }
+\item[{double {\bf precision}, dimension( ldu, $\ast$ )}]{G\+I\+V\+N\+U\+M, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{C, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{S, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zlalsa_8f_adfb51762868d0b8a6ba8a5ccbd596544}
+
+
+{\bfseries Z\+L\+A\+L\+S\+A} computes the S\+V\+D of the coefficient matrix in compact form. Used by sgelsd. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLALSA is an itermediate step in solving the least squares problem
+ by computing the SVD of the coefficient matrix in compact form (The
+ singular vectors are computed as products of simple orthorgonal
+ matrices.).
+
+ If ICOMPQ = 0, ZLALSA applies the inverse of the left singular vector
+ matrix of an upper bidiagonal matrix to the right hand side; and if
+ ICOMPQ = 1, ZLALSA applies the right singular vector matrix to the
+ right hand side. The singular vector matrices were generated in
+ compact form by ZLALSA.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I\+C\+O\+M\+P\+Q} & \begin{DoxyVerb}          ICOMPQ is INTEGER
+         Specifies whether the left or the right singular vector
+         matrix is involved.
+         = 0: Left singular vector matrix
+         = 1: Right singular vector matrix\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+M\+L\+S\+I\+Z} & \begin{DoxyVerb}          SMLSIZ is INTEGER
+         The maximum size of the subproblems at the bottom of the
+         computation tree.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+         The row and column dimensions of the upper bidiagonal matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+         The number of columns of B and BX. NRHS must be at least 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX*16 array, dimension ( LDB, NRHS )
+         On input, B contains the right hand sides of the least
+         squares problem in rows 1 through M.
+         On output, B contains the solution X in rows 1 through N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+         The leading dimension of B in the calling subprogram.
+         LDB must be at least max(1,MAX( M, N ) ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+X} & \begin{DoxyVerb}          BX is COMPLEX*16 array, dimension ( LDBX, NRHS )
+         On exit, the result of applying the left or right singular
+         vector matrix to B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B\+X} & \begin{DoxyVerb}          LDBX is INTEGER
+         The leading dimension of BX.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U} & \begin{DoxyVerb}          U is DOUBLE PRECISION array, dimension ( LDU, SMLSIZ ).
+         On entry, U contains the left singular vector matrices of all
+         subproblems at the bottom level.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+U} & \begin{DoxyVerb}          LDU is INTEGER, LDU = > N.
+         The leading dimension of arrays U, VT, DIFL, DIFR,
+         POLES, GIVNUM, and Z.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V\+T} & \begin{DoxyVerb}          VT is DOUBLE PRECISION array, dimension ( LDU, SMLSIZ+1 ).
+         On entry, VT**H contains the right singular vector matrices of
+         all subproblems at the bottom level.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER array, dimension ( N ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+F\+L} & \begin{DoxyVerb}          DIFL is DOUBLE PRECISION array, dimension ( LDU, NLVL ).
+         where NLVL = INT(log_2 (N/(SMLSIZ+1))) + 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+F\+R} & \begin{DoxyVerb}          DIFR is DOUBLE PRECISION array, dimension ( LDU, 2 * NLVL ).
+         On entry, DIFL(*, I) and DIFR(*, 2 * I -1) record
+         distances between singular values on the I-th level and
+         singular values on the (I -1)-th level, and DIFR(*, 2 * I)
+         record the normalizing factors of the right singular vectors
+         matrices of subproblems on I-th level.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array, dimension ( LDU, NLVL ).
+         On entry, Z(1, I) contains the components of the deflation-
+         adjusted updating row vector for subproblems on the I-th
+         level.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+O\+L\+E\+S} & \begin{DoxyVerb}          POLES is DOUBLE PRECISION array, dimension ( LDU, 2 * NLVL ).
+         On entry, POLES(*, 2 * I -1: 2 * I) contains the new and old
+         singular values involved in the secular equations on the I-th
+         level.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+I\+V\+P\+T\+R} & \begin{DoxyVerb}          GIVPTR is INTEGER array, dimension ( N ).
+         On entry, GIVPTR( I ) records the number of Givens
+         rotations performed on the I-th problem on the computation
+         tree.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+I\+V\+C\+O\+L} & \begin{DoxyVerb}          GIVCOL is INTEGER array, dimension ( LDGCOL, 2 * NLVL ).
+         On entry, for each I, GIVCOL(*, 2 * I - 1: 2 * I) records the
+         locations of Givens rotations performed on the I-th level on
+         the computation tree.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+G\+C\+O\+L} & \begin{DoxyVerb}          LDGCOL is INTEGER, LDGCOL = > N.
+         The leading dimension of arrays GIVCOL and PERM.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+E\+R\+M} & \begin{DoxyVerb}          PERM is INTEGER array, dimension ( LDGCOL, NLVL ).
+         On entry, PERM(*, I) records permutations done on the I-th
+         level of the computation tree.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+I\+V\+N\+U\+M} & \begin{DoxyVerb}          GIVNUM is DOUBLE PRECISION array, dimension ( LDU, 2 * NLVL ).
+         On entry, GIVNUM(*, 2 *I -1 : 2 * I) records the C- and S-
+         values of Givens rotations performed on the I-th level on the
+         computation tree.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array, dimension ( N ).
+         On entry, if the I-th subproblem is not square,
+         C( I ) contains the C-value of a Givens rotation related to
+         the right null space of the I-th subproblem.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is DOUBLE PRECISION array, dimension ( N ).
+         On entry, if the I-th subproblem is not square,
+         S( I ) contains the S-value of a Givens rotation related to
+         the right null space of the I-th subproblem.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is DOUBLE PRECISION array, dimension at least
+         MAX( (SMLSZ+1)*NRHS*3, N*(1+NRHS) + 2*NRHS ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array.
+         The dimension must be at least 3 * N\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Ming Gu and Ren-\/\+Cang Li, Computer Science Division, University of California at Berkeley, U\+S\+A ~\newline
+ Osni Marques, L\+B\+N\+L/\+N\+E\+R\+S\+C, U\+S\+A ~\newline
+ 
+\end{DoxyParagraph}

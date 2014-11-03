@@ -1,0 +1,112 @@
+\hypertarget{ctbcon_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/ctbcon.f File Reference}
+\label{ctbcon_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ctbcon.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ctbcon.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ctbcon_8f_a622619a46010d0a5e026c8f4ffad2292}{ctbcon} (N\+O\+R\+M, U\+P\+L\+O, D\+I\+A\+G, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+D, A\+B, L\+D\+A\+B, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, W\+O\+R\+K, R\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+T\+B\+C\+O\+N} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ctbcon_8f_a622619a46010d0a5e026c8f4ffad2292}{}\index{ctbcon.\+f@{ctbcon.\+f}!ctbcon@{ctbcon}}
+\index{ctbcon@{ctbcon}!ctbcon.\+f@{ctbcon.\+f}}
+\subsubsection[{ctbcon}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ctbcon (
+\begin{DoxyParamCaption}
+\item[{character}]{N\+O\+R\+M, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{D\+I\+A\+G, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+D, }
+\item[{{\bf complex}, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{real}]{R\+C\+O\+N\+D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{real, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{ctbcon_8f_a622619a46010d0a5e026c8f4ffad2292}
+
+
+{\bfseries C\+T\+B\+C\+O\+N} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CTBCON estimates the reciprocal of the condition number of a
+ triangular band matrix A, in either the 1-norm or the infinity-norm.
+
+ The norm of A is computed and an estimate is obtained for
+ norm(inv(A)), then the reciprocal of the condition number is
+ computed as
+    RCOND = 1 / ( norm(A) * norm(inv(A)) ).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N\+O\+R\+M} & \begin{DoxyVerb}          NORM is CHARACTER*1
+          Specifies whether the 1-norm condition number or the
+          infinity-norm condition number is required:
+          = '1' or 'O':  1-norm;
+          = 'I':         Infinity-norm.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  A is upper triangular;
+          = 'L':  A is lower triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+A\+G} & \begin{DoxyVerb}          DIAG is CHARACTER*1
+          = 'N':  A is non-unit triangular;
+          = 'U':  A is unit triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+D} & \begin{DoxyVerb}          KD is INTEGER
+          The number of superdiagonals or subdiagonals of the
+          triangular band matrix A.  KD >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+B} & \begin{DoxyVerb}          AB is COMPLEX array, dimension (LDAB,N)
+          The upper or lower triangular band matrix A, stored in the
+          first kd+1 rows of the array. The j-th column of A is stored
+          in the j-th column of the array AB as follows:
+          if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
+          If DIAG = 'U', the diagonal elements of A are not referenced
+          and are assumed to be 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KD+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is REAL
+          The reciprocal of the condition number of the matrix A,
+          computed as RCOND = 1/(norm(A) * norm(inv(A))).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (2*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is REAL array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

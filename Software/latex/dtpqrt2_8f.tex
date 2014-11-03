@@ -1,0 +1,144 @@
+\hypertarget{dtpqrt2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dtpqrt2.f File Reference}
+\label{dtpqrt2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dtpqrt2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dtpqrt2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dtpqrt2_8f_a81d84597f7f10e25bf59bc224d117460}{dtpqrt2} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, L, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, T, L\+D\+T, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+T\+P\+Q\+R\+T2} computes a Q\+R factorization of a real or complex \char`\"{}triangular-\/pentagonal\char`\"{} matrix, which is composed of a triangular block and a pentagonal block, using the compact W\+Y representation for Q. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dtpqrt2_8f_a81d84597f7f10e25bf59bc224d117460}{}\index{dtpqrt2.\+f@{dtpqrt2.\+f}!dtpqrt2@{dtpqrt2}}
+\index{dtpqrt2@{dtpqrt2}!dtpqrt2.\+f@{dtpqrt2.\+f}}
+\subsubsection[{dtpqrt2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dtpqrt2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{L, }
+\item[{double {\bf precision}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dtpqrt2_8f_a81d84597f7f10e25bf59bc224d117460}
+
+
+{\bfseries D\+T\+P\+Q\+R\+T2} computes a Q\+R factorization of a real or complex \char`\"{}triangular-\/pentagonal\char`\"{} matrix, which is composed of a triangular block and a pentagonal block, using the compact W\+Y representation for Q. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DTPQRT2 computes a QR factorization of a real "triangular-pentagonal"
+ matrix C, which is composed of a triangular block A and pentagonal block B, 
+ using the compact WY representation for Q.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The total number of rows of the matrix B.  
+          M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix B, and the order of
+          the triangular matrix A.
+          N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L} & \begin{DoxyVerb}          L is INTEGER
+          The number of rows of the upper trapezoidal part of B.  
+          MIN(M,N) >= L >= 0.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the upper triangular N-by-N matrix A.
+          On exit, the elements on and above the diagonal of the array
+          contain the upper triangular matrix R.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,N)
+          On entry, the pentagonal M-by-N matrix B.  The first M-L rows 
+          are rectangular, and the last L rows are upper trapezoidal.
+          On exit, B contains the pentagonal matrix V.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T} & \begin{DoxyVerb}          T is DOUBLE PRECISION array, dimension (LDT,N)
+          The N-by-N upper triangular factor T of the block reflector.
+          See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T.  LDT >= max(1,N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The input matrix C is a (N+M)-by-N matrix  
+
+               C = [ A ]
+                   [ B ]        
+
+  where A is an upper triangular N-by-N matrix, and B is M-by-N pentagonal
+  matrix consisting of a (M-L)-by-N rectangular matrix B1 on top of a L-by-N
+  upper trapezoidal matrix B2:
+
+               B = [ B1 ]  <- (M-L)-by-N rectangular
+                   [ B2 ]  <-     L-by-N upper trapezoidal.
+
+  The upper trapezoidal matrix B2 consists of the first L rows of a
+  N-by-N upper triangular matrix, where 0 <= L <= MIN(M,N).  If L=0, 
+  B is rectangular M-by-N; if M=L=N, B is upper triangular.  
+
+  The matrix W stores the elementary reflectors H(i) in the i-th column
+  below the diagonal (of A) in the (N+M)-by-N input matrix C
+
+               C = [ A ]  <- upper triangular N-by-N
+                   [ B ]  <- M-by-N pentagonal
+
+  so that W can be represented as
+
+               W = [ I ]  <- identity, N-by-N
+                   [ V ]  <- M-by-N, same form as B.
+
+  Thus, all of information needed for W is contained on exit in B, which
+  we call V above.  Note that V has the same form as B; that is, 
+
+               V = [ V1 ] <- (M-L)-by-N rectangular
+                   [ V2 ] <-     L-by-N upper trapezoidal.
+
+  The columns of V represent the vectors which define the H(i)'s.  
+  The (M+N)-by-(M+N) block reflector H is then given by
+
+               H = I - W * T * W**T
+
+  where W^H is the conjugate transpose of W and T is the upper triangular
+  factor of the block reflector.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

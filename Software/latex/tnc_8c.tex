@@ -1,0 +1,143 @@
+\hypertarget{tnc_8c}{}\section{packages/scipy-\/0.14.0/scipy/optimize/tnc/tnc.c File Reference}
+\label{tnc_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/optimize/tnc/tnc.\+c@{packages/scipy-\/0.\+14.\+0/scipy/optimize/tnc/tnc.\+c}}
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}tnc.\+h\char`\"{}}\\*
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{tnc_8c_aa7b64cdf39500931f7b333343791a104}{logical} \{ \hyperlink{tnc_8c_aa7b64cdf39500931f7b333343791a104a3903f8fad0d26adf5903f216c9accd5b}{T\+N\+C\+\_\+\+F\+A\+L\+S\+E} = 0, 
+\hyperlink{tnc_8c_aa7b64cdf39500931f7b333343791a104a05393495a9db926f456f526a72d7bd79}{T\+N\+C\+\_\+\+T\+R\+U\+E}
+ \}
+\item 
+enum \hyperlink{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3b}{getptc\+\_\+rc} \{ \hyperlink{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3ba4ad5dc26ff355ee406642b779b509c5e}{G\+E\+T\+P\+T\+C\+\_\+\+O\+K} = 0, 
+\hyperlink{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3bafde6f650d037a20b6ad34aa25df52b27}{G\+E\+T\+P\+T\+C\+\_\+\+E\+V\+A\+L} = 1, 
+\hyperlink{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3ba9a4f9299760b6028469e9c2a23ee27e7}{G\+E\+T\+P\+T\+C\+\_\+\+E\+I\+N\+V\+A\+L} = 2, 
+\hyperlink{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3ba4e120771b74cb40e8361c69f12185304}{G\+E\+T\+P\+T\+C\+\_\+\+F\+A\+I\+L} = 3
+ \}
+\item 
+enum \hyperlink{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783}{ls\+\_\+rc} \{ \\*
+\hyperlink{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783aa2b13a7a0a46f3746517fba1a4cd9662}{L\+S\+\_\+\+O\+K} = 0, 
+\hyperlink{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783ab44fa9727055cee4ec5abeb16775814d}{L\+S\+\_\+\+M\+A\+X\+F\+U\+N} = 1, 
+\hyperlink{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783ac4551c5d2655033ab6854efd859ccd64}{L\+S\+\_\+\+F\+A\+I\+L} = 2, 
+\hyperlink{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783aabd5cab4d5764bebcba0edd4db75f45f}{L\+S\+\_\+\+U\+S\+E\+R\+A\+B\+O\+R\+T} = 3, 
+\\*
+\hyperlink{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783ab706b2574fee965da7b304497c67d73e}{L\+S\+\_\+\+E\+N\+O\+M\+E\+M} = 4
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{tnc_8c_a3a095bfe5d20dc20304d0591b3d62e90}{tnc} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, double \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}\mbox{[}$\,$\mbox{]}, double $\ast$f, double g\mbox{[}$\,$\mbox{]}, \hyperlink{tnc_8h_a75958e1c262f6528f02cd83671d75212}{tnc\+\_\+function} $\ast$\hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function}, void $\ast$state, double \hyperlink{constants_8h_a2f13f92cd23d69a695f629d173e191b7}{low}\mbox{[}$\,$\mbox{]}, double up\mbox{[}$\,$\mbox{]}, double scale\mbox{[}$\,$\mbox{]}, double offset\mbox{[}$\,$\mbox{]}, int messages, int max\+C\+Git, int maxnfeval, double eta, double stepmx, double accuracy, double fmin, double ftol, double xtol, double pgtol, double rescale, int $\ast$nfeval, int $\ast$niter, \hyperlink{tnc_8h_ae2c6971cbd29c4e89ee02e3d4f7ccb60}{tnc\+\_\+callback} $\ast$callback)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{tnc_8c_a8fd6d48619b6c248f6042894f79bda1f}{tnc\+\_\+rc\+\_\+string} \mbox{[}11\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3b}{}\index{tnc.\+c@{tnc.\+c}!getptc\+\_\+rc@{getptc\+\_\+rc}}
+\index{getptc\+\_\+rc@{getptc\+\_\+rc}!tnc.\+c@{tnc.\+c}}
+\subsubsection[{getptc\+\_\+rc}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf getptc\+\_\+rc}}\label{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3b}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{G\+E\+T\+P\+T\+C\+\_\+\+O\+K@{G\+E\+T\+P\+T\+C\+\_\+\+O\+K}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!G\+E\+T\+P\+T\+C\+\_\+\+O\+K@{G\+E\+T\+P\+T\+C\+\_\+\+O\+K}}\item[{\em 
+\hypertarget{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3ba4ad5dc26ff355ee406642b779b509c5e}{}G\+E\+T\+P\+T\+C\+\_\+\+O\+K\label{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3ba4ad5dc26ff355ee406642b779b509c5e}
+}]\index{G\+E\+T\+P\+T\+C\+\_\+\+E\+V\+A\+L@{G\+E\+T\+P\+T\+C\+\_\+\+E\+V\+A\+L}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!G\+E\+T\+P\+T\+C\+\_\+\+E\+V\+A\+L@{G\+E\+T\+P\+T\+C\+\_\+\+E\+V\+A\+L}}\item[{\em 
+\hypertarget{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3bafde6f650d037a20b6ad34aa25df52b27}{}G\+E\+T\+P\+T\+C\+\_\+\+E\+V\+A\+L\label{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3bafde6f650d037a20b6ad34aa25df52b27}
+}]\index{G\+E\+T\+P\+T\+C\+\_\+\+E\+I\+N\+V\+A\+L@{G\+E\+T\+P\+T\+C\+\_\+\+E\+I\+N\+V\+A\+L}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!G\+E\+T\+P\+T\+C\+\_\+\+E\+I\+N\+V\+A\+L@{G\+E\+T\+P\+T\+C\+\_\+\+E\+I\+N\+V\+A\+L}}\item[{\em 
+\hypertarget{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3ba9a4f9299760b6028469e9c2a23ee27e7}{}G\+E\+T\+P\+T\+C\+\_\+\+E\+I\+N\+V\+A\+L\label{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3ba9a4f9299760b6028469e9c2a23ee27e7}
+}]\index{G\+E\+T\+P\+T\+C\+\_\+\+F\+A\+I\+L@{G\+E\+T\+P\+T\+C\+\_\+\+F\+A\+I\+L}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!G\+E\+T\+P\+T\+C\+\_\+\+F\+A\+I\+L@{G\+E\+T\+P\+T\+C\+\_\+\+F\+A\+I\+L}}\item[{\em 
+\hypertarget{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3ba4e120771b74cb40e8361c69f12185304}{}G\+E\+T\+P\+T\+C\+\_\+\+F\+A\+I\+L\label{tnc_8c_a213cbc99c0a8cbc54c3044309daebb3ba4e120771b74cb40e8361c69f12185304}
+}]\end{description}
+\end{Desc}
+\hypertarget{tnc_8c_aa7b64cdf39500931f7b333343791a104}{}\index{tnc.\+c@{tnc.\+c}!logical@{logical}}
+\index{logical@{logical}!tnc.\+c@{tnc.\+c}}
+\subsubsection[{logical}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf logical}}\label{tnc_8c_aa7b64cdf39500931f7b333343791a104}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{T\+N\+C\+\_\+\+F\+A\+L\+S\+E@{T\+N\+C\+\_\+\+F\+A\+L\+S\+E}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!T\+N\+C\+\_\+\+F\+A\+L\+S\+E@{T\+N\+C\+\_\+\+F\+A\+L\+S\+E}}\item[{\em 
+\hypertarget{tnc_8c_aa7b64cdf39500931f7b333343791a104a3903f8fad0d26adf5903f216c9accd5b}{}T\+N\+C\+\_\+\+F\+A\+L\+S\+E\label{tnc_8c_aa7b64cdf39500931f7b333343791a104a3903f8fad0d26adf5903f216c9accd5b}
+}]\index{T\+N\+C\+\_\+\+T\+R\+U\+E@{T\+N\+C\+\_\+\+T\+R\+U\+E}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!T\+N\+C\+\_\+\+T\+R\+U\+E@{T\+N\+C\+\_\+\+T\+R\+U\+E}}\item[{\em 
+\hypertarget{tnc_8c_aa7b64cdf39500931f7b333343791a104a05393495a9db926f456f526a72d7bd79}{}T\+N\+C\+\_\+\+T\+R\+U\+E\label{tnc_8c_aa7b64cdf39500931f7b333343791a104a05393495a9db926f456f526a72d7bd79}
+}]\end{description}
+\end{Desc}
+\hypertarget{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783}{}\index{tnc.\+c@{tnc.\+c}!ls\+\_\+rc@{ls\+\_\+rc}}
+\index{ls\+\_\+rc@{ls\+\_\+rc}!tnc.\+c@{tnc.\+c}}
+\subsubsection[{ls\+\_\+rc}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf ls\+\_\+rc}}\label{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{L\+S\+\_\+\+O\+K@{L\+S\+\_\+\+O\+K}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!L\+S\+\_\+\+O\+K@{L\+S\+\_\+\+O\+K}}\item[{\em 
+\hypertarget{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783aa2b13a7a0a46f3746517fba1a4cd9662}{}L\+S\+\_\+\+O\+K\label{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783aa2b13a7a0a46f3746517fba1a4cd9662}
+}]\index{L\+S\+\_\+\+M\+A\+X\+F\+U\+N@{L\+S\+\_\+\+M\+A\+X\+F\+U\+N}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!L\+S\+\_\+\+M\+A\+X\+F\+U\+N@{L\+S\+\_\+\+M\+A\+X\+F\+U\+N}}\item[{\em 
+\hypertarget{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783ab44fa9727055cee4ec5abeb16775814d}{}L\+S\+\_\+\+M\+A\+X\+F\+U\+N\label{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783ab44fa9727055cee4ec5abeb16775814d}
+}]\index{L\+S\+\_\+\+F\+A\+I\+L@{L\+S\+\_\+\+F\+A\+I\+L}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!L\+S\+\_\+\+F\+A\+I\+L@{L\+S\+\_\+\+F\+A\+I\+L}}\item[{\em 
+\hypertarget{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783ac4551c5d2655033ab6854efd859ccd64}{}L\+S\+\_\+\+F\+A\+I\+L\label{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783ac4551c5d2655033ab6854efd859ccd64}
+}]\index{L\+S\+\_\+\+U\+S\+E\+R\+A\+B\+O\+R\+T@{L\+S\+\_\+\+U\+S\+E\+R\+A\+B\+O\+R\+T}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!L\+S\+\_\+\+U\+S\+E\+R\+A\+B\+O\+R\+T@{L\+S\+\_\+\+U\+S\+E\+R\+A\+B\+O\+R\+T}}\item[{\em 
+\hypertarget{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783aabd5cab4d5764bebcba0edd4db75f45f}{}L\+S\+\_\+\+U\+S\+E\+R\+A\+B\+O\+R\+T\label{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783aabd5cab4d5764bebcba0edd4db75f45f}
+}]\index{L\+S\+\_\+\+E\+N\+O\+M\+E\+M@{L\+S\+\_\+\+E\+N\+O\+M\+E\+M}!tnc.\+c@{tnc.\+c}}\index{tnc.\+c@{tnc.\+c}!L\+S\+\_\+\+E\+N\+O\+M\+E\+M@{L\+S\+\_\+\+E\+N\+O\+M\+E\+M}}\item[{\em 
+\hypertarget{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783ab706b2574fee965da7b304497c67d73e}{}L\+S\+\_\+\+E\+N\+O\+M\+E\+M\label{tnc_8c_aa9368435d8dfc4297b91a6fbd1dbe783ab706b2574fee965da7b304497c67d73e}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{tnc_8c_a3a095bfe5d20dc20304d0591b3d62e90}{}\index{tnc.\+c@{tnc.\+c}!tnc@{tnc}}
+\index{tnc@{tnc}!tnc.\+c@{tnc.\+c}}
+\subsubsection[{tnc}]{\setlength{\rightskip}{0pt plus 5cm}int tnc (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{double}]{x\mbox{[}$\,$\mbox{]}, }
+\item[{double $\ast$}]{f, }
+\item[{double}]{g\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf tnc\+\_\+function} $\ast$}]{function, }
+\item[{void $\ast$}]{state, }
+\item[{double}]{low\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{up\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{scale\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{offset\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{messages, }
+\item[{int}]{max\+C\+Git, }
+\item[{int}]{maxnfeval, }
+\item[{double}]{eta, }
+\item[{double}]{stepmx, }
+\item[{double}]{accuracy, }
+\item[{double}]{fmin, }
+\item[{double}]{ftol, }
+\item[{double}]{xtol, }
+\item[{double}]{pgtol, }
+\item[{double}]{rescale, }
+\item[{int $\ast$}]{nfeval, }
+\item[{int $\ast$}]{niter, }
+\item[{{\bf tnc\+\_\+callback} $\ast$}]{callback}
+\end{DoxyParamCaption}
+)}\label{tnc_8c_a3a095bfe5d20dc20304d0591b3d62e90}
+
+
+\subsection{Variable Documentation}
+\hypertarget{tnc_8c_a8fd6d48619b6c248f6042894f79bda1f}{}\index{tnc.\+c@{tnc.\+c}!tnc\+\_\+rc\+\_\+string@{tnc\+\_\+rc\+\_\+string}}
+\index{tnc\+\_\+rc\+\_\+string@{tnc\+\_\+rc\+\_\+string}!tnc.\+c@{tnc.\+c}}
+\subsubsection[{tnc\+\_\+rc\+\_\+string}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ tnc\+\_\+rc\+\_\+string\mbox{[}11\mbox{]}}\label{tnc_8c_a8fd6d48619b6c248f6042894f79bda1f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+\{
+  \textcolor{stringliteral}{"Memory allocation failed"},
+  \textcolor{stringliteral}{"Invalid parameters (n<0)"},
+  \textcolor{stringliteral}{"Infeasible (low bound > up bound)"},
+  \textcolor{stringliteral}{"Local minima reach (|pg| ~= 0)"},
+  \textcolor{stringliteral}{"Converged (|f\_n-f\_(n-1)| ~= 0)"},
+  \textcolor{stringliteral}{"Converged (|x\_n-x\_(n-1)| ~= 0)"},
+  \textcolor{stringliteral}{"Maximum number of function evaluations reached"},
+  \textcolor{stringliteral}{"Linear search failed"},
+  \textcolor{stringliteral}{"All lower bounds are equal to the upper bounds"},
+  \textcolor{stringliteral}{"Unable to progress"},
+  \textcolor{stringliteral}{"User requested end of minimization"}
+\}
+\end{DoxyCode}

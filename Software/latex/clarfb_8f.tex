@@ -1,0 +1,157 @@
+\hypertarget{clarfb_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clarfb.f File Reference}
+\label{clarfb_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarfb.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarfb.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clarfb_8f_a625578c63463d61350ee393cd3f9aeb6}{clarfb} (S\+I\+D\+E, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, D\+I\+R\+E\+C\+T, S\+T\+O\+R\+E\+V, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, V, L\+D\+V, T, L\+D\+T, C, L\+D\+C, W\+O\+R\+K, L\+D\+W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+R\+F\+B} applies a block reflector or its conjugate-\/transpose to a general rectangular matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clarfb_8f_a625578c63463d61350ee393cd3f9aeb6}{}\index{clarfb.\+f@{clarfb.\+f}!clarfb@{clarfb}}
+\index{clarfb@{clarfb}!clarfb.\+f@{clarfb.\+f}}
+\subsubsection[{clarfb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clarfb (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{character}]{D\+I\+R\+E\+C\+T, }
+\item[{character}]{S\+T\+O\+R\+E\+V, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{{\bf complex}, dimension( ldv, $\ast$ )}]{V, }
+\item[{integer}]{L\+D\+V, }
+\item[{{\bf complex}, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{{\bf complex}, dimension( ldc, $\ast$ )}]{C, }
+\item[{integer}]{L\+D\+C, }
+\item[{{\bf complex}, dimension( ldwork, $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+D\+W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{clarfb_8f_a625578c63463d61350ee393cd3f9aeb6}
+
+
+{\bfseries C\+L\+A\+R\+F\+B} applies a block reflector or its conjugate-\/transpose to a general rectangular matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLARFB applies a complex block reflector H or its transpose H**H to a
+ complex M-by-N matrix C, from either the left or the right.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+          = 'L': apply H or H**H from the Left
+          = 'R': apply H or H**H from the Right\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          = 'N': apply H (No transpose)
+          = 'C': apply H**H (Conjugate transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+R\+E\+C\+T} & \begin{DoxyVerb}          DIRECT is CHARACTER*1
+          Indicates how H is formed from a product of elementary
+          reflectors
+          = 'F': H = H(1) H(2) . . . H(k) (Forward)
+          = 'B': H = H(k) . . . H(2) H(1) (Backward)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+T\+O\+R\+E\+V} & \begin{DoxyVerb}          STOREV is CHARACTER*1
+          Indicates how the vectors which define the elementary
+          reflectors are stored:
+          = 'C': Columnwise
+          = 'R': Rowwise\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+          The order of the matrix T (= the number of elementary
+          reflectors whose product defines the block reflector).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V} & \begin{DoxyVerb}          V is COMPLEX array, dimension
+                                (LDV,K) if STOREV = 'C'
+                                (LDV,M) if STOREV = 'R' and SIDE = 'L'
+                                (LDV,N) if STOREV = 'R' and SIDE = 'R'
+          The matrix V. See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V} & \begin{DoxyVerb}          LDV is INTEGER
+          The leading dimension of the array V.
+          If STOREV = 'C' and SIDE = 'L', LDV >= max(1,M);
+          if STOREV = 'C' and SIDE = 'R', LDV >= max(1,N);
+          if STOREV = 'R', LDV >= K.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T} & \begin{DoxyVerb}          T is COMPLEX array, dimension (LDT,K)
+          The triangular K-by-K matrix T in the representation of the
+          block reflector.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T. LDT >= K.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is COMPLEX array, dimension (LDC,N)
+          On entry, the M-by-N matrix C.
+          On exit, C is overwritten by H*C or H**H*C or C*H or C*H**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+          The leading dimension of the array C. LDC >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (LDWORK,K)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+W\+O\+R\+K} & \begin{DoxyVerb}          LDWORK is INTEGER
+          The leading dimension of the array WORK.
+          If SIDE = 'L', LDWORK >= max(1,N);
+          if SIDE = 'R', LDWORK >= max(1,M).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+June 2013 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The shape of the matrix V and the storage of the vectors which define
+  the H(i) is best illustrated by the following example with n = 5 and
+  k = 3. The elements equal to 1 are not stored; the corresponding
+  array elements are modified but restored on exit. The rest of the
+  array is not used.
+
+  DIRECT = 'F' and STOREV = 'C':         DIRECT = 'F' and STOREV = 'R':
+
+               V = (  1       )                 V = (  1 v1 v1 v1 v1 )
+                   ( v1  1    )                     (     1 v2 v2 v2 )
+                   ( v1 v2  1 )                     (        1 v3 v3 )
+                   ( v1 v2 v3 )
+                   ( v1 v2 v3 )
+
+  DIRECT = 'B' and STOREV = 'C':         DIRECT = 'B' and STOREV = 'R':
+
+               V = ( v1 v2 v3 )                 V = ( v1 v1  1       )
+                   ( v1 v2 v3 )                     ( v2 v2 v2  1    )
+                   (  1 v2 v3 )                     ( v3 v3 v3 v3  1 )
+                   (     1 v3 )
+                   (        1 )\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

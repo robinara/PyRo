@@ -1,0 +1,98 @@
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline}{}\section{scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Bivariate\+Spline Class Reference}
+\label{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline}\index{scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Bivariate\+Spline@{scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Bivariate\+Spline}}
+Inheritance diagram for scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Bivariate\+Spline\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_a66351f8e7826a1bbcec1b9901bcd5e7f}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_a22d30295a3687461ff4ba6aa58f3d798}{fp}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_aaed5d976271ef387e4b3c8dcc8db84ef}{tck}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_af89701808c194d7ab30dfc4206409b7e}{degrees}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Weighted least-squares bivariate spline approximation.
+
+Parameters
+----------
+x, y, z : array_like
+    1-D sequences of data points (order is not important).
+tx, ty : array_like
+    Strictly ordered 1-D sequences of knots coordinates.
+w : array_like, optional
+    Positive 1-D array of weights, of the same length as `x`, `y` and `z`.
+bbox : (4,) array_like, optional
+    Sequence of length 4 specifying the boundary of the rectangular
+    approximation domain.  By default,
+    ``bbox=[min(x,tx),max(x,tx), min(y,ty),max(y,ty)]``.
+kx, ky : ints, optional
+    Degrees of the bivariate spline. Default is 3.
+s : float, optional
+    Positive smoothing factor defined for estimation condition:
+    ``sum((w[i]*(z[i]-s(x[i], y[i])))**2, axis=0) <= s``
+    Default ``s=len(w)`` which should be a good value if ``1/w[i]`` is an
+    estimate of the standard deviation of ``z[i]``.
+eps : float, optional
+    A threshold for determining the effective rank of an over-determined
+    linear system of equations. `eps` should have a value between 0 and 1,
+    the default is 1e-16.
+
+See Also
+--------
+bisplrep : an older wrapping of FITPACK
+bisplev : an older wrapping of FITPACK
+UnivariateSpline : a similar class for univariate spline interpolation
+SmoothBivariateSpline : create a smoothing BivariateSpline
+
+Notes
+-----
+The length of `x`, `y` and `z` should be at least ``(kx+1) * (ky+1)``.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_a66351f8e7826a1bbcec1b9901bcd5e7f}{}\index{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Bivariate\+Spline.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z, }
+\item[{}]{tx, }
+\item[{}]{ty, }
+\item[{}]{w = {\ttfamily None}, }
+\item[{}]{bbox = {\ttfamily \mbox{[}None\mbox{]}$\ast$4}, }
+\item[{}]{kx = {\ttfamily 3}, }
+\item[{}]{ky = {\ttfamily 3}, }
+\item[{}]{eps = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_a66351f8e7826a1bbcec1b9901bcd5e7f}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_af89701808c194d7ab30dfc4206409b7e}{}\index{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline}!degrees@{degrees}}
+\index{degrees@{degrees}!scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline}}
+\subsubsection[{degrees}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Bivariate\+Spline.\+degrees}\label{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_af89701808c194d7ab30dfc4206409b7e}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_a22d30295a3687461ff4ba6aa58f3d798}{}\index{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline}!fp@{fp}}
+\index{fp@{fp}!scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline}}
+\subsubsection[{fp}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Bivariate\+Spline.\+fp}\label{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_a22d30295a3687461ff4ba6aa58f3d798}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_aaed5d976271ef387e4b3c8dcc8db84ef}{}\index{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline}!tck@{tck}}
+\index{tck@{tck}!scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Bivariate\+Spline}}
+\subsubsection[{tck}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Bivariate\+Spline.\+tck}\label{classscipy_1_1interpolate_1_1fitpack2_1_1LSQBivariateSpline_aaed5d976271ef387e4b3c8dcc8db84ef}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{fitpack2_8py}{fitpack2.\+py}\end{DoxyCompactItemize}

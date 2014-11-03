@@ -1,0 +1,72 @@
+\hypertarget{classscipy_1_1stats_1_1__continuous__distns_1_1gamma__gen}{}\section{scipy.\+stats.\+\_\+continuous\+\_\+distns.\+gamma\+\_\+gen Class Reference}
+\label{classscipy_1_1stats_1_1__continuous__distns_1_1gamma__gen}\index{scipy.\+stats.\+\_\+continuous\+\_\+distns.\+gamma\+\_\+gen@{scipy.\+stats.\+\_\+continuous\+\_\+distns.\+gamma\+\_\+gen}}
+
+
+Gamma (Use M\+A\+T\+L\+A\+B and M\+A\+T\+H\+E\+M\+A\+T\+I\+C\+A (b=theta=scale, a=alpha=shape) definition)  
+
+
+Inheritance diagram for scipy.\+stats.\+\_\+continuous\+\_\+distns.\+gamma\+\_\+gen\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classscipy_1_1stats_1_1__continuous__distns_1_1gamma__gen}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1__continuous__distns_1_1gamma__gen_ada4cf7c9ae70dd241de49f318e88d37d}{fit}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Gamma (Use M\+A\+T\+L\+A\+B and M\+A\+T\+H\+E\+M\+A\+T\+I\+C\+A (b=theta=scale, a=alpha=shape) definition) 
+
+\hyperlink{mconf_8h_a42e729077189bab1dae844253dd2ad1d}{gamma(a, loc, scale)} with a an integer is the Erlang distribution \hyperlink{mconf_8h_a42e729077189bab1dae844253dd2ad1d}{gamma(1, loc, scale)} is the Exponential distribution gamma(df/2, 0, 2) is the chi2 distribution with df degrees of freedom. \begin{DoxyVerb}A gamma continuous random variable.
+
+%(before_notes)s
+
+See Also
+--------
+erlang, expon
+
+Notes
+-----
+The probability density function for `gamma` is::
+
+    gamma.pdf(x, a) = lambda**a * x**(a-1) * exp(-lambda*x) / gamma(a)
+
+for ``x >= 0``, ``a > 0``. Here ``gamma(a)`` refers to the gamma function.
+
+The scale parameter is equal to ``scale = 1.0 / lambda``.
+
+`gamma` has a shape parameter `a` which needs to be set explicitly. For
+instance:
+
+    >>> from scipy.stats import gamma
+    >>> rv = gamma(3., loc = 0., scale = 2.)
+
+produces a frozen form of `gamma` with shape ``a = 3.``, ``loc =0.``
+and ``lambda = 1./scale = 1./2.``.
+
+When ``a`` is an integer, `gamma` reduces to the Erlang
+distribution, and when ``a=1`` to the exponential distribution.
+
+%(example)s\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1stats_1_1__continuous__distns_1_1gamma__gen_ada4cf7c9ae70dd241de49f318e88d37d}{}\index{scipy\+::stats\+::\+\_\+continuous\+\_\+distns\+::gamma\+\_\+gen@{scipy\+::stats\+::\+\_\+continuous\+\_\+distns\+::gamma\+\_\+gen}!fit@{fit}}
+\index{fit@{fit}!scipy\+::stats\+::\+\_\+continuous\+\_\+distns\+::gamma\+\_\+gen@{scipy\+::stats\+::\+\_\+continuous\+\_\+distns\+::gamma\+\_\+gen}}
+\subsubsection[{fit}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+\_\+continuous\+\_\+distns.\+gamma\+\_\+gen.\+fit (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{data, }
+\item[{}]{args, }
+\item[{}]{kwds}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1__continuous__distns_1_1gamma__gen_ada4cf7c9ae70dd241de49f318e88d37d}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/stats/\hyperlink{__continuous__distns_8py}{\+\_\+continuous\+\_\+distns.\+py}\end{DoxyCompactItemize}

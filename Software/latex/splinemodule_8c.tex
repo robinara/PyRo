@@ -1,0 +1,271 @@
+\hypertarget{splinemodule_8c}{}\section{packages/scipy-\/0.14.0/scipy/signal/splinemodule.c File Reference}
+\label{splinemodule_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/signal/splinemodule.\+c@{packages/scipy-\/0.\+14.\+0/scipy/signal/splinemodule.\+c}}
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}numpy/arrayobject.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{splinemodule_8c_a084b4c1417382017b3d08415c1147093}{P\+Y\+E\+R\+R}(message)~do \{Py\+Err\+\_\+\+Set\+String(Py\+Exc\+\_\+\+Value\+Error, message); goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail};\} while(0)
+\item 
+\#define \hyperlink{splinemodule_8c_a6258adccdbb804960032cdf6594ebeb3}{D\+A\+T\+A}(arr)~((arr)-\/$>$data)
+\item 
+\#define \hyperlink{splinemodule_8c_a1bc510f5238213a03b56f712b3244edd}{D\+I\+M\+S}(arr)~((arr)-\/$>$dimensions)
+\item 
+\#define \hyperlink{splinemodule_8c_a01b4f65b397b9f7be6080ff948dfd253}{S\+T\+R\+I\+D\+E\+S}(arr)~((arr)-\/$>$strides)
+\item 
+\#define \hyperlink{splinemodule_8c_a105e4a9b41e53c79c7c776e26d706ca9}{E\+L\+S\+I\+Z\+E}(arr)~((arr)-\/$>$descr-\/$>$elsize)
+\item 
+\#define \hyperlink{splinemodule_8c_a0dd0aec606d272c66612a657ebdcfe94}{O\+B\+J\+E\+C\+T\+T\+Y\+P\+E}(arr)~((arr)-\/$>$descr-\/$>$type\+\_\+num)
+\item 
+\#define \hyperlink{splinemodule_8c_a9be7f8d4180cbe3d70af31779ff03bbb}{B\+A\+S\+E\+O\+B\+J}(arr)~((Py\+Array\+Object $\ast$)((arr)-\/$>$base))
+\item 
+\#define \hyperlink{splinemodule_8c_a3a88bcc63386de30443dacede2e01847}{R\+A\+N\+K}(arr)~((arr)-\/$>$nd)
+\item 
+\#define \hyperlink{splinemodule_8c_a31ddc3bae85ae4bfc4e7b4557fb9744e}{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})~((\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})-\/$>$flags \& N\+P\+Y\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{splinemodule_8c_a7f6f03d3f17bdc53151b6fc514b44181}{S\+\_\+cubic\+\_\+spline2\+D} (float $\ast$, float $\ast$, int, int, double, npy\+\_\+intp $\ast$, npy\+\_\+intp $\ast$, float)
+\item 
+int \hyperlink{splinemodule_8c_a9e276b606b6c7a9f5c466b54119a7839}{S\+\_\+quadratic\+\_\+spline2\+D} (float $\ast$, float $\ast$, int, int, double, npy\+\_\+intp $\ast$, npy\+\_\+intp $\ast$, float)
+\item 
+int \hyperlink{splinemodule_8c_aa75a48718c99a38a3b6b6d7a7b38586c}{S\+\_\+\+I\+I\+R\+\_\+forback1} (float, float, float $\ast$, float $\ast$, int, int, int, float)
+\item 
+int \hyperlink{splinemodule_8c_a227739435f497ddb1a01f6e65ac6cd79}{S\+\_\+\+I\+I\+R\+\_\+forback2} (double, double, float $\ast$, float $\ast$, int, int, int, float)
+\item 
+int \hyperlink{splinemodule_8c_a27de357137ad19faaa2ca2020901a8c6}{S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror} (float $\ast$, float $\ast$, int, int, float $\ast$, float $\ast$, int, int, npy\+\_\+intp $\ast$, npy\+\_\+intp $\ast$)
+\item 
+int \hyperlink{splinemodule_8c_a20d9e2809a583d886ff38f373f3d1a85}{D\+\_\+cubic\+\_\+spline2\+D} (double $\ast$, double $\ast$, int, int, double, npy\+\_\+intp $\ast$, npy\+\_\+intp $\ast$, double)
+\item 
+int \hyperlink{splinemodule_8c_a6ee2f35ae055afbd47a0adc727abf4a3}{D\+\_\+quadratic\+\_\+spline2\+D} (double $\ast$, double $\ast$, int, int, double, npy\+\_\+intp $\ast$, npy\+\_\+intp $\ast$, double)
+\item 
+int \hyperlink{splinemodule_8c_a4fbe4735964b63651d76d6fb424db829}{D\+\_\+\+I\+I\+R\+\_\+forback1} (double, double, double $\ast$, double $\ast$, int, int, int, double)
+\item 
+int \hyperlink{splinemodule_8c_a080f4fb92335a53b44ffa5fe62ed2ee9}{D\+\_\+\+I\+I\+R\+\_\+forback2} (double, double, double $\ast$, double $\ast$, int, int, int, double)
+\item 
+int \hyperlink{splinemodule_8c_a39ab12f0db9af793f7258161dde3a0e8}{D\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror} (double $\ast$, double $\ast$, int, int, double $\ast$, double $\ast$, int, int, npy\+\_\+intp $\ast$, npy\+\_\+intp $\ast$)
+\item 
+\hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} \hyperlink{splinemodule_8c_aa58331de13fbbce5abb3f3852ad3d203}{initspline} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{splinemodule_8c_a9be7f8d4180cbe3d70af31779ff03bbb}{}\index{splinemodule.\+c@{splinemodule.\+c}!B\+A\+S\+E\+O\+B\+J@{B\+A\+S\+E\+O\+B\+J}}
+\index{B\+A\+S\+E\+O\+B\+J@{B\+A\+S\+E\+O\+B\+J}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{B\+A\+S\+E\+O\+B\+J}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+A\+S\+E\+O\+B\+J(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((Py\+Array\+Object $\ast$)((arr)-\/$>$base))}\label{splinemodule_8c_a9be7f8d4180cbe3d70af31779ff03bbb}
+\hypertarget{splinemodule_8c_a6258adccdbb804960032cdf6594ebeb3}{}\index{splinemodule.\+c@{splinemodule.\+c}!D\+A\+T\+A@{D\+A\+T\+A}}
+\index{D\+A\+T\+A@{D\+A\+T\+A}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{D\+A\+T\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+A\+T\+A(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$data)}\label{splinemodule_8c_a6258adccdbb804960032cdf6594ebeb3}
+\hypertarget{splinemodule_8c_a1bc510f5238213a03b56f712b3244edd}{}\index{splinemodule.\+c@{splinemodule.\+c}!D\+I\+M\+S@{D\+I\+M\+S}}
+\index{D\+I\+M\+S@{D\+I\+M\+S}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{D\+I\+M\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+I\+M\+S(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$dimensions)}\label{splinemodule_8c_a1bc510f5238213a03b56f712b3244edd}
+\hypertarget{splinemodule_8c_a105e4a9b41e53c79c7c776e26d706ca9}{}\index{splinemodule.\+c@{splinemodule.\+c}!E\+L\+S\+I\+Z\+E@{E\+L\+S\+I\+Z\+E}}
+\index{E\+L\+S\+I\+Z\+E@{E\+L\+S\+I\+Z\+E}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{E\+L\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+L\+S\+I\+Z\+E(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$descr-\/$>$elsize)}\label{splinemodule_8c_a105e4a9b41e53c79c7c776e26d706ca9}
+\hypertarget{splinemodule_8c_a31ddc3bae85ae4bfc4e7b4557fb9744e}{}\index{splinemodule.\+c@{splinemodule.\+c}!I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}}
+\index{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf m}}
+\end{DoxyParamCaption}
+)~(({\bf m})-\/$>$flags \& N\+P\+Y\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S)}\label{splinemodule_8c_a31ddc3bae85ae4bfc4e7b4557fb9744e}
+\hypertarget{splinemodule_8c_a0dd0aec606d272c66612a657ebdcfe94}{}\index{splinemodule.\+c@{splinemodule.\+c}!O\+B\+J\+E\+C\+T\+T\+Y\+P\+E@{O\+B\+J\+E\+C\+T\+T\+Y\+P\+E}}
+\index{O\+B\+J\+E\+C\+T\+T\+Y\+P\+E@{O\+B\+J\+E\+C\+T\+T\+Y\+P\+E}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{O\+B\+J\+E\+C\+T\+T\+Y\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+B\+J\+E\+C\+T\+T\+Y\+P\+E(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$descr-\/$>$type\+\_\+num)}\label{splinemodule_8c_a0dd0aec606d272c66612a657ebdcfe94}
+\hypertarget{splinemodule_8c_a084b4c1417382017b3d08415c1147093}{}\index{splinemodule.\+c@{splinemodule.\+c}!P\+Y\+E\+R\+R@{P\+Y\+E\+R\+R}}
+\index{P\+Y\+E\+R\+R@{P\+Y\+E\+R\+R}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{P\+Y\+E\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+E\+R\+R(
+\begin{DoxyParamCaption}
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~do \{Py\+Err\+\_\+\+Set\+String(Py\+Exc\+\_\+\+Value\+Error, message); goto {\bf fail};\} while(0)}\label{splinemodule_8c_a084b4c1417382017b3d08415c1147093}
+\hypertarget{splinemodule_8c_a3a88bcc63386de30443dacede2e01847}{}\index{splinemodule.\+c@{splinemodule.\+c}!R\+A\+N\+K@{R\+A\+N\+K}}
+\index{R\+A\+N\+K@{R\+A\+N\+K}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{R\+A\+N\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+N\+K(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$nd)}\label{splinemodule_8c_a3a88bcc63386de30443dacede2e01847}
+\hypertarget{splinemodule_8c_a01b4f65b397b9f7be6080ff948dfd253}{}\index{splinemodule.\+c@{splinemodule.\+c}!S\+T\+R\+I\+D\+E\+S@{S\+T\+R\+I\+D\+E\+S}}
+\index{S\+T\+R\+I\+D\+E\+S@{S\+T\+R\+I\+D\+E\+S}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{S\+T\+R\+I\+D\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+R\+I\+D\+E\+S(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$strides)}\label{splinemodule_8c_a01b4f65b397b9f7be6080ff948dfd253}
+
+
+\subsection{Function Documentation}
+\hypertarget{splinemodule_8c_a20d9e2809a583d886ff38f373f3d1a85}{}\index{splinemodule.\+c@{splinemodule.\+c}!D\+\_\+cubic\+\_\+spline2\+D@{D\+\_\+cubic\+\_\+spline2\+D}}
+\index{D\+\_\+cubic\+\_\+spline2\+D@{D\+\_\+cubic\+\_\+spline2\+D}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{D\+\_\+cubic\+\_\+spline2\+D}]{\setlength{\rightskip}{0pt plus 5cm}int D\+\_\+cubic\+\_\+spline2\+D (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_a20d9e2809a583d886ff38f373f3d1a85}
+\hypertarget{splinemodule_8c_a4fbe4735964b63651d76d6fb424db829}{}\index{splinemodule.\+c@{splinemodule.\+c}!D\+\_\+\+I\+I\+R\+\_\+forback1@{D\+\_\+\+I\+I\+R\+\_\+forback1}}
+\index{D\+\_\+\+I\+I\+R\+\_\+forback1@{D\+\_\+\+I\+I\+R\+\_\+forback1}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{D\+\_\+\+I\+I\+R\+\_\+forback1}]{\setlength{\rightskip}{0pt plus 5cm}int D\+\_\+\+I\+I\+R\+\_\+forback1 (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_a4fbe4735964b63651d76d6fb424db829}
+\hypertarget{splinemodule_8c_a080f4fb92335a53b44ffa5fe62ed2ee9}{}\index{splinemodule.\+c@{splinemodule.\+c}!D\+\_\+\+I\+I\+R\+\_\+forback2@{D\+\_\+\+I\+I\+R\+\_\+forback2}}
+\index{D\+\_\+\+I\+I\+R\+\_\+forback2@{D\+\_\+\+I\+I\+R\+\_\+forback2}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{D\+\_\+\+I\+I\+R\+\_\+forback2}]{\setlength{\rightskip}{0pt plus 5cm}int D\+\_\+\+I\+I\+R\+\_\+forback2 (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_a080f4fb92335a53b44ffa5fe62ed2ee9}
+\hypertarget{splinemodule_8c_a6ee2f35ae055afbd47a0adc727abf4a3}{}\index{splinemodule.\+c@{splinemodule.\+c}!D\+\_\+quadratic\+\_\+spline2\+D@{D\+\_\+quadratic\+\_\+spline2\+D}}
+\index{D\+\_\+quadratic\+\_\+spline2\+D@{D\+\_\+quadratic\+\_\+spline2\+D}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{D\+\_\+quadratic\+\_\+spline2\+D}]{\setlength{\rightskip}{0pt plus 5cm}int D\+\_\+quadratic\+\_\+spline2\+D (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_a6ee2f35ae055afbd47a0adc727abf4a3}
+\hypertarget{splinemodule_8c_a39ab12f0db9af793f7258161dde3a0e8}{}\index{splinemodule.\+c@{splinemodule.\+c}!D\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror@{D\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror}}
+\index{D\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror@{D\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{D\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror}]{\setlength{\rightskip}{0pt plus 5cm}int D\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_a39ab12f0db9af793f7258161dde3a0e8}
+\hypertarget{splinemodule_8c_aa58331de13fbbce5abb3f3852ad3d203}{}\index{splinemodule.\+c@{splinemodule.\+c}!initspline@{initspline}}
+\index{initspline@{initspline}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{initspline}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} initspline (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_aa58331de13fbbce5abb3f3852ad3d203}
+\hypertarget{splinemodule_8c_a7f6f03d3f17bdc53151b6fc514b44181}{}\index{splinemodule.\+c@{splinemodule.\+c}!S\+\_\+cubic\+\_\+spline2\+D@{S\+\_\+cubic\+\_\+spline2\+D}}
+\index{S\+\_\+cubic\+\_\+spline2\+D@{S\+\_\+cubic\+\_\+spline2\+D}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{S\+\_\+cubic\+\_\+spline2\+D}]{\setlength{\rightskip}{0pt plus 5cm}int S\+\_\+cubic\+\_\+spline2\+D (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{float}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_a7f6f03d3f17bdc53151b6fc514b44181}
+\hypertarget{splinemodule_8c_aa75a48718c99a38a3b6b6d7a7b38586c}{}\index{splinemodule.\+c@{splinemodule.\+c}!S\+\_\+\+I\+I\+R\+\_\+forback1@{S\+\_\+\+I\+I\+R\+\_\+forback1}}
+\index{S\+\_\+\+I\+I\+R\+\_\+forback1@{S\+\_\+\+I\+I\+R\+\_\+forback1}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{S\+\_\+\+I\+I\+R\+\_\+forback1}]{\setlength{\rightskip}{0pt plus 5cm}int S\+\_\+\+I\+I\+R\+\_\+forback1 (
+\begin{DoxyParamCaption}
+\item[{float}]{, }
+\item[{float}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_aa75a48718c99a38a3b6b6d7a7b38586c}
+\hypertarget{splinemodule_8c_a227739435f497ddb1a01f6e65ac6cd79}{}\index{splinemodule.\+c@{splinemodule.\+c}!S\+\_\+\+I\+I\+R\+\_\+forback2@{S\+\_\+\+I\+I\+R\+\_\+forback2}}
+\index{S\+\_\+\+I\+I\+R\+\_\+forback2@{S\+\_\+\+I\+I\+R\+\_\+forback2}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{S\+\_\+\+I\+I\+R\+\_\+forback2}]{\setlength{\rightskip}{0pt plus 5cm}int S\+\_\+\+I\+I\+R\+\_\+forback2 (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_a227739435f497ddb1a01f6e65ac6cd79}
+\hypertarget{splinemodule_8c_a9e276b606b6c7a9f5c466b54119a7839}{}\index{splinemodule.\+c@{splinemodule.\+c}!S\+\_\+quadratic\+\_\+spline2\+D@{S\+\_\+quadratic\+\_\+spline2\+D}}
+\index{S\+\_\+quadratic\+\_\+spline2\+D@{S\+\_\+quadratic\+\_\+spline2\+D}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{S\+\_\+quadratic\+\_\+spline2\+D}]{\setlength{\rightskip}{0pt plus 5cm}int S\+\_\+quadratic\+\_\+spline2\+D (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{float}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_a9e276b606b6c7a9f5c466b54119a7839}
+\hypertarget{splinemodule_8c_a27de357137ad19faaa2ca2020901a8c6}{}\index{splinemodule.\+c@{splinemodule.\+c}!S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror@{S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror}}
+\index{S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror@{S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror}!splinemodule.\+c@{splinemodule.\+c}}
+\subsubsection[{S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror}]{\setlength{\rightskip}{0pt plus 5cm}int S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{splinemodule_8c_a27de357137ad19faaa2ca2020901a8c6}

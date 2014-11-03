@@ -1,0 +1,618 @@
+\hypertarget{group__doubleSYauxiliary}{}\section{double}
+\label{group__doubleSYauxiliary}\index{double@{double}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{numinquire_8h_a2c8e616467665d0b2814d4c1589ba74e}{precision} \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{group__doubleSYauxiliary_ga8e0d957efd6f93764d9bc98a7aa1927a}{dlansy} (N\+O\+R\+M, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+N\+S\+Y} returns the value of the 1-\/norm, or the Frobenius norm, or the infinity norm, or the element of largest absolute value of a real symmetric matrix. \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__doubleSYauxiliary_gaf752e7a2738ba60307c9d41d171099b0}{dlaqsy} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, S, S\+C\+O\+N\+D, A\+M\+A\+X, E\+Q\+U\+E\+D)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+Q\+S\+Y} scales a symmetric/\+Hermitian matrix, using scaling factors computed by spoequ. \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__doubleSYauxiliary_gaf104dd54134c1a4ddb0d573ff9fe6d06}{dlasy2} (L\+T\+R\+A\+N\+L, L\+T\+R\+A\+N\+R, I\+S\+G\+N, N1, N2, T\+L, L\+D\+T\+L, T\+R, L\+D\+T\+R, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, S\+C\+A\+L\+E, X, L\+D\+X, X\+N\+O\+R\+M, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+S\+Y2} solves the Sylvester matrix equation where the matrices are of order 1 or 2. \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__doubleSYauxiliary_ga5f95b3cae2a8dc2bdb7f6e336d0c297f}{dsyswapr} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I1, I2)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+S\+Y\+S\+W\+A\+P\+R} applies an elementary permutation on the rows and columns of a symmetric matrix. \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__doubleSYauxiliary_gaa6de4c854b216a9afb2f6d00eaaa3b45}{dtgsy2} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, I\+J\+O\+B, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, C, L\+D\+C, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, L\+D\+D, E, L\+D\+E, F, L\+D\+F, S\+C\+A\+L\+E, R\+D\+S\+U\+M, R\+D\+S\+C\+A\+L, I\+W\+O\+R\+K, P\+Q, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+T\+G\+S\+Y2} solves the generalized Sylvester equation (unblocked algorithm). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of double auxiliary functions for S\+Y matrices 
+
+\subsection{Function Documentation}
+\hypertarget{group__doubleSYauxiliary_ga8e0d957efd6f93764d9bc98a7aa1927a}{}\index{double@{double}!dlansy@{dlansy}}
+\index{dlansy@{dlansy}!double@{double}}
+\subsubsection[{dlansy}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf precision} {\bf function} dlansy (
+\begin{DoxyParamCaption}
+\item[{character}]{N\+O\+R\+M, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{group__doubleSYauxiliary_ga8e0d957efd6f93764d9bc98a7aa1927a}
+
+
+{\bfseries D\+L\+A\+N\+S\+Y} returns the value of the 1-\/norm, or the Frobenius norm, or the infinity norm, or the element of largest absolute value of a real symmetric matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLANSY  returns the value of the one norm,  or the Frobenius norm, or
+ the  infinity norm,  or the  element of  largest absolute value  of a
+ real symmetric matrix A.\end{DoxyVerb}
+
+\end{DoxyParagraph}
+\begin{DoxyReturn}{Returns}
+D\+L\+A\+N\+S\+Y \begin{DoxyVerb}    DLANSY = ( max(abs(A(i,j))), NORM = 'M' or 'm'
+             (
+             ( norm1(A),         NORM = '1', 'O' or 'o'
+             (
+             ( normI(A),         NORM = 'I' or 'i'
+             (
+             ( normF(A),         NORM = 'F', 'f', 'E' or 'e'
+
+ where  norm1  denotes the  one norm of a matrix (maximum column sum),
+ normI  denotes the  infinity norm  of a matrix  (maximum row sum) and
+ normF  denotes the  Frobenius norm of a matrix (square root of sum of
+ squares).  Note that  max(abs(A(i,j)))  is not a consistent matrix norm.\end{DoxyVerb}
+ 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N\+O\+R\+M} & \begin{DoxyVerb}          NORM is CHARACTER*1
+          Specifies the value to be returned in DLANSY as described
+          above.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the upper or lower triangular part of the
+          symmetric matrix A is to be referenced.
+          = 'U':  Upper triangular part of A is referenced
+          = 'L':  Lower triangular part of A is referenced\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.  When N = 0, DLANSY is
+          set to zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array, dimension (LDA,N)
+          The symmetric matrix A.  If UPLO = 'U', the leading n by n
+          upper triangular part of A contains the upper triangular part
+          of the matrix A, and the strictly lower triangular part of A
+          is not referenced.  If UPLO = 'L', the leading n by n lower
+          triangular part of A contains the lower triangular part of
+          the matrix A, and the strictly upper triangular part of A is
+          not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(N,1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
+          where LWORK >= N when NORM = 'I' or '1' or 'O'; otherwise,
+          WORK is not referenced.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__doubleSYauxiliary_gaf752e7a2738ba60307c9d41d171099b0}{}\index{double@{double}!dlaqsy@{dlaqsy}}
+\index{dlaqsy@{dlaqsy}!double@{double}}
+\subsubsection[{dlaqsy}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlaqsy (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{S, }
+\item[{double {\bf precision}}]{S\+C\+O\+N\+D, }
+\item[{double {\bf precision}}]{A\+M\+A\+X, }
+\item[{character}]{E\+Q\+U\+E\+D}
+\end{DoxyParamCaption}
+)}\label{group__doubleSYauxiliary_gaf752e7a2738ba60307c9d41d171099b0}
+
+
+{\bfseries D\+L\+A\+Q\+S\+Y} scales a symmetric/\+Hermitian matrix, using scaling factors computed by spoequ. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLAQSY equilibrates a symmetric matrix A using the scaling factors
+ in the vector S.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the upper or lower triangular part of the
+          symmetric matrix A is stored.
+          = 'U':  Upper triangular
+          = 'L':  Lower triangular\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+          n by n upper triangular part of A contains the upper
+          triangular part of the matrix A, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = 'L', the
+          leading n by n lower triangular part of A contains the lower
+          triangular part of the matrix A, and the strictly upper
+          triangular part of A is not referenced.
+
+          On exit, if EQUED = 'Y', the equilibrated matrix:
+          diag(S) * A * diag(S).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(N,1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is DOUBLE PRECISION array, dimension (N)
+          The scale factors for A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+C\+O\+N\+D} & \begin{DoxyVerb}          SCOND is DOUBLE PRECISION
+          Ratio of the smallest S(i) to the largest S(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+M\+A\+X} & \begin{DoxyVerb}          AMAX is DOUBLE PRECISION
+          Absolute value of largest matrix entry.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em E\+Q\+U\+E\+D} & \begin{DoxyVerb}          EQUED is CHARACTER*1
+          Specifies whether or not equilibration was done.
+          = 'N':  No equilibration.
+          = 'Y':  Equilibration was done, i.e., A has been replaced by
+                  diag(S) * A * diag(S).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  THRESH is a threshold value used to decide if scaling should be done
+  based on the ratio of the scaling factors.  If SCOND < THRESH,
+  scaling is done.
+
+  LARGE and SMALL are threshold values used to decide if scaling should
+  be done based on the absolute size of the largest matrix element.
+  If AMAX > LARGE or AMAX < SMALL, scaling is done.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__doubleSYauxiliary_gaf104dd54134c1a4ddb0d573ff9fe6d06}{}\index{double@{double}!dlasy2@{dlasy2}}
+\index{dlasy2@{dlasy2}!double@{double}}
+\subsubsection[{dlasy2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlasy2 (
+\begin{DoxyParamCaption}
+\item[{{\bf logical}}]{L\+T\+R\+A\+N\+L, }
+\item[{{\bf logical}}]{L\+T\+R\+A\+N\+R, }
+\item[{integer}]{I\+S\+G\+N, }
+\item[{integer}]{N1, }
+\item[{integer}]{N2, }
+\item[{double {\bf precision}, dimension( ldtl, $\ast$ )}]{T\+L, }
+\item[{integer}]{L\+D\+T\+L, }
+\item[{double {\bf precision}, dimension( ldtr, $\ast$ )}]{T\+R, }
+\item[{integer}]{L\+D\+T\+R, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}}]{S\+C\+A\+L\+E, }
+\item[{double {\bf precision}, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{double {\bf precision}}]{X\+N\+O\+R\+M, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__doubleSYauxiliary_gaf104dd54134c1a4ddb0d573ff9fe6d06}
+
+
+{\bfseries D\+L\+A\+S\+Y2} solves the Sylvester matrix equation where the matrices are of order 1 or 2. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLASY2 solves for the N1 by N2 matrix X, 1 <= N1,N2 <= 2, in
+
+        op(TL)*X + ISGN*X*op(TR) = SCALE*B,
+
+ where TL is N1 by N1, TR is N2 by N2, B is N1 by N2, and ISGN = 1 or
+ -1.  op(T) = T or T**T, where T**T denotes the transpose of T.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em L\+T\+R\+A\+N\+L} & \begin{DoxyVerb}          LTRANL is LOGICAL
+          On entry, LTRANL specifies the op(TL):
+             = .FALSE., op(TL) = TL,
+             = .TRUE., op(TL) = TL**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+T\+R\+A\+N\+R} & \begin{DoxyVerb}          LTRANR is LOGICAL
+          On entry, LTRANR specifies the op(TR):
+            = .FALSE., op(TR) = TR,
+            = .TRUE., op(TR) = TR**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+S\+G\+N} & \begin{DoxyVerb}          ISGN is INTEGER
+          On entry, ISGN specifies the sign of the equation
+          as described before. ISGN may only be 1 or -1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N1} & \begin{DoxyVerb}          N1 is INTEGER
+          On entry, N1 specifies the order of matrix TL.
+          N1 may only be 0, 1 or 2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N2} & \begin{DoxyVerb}          N2 is INTEGER
+          On entry, N2 specifies the order of matrix TR.
+          N2 may only be 0, 1 or 2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+L} & \begin{DoxyVerb}          TL is DOUBLE PRECISION array, dimension (LDTL,2)
+          On entry, TL contains an N1 by N1 matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T\+L} & \begin{DoxyVerb}          LDTL is INTEGER
+          The leading dimension of the matrix TL. LDTL >= max(1,N1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R} & \begin{DoxyVerb}          TR is DOUBLE PRECISION array, dimension (LDTR,2)
+          On entry, TR contains an N2 by N2 matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T\+R} & \begin{DoxyVerb}          LDTR is INTEGER
+          The leading dimension of the matrix TR. LDTR >= max(1,N2).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,2)
+          On entry, the N1 by N2 matrix B contains the right-hand
+          side of the equation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the matrix B. LDB >= max(1,N1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+C\+A\+L\+E} & \begin{DoxyVerb}          SCALE is DOUBLE PRECISION
+          On exit, SCALE contains the scale factor. SCALE is chosen
+          less than or equal to 1 to prevent the solution overflowing.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em X} & \begin{DoxyVerb}          X is DOUBLE PRECISION array, dimension (LDX,2)
+          On exit, X contains the N1 by N2 solution.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the matrix X. LDX >= max(1,N1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em X\+N\+O\+R\+M} & \begin{DoxyVerb}          XNORM is DOUBLE PRECISION
+          On exit, XNORM is the infinity-norm of the solution.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          On exit, INFO is set to
+             0: successful exit.
+             1: TL and TR have too close eigenvalues, so TL or
+                TR is perturbed to get a nonsingular equation.
+          NOTE: In the interests of speed, this routine does not
+                check the inputs for errors.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__doubleSYauxiliary_ga5f95b3cae2a8dc2bdb7f6e336d0c297f}{}\index{double@{double}!dsyswapr@{dsyswapr}}
+\index{dsyswapr@{dsyswapr}!double@{double}}
+\subsubsection[{dsyswapr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dsyswapr (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( lda, {\bf n} )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer}]{I1, }
+\item[{integer}]{I2}
+\end{DoxyParamCaption}
+)}\label{group__doubleSYauxiliary_ga5f95b3cae2a8dc2bdb7f6e336d0c297f}
+
+
+{\bfseries D\+S\+Y\+S\+W\+A\+P\+R} applies an elementary permutation on the rows and columns of a symmetric matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DSYSWAPR applies an elementary permutation on the rows and the columns of
+ a symmetric matrix.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the details of the factorization are stored
+          as an upper or lower triangular matrix.
+          = 'U':  Upper triangular, form is A = U*D*U**T;
+          = 'L':  Lower triangular, form is A = L*D*L**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the NB diagonal matrix D and the multipliers
+          used to obtain the factor U or L as computed by DSYTRF.
+
+          On exit, if INFO = 0, the (symmetric) inverse of the original
+          matrix.  If UPLO = 'U', the upper triangular part of the
+          inverse is formed and the part of A below the diagonal is not
+          referenced; if UPLO = 'L' the lower triangular part of the
+          inverse is formed and the part of A above the diagonal is
+          not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I1} & \begin{DoxyVerb}          I1 is INTEGER
+          Index of the first row to swap\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I2} & \begin{DoxyVerb}          I2 is INTEGER
+          Index of the second row to swap\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__doubleSYauxiliary_gaa6de4c854b216a9afb2f6d00eaaa3b45}{}\index{double@{double}!dtgsy2@{dtgsy2}}
+\index{dtgsy2@{dtgsy2}!double@{double}}
+\subsubsection[{dtgsy2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dtgsy2 (
+\begin{DoxyParamCaption}
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{I\+J\+O\+B, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}, dimension( ldc, $\ast$ )}]{C, }
+\item[{integer}]{L\+D\+C, }
+\item[{double {\bf precision}, dimension( ldd, $\ast$ )}]{D, }
+\item[{integer}]{L\+D\+D, }
+\item[{double {\bf precision}, dimension( {\bf lde}, $\ast$ )}]{E, }
+\item[{integer}]{L\+D\+E, }
+\item[{double {\bf precision}, dimension( ldf, $\ast$ )}]{F, }
+\item[{integer}]{L\+D\+F, }
+\item[{double {\bf precision}}]{S\+C\+A\+L\+E, }
+\item[{double {\bf precision}}]{R\+D\+S\+U\+M, }
+\item[{double {\bf precision}}]{R\+D\+S\+C\+A\+L, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{P\+Q, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__doubleSYauxiliary_gaa6de4c854b216a9afb2f6d00eaaa3b45}
+
+
+{\bfseries D\+T\+G\+S\+Y2} solves the generalized Sylvester equation (unblocked algorithm). 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DTGSY2 solves the generalized Sylvester equation:
+
+             A * R - L * B = scale * C                (1)
+             D * R - L * E = scale * F,
+
+ using Level 1 and 2 BLAS. where R and L are unknown M-by-N matrices,
+ (A, D), (B, E) and (C, F) are given matrix pairs of size M-by-M,
+ N-by-N and M-by-N, respectively, with real entries. (A, D) and (B, E)
+ must be in generalized Schur canonical form, i.e. A, B are upper
+ quasi triangular and D, E are upper triangular. The solution (R, L)
+ overwrites (C, F). 0 <= SCALE <= 1 is an output scaling factor
+ chosen to avoid overflow.
+
+ In matrix notation solving equation (1) corresponds to solve
+ Z*x = scale*b, where Z is defined as
+
+        Z = [ kron(In, A)  -kron(B**T, Im) ]             (2)
+            [ kron(In, D)  -kron(E**T, Im) ],
+
+ Ik is the identity matrix of size k and X**T is the transpose of X.
+ kron(X, Y) is the Kronecker product between the matrices X and Y.
+ In the process of solving (1), we solve a number of such systems
+ where Dim(In), Dim(In) = 1 or 2.
+
+ If TRANS = 'T', solve the transposed system Z**T*y = scale*b for y,
+ which is equivalent to solve for R and L in
+
+             A**T * R  + D**T * L   = scale * C           (3)
+             R  * B**T + L  * E**T  = scale * -F
+
+ This case is used to compute an estimate of Dif[(A, D), (B, E)] =
+ sigma_min(Z) using reverse communicaton with DLACON.
+
+ DTGSY2 also (IJOB >= 1) contributes to the computation in DTGSYL
+ of an upper bound on the separation between to matrix pairs. Then
+ the input (A, D), (B, E) are sub-pencils of the matrix pair in
+ DTGSYL. See DTGSYL for details.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          = 'N', solve the generalized Sylvester equation (1).
+          = 'T': solve the 'transposed' system (3).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+J\+O\+B} & \begin{DoxyVerb}          IJOB is INTEGER
+          Specifies what kind of functionality to be performed.
+          = 0: solve (1) only.
+          = 1: A contribution from this subsystem to a Frobenius
+               norm-based estimate of the separation between two matrix
+               pairs is computed. (look ahead strategy is used).
+          = 2: A contribution from this subsystem to a Frobenius
+               norm-based estimate of the separation between two matrix
+               pairs is computed. (DGECON on sub-systems is used.)
+          Not referenced if TRANS = 'T'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          On entry, M specifies the order of A and D, and the row
+          dimension of C, F, R and L.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          On entry, N specifies the order of B and E, and the column
+          dimension of C, F, R and L.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array, dimension (LDA, M)
+          On entry, A contains an upper quasi triangular matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the matrix A. LDA >= max(1, M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB, N)
+          On entry, B contains an upper quasi triangular matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the matrix B. LDB >= max(1, N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array, dimension (LDC, N)
+          On entry, C contains the right-hand-side of the first matrix
+          equation in (1).
+          On exit, if IJOB = 0, C has been overwritten by the
+          solution R.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+          The leading dimension of the matrix C. LDC >= max(1, M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (LDD, M)
+          On entry, D contains an upper triangular matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+D} & \begin{DoxyVerb}          LDD is INTEGER
+          The leading dimension of the matrix D. LDD >= max(1, M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is DOUBLE PRECISION array, dimension (LDE, N)
+          On entry, E contains an upper triangular matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+E} & \begin{DoxyVerb}          LDE is INTEGER
+          The leading dimension of the matrix E. LDE >= max(1, N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em F} & \begin{DoxyVerb}          F is DOUBLE PRECISION array, dimension (LDF, N)
+          On entry, F contains the right-hand-side of the second matrix
+          equation in (1).
+          On exit, if IJOB = 0, F has been overwritten by the
+          solution L.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+F} & \begin{DoxyVerb}          LDF is INTEGER
+          The leading dimension of the matrix F. LDF >= max(1, M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+C\+A\+L\+E} & \begin{DoxyVerb}          SCALE is DOUBLE PRECISION
+          On exit, 0 <= SCALE <= 1. If 0 < SCALE < 1, the solutions
+          R and L (C and F on entry) will hold the solutions to a
+          slightly perturbed system but the input matrices A, B, D and
+          E have not been changed. If SCALE = 0, R and L will hold the
+          solutions to the homogeneous system with C = F = 0. Normally,
+          SCALE = 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em R\+D\+S\+U\+M} & \begin{DoxyVerb}          RDSUM is DOUBLE PRECISION
+          On entry, the sum of squares of computed contributions to
+          the Dif-estimate under computation by DTGSYL, where the
+          scaling factor RDSCAL (see below) has been factored out.
+          On exit, the corresponding sum of squares updated with the
+          contributions from the current sub-system.
+          If TRANS = 'T' RDSUM is not touched.
+          NOTE: RDSUM only makes sense when DTGSY2 is called by DTGSYL.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em R\+D\+S\+C\+A\+L} & \begin{DoxyVerb}          RDSCAL is DOUBLE PRECISION
+          On entry, scaling factor used to prevent overflow in RDSUM.
+          On exit, RDSCAL is updated w.r.t. the current contributions
+          in RDSUM.
+          If TRANS = 'T', RDSCAL is not touched.
+          NOTE: RDSCAL only makes sense when DTGSY2 is called by
+                DTGSYL.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (M+N+2)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em P\+Q} & \begin{DoxyVerb}          PQ is INTEGER
+          On exit, the number of subsystems (of size 2-by-2, 4-by-4 and
+          8-by-8) solved by this routine.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          On exit, if INFO is set to
+            =0: Successful exit
+            <0: If INFO = -i, the i-th argument had an illegal value.
+            >0: The matrix pairs (A, D) and (B, E) have common or very
+                close eigenvalues.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Bo Kagstrom and Peter Poromaa, Department of Computing Science, Umea University, S-\/901 87 Umea, Sweden. 
+\end{DoxyParagraph}

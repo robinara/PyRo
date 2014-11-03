@@ -1,0 +1,286 @@
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix}{}\section{scipy.\+sparse.\+coo.\+coo\+\_\+matrix Class Reference}
+\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix}\index{scipy.\+sparse.\+coo.\+coo\+\_\+matrix@{scipy.\+sparse.\+coo.\+coo\+\_\+matrix}}
+Inheritance diagram for scipy.\+sparse.\+coo.\+coo\+\_\+matrix\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1sparse_1_1coo_1_1coo__matrix}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a22ff37ecd4813d6a504442a5c26c5ada}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a535d63de8a28128cee9840a472ab59b5}{getnnz}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a0bc521d5093b6b167d2a2736efc9172e}{transpose}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a1e8d33046d2e90b258e3f97bbc03b75b}{toarray}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a73b1c7e56b095dad2667f81ae0647da4}{tocsc}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a21a177c15c8468ddc79797f52dd12170}{tocsr}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a4b7cb552793f82e237b7718070c5232b}{tocoo}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_afb9bf54f61c6d115d75afa94121be5e1}{todia}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a3c6f21ff58581e479b1a1f1049d16b22}{todok}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a3b15be11e1944e48068f0f2a738f78b6}{shape}
+\item 
+\hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a0ebcdc00d47ce3b159221c56962bd85c}{row}
+\item 
+\hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a02e3f97e514df0a4e9ee40efb5703e25}{col}
+\item 
+\hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a4b744396536cbd2f6200ceb55963021e}{data}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_aace3cd7c791be094a00dd37cf3620124}{nnz} = property(fget=\hyperlink{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a535d63de8a28128cee9840a472ab59b5}{getnnz})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}A sparse matrix in COOrdinate format.
+
+Also known as the 'ijv' or 'triplet' format.
+
+This can be instantiated in several ways:
+    coo_matrix(D)
+        with a dense matrix D
+
+    coo_matrix(S)
+        with another sparse matrix S (equivalent to S.tocoo())
+
+    coo_matrix((M, N), [dtype])
+        to construct an empty matrix with shape (M, N)
+        dtype is optional, defaulting to dtype='d'.
+
+    coo_matrix((data, (i, j)), [shape=(M, N)])
+        to construct from three arrays:
+            1. data[:]   the entries of the matrix, in any order
+            2. i[:]      the row indices of the matrix entries
+            3. j[:]      the column indices of the matrix entries
+
+        Where ``A[i[k], j[k]] = data[k]``.  When shape is not
+        specified, it is inferred from the index arrays
+
+Attributes
+----------
+dtype : dtype
+    Data type of the matrix
+shape : 2-tuple
+    Shape of the matrix
+ndim : int
+    Number of dimensions (this is always 2)
+nnz
+    Number of nonzero elements
+data
+    COO format data array of the matrix
+row
+    COO format row index array of the matrix
+col
+    COO format column index array of the matrix
+
+Notes
+-----
+
+Sparse matrices can be used in arithmetic operations: they support
+addition, subtraction, multiplication, division, and matrix power.
+
+Advantages of the COO format
+    - facilitates fast conversion among sparse formats
+    - permits duplicate entries (see example)
+    - very fast conversion to and from CSR/CSC formats
+
+Disadvantages of the COO format
+    - does not directly support:
+        + arithmetic operations
+        + slicing
+
+Intended Usage
+    - COO is a fast format for constructing sparse matrices
+    - Once a matrix has been constructed, convert to CSR or
+      CSC format for fast arithmetic and matrix vector operations
+    - By default when converting to CSR or CSC format, duplicate (i,j)
+      entries will be summed together.  This facilitates efficient
+      construction of finite element matrices and the like. (see example)
+
+Examples
+--------
+>>> from scipy.sparse import coo_matrix
+>>> coo_matrix((3,4), dtype=np.int8).todense()
+matrix([[0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]], dtype=int8)
+
+>>> row  = np.array([0,3,1,0])
+>>> col  = np.array([0,3,1,2])
+>>> data = np.array([4,5,7,9])
+>>> coo_matrix((data,(row,col)), shape=(4,4)).todense()
+matrix([[4, 0, 9, 0],
+        [0, 7, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 5]])
+
+>>> # example with duplicates
+>>> row  = np.array([0,0,1,3,1,0,0])
+>>> col  = np.array([0,2,1,3,1,0,0])
+>>> data = np.array([1,1,1,1,1,1,1])
+>>> coo_matrix((data, (row,col)), shape=(4,4)).todense()
+matrix([[3, 0, 1, 0],
+        [0, 2, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 1]])\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a22ff37ecd4813d6a504442a5c26c5ada}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{arg1, }
+\item[{}]{shape = {\ttfamily None}, }
+\item[{}]{dtype = {\ttfamily None}, }
+\item[{}]{copy = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a22ff37ecd4813d6a504442a5c26c5ada}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a535d63de8a28128cee9840a472ab59b5}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!getnnz@{getnnz}}
+\index{getnnz@{getnnz}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{getnnz}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+getnnz (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{axis = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a535d63de8a28128cee9840a472ab59b5}
+\begin{DoxyVerb}Get the count of explicitly-stored values (nonzeros)
+
+Parameters
+----------
+axis : None, 0, or 1
+    Select between the number of values across the whole matrix, in
+    each column, or in each row.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a1e8d33046d2e90b258e3f97bbc03b75b}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!toarray@{toarray}}
+\index{toarray@{toarray}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{toarray}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+toarray (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{order = {\ttfamily None}, }
+\item[{}]{out = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a1e8d33046d2e90b258e3f97bbc03b75b}
+\begin{DoxyVerb}See the docstring for `spmatrix.toarray`.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a4b7cb552793f82e237b7718070c5232b}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!tocoo@{tocoo}}
+\index{tocoo@{tocoo}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{tocoo}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+tocoo (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{copy = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a4b7cb552793f82e237b7718070c5232b}
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a73b1c7e56b095dad2667f81ae0647da4}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!tocsc@{tocsc}}
+\index{tocsc@{tocsc}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{tocsc}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+tocsc (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a73b1c7e56b095dad2667f81ae0647da4}
+\begin{DoxyVerb}Return a copy of this matrix in Compressed Sparse Column format
+
+Duplicate entries will be summed together.
+
+Examples
+--------
+>>> from numpy import array
+>>> from scipy.sparse import coo_matrix
+>>> row  = array([0,0,1,3,1,0,0])
+>>> col  = array([0,2,1,3,1,0,0])
+>>> data = array([1,1,1,1,1,1,1])
+>>> A = coo_matrix( (data,(row,col)), shape=(4,4)).tocsc()
+>>> A.todense()
+matrix([[3, 0, 1, 0],
+[0, 2, 0, 0],
+[0, 0, 0, 0],
+[0, 0, 0, 1]])\end{DoxyVerb}
+ \hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a21a177c15c8468ddc79797f52dd12170}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!tocsr@{tocsr}}
+\index{tocsr@{tocsr}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{tocsr}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+tocsr (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a21a177c15c8468ddc79797f52dd12170}
+\begin{DoxyVerb}Return a copy of this matrix in Compressed Sparse Row format
+
+Duplicate entries will be summed together.
+
+Examples
+--------
+>>> from numpy import array
+>>> from scipy.sparse import coo_matrix
+>>> row  = array([0,0,1,3,1,0,0])
+>>> col  = array([0,2,1,3,1,0,0])
+>>> data = array([1,1,1,1,1,1,1])
+>>> A = coo_matrix( (data,(row,col)), shape=(4,4)).tocsr()
+>>> A.todense()
+matrix([[3, 0, 1, 0],
+[0, 2, 0, 0],
+[0, 0, 0, 0],
+[0, 0, 0, 1]])\end{DoxyVerb}
+ \hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_afb9bf54f61c6d115d75afa94121be5e1}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!todia@{todia}}
+\index{todia@{todia}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{todia}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+todia (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_afb9bf54f61c6d115d75afa94121be5e1}
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a3c6f21ff58581e479b1a1f1049d16b22}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!todok@{todok}}
+\index{todok@{todok}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{todok}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+todok (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a3c6f21ff58581e479b1a1f1049d16b22}
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a0bc521d5093b6b167d2a2736efc9172e}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!transpose@{transpose}}
+\index{transpose@{transpose}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{transpose}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+transpose (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{copy = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a0bc521d5093b6b167d2a2736efc9172e}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a02e3f97e514df0a4e9ee40efb5703e25}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!col@{col}}
+\index{col@{col}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{col}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+col}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a02e3f97e514df0a4e9ee40efb5703e25}
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a4b744396536cbd2f6200ceb55963021e}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!data@{data}}
+\index{data@{data}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+data}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a4b744396536cbd2f6200ceb55963021e}
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a0ebcdc00d47ce3b159221c56962bd85c}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!row@{row}}
+\index{row@{row}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{row}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+row}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a0ebcdc00d47ce3b159221c56962bd85c}
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a3b15be11e1944e48068f0f2a738f78b6}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!shape@{shape}}
+\index{shape@{shape}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{shape}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+shape}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_a3b15be11e1944e48068f0f2a738f78b6}
+
+
+\subsection{Property Documentation}
+\hypertarget{classscipy_1_1sparse_1_1coo_1_1coo__matrix_aace3cd7c791be094a00dd37cf3620124}{}\index{scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}!nnz@{nnz}}
+\index{nnz@{nnz}!scipy\+::sparse\+::coo\+::coo\+\_\+matrix@{scipy\+::sparse\+::coo\+::coo\+\_\+matrix}}
+\subsubsection[{nnz}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+coo.\+coo\+\_\+matrix.\+nnz = property(fget={\bf getnnz})\hspace{0.3cm}{\ttfamily [static]}}\label{classscipy_1_1sparse_1_1coo_1_1coo__matrix_aace3cd7c791be094a00dd37cf3620124}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/sparse/\hyperlink{coo_8py}{coo.\+py}\end{DoxyCompactItemize}

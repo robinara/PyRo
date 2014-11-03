@@ -1,0 +1,238 @@
+\hypertarget{array-impl_8h}{}\section{packages/scipy-\/0.14.0/scipy/weave/blitz/blitz/array-\/impl.h File Reference}
+\label{array-impl_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array-\/impl.\+h@{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array-\/impl.\+h}}
+{\ttfamily \#include $<$blitz/blitz.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/memblock.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/range.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/tinyvec.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/indexexpr.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/prettyprint.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/slice.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/map.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/multi.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/domain.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/storage.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/iter.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/fastiter.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/expr.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/methods.\+cc$>$}\\*
+{\ttfamily \#include $<$blitz/array/eval.\+cc$>$}\\*
+{\ttfamily \#include $<$blitz/array/ops.\+cc$>$}\\*
+{\ttfamily \#include $<$blitz/array/io.\+cc$>$}\\*
+{\ttfamily \#include $<$blitz/array/et.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/reduce.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/interlace.\+cc$>$}\\*
+{\ttfamily \#include $<$blitz/array/resize.\+cc$>$}\\*
+{\ttfamily \#include $<$blitz/array/slicing.\+cc$>$}\\*
+{\ttfamily \#include $<$blitz/array/cycle.\+cc$>$}\\*
+{\ttfamily \#include $<$blitz/array/complex.\+cc$>$}\\*
+{\ttfamily \#include $<$blitz/array/zip.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/where.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/indirect.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/stencils.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classArrayIterator}{Array\+Iterator$<$ T, N $>$}
+\item 
+class \hyperlink{classConstArrayIterator}{Const\+Array\+Iterator$<$ T, N $>$}
+\item 
+class \hyperlink{classFastArrayIterator}{Fast\+Array\+Iterator$<$ P\+\_\+numtype, N\+\_\+rank $>$}
+\item 
+class \hyperlink{class__bz__ArrayExpr}{\+\_\+bz\+\_\+\+Array\+Expr$<$ P\+\_\+expr $>$}
+\item 
+class \hyperlink{classIndirectArray}{Indirect\+Array$<$ T\+\_\+array, T\+\_\+index $>$}
+\item 
+class \hyperlink{classArray}{Array$<$ P\+\_\+numtype, N\+\_\+rank $>$}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename P\+\_\+numtype , int N\+\_\+rank$>$ }\\void \hyperlink{array-impl_8h_a8483fb33f01b49fbcbe388ca8f4c46ec}{swap} (\hyperlink{classArray}{Array}$<$ P\+\_\+numtype, N\+\_\+rank $>$ \&, \hyperlink{classArray}{Array}$<$ P\+\_\+numtype, N\+\_\+rank $>$ \&)
+\item 
+{\footnotesize template$<$typename P\+\_\+numtype , int N\+\_\+rank$>$ }\\void \hyperlink{array-impl_8h_a0af5a49edd7753a60ebae7174743d899}{find} (\hyperlink{classArray}{Array}$<$ \hyperlink{classTinyVector}{Tiny\+Vector}$<$ int, N\+\_\+rank $>$, 1 $>$ \&, const \hyperlink{classArray}{Array}$<$ P\+\_\+numtype, N\+\_\+rank $>$ \&)
+\item 
+{\footnotesize template$<$typename T\+\_\+numtype $>$ }\\ostream \& \hyperlink{array-impl_8h_a761cf2ddb4c0a2d11d3e66905be07dbe}{operator$<$$<$} (ostream \&, const \hyperlink{classArray}{Array}$<$ T\+\_\+numtype, 1 $>$ \&)
+\item 
+{\footnotesize template$<$typename T\+\_\+numtype $>$ }\\ostream \& \hyperlink{array-impl_8h_a29a7ebfc237e3ec1d996ad0fa87dd945}{operator$<$$<$} (ostream \&, const \hyperlink{classArray}{Array}$<$ T\+\_\+numtype, 2 $>$ \&)
+\item 
+{\footnotesize template$<$typename T\+\_\+numtype , int N\+\_\+rank$>$ }\\ostream \& \hyperlink{array-impl_8h_ac94be81fda55e0a2474fb744fcf0df5b}{operator$<$$<$} (ostream \&, const \hyperlink{classArray}{Array}$<$ T\+\_\+numtype, N\+\_\+rank $>$ \&)
+\item 
+{\footnotesize template$<$typename T\+\_\+numtype , int N\+\_\+rank$>$ }\\istream \& \hyperlink{array-impl_8h_ad8522755e6ee07b8d8b1f7708afddca5}{operator$>$$>$} (istream \&is, \hyperlink{classArray}{Array}$<$ T\+\_\+numtype, N\+\_\+rank $>$ \&\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})
+\item 
+{\footnotesize template$<$typename P\+\_\+expr $>$ }\\void \hyperlink{array-impl_8h_ad11d57daf4b0db08c441230c60d382be}{find} (\hyperlink{classArray}{Array}$<$ \hyperlink{classTinyVector}{Tiny\+Vector}$<$ int, \hyperlink{zfftnd_8c_a6cfd95afd0afebd625b889fb6e58371c}{P\+\_\+expr\+::rank} $>$, 1 $>$ \&indices, const \hyperlink{class__bz__ArrayExpr}{\+\_\+bz\+\_\+\+Array\+Expr}$<$ P\+\_\+expr $>$ \&expr)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{array-impl_8h_a10fa77141b2ccb1987020012c8968060}{first\+Rank} = 0
+\item 
+const int \hyperlink{array-impl_8h_a80b19521ce0cdc6058a6e74f4ec23fe1}{second\+Rank} = 1
+\item 
+const int \hyperlink{array-impl_8h_a6234d233c51516b8ac4efd55bceebab0}{third\+Rank} = 2
+\item 
+const int \hyperlink{array-impl_8h_a444c9890bbff4c24a863f016eb5807cf}{fourth\+Rank} = 3
+\item 
+const int \hyperlink{array-impl_8h_a4cda495bd162d9be12babd19baa9a556}{fifth\+Rank} = 4
+\item 
+const int \hyperlink{array-impl_8h_a946e32a6eb593958f7c32a28a153ce40}{sixth\+Rank} = 5
+\item 
+const int \hyperlink{array-impl_8h_a3fca1df55adbfa8251489da219ce6e14}{seventh\+Rank} = 6
+\item 
+const int \hyperlink{array-impl_8h_a4fb3e6a5e3db7aeeed58909a47787c59}{eighth\+Rank} = 7
+\item 
+const int \hyperlink{array-impl_8h_a591b69aa0470434d784665524a551be8}{ninth\+Rank} = 8
+\item 
+const int \hyperlink{array-impl_8h_a8606511c19df3f5f3c01d5ba22c9226a}{tenth\+Rank} = 9
+\item 
+const int \hyperlink{array-impl_8h_a5065eea386c808e4500600470240708a}{eleventh\+Rank} = 10
+\item 
+const int \hyperlink{array-impl_8h_a0e33e8837ee6b8867d978fe9c3efe885}{first\+Dim} = 0
+\item 
+const int \hyperlink{array-impl_8h_a518ffae5f2f550d35ec0e2fe7b9856ff}{second\+Dim} = 1
+\item 
+const int \hyperlink{array-impl_8h_a014c5cae0a66ed35b79c8d1e5e8aa309}{third\+Dim} = 2
+\item 
+const int \hyperlink{array-impl_8h_a88ddcd456cba203025b1ebce201b2ae5}{fourth\+Dim} = 3
+\item 
+const int \hyperlink{array-impl_8h_aafec8739c9efb7ba33a9d73d754ca901}{fifth\+Dim} = 4
+\item 
+const int \hyperlink{array-impl_8h_a09e286be77fa9fa73a5849629e5d33b9}{sixth\+Dim} = 5
+\item 
+const int \hyperlink{array-impl_8h_ae82f35cbc334ff8aa239b73df4a56814}{seventh\+Dim} = 6
+\item 
+const int \hyperlink{array-impl_8h_a71fc90c01b3db3416638e71925c3038a}{eighth\+Dim} = 7
+\item 
+const int \hyperlink{array-impl_8h_a1d015c7d42fc317a351bac33a1c9aee2}{ninth\+Dim} = 8
+\item 
+const int \hyperlink{array-impl_8h_a33946040ebca5971e44f2abaa2bdc27f}{tenth\+Dim} = 9
+\item 
+const int \hyperlink{array-impl_8h_a0bac07dc8580219fe495290cb12a0e94}{eleventh\+Dim} = 10
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{array-impl_8h_a0af5a49edd7753a60ebae7174743d899}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!find@{find}}
+\index{find@{find}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+numtype , int N\+\_\+rank$>$ void find (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ {\bf Tiny\+Vector}$<$ int, N\+\_\+rank $>$, 1 $>$ \&}]{indices, }
+\item[{const {\bf Array}$<$ P\+\_\+numtype, N\+\_\+rank $>$ \&}]{expr\+Vals}
+\end{DoxyParamCaption}
+)}\label{array-impl_8h_a0af5a49edd7753a60ebae7174743d899}
+\hypertarget{array-impl_8h_ad11d57daf4b0db08c441230c60d382be}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!find@{find}}
+\index{find@{find}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+expr $>$ void find (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ {\bf Tiny\+Vector}$<$ int, {\bf P\+\_\+expr\+::rank} $>$, 1 $>$ \&}]{indices, }
+\item[{const {\bf \+\_\+bz\+\_\+\+Array\+Expr}$<$ P\+\_\+expr $>$ \&}]{expr}
+\end{DoxyParamCaption}
+)}\label{array-impl_8h_ad11d57daf4b0db08c441230c60d382be}
+\hypertarget{array-impl_8h_a761cf2ddb4c0a2d11d3e66905be07dbe}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+numtype $>$ ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{, }
+\item[{const {\bf Array}$<$ T\+\_\+numtype, 1 $>$ \&}]{}
+\end{DoxyParamCaption}
+)}\label{array-impl_8h_a761cf2ddb4c0a2d11d3e66905be07dbe}
+\hypertarget{array-impl_8h_a29a7ebfc237e3ec1d996ad0fa87dd945}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+numtype $>$ ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{, }
+\item[{const {\bf Array}$<$ T\+\_\+numtype, 2 $>$ \&}]{}
+\end{DoxyParamCaption}
+)}\label{array-impl_8h_a29a7ebfc237e3ec1d996ad0fa87dd945}
+\hypertarget{array-impl_8h_ac94be81fda55e0a2474fb744fcf0df5b}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+numtype , int N\+\_\+rank$>$ ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{, }
+\item[{const {\bf Array}$<$ T\+\_\+numtype, N\+\_\+rank $>$ \&}]{}
+\end{DoxyParamCaption}
+)}\label{array-impl_8h_ac94be81fda55e0a2474fb744fcf0df5b}
+\hypertarget{array-impl_8h_ad8522755e6ee07b8d8b1f7708afddca5}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+numtype , int N\+\_\+rank$>$ istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{is, }
+\item[{{\bf Array}$<$ T\+\_\+numtype, N\+\_\+rank $>$ \&}]{x}
+\end{DoxyParamCaption}
+)}\label{array-impl_8h_ad8522755e6ee07b8d8b1f7708afddca5}
+\hypertarget{array-impl_8h_a8483fb33f01b49fbcbe388ca8f4c46ec}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!swap@{swap}}
+\index{swap@{swap}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+numtype , int N\+\_\+rank$>$ void swap (
+\begin{DoxyParamCaption}
+\item[{{\bf Array}$<$ P\+\_\+numtype, N\+\_\+rank $>$ \&}]{a, }
+\item[{{\bf Array}$<$ P\+\_\+numtype, N\+\_\+rank $>$ \&}]{b}
+\end{DoxyParamCaption}
+)}\label{array-impl_8h_a8483fb33f01b49fbcbe388ca8f4c46ec}
+
+
+\subsection{Variable Documentation}
+\hypertarget{array-impl_8h_a71fc90c01b3db3416638e71925c3038a}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!eighth\+Dim@{eighth\+Dim}}
+\index{eighth\+Dim@{eighth\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{eighth\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int eighth\+Dim = 7}\label{array-impl_8h_a71fc90c01b3db3416638e71925c3038a}
+\hypertarget{array-impl_8h_a4fb3e6a5e3db7aeeed58909a47787c59}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!eighth\+Rank@{eighth\+Rank}}
+\index{eighth\+Rank@{eighth\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{eighth\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int eighth\+Rank = 7}\label{array-impl_8h_a4fb3e6a5e3db7aeeed58909a47787c59}
+\hypertarget{array-impl_8h_a0bac07dc8580219fe495290cb12a0e94}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!eleventh\+Dim@{eleventh\+Dim}}
+\index{eleventh\+Dim@{eleventh\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{eleventh\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int eleventh\+Dim = 10}\label{array-impl_8h_a0bac07dc8580219fe495290cb12a0e94}
+\hypertarget{array-impl_8h_a5065eea386c808e4500600470240708a}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!eleventh\+Rank@{eleventh\+Rank}}
+\index{eleventh\+Rank@{eleventh\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{eleventh\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int eleventh\+Rank = 10}\label{array-impl_8h_a5065eea386c808e4500600470240708a}
+\hypertarget{array-impl_8h_aafec8739c9efb7ba33a9d73d754ca901}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!fifth\+Dim@{fifth\+Dim}}
+\index{fifth\+Dim@{fifth\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{fifth\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int fifth\+Dim = 4}\label{array-impl_8h_aafec8739c9efb7ba33a9d73d754ca901}
+\hypertarget{array-impl_8h_a4cda495bd162d9be12babd19baa9a556}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!fifth\+Rank@{fifth\+Rank}}
+\index{fifth\+Rank@{fifth\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{fifth\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int fifth\+Rank = 4}\label{array-impl_8h_a4cda495bd162d9be12babd19baa9a556}
+\hypertarget{array-impl_8h_a0e33e8837ee6b8867d978fe9c3efe885}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!first\+Dim@{first\+Dim}}
+\index{first\+Dim@{first\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{first\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int first\+Dim = 0}\label{array-impl_8h_a0e33e8837ee6b8867d978fe9c3efe885}
+\hypertarget{array-impl_8h_a10fa77141b2ccb1987020012c8968060}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!first\+Rank@{first\+Rank}}
+\index{first\+Rank@{first\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{first\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int first\+Rank = 0}\label{array-impl_8h_a10fa77141b2ccb1987020012c8968060}
+\hypertarget{array-impl_8h_a88ddcd456cba203025b1ebce201b2ae5}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!fourth\+Dim@{fourth\+Dim}}
+\index{fourth\+Dim@{fourth\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{fourth\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int fourth\+Dim = 3}\label{array-impl_8h_a88ddcd456cba203025b1ebce201b2ae5}
+\hypertarget{array-impl_8h_a444c9890bbff4c24a863f016eb5807cf}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!fourth\+Rank@{fourth\+Rank}}
+\index{fourth\+Rank@{fourth\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{fourth\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int fourth\+Rank = 3}\label{array-impl_8h_a444c9890bbff4c24a863f016eb5807cf}
+\hypertarget{array-impl_8h_a1d015c7d42fc317a351bac33a1c9aee2}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!ninth\+Dim@{ninth\+Dim}}
+\index{ninth\+Dim@{ninth\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{ninth\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int ninth\+Dim = 8}\label{array-impl_8h_a1d015c7d42fc317a351bac33a1c9aee2}
+\hypertarget{array-impl_8h_a591b69aa0470434d784665524a551be8}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!ninth\+Rank@{ninth\+Rank}}
+\index{ninth\+Rank@{ninth\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{ninth\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int ninth\+Rank = 8}\label{array-impl_8h_a591b69aa0470434d784665524a551be8}
+\hypertarget{array-impl_8h_a518ffae5f2f550d35ec0e2fe7b9856ff}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!second\+Dim@{second\+Dim}}
+\index{second\+Dim@{second\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{second\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int second\+Dim = 1}\label{array-impl_8h_a518ffae5f2f550d35ec0e2fe7b9856ff}
+\hypertarget{array-impl_8h_a80b19521ce0cdc6058a6e74f4ec23fe1}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!second\+Rank@{second\+Rank}}
+\index{second\+Rank@{second\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{second\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int second\+Rank = 1}\label{array-impl_8h_a80b19521ce0cdc6058a6e74f4ec23fe1}
+\hypertarget{array-impl_8h_ae82f35cbc334ff8aa239b73df4a56814}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!seventh\+Dim@{seventh\+Dim}}
+\index{seventh\+Dim@{seventh\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{seventh\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int seventh\+Dim = 6}\label{array-impl_8h_ae82f35cbc334ff8aa239b73df4a56814}
+\hypertarget{array-impl_8h_a3fca1df55adbfa8251489da219ce6e14}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!seventh\+Rank@{seventh\+Rank}}
+\index{seventh\+Rank@{seventh\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{seventh\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int seventh\+Rank = 6}\label{array-impl_8h_a3fca1df55adbfa8251489da219ce6e14}
+\hypertarget{array-impl_8h_a09e286be77fa9fa73a5849629e5d33b9}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!sixth\+Dim@{sixth\+Dim}}
+\index{sixth\+Dim@{sixth\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{sixth\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int sixth\+Dim = 5}\label{array-impl_8h_a09e286be77fa9fa73a5849629e5d33b9}
+\hypertarget{array-impl_8h_a946e32a6eb593958f7c32a28a153ce40}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!sixth\+Rank@{sixth\+Rank}}
+\index{sixth\+Rank@{sixth\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{sixth\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int sixth\+Rank = 5}\label{array-impl_8h_a946e32a6eb593958f7c32a28a153ce40}
+\hypertarget{array-impl_8h_a33946040ebca5971e44f2abaa2bdc27f}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!tenth\+Dim@{tenth\+Dim}}
+\index{tenth\+Dim@{tenth\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{tenth\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int tenth\+Dim = 9}\label{array-impl_8h_a33946040ebca5971e44f2abaa2bdc27f}
+\hypertarget{array-impl_8h_a8606511c19df3f5f3c01d5ba22c9226a}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!tenth\+Rank@{tenth\+Rank}}
+\index{tenth\+Rank@{tenth\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{tenth\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int tenth\+Rank = 9}\label{array-impl_8h_a8606511c19df3f5f3c01d5ba22c9226a}
+\hypertarget{array-impl_8h_a014c5cae0a66ed35b79c8d1e5e8aa309}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!third\+Dim@{third\+Dim}}
+\index{third\+Dim@{third\+Dim}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{third\+Dim}]{\setlength{\rightskip}{0pt plus 5cm}const int third\+Dim = 2}\label{array-impl_8h_a014c5cae0a66ed35b79c8d1e5e8aa309}
+\hypertarget{array-impl_8h_a6234d233c51516b8ac4efd55bceebab0}{}\index{array-\/impl.\+h@{array-\/impl.\+h}!third\+Rank@{third\+Rank}}
+\index{third\+Rank@{third\+Rank}!array-\/impl.\+h@{array-\/impl.\+h}}
+\subsubsection[{third\+Rank}]{\setlength{\rightskip}{0pt plus 5cm}const int third\+Rank = 2}\label{array-impl_8h_a6234d233c51516b8ac4efd55bceebab0}

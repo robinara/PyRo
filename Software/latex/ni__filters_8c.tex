@@ -1,0 +1,310 @@
+\hypertarget{ni__filters_8c}{}\section{packages/scipy-\/0.14.0/scipy/ndimage/src/ni\+\_\+filters.c File Reference}
+\label{ni__filters_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+filters.\+c@{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+filters.\+c}}
+{\ttfamily \#include \char`\"{}ni\+\_\+support.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ni\+\_\+filters.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ni__filters_8c_a6b20d41d6252e9871430c242cb1a56e7}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}~256000
+\item 
+\#define \hyperlink{ni__filters_8c_a3b6bbf33e19567664ffd062afacaca99}{C\+A\+S\+E\+\_\+\+C\+O\+R\+R\+E\+L\+A\+T\+E\+\_\+\+P\+O\+I\+N\+T}(\+\_\+pi,  \+\_\+weights,  \+\_\+offsets,  \+\_\+filter\+\_\+size,  \+\_\+cvalue,  \+\_\+type,  \+\_\+res,  \+\_\+mv)
+\item 
+\#define \hyperlink{ni__filters_8c_a369eafab67ba61b022ba1d11d70861e0}{C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+O\+U\+T}(\+\_\+po,  \+\_\+tmp,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__filters_8c_a332debe7024f9779048d1f5ba763b0f9}{C\+A\+S\+E\+\_\+\+M\+I\+N\+\_\+\+O\+R\+\_\+\+M\+A\+X\+\_\+\+P\+O\+I\+N\+T}(\+\_\+pi,  \+\_\+offsets,  \+\_\+filter\+\_\+size,  \+\_\+cval,  \+\_\+type,  \+\_\+minimum,  \+\_\+res,  \+\_\+mv,  \+\_\+ss)
+\item 
+\#define \hyperlink{ni__filters_8c_a47ae0c4d5eb03e1578364b76cb7adf51}{C\+A\+S\+E\+\_\+\+R\+A\+N\+K\+\_\+\+P\+O\+I\+N\+T}(\+\_\+pi,  \+\_\+offsets,  \+\_\+filter\+\_\+size,  \+\_\+cval,  \+\_\+type,  \+\_\+rank,  \+\_\+buffer,  \+\_\+res,  \+\_\+mv)
+\item 
+\#define \hyperlink{ni__filters_8c_a6273b4343a6099799e350e99274418ff}{C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+P\+O\+I\+N\+T}(\+\_\+pi,  \+\_\+offsets,  \+\_\+filter\+\_\+size,  \+\_\+cvalue,  \+\_\+type,  \+\_\+res,  \+\_\+mv,  \+\_\+function,  \+\_\+data,  \+\_\+buffer)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ni__filters_8c_a96543dd2224a9dbb41ca423d72136e86}{N\+I\+\_\+\+Correlate1\+D} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$weights, int axis, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode} mode, double cval, npy\+\_\+intp origin)
+\item 
+int \hyperlink{ni__filters_8c_a360a37946d338255dbbd3641bd96d05f}{N\+I\+\_\+\+Correlate} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$weights, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode} mode, double cvalue, npy\+\_\+intp $\ast$origins)
+\item 
+int \hyperlink{ni__filters_8c_af2be162eaaf510777dc664775a2d9eb8}{N\+I\+\_\+\+Uniform\+Filter1\+D} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, npy\+\_\+intp filter\+\_\+size, int axis, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode} mode, double cval, npy\+\_\+intp origin)
+\item 
+int \hyperlink{ni__filters_8c_a17664d864ecf7a2c9e48aeef69f544e7}{N\+I\+\_\+\+Min\+Or\+Max\+Filter1\+D} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, npy\+\_\+intp filter\+\_\+size, int axis, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode} mode, double cval, npy\+\_\+intp origin, int \hyperlink{structminimum}{minimum})
+\item 
+int \hyperlink{ni__filters_8c_a5f0cc0c861c3b0a03ddd1ddd80eb81c3}{N\+I\+\_\+\+Min\+Or\+Max\+Filter} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$footprint, Py\+Array\+Object $\ast$structure, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode} mode, double cvalue, npy\+\_\+intp $\ast$origins, int \hyperlink{structminimum}{minimum})
+\item 
+int \hyperlink{ni__filters_8c_af941570e74ce90397d58b0dddee3ea87}{N\+I\+\_\+\+Rank\+Filter} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, int \hyperlink{zfftnd_8c_a6cfd95afd0afebd625b889fb6e58371c}{rank}, Py\+Array\+Object $\ast$footprint, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode} mode, double cvalue, npy\+\_\+intp $\ast$origins)
+\item 
+int \hyperlink{ni__filters_8c_a125790637de9bced906e6d9e15b9aa00}{N\+I\+\_\+\+Generic\+Filter1\+D} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, int($\ast$\hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function})(double $\ast$, npy\+\_\+intp, double $\ast$, npy\+\_\+intp, void $\ast$), void $\ast$data, npy\+\_\+intp filter\+\_\+size, int axis, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode} mode, double cval, npy\+\_\+intp origin)
+\item 
+int \hyperlink{ni__filters_8c_a946f17b278ee82d0b1a7515111c106f8}{N\+I\+\_\+\+Generic\+Filter} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, int($\ast$\hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function})(double $\ast$, npy\+\_\+intp, double $\ast$, void $\ast$), void $\ast$data, Py\+Array\+Object $\ast$footprint, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode} mode, double cvalue, npy\+\_\+intp $\ast$origins)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ni__filters_8c_a6b20d41d6252e9871430c242cb1a56e7}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}}
+\index{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E~256000}\label{ni__filters_8c_a6b20d41d6252e9871430c242cb1a56e7}
+\hypertarget{ni__filters_8c_a3b6bbf33e19567664ffd062afacaca99}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!C\+A\+S\+E\+\_\+\+C\+O\+R\+R\+E\+L\+A\+T\+E\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+C\+O\+R\+R\+E\+L\+A\+T\+E\+\_\+\+P\+O\+I\+N\+T}}
+\index{C\+A\+S\+E\+\_\+\+C\+O\+R\+R\+E\+L\+A\+T\+E\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+C\+O\+R\+R\+E\+L\+A\+T\+E\+\_\+\+P\+O\+I\+N\+T}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+C\+O\+R\+R\+E\+L\+A\+T\+E\+\_\+\+P\+O\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+C\+O\+R\+R\+E\+L\+A\+T\+E\+\_\+\+P\+O\+I\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+weights, }
+\item[{}]{\+\_\+offsets, }
+\item[{}]{\+\_\+filter\+\_\+size, }
+\item[{}]{\+\_\+cvalue, }
+\item[{}]{\+\_\+type, }
+\item[{}]{\+\_\+res, }
+\item[{}]{\+\_\+mv}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a3b6bbf33e19567664ffd062afacaca99}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                    \(\backslash\)
+\{                                                                   \(\backslash\)
+    npy\_intp \_ii, \_offset;                                            \(\backslash\)
+    for(\_ii = 0; \_ii < \_filter\_size; \_ii++) \{                         \(\backslash\)
+        \_offset = \_offsets[\_ii];                                        \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_offset == \_mv)                                             \(\backslash\)
+            \_res += \_weights[\_ii] * \_cvalue;                              \(\backslash\)
+        else                                                            \(\backslash\)
+            \_res += \_weights[\_ii] * (double)*(\_type*)(\_pi + \_offset);     \(\backslash\)
+    \}                                                                 \(\backslash\)
+\}                                                                   \(\backslash\)
+break
+\end{DoxyCode}
+\hypertarget{ni__filters_8c_a369eafab67ba61b022ba1d11d70861e0}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+O\+U\+T@{C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+O\+U\+T}}
+\index{C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+O\+U\+T@{C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+O\+U\+T}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+O\+U\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+O\+U\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+po, }
+\item[{}]{\+\_\+tmp, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a369eafab67ba61b022ba1d11d70861e0}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                          \(\backslash\)
+    *(\_type*)\_po = (\_type)\_tmp;             \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__filters_8c_a6273b4343a6099799e350e99274418ff}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+P\+O\+I\+N\+T}}
+\index{C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+P\+O\+I\+N\+T}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+P\+O\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+P\+O\+I\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+offsets, }
+\item[{}]{\+\_\+filter\+\_\+size, }
+\item[{}]{\+\_\+cvalue, }
+\item[{}]{\+\_\+type, }
+\item[{}]{\+\_\+res, }
+\item[{}]{\+\_\+mv, }
+\item[{}]{\+\_\+function, }
+\item[{}]{\+\_\+data, }
+\item[{}]{\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a6273b4343a6099799e350e99274418ff}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                       \(\backslash\)
+\{                                                                      \(\backslash\)
+    npy\_intp \_ii, \_offset;                                             \(\backslash\)
+    for(\_ii = 0; \_ii < \_filter\_size; \_ii++) \{                            \(\backslash\)
+        \_offset = \_offsets[\_ii];                                           \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_offset == \_mv)                                                \(\backslash\)
+            \_buffer[\_ii] = (double)\_cvalue;                                  \(\backslash\)
+        else                                                               \(\backslash\)
+            \_buffer[\_ii] = (double)*(\_type*)(\_pi + \_offset);                 \(\backslash\)
+    \}                                                                    \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} (!\_function(\_buffer, \_filter\_size, &\_res, \_data)) \{               \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (!PyErr\_Occurred())                                             \(\backslash\)
+            PyErr\_SetString(PyExc\_RuntimeError,                              \(\backslash\)
+                                            \textcolor{stringliteral}{"unknown error in filter function"});             \(\backslash\)
+            goto exit;                                                       \(\backslash\)
+    \}                                                                    \(\backslash\)
+\}                                                                      \(\backslash\)
+break
+\end{DoxyCode}
+\hypertarget{ni__filters_8c_a332debe7024f9779048d1f5ba763b0f9}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!C\+A\+S\+E\+\_\+\+M\+I\+N\+\_\+\+O\+R\+\_\+\+M\+A\+X\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+M\+I\+N\+\_\+\+O\+R\+\_\+\+M\+A\+X\+\_\+\+P\+O\+I\+N\+T}}
+\index{C\+A\+S\+E\+\_\+\+M\+I\+N\+\_\+\+O\+R\+\_\+\+M\+A\+X\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+M\+I\+N\+\_\+\+O\+R\+\_\+\+M\+A\+X\+\_\+\+P\+O\+I\+N\+T}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+M\+I\+N\+\_\+\+O\+R\+\_\+\+M\+A\+X\+\_\+\+P\+O\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+M\+I\+N\+\_\+\+O\+R\+\_\+\+M\+A\+X\+\_\+\+P\+O\+I\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+offsets, }
+\item[{}]{\+\_\+filter\+\_\+size, }
+\item[{}]{\+\_\+cval, }
+\item[{}]{\+\_\+type, }
+\item[{}]{\+\_\+minimum, }
+\item[{}]{\+\_\+res, }
+\item[{}]{\+\_\+mv, }
+\item[{}]{\+\_\+ss}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a332debe7024f9779048d1f5ba763b0f9}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                  \(\backslash\)
+\{                                                                 \(\backslash\)
+    npy\_intp \_ii, \_oo = *\_offsets;                                \(\backslash\)
+    \_type \_cv = (\_type)\_cval, \_tmp;                                 \(\backslash\)
+    \_res = \_oo == \_mv ? \_cv : *(\_type*)(\_pi + \_oo);                 \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} (\_ss)                                                        \(\backslash\)
+        \_res += *\_ss;                                                 \(\backslash\)
+    for(\_ii = 1; \_ii < \_filter\_size; \_ii++) \{                       \(\backslash\)
+        \_oo = \_offsets[\_ii];                                          \(\backslash\)
+        \_tmp = \_oo == \_mv ? \_cv : *(\_type*)(\_pi + \_oo);               \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_ss)                                                      \(\backslash\)
+            \_tmp += \_ss[\_ii];                                           \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_minimum) \{                                               
+      \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{            if} (\_tmp < \_res)                                            \(\backslash\)
+                \_res = (\_type)\_tmp;                                       \(\backslash\)
+        \} \textcolor{keywordflow}{else} \{                                                      \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{            if} (\_tmp > \_res)                                            \(\backslash\)
+                \_res = (\_type)\_tmp;                                       \(\backslash\)
+        \}                                                             \(\backslash\)
+    \}                                                               \(\backslash\)
+\}                                                                 \(\backslash\)
+break
+\end{DoxyCode}
+\hypertarget{ni__filters_8c_a47ae0c4d5eb03e1578364b76cb7adf51}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!C\+A\+S\+E\+\_\+\+R\+A\+N\+K\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+R\+A\+N\+K\+\_\+\+P\+O\+I\+N\+T}}
+\index{C\+A\+S\+E\+\_\+\+R\+A\+N\+K\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+R\+A\+N\+K\+\_\+\+P\+O\+I\+N\+T}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+R\+A\+N\+K\+\_\+\+P\+O\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+R\+A\+N\+K\+\_\+\+P\+O\+I\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+offsets, }
+\item[{}]{\+\_\+filter\+\_\+size, }
+\item[{}]{\+\_\+cval, }
+\item[{}]{\+\_\+type, }
+\item[{}]{\+\_\+rank, }
+\item[{}]{\+\_\+buffer, }
+\item[{}]{\+\_\+res, }
+\item[{}]{\+\_\+mv}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a47ae0c4d5eb03e1578364b76cb7adf51}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                   \(\backslash\)
+\{                                                                  \(\backslash\)
+    npy\_intp \_ii;                                                  \(\backslash\)
+    for(\_ii = 0; \_ii < \_filter\_size; \_ii++) \{                        \(\backslash\)
+        npy\_intp \_offset = \_offsets[\_ii];                          \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_offset == \_mv)                                            \(\backslash\)
+            \_buffer[\_ii] = (\_type)\_cval;                                 \(\backslash\)
+        else                                                           \(\backslash\)
+            \_buffer[\_ii] = *(\_type*)(\_pi + \_offsets[\_ii]);               \(\backslash\)
+    \}                                                                \(\backslash\)
+    \_res = (\_type)NI\_Select(\_buffer, 0, \_filter\_size - 1, \_rank);    \(\backslash\)
+\}                                                                  \(\backslash\)
+break
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{ni__filters_8c_a360a37946d338255dbbd3641bd96d05f}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!N\+I\+\_\+\+Correlate@{N\+I\+\_\+\+Correlate}}
+\index{N\+I\+\_\+\+Correlate@{N\+I\+\_\+\+Correlate}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{N\+I\+\_\+\+Correlate}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Correlate (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{weights, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{mode, }
+\item[{double}]{cvalue, }
+\item[{npy\+\_\+intp $\ast$}]{origins}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a360a37946d338255dbbd3641bd96d05f}
+\hypertarget{ni__filters_8c_a96543dd2224a9dbb41ca423d72136e86}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!N\+I\+\_\+\+Correlate1\+D@{N\+I\+\_\+\+Correlate1\+D}}
+\index{N\+I\+\_\+\+Correlate1\+D@{N\+I\+\_\+\+Correlate1\+D}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{N\+I\+\_\+\+Correlate1\+D}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Correlate1\+D (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{weights, }
+\item[{int}]{axis, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{mode, }
+\item[{double}]{cval, }
+\item[{npy\+\_\+intp}]{origin}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a96543dd2224a9dbb41ca423d72136e86}
+\hypertarget{ni__filters_8c_a946f17b278ee82d0b1a7515111c106f8}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!N\+I\+\_\+\+Generic\+Filter@{N\+I\+\_\+\+Generic\+Filter}}
+\index{N\+I\+\_\+\+Generic\+Filter@{N\+I\+\_\+\+Generic\+Filter}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{N\+I\+\_\+\+Generic\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Generic\+Filter (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{int($\ast$)(double $\ast$, npy\+\_\+intp, double $\ast$, void $\ast$)}]{function, }
+\item[{void $\ast$}]{data, }
+\item[{Py\+Array\+Object $\ast$}]{footprint, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{mode, }
+\item[{double}]{cvalue, }
+\item[{npy\+\_\+intp $\ast$}]{origins}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a946f17b278ee82d0b1a7515111c106f8}
+\hypertarget{ni__filters_8c_a125790637de9bced906e6d9e15b9aa00}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!N\+I\+\_\+\+Generic\+Filter1\+D@{N\+I\+\_\+\+Generic\+Filter1\+D}}
+\index{N\+I\+\_\+\+Generic\+Filter1\+D@{N\+I\+\_\+\+Generic\+Filter1\+D}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{N\+I\+\_\+\+Generic\+Filter1\+D}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Generic\+Filter1\+D (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{int($\ast$)(double $\ast$, npy\+\_\+intp, double $\ast$, npy\+\_\+intp, void $\ast$)}]{function, }
+\item[{void $\ast$}]{data, }
+\item[{npy\+\_\+intp}]{filter\+\_\+size, }
+\item[{int}]{axis, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{mode, }
+\item[{double}]{cval, }
+\item[{npy\+\_\+intp}]{origin}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a125790637de9bced906e6d9e15b9aa00}
+\hypertarget{ni__filters_8c_a5f0cc0c861c3b0a03ddd1ddd80eb81c3}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!N\+I\+\_\+\+Min\+Or\+Max\+Filter@{N\+I\+\_\+\+Min\+Or\+Max\+Filter}}
+\index{N\+I\+\_\+\+Min\+Or\+Max\+Filter@{N\+I\+\_\+\+Min\+Or\+Max\+Filter}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{N\+I\+\_\+\+Min\+Or\+Max\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Min\+Or\+Max\+Filter (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{footprint, }
+\item[{Py\+Array\+Object $\ast$}]{structure, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{mode, }
+\item[{double}]{cvalue, }
+\item[{npy\+\_\+intp $\ast$}]{origins, }
+\item[{int}]{minimum}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a5f0cc0c861c3b0a03ddd1ddd80eb81c3}
+\hypertarget{ni__filters_8c_a17664d864ecf7a2c9e48aeef69f544e7}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!N\+I\+\_\+\+Min\+Or\+Max\+Filter1\+D@{N\+I\+\_\+\+Min\+Or\+Max\+Filter1\+D}}
+\index{N\+I\+\_\+\+Min\+Or\+Max\+Filter1\+D@{N\+I\+\_\+\+Min\+Or\+Max\+Filter1\+D}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{N\+I\+\_\+\+Min\+Or\+Max\+Filter1\+D}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Min\+Or\+Max\+Filter1\+D (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{npy\+\_\+intp}]{filter\+\_\+size, }
+\item[{int}]{axis, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{mode, }
+\item[{double}]{cval, }
+\item[{npy\+\_\+intp}]{origin, }
+\item[{int}]{minimum}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_a17664d864ecf7a2c9e48aeef69f544e7}
+\hypertarget{ni__filters_8c_af941570e74ce90397d58b0dddee3ea87}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!N\+I\+\_\+\+Rank\+Filter@{N\+I\+\_\+\+Rank\+Filter}}
+\index{N\+I\+\_\+\+Rank\+Filter@{N\+I\+\_\+\+Rank\+Filter}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{N\+I\+\_\+\+Rank\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Rank\+Filter (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{int}]{rank, }
+\item[{Py\+Array\+Object $\ast$}]{footprint, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{mode, }
+\item[{double}]{cvalue, }
+\item[{npy\+\_\+intp $\ast$}]{origins}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_af941570e74ce90397d58b0dddee3ea87}
+\hypertarget{ni__filters_8c_af2be162eaaf510777dc664775a2d9eb8}{}\index{ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}!N\+I\+\_\+\+Uniform\+Filter1\+D@{N\+I\+\_\+\+Uniform\+Filter1\+D}}
+\index{N\+I\+\_\+\+Uniform\+Filter1\+D@{N\+I\+\_\+\+Uniform\+Filter1\+D}!ni\+\_\+filters.\+c@{ni\+\_\+filters.\+c}}
+\subsubsection[{N\+I\+\_\+\+Uniform\+Filter1\+D}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Uniform\+Filter1\+D (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{npy\+\_\+intp}]{filter\+\_\+size, }
+\item[{int}]{axis, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{mode, }
+\item[{double}]{cval, }
+\item[{npy\+\_\+intp}]{origin}
+\end{DoxyParamCaption}
+)}\label{ni__filters_8c_af2be162eaaf510777dc664775a2d9eb8}

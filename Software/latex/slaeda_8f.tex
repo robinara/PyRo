@@ -1,0 +1,130 @@
+\hypertarget{slaeda_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slaeda.f File Reference}
+\label{slaeda_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaeda.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaeda.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slaeda_8f_a462640bebca7ee618dca01292ef30ddb}{slaeda} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, T\+L\+V\+L\+S, C\+U\+R\+L\+V\+L, C\+U\+R\+P\+B\+M, P\+R\+M\+P\+T\+R, P\+E\+R\+M, G\+I\+V\+P\+T\+R, G\+I\+V\+C\+O\+L, G\+I\+V\+N\+U\+M, Q, Q\+P\+T\+R, Z, Z\+T\+E\+M\+P, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+E\+D\+A} used by sstedc. Computes the Z vector determining the rank-\/one modification of the diagonal matrix. Used when the original matrix is dense. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slaeda_8f_a462640bebca7ee618dca01292ef30ddb}{}\index{slaeda.\+f@{slaeda.\+f}!slaeda@{slaeda}}
+\index{slaeda@{slaeda}!slaeda.\+f@{slaeda.\+f}}
+\subsubsection[{slaeda}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slaeda (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{integer}]{T\+L\+V\+L\+S, }
+\item[{integer}]{C\+U\+R\+L\+V\+L, }
+\item[{integer}]{C\+U\+R\+P\+B\+M, }
+\item[{integer, dimension( $\ast$ )}]{P\+R\+M\+P\+T\+R, }
+\item[{integer, dimension( $\ast$ )}]{P\+E\+R\+M, }
+\item[{integer, dimension( $\ast$ )}]{G\+I\+V\+P\+T\+R, }
+\item[{integer, dimension( 2, $\ast$ )}]{G\+I\+V\+C\+O\+L, }
+\item[{real, dimension( 2, $\ast$ )}]{G\+I\+V\+N\+U\+M, }
+\item[{real, dimension( $\ast$ )}]{Q, }
+\item[{integer, dimension( $\ast$ )}]{Q\+P\+T\+R, }
+\item[{real, dimension( $\ast$ )}]{Z, }
+\item[{real, dimension( $\ast$ )}]{Z\+T\+E\+M\+P, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{slaeda_8f_a462640bebca7ee618dca01292ef30ddb}
+
+
+{\bfseries S\+L\+A\+E\+D\+A} used by sstedc. Computes the Z vector determining the rank-\/one modification of the diagonal matrix. Used when the original matrix is dense. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLAEDA computes the Z vector corresponding to the merge step in the
+ CURLVLth step of the merge process with TLVLS steps for the CURPBMth
+ problem.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+         The dimension of the symmetric tridiagonal matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+L\+V\+L\+S} & \begin{DoxyVerb}          TLVLS is INTEGER
+         The total number of merging levels in the overall divide and
+         conquer tree.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+U\+R\+L\+V\+L} & \begin{DoxyVerb}          CURLVL is INTEGER
+         The current level in the overall merge routine,
+         0 <= curlvl <= tlvls.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+U\+R\+P\+B\+M} & \begin{DoxyVerb}          CURPBM is INTEGER
+         The current problem in the current level in the overall
+         merge routine (counting from upper left to lower right).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+R\+M\+P\+T\+R} & \begin{DoxyVerb}          PRMPTR is INTEGER array, dimension (N lg N)
+         Contains a list of pointers which indicate where in PERM a
+         level's permutation is stored.  PRMPTR(i+1) - PRMPTR(i)
+         indicates the size of the permutation and incidentally the
+         size of the full, non-deflated problem.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+E\+R\+M} & \begin{DoxyVerb}          PERM is INTEGER array, dimension (N lg N)
+         Contains the permutations (from deflation and sorting) to be
+         applied to each eigenblock.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+I\+V\+P\+T\+R} & \begin{DoxyVerb}          GIVPTR is INTEGER array, dimension (N lg N)
+         Contains a list of pointers which indicate where in GIVCOL a
+         level's Givens rotations are stored.  GIVPTR(i+1) - GIVPTR(i)
+         indicates the number of Givens rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+I\+V\+C\+O\+L} & \begin{DoxyVerb}          GIVCOL is INTEGER array, dimension (2, N lg N)
+         Each pair of numbers indicates a pair of columns to take place
+         in a Givens rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+I\+V\+N\+U\+M} & \begin{DoxyVerb}          GIVNUM is REAL array, dimension (2, N lg N)
+         Each number indicates the S value to be used in the
+         corresponding Givens rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q} & \begin{DoxyVerb}          Q is REAL array, dimension (N**2)
+         Contains the square eigenblocks from previous levels, the
+         starting positions for blocks are given by QPTR.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q\+P\+T\+R} & \begin{DoxyVerb}          QPTR is INTEGER array, dimension (N+2)
+         Contains a list of pointers which indicate where in Q an
+         eigenblock is stored.  SQRT( QPTR(i+1) - QPTR(i) ) indicates
+         the size of the block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Z} & \begin{DoxyVerb}          Z is REAL array, dimension (N)
+         On output this vector contains the updating vector (the last
+         row of the first sub-eigenvector matrix and the first row of
+         the second sub-eigenvector matrix).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Z\+T\+E\+M\+P} & \begin{DoxyVerb}          ZTEMP is REAL array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Jeff Rutter, Computer Science Division, University of California at Berkeley, U\+S\+A 
+\end{DoxyParagraph}

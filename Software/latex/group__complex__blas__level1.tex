@@ -1,0 +1,388 @@
+\hypertarget{group__complex__blas__level1}{}\section{complex}
+\label{group__complex__blas__level1}\index{complex@{complex}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{group__complex__blas__level1_ga9605cb98791e2038fd89aaef63a31be1}{caxpy} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, C\+A, \hyperlink{scsum1_8c_a5a76da95c549c41790389a76e12fdcb5}{C\+X}, I\+N\+C\+X, C\+Y, I\+N\+C\+Y)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+A\+X\+P\+Y} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex__blas__level1_ga6113a670d3df40b1b081af52af8c29e1}{ccopy} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{scsum1_8c_a5a76da95c549c41790389a76e12fdcb5}{C\+X}, I\+N\+C\+X, C\+Y, I\+N\+C\+Y)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+C\+O\+P\+Y} \end{DoxyCompactList}\item 
+\hyperlink{structcomplex}{complex} \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{group__complex__blas__level1_ga0f02c96fa8498b4aa6b144deee725c0d}{cdotc} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{scsum1_8c_a5a76da95c549c41790389a76e12fdcb5}{C\+X}, I\+N\+C\+X, C\+Y, I\+N\+C\+Y)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+D\+O\+T\+C} \end{DoxyCompactList}\item 
+\hyperlink{structcomplex}{complex} \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{group__complex__blas__level1_gadd72f1b633553acc77250e32bc704a78}{cdotu} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{scsum1_8c_a5a76da95c549c41790389a76e12fdcb5}{C\+X}, I\+N\+C\+X, C\+Y, I\+N\+C\+Y)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+D\+O\+T\+U} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex__blas__level1_ga27b909f1b845f8dc1d34d28941e4f9e3}{crotg} (C\+A, C\+B, C, S)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+R\+O\+T\+G} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex__blas__level1_gab2d569bbfe6356599c69c057ecc2b3f7}{cscal} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, C\+A, \hyperlink{scsum1_8c_a5a76da95c549c41790389a76e12fdcb5}{C\+X}, I\+N\+C\+X)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+S\+C\+A\+L} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex__blas__level1_gaf660f9cda67820f314f36c9668272987}{csrot} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{scsum1_8c_a5a76da95c549c41790389a76e12fdcb5}{C\+X}, I\+N\+C\+X, C\+Y, I\+N\+C\+Y, C, S)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+S\+R\+O\+T} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex__blas__level1_ga7ac1991bb0c9da7b63fd64c999d6b859}{csscal} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, S\+A, \hyperlink{scsum1_8c_a5a76da95c549c41790389a76e12fdcb5}{C\+X}, I\+N\+C\+X)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+S\+S\+C\+A\+L} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex__blas__level1_gaa50b533bbd2eceac1f59dbc780d7a182}{cswap} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{scsum1_8c_a5a76da95c549c41790389a76e12fdcb5}{C\+X}, I\+N\+C\+X, C\+Y, I\+N\+C\+Y)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+S\+W\+A\+P} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of complex L\+E\+V\+E\+L 1 B\+L\+A\+S routines. 
+
+\subsection{Function Documentation}
+\hypertarget{group__complex__blas__level1_ga9605cb98791e2038fd89aaef63a31be1}{}\index{complex@{complex}!caxpy@{caxpy}}
+\index{caxpy@{caxpy}!complex@{complex}}
+\subsubsection[{caxpy}]{\setlength{\rightskip}{0pt plus 5cm}subroutine caxpy (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}}]{C\+A, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+Y, }
+\item[{integer}]{I\+N\+C\+Y}
+\end{DoxyParamCaption}
+)}\label{group__complex__blas__level1_ga9605cb98791e2038fd89aaef63a31be1}
+
+
+{\bfseries C\+A\+X\+P\+Y} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    CAXPY constant times a vector plus a vector.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__complex__blas__level1_ga6113a670d3df40b1b081af52af8c29e1}{}\index{complex@{complex}!ccopy@{ccopy}}
+\index{ccopy@{ccopy}!complex@{complex}}
+\subsubsection[{ccopy}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ccopy (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+Y, }
+\item[{integer}]{I\+N\+C\+Y}
+\end{DoxyParamCaption}
+)}\label{group__complex__blas__level1_ga6113a670d3df40b1b081af52af8c29e1}
+
+
+{\bfseries C\+C\+O\+P\+Y} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    CCOPY copies a vector x to a vector y.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__complex__blas__level1_ga0f02c96fa8498b4aa6b144deee725c0d}{}\index{complex@{complex}!cdotc@{cdotc}}
+\index{cdotc@{cdotc}!complex@{complex}}
+\subsubsection[{cdotc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf complex} {\bf function} cdotc (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+Y, }
+\item[{integer}]{I\+N\+C\+Y}
+\end{DoxyParamCaption}
+)}\label{group__complex__blas__level1_ga0f02c96fa8498b4aa6b144deee725c0d}
+
+
+{\bfseries C\+D\+O\+T\+C} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    forms the dot product of two vectors, conjugating the first
+    vector.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}     jack dongarra, linpack,  3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__complex__blas__level1_gadd72f1b633553acc77250e32bc704a78}{}\index{complex@{complex}!cdotu@{cdotu}}
+\index{cdotu@{cdotu}!complex@{complex}}
+\subsubsection[{cdotu}]{\setlength{\rightskip}{0pt plus 5cm}{\bf complex} {\bf function} cdotu (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+Y, }
+\item[{integer}]{I\+N\+C\+Y}
+\end{DoxyParamCaption}
+)}\label{group__complex__blas__level1_gadd72f1b633553acc77250e32bc704a78}
+
+
+{\bfseries C\+D\+O\+T\+U} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    CDOTU forms the dot product of two vectors.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__complex__blas__level1_ga27b909f1b845f8dc1d34d28941e4f9e3}{}\index{complex@{complex}!crotg@{crotg}}
+\index{crotg@{crotg}!complex@{complex}}
+\subsubsection[{crotg}]{\setlength{\rightskip}{0pt plus 5cm}subroutine crotg (
+\begin{DoxyParamCaption}
+\item[{{\bf complex}}]{C\+A, }
+\item[{{\bf complex}}]{C\+B, }
+\item[{real}]{C, }
+\item[{{\bf complex}}]{S}
+\end{DoxyParamCaption}
+)}\label{group__complex__blas__level1_ga27b909f1b845f8dc1d34d28941e4f9e3}
+
+
+{\bfseries C\+R\+O\+T\+G} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CROTG determines a complex Givens rotation.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\hypertarget{group__complex__blas__level1_gab2d569bbfe6356599c69c057ecc2b3f7}{}\index{complex@{complex}!cscal@{cscal}}
+\index{cscal@{cscal}!complex@{complex}}
+\subsubsection[{cscal}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cscal (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}}]{C\+A, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+X, }
+\item[{integer}]{I\+N\+C\+X}
+\end{DoxyParamCaption}
+)}\label{group__complex__blas__level1_gab2d569bbfe6356599c69c057ecc2b3f7}
+
+
+{\bfseries C\+S\+C\+A\+L} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    CSCAL scales a vector by a constant.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}     jack dongarra, linpack,  3/11/78.
+     modified 3/93 to return if incx .le. 0.
+     modified 12/3/93, array(1) declarations changed to array(*)\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__complex__blas__level1_gaf660f9cda67820f314f36c9668272987}{}\index{complex@{complex}!csrot@{csrot}}
+\index{csrot@{csrot}!complex@{complex}}
+\subsubsection[{csrot}]{\setlength{\rightskip}{0pt plus 5cm}subroutine csrot (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{C\+X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{C\+Y, }
+\item[{integer}]{I\+N\+C\+Y, }
+\item[{real}]{C, }
+\item[{real}]{S}
+\end{DoxyParamCaption}
+)}\label{group__complex__blas__level1_gaf660f9cda67820f314f36c9668272987}
+
+
+{\bfseries C\+S\+R\+O\+T} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CSROT applies a plane rotation, where the cos and sin (c and s) are real
+ and the vectors cx and cy are complex.
+ jack dongarra, linpack, 3/11/78.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+           On entry, N specifies the order of the vectors cx and cy.
+           N must be at least zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C\+X} & \begin{DoxyVerb}          CX is COMPLEX array, dimension at least
+           ( 1 + ( N - 1 )*abs( INCX ) ).
+           Before entry, the incremented array CX must contain the n
+           element vector cx. On exit, CX is overwritten by the updated
+           vector cx.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+           On entry, INCX specifies the increment for the elements of
+           CX. INCX must not be zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C\+Y} & \begin{DoxyVerb}          CY is COMPLEX array, dimension at least
+           ( 1 + ( N - 1 )*abs( INCY ) ).
+           Before entry, the incremented array CY must contain the n
+           element vector cy. On exit, CY is overwritten by the updated
+           vector cy.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+Y} & \begin{DoxyVerb}          INCY is INTEGER
+           On entry, INCY specifies the increment for the elements of
+           CY. INCY must not be zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is REAL
+           On entry, C specifies the cosine, cos.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is REAL
+           On entry, S specifies the sine, sin.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\hypertarget{group__complex__blas__level1_ga7ac1991bb0c9da7b63fd64c999d6b859}{}\index{complex@{complex}!csscal@{csscal}}
+\index{csscal@{csscal}!complex@{complex}}
+\subsubsection[{csscal}]{\setlength{\rightskip}{0pt plus 5cm}subroutine csscal (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real}]{S\+A, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+X, }
+\item[{integer}]{I\+N\+C\+X}
+\end{DoxyParamCaption}
+)}\label{group__complex__blas__level1_ga7ac1991bb0c9da7b63fd64c999d6b859}
+
+
+{\bfseries C\+S\+S\+C\+A\+L} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    CSSCAL scales a complex vector by a real constant.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}     jack dongarra, linpack, 3/11/78.
+     modified 3/93 to return if incx .le. 0.
+     modified 12/3/93, array(1) declarations changed to array(*)\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__complex__blas__level1_gaa50b533bbd2eceac1f59dbc780d7a182}{}\index{complex@{complex}!cswap@{cswap}}
+\index{cswap@{cswap}!complex@{complex}}
+\subsubsection[{cswap}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cswap (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}, dimension($\ast$)}]{C\+Y, }
+\item[{integer}]{I\+N\+C\+Y}
+\end{DoxyParamCaption}
+)}\label{group__complex__blas__level1_gaa50b533bbd2eceac1f59dbc780d7a182}
+
+
+{\bfseries C\+S\+W\+A\+P} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}   CSWAP interchanges two vectors.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}     jack dongarra, linpack, 3/11/78.
+     modified 12/3/93, array(1) declarations changed to array(*)\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

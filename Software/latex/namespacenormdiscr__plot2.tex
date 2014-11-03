@@ -1,0 +1,134 @@
+\hypertarget{namespacenormdiscr__plot2}{}\section{normdiscr\+\_\+plot2 Namespace Reference}
+\label{namespacenormdiscr__plot2}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacenormdiscr__plot2_a5eedafe3a4e06177c196101c8886ba1f}{npoints} = 20
+\item 
+int \hyperlink{namespacenormdiscr__plot2_ae9b2c28b1212df96f1a41fd298ad4390}{npointsh} = \hyperlink{namespacenormdiscr__plot2_a5eedafe3a4e06177c196101c8886ba1f}{npoints}/2
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_abb90b23055cbc2713f40e135104e4a54}{npointsf} = float(\hyperlink{namespacenormdiscr__plot2_a5eedafe3a4e06177c196101c8886ba1f}{npoints})
+\item 
+int \hyperlink{namespacenormdiscr__plot2_a75e9153d69cb7c81a7ce8a505f2aa7ae}{nbound} = 4
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a1d8a343b3fc043bbc9cd58f5e5649453}{normbound} = (1 + 1 / \hyperlink{namespacenormdiscr__plot2_abb90b23055cbc2713f40e135104e4a54}{npointsf})
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a62ec823ef29766de66e391bd4a2dc284}{grid} = np.\+arange(-\/\hyperlink{namespacenormdiscr__plot2_ae9b2c28b1212df96f1a41fd298ad4390}{npointsh}, \hyperlink{namespacenormdiscr__plot2_ae9b2c28b1212df96f1a41fd298ad4390}{npointsh}+2,1)
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a88023cbc8a6175f64d36ce073d725556}{gridlimitsnorm} = (\hyperlink{namespacenormdiscr__plot2_a62ec823ef29766de66e391bd4a2dc284}{grid} -\/ 0.\+5)
+\item 
+float \hyperlink{namespacenormdiscr__plot2_a64e64095e5aa8deecc32daac5b046c2a}{gridlimits} = \hyperlink{namespacenormdiscr__plot2_a62ec823ef29766de66e391bd4a2dc284}{grid}-\/0.\+5
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a5548df286332e74becd4b4e305f43984}{probs} = \hyperlink{nnls_8f_a09a61e17e6534125097a72c24ec1380b}{np.\+diff}(stats.\+truncnorm.\+cdf(\hyperlink{namespacenormdiscr__plot2_a88023cbc8a6175f64d36ce073d725556}{gridlimitsnorm}, -\/\hyperlink{namespacenormdiscr__plot2_a1d8a343b3fc043bbc9cd58f5e5649453}{normbound}, \hyperlink{namespacenormdiscr__plot2_a1d8a343b3fc043bbc9cd58f5e5649453}{normbound}))
+\item 
+\hyperlink{namespacenormdiscr__plot2_acb33a5c700b9bdb2d94bd5120a53a126}{gridint} = \hyperlink{namespacenormdiscr__plot2_a62ec823ef29766de66e391bd4a2dc284}{grid}
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a2441ca073bb0331350476716954626c7}{normdiscrete}
+\item 
+int \hyperlink{namespacenormdiscr__plot2_a8c2b3742f5dc406632d71d4e5aa37df7}{n\+\_\+sample} = 500
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a1929219debd8806bf017653adc7fc911}{rvs} = normdiscrete.\+rvs(size=\hyperlink{namespacenormdiscr__plot2_a8c2b3742f5dc406632d71d4e5aa37df7}{n\+\_\+sample})
+\item 
+\hyperlink{namespacenormdiscr__plot2_a9138836ed78a0a4ce4046b410560ee6c}{rvsnd} = \hyperlink{namespacenormdiscr__plot2_a1929219debd8806bf017653adc7fc911}{rvs}
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a4888d25c27af56764826f51647db471a}{sfreq} = np.\+vstack(\mbox{[}\hyperlink{namespacenormdiscr__plot2_acb33a5c700b9bdb2d94bd5120a53a126}{gridint},f,\hyperlink{namespacenormdiscr__plot2_a5548df286332e74becd4b4e305f43984}{probs}$\ast$\hyperlink{namespacenormdiscr__plot2_a8c2b3742f5dc406632d71d4e5aa37df7}{n\+\_\+sample}\mbox{]})
+\item 
+list \hyperlink{namespacenormdiscr__plot2_a582805d46fcf8730646fa6cf7ea00b7d}{fs} = \hyperlink{namespacenormdiscr__plot2_a4888d25c27af56764826f51647db471a}{sfreq}\mbox{[}\+:,1\mbox{]}
+\item 
+list \hyperlink{namespacenormdiscr__plot2_aa348b068eff201e8e9175a6f94404112}{ft} = \hyperlink{namespacenormdiscr__plot2_a4888d25c27af56764826f51647db471a}{sfreq}\mbox{[}\+:,2\mbox{]}
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_aa6b0f5d41e331e7549b122192c1db0a0}{nd\+\_\+std} = \hyperlink{vecuops_8cc_ac9f82fdb8cd289615247f897852ee5f2}{np.\+sqrt}(normdiscrete.\+stats(moments='v'))
+\item 
+\hyperlink{namespacenormdiscr__plot2_ad3d531a849a128e7a798433179420165}{ind} = \hyperlink{namespacenormdiscr__plot2_acb33a5c700b9bdb2d94bd5120a53a126}{gridint}
+\item 
+float \hyperlink{namespacenormdiscr__plot2_a25df6e806f2a5936e42f0dbb45a6d0ab}{width} = 0.\+35
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_ae6ee99a8c52300b90e4de7fc466ebfe9}{rects1} = \hyperlink{eepromer_8c_a2924c0b64ca8f0b241891bcc826b5602}{plt.\+bar}(\hyperlink{namespacenormdiscr__plot2_ad3d531a849a128e7a798433179420165}{ind}, \hyperlink{namespacenormdiscr__plot2_aa348b068eff201e8e9175a6f94404112}{ft}, \hyperlink{namespacenormdiscr__plot2_a25df6e806f2a5936e42f0dbb45a6d0ab}{width}, color='\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}')
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_ae0d990d06209b61e3d8b594d36937c72}{rects2} = \hyperlink{eepromer_8c_a2924c0b64ca8f0b241891bcc826b5602}{plt.\+bar}(\hyperlink{namespacenormdiscr__plot2_ad3d531a849a128e7a798433179420165}{ind}+\hyperlink{namespacenormdiscr__plot2_a25df6e806f2a5936e42f0dbb45a6d0ab}{width}, \hyperlink{namespacenormdiscr__plot2_a582805d46fcf8730646fa6cf7ea00b7d}{fs}, \hyperlink{namespacenormdiscr__plot2_a25df6e806f2a5936e42f0dbb45a6d0ab}{width}, color='\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}')
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a55c7317cc02371eb982a60573ed2a46f}{normline}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacenormdiscr__plot2_a582805d46fcf8730646fa6cf7ea00b7d}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!fs@{fs}}
+\index{fs@{fs}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{fs}]{\setlength{\rightskip}{0pt plus 5cm}list normdiscr\+\_\+plot2.\+fs = {\bf sfreq}\mbox{[}\+:,1\mbox{]}}\label{namespacenormdiscr__plot2_a582805d46fcf8730646fa6cf7ea00b7d}
+\hypertarget{namespacenormdiscr__plot2_aa348b068eff201e8e9175a6f94404112}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!ft@{ft}}
+\index{ft@{ft}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{ft}]{\setlength{\rightskip}{0pt plus 5cm}list normdiscr\+\_\+plot2.\+ft = {\bf sfreq}\mbox{[}\+:,2\mbox{]}}\label{namespacenormdiscr__plot2_aa348b068eff201e8e9175a6f94404112}
+\hypertarget{namespacenormdiscr__plot2_a62ec823ef29766de66e391bd4a2dc284}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!grid@{grid}}
+\index{grid@{grid}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{grid}]{\setlength{\rightskip}{0pt plus 5cm}list normdiscr\+\_\+plot2.\+grid = np.\+arange(-\/{\bf npointsh}, {\bf npointsh}+2,1)}\label{namespacenormdiscr__plot2_a62ec823ef29766de66e391bd4a2dc284}
+\hypertarget{namespacenormdiscr__plot2_acb33a5c700b9bdb2d94bd5120a53a126}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!gridint@{gridint}}
+\index{gridint@{gridint}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{gridint}]{\setlength{\rightskip}{0pt plus 5cm}normdiscr\+\_\+plot2.\+gridint = {\bf grid}}\label{namespacenormdiscr__plot2_acb33a5c700b9bdb2d94bd5120a53a126}
+\hypertarget{namespacenormdiscr__plot2_a64e64095e5aa8deecc32daac5b046c2a}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!gridlimits@{gridlimits}}
+\index{gridlimits@{gridlimits}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{gridlimits}]{\setlength{\rightskip}{0pt plus 5cm}float normdiscr\+\_\+plot2.\+gridlimits = {\bf grid}-\/0.\+5}\label{namespacenormdiscr__plot2_a64e64095e5aa8deecc32daac5b046c2a}
+\hypertarget{namespacenormdiscr__plot2_a88023cbc8a6175f64d36ce073d725556}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!gridlimitsnorm@{gridlimitsnorm}}
+\index{gridlimitsnorm@{gridlimitsnorm}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{gridlimitsnorm}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+gridlimitsnorm = ({\bf grid} -\/ 0.\+5)}\label{namespacenormdiscr__plot2_a88023cbc8a6175f64d36ce073d725556}
+\hypertarget{namespacenormdiscr__plot2_ad3d531a849a128e7a798433179420165}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!ind@{ind}}
+\index{ind@{ind}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{ind}]{\setlength{\rightskip}{0pt plus 5cm}normdiscr\+\_\+plot2.\+ind = {\bf gridint}}\label{namespacenormdiscr__plot2_ad3d531a849a128e7a798433179420165}
+\hypertarget{namespacenormdiscr__plot2_a8c2b3742f5dc406632d71d4e5aa37df7}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!n\+\_\+sample@{n\+\_\+sample}}
+\index{n\+\_\+sample@{n\+\_\+sample}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{n\+\_\+sample}]{\setlength{\rightskip}{0pt plus 5cm}int normdiscr\+\_\+plot2.\+n\+\_\+sample = 500}\label{namespacenormdiscr__plot2_a8c2b3742f5dc406632d71d4e5aa37df7}
+\hypertarget{namespacenormdiscr__plot2_a75e9153d69cb7c81a7ce8a505f2aa7ae}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!nbound@{nbound}}
+\index{nbound@{nbound}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{nbound}]{\setlength{\rightskip}{0pt plus 5cm}int normdiscr\+\_\+plot2.\+nbound = 4}\label{namespacenormdiscr__plot2_a75e9153d69cb7c81a7ce8a505f2aa7ae}
+\hypertarget{namespacenormdiscr__plot2_aa6b0f5d41e331e7549b122192c1db0a0}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!nd\+\_\+std@{nd\+\_\+std}}
+\index{nd\+\_\+std@{nd\+\_\+std}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{nd\+\_\+std}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+nd\+\_\+std = {\bf np.\+sqrt}(normdiscrete.\+stats(moments='v'))}\label{namespacenormdiscr__plot2_aa6b0f5d41e331e7549b122192c1db0a0}
+\hypertarget{namespacenormdiscr__plot2_a1d8a343b3fc043bbc9cd58f5e5649453}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!normbound@{normbound}}
+\index{normbound@{normbound}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{normbound}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+normbound = (1 + 1 / {\bf npointsf})}\label{namespacenormdiscr__plot2_a1d8a343b3fc043bbc9cd58f5e5649453}
+\hypertarget{namespacenormdiscr__plot2_a2441ca073bb0331350476716954626c7}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!normdiscrete@{normdiscrete}}
+\index{normdiscrete@{normdiscrete}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{normdiscrete}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+normdiscrete}\label{namespacenormdiscr__plot2_a2441ca073bb0331350476716954626c7}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = stats.rv\_discrete(
+2                         values=(gridint, np.round(probs, decimals=7)),
+3                         name=\textcolor{stringliteral}{'normdiscrete'})
+\end{DoxyCode}
+\hypertarget{namespacenormdiscr__plot2_a55c7317cc02371eb982a60573ed2a46f}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!normline@{normline}}
+\index{normline@{normline}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{normline}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+normline}\label{namespacenormdiscr__plot2_a55c7317cc02371eb982a60573ed2a46f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = plt.plot(ind+width/2.0, stats.norm.cdf(ind+0.5,scale=nd\_std),
+2                     color=\textcolor{stringliteral}{'b'})
+\end{DoxyCode}
+\hypertarget{namespacenormdiscr__plot2_a5eedafe3a4e06177c196101c8886ba1f}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!npoints@{npoints}}
+\index{npoints@{npoints}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{npoints}]{\setlength{\rightskip}{0pt plus 5cm}int normdiscr\+\_\+plot2.\+npoints = 20}\label{namespacenormdiscr__plot2_a5eedafe3a4e06177c196101c8886ba1f}
+\hypertarget{namespacenormdiscr__plot2_abb90b23055cbc2713f40e135104e4a54}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!npointsf@{npointsf}}
+\index{npointsf@{npointsf}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{npointsf}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+npointsf = float({\bf npoints})}\label{namespacenormdiscr__plot2_abb90b23055cbc2713f40e135104e4a54}
+\hypertarget{namespacenormdiscr__plot2_ae9b2c28b1212df96f1a41fd298ad4390}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!npointsh@{npointsh}}
+\index{npointsh@{npointsh}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{npointsh}]{\setlength{\rightskip}{0pt plus 5cm}int normdiscr\+\_\+plot2.\+npointsh = {\bf npoints}/2}\label{namespacenormdiscr__plot2_ae9b2c28b1212df96f1a41fd298ad4390}
+\hypertarget{namespacenormdiscr__plot2_a5548df286332e74becd4b4e305f43984}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!probs@{probs}}
+\index{probs@{probs}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{probs}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+probs = {\bf np.\+diff}(stats.\+truncnorm.\+cdf({\bf gridlimitsnorm}, -\/{\bf normbound}, {\bf normbound}))}\label{namespacenormdiscr__plot2_a5548df286332e74becd4b4e305f43984}
+\hypertarget{namespacenormdiscr__plot2_ae6ee99a8c52300b90e4de7fc466ebfe9}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!rects1@{rects1}}
+\index{rects1@{rects1}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{rects1}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+rects1 = {\bf plt.\+bar}({\bf ind}, {\bf ft}, {\bf width}, color='{\bf b}')}\label{namespacenormdiscr__plot2_ae6ee99a8c52300b90e4de7fc466ebfe9}
+\hypertarget{namespacenormdiscr__plot2_ae0d990d06209b61e3d8b594d36937c72}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!rects2@{rects2}}
+\index{rects2@{rects2}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{rects2}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+rects2 = {\bf plt.\+bar}({\bf ind}+{\bf width}, {\bf fs}, {\bf width}, color='{\bf r}')}\label{namespacenormdiscr__plot2_ae0d990d06209b61e3d8b594d36937c72}
+\hypertarget{namespacenormdiscr__plot2_a1929219debd8806bf017653adc7fc911}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!rvs@{rvs}}
+\index{rvs@{rvs}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{rvs}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+rvs = normdiscrete.\+rvs(size={\bf n\+\_\+sample})}\label{namespacenormdiscr__plot2_a1929219debd8806bf017653adc7fc911}
+\hypertarget{namespacenormdiscr__plot2_a9138836ed78a0a4ce4046b410560ee6c}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!rvsnd@{rvsnd}}
+\index{rvsnd@{rvsnd}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{rvsnd}]{\setlength{\rightskip}{0pt plus 5cm}normdiscr\+\_\+plot2.\+rvsnd = {\bf rvs}}\label{namespacenormdiscr__plot2_a9138836ed78a0a4ce4046b410560ee6c}
+\hypertarget{namespacenormdiscr__plot2_a4888d25c27af56764826f51647db471a}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!sfreq@{sfreq}}
+\index{sfreq@{sfreq}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{sfreq}]{\setlength{\rightskip}{0pt plus 5cm}tuple normdiscr\+\_\+plot2.\+sfreq = np.\+vstack(\mbox{[}{\bf gridint},f,{\bf probs}$\ast${\bf n\+\_\+sample}\mbox{]})}\label{namespacenormdiscr__plot2_a4888d25c27af56764826f51647db471a}
+\hypertarget{namespacenormdiscr__plot2_a25df6e806f2a5936e42f0dbb45a6d0ab}{}\index{normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}!width@{width}}
+\index{width@{width}!normdiscr\+\_\+plot2@{normdiscr\+\_\+plot2}}
+\subsubsection[{width}]{\setlength{\rightskip}{0pt plus 5cm}float normdiscr\+\_\+plot2.\+width = 0.\+35}\label{namespacenormdiscr__plot2_a25df6e806f2a5936e42f0dbb45a6d0ab}

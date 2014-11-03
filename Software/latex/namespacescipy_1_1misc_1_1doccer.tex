@@ -1,0 +1,193 @@
+\hypertarget{namespacescipy_1_1misc_1_1doccer}{}\section{scipy.\+misc.\+doccer Namespace Reference}
+\label{namespacescipy_1_1misc_1_1doccer}\index{scipy.\+misc.\+doccer@{scipy.\+misc.\+doccer}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1doccer_a8d091f879679fa1d8648ef5231c42961}{docformat}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1doccer_a5f04301d6e2d846bd86a353f957fe4af}{inherit\+\_\+docstring\+\_\+from}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1doccer_ad97d0200733a3cb7b3c005c1abd4c488}{indentcount\+\_\+lines}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1doccer_a0e2cf7d01b93ddb7829f5e605cc9c464}{filldoc}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1doccer_a57e4e454c156717bee93f3ecc68bcf95}{unindent\+\_\+dict}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1doccer_a4914cb50788bd26cb30f0beb251e595e}{unindent\+\_\+string}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1misc_1_1doccer_a332eb15e8eea310779e28856de4e8c72}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Utilities to allow inserting docstring fragments for common
+parameters into function and method docstrings\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1misc_1_1doccer_a8d091f879679fa1d8648ef5231c42961}{}\index{scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}!docformat@{docformat}}
+\index{docformat@{docformat}!scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}}
+\subsubsection[{docformat}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+doccer.\+docformat (
+\begin{DoxyParamCaption}
+\item[{}]{docstring, }
+\item[{}]{docdict = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1doccer_a8d091f879679fa1d8648ef5231c42961}
+\begin{DoxyVerb}Fill a function docstring from variables in dictionary
+
+Adapt the indent of the inserted docs
+
+Parameters
+----------
+docstring : string
+    docstring from function, possibly with dict formatting strings
+docdict : dict
+    dictionary with keys that match the dict formatting strings
+    and values that are docstring fragments to be inserted.  The
+    indentation of the inserted docstrings is set to match the
+    minimum indentation of the ``docstring`` by adding this
+    indentation to all lines of the inserted string, except the
+    first
+
+Returns
+-------
+outstring : string
+    string with requested ``docdict`` strings inserted
+
+Examples
+--------
+>>> docformat(' Test string with %(value)s', {'value':'inserted value'})
+' Test string with inserted value'
+>>> docstring = 'First line\\n    Second line\\n    %(value)s'
+>>> inserted_string = "indented\\nstring"
+>>> docdict = {'value': inserted_string}
+>>> docformat(docstring, docdict)
+'First line\\n    Second line\\n    indented\\n    string'
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1doccer_a0e2cf7d01b93ddb7829f5e605cc9c464}{}\index{scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}!filldoc@{filldoc}}
+\index{filldoc@{filldoc}!scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}}
+\subsubsection[{filldoc}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+doccer.\+filldoc (
+\begin{DoxyParamCaption}
+\item[{}]{docdict, }
+\item[{}]{unindent\+\_\+params = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1doccer_a0e2cf7d01b93ddb7829f5e605cc9c464}
+\begin{DoxyVerb}Return docstring decorator using docdict variable dictionary
+
+Parameters
+----------
+docdict : dictionary
+    dictionary containing name, docstring fragment pairs
+unindent_params : {False, True}, boolean, optional
+    If True, strip common indentation from all parameters in
+    docdict
+
+Returns
+-------
+decfunc : function
+    decorator that applies dictionary to input function docstring\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1doccer_ad97d0200733a3cb7b3c005c1abd4c488}{}\index{scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}!indentcount\+\_\+lines@{indentcount\+\_\+lines}}
+\index{indentcount\+\_\+lines@{indentcount\+\_\+lines}!scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}}
+\subsubsection[{indentcount\+\_\+lines}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+doccer.\+indentcount\+\_\+lines (
+\begin{DoxyParamCaption}
+\item[{}]{lines}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1doccer_ad97d0200733a3cb7b3c005c1abd4c488}
+\begin{DoxyVerb}Minimum indent for all lines in line list
+
+>>> lines = [' one', '  two', '   three']
+>>> indentcount_lines(lines)
+1
+>>> lines = []
+>>> indentcount_lines(lines)
+0
+>>> lines = [' one']
+>>> indentcount_lines(lines)
+1
+>>> indentcount_lines(['    '])
+0
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1doccer_a5f04301d6e2d846bd86a353f957fe4af}{}\index{scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}!inherit\+\_\+docstring\+\_\+from@{inherit\+\_\+docstring\+\_\+from}}
+\index{inherit\+\_\+docstring\+\_\+from@{inherit\+\_\+docstring\+\_\+from}!scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}}
+\subsubsection[{inherit\+\_\+docstring\+\_\+from}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+doccer.\+inherit\+\_\+docstring\+\_\+from (
+\begin{DoxyParamCaption}
+\item[{}]{cls}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1doccer_a5f04301d6e2d846bd86a353f957fe4af}
+\begin{DoxyVerb}This decorator modifies the decorated function's docstring by
+replacing occurrences of '%(super)s' with the docstring of the
+method of the same name from the class `cls`.
+
+If the decorated method has no docstring, it is simply given the
+docstring of `cls`s method.
+
+Parameters
+----------
+cls : Python class or instance
+    A class with a method with the same name as the decorated method.
+    The docstring of the method in this class replaces '%(super)s' in the
+    docstring of the decorated method.
+
+Returns
+-------
+f : function
+    The decorator function that modifies the __doc__ attribute
+    of its argument.
+
+Examples
+--------
+In the following, the docstring for Bar.func created using the
+docstring of `Foo.func`.
+
+>>> class Foo(object):
+...     def func(self):
+...         '''Do something useful.'''
+...         return
+...
+>>> class Bar(Foo):
+...     @inherit_docstring_from(Foo)
+...     def func(self):
+...         '''%(super)s
+...         Do it fast.
+...         '''
+...         return
+...
+>>> b = Bar()
+>>> b.func.__doc__
+'Do something useful.\n        Do it fast.\n        '\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1doccer_a57e4e454c156717bee93f3ecc68bcf95}{}\index{scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}!unindent\+\_\+dict@{unindent\+\_\+dict}}
+\index{unindent\+\_\+dict@{unindent\+\_\+dict}!scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}}
+\subsubsection[{unindent\+\_\+dict}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+doccer.\+unindent\+\_\+dict (
+\begin{DoxyParamCaption}
+\item[{}]{docdict}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1doccer_a57e4e454c156717bee93f3ecc68bcf95}
+\begin{DoxyVerb}Unindent all strings in a docdict \end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1doccer_a4914cb50788bd26cb30f0beb251e595e}{}\index{scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}!unindent\+\_\+string@{unindent\+\_\+string}}
+\index{unindent\+\_\+string@{unindent\+\_\+string}!scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}}
+\subsubsection[{unindent\+\_\+string}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+doccer.\+unindent\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{}]{docstring}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1doccer_a4914cb50788bd26cb30f0beb251e595e}
+\begin{DoxyVerb}Set docstring to minimum indent for all lines, including first
+
+>>> unindent_string(' two')
+'two'
+>>> unindent_string('  two\\n   three')
+'two\\n three'
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1misc_1_1doccer_a332eb15e8eea310779e28856de4e8c72}{}\index{scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::misc\+::doccer@{scipy\+::misc\+::doccer}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+misc.\+doccer.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1misc_1_1doccer_a332eb15e8eea310779e28856de4e8c72}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'docformat'}, \textcolor{stringliteral}{'inherit\_docstring\_from'}, \textcolor{stringliteral}{'indentcount\_lines'},
+2            \textcolor{stringliteral}{'filldoc'}, \textcolor{stringliteral}{'unindent\_dict'}, \textcolor{stringliteral}{'unindent\_string'}]
+\end{DoxyCode}

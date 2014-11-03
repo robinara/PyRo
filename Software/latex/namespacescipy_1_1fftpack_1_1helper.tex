@@ -1,0 +1,60 @@
+\hypertarget{namespacescipy_1_1fftpack_1_1helper}{}\section{scipy.\+fftpack.\+helper Namespace Reference}
+\label{namespacescipy_1_1fftpack_1_1helper}\index{scipy.\+fftpack.\+helper@{scipy.\+fftpack.\+helper}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1helper_a386a02d147f45c4f3de7d12dde1b2ad9}{rfftfreq}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1fftpack_1_1helper_a06b96b47252a6a00c76c8139e09b71bb}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'fftshift', 'ifftshift', 'fftfreq', '\hyperlink{namespacescipy_1_1fftpack_1_1helper_a386a02d147f45c4f3de7d12dde1b2ad9}{rfftfreq}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1fftpack_1_1helper_a386a02d147f45c4f3de7d12dde1b2ad9}{}\index{scipy\+::fftpack\+::helper@{scipy\+::fftpack\+::helper}!rfftfreq@{rfftfreq}}
+\index{rfftfreq@{rfftfreq}!scipy\+::fftpack\+::helper@{scipy\+::fftpack\+::helper}}
+\subsubsection[{rfftfreq}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+helper.\+rfftfreq (
+\begin{DoxyParamCaption}
+\item[{}]{n, }
+\item[{}]{d = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1helper_a386a02d147f45c4f3de7d12dde1b2ad9}
+\begin{DoxyVerb}DFT sample frequencies (for usage with rfft, irfft).
+
+The returned float array contains the frequency bins in
+cycles/unit (with zero at the start) given a window length `n` and a
+sample spacing `d`::
+
+  f = [0,1,1,2,2,...,n/2-1,n/2-1,n/2]/(d*n)   if n is even
+  f = [0,1,1,2,2,...,n/2-1,n/2-1,n/2,n/2]/(d*n)   if n is odd
+
+Parameters
+----------
+n : int
+    Window length.
+d : scalar, optional
+    Sample spacing. Default is 1.
+
+Returns
+-------
+out : ndarray
+    The array of length `n`, containing the sample frequencies.
+
+Examples
+--------
+>>> from scipy import fftpack
+>>> sig = np.array([-2, 8, 6, 4, 1, 0, 3, 5], dtype=float)
+>>> sig_fft = fftpack.rfft(sig)
+>>> n = sig_fft.size
+>>> timestep = 0.1
+>>> freq = fftpack.rfftfreq(n, d=timestep)
+>>> freq
+array([ 0.  ,  1.25,  1.25,  2.5 ,  2.5 ,  3.75,  3.75,  5.  ])\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1fftpack_1_1helper_a06b96b47252a6a00c76c8139e09b71bb}{}\index{scipy\+::fftpack\+::helper@{scipy\+::fftpack\+::helper}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::fftpack\+::helper@{scipy\+::fftpack\+::helper}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+fftpack.\+helper.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'fftshift', 'ifftshift', 'fftfreq', '{\bf rfftfreq}'\mbox{]}}\label{namespacescipy_1_1fftpack_1_1helper_a06b96b47252a6a00c76c8139e09b71bb}

@@ -1,0 +1,73 @@
+\hypertarget{slartgs_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slartgs.f File Reference}
+\label{slartgs_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slartgs.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slartgs.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slartgs_8f_a5552a576646eb8832059779329850eee}{slartgs} (X, Y, S\+I\+G\+M\+A, C\+S, S\+N)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+R\+T\+G\+S} generates a plane rotation designed to introduce a bulge in implicit Q\+R iteration for the bidiagonal S\+V\+D problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slartgs_8f_a5552a576646eb8832059779329850eee}{}\index{slartgs.\+f@{slartgs.\+f}!slartgs@{slartgs}}
+\index{slartgs@{slartgs}!slartgs.\+f@{slartgs.\+f}}
+\subsubsection[{slartgs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slartgs (
+\begin{DoxyParamCaption}
+\item[{real}]{X, }
+\item[{real}]{Y, }
+\item[{real}]{S\+I\+G\+M\+A, }
+\item[{real}]{C\+S, }
+\item[{real}]{S\+N}
+\end{DoxyParamCaption}
+)}\label{slartgs_8f_a5552a576646eb8832059779329850eee}
+
+
+{\bfseries S\+L\+A\+R\+T\+G\+S} generates a plane rotation designed to introduce a bulge in implicit Q\+R iteration for the bidiagonal S\+V\+D problem. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLARTGS generates a plane rotation designed to introduce a bulge in
+ Golub-Reinsch-style implicit QR iteration for the bidiagonal SVD
+ problem. X and Y are the top-row entries, and SIGMA is the shift.
+ The computed CS and SN define a plane rotation satisfying
+
+    [  CS  SN  ]  .  [ X^2 - SIGMA ]  =  [ R ],
+    [ -SN  CS  ]     [    X * Y    ]     [ 0 ]
+
+ with R nonnegative.  If X^2 - SIGMA and X * Y are 0, then the
+ rotation is by PI/2.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em X} & \begin{DoxyVerb}          X is REAL
+          The (1,1) entry of an upper bidiagonal matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Y} & \begin{DoxyVerb}          Y is REAL
+          The (1,2) entry of an upper bidiagonal matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+I\+G\+M\+A} & \begin{DoxyVerb}          SIGMA is REAL
+          The shift.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C\+S} & \begin{DoxyVerb}          CS is REAL
+          The cosine of the rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+N} & \begin{DoxyVerb}          SN is REAL
+          The sine of the rotation.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

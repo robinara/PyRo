@@ -1,0 +1,151 @@
+\hypertarget{eeprog_8c}{}\section{packages/i2c-\/tools-\/3.1.1/eepromer/eeprog.c File Reference}
+\label{eeprog_8c}\index{packages/i2c-\/tools-\/3.\+1.\+1/eepromer/eeprog.\+c@{packages/i2c-\/tools-\/3.\+1.\+1/eepromer/eeprog.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$getopt.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}24c\+X\+X.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{eeprog_8c_a1c6d5de492ac61ad29aec7aa9a436bbf}{V\+E\+R\+S\+I\+O\+N}~\char`\"{}0.\+7.\+5\char`\"{}
+\item 
+\#define \hyperlink{eeprog_8c_ab1ce42987f8c34b74aa05323ff6f0d6e}{E\+N\+V\+\_\+\+D\+E\+V}~\char`\"{}E\+E\+P\+R\+O\+G\+\_\+\+D\+E\+V\char`\"{}
+\item 
+\#define \hyperlink{eeprog_8c_a59e7788b1ee102869a024d3d649757d4}{E\+N\+V\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R}~\char`\"{}E\+E\+P\+R\+O\+G\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R\char`\"{}
+\item 
+\#define \hyperlink{eeprog_8c_a557dfe608576fb634278c8999cf8f4ad}{usage\+\_\+if}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})~do \{ \hyperlink{eeprog_8c_ad02c162a797bea025ca29e4d5757b870}{do\+\_\+usage\+\_\+if}( \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} , \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \} while(0);
+\item 
+\#define \hyperlink{eeprog_8c_abf7d2d673e23322828c1c63a5947187c}{die\+\_\+if}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  msg)~do \{ \hyperlink{eeprog_8c_abb285faeb84692f207160e32d25c12e1}{do\+\_\+die\+\_\+if}( \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} , msg, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \} while(0);
+\item 
+\#define \hyperlink{eeprog_8c_a605e90a2f354a12d81a04ece33a2fbb3}{print\+\_\+info}(args...)~do \{ \hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if}(!\hyperlink{eeprog_8c_ac9474f9980aa5b449fb135a831c83f71}{g\+\_\+quiet}) fprintf(stderr, args); \} while(0);
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{eeprog_8c_ad02c162a797bea025ca29e4d5757b870}{do\+\_\+usage\+\_\+if} (int \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}, int line)
+\item 
+void \hyperlink{eeprog_8c_abb285faeb84692f207160e32d25c12e1}{do\+\_\+die\+\_\+if} (int \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}, char $\ast$msg, int line)
+\item 
+void \hyperlink{eeprog_8c_ada10da106528e12eff2cbc992597c9c7}{parse\+\_\+arg} (char $\ast$arg, int $\ast$paddr, int $\ast$psize)
+\item 
+int \hyperlink{eeprog_8c_a997ba806ff25b1410c4151a56eef703d}{confirm\+\_\+action} ()
+\item 
+int \hyperlink{eeprog_8c_a57a64e833c247820b4f968b0b2a48143}{read\+\_\+from\+\_\+eeprom} (\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structeeprom}{eeprom} $\ast$e, int addr, int size, int hex)
+\item 
+int \hyperlink{eeprog_8c_a91ccbf38afb27f84ca79db67c3945cae}{write\+\_\+to\+\_\+eeprom} (\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structeeprom}{eeprom} $\ast$e, int addr)
+\item 
+int \hyperlink{eeprog_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{eeprog_8c_ac9474f9980aa5b449fb135a831c83f71}{g\+\_\+quiet}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{eeprog_8c_abf7d2d673e23322828c1c63a5947187c}{}\index{eeprog.\+c@{eeprog.\+c}!die\+\_\+if@{die\+\_\+if}}
+\index{die\+\_\+if@{die\+\_\+if}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{die\+\_\+if}]{\setlength{\rightskip}{0pt plus 5cm}\#define die\+\_\+if(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{msg}
+\end{DoxyParamCaption}
+)~do \{ {\bf do\+\_\+die\+\_\+if}( {\bf a} , msg, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \} while(0);}\label{eeprog_8c_abf7d2d673e23322828c1c63a5947187c}
+\hypertarget{eeprog_8c_ab1ce42987f8c34b74aa05323ff6f0d6e}{}\index{eeprog.\+c@{eeprog.\+c}!E\+N\+V\+\_\+\+D\+E\+V@{E\+N\+V\+\_\+\+D\+E\+V}}
+\index{E\+N\+V\+\_\+\+D\+E\+V@{E\+N\+V\+\_\+\+D\+E\+V}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{E\+N\+V\+\_\+\+D\+E\+V}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+V\+\_\+\+D\+E\+V~\char`\"{}E\+E\+P\+R\+O\+G\+\_\+\+D\+E\+V\char`\"{}}\label{eeprog_8c_ab1ce42987f8c34b74aa05323ff6f0d6e}
+\hypertarget{eeprog_8c_a59e7788b1ee102869a024d3d649757d4}{}\index{eeprog.\+c@{eeprog.\+c}!E\+N\+V\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R@{E\+N\+V\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R}}
+\index{E\+N\+V\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R@{E\+N\+V\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{E\+N\+V\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+V\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R~\char`\"{}E\+E\+P\+R\+O\+G\+\_\+\+I2\+C\+\_\+\+A\+D\+D\+R\char`\"{}}\label{eeprog_8c_a59e7788b1ee102869a024d3d649757d4}
+\hypertarget{eeprog_8c_a605e90a2f354a12d81a04ece33a2fbb3}{}\index{eeprog.\+c@{eeprog.\+c}!print\+\_\+info@{print\+\_\+info}}
+\index{print\+\_\+info@{print\+\_\+info}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{print\+\_\+info}]{\setlength{\rightskip}{0pt plus 5cm}\#define print\+\_\+info(
+\begin{DoxyParamCaption}
+\item[{}]{args...}
+\end{DoxyParamCaption}
+)~do \{ {\bf if}(!{\bf g\+\_\+quiet}) fprintf(stderr, args); \} while(0);}\label{eeprog_8c_a605e90a2f354a12d81a04ece33a2fbb3}
+\hypertarget{eeprog_8c_a557dfe608576fb634278c8999cf8f4ad}{}\index{eeprog.\+c@{eeprog.\+c}!usage\+\_\+if@{usage\+\_\+if}}
+\index{usage\+\_\+if@{usage\+\_\+if}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{usage\+\_\+if}]{\setlength{\rightskip}{0pt plus 5cm}\#define usage\+\_\+if(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)~do \{ {\bf do\+\_\+usage\+\_\+if}( {\bf a} , \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+); \} while(0);}\label{eeprog_8c_a557dfe608576fb634278c8999cf8f4ad}
+\hypertarget{eeprog_8c_a1c6d5de492ac61ad29aec7aa9a436bbf}{}\index{eeprog.\+c@{eeprog.\+c}!V\+E\+R\+S\+I\+O\+N@{V\+E\+R\+S\+I\+O\+N}}
+\index{V\+E\+R\+S\+I\+O\+N@{V\+E\+R\+S\+I\+O\+N}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{V\+E\+R\+S\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+E\+R\+S\+I\+O\+N~\char`\"{}0.\+7.\+5\char`\"{}}\label{eeprog_8c_a1c6d5de492ac61ad29aec7aa9a436bbf}
+
+
+\subsection{Function Documentation}
+\hypertarget{eeprog_8c_a997ba806ff25b1410c4151a56eef703d}{}\index{eeprog.\+c@{eeprog.\+c}!confirm\+\_\+action@{confirm\+\_\+action}}
+\index{confirm\+\_\+action@{confirm\+\_\+action}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{confirm\+\_\+action}]{\setlength{\rightskip}{0pt plus 5cm}int confirm\+\_\+action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{eeprog_8c_a997ba806ff25b1410c4151a56eef703d}
+\hypertarget{eeprog_8c_abb285faeb84692f207160e32d25c12e1}{}\index{eeprog.\+c@{eeprog.\+c}!do\+\_\+die\+\_\+if@{do\+\_\+die\+\_\+if}}
+\index{do\+\_\+die\+\_\+if@{do\+\_\+die\+\_\+if}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{do\+\_\+die\+\_\+if}]{\setlength{\rightskip}{0pt plus 5cm}void do\+\_\+die\+\_\+if (
+\begin{DoxyParamCaption}
+\item[{int}]{b, }
+\item[{char $\ast$}]{msg, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)}\label{eeprog_8c_abb285faeb84692f207160e32d25c12e1}
+\hypertarget{eeprog_8c_ad02c162a797bea025ca29e4d5757b870}{}\index{eeprog.\+c@{eeprog.\+c}!do\+\_\+usage\+\_\+if@{do\+\_\+usage\+\_\+if}}
+\index{do\+\_\+usage\+\_\+if@{do\+\_\+usage\+\_\+if}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{do\+\_\+usage\+\_\+if}]{\setlength{\rightskip}{0pt plus 5cm}void do\+\_\+usage\+\_\+if (
+\begin{DoxyParamCaption}
+\item[{int}]{b, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)}\label{eeprog_8c_ad02c162a797bea025ca29e4d5757b870}
+\hypertarget{eeprog_8c_a3c04138a5bfe5d72780bb7e82a18e627}{}\index{eeprog.\+c@{eeprog.\+c}!main@{main}}
+\index{main@{main}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\label{eeprog_8c_a3c04138a5bfe5d72780bb7e82a18e627}
+\hypertarget{eeprog_8c_ada10da106528e12eff2cbc992597c9c7}{}\index{eeprog.\+c@{eeprog.\+c}!parse\+\_\+arg@{parse\+\_\+arg}}
+\index{parse\+\_\+arg@{parse\+\_\+arg}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{parse\+\_\+arg}]{\setlength{\rightskip}{0pt plus 5cm}void parse\+\_\+arg (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{arg, }
+\item[{int $\ast$}]{paddr, }
+\item[{int $\ast$}]{psize}
+\end{DoxyParamCaption}
+)}\label{eeprog_8c_ada10da106528e12eff2cbc992597c9c7}
+\hypertarget{eeprog_8c_a57a64e833c247820b4f968b0b2a48143}{}\index{eeprog.\+c@{eeprog.\+c}!read\+\_\+from\+\_\+eeprom@{read\+\_\+from\+\_\+eeprom}}
+\index{read\+\_\+from\+\_\+eeprom@{read\+\_\+from\+\_\+eeprom}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{read\+\_\+from\+\_\+eeprom}]{\setlength{\rightskip}{0pt plus 5cm}int read\+\_\+from\+\_\+eeprom (
+\begin{DoxyParamCaption}
+\item[{{\bf struct} {\bf eeprom} $\ast$}]{e, }
+\item[{int}]{addr, }
+\item[{int}]{size, }
+\item[{int}]{hex}
+\end{DoxyParamCaption}
+)}\label{eeprog_8c_a57a64e833c247820b4f968b0b2a48143}
+\hypertarget{eeprog_8c_a91ccbf38afb27f84ca79db67c3945cae}{}\index{eeprog.\+c@{eeprog.\+c}!write\+\_\+to\+\_\+eeprom@{write\+\_\+to\+\_\+eeprom}}
+\index{write\+\_\+to\+\_\+eeprom@{write\+\_\+to\+\_\+eeprom}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{write\+\_\+to\+\_\+eeprom}]{\setlength{\rightskip}{0pt plus 5cm}int write\+\_\+to\+\_\+eeprom (
+\begin{DoxyParamCaption}
+\item[{{\bf struct} {\bf eeprom} $\ast$}]{e, }
+\item[{int}]{addr}
+\end{DoxyParamCaption}
+)}\label{eeprog_8c_a91ccbf38afb27f84ca79db67c3945cae}
+
+
+\subsection{Variable Documentation}
+\hypertarget{eeprog_8c_ac9474f9980aa5b449fb135a831c83f71}{}\index{eeprog.\+c@{eeprog.\+c}!g\+\_\+quiet@{g\+\_\+quiet}}
+\index{g\+\_\+quiet@{g\+\_\+quiet}!eeprog.\+c@{eeprog.\+c}}
+\subsubsection[{g\+\_\+quiet}]{\setlength{\rightskip}{0pt plus 5cm}int g\+\_\+quiet}\label{eeprog_8c_ac9474f9980aa5b449fb135a831c83f71}

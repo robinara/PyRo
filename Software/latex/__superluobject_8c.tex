@@ -1,0 +1,253 @@
+\hypertarget{__superluobject_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+\_\+superluobject.c File Reference}
+\label{__superluobject_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+\_\+superluobject.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+\_\+superluobject.\+c}}
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}\+\_\+superluobject.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}numpy/npy\+\_\+3kcompat.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$setjmp.\+h$>$}\\*
+{\ttfamily \#include $<$ctype.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{__superluobject_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}
+\item 
+\#define \hyperlink{__superluobject_8c_a7d399fcbebb74300921248d831d6ab6f}{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}~\+\_\+scipy\+\_\+sparse\+\_\+superlu\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+P\+I
+\item 
+\#define \hyperlink{__superluobject_8c_a84277c00169f3c7b5beba0f1385e3e30}{C\+R\+E\+A\+T\+E\+\_\+1\+D\+\_\+\+A\+R\+R\+A\+Y}(name,  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type},  size)
+\item 
+\#define \hyperlink{__superluobject_8c_a205011e228558f4344e82e9d4f1dffea}{I\+S\+\_\+\+Z\+E\+R\+O}(\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p})
+\item 
+\#define \hyperlink{__superluobject_8c_afb72fa1288891b68de5c4bda30af9c1f}{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+N\+I\+T}
+\item 
+\#define \hyperlink{__superluobject_8c_a94237004077a741d0db982bea1b9e60f}{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+I\+N\+I\+S\+H}(message)
+\item 
+\#define \hyperlink{__superluobject_8c_af2c759d1ead9dba09b20e019cc65f703}{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+N\+A\+M\+E}(name,  sname)
+\item 
+\#define \hyperlink{__superluobject_8c_a9fca66aa57b214a60d251085443d369f}{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K}(name)~\hyperlink{__superluobject_8c_af2c759d1ead9dba09b20e019cc65f703}{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+N\+A\+M\+E}(name, \#name)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{__superluobject_8c_abdc3478e96adb665c63b7cef11a553d8}{Dense\+Super\+\_\+from\+\_\+\+Numeric} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$X, Py\+Object $\ast$Py\+X)
+\item 
+int \hyperlink{__superluobject_8c_aa0cf4c7ad0cb71eac06e783fbeeac5ab}{N\+R\+Format\+\_\+from\+\_\+sp\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nnz, Py\+Array\+Object $\ast$nzvals, Py\+Array\+Object $\ast$colind, Py\+Array\+Object $\ast$rowptr, int typenum)
+\item 
+int \hyperlink{__superluobject_8c_afbce6891ed0b9b2270edb3b749493698}{N\+C\+Format\+\_\+from\+\_\+sp\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nnz, Py\+Array\+Object $\ast$nzvals, Py\+Array\+Object $\ast$rowind, Py\+Array\+Object $\ast$colptr, int typenum)
+\item 
+int \hyperlink{__superluobject_8c_a269682a435675c44c37ca0d845de055a}{L\+U\+\_\+to\+\_\+csc\+\_\+matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, Py\+Object $\ast$$\ast$L\+\_\+csc, Py\+Object $\ast$$\ast$U\+\_\+csc)
+\item 
+Py\+Object $\ast$ \hyperlink{__superluobject_8c_ad8c934f2dc6fa1219ae2ad831f019b40}{new\+Super\+L\+U\+Object} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, Py\+Object $\ast$option\+\_\+dict, int intype, int ilu)
+\item 
+int \hyperlink{__superluobject_8c_a9fb482aa456c35fec41ca15e0102d8f1}{set\+\_\+superlu\+\_\+options\+\_\+from\+\_\+dict} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options, int ilu, Py\+Object $\ast$option\+\_\+dict, int $\ast$panel\+\_\+size, int $\ast$relax)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+jmp\+\_\+buf \hyperlink{__superluobject_8c_a474df5043990c511e994dd3839c99acf}{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}
+\item 
+Py\+Method\+Def \hyperlink{__superluobject_8c_af0a7da2e05450f30009ef7f8dcc52d23}{Super\+L\+U\+\_\+methods} \mbox{[}$\,$\mbox{]}
+\item 
+Py\+Get\+Set\+Def \hyperlink{__superluobject_8c_a607ccc3fd125a0923a7ccd424a385a1f}{Super\+L\+U\+\_\+getset} \mbox{[}$\,$\mbox{]}
+\item 
+Py\+Type\+Object \hyperlink{__superluobject_8c_a08efb94b86cf58930f075255552987f0}{Super\+L\+U\+Type}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{__superluobject_8c_a84277c00169f3c7b5beba0f1385e3e30}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!C\+R\+E\+A\+T\+E\+\_\+1\+D\+\_\+\+A\+R\+R\+A\+Y@{C\+R\+E\+A\+T\+E\+\_\+1\+D\+\_\+\+A\+R\+R\+A\+Y}}
+\index{C\+R\+E\+A\+T\+E\+\_\+1\+D\+\_\+\+A\+R\+R\+A\+Y@{C\+R\+E\+A\+T\+E\+\_\+1\+D\+\_\+\+A\+R\+R\+A\+Y}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{C\+R\+E\+A\+T\+E\+\_\+1\+D\+\_\+\+A\+R\+R\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+R\+E\+A\+T\+E\+\_\+1\+D\+\_\+\+A\+R\+R\+A\+Y(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf type}, }
+\item[{}]{size}
+\end{DoxyParamCaption}
+)}\label{__superluobject_8c_a84277c00169f3c7b5beba0f1385e3e30}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                            \(\backslash\)
+            dims[0] = size;                             \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{\(\backslash\)}
+\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{            name} = PyArray\_EMPTY(1, dims, \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}, 0);     \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{            if} (\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} == NULL) goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail};                \(\backslash\)
+        \} while (0)
+\end{DoxyCode}
+\hypertarget{__superluobject_8c_a9fca66aa57b214a60d251085443d369f}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K@{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K}}
+\index{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K@{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)~{\bf E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+N\+A\+M\+E}(name, \#name)}\label{__superluobject_8c_a9fca66aa57b214a60d251085443d369f}
+\hypertarget{__superluobject_8c_a94237004077a741d0db982bea1b9e60f}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+I\+N\+I\+S\+H@{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+I\+N\+I\+S\+H}}
+\index{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+I\+N\+I\+S\+H@{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+I\+N\+I\+S\+H}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+I\+N\+I\+S\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+I\+N\+I\+S\+H(
+\begin{DoxyParamCaption}
+\item[{}]{message}
+\end{DoxyParamCaption}
+)}\label{__superluobject_8c_a94237004077a741d0db982bea1b9e60f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+Py\_XDECREF(tmpobj);                         \(\backslash\)
+    PyErr\_SetString(PyExc\_ValueError, \hyperlink{namespacescipy_1_1sparse_1_1sparsetools_ac65434fea90d32c21b38241febb77d41}{message}); \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} 0;
+\end{DoxyCode}
+\hypertarget{__superluobject_8c_afb72fa1288891b68de5c4bda30af9c1f}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+N\+I\+T@{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+N\+I\+T}}
+\index{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+N\+I\+T@{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+N\+I\+T}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+N\+I\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+N\+I\+T}\label{__superluobject_8c_afb72fa1288891b68de5c4bda30af9c1f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{long} \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i} = -1;                                \(\backslash\)
+    char *\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} = \textcolor{stringliteral}{""};                               \(\backslash\)
+    PyObject *tmpobj = NULL;                    \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} (\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input} == Py\_None) \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{return} 1;             \(\backslash\)
+    \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{if} (PyString\_Check(\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input})) \{                \hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{\(\backslash\)}
+\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{        s} = PyString\_AS\_STRING(input);          \(\backslash\)
+    \}                                           \hyperlink{scores_8php_a0544c3fe466e421738dae463968b70ba}{\(\backslash\)}
+\hyperlink{scores_8php_a0544c3fe466e421738dae463968b70ba}{    else} \textcolor{keywordflow}{if} (PyUnicode\_Check(\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input})) \{          \(\backslash\)
+        tmpobj = PyUnicode\_AsASCIIString(\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input});\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (tmpobj == NULL) \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{return} 0;           \(\backslash\)
+        \hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} = PyString\_AS\_STRING(tmpobj);         \(\backslash\)
+    \}                                           \(\backslash\)
+    \hyperlink{scores_8php_a0544c3fe466e421738dae463968b70ba}{else} \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{if} (PyInt\_Check(\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input})) \{              \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{\(\backslash\)}
+\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{        i} = PyInt\_AsLong(input);                \(\backslash\)
+    \}
+\end{DoxyCode}
+\hypertarget{__superluobject_8c_af2c759d1ead9dba09b20e019cc65f703}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+N\+A\+M\+E@{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+N\+A\+M\+E}}
+\index{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+N\+A\+M\+E@{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+N\+A\+M\+E}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+N\+A\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+U\+M\+\_\+\+C\+H\+E\+C\+K\+\_\+\+N\+A\+M\+E(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{sname}
+\end{DoxyParamCaption}
+)}\label{__superluobject_8c_af2c759d1ead9dba09b20e019cc65f703}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (my\_strxcmp(\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s}, sname) == 0 || \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i} == (\textcolor{keywordtype}{long})\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}) \{ \(\backslash\)
+        *\hyperlink{namespacescipy_1_1constants_1_1codata_afca52bd411a99b9f442351e1ae94be8e}{value} = \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name};                                  \(\backslash\)
+        Py\_XDECREF(tmpobj);                             \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{        return} 1;                                       \(\backslash\)
+    \}
+\end{DoxyCode}
+\hypertarget{__superluobject_8c_a205011e228558f4344e82e9d4f1dffea}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!I\+S\+\_\+\+Z\+E\+R\+O@{I\+S\+\_\+\+Z\+E\+R\+O}}
+\index{I\+S\+\_\+\+Z\+E\+R\+O@{I\+S\+\_\+\+Z\+E\+R\+O}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{I\+S\+\_\+\+Z\+E\+R\+O}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+S\+\_\+\+Z\+E\+R\+O(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf p}}
+\end{DoxyParamCaption}
+)}\label{__superluobject_8c_a205011e228558f4344e82e9d4f1dffea}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((\hyperlink{namespacetest__mio_a148a347e81a42557ae7a03c610d2d212}{dtype} == \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a0da7fdd394e36c76e7aa215d6a79162d}{SLU\_S}) ? (*(\textcolor{keywordtype}{float}*)(\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}) == 0) :                           \(\backslash\)
+     ((\hyperlink{namespacetest__mio_a148a347e81a42557ae7a03c610d2d212}{dtype} == \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190ab5c3b3a455e3b3a64d805d76f19ac6dc}{SLU\_D}) ? (*(\textcolor{keywordtype}{double}*)(\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}) == 0) :                         \(\backslash\)
+      ((\hyperlink{namespacetest__mio_a148a347e81a42557ae7a03c610d2d212}{dtype} == \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a1b589b5f96dbc8619450aacc22d0bf39}{SLU\_C}) ? (*(\textcolor{keywordtype}{float}*)(\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}) == 0 || *((\textcolor{keywordtype}{float}*)(\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p})+1) == 0) : \(\backslash\)
+       (*(\textcolor{keywordtype}{double}*)(\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}) == 0 || *((\textcolor{keywordtype}{double}*)(\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p})+1) == 0))))
+\end{DoxyCode}
+\hypertarget{__superluobject_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}}
+\index{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}\label{__superluobject_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}
+\hypertarget{__superluobject_8c_a7d399fcbebb74300921248d831d6ab6f}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L@{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}}
+\index{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L@{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L~\+\_\+scipy\+\_\+sparse\+\_\+superlu\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+P\+I}\label{__superluobject_8c_a7d399fcbebb74300921248d831d6ab6f}
+
+
+\subsection{Function Documentation}
+\hypertarget{__superluobject_8c_abdc3478e96adb665c63b7cef11a553d8}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!Dense\+Super\+\_\+from\+\_\+\+Numeric@{Dense\+Super\+\_\+from\+\_\+\+Numeric}}
+\index{Dense\+Super\+\_\+from\+\_\+\+Numeric@{Dense\+Super\+\_\+from\+\_\+\+Numeric}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{Dense\+Super\+\_\+from\+\_\+\+Numeric}]{\setlength{\rightskip}{0pt plus 5cm}int Dense\+Super\+\_\+from\+\_\+\+Numeric (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{X, }
+\item[{Py\+Object $\ast$}]{Py\+X}
+\end{DoxyParamCaption}
+)}\label{__superluobject_8c_abdc3478e96adb665c63b7cef11a553d8}
+\hypertarget{__superluobject_8c_a269682a435675c44c37ca0d845de055a}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!L\+U\+\_\+to\+\_\+csc\+\_\+matrix@{L\+U\+\_\+to\+\_\+csc\+\_\+matrix}}
+\index{L\+U\+\_\+to\+\_\+csc\+\_\+matrix@{L\+U\+\_\+to\+\_\+csc\+\_\+matrix}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{L\+U\+\_\+to\+\_\+csc\+\_\+matrix}]{\setlength{\rightskip}{0pt plus 5cm}int L\+U\+\_\+to\+\_\+csc\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{Py\+Object $\ast$$\ast$}]{L\+\_\+csc, }
+\item[{Py\+Object $\ast$$\ast$}]{U\+\_\+csc}
+\end{DoxyParamCaption}
+)}\label{__superluobject_8c_a269682a435675c44c37ca0d845de055a}
+\hypertarget{__superluobject_8c_afbce6891ed0b9b2270edb3b749493698}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!N\+C\+Format\+\_\+from\+\_\+sp\+Matrix@{N\+C\+Format\+\_\+from\+\_\+sp\+Matrix}}
+\index{N\+C\+Format\+\_\+from\+\_\+sp\+Matrix@{N\+C\+Format\+\_\+from\+\_\+sp\+Matrix}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{N\+C\+Format\+\_\+from\+\_\+sp\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}int N\+C\+Format\+\_\+from\+\_\+sp\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{nnz, }
+\item[{Py\+Array\+Object $\ast$}]{nzvals, }
+\item[{Py\+Array\+Object $\ast$}]{rowind, }
+\item[{Py\+Array\+Object $\ast$}]{colptr, }
+\item[{int}]{typenum}
+\end{DoxyParamCaption}
+)}\label{__superluobject_8c_afbce6891ed0b9b2270edb3b749493698}
+\hypertarget{__superluobject_8c_ad8c934f2dc6fa1219ae2ad831f019b40}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!new\+Super\+L\+U\+Object@{new\+Super\+L\+U\+Object}}
+\index{new\+Super\+L\+U\+Object@{new\+Super\+L\+U\+Object}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{new\+Super\+L\+U\+Object}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ new\+Super\+L\+U\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{Py\+Object $\ast$}]{option\+\_\+dict, }
+\item[{int}]{intype, }
+\item[{int}]{ilu}
+\end{DoxyParamCaption}
+)}\label{__superluobject_8c_ad8c934f2dc6fa1219ae2ad831f019b40}
+\hypertarget{__superluobject_8c_aa0cf4c7ad0cb71eac06e783fbeeac5ab}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!N\+R\+Format\+\_\+from\+\_\+sp\+Matrix@{N\+R\+Format\+\_\+from\+\_\+sp\+Matrix}}
+\index{N\+R\+Format\+\_\+from\+\_\+sp\+Matrix@{N\+R\+Format\+\_\+from\+\_\+sp\+Matrix}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{N\+R\+Format\+\_\+from\+\_\+sp\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}int N\+R\+Format\+\_\+from\+\_\+sp\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{nnz, }
+\item[{Py\+Array\+Object $\ast$}]{nzvals, }
+\item[{Py\+Array\+Object $\ast$}]{colind, }
+\item[{Py\+Array\+Object $\ast$}]{rowptr, }
+\item[{int}]{typenum}
+\end{DoxyParamCaption}
+)}\label{__superluobject_8c_aa0cf4c7ad0cb71eac06e783fbeeac5ab}
+\hypertarget{__superluobject_8c_a9fb482aa456c35fec41ca15e0102d8f1}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!set\+\_\+superlu\+\_\+options\+\_\+from\+\_\+dict@{set\+\_\+superlu\+\_\+options\+\_\+from\+\_\+dict}}
+\index{set\+\_\+superlu\+\_\+options\+\_\+from\+\_\+dict@{set\+\_\+superlu\+\_\+options\+\_\+from\+\_\+dict}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{set\+\_\+superlu\+\_\+options\+\_\+from\+\_\+dict}]{\setlength{\rightskip}{0pt plus 5cm}int set\+\_\+superlu\+\_\+options\+\_\+from\+\_\+dict (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{int}]{ilu, }
+\item[{Py\+Object $\ast$}]{option\+\_\+dict, }
+\item[{int $\ast$}]{panel\+\_\+size, }
+\item[{int $\ast$}]{relax}
+\end{DoxyParamCaption}
+)}\label{__superluobject_8c_a9fb482aa456c35fec41ca15e0102d8f1}
+
+
+\subsection{Variable Documentation}
+\hypertarget{__superluobject_8c_a474df5043990c511e994dd3839c99acf}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!\+\_\+superlu\+\_\+py\+\_\+jmpbuf@{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}}
+\index{\+\_\+superlu\+\_\+py\+\_\+jmpbuf@{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}]{\setlength{\rightskip}{0pt plus 5cm}jmp\+\_\+buf \+\_\+superlu\+\_\+py\+\_\+jmpbuf}\label{__superluobject_8c_a474df5043990c511e994dd3839c99acf}
+\hypertarget{__superluobject_8c_a607ccc3fd125a0923a7ccd424a385a1f}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!Super\+L\+U\+\_\+getset@{Super\+L\+U\+\_\+getset}}
+\index{Super\+L\+U\+\_\+getset@{Super\+L\+U\+\_\+getset}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{Super\+L\+U\+\_\+getset}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Get\+Set\+Def Super\+L\+U\+\_\+getset\mbox{[}$\,$\mbox{]}}\label{__superluobject_8c_a607ccc3fd125a0923a7ccd424a385a1f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \{\textcolor{stringliteral}{"shape"}, SuperLU\_getter, (setter)NULL, (\textcolor{keywordtype}{char}*)NULL, (\textcolor{keywordtype}{void}*)"\hyperlink{shape_8h_aacb6366bbfa985262dfc42ebf145dde3}{shape}"\},
+    \{\textcolor{stringliteral}{"nnz"}, SuperLU\_getter, (setter)NULL, (\textcolor{keywordtype}{char}*)NULL, (\textcolor{keywordtype}{void}*)"nnz"\},
+    \{\textcolor{stringliteral}{"perm\_r"}, SuperLU\_getter, (setter)NULL, (\textcolor{keywordtype}{char}*)NULL, (\textcolor{keywordtype}{void}*)"perm\_r"\},
+    \{\textcolor{stringliteral}{"perm\_c"}, SuperLU\_getter, (setter)NULL, (\textcolor{keywordtype}{char}*)NULL, (\textcolor{keywordtype}{void}*)"perm\_c"\},
+    \{\textcolor{stringliteral}{"U"}, SuperLU\_getter, (setter)NULL, (\textcolor{keywordtype}{char}*)NULL, (\textcolor{keywordtype}{void}*)"U"\},
+    \{\textcolor{stringliteral}{"L"}, SuperLU\_getter, (setter)NULL, (\textcolor{keywordtype}{char}*)NULL, (\textcolor{keywordtype}{void}*)"L"\},
+    NULL
+\}
+\end{DoxyCode}
+\hypertarget{__superluobject_8c_af0a7da2e05450f30009ef7f8dcc52d23}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!Super\+L\+U\+\_\+methods@{Super\+L\+U\+\_\+methods}}
+\index{Super\+L\+U\+\_\+methods@{Super\+L\+U\+\_\+methods}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{Super\+L\+U\+\_\+methods}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Method\+Def Super\+L\+U\+\_\+methods\mbox{[}$\,$\mbox{]}}\label{__superluobject_8c_af0a7da2e05450f30009ef7f8dcc52d23}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \{\textcolor{stringliteral}{"solve"}, (PyCFunction) SuperLU\_solve, METH\_VARARGS | METH\_KEYWORDS, NULL\},
+    \{NULL, NULL\}        
+\}
+\end{DoxyCode}
+table of object methods \hypertarget{__superluobject_8c_a08efb94b86cf58930f075255552987f0}{}\index{\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}!Super\+L\+U\+Type@{Super\+L\+U\+Type}}
+\index{Super\+L\+U\+Type@{Super\+L\+U\+Type}!\+\_\+superluobject.\+c@{\+\_\+superluobject.\+c}}
+\subsubsection[{Super\+L\+U\+Type}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Type\+Object Super\+L\+U\+Type}\label{__superluobject_8c_a08efb94b86cf58930f075255552987f0}

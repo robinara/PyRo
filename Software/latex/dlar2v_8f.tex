@@ -1,0 +1,87 @@
+\hypertarget{dlar2v_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlar2v.f File Reference}
+\label{dlar2v_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlar2v.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlar2v.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlar2v_8f_ae1b81ff82ec4fad649a7703143c22f63}{dlar2v} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, X, Y, Z, I\+N\+C\+X, C, S, I\+N\+C\+C)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+R2\+V} applies a vector of plane rotations with real cosines and real sines from both sides to a sequence of 2-\/by-\/2 symmetric/\+Hermitian matrices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlar2v_8f_ae1b81ff82ec4fad649a7703143c22f63}{}\index{dlar2v.\+f@{dlar2v.\+f}!dlar2v@{dlar2v}}
+\index{dlar2v@{dlar2v}!dlar2v.\+f@{dlar2v.\+f}}
+\subsubsection[{dlar2v}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlar2v (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{X, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{Y, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{Z, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{C, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{S, }
+\item[{integer}]{I\+N\+C\+C}
+\end{DoxyParamCaption}
+)}\label{dlar2v_8f_ae1b81ff82ec4fad649a7703143c22f63}
+
+
+{\bfseries D\+L\+A\+R2\+V} applies a vector of plane rotations with real cosines and real sines from both sides to a sequence of 2-\/by-\/2 symmetric/\+Hermitian matrices. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLAR2V applies a vector of real plane rotations from both sides to
+ a sequence of 2-by-2 real symmetric matrices, defined by the elements
+ of the vectors x, y and z. For i = 1,2,...,n
+
+    ( x(i)  z(i) ) := (  c(i)  s(i) ) ( x(i)  z(i) ) ( c(i) -s(i) )
+    ( z(i)  y(i) )    ( -s(i)  c(i) ) ( z(i)  y(i) ) ( s(i)  c(i) )\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of plane rotations to be applied.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is DOUBLE PRECISION array,
+                         dimension (1+(N-1)*INCX)
+          The vector x.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Y} & \begin{DoxyVerb}          Y is DOUBLE PRECISION array,
+                         dimension (1+(N-1)*INCX)
+          The vector y.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array,
+                         dimension (1+(N-1)*INCX)
+          The vector z.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between elements of X, Y and Z. INCX > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC)
+          The cosines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is DOUBLE PRECISION array, dimension (1+(N-1)*INCC)
+          The sines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+C} & \begin{DoxyVerb}          INCC is INTEGER
+          The increment between elements of C and S. INCC > 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

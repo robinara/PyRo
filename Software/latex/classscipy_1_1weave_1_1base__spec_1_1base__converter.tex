@@ -1,0 +1,213 @@
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter}{}\section{scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter Class Reference}
+\label{classscipy_1_1weave_1_1base__spec_1_1base__converter}\index{scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter@{scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter}}
+Inheritance diagram for scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1weave_1_1base__spec_1_1base__converter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_ae29a1a67a52fbdb0931dff9bc1a55e25}{set\+\_\+compiler}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_ad80d93143dfd23bc993bb02f6477e523}{type\+\_\+match}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_a844adfcc5c628b42d28a45f22bd0c9b6}{build\+\_\+information}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_a2634d93738d4ee6e520bd150f804fa06}{type\+\_\+spec}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_a9e12f2dacd525de9f2a38ada2eb1e1ac}{declaration\+\_\+code}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_aaffc363381e079307d4583d97260e663}{local\+\_\+dict\+\_\+code}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_a13a0620ab55a3d734d26c0777500139c}{cleanup\+\_\+code}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_a6543696a967aec5294410bbea0aea0a1}{retrieve\+\_\+py\+\_\+variable}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_a2b75900fb895eb453d8dbe50f5e5c8eb}{py\+\_\+reference}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_a0f4dadd916aaa988e9f5b47524b2d16d}{py\+\_\+pointer}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_abb81c20c63575314f04141b5f87eacbb}{py\+\_\+variable}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_adf3be3c4e86ab360cfeac4db9aae64c3}{reference}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_a3c0bfde58bb543419231cca9d80a8e72}{pointer}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_afa4a072eae11e448ed0eae0d60bfa128}{init\+\_\+flag}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_a62f616300e27ad7a9ff76eacb24afa46}{variable}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_ab476da6d81567fea2f4fea3a0cedd086}{variable\+\_\+as\+\_\+string}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_ac3e39191fffe91b942d5afe4a64c3f36}{compiler}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classscipy_1_1weave_1_1base__spec_1_1base__converter_a946779218f3fbeee9bb1c0fd41c7b388}{compiler} = ''
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}    Properties:
+    headers --  list of strings that name the header files needed by this
+                object.
+    include_dirs -- list of directories where the header files can be found.
+    libraries   -- list of libraries needed to link to when compiling
+                   extension.
+    library_dirs -- list of directories to search for libraries.
+
+    support_code -- list of strings.  Each string is a subroutine needed
+                    by the type.  Functions that are used in the conversion
+                    between Python and C++ files are examples of these.
+
+    Methods:
+
+    type_match(value) returns 1 if this class is used to represent type
+                      specification for value.
+    type_spec(name, value)  returns a new object (of this class) that is
+                            used to produce C++ code for value.
+    declaration_code()    returns C++ code fragment for type declaration and
+                          conversion of python object to C++ object.
+    cleanup_code()    returns C++ code fragment for cleaning up after the
+                      variable after main C++ code fragment has executed.\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_a844adfcc5c628b42d28a45f22bd0c9b6}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!build\+\_\+information@{build\+\_\+information}}
+\index{build\+\_\+information@{build\+\_\+information}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{build\+\_\+information}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+build\+\_\+information (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_a844adfcc5c628b42d28a45f22bd0c9b6}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_a13a0620ab55a3d734d26c0777500139c}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!cleanup\+\_\+code@{cleanup\+\_\+code}}
+\index{cleanup\+\_\+code@{cleanup\+\_\+code}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{cleanup\+\_\+code}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+cleanup\+\_\+code (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_a13a0620ab55a3d734d26c0777500139c}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_a9e12f2dacd525de9f2a38ada2eb1e1ac}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!declaration\+\_\+code@{declaration\+\_\+code}}
+\index{declaration\+\_\+code@{declaration\+\_\+code}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{declaration\+\_\+code}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+declaration\+\_\+code (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{templatize = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_a9e12f2dacd525de9f2a38ada2eb1e1ac}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_afa4a072eae11e448ed0eae0d60bfa128}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!init\+\_\+flag@{init\+\_\+flag}}
+\index{init\+\_\+flag@{init\+\_\+flag}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{init\+\_\+flag}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+init\+\_\+flag (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_afa4a072eae11e448ed0eae0d60bfa128}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_aaffc363381e079307d4583d97260e663}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!local\+\_\+dict\+\_\+code@{local\+\_\+dict\+\_\+code}}
+\index{local\+\_\+dict\+\_\+code@{local\+\_\+dict\+\_\+code}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{local\+\_\+dict\+\_\+code}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+local\+\_\+dict\+\_\+code (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_aaffc363381e079307d4583d97260e663}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_a3c0bfde58bb543419231cca9d80a8e72}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!pointer@{pointer}}
+\index{pointer@{pointer}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{pointer}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+pointer (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_a3c0bfde58bb543419231cca9d80a8e72}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_a0f4dadd916aaa988e9f5b47524b2d16d}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!py\+\_\+pointer@{py\+\_\+pointer}}
+\index{py\+\_\+pointer@{py\+\_\+pointer}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{py\+\_\+pointer}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+py\+\_\+pointer (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_a0f4dadd916aaa988e9f5b47524b2d16d}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_a2b75900fb895eb453d8dbe50f5e5c8eb}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!py\+\_\+reference@{py\+\_\+reference}}
+\index{py\+\_\+reference@{py\+\_\+reference}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{py\+\_\+reference}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+py\+\_\+reference (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_a2b75900fb895eb453d8dbe50f5e5c8eb}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_abb81c20c63575314f04141b5f87eacbb}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!py\+\_\+variable@{py\+\_\+variable}}
+\index{py\+\_\+variable@{py\+\_\+variable}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{py\+\_\+variable}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+py\+\_\+variable (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_abb81c20c63575314f04141b5f87eacbb}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_adf3be3c4e86ab360cfeac4db9aae64c3}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!reference@{reference}}
+\index{reference@{reference}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{reference}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+reference (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_adf3be3c4e86ab360cfeac4db9aae64c3}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_a6543696a967aec5294410bbea0aea0a1}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!retrieve\+\_\+py\+\_\+variable@{retrieve\+\_\+py\+\_\+variable}}
+\index{retrieve\+\_\+py\+\_\+variable@{retrieve\+\_\+py\+\_\+variable}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{retrieve\+\_\+py\+\_\+variable}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+retrieve\+\_\+py\+\_\+variable (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{inline = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_a6543696a967aec5294410bbea0aea0a1}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_ae29a1a67a52fbdb0931dff9bc1a55e25}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!set\+\_\+compiler@{set\+\_\+compiler}}
+\index{set\+\_\+compiler@{set\+\_\+compiler}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{set\+\_\+compiler}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+set\+\_\+compiler (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{compiler}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_ae29a1a67a52fbdb0931dff9bc1a55e25}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_ad80d93143dfd23bc993bb02f6477e523}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!type\+\_\+match@{type\+\_\+match}}
+\index{type\+\_\+match@{type\+\_\+match}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{type\+\_\+match}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+type\+\_\+match (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{value}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_ad80d93143dfd23bc993bb02f6477e523}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_a2634d93738d4ee6e520bd150f804fa06}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!type\+\_\+spec@{type\+\_\+spec}}
+\index{type\+\_\+spec@{type\+\_\+spec}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{type\+\_\+spec}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+type\+\_\+spec (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{value}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_a2634d93738d4ee6e520bd150f804fa06}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_a62f616300e27ad7a9ff76eacb24afa46}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!variable@{variable}}
+\index{variable@{variable}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{variable}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+variable (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_a62f616300e27ad7a9ff76eacb24afa46}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_ab476da6d81567fea2f4fea3a0cedd086}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!variable\+\_\+as\+\_\+string@{variable\+\_\+as\+\_\+string}}
+\index{variable\+\_\+as\+\_\+string@{variable\+\_\+as\+\_\+string}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{variable\+\_\+as\+\_\+string}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+variable\+\_\+as\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_ab476da6d81567fea2f4fea3a0cedd086}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_a946779218f3fbeee9bb1c0fd41c7b388}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!compiler@{compiler}}
+\index{compiler@{compiler}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{compiler}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+compiler = ''\hspace{0.3cm}{\ttfamily [static]}}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_a946779218f3fbeee9bb1c0fd41c7b388}
+\hypertarget{classscipy_1_1weave_1_1base__spec_1_1base__converter_ac3e39191fffe91b942d5afe4a64c3f36}{}\index{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}!compiler@{compiler}}
+\index{compiler@{compiler}!scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter@{scipy\+::weave\+::base\+\_\+spec\+::base\+\_\+converter}}
+\subsubsection[{compiler}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+weave.\+base\+\_\+spec.\+base\+\_\+converter.\+compiler}\label{classscipy_1_1weave_1_1base__spec_1_1base__converter_ac3e39191fffe91b942d5afe4a64c3f36}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/weave/\hyperlink{base__spec_8py}{base\+\_\+spec.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,105 @@
+\hypertarget{ztptrs_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/ztptrs.f File Reference}
+\label{ztptrs_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ztptrs.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ztptrs.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ztptrs_8f_adc72353ca5616dfc9e7df1ceb3d841e0}{ztptrs} (U\+P\+L\+O, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, D\+I\+A\+G, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, A\+P, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+T\+P\+T\+R\+S} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ztptrs_8f_adc72353ca5616dfc9e7df1ceb3d841e0}{}\index{ztptrs.\+f@{ztptrs.\+f}!ztptrs@{ztptrs}}
+\index{ztptrs@{ztptrs}!ztptrs.\+f@{ztptrs.\+f}}
+\subsubsection[{ztptrs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ztptrs (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{character}]{D\+I\+A\+G, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{A\+P, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{ztptrs_8f_adc72353ca5616dfc9e7df1ceb3d841e0}
+
+
+{\bfseries Z\+T\+P\+T\+R\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZTPTRS solves a triangular system of the form
+
+    A * X = B,  A**T * X = B,  or  A**H * X = B,
+
+ where A is a triangular matrix of order N stored in packed format,
+ and B is an N-by-NRHS matrix.  A check is made to verify that A is
+ nonsingular.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  A is upper triangular;
+          = 'L':  A is lower triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          Specifies the form of the system of equations:
+          = 'N':  A * X = B     (No transpose)
+          = 'T':  A**T * X = B  (Transpose)
+          = 'C':  A**H * X = B  (Conjugate transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+A\+G} & \begin{DoxyVerb}          DIAG is CHARACTER*1
+          = 'N':  A is non-unit triangular;
+          = 'U':  A is unit triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+P} & \begin{DoxyVerb}          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+          The upper or lower triangular matrix A, packed columnwise in
+          a linear array.  The j-th column of A is stored in the array
+          AP as follows:
+          if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
+          if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX*16 array, dimension (LDB,NRHS)
+          On entry, the right hand side matrix B.
+          On exit, if INFO = 0, the solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i, the i-th diagonal element of A is zero,
+                indicating that the matrix is singular and the
+                solutions X have not been computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

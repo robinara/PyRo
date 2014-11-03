@@ -1,0 +1,115 @@
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase}{}\section{scipy.\+interpolate.\+fitpack2.\+\_\+\+Bivariate\+Spline\+Base Class Reference}
+\label{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase}\index{scipy.\+interpolate.\+fitpack2.\+\_\+\+Bivariate\+Spline\+Base@{scipy.\+interpolate.\+fitpack2.\+\_\+\+Bivariate\+Spline\+Base}}
+Inheritance diagram for scipy.\+interpolate.\+fitpack2.\+\_\+\+Bivariate\+Spline\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.124498cm]{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_a31961c131cec5c48769d2c2580209618}{get\+\_\+residual}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_abadc64cb21b44d09fafd155d51361095}{get\+\_\+knots}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_a5d9fbc935427e01c099481a9aefac720}{get\+\_\+coeffs}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_a9ddc5a26b65017790ef0cf71fb52b485}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Base class for Bivariate spline s(x,y) interpolation on the rectangle
+[xb,xe] x [yb, ye] calculated from a given set of data points
+(x,y,z).
+
+See Also
+--------
+bisplrep, bisplev : an older wrapping of FITPACK
+BivariateSpline :
+    implementation of bivariate spline interpolation on a plane grid
+SphereBivariateSpline :
+    implementation of bivariate spline interpolation on a spherical grid
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_a9ddc5a26b65017790ef0cf71fb52b485}{}\index{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base@{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base@{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+\_\+\+Bivariate\+Spline\+Base.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{mth = {\ttfamily None}, }
+\item[{}]{dx = {\ttfamily 0}, }
+\item[{}]{dy = {\ttfamily 0}, }
+\item[{}]{grid = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_a9ddc5a26b65017790ef0cf71fb52b485}
+\begin{DoxyVerb}Evaluate the spline or its derivatives at given positions.
+
+Parameters
+----------
+x, y : array-like
+    Input coordinates.
+
+    If `grid` is False, evaluate the spline at points ``(x[i],
+    y[i]), i=0, ..., len(x)-1``.  Standard Numpy broadcasting
+    is obeyed.
+
+    If `grid` is True: evaluate spline at the grid points
+    defined by the coordinate arrays x, y. The arrays must be
+    sorted to increasing order.
+dx : int
+    Order of x-derivative
+
+    .. versionadded:: 0.14.0
+dy : int
+    Order of y-derivative
+
+    .. versionadded:: 0.14.0
+grid : bool
+    Whether to evaluate the results on a grid spanned by the
+    input arrays, or at points specified by the input arrays.
+
+    .. versionadded:: 0.14.0
+
+mth : str
+    Deprecated argument. Has no effect.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_a5d9fbc935427e01c099481a9aefac720}{}\index{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base@{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base}!get\+\_\+coeffs@{get\+\_\+coeffs}}
+\index{get\+\_\+coeffs@{get\+\_\+coeffs}!scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base@{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base}}
+\subsubsection[{get\+\_\+coeffs}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+\_\+\+Bivariate\+Spline\+Base.\+get\+\_\+coeffs (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_a5d9fbc935427e01c099481a9aefac720}
+\begin{DoxyVerb}Return spline coefficients.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_abadc64cb21b44d09fafd155d51361095}{}\index{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base@{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base}!get\+\_\+knots@{get\+\_\+knots}}
+\index{get\+\_\+knots@{get\+\_\+knots}!scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base@{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base}}
+\subsubsection[{get\+\_\+knots}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+\_\+\+Bivariate\+Spline\+Base.\+get\+\_\+knots (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_abadc64cb21b44d09fafd155d51361095}
+\begin{DoxyVerb}Return a tuple (tx,ty) where tx,ty contain knots positions
+of the spline with respect to x-, y-variable, respectively.
+The position of interior and additional knots are given as
+  t[k+1:-k-1] and t[:k+1]=b, t[-k-1:]=e, respectively.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_a31961c131cec5c48769d2c2580209618}{}\index{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base@{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base}!get\+\_\+residual@{get\+\_\+residual}}
+\index{get\+\_\+residual@{get\+\_\+residual}!scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base@{scipy\+::interpolate\+::fitpack2\+::\+\_\+\+Bivariate\+Spline\+Base}}
+\subsubsection[{get\+\_\+residual}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+\_\+\+Bivariate\+Spline\+Base.\+get\+\_\+residual (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1__BivariateSplineBase_a31961c131cec5c48769d2c2580209618}
+\begin{DoxyVerb}Return weighted sum of squared residuals of the spline
+approximation: sum ((w[i]*(z[i]-s(x[i],y[i])))**2,axis=0)
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{fitpack2_8py}{fitpack2.\+py}\end{DoxyCompactItemize}

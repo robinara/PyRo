@@ -1,0 +1,87 @@
+\hypertarget{clar2v_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clar2v.f File Reference}
+\label{clar2v_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clar2v.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clar2v.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clar2v_8f_afa6051cabe87f06275d7dd5489c40cdd}{clar2v} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, X, Y, Z, I\+N\+C\+X, C, S, I\+N\+C\+C)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+R2\+V} applies a vector of plane rotations with real cosines and complex sines from both sides to a sequence of 2-\/by-\/2 symmetric/\+Hermitian matrices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clar2v_8f_afa6051cabe87f06275d7dd5489c40cdd}{}\index{clar2v.\+f@{clar2v.\+f}!clar2v@{clar2v}}
+\index{clar2v@{clar2v}!clar2v.\+f@{clar2v.\+f}}
+\subsubsection[{clar2v}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clar2v (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{X, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{Y, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{Z, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{real, dimension( $\ast$ )}]{C, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{S, }
+\item[{integer}]{I\+N\+C\+C}
+\end{DoxyParamCaption}
+)}\label{clar2v_8f_afa6051cabe87f06275d7dd5489c40cdd}
+
+
+{\bfseries C\+L\+A\+R2\+V} applies a vector of plane rotations with real cosines and complex sines from both sides to a sequence of 2-\/by-\/2 symmetric/\+Hermitian matrices. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLAR2V applies a vector of complex plane rotations with real cosines
+ from both sides to a sequence of 2-by-2 complex Hermitian matrices,
+ defined by the elements of the vectors x, y and z. For i = 1,2,...,n
+
+    (       x(i)  z(i) ) :=
+    ( conjg(z(i)) y(i) )
+
+      (  c(i) conjg(s(i)) ) (       x(i)  z(i) ) ( c(i) -conjg(s(i)) )
+      ( -s(i)       c(i)  ) ( conjg(z(i)) y(i) ) ( s(i)        c(i)  )\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of plane rotations to be applied.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX array, dimension (1+(N-1)*INCX)
+          The vector x; the elements of x are assumed to be real.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Y} & \begin{DoxyVerb}          Y is COMPLEX array, dimension (1+(N-1)*INCX)
+          The vector y; the elements of y are assumed to be real.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Z} & \begin{DoxyVerb}          Z is COMPLEX array, dimension (1+(N-1)*INCX)
+          The vector z.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between elements of X, Y and Z. INCX > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is REAL array, dimension (1+(N-1)*INCC)
+          The cosines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is COMPLEX array, dimension (1+(N-1)*INCC)
+          The sines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+C} & \begin{DoxyVerb}          INCC is INTEGER
+          The increment between elements of C and S. INCC > 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

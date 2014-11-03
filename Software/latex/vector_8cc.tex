@@ -1,0 +1,45 @@
+\hypertarget{vector_8cc}{}\section{packages/scipy-\/0.14.0/scipy/weave/blitz/blitz/vector.cc File Reference}
+\label{vector_8cc}\index{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/vector.\+cc@{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/vector.\+cc}}
+{\ttfamily \#include $<$blitz/vector.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/update.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{vector_8cc_a013c38c782f59dbec943e6ec5a2f476c}{B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+C\+C}
+\item 
+\#define \hyperlink{vector_8cc_afd9882e1fc157ba65a65d9f87c133abc}{B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+A\+S\+S\+I\+G\+N}(op)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{vector_8cc_afd9882e1fc157ba65a65d9f87c133abc}{}\index{vector.\+cc@{vector.\+cc}!B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+A\+S\+S\+I\+G\+N@{B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+A\+S\+S\+I\+G\+N}}
+\index{B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+A\+S\+S\+I\+G\+N@{B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+A\+S\+S\+I\+G\+N}!vector.\+cc@{vector.\+cc}}
+\subsubsection[{B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+A\+S\+S\+I\+G\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+A\+S\+S\+I\+G\+N(
+\begin{DoxyParamCaption}
+\item[{}]{op}
+\end{DoxyParamCaption}
+)}\label{vector_8cc_afd9882e1fc157ba65a65d9f87c133abc}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} P\_numtype> \textcolor{keyword}{template}<\textcolor{keyword}{typename} P\_expr>                        \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} \hyperlink{classVector}{Vector<P\_numtype>}& \hyperlink{classVector}{Vector<P\_numtype>}::                      
+           \(\backslash\)
+    operator op (\hyperlink{class__bz__VecExpr}{\_bz\_VecExpr<P\_expr>} expr)                              \(\backslash\)
+\{                                                                       \hyperlink{bzdebug_8h_a6367911336f88f92d1c4755ec1df0c75}{\(\backslash\)}
+\hyperlink{bzdebug_8h_a6367911336f88f92d1c4755ec1df0c75}{    BZPRECONDITION}(expr.length(length\_) == length\_);                    
+      \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} ((stride\_ == 1) && (expr.\_bz\_hasFastAccess()))                   \(\backslash\)
+    \{                                                                   \(\backslash\)
+        for (\textcolor{keywordtype}{int} \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}=0; \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i} < length\_; ++\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i})                                 \(\backslash\)
+            data\_[\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}] op expr.\_bz\_fastAccess(\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i});                         \(\backslash\)
+    \}                                                                   \hyperlink{scores_8php_a0544c3fe466e421738dae463968b70ba}{\(\backslash\)}
+\hyperlink{scores_8php_a0544c3fe466e421738dae463968b70ba}{    else} \{                                                              \(\backslash\)
+        for (\textcolor{keywordtype}{int} \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}=0; \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i} < length\_; ++\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i})                                 \(\backslash\)
+            (*\textcolor{keyword}{this})[\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}] op expr[\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}];                                      \(\backslash\)
+    \}                                                                   \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} *\textcolor{keyword}{this};                                                       \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{vector_8cc_a013c38c782f59dbec943e6ec5a2f476c}{}\index{vector.\+cc@{vector.\+cc}!B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+C\+C@{B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+C\+C}}
+\index{B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+C\+C@{B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+C\+C}!vector.\+cc@{vector.\+cc}}
+\subsubsection[{B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+C\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+V\+E\+C\+T\+O\+R\+\_\+\+C\+C}\label{vector_8cc_a013c38c782f59dbec943e6ec5a2f476c}

@@ -1,0 +1,165 @@
+\hypertarget{namespacescipy_1_1optimize_1_1__root}{}\section{scipy.\+optimize.\+\_\+root Namespace Reference}
+\label{namespacescipy_1_1optimize_1_1__root}\index{scipy.\+optimize.\+\_\+root@{scipy.\+optimize.\+\_\+root}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1__root_a5aae377ecdbb3d67385ba02eb46bd796}{root}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1optimize_1_1__root_a172eef1e96392775fe745d3dd3732d55}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1optimize_1_1__root_a5aae377ecdbb3d67385ba02eb46bd796}{root}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Unified interfaces to root finding algorithms.
+
+Functions
+---------
+- root : find a root of a vector function.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1__root_a5aae377ecdbb3d67385ba02eb46bd796}{}\index{scipy\+::optimize\+::\+\_\+root@{scipy\+::optimize\+::\+\_\+root}!root@{root}}
+\index{root@{root}!scipy\+::optimize\+::\+\_\+root@{scipy\+::optimize\+::\+\_\+root}}
+\subsubsection[{root}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+root.\+root (
+\begin{DoxyParamCaption}
+\item[{}]{fun, }
+\item[{}]{x0, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{method = {\ttfamily 'hybr'}, }
+\item[{}]{jac = {\ttfamily None}, }
+\item[{}]{tol = {\ttfamily None}, }
+\item[{}]{callback = {\ttfamily None}, }
+\item[{}]{options = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1__root_a5aae377ecdbb3d67385ba02eb46bd796}
+\begin{DoxyVerb}Find a root of a vector function.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+fun : callable
+    A vector function to find a root of.
+x0 : ndarray
+    Initial guess.
+args : tuple, optional
+    Extra arguments passed to the objective function and its Jacobian.
+method : str, optional
+    Type of solver.  Should be one of
+
+        - 'hybr'
+        - 'lm'
+        - 'broyden1'
+        - 'broyden2'
+        - 'anderson'
+        - 'linearmixing'
+        - 'diagbroyden'
+        - 'excitingmixing'
+        - 'krylov'
+
+jac : bool or callable, optional
+    If `jac` is a Boolean and is True, `fun` is assumed to return the
+    value of Jacobian along with the objective function. If False, the
+    Jacobian will be estimated numerically.
+    `jac` can also be a callable returning the Jacobian of `fun`. In
+    this case, it must accept the same arguments as `fun`.
+tol : float, optional
+    Tolerance for termination. For detailed control, use solver-specific
+    options.
+callback : function, optional
+    Optional callback function. It is called on every iteration as
+    ``callback(x, f)`` where `x` is the current solution and `f`
+    the corresponding residual. For all methods but 'hybr' and 'lm'.
+options : dict, optional
+    A dictionary of solver options. E.g. `xtol` or `maxiter`, see
+    :obj:`show_options()` for details.
+
+Returns
+-------
+sol : OptimizeResult
+    The solution represented as a ``OptimizeResult`` object.
+    Important attributes are: ``x`` the solution array, ``success`` a
+    Boolean flag indicating if the algorithm exited successfully and
+    ``message`` which describes the cause of the termination. See
+    `OptimizeResult` for a description of other attributes.
+
+See also
+--------
+show_options : Additional options accepted by the solvers
+
+Notes
+-----
+This section describes the available solvers that can be selected by the
+'method' parameter. The default method is *hybr*.
+
+Method *hybr* uses a modification of the Powell hybrid method as
+implemented in MINPACK [1]_.
+
+Method *lm* solves the system of nonlinear equations in a least squares
+sense using a modification of the Levenberg-Marquardt algorithm as
+implemented in MINPACK [1]_.
+
+Methods *broyden1*, *broyden2*, *anderson*, *linearmixing*,
+*diagbroyden*, *excitingmixing*, *krylov* are inexact Newton methods,
+with backtracking or full line searches [2]_. Each method corresponds
+to a particular Jacobian approximations. See `nonlin` for details.
+
+- Method *broyden1* uses Broyden's first Jacobian approximation, it is
+  known as Broyden's good method.
+- Method *broyden2* uses Broyden's second Jacobian approximation, it
+  is known as Broyden's bad method.
+- Method *anderson* uses (extended) Anderson mixing.
+- Method *Krylov* uses Krylov approximation for inverse Jacobian. It
+  is suitable for large-scale problem.
+- Method *diagbroyden* uses diagonal Broyden Jacobian approximation.
+- Method *linearmixing* uses a scalar Jacobian approximation.
+- Method *excitingmixing* uses a tuned diagonal Jacobian
+  approximation.
+
+.. warning::
+
+    The algorithms implemented for methods *diagbroyden*,
+    *linearmixing* and *excitingmixing* may be useful for specific
+    problems, but whether they will work may depend strongly on the
+    problem.
+
+References
+----------
+.. [1] More, Jorge J., Burton S. Garbow, and Kenneth E. Hillstrom.
+   1980. User Guide for MINPACK-1.
+.. [2] C. T. Kelley. 1995. Iterative Methods for Linear and Nonlinear
+    Equations. Society for Industrial and Applied Mathematics.
+    <http://www.siam.org/books/kelley/>
+
+Examples
+--------
+The following functions define a system of nonlinear equations and its
+jacobian.
+
+>>> def fun(x):
+...     return [x[0]  + 0.5 * (x[0] - x[1])**3 - 1.0,
+...             0.5 * (x[1] - x[0])**3 + x[1]]
+
+>>> def jac(x):
+...     return np.array([[1 + 1.5 * (x[0] - x[1])**2,
+...                       -1.5 * (x[0] - x[1])**2],
+...                      [-1.5 * (x[1] - x[0])**2,
+...                       1 + 1.5 * (x[1] - x[0])**2]])
+
+A solution can be obtained as follows.
+
+>>> from scipy import optimize
+>>> sol = optimize.root(fun, [0, 0], jac=jac, method='hybr')
+>>> sol.x
+array([ 0.8411639,  0.1588361])
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1__root_a172eef1e96392775fe745d3dd3732d55}{}\index{scipy\+::optimize\+::\+\_\+root@{scipy\+::optimize\+::\+\_\+root}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::optimize\+::\+\_\+root@{scipy\+::optimize\+::\+\_\+root}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+optimize.\+\_\+root.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf root}'\mbox{]}}\label{namespacescipy_1_1optimize_1_1__root_a172eef1e96392775fe745d3dd3732d55}

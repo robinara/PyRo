@@ -1,0 +1,151 @@
+\hypertarget{ztbrfs_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/ztbrfs.f File Reference}
+\label{ztbrfs_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ztbrfs.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ztbrfs.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ztbrfs_8f_a4e8aef363bad21b0d330e3b7b6611101}{ztbrfs} (U\+P\+L\+O, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, D\+I\+A\+G, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+D, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, A\+B, L\+D\+A\+B, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, X, L\+D\+X, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a78fd14d7abebae04095cfbe02928f153}{F\+E\+R\+R}, B\+E\+R\+R, W\+O\+R\+K, R\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+T\+B\+R\+F\+S} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ztbrfs_8f_a4e8aef363bad21b0d330e3b7b6611101}{}\index{ztbrfs.\+f@{ztbrfs.\+f}!ztbrfs@{ztbrfs}}
+\index{ztbrfs@{ztbrfs}!ztbrfs.\+f@{ztbrfs.\+f}}
+\subsubsection[{ztbrfs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ztbrfs (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{character}]{D\+I\+A\+G, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+D, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{{\bf complex}$\ast$16, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{{\bf complex}$\ast$16, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{F\+E\+R\+R, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B\+E\+R\+R, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{ztbrfs_8f_a4e8aef363bad21b0d330e3b7b6611101}
+
+
+{\bfseries Z\+T\+B\+R\+F\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZTBRFS provides error bounds and backward error estimates for the
+ solution to a system of linear equations with a triangular band
+ coefficient matrix.
+
+ The solution matrix X must be computed by ZTBTRS or some other
+ means before entering this routine.  ZTBRFS does not do iterative
+ refinement because doing so cannot improve the backward error.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  A is upper triangular;
+          = 'L':  A is lower triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          Specifies the form of the system of equations:
+          = 'N':  A * X = B     (No transpose)
+          = 'T':  A**T * X = B  (Transpose)
+          = 'C':  A**H * X = B  (Conjugate transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+A\+G} & \begin{DoxyVerb}          DIAG is CHARACTER*1
+          = 'N':  A is non-unit triangular;
+          = 'U':  A is unit triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+D} & \begin{DoxyVerb}          KD is INTEGER
+          The number of superdiagonals or subdiagonals of the
+          triangular band matrix A.  KD >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrices B and X.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+B} & \begin{DoxyVerb}          AB is COMPLEX*16 array, dimension (LDAB,N)
+          The upper or lower triangular band matrix A, stored in the
+          first kd+1 rows of the array. The j-th column of A is stored
+          in the j-th column of the array AB as follows:
+          if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
+          If DIAG = 'U', the diagonal elements of A are not referenced
+          and are assumed to be 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KD+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX*16 array, dimension (LDB,NRHS)
+          The right hand side matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX*16 array, dimension (LDX,NRHS)
+          The solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.  LDX >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em F\+E\+R\+R} & \begin{DoxyVerb}          FERR is DOUBLE PRECISION array, dimension (NRHS)
+          The estimated forward error bound for each solution vector
+          X(j) (the j-th column of the solution matrix X).
+          If XTRUE is the true solution corresponding to X(j), FERR(j)
+          is an estimated upper bound for the magnitude of the largest
+          element in (X(j) - XTRUE) divided by the magnitude of the
+          largest element in X(j).  The estimate is as reliable as
+          the estimate for RCOND, and is almost always a slight
+          overestimate of the true error.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+R\+R} & \begin{DoxyVerb}          BERR is DOUBLE PRECISION array, dimension (NRHS)
+          The componentwise relative backward error of each solution
+          vector X(j) (i.e., the smallest relative change in
+          any element of A or B that makes X(j) an exact solution).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (2*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is DOUBLE PRECISION array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

@@ -1,0 +1,102 @@
+\hypertarget{clarf_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clarf.f File Reference}
+\label{clarf_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarf.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarf.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clarf_8f_a4333e0ec040bf9a0b4f568b10827d446}{clarf} (S\+I\+D\+E, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, V, I\+N\+C\+V, T\+A\+U, C, L\+D\+C, W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+R\+F} applies an elementary reflector to a general rectangular matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clarf_8f_a4333e0ec040bf9a0b4f568b10827d446}{}\index{clarf.\+f@{clarf.\+f}!clarf@{clarf}}
+\index{clarf@{clarf}!clarf.\+f@{clarf.\+f}}
+\subsubsection[{clarf}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clarf (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{V, }
+\item[{integer}]{I\+N\+C\+V, }
+\item[{{\bf complex}}]{T\+A\+U, }
+\item[{{\bf complex}, dimension( ldc, $\ast$ )}]{C, }
+\item[{integer}]{L\+D\+C, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{clarf_8f_a4333e0ec040bf9a0b4f568b10827d446}
+
+
+{\bfseries C\+L\+A\+R\+F} applies an elementary reflector to a general rectangular matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLARF applies a complex elementary reflector H to a complex M-by-N
+ matrix C, from either the left or the right. H is represented in the
+ form
+
+       H = I - tau * v * v**H
+
+ where tau is a complex scalar and v is a complex vector.
+
+ If tau = 0, then H is taken to be the unit matrix.
+
+ To apply H**H (the conjugate transpose of H), supply conjg(tau) instead
+ tau.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+          = 'L': form  H * C
+          = 'R': form  C * H\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V} & \begin{DoxyVerb}          V is COMPLEX array, dimension
+                     (1 + (M-1)*abs(INCV)) if SIDE = 'L'
+                  or (1 + (N-1)*abs(INCV)) if SIDE = 'R'
+          The vector v in the representation of H. V is not used if
+          TAU = 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+V} & \begin{DoxyVerb}          INCV is INTEGER
+          The increment between elements of v. INCV <> 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is COMPLEX
+          The value tau in the representation of H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is COMPLEX array, dimension (LDC,N)
+          On entry, the M-by-N matrix C.
+          On exit, C is overwritten by the matrix H * C if SIDE = 'L',
+          or C * H if SIDE = 'R'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+          The leading dimension of the array C. LDC >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension
+                         (N) if SIDE = 'L'
+                      or (M) if SIDE = 'R'\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

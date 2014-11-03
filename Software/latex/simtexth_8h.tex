@@ -1,0 +1,83 @@
+\hypertarget{simtexth_8h}{}\section{packages/\+Py\+Qt-\/x11-\/gpl-\/4.11.2/pylupdate/simtexth.h File Reference}
+\label{simtexth_8h}\index{packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/pylupdate/simtexth.\+h@{packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/pylupdate/simtexth.\+h}}
+{\ttfamily \#include $<$Q\+String$>$}\\*
+{\ttfamily \#include $<$Q\+List$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structCandidate}{Candidate}
+\item 
+class \hyperlink{classStringSimilarityMatcher}{String\+Similarity\+Matcher}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{classQList}{Q\+List}$<$ \hyperlink{structCandidate}{Candidate} $>$ \hyperlink{simtexth_8h_a18287d937b88686800a4bfae2f351192}{Candidate\+List}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{simtexth_8h_aa41342f7b9b90b104b903cd4393cb62b}{operator==} (const \hyperlink{structCandidate}{Candidate} \&c, const \hyperlink{structCandidate}{Candidate} \&d)
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{simtexth_8h_a33668e755d4cb0ac64840b7b87111cea}{operator!=} (const \hyperlink{structCandidate}{Candidate} \&c, const \hyperlink{structCandidate}{Candidate} \&d)
+\item 
+int \hyperlink{simtexth_8h_a95347bc71744a0a6314927bbaaa62bdb}{get\+Similarity\+Score} (const Q\+String \&str1, const char $\ast$str2)
+\item 
+\hyperlink{simtexth_8h_a18287d937b88686800a4bfae2f351192}{Candidate\+List} \hyperlink{simtexth_8h_ac3ead98d975e171d75a5286809fd71df}{similar\+Text\+Heuristic\+Candidates} (const \hyperlink{classMetaTranslator}{Meta\+Translator} $\ast$tor, const char $\ast$text, int max\+Candidates)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{simtexth_8h_a20fd9bb2eec80ca05a04cf9cf15043b0}{text\+Similarity\+Threshold} = 190
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{simtexth_8h_a18287d937b88686800a4bfae2f351192}{}\index{simtexth.\+h@{simtexth.\+h}!Candidate\+List@{Candidate\+List}}
+\index{Candidate\+List@{Candidate\+List}!simtexth.\+h@{simtexth.\+h}}
+\subsubsection[{Candidate\+List}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Q\+List}$<${\bf Candidate}$>$ {\bf Candidate\+List}}\label{simtexth_8h_a18287d937b88686800a4bfae2f351192}
+
+
+\subsection{Function Documentation}
+\hypertarget{simtexth_8h_a95347bc71744a0a6314927bbaaa62bdb}{}\index{simtexth.\+h@{simtexth.\+h}!get\+Similarity\+Score@{get\+Similarity\+Score}}
+\index{get\+Similarity\+Score@{get\+Similarity\+Score}!simtexth.\+h@{simtexth.\+h}}
+\subsubsection[{get\+Similarity\+Score}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Similarity\+Score (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{str1, }
+\item[{const char $\ast$}]{str2}
+\end{DoxyParamCaption}
+)}\label{simtexth_8h_a95347bc71744a0a6314927bbaaa62bdb}
+Checks how similar two strings are. The return value is the score, and a higher score is more similar than one with a low score. Linguist considers a score over 190 to be a good match. \begin{DoxySeeAlso}{See also}
+\hyperlink{classStringSimilarityMatcher}{String\+Similarity\+Matcher} 
+\end{DoxySeeAlso}
+\hypertarget{simtexth_8h_a33668e755d4cb0ac64840b7b87111cea}{}\index{simtexth.\+h@{simtexth.\+h}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!simtexth.\+h@{simtexth.\+h}}
+\subsubsection[{operator"!=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Candidate} \&}]{c, }
+\item[{const {\bf Candidate} \&}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{simtexth_8h_a33668e755d4cb0ac64840b7b87111cea}
+\hypertarget{simtexth_8h_aa41342f7b9b90b104b903cd4393cb62b}{}\index{simtexth.\+h@{simtexth.\+h}!operator==@{operator==}}
+\index{operator==@{operator==}!simtexth.\+h@{simtexth.\+h}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Candidate} \&}]{c, }
+\item[{const {\bf Candidate} \&}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{simtexth_8h_aa41342f7b9b90b104b903cd4393cb62b}
+\hypertarget{simtexth_8h_ac3ead98d975e171d75a5286809fd71df}{}\index{simtexth.\+h@{simtexth.\+h}!similar\+Text\+Heuristic\+Candidates@{similar\+Text\+Heuristic\+Candidates}}
+\index{similar\+Text\+Heuristic\+Candidates@{similar\+Text\+Heuristic\+Candidates}!simtexth.\+h@{simtexth.\+h}}
+\subsubsection[{similar\+Text\+Heuristic\+Candidates}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Candidate\+List} similar\+Text\+Heuristic\+Candidates (
+\begin{DoxyParamCaption}
+\item[{const {\bf Meta\+Translator} $\ast$}]{tor, }
+\item[{const char $\ast$}]{text, }
+\item[{int}]{max\+Candidates}
+\end{DoxyParamCaption}
+)}\label{simtexth_8h_ac3ead98d975e171d75a5286809fd71df}
+
+
+\subsection{Variable Documentation}
+\hypertarget{simtexth_8h_a20fd9bb2eec80ca05a04cf9cf15043b0}{}\index{simtexth.\+h@{simtexth.\+h}!text\+Similarity\+Threshold@{text\+Similarity\+Threshold}}
+\index{text\+Similarity\+Threshold@{text\+Similarity\+Threshold}!simtexth.\+h@{simtexth.\+h}}
+\subsubsection[{text\+Similarity\+Threshold}]{\setlength{\rightskip}{0pt plus 5cm}const int text\+Similarity\+Threshold = 190}\label{simtexth_8h_a20fd9bb2eec80ca05a04cf9cf15043b0}

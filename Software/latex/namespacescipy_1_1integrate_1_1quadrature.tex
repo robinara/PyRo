@@ -1,0 +1,498 @@
+\hypertarget{namespacescipy_1_1integrate_1_1quadrature}{}\section{scipy.\+integrate.\+quadrature Namespace Reference}
+\label{namespacescipy_1_1integrate_1_1quadrature}\index{scipy.\+integrate.\+quadrature@{scipy.\+integrate.\+quadrature}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1integrate_1_1quadrature_1_1AccuracyWarning}{Accuracy\+Warning}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1integrate_1_1quadrature_ad476b679d3cda6172eea04808c96c09b}{fixed\+\_\+quad}
+\item 
+def \hyperlink{namespacescipy_1_1integrate_1_1quadrature_a1c8e29a28905d6d6dc37b2bef03924dc}{vectorize1}
+\item 
+def \hyperlink{namespacescipy_1_1integrate_1_1quadrature_a17ecd5aa1aabce0b1fc8711d0c9e2d30}{quadrature}
+\item 
+def \hyperlink{namespacescipy_1_1integrate_1_1quadrature_ae6fc0f8297f0fe9cdc652b49ed82e99e}{tupleset}
+\item 
+def \hyperlink{namespacescipy_1_1integrate_1_1quadrature_a0f790103dbfa4225a3461937d276d702}{cumtrapz}
+\item 
+def \hyperlink{namespacescipy_1_1integrate_1_1quadrature_a49ca3dfd374e9956fe74ea63deba119d}{simps}
+\item 
+def \hyperlink{namespacescipy_1_1integrate_1_1quadrature_a0ae37646c0298954d73176f7789f68ad}{romb}
+\item 
+def \hyperlink{namespacescipy_1_1integrate_1_1quadrature_ae4b09bd822e22fc007e8beeed12d453e}{romberg}
+\item 
+def \hyperlink{namespacescipy_1_1integrate_1_1quadrature_ac31c8e7b87322bf22f1f7633ed1286d3}{newton\+\_\+cotes}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1integrate_1_1quadrature_a702cfc5034a5d8f4a7c1d962c6d7aab7}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+dictionary \hyperlink{namespacescipy_1_1integrate_1_1quadrature_a56fc32638c1b1719993c6bc675708ad2}{\+\_\+builtincoeffs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1integrate_1_1quadrature_a0f790103dbfa4225a3461937d276d702}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!cumtrapz@{cumtrapz}}
+\index{cumtrapz@{cumtrapz}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{cumtrapz}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+quadrature.\+cumtrapz (
+\begin{DoxyParamCaption}
+\item[{}]{y, }
+\item[{}]{x = {\ttfamily None}, }
+\item[{}]{dx = {\ttfamily 1.0}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{initial = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1integrate_1_1quadrature_a0f790103dbfa4225a3461937d276d702}
+\begin{DoxyVerb}Cumulatively integrate y(x) using the composite trapezoidal rule.
+
+Parameters
+----------
+y : array_like
+    Values to integrate.
+x : array_like, optional
+    The coordinate to integrate along.  If None (default), use spacing `dx`
+    between consecutive elements in `y`.
+dx : int, optional
+    Spacing between elements of `y`.  Only used if `x` is None.
+axis : int, optional
+    Specifies the axis to cumulate.  Default is -1 (last axis).
+initial : scalar, optional
+    If given, uses this value as the first value in the returned result.
+    Typically this value should be 0.  Default is None, which means no
+    value at ``x[0]`` is returned and `res` has one element less than `y`
+    along the axis of integration.
+
+Returns
+-------
+res : ndarray
+    The result of cumulative integration of `y` along `axis`.
+    If `initial` is None, the shape is such that the axis of integration
+    has one less value than `y`.  If `initial` is given, the shape is equal
+    to that of `y`.
+
+See Also
+--------
+numpy.cumsum, numpy.cumprod
+quad: adaptive quadrature using QUADPACK
+romberg: adaptive Romberg quadrature
+quadrature: adaptive Gaussian quadrature
+fixed_quad: fixed-order Gaussian quadrature
+dblquad: double integrals
+tplquad: triple integrals
+romb: integrators for sampled data
+ode: ODE integrators
+odeint: ODE integrators
+
+Examples
+--------
+>>> from scipy import integrate
+>>> import matplotlib.pyplot as plt
+
+>>> x = np.linspace(-2, 2, num=20)
+>>> y = x
+>>> y_int = integrate.cumtrapz(y, x, initial=0)
+>>> plt.plot(x, y_int, 'ro', x, y[0] + 0.5 * x**2, 'b-')
+>>> plt.show()\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1integrate_1_1quadrature_ad476b679d3cda6172eea04808c96c09b}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!fixed\+\_\+quad@{fixed\+\_\+quad}}
+\index{fixed\+\_\+quad@{fixed\+\_\+quad}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{fixed\+\_\+quad}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+quadrature.\+fixed\+\_\+quad (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{n = {\ttfamily 5}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1integrate_1_1quadrature_ad476b679d3cda6172eea04808c96c09b}
+\begin{DoxyVerb}Compute a definite integral using fixed-order Gaussian quadrature.
+
+Integrate `func` from `a` to `b` using Gaussian quadrature of
+order `n`.
+
+Parameters
+----------
+func : callable
+    A Python function or method to integrate (must accept vector inputs).
+a : float
+    Lower limit of integration.
+b : float
+    Upper limit of integration.
+args : tuple, optional
+    Extra arguments to pass to function, if any.
+n : int, optional
+    Order of quadrature integration. Default is 5.
+
+Returns
+-------
+val : float
+    Gaussian quadrature approximation to the integral
+
+See Also
+--------
+quad : adaptive quadrature using QUADPACK
+dblquad : double integrals
+tplquad : triple integrals
+romberg : adaptive Romberg quadrature
+quadrature : adaptive Gaussian quadrature
+romb : integrators for sampled data
+simps : integrators for sampled data
+cumtrapz : cumulative integration for sampled data
+ode : ODE integrator
+odeint : ODE integrator\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1integrate_1_1quadrature_ac31c8e7b87322bf22f1f7633ed1286d3}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!newton\+\_\+cotes@{newton\+\_\+cotes}}
+\index{newton\+\_\+cotes@{newton\+\_\+cotes}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{newton\+\_\+cotes}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+quadrature.\+newton\+\_\+cotes (
+\begin{DoxyParamCaption}
+\item[{}]{rn, }
+\item[{}]{equal = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1integrate_1_1quadrature_ac31c8e7b87322bf22f1f7633ed1286d3}
+\begin{DoxyVerb}Return weights and error coefficient for Newton-Cotes integration.
+
+Suppose we have (N+1) samples of f at the positions
+x_0, x_1, ..., x_N.  Then an N-point Newton-Cotes formula for the
+integral between x_0 and x_N is:
+
+:math:`\\int_{x_0}^{x_N} f(x)dx = \\Delta x \\sum_{i=0}^{N} a_i f(x_i)
++ B_N (\\Delta x)^{N+2} f^{N+1} (\\xi)`
+
+where :math:`\\xi \\in [x_0,x_N]` and :math:`\\Delta x = \\frac{x_N-x_0}{N}`
+is the averages samples spacing.
+
+If the samples are equally-spaced and N is even, then the error
+term is :math:`B_N (\\Delta x)^{N+3} f^{N+2}(\\xi)`.
+
+Parameters
+----------
+rn : int
+    The integer order for equally-spaced data or the relative positions of
+    the samples with the first sample at 0 and the last at N, where N+1 is
+    the length of `rn`.  N is the order of the Newton-Cotes integration.
+equal : int, optional
+    Set to 1 to enforce equally spaced data.
+
+Returns
+-------
+an : ndarray
+    1-D array of weights to apply to the function at the provided sample
+    positions.
+B : float
+    Error coefficient.
+
+Notes
+-----
+Normally, the Newton-Cotes rules are used on smaller integration
+regions and a composite rule is used to return the total integral.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1integrate_1_1quadrature_a17ecd5aa1aabce0b1fc8711d0c9e2d30}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!quadrature@{quadrature}}
+\index{quadrature@{quadrature}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{quadrature}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+quadrature.\+quadrature (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{tol = {\ttfamily 1.49e-\/8}, }
+\item[{}]{rtol = {\ttfamily 1.49e-\/8}, }
+\item[{}]{maxiter = {\ttfamily 50}, }
+\item[{}]{vec\+\_\+func = {\ttfamily {\bf True}}, }
+\item[{}]{miniter = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1integrate_1_1quadrature_a17ecd5aa1aabce0b1fc8711d0c9e2d30}
+\begin{DoxyVerb}Compute a definite integral using fixed-tolerance Gaussian quadrature.
+
+Integrate `func` from `a` to `b` using Gaussian quadrature
+with absolute tolerance `tol`.
+
+Parameters
+----------
+func : function
+    A Python function or method to integrate.
+a : float
+    Lower limit of integration.
+b : float
+    Upper limit of integration.
+args : tuple, optional
+    Extra arguments to pass to function.
+tol, rol : float, optional
+    Iteration stops when error between last two iterates is less than
+    `tol` OR the relative change is less than `rtol`.
+maxiter : int, optional
+    Maximum order of Gaussian quadrature.
+vec_func : bool, optional
+    True or False if func handles arrays as arguments (is
+    a "vector" function). Default is True.
+miniter : int, optional
+    Minimum order of Gaussian quadrature.
+
+Returns
+-------
+val : float
+    Gaussian quadrature approximation (within tolerance) to integral.
+err : float
+    Difference between last two estimates of the integral.
+
+See also
+--------
+romberg: adaptive Romberg quadrature
+fixed_quad: fixed-order Gaussian quadrature
+quad: adaptive quadrature using QUADPACK
+dblquad: double integrals
+tplquad: triple integrals
+romb: integrator for sampled data
+simps: integrator for sampled data
+cumtrapz: cumulative integration for sampled data
+ode: ODE integrator
+odeint: ODE integrator\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1integrate_1_1quadrature_a0ae37646c0298954d73176f7789f68ad}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!romb@{romb}}
+\index{romb@{romb}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{romb}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+quadrature.\+romb (
+\begin{DoxyParamCaption}
+\item[{}]{y, }
+\item[{}]{dx = {\ttfamily 1.0}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{show = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1integrate_1_1quadrature_a0ae37646c0298954d73176f7789f68ad}
+\begin{DoxyVerb}Romberg integration using samples of a function.
+
+Parameters
+----------
+y : array_like
+    A vector of ``2**k + 1`` equally-spaced samples of a function.
+dx : array_like, optional
+    The sample spacing. Default is 1.
+axis : int, optional
+    The axis along which to integrate. Default is -1 (last axis).
+show : bool, optional
+    When `y` is a single 1-D array, then if this argument is True
+    print the table showing Richardson extrapolation from the
+    samples. Default is False.
+
+Returns
+-------
+romb : ndarray
+    The integrated result for `axis`.
+
+See also
+--------
+quad : adaptive quadrature using QUADPACK
+romberg : adaptive Romberg quadrature
+quadrature : adaptive Gaussian quadrature
+fixed_quad : fixed-order Gaussian quadrature
+dblquad : double integrals
+tplquad : triple integrals
+simps : integrators for sampled data
+cumtrapz : cumulative integration for sampled data
+ode : ODE integrators
+odeint : ODE integrators\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1integrate_1_1quadrature_ae4b09bd822e22fc007e8beeed12d453e}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!romberg@{romberg}}
+\index{romberg@{romberg}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{romberg}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+quadrature.\+romberg (
+\begin{DoxyParamCaption}
+\item[{}]{function, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{tol = {\ttfamily 1.48e-\/8}, }
+\item[{}]{rtol = {\ttfamily 1.48e-\/8}, }
+\item[{}]{show = {\ttfamily {\bf False}}, }
+\item[{}]{divmax = {\ttfamily 10}, }
+\item[{}]{vec\+\_\+func = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1integrate_1_1quadrature_ae4b09bd822e22fc007e8beeed12d453e}
+\begin{DoxyVerb}Romberg integration of a callable function or method.
+
+Returns the integral of `function` (a function of one variable)
+over the interval (`a`, `b`).
+
+If `show` is 1, the triangular array of the intermediate results
+will be printed.  If `vec_func` is True (default is False), then
+`function` is assumed to support vector arguments.
+
+Parameters
+----------
+function : callable
+    Function to be integrated.
+a : float
+    Lower limit of integration.
+b : float
+    Upper limit of integration.
+
+Returns
+-------
+results  : float
+    Result of the integration.
+
+Other Parameters
+----------------
+args : tuple, optional
+    Extra arguments to pass to function. Each element of `args` will
+    be passed as a single argument to `func`. Default is to pass no
+    extra arguments.
+tol, rtol : float, optional
+    The desired absolute and relative tolerances. Defaults are 1.48e-8.
+show : bool, optional
+    Whether to print the results. Default is False.
+divmax : int, optional
+    Maximum order of extrapolation. Default is 10.
+vec_func : bool, optional
+    Whether `func` handles arrays as arguments (i.e whether it is a
+    "vector" function). Default is False.
+
+See Also
+--------
+fixed_quad : Fixed-order Gaussian quadrature.
+quad : Adaptive quadrature using QUADPACK.
+dblquad : Double integrals.
+tplquad : Triple integrals.
+romb : Integrators for sampled data.
+simps : Integrators for sampled data.
+cumtrapz : Cumulative integration for sampled data.
+ode : ODE integrator.
+odeint : ODE integrator.
+
+References
+----------
+.. [1] 'Romberg's method' http://en.wikipedia.org/wiki/Romberg%27s_method
+
+Examples
+--------
+Integrate a gaussian from 0 to 1 and compare to the error function.
+
+>>> from scipy import integrate
+>>> from scipy.special import erf
+>>> gaussian = lambda x: 1/np.sqrt(np.pi) * np.exp(-x**2)
+>>> result = integrate.romberg(gaussian, 0, 1, show=True)
+Romberg integration of <function vfunc at ...> from [0, 1]
+
+::
+
+   Steps  StepSize  Results
+       1  1.000000  0.385872
+       2  0.500000  0.412631  0.421551
+       4  0.250000  0.419184  0.421368  0.421356
+       8  0.125000  0.420810  0.421352  0.421350  0.421350
+      16  0.062500  0.421215  0.421350  0.421350  0.421350  0.421350
+      32  0.031250  0.421317  0.421350  0.421350  0.421350  0.421350  0.421350
+
+The final result is 0.421350396475 after 33 function evaluations.
+
+>>> print("%g %g" % (2*result, erf(1)))
+0.842701 0.842701\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1integrate_1_1quadrature_a49ca3dfd374e9956fe74ea63deba119d}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!simps@{simps}}
+\index{simps@{simps}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{simps}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+quadrature.\+simps (
+\begin{DoxyParamCaption}
+\item[{}]{y, }
+\item[{}]{x = {\ttfamily None}, }
+\item[{}]{dx = {\ttfamily 1}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{even = {\ttfamily 'avg'}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1integrate_1_1quadrature_a49ca3dfd374e9956fe74ea63deba119d}
+\begin{DoxyVerb}Integrate y(x) using samples along the given axis and the composite
+Simpson's rule.  If x is None, spacing of dx is assumed.
+
+If there are an even number of samples, N, then there are an odd
+number of intervals (N-1), but Simpson's rule requires an even number
+of intervals.  The parameter 'even' controls how this is handled.
+
+Parameters
+----------
+y : array_like
+    Array to be integrated.
+x : array_like, optional
+    If given, the points at which `y` is sampled.
+dx : int, optional
+    Spacing of integration points along axis of `y`. Only used when
+    `x` is None. Default is 1.
+axis : int, optional
+    Axis along which to integrate. Default is the last axis.
+even : {'avg', 'first', 'str'}, optional
+    'avg' : Average two results:1) use the first N-2 intervals with
+              a trapezoidal rule on the last interval and 2) use the last
+              N-2 intervals with a trapezoidal rule on the first interval.
+
+    'first' : Use Simpson's rule for the first N-2 intervals with
+            a trapezoidal rule on the last interval.
+
+    'last' : Use Simpson's rule for the last N-2 intervals with a
+           trapezoidal rule on the first interval.
+
+See Also
+--------
+quad: adaptive quadrature using QUADPACK
+romberg: adaptive Romberg quadrature
+quadrature: adaptive Gaussian quadrature
+fixed_quad: fixed-order Gaussian quadrature
+dblquad: double integrals
+tplquad: triple integrals
+romb: integrators for sampled data
+cumtrapz: cumulative integration for sampled data
+ode: ODE integrators
+odeint: ODE integrators
+
+Notes
+-----
+For an odd number of samples that are equally spaced the result is
+exact if the function is a polynomial of order 3 or less.  If
+the samples are not equally spaced, then the result is exact only
+if the function is a polynomial of order 2 or less.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1integrate_1_1quadrature_ae6fc0f8297f0fe9cdc652b49ed82e99e}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!tupleset@{tupleset}}
+\index{tupleset@{tupleset}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{tupleset}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+quadrature.\+tupleset (
+\begin{DoxyParamCaption}
+\item[{}]{t, }
+\item[{}]{i, }
+\item[{}]{value}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1integrate_1_1quadrature_ae6fc0f8297f0fe9cdc652b49ed82e99e}
+\hypertarget{namespacescipy_1_1integrate_1_1quadrature_a1c8e29a28905d6d6dc37b2bef03924dc}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!vectorize1@{vectorize1}}
+\index{vectorize1@{vectorize1}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{vectorize1}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+integrate.\+quadrature.\+vectorize1 (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{vec\+\_\+func = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1integrate_1_1quadrature_a1c8e29a28905d6d6dc37b2bef03924dc}
+\begin{DoxyVerb}Vectorize the call to a function.
+
+This is an internal utility function used by `romberg` and
+`quadrature` to create a vectorized version of a function.
+
+If `vec_func` is True, the function `func` is assumed to take vector
+arguments.
+
+Parameters
+----------
+func : callable
+    User defined function.
+args : tuple
+    Extra arguments for the function.
+vec_func : bool
+    True if the function func takes vector arguments.
+
+Returns
+-------
+vfunc : callable
+    A function that will take a vector argument and return the
+    result.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1integrate_1_1quadrature_a702cfc5034a5d8f4a7c1d962c6d7aab7}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+integrate.\+quadrature.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1integrate_1_1quadrature_a702cfc5034a5d8f4a7c1d962c6d7aab7}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'fixed\_quad'},\textcolor{stringliteral}{'quadrature'},\textcolor{stringliteral}{'romberg'},\textcolor{stringliteral}{'trapz'},\textcolor{stringliteral}{'simps'},\textcolor{stringliteral}{'romb'},
+2            \textcolor{stringliteral}{'cumtrapz'},\textcolor{stringliteral}{'newton\_cotes'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1integrate_1_1quadrature_a56fc32638c1b1719993c6bc675708ad2}{}\index{scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}!\+\_\+builtincoeffs@{\+\_\+builtincoeffs}}
+\index{\+\_\+builtincoeffs@{\+\_\+builtincoeffs}!scipy\+::integrate\+::quadrature@{scipy\+::integrate\+::quadrature}}
+\subsubsection[{\+\_\+builtincoeffs}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+integrate.\+quadrature.\+\_\+builtincoeffs}\label{namespacescipy_1_1integrate_1_1quadrature_a56fc32638c1b1719993c6bc675708ad2}

@@ -1,0 +1,87 @@
+\hypertarget{zlaswp_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlaswp.f File Reference}
+\label{zlaswp_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaswp.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaswp.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlaswp_8f_a49d0e55e934b6e90456a2eb75490c3ef}{zlaswp} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, K1, K2, I\+P\+I\+V, I\+N\+C\+X)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+S\+W\+P} performs a series of row interchanges on a general rectangular matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlaswp_8f_a49d0e55e934b6e90456a2eb75490c3ef}{}\index{zlaswp.\+f@{zlaswp.\+f}!zlaswp@{zlaswp}}
+\index{zlaswp@{zlaswp}!zlaswp.\+f@{zlaswp.\+f}}
+\subsubsection[{zlaswp}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlaswp (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer}]{K1, }
+\item[{integer}]{K2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{integer}]{I\+N\+C\+X}
+\end{DoxyParamCaption}
+)}\label{zlaswp_8f_a49d0e55e934b6e90456a2eb75490c3ef}
+
+
+{\bfseries Z\+L\+A\+S\+W\+P} performs a series of row interchanges on a general rectangular matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLASWP performs a series of row interchanges on the matrix A.
+ One row interchange is initiated for each of rows K1 through K2 of A.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the matrix of column dimension N to which the row
+          interchanges will be applied.
+          On exit, the permuted matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K1} & \begin{DoxyVerb}          K1 is INTEGER
+          The first element of IPIV for which a row interchange will
+          be done.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K2} & \begin{DoxyVerb}          K2 is INTEGER
+          The last element of IPIV for which a row interchange will
+          be done.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (K2*abs(INCX))
+          The vector of pivot indices.  Only the elements in positions
+          K1 through K2 of IPIV are accessed.
+          IPIV(K) = L implies rows K and L are to be interchanged.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between successive values of IPIV.  If IPIV
+          is negative, the pivots are applied in reverse order.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  Modified by
+   R. C. Whaley, Computer Science Dept., Univ. of Tenn., Knoxville, USA\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

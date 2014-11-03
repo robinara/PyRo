@@ -1,0 +1,86 @@
+\hypertarget{clacon_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clacon.f File Reference}
+\label{clacon_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clacon.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clacon.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clacon_8f_aa5cb301cbe02e05d133955bcb300d670}{clacon} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, V, X, E\+S\+T, K\+A\+S\+E)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+C\+O\+N} estimates the 1-\/norm of a square matrix, using reverse communication for evaluating matrix-\/vector products. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clacon_8f_aa5cb301cbe02e05d133955bcb300d670}{}\index{clacon.\+f@{clacon.\+f}!clacon@{clacon}}
+\index{clacon@{clacon}!clacon.\+f@{clacon.\+f}}
+\subsubsection[{clacon}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clacon (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( {\bf n} )}]{V, }
+\item[{{\bf complex}, dimension( {\bf n} )}]{X, }
+\item[{real}]{E\+S\+T, }
+\item[{integer}]{K\+A\+S\+E}
+\end{DoxyParamCaption}
+)}\label{clacon_8f_aa5cb301cbe02e05d133955bcb300d670}
+
+
+{\bfseries C\+L\+A\+C\+O\+N} estimates the 1-\/norm of a square matrix, using reverse communication for evaluating matrix-\/vector products. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLACON estimates the 1-norm of a square, complex matrix A.
+ Reverse communication is used for evaluating matrix-vector products.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+         The order of the matrix.  N >= 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em V} & \begin{DoxyVerb}          V is COMPLEX array, dimension (N)
+         On the final return, V = A*W,  where  EST = norm(V)/norm(W)
+         (W is not returned).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX array, dimension (N)
+         On an intermediate return, X should be overwritten by
+               A * X,   if KASE=1,
+               A**H * X,  if KASE=2,
+         where A**H is the conjugate transpose of A, and CLACON must be
+         re-called with all the other parameters unchanged.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E\+S\+T} & \begin{DoxyVerb}          EST is REAL
+         On entry with KASE = 1 or 2 and JUMP = 3, EST should be
+         unchanged from the previous call to CLACON.
+         On exit, EST is an estimate (a lower bound) for norm(A). \end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em K\+A\+S\+E} & \begin{DoxyVerb}          KASE is INTEGER
+         On the initial call to CLACON, KASE should be 0.
+         On an intermediate return, KASE will be 1 or 2, indicating
+         whether X should be overwritten by A * X  or A**H * X.
+         On the final return from CLACON, KASE will again be 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+Originally named C\+O\+N\+E\+S\+T, dated March 16, 1988. ~\newline
+ Last modified\+: April, 1999 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Contributors\+: }
+Nick Higham, University of Manchester 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{References\+: }
+N.\+J. Higham, \char`\"{}\+F\+O\+R\+T\+R\+A\+N codes for estimating the one-\/norm of
+  a real or complex matrix, with applications to condition estimation\char`\"{}, A\+C\+M Trans. Math. Soft., vol. 14, no. 4, pp. 381-\/396, December 1988. 
+\end{DoxyParagraph}

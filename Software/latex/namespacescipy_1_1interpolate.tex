@@ -1,0 +1,203 @@
+\hypertarget{namespacescipy_1_1interpolate}{}\section{scipy.\+interpolate Namespace Reference}
+\label{namespacescipy_1_1interpolate}\index{scipy.\+interpolate@{scipy.\+interpolate}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacescipy_1_1interpolate_1_1__monotone}{\+\_\+monotone}
+\item 
+ \hyperlink{namespacescipy_1_1interpolate_1_1fitpack}{fitpack}
+\item 
+ \hyperlink{namespacescipy_1_1interpolate_1_1fitpack2}{fitpack2}
+\item 
+ \hyperlink{namespacescipy_1_1interpolate_1_1interpnd__info}{interpnd\+\_\+info}
+\item 
+ \hyperlink{namespacescipy_1_1interpolate_1_1interpolate}{interpolate}
+\item 
+ \hyperlink{namespacescipy_1_1interpolate_1_1interpolate__wrapper}{interpolate\+\_\+wrapper}
+\item 
+ \hyperlink{namespacescipy_1_1interpolate_1_1ndgriddata}{ndgriddata}
+\item 
+ \hyperlink{namespacescipy_1_1interpolate_1_1polyint}{polyint}
+\item 
+ \hyperlink{namespacescipy_1_1interpolate_1_1rbf}{rbf}
+\item 
+ \hyperlink{namespacescipy_1_1interpolate_1_1setup}{setup}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1interpolate_a083c488e6f9e17b97923b2b404d877ed}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} for \hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} in dir() \hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} not s.\+startswith('\+\_\+')\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1interpolate_a24e559174a07a5f61a756e1cf8c85238}{test} = Tester()
+\item 
+tuple \hyperlink{namespacescipy_1_1interpolate_a6d49ea9757d79c91d1d8df0b91e7b3d2}{bench} = Tester()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}========================================
+Interpolation (:mod:`scipy.interpolate`)
+========================================
+
+.. currentmodule:: scipy.interpolate
+
+Sub-package for objects used in interpolation.
+
+As listed below, this sub-package contains spline functions and classes,
+one-dimensional and multi-dimensional (univariate and multivariate)
+interpolation classes, Lagrange and Taylor polynomial interpolators, and
+wrappers for `FITPACK <http://www.netlib.org/dierckx/>`__
+and DFITPACK functions.
+
+Univariate interpolation
+========================
+
+.. autosummary::
+   :toctree: generated/
+
+   interp1d
+   BarycentricInterpolator
+   KroghInterpolator
+   PiecewisePolynomial
+   PchipInterpolator
+   barycentric_interpolate
+   krogh_interpolate
+   piecewise_polynomial_interpolate
+   pchip_interpolate
+   Akima1DInterpolator
+   PPoly
+   BPoly
+
+
+Multivariate interpolation
+==========================
+
+Unstructured data:
+
+.. autosummary::
+   :toctree: generated/
+
+   griddata
+   LinearNDInterpolator
+   NearestNDInterpolator
+   CloughTocher2DInterpolator
+   Rbf
+   interp2d
+
+For data on a grid:
+
+.. autosummary::
+   :toctree: generated/
+
+   interpn
+   RegularGridInterpolator
+   RectBivariateSpline
+
+.. seealso:: `scipy.ndimage.interpolation.map_coordinates`
+
+
+1-D Splines
+===========
+
+.. autosummary::
+   :toctree: generated/
+
+   UnivariateSpline
+   InterpolatedUnivariateSpline
+   LSQUnivariateSpline
+
+The above univariate spline classes have the following methods:
+
+.. autosummary::
+
+   UnivariateSpline.__call__
+   UnivariateSpline.derivatives
+   UnivariateSpline.integral
+   UnivariateSpline.roots
+   UnivariateSpline.derivative
+   UnivariateSpline.antiderivative
+   UnivariateSpline.get_coeffs
+   UnivariateSpline.get_knots
+   UnivariateSpline.get_residual
+   UnivariateSpline.set_smoothing_factor
+
+
+Functional interface to FITPACK functions:
+
+.. autosummary::
+   :toctree: generated/
+
+   splrep
+   splprep
+   splev
+   splint
+   sproot
+   spalde
+   splder
+   splantider
+
+
+2-D Splines
+===========
+
+For data on a grid:
+
+.. autosummary::
+   :toctree: generated/
+
+   RectBivariateSpline
+   RectSphereBivariateSpline
+
+For unstructured data:
+
+.. autosummary::
+   :toctree: generated/
+
+   BivariateSpline
+   SmoothBivariateSpline
+   SmoothSphereBivariateSpline
+   LSQBivariateSpline
+   LSQSphereBivariateSpline
+
+Low-level interface to FITPACK functions:
+
+.. autosummary::
+   :toctree: generated/
+
+   bisplrep
+   bisplev
+
+Additional tools
+================
+
+.. autosummary::
+   :toctree: generated/
+
+   lagrange
+   approximate_taylor_polynomial
+
+.. seealso::
+
+   `scipy.ndimage.interpolation.map_coordinates`,
+   `scipy.ndimage.interpolation.spline_filter`,
+   `scipy.signal.resample`,
+   `scipy.signal.bspline`,
+   `scipy.signal.gauss_spline`,
+   `scipy.signal.qspline1d`,
+   `scipy.signal.cspline1d`,
+   `scipy.signal.qspline1d_eval`,
+   `scipy.signal.cspline1d_eval`,
+   `scipy.signal.qspline2d`,
+   `scipy.signal.cspline2d`.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1interpolate_a083c488e6f9e17b97923b2b404d877ed}{}\index{scipy\+::interpolate@{scipy\+::interpolate}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::interpolate@{scipy\+::interpolate}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+interpolate.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}{\bf s} for {\bf s} in dir() {\bf if} not s.\+startswith('\+\_\+')\mbox{]}}\label{namespacescipy_1_1interpolate_a083c488e6f9e17b97923b2b404d877ed}
+\hypertarget{namespacescipy_1_1interpolate_a6d49ea9757d79c91d1d8df0b91e7b3d2}{}\index{scipy\+::interpolate@{scipy\+::interpolate}!bench@{bench}}
+\index{bench@{bench}!scipy\+::interpolate@{scipy\+::interpolate}}
+\subsubsection[{bench}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+interpolate.\+bench = Tester()}\label{namespacescipy_1_1interpolate_a6d49ea9757d79c91d1d8df0b91e7b3d2}
+\hypertarget{namespacescipy_1_1interpolate_a24e559174a07a5f61a756e1cf8c85238}{}\index{scipy\+::interpolate@{scipy\+::interpolate}!test@{test}}
+\index{test@{test}!scipy\+::interpolate@{scipy\+::interpolate}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+interpolate.\+test = Tester()}\label{namespacescipy_1_1interpolate_a24e559174a07a5f61a756e1cf8c85238}

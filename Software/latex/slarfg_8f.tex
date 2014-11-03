@@ -1,0 +1,85 @@
+\hypertarget{slarfg_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slarfg.f File Reference}
+\label{slarfg_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slarfg.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slarfg.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slarfg_8f_a1c10a1adfa35b2d5ea15e801287a6a38}{slarfg} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, A\+L\+P\+H\+A, X, I\+N\+C\+X, T\+A\+U)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+R\+F\+G} generates an elementary reflector (Householder matrix). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slarfg_8f_a1c10a1adfa35b2d5ea15e801287a6a38}{}\index{slarfg.\+f@{slarfg.\+f}!slarfg@{slarfg}}
+\index{slarfg@{slarfg}!slarfg.\+f@{slarfg.\+f}}
+\subsubsection[{slarfg}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slarfg (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real}]{A\+L\+P\+H\+A, }
+\item[{real, dimension( $\ast$ )}]{X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{real}]{T\+A\+U}
+\end{DoxyParamCaption}
+)}\label{slarfg_8f_a1c10a1adfa35b2d5ea15e801287a6a38}
+
+
+{\bfseries S\+L\+A\+R\+F\+G} generates an elementary reflector (Householder matrix). 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLARFG generates a real elementary reflector H of order n, such
+ that
+
+       H * ( alpha ) = ( beta ),   H**T * H = I.
+           (   x   )   (   0  )
+
+ where alpha and beta are scalars, and x is an (n-1)-element real
+ vector. H is represented in the form
+
+       H = I - tau * ( 1 ) * ( 1 v**T ) ,
+                     ( v )
+
+ where tau is a real scalar and v is a real (n-1)-element
+ vector.
+
+ If the elements of x are all zero, then tau = 0 and H is taken to be
+ the unit matrix.
+
+ Otherwise  1 <= tau <= 2.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the elementary reflector.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is REAL
+          On entry, the value alpha.
+          On exit, it is overwritten with the value beta.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is REAL array, dimension
+                         (1+(N-2)*abs(INCX))
+          On entry, the vector x.
+          On exit, it is overwritten with the vector v.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between elements of X. INCX > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is REAL
+          The value tau.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

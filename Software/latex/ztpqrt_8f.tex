@@ -1,0 +1,156 @@
+\hypertarget{ztpqrt_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/ztpqrt.f File Reference}
+\label{ztpqrt_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ztpqrt.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ztpqrt.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ztpqrt_8f_a95891205be2bc8b55d7d71f28b8c2b89}{ztpqrt} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, L, N\+B, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, T, L\+D\+T, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+T\+P\+Q\+R\+T} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ztpqrt_8f_a95891205be2bc8b55d7d71f28b8c2b89}{}\index{ztpqrt.\+f@{ztpqrt.\+f}!ztpqrt@{ztpqrt}}
+\index{ztpqrt@{ztpqrt}!ztpqrt.\+f@{ztpqrt.\+f}}
+\subsubsection[{ztpqrt}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ztpqrt (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{L, }
+\item[{integer}]{N\+B, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{{\bf complex}$\ast$16, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{ztpqrt_8f_a95891205be2bc8b55d7d71f28b8c2b89}
+
+
+{\bfseries Z\+T\+P\+Q\+R\+T} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZTPQRT computes a blocked QR factorization of a complex 
+ "triangular-pentagonal" matrix C, which is composed of a 
+ triangular block A and pentagonal block B, using the compact 
+ WY representation for Q.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix B.  
+          M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix B, and the order of the
+          triangular matrix A.
+          N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L} & \begin{DoxyVerb}          L is INTEGER
+          The number of rows of the upper trapezoidal part of B.
+          MIN(M,N) >= L >= 0.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+B} & \begin{DoxyVerb}          NB is INTEGER
+          The block size to be used in the blocked QR.  N >= NB >= 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the upper triangular N-by-N matrix A.
+          On exit, the elements on and above the diagonal of the array
+          contain the upper triangular matrix R.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX*16 array, dimension (LDB,N)
+          On entry, the pentagonal M-by-N matrix B.  The first M-L rows 
+          are rectangular, and the last L rows are upper trapezoidal.
+          On exit, B contains the pentagonal matrix V.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T} & \begin{DoxyVerb}          T is COMPLEX*16 array, dimension (LDT,N)
+          The upper triangular block reflectors stored in compact form
+          as a sequence of upper triangular blocks.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T.  LDT >= NB.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (NB*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2013 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The input matrix C is a (N+M)-by-N matrix  
+
+               C = [ A ]
+                   [ B ]        
+
+  where A is an upper triangular N-by-N matrix, and B is M-by-N pentagonal
+  matrix consisting of a (M-L)-by-N rectangular matrix B1 on top of a L-by-N
+  upper trapezoidal matrix B2:
+
+               B = [ B1 ]  <- (M-L)-by-N rectangular
+                   [ B2 ]  <-     L-by-N upper trapezoidal.
+
+  The upper trapezoidal matrix B2 consists of the first L rows of a
+  N-by-N upper triangular matrix, where 0 <= L <= MIN(M,N).  If L=0, 
+  B is rectangular M-by-N; if M=L=N, B is upper triangular.  
+
+  The matrix W stores the elementary reflectors H(i) in the i-th column
+  below the diagonal (of A) in the (N+M)-by-N input matrix C
+
+               C = [ A ]  <- upper triangular N-by-N
+                   [ B ]  <- M-by-N pentagonal
+
+  so that W can be represented as
+
+               W = [ I ]  <- identity, N-by-N
+                   [ V ]  <- M-by-N, same form as B.
+
+  Thus, all of information needed for W is contained on exit in B, which
+  we call V above.  Note that V has the same form as B; that is, 
+
+               V = [ V1 ] <- (M-L)-by-N rectangular
+                   [ V2 ] <-     L-by-N upper trapezoidal.
+
+  The columns of V represent the vectors which define the H(i)'s.  
+
+  The number of blocks is B = ceiling(N/NB), where each
+  block is of order NB except for the last block, which is of order 
+  IB = N - (B-1)*NB.  For each of the B blocks, a upper triangular block
+  reflector factor is computed: T1, T2, ..., TB.  The NB-by-NB (and IB-by-IB 
+  for the last block) T's are stored in the NB-by-N matrix T as
+
+               T = [T1 T2 ... TB].\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

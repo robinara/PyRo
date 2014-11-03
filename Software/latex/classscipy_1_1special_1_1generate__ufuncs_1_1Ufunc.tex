@@ -1,0 +1,128 @@
+\hypertarget{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc}{}\section{scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc Class Reference}
+\label{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc}\index{scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc@{scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc}}
+Inheritance diagram for scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a47c81ba3c9e7a6c71f41b9d2577fc910}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_ad187ec79d03ded68c6c9053311ecd456}{cython\+\_\+func\+\_\+name}
+\item 
+def \hyperlink{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a6e7cf726ca2c17471aa6df056cd5f0df}{get\+\_\+prototypes}
+\item 
+def \hyperlink{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a885e26b79e40cbccf29d9155399eafdf}{generate}
+\item 
+def \hyperlink{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a0a4137310db2e53ef9738debcddaef98}{parse\+\_\+all}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a8a4840ae88cde0bda4843edaf9b635ff}{name}
+\item 
+\hyperlink{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a63d442dedbd8db084909732df2350bae}{signatures}
+\item 
+\hyperlink{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a9d85ddcb3acc74e044e887e059462227}{doc}
+\item 
+\hyperlink{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_acefdd895c588c0c28a48e56957e07e55}{function\+\_\+name\+\_\+overrides}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Ufunc signature, restricted format suitable for special functions.
+
+Parameters
+----------
+name
+    Name of the ufunc to create
+signature
+    String of form 'func: fff*ff->f, func2: ddd->*i' describing
+    the C-level functions and types of their input arguments
+    and return values.
+
+    The syntax is 'function_name: inputparams*outputparams->output_retval*ignored_retval'
+
+Attributes
+----------
+name : str
+    Python name for the Ufunc
+signatures : list of (func_name, inarg_spec, outarg_spec, ret_spec, header_name)
+    List of parsed signatures
+doc : str
+    Docstring, obtained from add_newdocs
+function_name_overrides : dict of str->str
+    Overrides for the function names in signatures\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a47c81ba3c9e7a6c71f41b9d2577fc910}{}\index{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{signatures, }
+\item[{}]{headers}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a47c81ba3c9e7a6c71f41b9d2577fc910}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_ad187ec79d03ded68c6c9053311ecd456}{}\index{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}!cython\+\_\+func\+\_\+name@{cython\+\_\+func\+\_\+name}}
+\index{cython\+\_\+func\+\_\+name@{cython\+\_\+func\+\_\+name}!scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}}
+\subsubsection[{cython\+\_\+func\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc.\+cython\+\_\+func\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{c\+\_\+name, }
+\item[{}]{specialized = {\ttfamily {\bf False}}, }
+\item[{}]{prefix = {\ttfamily \char`\"{}\+\_\+func\+\_\+\char`\"{}}, }
+\item[{}]{override = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_ad187ec79d03ded68c6c9053311ecd456}
+\hypertarget{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a885e26b79e40cbccf29d9155399eafdf}{}\index{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}!generate@{generate}}
+\index{generate@{generate}!scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}}
+\subsubsection[{generate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc.\+generate (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{all\+\_\+loops}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a885e26b79e40cbccf29d9155399eafdf}
+\hypertarget{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a6e7cf726ca2c17471aa6df056cd5f0df}{}\index{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}!get\+\_\+prototypes@{get\+\_\+prototypes}}
+\index{get\+\_\+prototypes@{get\+\_\+prototypes}!scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}}
+\subsubsection[{get\+\_\+prototypes}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc.\+get\+\_\+prototypes (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a6e7cf726ca2c17471aa6df056cd5f0df}
+\hypertarget{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a0a4137310db2e53ef9738debcddaef98}{}\index{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}!parse\+\_\+all@{parse\+\_\+all}}
+\index{parse\+\_\+all@{parse\+\_\+all}!scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}}
+\subsubsection[{parse\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc.\+parse\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{}]{cls, }
+\item[{}]{ufunc\+\_\+str}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a0a4137310db2e53ef9738debcddaef98}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a9d85ddcb3acc74e044e887e059462227}{}\index{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}!doc@{doc}}
+\index{doc@{doc}!scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}}
+\subsubsection[{doc}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc.\+doc}\label{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a9d85ddcb3acc74e044e887e059462227}
+\hypertarget{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_acefdd895c588c0c28a48e56957e07e55}{}\index{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}!function\+\_\+name\+\_\+overrides@{function\+\_\+name\+\_\+overrides}}
+\index{function\+\_\+name\+\_\+overrides@{function\+\_\+name\+\_\+overrides}!scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}}
+\subsubsection[{function\+\_\+name\+\_\+overrides}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc.\+function\+\_\+name\+\_\+overrides}\label{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_acefdd895c588c0c28a48e56957e07e55}
+\hypertarget{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a8a4840ae88cde0bda4843edaf9b635ff}{}\index{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}!name@{name}}
+\index{name@{name}!scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc.\+name}\label{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a8a4840ae88cde0bda4843edaf9b635ff}
+\hypertarget{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a63d442dedbd8db084909732df2350bae}{}\index{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}!signatures@{signatures}}
+\index{signatures@{signatures}!scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc@{scipy\+::special\+::generate\+\_\+ufuncs\+::\+Ufunc}}
+\subsubsection[{signatures}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+generate\+\_\+ufuncs.\+Ufunc.\+signatures}\label{classscipy_1_1special_1_1generate__ufuncs_1_1Ufunc_a63d442dedbd8db084909732df2350bae}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/special/\hyperlink{generate__ufuncs_8py}{generate\+\_\+ufuncs.\+py}\end{DoxyCompactItemize}

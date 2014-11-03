@@ -1,0 +1,100 @@
+\hypertarget{chetri__rook_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/chetri\+\_\+rook.f File Reference}
+\label{chetri__rook_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chetri\+\_\+rook.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chetri\+\_\+rook.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{chetri__rook_8f_ad05b1472e5d7912ba44235656df3a07a}{chetri\+\_\+rook} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+P\+I\+V, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+H\+E\+T\+R\+I\+\_\+\+R\+O\+O\+K} computes the inverse of H\+E matrix using the factorization obtained with the bounded Bunch-\/\+Kaufman (\char`\"{}rook\char`\"{}) diagonal pivoting method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{chetri__rook_8f_ad05b1472e5d7912ba44235656df3a07a}{}\index{chetri\+\_\+rook.\+f@{chetri\+\_\+rook.\+f}!chetri\+\_\+rook@{chetri\+\_\+rook}}
+\index{chetri\+\_\+rook@{chetri\+\_\+rook}!chetri\+\_\+rook.\+f@{chetri\+\_\+rook.\+f}}
+\subsubsection[{chetri\+\_\+rook}]{\setlength{\rightskip}{0pt plus 5cm}subroutine chetri\+\_\+rook (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{chetri__rook_8f_ad05b1472e5d7912ba44235656df3a07a}
+
+
+{\bfseries C\+H\+E\+T\+R\+I\+\_\+\+R\+O\+O\+K} computes the inverse of H\+E matrix using the factorization obtained with the bounded Bunch-\/\+Kaufman (\char`\"{}rook\char`\"{}) diagonal pivoting method. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CHETRI_ROOK computes the inverse of a complex Hermitian indefinite matrix
+ A using the factorization A = U*D*U**H or A = L*D*L**H computed by
+ CHETRF_ROOK.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the details of the factorization are stored
+          as an upper or lower triangular matrix.
+          = 'U':  Upper triangular, form is A = U*D*U**H;
+          = 'L':  Lower triangular, form is A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          On entry, the block diagonal matrix D and the multipliers
+          used to obtain the factor U or L as computed by CHETRF_ROOK.
+
+          On exit, if INFO = 0, the (Hermitian) inverse of the original
+          matrix.  If UPLO = 'U', the upper triangular part of the
+          inverse is formed and the part of A below the diagonal is not
+          referenced; if UPLO = 'L' the lower triangular part of the
+          inverse is formed and the part of A above the diagonal is
+          not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          Details of the interchanges and the block structure of D
+          as determined by CHETRF_ROOK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          > 0: if INFO = i, D(i,i) = 0; the matrix is singular and its
+               inverse could not be computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2013 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+\begin{DoxyVerb}  November 2013,  Igor Kozachenko,
+                  Computer Science Division,
+                  University of California, Berkeley
+
+  September 2007, Sven Hammarling, Nicholas J. Higham, Craig Lucas,
+                  School of Mathematics,
+                  University of Manchester\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

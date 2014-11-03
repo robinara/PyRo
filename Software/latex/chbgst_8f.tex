@@ -1,0 +1,131 @@
+\hypertarget{chbgst_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/chbgst.f File Reference}
+\label{chbgst_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chbgst.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chbgst.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{chbgst_8f_a808bf06bc4d353a18ab94f5eaf7c67f0}{chbgst} (V\+E\+C\+T, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+A, K\+B, A\+B, L\+D\+A\+B, B\+B, L\+D\+B\+B, X, L\+D\+X, W\+O\+R\+K, R\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+H\+B\+G\+S\+T} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{chbgst_8f_a808bf06bc4d353a18ab94f5eaf7c67f0}{}\index{chbgst.\+f@{chbgst.\+f}!chbgst@{chbgst}}
+\index{chbgst@{chbgst}!chbgst.\+f@{chbgst.\+f}}
+\subsubsection[{chbgst}]{\setlength{\rightskip}{0pt plus 5cm}subroutine chbgst (
+\begin{DoxyParamCaption}
+\item[{character}]{V\+E\+C\+T, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+A, }
+\item[{integer}]{K\+B, }
+\item[{{\bf complex}, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{{\bf complex}, dimension( ldbb, $\ast$ )}]{B\+B, }
+\item[{integer}]{L\+D\+B\+B, }
+\item[{{\bf complex}, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{real, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{chbgst_8f_a808bf06bc4d353a18ab94f5eaf7c67f0}
+
+
+{\bfseries C\+H\+B\+G\+S\+T} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CHBGST reduces a complex Hermitian-definite banded generalized
+ eigenproblem  A*x = lambda*B*x  to standard form  C*y = lambda*y,
+ such that C has the same bandwidth as A.
+
+ B must have been previously factorized as S**H*S by CPBSTF, using a
+ split Cholesky factorization. A is overwritten by C = X**H*A*X, where
+ X = S**(-1)*Q and Q is a unitary matrix chosen to preserve the
+ bandwidth of A.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em V\+E\+C\+T} & \begin{DoxyVerb}          VECT is CHARACTER*1
+          = 'N':  do not form the transformation matrix X;
+          = 'V':  form X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrices A and B.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+A} & \begin{DoxyVerb}          KA is INTEGER
+          The number of superdiagonals of the matrix A if UPLO = 'U',
+          or the number of subdiagonals if UPLO = 'L'.  KA >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+B} & \begin{DoxyVerb}          KB is INTEGER
+          The number of superdiagonals of the matrix B if UPLO = 'U',
+          or the number of subdiagonals if UPLO = 'L'.  KA >= KB >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+B} & \begin{DoxyVerb}          AB is COMPLEX array, dimension (LDAB,N)
+          On entry, the upper or lower triangle of the Hermitian band
+          matrix A, stored in the first ka+1 rows of the array.  The
+          j-th column of A is stored in the j-th column of the array AB
+          as follows:
+          if UPLO = 'U', AB(ka+1+i-j,j) = A(i,j) for max(1,j-ka)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+ka).
+
+          On exit, the transformed matrix X**H*A*X, stored in the same
+          format as A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KA+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+B} & \begin{DoxyVerb}          BB is COMPLEX array, dimension (LDBB,N)
+          The banded factor S from the split Cholesky factorization of
+          B, as returned by CPBSTF, stored in the first kb+1 rows of
+          the array.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B\+B} & \begin{DoxyVerb}          LDBB is INTEGER
+          The leading dimension of the array BB.  LDBB >= KB+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX array, dimension (LDX,N)
+          If VECT = 'V', the n-by-n matrix X.
+          If VECT = 'N', the array X is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.
+          LDX >= max(1,N) if VECT = 'V'; LDX >= 1 otherwise.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is REAL array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

@@ -1,0 +1,155 @@
+\hypertarget{medianfilter_8c}{}\section{packages/scipy-\/0.14.0/scipy/signal/medianfilter.c File Reference}
+\label{medianfilter_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/signal/medianfilter.\+c@{packages/scipy-\/0.\+14.\+0/scipy/signal/medianfilter.\+c}}
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}numpy/noprefix.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{medianfilter_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}
+\item 
+\#define \hyperlink{medianfilter_8c_a82394cccc8b1856ea4f002e6a781b462}{E\+L\+E\+M\+\_\+\+S\+W\+A\+P}(\hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t},  \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x},  y)~\{register \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} \hyperlink{gen__mat5files_8m_a905c521e05ec8042631a912b71d0454e}{temp} = (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}\mbox{]}; (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}\mbox{]} = (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}y\mbox{]}; (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}y\mbox{]} = \hyperlink{gen__mat5files_8m_a905c521e05ec8042631a912b71d0454e}{temp};\}
+\item 
+\#define \hyperlink{medianfilter_8c_a203858899ffac0073345d157e305d956}{F\+I\+R\+S\+T\+\_\+\+L\+O\+W\+E\+S\+T}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x},  y,  z)~(((\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) $<$ (y)) \&\& ((\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) $<$ (z)))
+\item 
+\#define \hyperlink{medianfilter_8c_a525188289e4023ea60f28f18a4a8e295}{F\+I\+R\+S\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x},  y,  z)~(((\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) $>$ (y)) \&\& ((\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) $>$ (z)))
+\item 
+\#define \hyperlink{medianfilter_8c_afcecdf0ebfb5cb3c0b90665fe15b5feb}{L\+O\+W\+E\+S\+T\+\_\+\+I\+D\+X}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x},  y)~(((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}\mbox{]} $<$ (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}y\mbox{]}) ? (\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) \+: (y))
+\item 
+\#define \hyperlink{medianfilter_8c_a0544c5b9e8dea4838f74d9f78cef6193}{H\+I\+G\+H\+E\+S\+T\+\_\+\+I\+D\+X}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x},  y)~(((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}\mbox{]} $>$ (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}y\mbox{]}) ? (\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) \+: (y))
+\item 
+\#define \hyperlink{medianfilter_8c_a8b98ee38a127ffc9e04dda73a3050621}{M\+E\+D\+I\+A\+N\+\_\+\+I\+D\+X}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l},  \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m},  h)~(\hyperlink{medianfilter_8c_a203858899ffac0073345d157e305d956}{F\+I\+R\+S\+T\+\_\+\+L\+O\+W\+E\+S\+T}((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}\hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}\mbox{]}, (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}\mbox{]}, (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}h\mbox{]}) ? \hyperlink{medianfilter_8c_afcecdf0ebfb5cb3c0b90665fe15b5feb}{L\+O\+W\+E\+S\+T\+\_\+\+I\+D\+X}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, h) \+: (\hyperlink{medianfilter_8c_a525188289e4023ea60f28f18a4a8e295}{F\+I\+R\+S\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T}((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}\hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}\mbox{]}, (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}\mbox{]}, (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})\mbox{[}h\mbox{]}) ? \hyperlink{medianfilter_8c_a0544c5b9e8dea4838f74d9f78cef6193}{H\+I\+G\+H\+E\+S\+T\+\_\+\+I\+D\+X}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, h) \+: (\hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l})))
+\item 
+\#define \hyperlink{medianfilter_8c_a4e0dfa8573749b78fb08372bf5a9b1c4}{Q\+U\+I\+C\+K\+\_\+\+S\+E\+L\+E\+C\+T}(N\+A\+M\+E,  T\+Y\+P\+E)
+\item 
+\#define \hyperlink{medianfilter_8c_ad4dfaa8801e09eb1f0a3e0f21ab52fc1}{M\+E\+D\+I\+A\+N\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+2\+D}(N\+A\+M\+E,  T\+Y\+P\+E,  S\+E\+L\+E\+C\+T)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{medianfilter_8c_a79b3358697432e22bb63e69a6ce1fb7a}{f\+\_\+medfilt2} (float $\ast$, float $\ast$, intp $\ast$, intp $\ast$)
+\item 
+void \hyperlink{medianfilter_8c_adabfc65e12ceddc7615cdfadd757c21b}{d\+\_\+medfilt2} (double $\ast$, double $\ast$, intp $\ast$, intp $\ast$)
+\item 
+void \hyperlink{medianfilter_8c_a051c59b8295a3c8c3b953e97dade0b63}{b\+\_\+medfilt2} (unsigned char $\ast$, unsigned char $\ast$, intp $\ast$, intp $\ast$)
+\item 
+char $\ast$ \hyperlink{medianfilter_8c_a2959af3693d46a3bbf4764244c6471b0}{check\+\_\+malloc} (int)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{medianfilter_8c_a82394cccc8b1856ea4f002e6a781b462}{}\index{medianfilter.\+c@{medianfilter.\+c}!E\+L\+E\+M\+\_\+\+S\+W\+A\+P@{E\+L\+E\+M\+\_\+\+S\+W\+A\+P}}
+\index{E\+L\+E\+M\+\_\+\+S\+W\+A\+P@{E\+L\+E\+M\+\_\+\+S\+W\+A\+P}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{E\+L\+E\+M\+\_\+\+S\+W\+A\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+L\+E\+M\+\_\+\+S\+W\+A\+P(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf t}, }
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf x}, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~\{register {\bf t} {\bf temp} = ({\bf a})\mbox{[}{\bf x}\mbox{]}; ({\bf a})\mbox{[}{\bf x}\mbox{]} = ({\bf a})\mbox{[}y\mbox{]}; ({\bf a})\mbox{[}y\mbox{]} = {\bf temp};\}}\label{medianfilter_8c_a82394cccc8b1856ea4f002e6a781b462}
+\hypertarget{medianfilter_8c_a525188289e4023ea60f28f18a4a8e295}{}\index{medianfilter.\+c@{medianfilter.\+c}!F\+I\+R\+S\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T@{F\+I\+R\+S\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T}}
+\index{F\+I\+R\+S\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T@{F\+I\+R\+S\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{F\+I\+R\+S\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+R\+S\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~((({\bf x}) $>$ (y)) \&\& (({\bf x}) $>$ (z)))}\label{medianfilter_8c_a525188289e4023ea60f28f18a4a8e295}
+\hypertarget{medianfilter_8c_a203858899ffac0073345d157e305d956}{}\index{medianfilter.\+c@{medianfilter.\+c}!F\+I\+R\+S\+T\+\_\+\+L\+O\+W\+E\+S\+T@{F\+I\+R\+S\+T\+\_\+\+L\+O\+W\+E\+S\+T}}
+\index{F\+I\+R\+S\+T\+\_\+\+L\+O\+W\+E\+S\+T@{F\+I\+R\+S\+T\+\_\+\+L\+O\+W\+E\+S\+T}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{F\+I\+R\+S\+T\+\_\+\+L\+O\+W\+E\+S\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+R\+S\+T\+\_\+\+L\+O\+W\+E\+S\+T(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~((({\bf x}) $<$ (y)) \&\& (({\bf x}) $<$ (z)))}\label{medianfilter_8c_a203858899ffac0073345d157e305d956}
+\hypertarget{medianfilter_8c_a0544c5b9e8dea4838f74d9f78cef6193}{}\index{medianfilter.\+c@{medianfilter.\+c}!H\+I\+G\+H\+E\+S\+T\+\_\+\+I\+D\+X@{H\+I\+G\+H\+E\+S\+T\+\_\+\+I\+D\+X}}
+\index{H\+I\+G\+H\+E\+S\+T\+\_\+\+I\+D\+X@{H\+I\+G\+H\+E\+S\+T\+\_\+\+I\+D\+X}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{H\+I\+G\+H\+E\+S\+T\+\_\+\+I\+D\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+I\+G\+H\+E\+S\+T\+\_\+\+I\+D\+X(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf x}, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~((({\bf a})\mbox{[}{\bf x}\mbox{]} $>$ ({\bf a})\mbox{[}y\mbox{]}) ? ({\bf x}) \+: (y))}\label{medianfilter_8c_a0544c5b9e8dea4838f74d9f78cef6193}
+\hypertarget{medianfilter_8c_afcecdf0ebfb5cb3c0b90665fe15b5feb}{}\index{medianfilter.\+c@{medianfilter.\+c}!L\+O\+W\+E\+S\+T\+\_\+\+I\+D\+X@{L\+O\+W\+E\+S\+T\+\_\+\+I\+D\+X}}
+\index{L\+O\+W\+E\+S\+T\+\_\+\+I\+D\+X@{L\+O\+W\+E\+S\+T\+\_\+\+I\+D\+X}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{L\+O\+W\+E\+S\+T\+\_\+\+I\+D\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+W\+E\+S\+T\+\_\+\+I\+D\+X(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf x}, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~((({\bf a})\mbox{[}{\bf x}\mbox{]} $<$ ({\bf a})\mbox{[}y\mbox{]}) ? ({\bf x}) \+: (y))}\label{medianfilter_8c_afcecdf0ebfb5cb3c0b90665fe15b5feb}
+\hypertarget{medianfilter_8c_ad4dfaa8801e09eb1f0a3e0f21ab52fc1}{}\index{medianfilter.\+c@{medianfilter.\+c}!M\+E\+D\+I\+A\+N\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+2\+D@{M\+E\+D\+I\+A\+N\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+2\+D}}
+\index{M\+E\+D\+I\+A\+N\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+2\+D@{M\+E\+D\+I\+A\+N\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+2\+D}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{M\+E\+D\+I\+A\+N\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+2\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+D\+I\+A\+N\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+2\+D(
+\begin{DoxyParamCaption}
+\item[{}]{N\+A\+M\+E, }
+\item[{}]{T\+Y\+P\+E, }
+\item[{}]{S\+E\+L\+E\+C\+T}
+\end{DoxyParamCaption}
+)}\label{medianfilter_8c_ad4dfaa8801e09eb1f0a3e0f21ab52fc1}
+\hypertarget{medianfilter_8c_a8b98ee38a127ffc9e04dda73a3050621}{}\index{medianfilter.\+c@{medianfilter.\+c}!M\+E\+D\+I\+A\+N\+\_\+\+I\+D\+X@{M\+E\+D\+I\+A\+N\+\_\+\+I\+D\+X}}
+\index{M\+E\+D\+I\+A\+N\+\_\+\+I\+D\+X@{M\+E\+D\+I\+A\+N\+\_\+\+I\+D\+X}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{M\+E\+D\+I\+A\+N\+\_\+\+I\+D\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+D\+I\+A\+N\+\_\+\+I\+D\+X(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf l}, }
+\item[{}]{{\bf m}, }
+\item[{}]{h}
+\end{DoxyParamCaption}
+)~({\bf F\+I\+R\+S\+T\+\_\+\+L\+O\+W\+E\+S\+T}(({\bf a})\mbox{[}{\bf l}\mbox{]}, ({\bf a})\mbox{[}{\bf m}\mbox{]}, ({\bf a})\mbox{[}h\mbox{]}) ? {\bf L\+O\+W\+E\+S\+T\+\_\+\+I\+D\+X}({\bf a}, {\bf m}, h) \+: ({\bf F\+I\+R\+S\+T\+\_\+\+H\+I\+G\+H\+E\+S\+T}(({\bf a})\mbox{[}{\bf l}\mbox{]}, ({\bf a})\mbox{[}{\bf m}\mbox{]}, ({\bf a})\mbox{[}h\mbox{]}) ? {\bf H\+I\+G\+H\+E\+S\+T\+\_\+\+I\+D\+X}({\bf a}, {\bf m}, h) \+: ({\bf l})))}\label{medianfilter_8c_a8b98ee38a127ffc9e04dda73a3050621}
+\hypertarget{medianfilter_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{}\index{medianfilter.\+c@{medianfilter.\+c}!N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}}
+\index{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}\label{medianfilter_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}
+\hypertarget{medianfilter_8c_a4e0dfa8573749b78fb08372bf5a9b1c4}{}\index{medianfilter.\+c@{medianfilter.\+c}!Q\+U\+I\+C\+K\+\_\+\+S\+E\+L\+E\+C\+T@{Q\+U\+I\+C\+K\+\_\+\+S\+E\+L\+E\+C\+T}}
+\index{Q\+U\+I\+C\+K\+\_\+\+S\+E\+L\+E\+C\+T@{Q\+U\+I\+C\+K\+\_\+\+S\+E\+L\+E\+C\+T}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{Q\+U\+I\+C\+K\+\_\+\+S\+E\+L\+E\+C\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q\+U\+I\+C\+K\+\_\+\+S\+E\+L\+E\+C\+T(
+\begin{DoxyParamCaption}
+\item[{}]{N\+A\+M\+E, }
+\item[{}]{T\+Y\+P\+E}
+\end{DoxyParamCaption}
+)}\label{medianfilter_8c_a4e0dfa8573749b78fb08372bf5a9b1c4}
+
+
+\subsection{Function Documentation}
+\hypertarget{medianfilter_8c_a051c59b8295a3c8c3b953e97dade0b63}{}\index{medianfilter.\+c@{medianfilter.\+c}!b\+\_\+medfilt2@{b\+\_\+medfilt2}}
+\index{b\+\_\+medfilt2@{b\+\_\+medfilt2}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{b\+\_\+medfilt2}]{\setlength{\rightskip}{0pt plus 5cm}void b\+\_\+medfilt2 (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{, }
+\item[{unsigned char $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{intp $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{medianfilter_8c_a051c59b8295a3c8c3b953e97dade0b63}
+\hypertarget{medianfilter_8c_a2959af3693d46a3bbf4764244c6471b0}{}\index{medianfilter.\+c@{medianfilter.\+c}!check\+\_\+malloc@{check\+\_\+malloc}}
+\index{check\+\_\+malloc@{check\+\_\+malloc}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{check\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ check\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\label{medianfilter_8c_a2959af3693d46a3bbf4764244c6471b0}
+\hypertarget{medianfilter_8c_adabfc65e12ceddc7615cdfadd757c21b}{}\index{medianfilter.\+c@{medianfilter.\+c}!d\+\_\+medfilt2@{d\+\_\+medfilt2}}
+\index{d\+\_\+medfilt2@{d\+\_\+medfilt2}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{d\+\_\+medfilt2}]{\setlength{\rightskip}{0pt plus 5cm}void d\+\_\+medfilt2 (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{intp $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{medianfilter_8c_adabfc65e12ceddc7615cdfadd757c21b}
+\hypertarget{medianfilter_8c_a79b3358697432e22bb63e69a6ce1fb7a}{}\index{medianfilter.\+c@{medianfilter.\+c}!f\+\_\+medfilt2@{f\+\_\+medfilt2}}
+\index{f\+\_\+medfilt2@{f\+\_\+medfilt2}!medianfilter.\+c@{medianfilter.\+c}}
+\subsubsection[{f\+\_\+medfilt2}]{\setlength{\rightskip}{0pt plus 5cm}void f\+\_\+medfilt2 (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{intp $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{medianfilter_8c_a79b3358697432e22bb63e69a6ce1fb7a}

@@ -1,0 +1,131 @@
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader}{}\section{scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader Class Reference}
+\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader}\index{scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader@{scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader}}
+Inheritance diagram for scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a1610ec454532e7cdcf2cd5a660477db6}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a2ef59c4615097db3dd4c3545bdf7b231}{set\+\_\+matlab\+\_\+compatible}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a387304028e2c2765942551459b10cc95}{guess\+\_\+byte\+\_\+order}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a0806a27c92ce2e2258488c74f6084404}{end\+\_\+of\+\_\+stream}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_ac0532e904a5a082297623aebdcfb2376}{mat\+\_\+stream}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_ada49fb40fb84de4e19a59eeafece6a0e}{dtypes}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_ab4c985b94779e6e3b777efff02341cde}{byte\+\_\+order}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a890f989a74e10934d37a62b93f9310ef}{struct\+\_\+as\+\_\+record}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a6b293b6944a59b8e6a8729d265ff3ad8}{squeeze\+\_\+me}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a2c742fbe640c4773aa56174face7c40f}{chars\+\_\+as\+\_\+strings}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a9e35872c175adcc6c1a02e337fa92cf1}{mat\+\_\+dtype}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a7795786ca2430e2b468b1cb409041dc5}{verify\+\_\+compressed\+\_\+data\+\_\+integrity}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Base object for reading mat files
+
+To make this class functional, you will need to override the
+following methods:
+
+matrix_getter_factory   - gives object to fetch next matrix from stream
+guess_byte_order        - guesses file byte order from file
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a1610ec454532e7cdcf2cd5a660477db6}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{mat\+\_\+stream, }
+\item[{}]{byte\+\_\+order = {\ttfamily None}, }
+\item[{}]{mat\+\_\+dtype = {\ttfamily {\bf False}}, }
+\item[{}]{squeeze\+\_\+me = {\ttfamily {\bf False}}, }
+\item[{}]{chars\+\_\+as\+\_\+strings = {\ttfamily {\bf True}}, }
+\item[{}]{matlab\+\_\+compatible = {\ttfamily {\bf False}}, }
+\item[{}]{struct\+\_\+as\+\_\+record = {\ttfamily {\bf True}}, }
+\item[{}]{verify\+\_\+compressed\+\_\+data\+\_\+integrity = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a1610ec454532e7cdcf2cd5a660477db6}
+\begin{DoxyVerb}Initializer for mat file reader
+
+mat_stream : file-like
+    object with file API, open for reading
+    %(load_args)s
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a0806a27c92ce2e2258488c74f6084404}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!end\+\_\+of\+\_\+stream@{end\+\_\+of\+\_\+stream}}
+\index{end\+\_\+of\+\_\+stream@{end\+\_\+of\+\_\+stream}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{end\+\_\+of\+\_\+stream}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+end\+\_\+of\+\_\+stream (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a0806a27c92ce2e2258488c74f6084404}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a387304028e2c2765942551459b10cc95}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!guess\+\_\+byte\+\_\+order@{guess\+\_\+byte\+\_\+order}}
+\index{guess\+\_\+byte\+\_\+order@{guess\+\_\+byte\+\_\+order}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{guess\+\_\+byte\+\_\+order}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+guess\+\_\+byte\+\_\+order (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a387304028e2c2765942551459b10cc95}
+\begin{DoxyVerb}As we do not know what file type we have, assume native \end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a2ef59c4615097db3dd4c3545bdf7b231}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!set\+\_\+matlab\+\_\+compatible@{set\+\_\+matlab\+\_\+compatible}}
+\index{set\+\_\+matlab\+\_\+compatible@{set\+\_\+matlab\+\_\+compatible}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{set\+\_\+matlab\+\_\+compatible}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+set\+\_\+matlab\+\_\+compatible (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a2ef59c4615097db3dd4c3545bdf7b231}
+\begin{DoxyVerb}Sets options to return arrays as MATLAB loads them \end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_ab4c985b94779e6e3b777efff02341cde}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!byte\+\_\+order@{byte\+\_\+order}}
+\index{byte\+\_\+order@{byte\+\_\+order}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{byte\+\_\+order}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+byte\+\_\+order}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_ab4c985b94779e6e3b777efff02341cde}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a2c742fbe640c4773aa56174face7c40f}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!chars\+\_\+as\+\_\+strings@{chars\+\_\+as\+\_\+strings}}
+\index{chars\+\_\+as\+\_\+strings@{chars\+\_\+as\+\_\+strings}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{chars\+\_\+as\+\_\+strings}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+chars\+\_\+as\+\_\+strings}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a2c742fbe640c4773aa56174face7c40f}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_ada49fb40fb84de4e19a59eeafece6a0e}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!dtypes@{dtypes}}
+\index{dtypes@{dtypes}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{dtypes}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+dtypes}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_ada49fb40fb84de4e19a59eeafece6a0e}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a9e35872c175adcc6c1a02e337fa92cf1}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!mat\+\_\+dtype@{mat\+\_\+dtype}}
+\index{mat\+\_\+dtype@{mat\+\_\+dtype}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{mat\+\_\+dtype}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+mat\+\_\+dtype}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a9e35872c175adcc6c1a02e337fa92cf1}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_ac0532e904a5a082297623aebdcfb2376}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!mat\+\_\+stream@{mat\+\_\+stream}}
+\index{mat\+\_\+stream@{mat\+\_\+stream}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{mat\+\_\+stream}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+mat\+\_\+stream}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_ac0532e904a5a082297623aebdcfb2376}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a6b293b6944a59b8e6a8729d265ff3ad8}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!squeeze\+\_\+me@{squeeze\+\_\+me}}
+\index{squeeze\+\_\+me@{squeeze\+\_\+me}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{squeeze\+\_\+me}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+squeeze\+\_\+me}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a6b293b6944a59b8e6a8729d265ff3ad8}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a890f989a74e10934d37a62b93f9310ef}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!struct\+\_\+as\+\_\+record@{struct\+\_\+as\+\_\+record}}
+\index{struct\+\_\+as\+\_\+record@{struct\+\_\+as\+\_\+record}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{struct\+\_\+as\+\_\+record}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+struct\+\_\+as\+\_\+record}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a890f989a74e10934d37a62b93f9310ef}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a7795786ca2430e2b468b1cb409041dc5}{}\index{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}!verify\+\_\+compressed\+\_\+data\+\_\+integrity@{verify\+\_\+compressed\+\_\+data\+\_\+integrity}}
+\index{verify\+\_\+compressed\+\_\+data\+\_\+integrity@{verify\+\_\+compressed\+\_\+data\+\_\+integrity}!scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader@{scipy\+::io\+::matlab\+::miobase\+::\+Mat\+File\+Reader}}
+\subsubsection[{verify\+\_\+compressed\+\_\+data\+\_\+integrity}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+miobase.\+Mat\+File\+Reader.\+verify\+\_\+compressed\+\_\+data\+\_\+integrity}\label{classscipy_1_1io_1_1matlab_1_1miobase_1_1MatFileReader_a7795786ca2430e2b468b1cb409041dc5}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/io/matlab/\hyperlink{miobase_8py}{miobase.\+py}\end{DoxyCompactItemize}

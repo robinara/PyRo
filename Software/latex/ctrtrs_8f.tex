@@ -1,0 +1,112 @@
+\hypertarget{ctrtrs_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/ctrtrs.f File Reference}
+\label{ctrtrs_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ctrtrs.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ctrtrs.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ctrtrs_8f_a173776b6aef4d3e7d787a3de06c4bed8}{ctrtrs} (U\+P\+L\+O, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, D\+I\+A\+G, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+T\+R\+T\+R\+S} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ctrtrs_8f_a173776b6aef4d3e7d787a3de06c4bed8}{}\index{ctrtrs.\+f@{ctrtrs.\+f}!ctrtrs@{ctrtrs}}
+\index{ctrtrs@{ctrtrs}!ctrtrs.\+f@{ctrtrs.\+f}}
+\subsubsection[{ctrtrs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ctrtrs (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{character}]{D\+I\+A\+G, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{ctrtrs_8f_a173776b6aef4d3e7d787a3de06c4bed8}
+
+
+{\bfseries C\+T\+R\+T\+R\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CTRTRS solves a triangular system of the form
+
+    A * X = B,  A**T * X = B,  or  A**H * X = B,
+
+ where A is a triangular matrix of order N, and B is an N-by-NRHS
+ matrix.  A check is made to verify that A is nonsingular.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  A is upper triangular;
+          = 'L':  A is lower triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          Specifies the form of the system of equations:
+          = 'N':  A * X = B     (No transpose)
+          = 'T':  A**T * X = B  (Transpose)
+          = 'C':  A**H * X = B  (Conjugate transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+A\+G} & \begin{DoxyVerb}          DIAG is CHARACTER*1
+          = 'N':  A is non-unit triangular;
+          = 'U':  A is unit triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          The triangular matrix A.  If UPLO = 'U', the leading N-by-N
+          upper triangular part of the array A contains the upper
+          triangular matrix, and the strictly lower triangular part of
+          A is not referenced.  If UPLO = 'L', the leading N-by-N lower
+          triangular part of the array A contains the lower triangular
+          matrix, and the strictly upper triangular part of A is not
+          referenced.  If DIAG = 'U', the diagonal elements of A are
+          also not referenced and are assumed to be 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX array, dimension (LDB,NRHS)
+          On entry, the right hand side matrix B.
+          On exit, if INFO = 0, the solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          > 0: if INFO = i, the i-th diagonal element of A is zero,
+               indicating that the matrix is singular and the solutions
+               X have not been computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

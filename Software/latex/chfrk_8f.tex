@@ -1,0 +1,139 @@
+\hypertarget{chfrk_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/chfrk.f File Reference}
+\label{chfrk_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chfrk.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chfrk.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{chfrk_8f_a59df29e79096c5fab43c73667a0dea90}{chfrk} (T\+R\+A\+N\+S\+R, U\+P\+L\+O, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, A\+L\+P\+H\+A, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B\+E\+T\+A, C)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+H\+F\+R\+K} performs a Hermitian rank-\/k operation for matrix in R\+F\+P format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{chfrk_8f_a59df29e79096c5fab43c73667a0dea90}{}\index{chfrk.\+f@{chfrk.\+f}!chfrk@{chfrk}}
+\index{chfrk@{chfrk}!chfrk.\+f@{chfrk.\+f}}
+\subsubsection[{chfrk}]{\setlength{\rightskip}{0pt plus 5cm}subroutine chfrk (
+\begin{DoxyParamCaption}
+\item[{character}]{T\+R\+A\+N\+S\+R, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{real}]{A\+L\+P\+H\+A, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{real}]{B\+E\+T\+A, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{C}
+\end{DoxyParamCaption}
+)}\label{chfrk_8f_a59df29e79096c5fab43c73667a0dea90}
+
+
+{\bfseries C\+H\+F\+R\+K} performs a Hermitian rank-\/k operation for matrix in R\+F\+P format. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} Level 3 BLAS like routine for C in RFP Format.
+
+ CHFRK performs one of the Hermitian rank--k operations
+
+    C := alpha*A*A**H + beta*C,
+
+ or
+
+    C := alpha*A**H*A + beta*C,
+
+ where alpha and beta are real scalars, C is an n--by--n Hermitian
+ matrix and A is an n--by--k matrix in the first case and a k--by--n
+ matrix in the second case.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S\+R} & \begin{DoxyVerb}          TRANSR is CHARACTER*1
+          = 'N':  The Normal Form of RFP A is stored;
+          = 'C':  The Conjugate-transpose Form of RFP A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+           On  entry,   UPLO  specifies  whether  the  upper  or  lower
+           triangular  part  of the  array  C  is to be  referenced  as
+           follows:
+
+              UPLO = 'U' or 'u'   Only the  upper triangular part of  C
+                                  is to be referenced.
+
+              UPLO = 'L' or 'l'   Only the  lower triangular part of  C
+                                  is to be referenced.
+
+           Unchanged on exit.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+           On entry,  TRANS  specifies the operation to be performed as
+           follows:
+
+              TRANS = 'N' or 'n'   C := alpha*A*A**H + beta*C.
+
+              TRANS = 'C' or 'c'   C := alpha*A**H*A + beta*C.
+
+           Unchanged on exit.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+           On entry,  N specifies the order of the matrix C.  N must be
+           at least zero.
+           Unchanged on exit.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+           On entry with  TRANS = 'N' or 'n',  K  specifies  the number
+           of  columns   of  the   matrix   A,   and  on   entry   with
+           TRANS = 'C' or 'c',  K  specifies  the number of rows of the
+           matrix A.  K must be at least zero.
+           Unchanged on exit.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is REAL
+           On entry, ALPHA specifies the scalar alpha.
+           Unchanged on exit.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,ka)
+           where KA
+           is K  when TRANS = 'N' or 'n', and is N otherwise. Before
+           entry with TRANS = 'N' or 'n', the leading N--by--K part of
+           the array A must contain the matrix A, otherwise the leading
+           K--by--N part of the array A must contain the matrix A.
+           Unchanged on exit.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in  the  calling  (sub)  program.   When  TRANS = 'N' or 'n'
+           then  LDA must be at least  max( 1, n ), otherwise  LDA must
+           be at least  max( 1, k ).
+           Unchanged on exit.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+E\+T\+A} & \begin{DoxyVerb}          BETA is REAL
+           On entry, BETA specifies the scalar beta.
+           Unchanged on exit.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is COMPLEX array, dimension (N*(N+1)/2)
+           On entry, the matrix A in RFP Format. RFP Format is
+           described by TRANSR, UPLO and N. Note that the imaginary
+           parts of the diagonal elements need not be set, they are
+           assumed to be zero, and on exit they are set to zero.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

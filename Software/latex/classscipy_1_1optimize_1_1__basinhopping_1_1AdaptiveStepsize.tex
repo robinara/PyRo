@@ -1,0 +1,135 @@
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize}{}\section{scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize Class Reference}
+\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize}\index{scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize@{scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize}}
+Inheritance diagram for scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a9be00adcb6fa88cbbdd167078734f88b}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a14b1a0b8d8ab47b28db47c73ca83857d}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_aeb097667e9932330e0fc3ad3553b6221}{take\+\_\+step}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a724fb0b81534257c5e3556939a9f8a5f}{report}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_aa93c7f3a433bccfed715417c04e45795}{takestep}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a742a08f538bcb508524c9fd2ec9db748}{target\+\_\+accept\+\_\+rate}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a906e6efbace1f093c26bb0227f508fcf}{interval}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a96f4d2eb19f90d7da9957a1703502f36}{factor}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a0fc1833897f80294d6b78e82177f286b}{verbose}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a86bea5a74e929dddd6598c4ac1587db1}{nstep}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a6437d4838cf2b1a2904ebe8bc4d690fb}{nstep\+\_\+tot}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a3fa7443a3c5a078d230aaaa49abad0f8}{naccept}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Class to implement adaptive stepsize.
+
+This class wraps the step taking class and modifies the stepsize to
+ensure the true acceptance rate is as close as possible to the target.
+
+Parameters
+----------
+takestep : callable
+    The step taking routine.  Must contain modifiable attribute
+    takestep.stepsize
+accept_rate : float, optional
+    The target step acceptance rate
+interval : int, optional
+    Interval for how often to update the stepsize
+factor : float, optional
+    The step size is multiplied or divided by this factor upon each
+    update.
+verbose : bool, optional
+    Print information about each update\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a9be00adcb6fa88cbbdd167078734f88b}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{takestep, }
+\item[{}]{accept\+\_\+rate = {\ttfamily 0.5}, }
+\item[{}]{interval = {\ttfamily 50}, }
+\item[{}]{factor = {\ttfamily 0.9}, }
+\item[{}]{verbose = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a9be00adcb6fa88cbbdd167078734f88b}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a14b1a0b8d8ab47b28db47c73ca83857d}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a14b1a0b8d8ab47b28db47c73ca83857d}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a724fb0b81534257c5e3556939a9f8a5f}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!report@{report}}
+\index{report@{report}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{report}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+report (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{accept, }
+\item[{}]{kwargs}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a724fb0b81534257c5e3556939a9f8a5f}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_aeb097667e9932330e0fc3ad3553b6221}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!take\+\_\+step@{take\+\_\+step}}
+\index{take\+\_\+step@{take\+\_\+step}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{take\+\_\+step}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+take\+\_\+step (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_aeb097667e9932330e0fc3ad3553b6221}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a96f4d2eb19f90d7da9957a1703502f36}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!factor@{factor}}
+\index{factor@{factor}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{factor}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+factor}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a96f4d2eb19f90d7da9957a1703502f36}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a906e6efbace1f093c26bb0227f508fcf}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!interval@{interval}}
+\index{interval@{interval}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{interval}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+interval}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a906e6efbace1f093c26bb0227f508fcf}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a3fa7443a3c5a078d230aaaa49abad0f8}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!naccept@{naccept}}
+\index{naccept@{naccept}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{naccept}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+naccept}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a3fa7443a3c5a078d230aaaa49abad0f8}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a86bea5a74e929dddd6598c4ac1587db1}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!nstep@{nstep}}
+\index{nstep@{nstep}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{nstep}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+nstep}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a86bea5a74e929dddd6598c4ac1587db1}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a6437d4838cf2b1a2904ebe8bc4d690fb}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!nstep\+\_\+tot@{nstep\+\_\+tot}}
+\index{nstep\+\_\+tot@{nstep\+\_\+tot}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{nstep\+\_\+tot}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+nstep\+\_\+tot}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a6437d4838cf2b1a2904ebe8bc4d690fb}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_aa93c7f3a433bccfed715417c04e45795}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!takestep@{takestep}}
+\index{takestep@{takestep}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{takestep}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+takestep}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_aa93c7f3a433bccfed715417c04e45795}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a742a08f538bcb508524c9fd2ec9db748}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!target\+\_\+accept\+\_\+rate@{target\+\_\+accept\+\_\+rate}}
+\index{target\+\_\+accept\+\_\+rate@{target\+\_\+accept\+\_\+rate}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{target\+\_\+accept\+\_\+rate}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+target\+\_\+accept\+\_\+rate}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a742a08f538bcb508524c9fd2ec9db748}
+\hypertarget{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a0fc1833897f80294d6b78e82177f286b}{}\index{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}!verbose@{verbose}}
+\index{verbose@{verbose}!scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize@{scipy\+::optimize\+::\+\_\+basinhopping\+::\+Adaptive\+Stepsize}}
+\subsubsection[{verbose}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+\_\+basinhopping.\+Adaptive\+Stepsize.\+verbose}\label{classscipy_1_1optimize_1_1__basinhopping_1_1AdaptiveStepsize_a0fc1833897f80294d6b78e82177f286b}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/optimize/\hyperlink{__basinhopping_8py}{\+\_\+basinhopping.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,213 @@
+\hypertarget{zhbevx_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zhbevx.f File Reference}
+\label{zhbevx_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhbevx.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhbevx.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zhbevx_8f_ae5f2fa86e4c29e27fccf6cb9ea1c54a2}{zhbevx} (J\+O\+B\+Z, R\+A\+N\+G\+E, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+D, A\+B, L\+D\+A\+B, Q, L\+D\+Q, V\+L, V\+U, I\+L, I\+U, A\+B\+S\+T\+O\+L, M, W, Z, L\+D\+Z, W\+O\+R\+K, R\+W\+O\+R\+K, I\+W\+O\+R\+K, I\+F\+A\+I\+L, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  Z\+H\+B\+E\+V\+X computes the eigenvalues and, optionally, the left and/or right eigenvectors for O\+T\+H\+E\+R matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zhbevx_8f_ae5f2fa86e4c29e27fccf6cb9ea1c54a2}{}\index{zhbevx.\+f@{zhbevx.\+f}!zhbevx@{zhbevx}}
+\index{zhbevx@{zhbevx}!zhbevx.\+f@{zhbevx.\+f}}
+\subsubsection[{zhbevx}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zhbevx (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B\+Z, }
+\item[{character}]{R\+A\+N\+G\+E, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+D, }
+\item[{{\bf complex}$\ast$16, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{{\bf complex}$\ast$16, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{double {\bf precision}}]{V\+L, }
+\item[{double {\bf precision}}]{V\+U, }
+\item[{integer}]{I\+L, }
+\item[{integer}]{I\+U, }
+\item[{double {\bf precision}}]{A\+B\+S\+T\+O\+L, }
+\item[{integer}]{M, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W, }
+\item[{{\bf complex}$\ast$16, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+F\+A\+I\+L, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zhbevx_8f_ae5f2fa86e4c29e27fccf6cb9ea1c54a2}
+
+
+{\bfseries  Z\+H\+B\+E\+V\+X computes the eigenvalues and, optionally, the left and/or right eigenvectors for O\+T\+H\+E\+R matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZHBEVX computes selected eigenvalues and, optionally, eigenvectors
+ of a complex Hermitian band matrix A.  Eigenvalues and eigenvectors
+ can be selected by specifying either a range of values or a range of
+ indices for the desired eigenvalues.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B\+Z} & \begin{DoxyVerb}          JOBZ is CHARACTER*1
+          = 'N':  Compute eigenvalues only;
+          = 'V':  Compute eigenvalues and eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+A\+N\+G\+E} & \begin{DoxyVerb}          RANGE is CHARACTER*1
+          = 'A': all eigenvalues will be found;
+          = 'V': all eigenvalues in the half-open interval (VL,VU]
+                 will be found;
+          = 'I': the IL-th through IU-th eigenvalues will be found.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+D} & \begin{DoxyVerb}          KD is INTEGER
+          The number of superdiagonals of the matrix A if UPLO = 'U',
+          or the number of subdiagonals if UPLO = 'L'.  KD >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+B} & \begin{DoxyVerb}          AB is COMPLEX*16 array, dimension (LDAB, N)
+          On entry, the upper or lower triangle of the Hermitian band
+          matrix A, stored in the first KD+1 rows of the array.  The
+          j-th column of A is stored in the j-th column of the array AB
+          as follows:
+          if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
+
+          On exit, AB is overwritten by values generated during the
+          reduction to tridiagonal form.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KD + 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Q} & \begin{DoxyVerb}          Q is COMPLEX*16 array, dimension (LDQ, N)
+          If JOBZ = 'V', the N-by-N unitary matrix used in the
+                          reduction to tridiagonal form.
+          If JOBZ = 'N', the array Q is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+          The leading dimension of the array Q.  If JOBZ = 'V', then
+          LDQ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V\+L} & \begin{DoxyVerb}          VL is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V\+U} & \begin{DoxyVerb}          VU is DOUBLE PRECISION
+          If RANGE='V', the lower and upper bounds of the interval to
+          be searched for eigenvalues. VL < VU.
+          Not referenced if RANGE = 'A' or 'I'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+L} & \begin{DoxyVerb}          IL is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+U} & \begin{DoxyVerb}          IU is INTEGER
+          If RANGE='I', the indices (in ascending order) of the
+          smallest and largest eigenvalues to be returned.
+          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
+          Not referenced if RANGE = 'A' or 'V'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+B\+S\+T\+O\+L} & \begin{DoxyVerb}          ABSTOL is DOUBLE PRECISION
+          The absolute error tolerance for the eigenvalues.
+          An approximate eigenvalue is accepted as converged
+          when it is determined to lie in an interval [a,b]
+          of width less than or equal to
+
+                  ABSTOL + EPS *   max( |a|,|b| ) ,
+
+          where EPS is the machine precision.  If ABSTOL is less than
+          or equal to zero, then  EPS*|T|  will be used in its place,
+          where |T| is the 1-norm of the tridiagonal matrix obtained
+          by reducing AB to tridiagonal form.
+
+          Eigenvalues will be computed most accurately when ABSTOL is
+          set to twice the underflow threshold 2*DLAMCH('S'), not zero.
+          If this routine returns with INFO>0, indicating that some
+          eigenvectors did not converge, try setting ABSTOL to
+          2*DLAMCH('S').
+
+          See "Computing Small Singular Values of Bidiagonal Matrices
+          with Guaranteed High Relative Accuracy," by Demmel and
+          Kahan, LAPACK Working Note #3.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The total number of eigenvalues found.  0 <= M <= N.
+          If RANGE = 'A', M = N, and if RANGE = 'I', M = IU-IL+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W} & \begin{DoxyVerb}          W is DOUBLE PRECISION array, dimension (N)
+          The first M elements contain the selected eigenvalues in
+          ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Z} & \begin{DoxyVerb}          Z is COMPLEX*16 array, dimension (LDZ, max(1,M))
+          If JOBZ = 'V', then if INFO = 0, the first M columns of Z
+          contain the orthonormal eigenvectors of the matrix A
+          corresponding to the selected eigenvalues, with the i-th
+          column of Z holding the eigenvector associated with W(i).
+          If an eigenvector fails to converge, then that column of Z
+          contains the latest approximation to the eigenvector, and the
+          index of the eigenvector is returned in IFAIL.
+          If JOBZ = 'N', then Z is not referenced.
+          Note: the user must ensure that at least max(1,M) columns are
+          supplied in the array Z; if RANGE = 'V', the exact value of M
+          is not known in advance and an upper bound must be used.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDZ >= 1, and if
+          JOBZ = 'V', LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is DOUBLE PRECISION array, dimension (7*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (5*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+F\+A\+I\+L} & \begin{DoxyVerb}          IFAIL is INTEGER array, dimension (N)
+          If JOBZ = 'V', then if INFO = 0, the first M elements of
+          IFAIL are zero.  If INFO > 0, then IFAIL contains the
+          indices of the eigenvectors that failed to converge.
+          If JOBZ = 'N', then IFAIL is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i, then i eigenvectors failed to converge.
+                Their indices are stored in array IFAIL.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

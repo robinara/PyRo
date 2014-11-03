@@ -1,0 +1,223 @@
+\hypertarget{namespacescipy_1_1optimize}{}\section{scipy.\+optimize Namespace Reference}
+\label{namespacescipy_1_1optimize}\index{scipy.\+optimize@{scipy.\+optimize}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping}{\+\_\+basinhopping}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1__minimize}{\+\_\+minimize}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1__root}{\+\_\+root}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1__trustregion}{\+\_\+trustregion}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1__trustregion__dogleg}{\+\_\+trustregion\+\_\+dogleg}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1__trustregion__ncg}{\+\_\+trustregion\+\_\+ncg}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1__tstutils}{\+\_\+tstutils}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1anneal}{anneal}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1cobyla}{cobyla}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1lbfgsb}{lbfgsb}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1linesearch}{linesearch}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1minpack}{minpack}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1nnls}{nnls}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1nonlin}{nonlin}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1optimize}{optimize}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1setup}{setup}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1slsqp}{slsqp}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1tnc}{tnc}
+\item 
+ \hyperlink{namespacescipy_1_1optimize_1_1zeros}{zeros}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1optimize_a28f76c1100840cd45451a3dccb385259}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} for \hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} in dir() \hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} not s.\+startswith('\+\_\+')\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1optimize_a521c732bf624dd18d5c8507070e1a463}{test} = Tester()
+\item 
+tuple \hyperlink{namespacescipy_1_1optimize_a39d7d2798240bd9e2b90df38c71a3fa1}{bench} = Tester()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}=====================================================
+Optimization and root finding (:mod:`scipy.optimize`)
+=====================================================
+
+.. currentmodule:: scipy.optimize
+
+Optimization
+============
+
+Local Optimization
+------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   minimize - Unified interface for minimizers of multivariate functions
+   minimize_scalar - Unified interface for minimizers of univariate functions
+   OptimizeResult - The optimization result returned by some optimizers
+
+The specific optimization method interfaces below in this subsection are
+not recommended for use in new scripts; all of these methods are accessible
+via a newer, more consistent interface provided by the functions above.
+
+General-purpose multivariate methods:
+
+.. autosummary::
+   :toctree: generated/
+
+   fmin - Nelder-Mead Simplex algorithm
+   fmin_powell - Powell's (modified) level set method
+   fmin_cg - Non-linear (Polak-Ribiere) conjugate gradient algorithm
+   fmin_bfgs - Quasi-Newton method (Broydon-Fletcher-Goldfarb-Shanno)
+   fmin_ncg - Line-search Newton Conjugate Gradient
+
+Constrained multivariate methods:
+
+.. autosummary::
+   :toctree: generated/
+
+   fmin_l_bfgs_b - Zhu, Byrd, and Nocedal's constrained optimizer
+   fmin_tnc - Truncated Newton code
+   fmin_cobyla - Constrained optimization by linear approximation
+   fmin_slsqp - Minimization using sequential least-squares programming
+
+Univariate (scalar) minimization methods:
+
+.. autosummary::
+   :toctree: generated/
+
+   fminbound - Bounded minimization of a scalar function
+   brent - 1-D function minimization using Brent method
+   golden - 1-D function minimization using Golden Section method
+
+Equation (Local) Minimizers
+---------------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   leastsq - Minimize the sum of squares of M equations in N unknowns
+   nnls - Linear least-squares problem with non-negativity constraint
+
+Global Optimization
+-------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   anneal - Simulated annealing
+   basinhopping - Basinhopping stochastic optimizer
+   brute - Brute force searching optimizer
+
+Rosenbrock function
+-------------------
+
+.. autosummary::
+   :toctree: generated/
+
+   rosen - The Rosenbrock function.
+   rosen_der - The derivative of the Rosenbrock function.
+   rosen_hess - The Hessian matrix of the Rosenbrock function.
+   rosen_hess_prod - Product of the Rosenbrock Hessian with a vector.
+
+Fitting
+=======
+
+.. autosummary::
+   :toctree: generated/
+
+   curve_fit -- Fit curve to a set of points
+
+Root finding
+============
+
+Scalar functions
+----------------
+.. autosummary::
+   :toctree: generated/
+
+   brentq - quadratic interpolation Brent method
+   brenth - Brent method, modified by Harris with hyperbolic extrapolation
+   ridder - Ridder's method
+   bisect - Bisection method
+   newton - Secant method or Newton's method
+
+Fixed point finding:
+
+.. autosummary::
+   :toctree: generated/
+
+   fixed_point - Single-variable fixed-point solver
+
+Multidimensional
+----------------
+
+General nonlinear solvers:
+
+.. autosummary::
+   :toctree: generated/
+
+   root - Unified interface for nonlinear solvers of multivariate functions
+   fsolve - Non-linear multi-variable equation solver
+   broyden1 - Broyden's first method
+   broyden2 - Broyden's second method
+
+Large-scale nonlinear solvers:
+
+.. autosummary::
+   :toctree: generated/
+
+   newton_krylov
+   anderson
+
+Simple iterations:
+
+.. autosummary::
+   :toctree: generated/
+
+   excitingmixing
+   linearmixing
+   diagbroyden
+
+:mod:`Additional information on the nonlinear solvers <scipy.optimize.nonlin>`
+
+Utility Functions
+=================
+
+.. autosummary::
+   :toctree: generated/
+
+   approx_fprime - Approximate the gradient of a scalar function
+   bracket - Bracket a minimum, given two starting points
+   check_grad - Check the supplied derivative using finite differences
+   line_search - Return a step that satisfies the strong Wolfe conditions
+
+   show_options - Show specific options optimization solvers\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1optimize_a28f76c1100840cd45451a3dccb385259}{}\index{scipy\+::optimize@{scipy\+::optimize}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::optimize@{scipy\+::optimize}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+optimize.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}{\bf s} for {\bf s} in dir() {\bf if} not s.\+startswith('\+\_\+')\mbox{]}}\label{namespacescipy_1_1optimize_a28f76c1100840cd45451a3dccb385259}
+\hypertarget{namespacescipy_1_1optimize_a39d7d2798240bd9e2b90df38c71a3fa1}{}\index{scipy\+::optimize@{scipy\+::optimize}!bench@{bench}}
+\index{bench@{bench}!scipy\+::optimize@{scipy\+::optimize}}
+\subsubsection[{bench}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+optimize.\+bench = Tester()}\label{namespacescipy_1_1optimize_a39d7d2798240bd9e2b90df38c71a3fa1}
+\hypertarget{namespacescipy_1_1optimize_a521c732bf624dd18d5c8507070e1a463}{}\index{scipy\+::optimize@{scipy\+::optimize}!test@{test}}
+\index{test@{test}!scipy\+::optimize@{scipy\+::optimize}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+optimize.\+test = Tester()}\label{namespacescipy_1_1optimize_a521c732bf624dd18d5c8507070e1a463}

@@ -1,0 +1,143 @@
+\hypertarget{namespacescipy_1_1interpolate_1_1interpolate__wrapper}{}\section{scipy.\+interpolate.\+interpolate\+\_\+wrapper Namespace Reference}
+\label{namespacescipy_1_1interpolate_1_1interpolate__wrapper}\index{scipy.\+interpolate.\+interpolate\+\_\+wrapper@{scipy.\+interpolate.\+interpolate\+\_\+wrapper}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate__wrapper_a0dacea9e01fb7b4a3b41efa050f56b1f}{atleast\+\_\+1d\+\_\+and\+\_\+contiguous}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate__wrapper_a3534f8037469cceab45961b2d0a64a3a}{nearest}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate__wrapper_adaac6e0cbc82e14236fa26dd2e1ecfca}{linear}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate__wrapper_aeb98f1843296aa567a81ddf12547bd7b}{logarithmic}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate__wrapper_aba6806de901f3b88526966350138d638}{block\+\_\+average\+\_\+above}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate__wrapper_a536431086757ce64d1f612f32b488c3b}{block}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}helper_funcs.py.
+    scavenged from enthought,interpolate
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1interpolate__wrapper_a0dacea9e01fb7b4a3b41efa050f56b1f}{}\index{scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}!atleast\+\_\+1d\+\_\+and\+\_\+contiguous@{atleast\+\_\+1d\+\_\+and\+\_\+contiguous}}
+\index{atleast\+\_\+1d\+\_\+and\+\_\+contiguous@{atleast\+\_\+1d\+\_\+and\+\_\+contiguous}!scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}}
+\subsubsection[{atleast\+\_\+1d\+\_\+and\+\_\+contiguous}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate\+\_\+wrapper.\+atleast\+\_\+1d\+\_\+and\+\_\+contiguous (
+\begin{DoxyParamCaption}
+\item[{}]{ary, }
+\item[{}]{dtype = {\ttfamily np.float64}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate__wrapper_a0dacea9e01fb7b4a3b41efa050f56b1f}
+\hypertarget{namespacescipy_1_1interpolate_1_1interpolate__wrapper_a536431086757ce64d1f612f32b488c3b}{}\index{scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}!block@{block}}
+\index{block@{block}!scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}}
+\subsubsection[{block}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate\+\_\+wrapper.\+block (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{new\+\_\+x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate__wrapper_a536431086757ce64d1f612f32b488c3b}
+\begin{DoxyVerb}Essentially a step function.
+
+For each `new_x`, finds largest j such that``x[j] < new_x[j]`` and
+returns ``y[j]``.
+
+Parameters
+----------
+x : array_like
+    Independent values.
+y : array_like
+    Dependent values.
+x_new : array_like
+    The x values used to calculate the interpolated y.
+
+Returns
+-------
+block : ndarray
+    Return array, of same length as `x_new`.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1interpolate__wrapper_aba6806de901f3b88526966350138d638}{}\index{scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}!block\+\_\+average\+\_\+above@{block\+\_\+average\+\_\+above}}
+\index{block\+\_\+average\+\_\+above@{block\+\_\+average\+\_\+above}!scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}}
+\subsubsection[{block\+\_\+average\+\_\+above}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate\+\_\+wrapper.\+block\+\_\+average\+\_\+above (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{new\+\_\+x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate__wrapper_aba6806de901f3b88526966350138d638}
+\begin{DoxyVerb}Linearly interpolates values in new_x based on the values in x and y.
+
+Parameters
+----------
+x : array_like
+    Independent values.
+y : array_like
+    Dependent values.
+new_x : array_like
+    The x values to interpolate y values.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1interpolate__wrapper_adaac6e0cbc82e14236fa26dd2e1ecfca}{}\index{scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}!linear@{linear}}
+\index{linear@{linear}!scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}}
+\subsubsection[{linear}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate\+\_\+wrapper.\+linear (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{new\+\_\+x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate__wrapper_adaac6e0cbc82e14236fa26dd2e1ecfca}
+\begin{DoxyVerb}Linearly interpolates values in new_x based on the values in x and y
+
+Parameters
+----------
+x : array_like
+    Independent values
+y : array_like
+    Dependent values
+new_x : array_like
+    The x values to return the interpolated y values.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1interpolate__wrapper_aeb98f1843296aa567a81ddf12547bd7b}{}\index{scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}!logarithmic@{logarithmic}}
+\index{logarithmic@{logarithmic}!scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}}
+\subsubsection[{logarithmic}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate\+\_\+wrapper.\+logarithmic (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{new\+\_\+x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate__wrapper_aeb98f1843296aa567a81ddf12547bd7b}
+\begin{DoxyVerb}Linearly interpolates values in new_x based in the log space of y.
+
+Parameters
+----------
+x : array_like
+    Independent values.
+y : array_like
+    Dependent values.
+new_x : array_like
+    The x values to return interpolated y values at.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1interpolate__wrapper_a3534f8037469cceab45961b2d0a64a3a}{}\index{scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}!nearest@{nearest}}
+\index{nearest@{nearest}!scipy\+::interpolate\+::interpolate\+\_\+wrapper@{scipy\+::interpolate\+::interpolate\+\_\+wrapper}}
+\subsubsection[{nearest}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate\+\_\+wrapper.\+nearest (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{new\+\_\+x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate__wrapper_a3534f8037469cceab45961b2d0a64a3a}
+\begin{DoxyVerb}Rounds each new x to nearest input x and returns corresponding input y.
+
+Parameters
+----------
+x : array_like
+    Independent values.
+y : array_like
+    Dependent values.
+new_x : array_like
+    The x values to return the interpolate y values.
+
+Returns
+-------
+nearest : ndarray
+    Rounds each `new_x` to nearest `x` and returns the corresponding `y`.\end{DoxyVerb}
+ 

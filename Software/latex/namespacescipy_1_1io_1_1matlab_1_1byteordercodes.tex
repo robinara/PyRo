@@ -1,0 +1,89 @@
+\hypertarget{namespacescipy_1_1io_1_1matlab_1_1byteordercodes}{}\section{scipy.\+io.\+matlab.\+byteordercodes Namespace Reference}
+\label{namespacescipy_1_1io_1_1matlab_1_1byteordercodes}\index{scipy.\+io.\+matlab.\+byteordercodes@{scipy.\+io.\+matlab.\+byteordercodes}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a29979423261edc90b8c01c42092ed8a9}{to\+\_\+numpy\+\_\+code}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a33a2864049162c99adff6bfdd3f9561f}{sys\+\_\+is\+\_\+le} = 'little'
+\item 
+string \hyperlink{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a85c3d9d0b8f0e6a10e799dcfe42b2601}{native\+\_\+code} = sys\+\_\+is\+\_\+leand'$<$'
+\item 
+string \hyperlink{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a04cd55b4d02ecf384bc66b1934dd7079}{swapped\+\_\+code} = sys\+\_\+is\+\_\+leand'$>$'
+\item 
+dictionary \hyperlink{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a910ab30880606690c14a385c87d8d3cb}{aliases}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Byteorder utilities for system - numpy byteorder encoding
+
+Converts a variety of string codes for little endian, big endian,
+native byte order and swapped byte order to explicit numpy endian
+codes - one of '<' (little endian) or '>' (big endian)\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a29979423261edc90b8c01c42092ed8a9}{}\index{scipy\+::io\+::matlab\+::byteordercodes@{scipy\+::io\+::matlab\+::byteordercodes}!to\+\_\+numpy\+\_\+code@{to\+\_\+numpy\+\_\+code}}
+\index{to\+\_\+numpy\+\_\+code@{to\+\_\+numpy\+\_\+code}!scipy\+::io\+::matlab\+::byteordercodes@{scipy\+::io\+::matlab\+::byteordercodes}}
+\subsubsection[{to\+\_\+numpy\+\_\+code}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+byteordercodes.\+to\+\_\+numpy\+\_\+code (
+\begin{DoxyParamCaption}
+\item[{}]{code}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a29979423261edc90b8c01c42092ed8a9}
+\begin{DoxyVerb}Convert various order codings to numpy format.
+
+Parameters
+----------
+code : str
+    The code to convert. It is converted to lower case before parsing.
+    Legal values are:
+    'little', 'big', 'l', 'b', 'le', 'be', '<', '>', 'native', '=',
+    'swapped', 's'.
+
+Returns
+-------
+out_code : {'<', '>'}
+    Here '<' is the numpy dtype code for little endian,
+    and '>' is the code for big endian.
+
+Examples
+--------
+>>> import sys
+>>> sys_is_le == (sys.byteorder == 'little')
+True
+>>> to_numpy_code('big')
+'>'
+>>> to_numpy_code('little')
+'<'
+>>> nc = to_numpy_code('native')
+>>> nc == '<' if sys_is_le else nc == '>'
+True
+>>> sc = to_numpy_code('swapped')
+>>> sc == '>' if sys_is_le else sc == '<'
+True\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a910ab30880606690c14a385c87d8d3cb}{}\index{scipy\+::io\+::matlab\+::byteordercodes@{scipy\+::io\+::matlab\+::byteordercodes}!aliases@{aliases}}
+\index{aliases@{aliases}!scipy\+::io\+::matlab\+::byteordercodes@{scipy\+::io\+::matlab\+::byteordercodes}}
+\subsubsection[{aliases}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+io.\+matlab.\+byteordercodes.\+aliases}\label{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a910ab30880606690c14a385c87d8d3cb}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{\textcolor{stringliteral}{'little'}: (\textcolor{stringliteral}{'little'}, \textcolor{stringliteral}{'<'}, \textcolor{stringliteral}{'l'}, \textcolor{stringliteral}{'le'}),
+2            \textcolor{stringliteral}{'big'}: (\textcolor{stringliteral}{'big'}, \textcolor{stringliteral}{'>'}, \textcolor{stringliteral}{'b'}, \textcolor{stringliteral}{'be'}),
+3            \textcolor{stringliteral}{'native'}: (\textcolor{stringliteral}{'native'}, \textcolor{stringliteral}{'='}),
+4            \textcolor{stringliteral}{'swapped'}: (\textcolor{stringliteral}{'swapped'}, \textcolor{stringliteral}{'S'})\}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a85c3d9d0b8f0e6a10e799dcfe42b2601}{}\index{scipy\+::io\+::matlab\+::byteordercodes@{scipy\+::io\+::matlab\+::byteordercodes}!native\+\_\+code@{native\+\_\+code}}
+\index{native\+\_\+code@{native\+\_\+code}!scipy\+::io\+::matlab\+::byteordercodes@{scipy\+::io\+::matlab\+::byteordercodes}}
+\subsubsection[{native\+\_\+code}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+io.\+matlab.\+byteordercodes.\+native\+\_\+code = sys\+\_\+is\+\_\+leand'$<$'}\label{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a85c3d9d0b8f0e6a10e799dcfe42b2601}
+\hypertarget{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a04cd55b4d02ecf384bc66b1934dd7079}{}\index{scipy\+::io\+::matlab\+::byteordercodes@{scipy\+::io\+::matlab\+::byteordercodes}!swapped\+\_\+code@{swapped\+\_\+code}}
+\index{swapped\+\_\+code@{swapped\+\_\+code}!scipy\+::io\+::matlab\+::byteordercodes@{scipy\+::io\+::matlab\+::byteordercodes}}
+\subsubsection[{swapped\+\_\+code}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+io.\+matlab.\+byteordercodes.\+swapped\+\_\+code = sys\+\_\+is\+\_\+leand'$>$'}\label{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a04cd55b4d02ecf384bc66b1934dd7079}
+\hypertarget{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a33a2864049162c99adff6bfdd3f9561f}{}\index{scipy\+::io\+::matlab\+::byteordercodes@{scipy\+::io\+::matlab\+::byteordercodes}!sys\+\_\+is\+\_\+le@{sys\+\_\+is\+\_\+le}}
+\index{sys\+\_\+is\+\_\+le@{sys\+\_\+is\+\_\+le}!scipy\+::io\+::matlab\+::byteordercodes@{scipy\+::io\+::matlab\+::byteordercodes}}
+\subsubsection[{sys\+\_\+is\+\_\+le}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+io.\+matlab.\+byteordercodes.\+sys\+\_\+is\+\_\+le = 'little'}\label{namespacescipy_1_1io_1_1matlab_1_1byteordercodes_a33a2864049162c99adff6bfdd3f9561f}

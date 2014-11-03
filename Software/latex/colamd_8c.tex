@@ -1,0 +1,842 @@
+\hypertarget{colamd_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/colamd.c File Reference}
+\label{colamd_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/colamd.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/colamd.\+c}}
+
+
+\hyperlink{classA}{A} sparse matrix column ordering algorithm.  
+
+
+{\ttfamily \#include \char`\"{}colamd.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{colamd_8c_a8de3ed741dadc9c979a4ff17c0a9116e}{N\+D\+E\+B\+U\+G}
+\item 
+\#define \hyperlink{colamd_8c_ad17d551e31d1828c68acf40684849b7e}{P\+U\+B\+L\+I\+C}
+\item 
+\#define \hyperlink{colamd_8c_a5e151c615eda34903514212f05a5ccf8}{P\+R\+I\+V\+A\+T\+E}~static
+\item 
+\#define \hyperlink{colamd_8c_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{M\+A\+X}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~(((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) $>$ (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})) ? (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) \+: (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}))
+\item 
+\#define \hyperlink{colamd_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{M\+I\+N}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~(((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) $<$ (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})) ? (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) \+: (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}))
+\item 
+\#define \hyperlink{colamd_8c_af4201cc2809d450d2484680ee1b958ca}{O\+N\+E\+S\+\_\+\+C\+O\+M\+P\+L\+E\+M\+E\+N\+T}(\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r})~(-\/(\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r})-\/1)
+\item 
+\#define \hyperlink{colamd_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\+R\+U\+E}~(1)
+\item 
+\#define \hyperlink{colamd_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+S\+E}~(0)
+\item 
+\#define \hyperlink{colamd_8c_a2b7cf2a3641be7b89138615764d60ba3}{E\+M\+P\+T\+Y}~(-\/1)
+\item 
+\#define \hyperlink{colamd_8c_ad8beef706da0344be19d59438fcdab6d}{A\+L\+I\+V\+E}~(0)
+\item 
+\#define \hyperlink{colamd_8c_a3c8793c7acb4598d2ebcd8288f29ee69}{D\+E\+A\+D}~(-\/1)
+\item 
+\#define \hyperlink{colamd_8c_ac0adce1e7d70351cef4752f3373709af}{D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}~(-\/1)
+\item 
+\#define \hyperlink{colamd_8c_a0f66923672bcc495333995f7d238945f}{D\+E\+A\+D\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}~(-\/2)
+\item 
+\#define \hyperlink{colamd_8c_ae200d2ac8149305712af7230f9ee24d5}{R\+O\+W\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D}(\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r})~\hyperlink{colamd_8c_a0d68b03acc587c11fe6dffbfede78c2d}{R\+O\+W\+\_\+\+I\+S\+\_\+\+M\+A\+R\+K\+E\+D\+\_\+\+D\+E\+A\+D} (Row\mbox{[}\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}\mbox{]}.shared2.\+mark)
+\item 
+\#define \hyperlink{colamd_8c_a0d68b03acc587c11fe6dffbfede78c2d}{R\+O\+W\+\_\+\+I\+S\+\_\+\+M\+A\+R\+K\+E\+D\+\_\+\+D\+E\+A\+D}(row\+\_\+mark)~(row\+\_\+mark $<$ \hyperlink{colamd_8c_ad8beef706da0344be19d59438fcdab6d}{A\+L\+I\+V\+E})
+\item 
+\#define \hyperlink{colamd_8c_abc775359cfa45ffaf6250522c521110d}{R\+O\+W\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E}(\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r})~(Row \mbox{[}\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}\mbox{]}.shared2.\+mark $>$= \hyperlink{colamd_8c_ad8beef706da0344be19d59438fcdab6d}{A\+L\+I\+V\+E})
+\item 
+\#define \hyperlink{colamd_8c_aa08664bd5b8133f28dbeedc9a030fc86}{C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D}(c)~(Col \mbox{[}c\mbox{]}.start $<$ \hyperlink{colamd_8c_ad8beef706da0344be19d59438fcdab6d}{A\+L\+I\+V\+E})
+\item 
+\#define \hyperlink{colamd_8c_a50f9ca65904b13f345862cb46d08d84b}{C\+O\+L\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E}(c)~(Col \mbox{[}c\mbox{]}.start $>$= \hyperlink{colamd_8c_ad8beef706da0344be19d59438fcdab6d}{A\+L\+I\+V\+E})
+\item 
+\#define \hyperlink{colamd_8c_a003c0e2dae54bcb7c680333304dd4dcb}{C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}(c)~(Col \mbox{[}c\mbox{]}.start == \hyperlink{colamd_8c_ac0adce1e7d70351cef4752f3373709af}{D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L})
+\item 
+\#define \hyperlink{colamd_8c_adde21248544152df48ab70b6da1b38b5}{K\+I\+L\+L\+\_\+\+R\+O\+W}(\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r})~\{ Row \mbox{[}\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}\mbox{]}.shared2.\+mark = \hyperlink{colamd_8c_a3c8793c7acb4598d2ebcd8288f29ee69}{D\+E\+A\+D} ; \}
+\item 
+\#define \hyperlink{colamd_8c_a7882929a7898e09a3de9e7676ae1aa29}{K\+I\+L\+L\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L}(c)~\{ Col \mbox{[}c\mbox{]}.start = \hyperlink{colamd_8c_ac0adce1e7d70351cef4752f3373709af}{D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L} ; \}
+\item 
+\#define \hyperlink{colamd_8c_a0458a358e752473d86e6f21a56b44a26}{K\+I\+L\+L\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L}(c)~\{ Col \mbox{[}c\mbox{]}.start = \hyperlink{colamd_8c_a0f66923672bcc495333995f7d238945f}{D\+E\+A\+D\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L} ; \}
+\item 
+\#define \hyperlink{colamd_8c_ae1649fc947ca37a86917a08354f48d1a}{P\+R\+I\+N\+T\+F}~printf
+\item 
+\#define \hyperlink{colamd_8c_aa5fad23b2a5eed790e6661e896a506b7}{I\+N\+D\+E\+X}(\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i})~(\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i})
+\item 
+\#define \hyperlink{colamd_8c_a144524f0a43ebe1a97d576a76f6557a0}{D\+E\+B\+U\+G0}(params)~;
+\item 
+\#define \hyperlink{colamd_8c_a5083dbf79682be78336cc6b458c32ab4}{D\+E\+B\+U\+G1}(params)~;
+\item 
+\#define \hyperlink{colamd_8c_a65bd10ffc88aa9edca29d4f6ae0da2df}{D\+E\+B\+U\+G2}(params)~;
+\item 
+\#define \hyperlink{colamd_8c_a86ce320fe5d3f3088d89fdf451943008}{D\+E\+B\+U\+G3}(params)~;
+\item 
+\#define \hyperlink{colamd_8c_a0ff047166d36dd8103bd12a4fbc7f7f9}{D\+E\+B\+U\+G4}(params)~;
+\item 
+\#define \hyperlink{colamd_8c_a87e006a00875d2e518652108f6cb5790}{A\+S\+S\+E\+R\+T}(expression)~((void) 0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{colamd_8c_a5e151c615eda34903514212f05a5ccf8}{P\+R\+I\+V\+A\+T\+E} int \hyperlink{colamd_8c_ad632adbb6b5d2516805a965b42b601c8}{init\+\_\+rows\+\_\+cols} (int n\+\_\+row, int n\+\_\+col, \hyperlink{colamd_8h_a8a1ceeb79ebba705abb1d27469f4a358}{Colamd\+\_\+\+Row} Row\mbox{[}$\,$\mbox{]}, \hyperlink{colamd_8h_a059db10cdebbb878b50bfcd2e023315a}{Colamd\+\_\+\+Col} Col\mbox{[}$\,$\mbox{]}, int \hyperlink{classA}{A}\mbox{[}$\,$\mbox{]}, int \hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}\mbox{[}$\,$\mbox{]}, int stats\mbox{[}\hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}\mbox{]})
+\item 
+\hyperlink{colamd_8c_a5e151c615eda34903514212f05a5ccf8}{P\+R\+I\+V\+A\+T\+E} void \hyperlink{colamd_8c_ac804543e35e2ab481d9e2c19ed0ebcf6}{init\+\_\+scoring} (int n\+\_\+row, int n\+\_\+col, \hyperlink{colamd_8h_a8a1ceeb79ebba705abb1d27469f4a358}{Colamd\+\_\+\+Row} Row\mbox{[}$\,$\mbox{]}, \hyperlink{colamd_8h_a059db10cdebbb878b50bfcd2e023315a}{Colamd\+\_\+\+Col} Col\mbox{[}$\,$\mbox{]}, int \hyperlink{classA}{A}\mbox{[}$\,$\mbox{]}, int head\mbox{[}$\,$\mbox{]}, double knobs\mbox{[}\hyperlink{colamd_8h_ae92bb10d09f7cd004f07d1baddf90548}{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}\mbox{]}, int $\ast$p\+\_\+n\+\_\+row2, int $\ast$p\+\_\+n\+\_\+col2, int $\ast$p\+\_\+max\+\_\+deg)
+\item 
+\hyperlink{colamd_8c_a5e151c615eda34903514212f05a5ccf8}{P\+R\+I\+V\+A\+T\+E} int \hyperlink{colamd_8c_a10da36e975e03d3c0fd68dbe14eb27cc}{find\+\_\+ordering} (int n\+\_\+row, int n\+\_\+col, int Alen, \hyperlink{colamd_8h_a8a1ceeb79ebba705abb1d27469f4a358}{Colamd\+\_\+\+Row} Row\mbox{[}$\,$\mbox{]}, \hyperlink{colamd_8h_a059db10cdebbb878b50bfcd2e023315a}{Colamd\+\_\+\+Col} Col\mbox{[}$\,$\mbox{]}, int \hyperlink{classA}{A}\mbox{[}$\,$\mbox{]}, int head\mbox{[}$\,$\mbox{]}, int n\+\_\+col2, int max\+\_\+deg, int pfree)
+\item 
+\hyperlink{colamd_8c_a5e151c615eda34903514212f05a5ccf8}{P\+R\+I\+V\+A\+T\+E} void \hyperlink{colamd_8c_ad9896b63f5b2823065686f63a1096130}{order\+\_\+children} (int n\+\_\+col, \hyperlink{colamd_8h_a059db10cdebbb878b50bfcd2e023315a}{Colamd\+\_\+\+Col} Col\mbox{[}$\,$\mbox{]}, int \hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}\mbox{[}$\,$\mbox{]})
+\item 
+\hyperlink{colamd_8c_a5e151c615eda34903514212f05a5ccf8}{P\+R\+I\+V\+A\+T\+E} void \hyperlink{colamd_8c_a27211c7dc11832c4675d8d3fcd7167a0}{detect\+\_\+super\+\_\+cols} (\hyperlink{colamd_8h_a059db10cdebbb878b50bfcd2e023315a}{Colamd\+\_\+\+Col} Col\mbox{[}$\,$\mbox{]}, int \hyperlink{classA}{A}\mbox{[}$\,$\mbox{]}, int head\mbox{[}$\,$\mbox{]}, int row\+\_\+start, int row\+\_\+length)
+\item 
+\hyperlink{colamd_8c_a5e151c615eda34903514212f05a5ccf8}{P\+R\+I\+V\+A\+T\+E} int \hyperlink{colamd_8c_a9a0dc18af9f72ad8e436a98980e55c41}{garbage\+\_\+collection} (int n\+\_\+row, int n\+\_\+col, \hyperlink{colamd_8h_a8a1ceeb79ebba705abb1d27469f4a358}{Colamd\+\_\+\+Row} Row\mbox{[}$\,$\mbox{]}, \hyperlink{colamd_8h_a059db10cdebbb878b50bfcd2e023315a}{Colamd\+\_\+\+Col} Col\mbox{[}$\,$\mbox{]}, int \hyperlink{classA}{A}\mbox{[}$\,$\mbox{]}, int $\ast$pfree)
+\item 
+\hyperlink{colamd_8c_a5e151c615eda34903514212f05a5ccf8}{P\+R\+I\+V\+A\+T\+E} int \hyperlink{colamd_8c_a7eb036c63565d8fc7c05e1074510601a}{clear\+\_\+mark} (int n\+\_\+row, \hyperlink{colamd_8h_a8a1ceeb79ebba705abb1d27469f4a358}{Colamd\+\_\+\+Row} Row\mbox{[}$\,$\mbox{]})
+\item 
+\hyperlink{colamd_8c_a5e151c615eda34903514212f05a5ccf8}{P\+R\+I\+V\+A\+T\+E} void \hyperlink{colamd_8c_a5ba6567b2e4ac6f69086d2ac7ab5c58a}{print\+\_\+report} (char $\ast$method, int stats\mbox{[}\hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}\mbox{]})
+\item 
+\hyperlink{colamd_8c_ad17d551e31d1828c68acf40684849b7e}{P\+U\+B\+L\+I\+C} int \hyperlink{colamd_8c_aac7214b99bcf4db1b13547521367817f}{colamd\+\_\+recommended} (int nnz, int n\+\_\+row, int n\+\_\+col)
+\item 
+\hyperlink{colamd_8c_ad17d551e31d1828c68acf40684849b7e}{P\+U\+B\+L\+I\+C} void \hyperlink{colamd_8c_acd15277a8a063dd0586e280004a92c89}{colamd\+\_\+set\+\_\+defaults} (double knobs\mbox{[}\hyperlink{colamd_8h_ae92bb10d09f7cd004f07d1baddf90548}{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}\mbox{]})
+\item 
+\hyperlink{colamd_8c_ad17d551e31d1828c68acf40684849b7e}{P\+U\+B\+L\+I\+C} int \hyperlink{colamd_8c_ae81243e57d577e17400b3f532aa4f1e9}{symamd} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int \hyperlink{classA}{A}\mbox{[}$\,$\mbox{]}, int \hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}\mbox{[}$\,$\mbox{]}, int perm\mbox{[}$\,$\mbox{]}, double knobs\mbox{[}\hyperlink{colamd_8h_ae92bb10d09f7cd004f07d1baddf90548}{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}\mbox{]}, int stats\mbox{[}\hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}\mbox{]}, void $\ast$($\ast$allocate)(size\+\_\+t, size\+\_\+t), void($\ast$release)(void $\ast$))
+\item 
+\hyperlink{colamd_8c_ad17d551e31d1828c68acf40684849b7e}{P\+U\+B\+L\+I\+C} int \hyperlink{colamd_8c_a4ace2482b681af56de48dd3ba8971baf}{colamd} (int n\+\_\+row, int n\+\_\+col, int Alen, int \hyperlink{classA}{A}\mbox{[}$\,$\mbox{]}, int \hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}\mbox{[}$\,$\mbox{]}, double knobs\mbox{[}\hyperlink{colamd_8h_ae92bb10d09f7cd004f07d1baddf90548}{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}\mbox{]}, int stats\mbox{[}\hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}\mbox{]})
+\item 
+\hyperlink{colamd_8c_ad17d551e31d1828c68acf40684849b7e}{P\+U\+B\+L\+I\+C} void \hyperlink{colamd_8c_a85f2c13be93dea98e624144272d00eed}{colamd\+\_\+report} (int stats\mbox{[}\hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}\mbox{]})
+\item 
+\hyperlink{colamd_8c_ad17d551e31d1828c68acf40684849b7e}{P\+U\+B\+L\+I\+C} void \hyperlink{colamd_8c_adf3bb99ff64711d528dafe21fd450512}{symamd\+\_\+report} (int stats\mbox{[}\hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classA}{A} sparse matrix column ordering algorithm. 
+
+$<$\subsection*{pre$>$ }
+
+\subsection*{=== colamd/symamd -\/ a sparse matrix column ordering algorithm ============ }
+
+colamd\+: an approximate minimum degree column ordering algorithm, for L\+U factorization of symmetric or unsymmetric matrices, Q\+R factorization, least squares, interior point methods for linear programming problems, and other related problems.
+
+symamd\+: an approximate minimum degree ordering algorithm for Cholesky factorization of symmetric matrices.
+
+Purpose\+:
+
+Colamd computes a permutation Q such that the Cholesky factorization of (A\+Q)'(A\+Q) has less fill-\/in and requires fewer floating point operations than \hyperlink{classA}{A}'\hyperlink{classA}{A}. This also provides a good ordering for sparse partial pivoting methods, P(\+A\+Q) = L\+U, where Q is computed prior to numerical factorization, and P is computed during numerical factorization via conventional partial pivoting with row interchanges. Colamd is the column ordering method used in Super\+L\+U, part of the Sca\+L\+A\+P\+A\+C\+K library. It is also available as built-\/in function in M\+A\+T\+L\+A\+B Version 6, available from Math\+Works, Inc. (\href{http://www.mathworks.com}{\tt http\+://www.\+mathworks.\+com}). This routine can be used in place of colmmd in M\+A\+T\+L\+A\+B.
+
+Symamd computes a permutation P of a symmetric matrix \hyperlink{classA}{A} such that the Cholesky factorization of P\+A\+P' has less fill-\/in and requires fewer floating point operations than \hyperlink{classA}{A}. Symamd constructs a matrix M such that M'M has the same nonzero pattern of \hyperlink{classA}{A}, and then orders the columns of M using colmmd. The column ordering of M is then returned as the row and column ordering P of \hyperlink{classA}{A}.
+
+Authors\+:
+
+The authors of the code itself are Stefan I. Larimore and Timothy \hyperlink{classA}{A}. Davis (\href{mailto:davis@cise.ufl.edu}{\tt davis@cise.\+ufl.\+edu}), University of Florida. The algorithm was developed in collaboration with John Gilbert, Xerox P\+A\+R\+C, and Esmond Ng, Oak Ridge National Laboratory.
+
+Date\+:
+
+September 8, 2003. Version 2.\+3.
+
+Acknowledgements\+:
+
+This work was supported by the National Science Foundation, under grants D\+M\+S-\/9504974 and D\+M\+S-\/9803599.
+
+Copyright and License\+:
+
+Copyright (c) 1998-\/2003 by the University of Florida. All Rights Reserved.
+
+T\+H\+I\+S M\+A\+T\+E\+R\+I\+A\+L I\+S P\+R\+O\+V\+I\+D\+E\+D A\+S I\+S, W\+I\+T\+H A\+B\+S\+O\+L\+U\+T\+E\+L\+Y N\+O W\+A\+R\+R\+A\+N\+T\+Y E\+X\+P\+R\+E\+S\+S\+E\+D O\+R I\+M\+P\+L\+I\+E\+D. A\+N\+Y U\+S\+E I\+S A\+T Y\+O\+U\+R O\+W\+N R\+I\+S\+K.
+
+Permission is hereby granted to use, copy, modify, and/or distribute this program, provided that the Copyright, this License, and the Availability of the original version is retained on all copies and made accessible to the end-\/user of any code or package that includes C\+O\+L\+A\+M\+D or any modified version of C\+O\+L\+A\+M\+D.
+
+Availability\+:
+
+The colamd/symamd library is available at \begin{DoxyVerb}http://www.cise.ufl.edu/research/sparse/colamd/
+\end{DoxyVerb}
+
+
+This is the \href{http://www.cise.ufl.edu/research/sparse/colamd/colamd.c}{\tt http\+://www.\+cise.\+ufl.\+edu/research/sparse/colamd/colamd.\+c} file. It requires the \hyperlink{colamd_8h}{colamd.\+h} file. It is required by the colamdmex.\+c and symamdmex.\+c files, for the M\+A\+T\+L\+A\+B interface to colamd and symamd.
+
+See the Change\+Log file for changes since Version 1.\+0. 
+
+ \subsection*{=== Description of user-\/callable routines ================================ }
+
+
+
+ \subsubsection*{colamd\+\_\+recommended\+: }
+
+C syntax\+: \begin{DoxyVerb}#include "colamd.h"
+int colamd_recommended (int nnz, int n_row, int n_col) ;
+
+or as a C macro
+
+#include "colamd.h"
+Alen = COLAMD_RECOMMENDED (int nnz, int n_row, int n_col) ;
+\end{DoxyVerb}
+
+
+Purpose\+: \begin{DoxyVerb}Returns recommended value of Alen for use by colamd.  Returns -1
+if any input argument is negative.  The use of this routine
+or macro is optional.  Note that the macro uses its arguments
+more than once, so be careful for side effects, if you pass
+expressions as arguments to COLAMD_RECOMMENDED.  Not needed for
+symamd, which dynamically allocates its own memory.
+\end{DoxyVerb}
+
+
+Arguments (all input arguments)\+: \begin{DoxyVerb}int nnz ;        Number of nonzeros in the matrix A.  This must
+     be the same value as p [n_col] in the call to
+     colamd - otherwise you will get a wrong value
+     of the recommended memory to use.
+
+int n_row ;      Number of rows in the matrix A.
+
+int n_col ;      Number of columns in the matrix A.
+\end{DoxyVerb}
+
+
+
+
+ \subsubsection*{colamd\+\_\+set\+\_\+defaults\+: }
+
+C syntax\+: \begin{DoxyVerb}#include "colamd.h"
+colamd_set_defaults (double knobs [COLAMD_KNOBS]) ;
+\end{DoxyVerb}
+
+
+Purpose\+: \begin{DoxyVerb}Sets the default parameters.  The use of this routine is optional.
+\end{DoxyVerb}
+
+
+Arguments\+: \begin{DoxyVerb}double knobs [COLAMD_KNOBS] ;    Output only.
+\end{DoxyVerb}
+
+
+Colamd\+: rows with more than (knobs \mbox{[}C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W\mbox{]} $\ast$ n\+\_\+col) entries are removed prior to ordering. Columns with more than (knobs \mbox{[}C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+C\+O\+L\mbox{]} $\ast$ n\+\_\+row) entries are removed prior to ordering, and placed last in the output column ordering.
+
+Symamd\+: uses only knobs \mbox{[}C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W\mbox{]}, which is knobs \mbox{[}0\mbox{]}. Rows and columns with more than (knobs \mbox{[}C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W\mbox{]} $\ast$ n) entries are removed prior to ordering, and placed last in the output ordering.
+
+C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W and C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+C\+O\+L are defined as 0 and 1, respectively, in \hyperlink{colamd_8h}{colamd.\+h}. Default values of these two knobs are both 0.\+5. Currently, only knobs \mbox{[}0\mbox{]} and knobs \mbox{[}1\mbox{]} are used, but future versions may use more knobs. If so, they will be properly set to their defaults by the future version of colamd\+\_\+set\+\_\+defaults, so that the code that calls colamd will not need to change, assuming that you either use colamd\+\_\+set\+\_\+defaults, or pass a (double $\ast$) N\+U\+L\+L pointer as the knobs array to colamd or symamd. 
+
+ \subsubsection*{colamd\+: }
+
+C syntax\+: \begin{DoxyVerb}#include "colamd.h"
+int colamd (int n_row, int n_col, int Alen, int *A, int *p,
+ double knobs [COLAMD_KNOBS], int stats [COLAMD_STATS]) ;
+\end{DoxyVerb}
+
+
+Purpose\+: \begin{DoxyVerb}Computes a column ordering (Q) of A such that P(AQ)=LU or
+(AQ)'AQ=LL' have less fill-in and require fewer floating point
+operations than factorizing the unpermuted matrix A or A'A,
+respectively.
+\end{DoxyVerb}
+
+
+Returns\+: \begin{DoxyVerb}TRUE (1) if successful, FALSE (0) otherwise.
+\end{DoxyVerb}
+
+
+Arguments\+: \begin{DoxyVerb}int n_row ;      Input argument.
+\end{DoxyVerb}
+
+
+Number of rows in the matrix \hyperlink{classA}{A}. Restriction\+: n\+\_\+row $>$= 0. Colamd returns F\+A\+L\+S\+E if n\+\_\+row is negative.
+
+int n\+\_\+col ; Input argument.
+
+Number of columns in the matrix \hyperlink{classA}{A}. Restriction\+: n\+\_\+col $>$= 0. Colamd returns F\+A\+L\+S\+E if n\+\_\+col is negative.
+
+int Alen ; Input argument.
+
+Restriction (see note)\+: Alen $>$= 2$\ast$nnz + 6$\ast$(n\+\_\+col+1) + 4$\ast$(n\+\_\+row+1) + n\+\_\+col Colamd returns F\+A\+L\+S\+E if these conditions are not met.
+
+Note\+: this restriction makes an modest assumption regarding the size of the two typedef's structures in \hyperlink{colamd_8h}{colamd.\+h}. We do, however, guarantee that \begin{DoxyVerb}Alen >= colamd_recommended (nnz, n_row, n_col)
+\end{DoxyVerb}
+
+
+or equivalently as a C preprocessor macro\+: \begin{DoxyVerb}Alen >= COLAMD_RECOMMENDED (nnz, n_row, n_col)
+\end{DoxyVerb}
+
+
+will be sufficient.
+
+int \hyperlink{classA}{A} \mbox{[}Alen\mbox{]} ; Input argument, undefined on output.
+
+\hyperlink{classA}{A} is an integer array of size Alen. Alen must be at least as large as the bare minimum value given above, but this is very low, and can result in excessive run time. For best performance, we recommend that Alen be greater than or equal to colamd\+\_\+recommended (nnz, n\+\_\+row, n\+\_\+col), which adds nnz/5 to the bare minimum value given above.
+
+On input, the row indices of the entries in column c of the matrix are held in \hyperlink{classA}{A} \mbox{[}(p \mbox{[}c\mbox{]}) ... (p \mbox{[}c+1\mbox{]}-\/1)\mbox{]}. The row indices in a given column c need not be in ascending order, and duplicate row indices may be be present. However, colamd will work a little faster if both of these conditions are met (Colamd puts the matrix into this format, if it finds that the the conditions are not met).
+
+The matrix is 0-\/based. That is, rows are in the range 0 to n\+\_\+row-\/1, and columns are in the range 0 to n\+\_\+col-\/1. Colamd returns F\+A\+L\+S\+E if any row index is out of range.
+
+The contents of \hyperlink{classA}{A} are modified during ordering, and are undefined on output.
+
+int p \mbox{[}n\+\_\+col+1\mbox{]} ; Both input and output argument.
+
+p is an integer array of size n\+\_\+col+1. On input, it holds the \char`\"{}pointers\char`\"{} for the column form of the matrix \hyperlink{classA}{A}. Column c of the matrix \hyperlink{classA}{A} is held in \hyperlink{classA}{A} \mbox{[}(p \mbox{[}c\mbox{]}) ... (p \mbox{[}c+1\mbox{]}-\/1)\mbox{]}. The first entry, p \mbox{[}0\mbox{]}, must be zero, and p \mbox{[}c\mbox{]} $<$= p \mbox{[}c+1\mbox{]} must hold for all c in the range 0 to n\+\_\+col-\/1. The value p \mbox{[}n\+\_\+col\mbox{]} is thus the total number of entries in the pattern of the matrix \hyperlink{classA}{A}. Colamd returns F\+A\+L\+S\+E if these conditions are not met.
+
+On output, if colamd returns T\+R\+U\+E, the array p holds the column permutation (Q, for P(\+A\+Q)=L\+U or (A\+Q)'(A\+Q)=L\+L'), where p \mbox{[}0\mbox{]} is the first column index in the new ordering, and p \mbox{[}n\+\_\+col-\/1\mbox{]} is the last. That is, p \mbox{[}k\mbox{]} = j means that column j of \hyperlink{classA}{A} is the kth pivot column, in A\+Q, where k is in the range 0 to n\+\_\+col-\/1 (p \mbox{[}0\mbox{]} = j means that column j of \hyperlink{classA}{A} is the first column in A\+Q).
+
+If colamd returns F\+A\+L\+S\+E, then no permutation is returned, and p is undefined on output.
+
+double knobs \mbox{[}C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S\mbox{]} ; Input argument.
+
+See colamd\+\_\+set\+\_\+defaults for a description.
+
+int stats \mbox{[}C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]} ; Output argument.
+
+Statistics on the ordering, and error status. See \hyperlink{colamd_8h}{colamd.\+h} for related definitions. Colamd returns F\+A\+L\+S\+E if stats is not present.
+
+stats \mbox{[}0\mbox{]}\+: number of dense or empty rows ignored.
+
+stats \mbox{[}1\mbox{]}\+: number of dense or empty columns ignored (and ordered last in the output permutation p) Note that a row can become \char`\"{}empty\char`\"{} if it contains only \char`\"{}dense\char`\"{} and/or \char`\"{}empty\char`\"{} columns, and similarly a column can become \char`\"{}empty\char`\"{} if it only contains \char`\"{}dense\char`\"{} and/or \char`\"{}empty\char`\"{} rows.
+
+stats \mbox{[}2\mbox{]}\+: number of garbage collections performed. This can be excessively high if Alen is close to the minimum required value.
+
+stats \mbox{[}3\mbox{]}\+: status code. $<$ 0 is an error code. $>$ 1 is a warning or notice.
+
+0 O\+K. Each column of the input matrix contained row indices in increasing order, with no duplicates.
+
+1 O\+K, but columns of input matrix were jumbled (unsorted columns or duplicate entries). Colamd had to do some extra work to sort the matrix first and remove duplicate entries, but it still was able to return a valid permutation (return value of colamd was T\+R\+U\+E). \begin{DoxyVerb}stats [4]: highest numbered column that
+    is unsorted or has duplicate
+    entries.
+stats [5]: last seen duplicate or
+    unsorted row index.
+stats [6]: number of duplicate or
+    unsorted row indices.
+\end{DoxyVerb}
+
+
+-\/1 \hyperlink{classA}{A} is a null pointer
+
+-\/2 p is a null pointer
+
+-\/3 n\+\_\+row is negative \begin{DoxyVerb}    stats [4]: n_row
+\end{DoxyVerb}
+
+
+-\/4 n\+\_\+col is negative \begin{DoxyVerb}    stats [4]: n_col
+\end{DoxyVerb}
+
+
+-\/5 number of nonzeros in matrix is negative \begin{DoxyVerb}    stats [4]: number of nonzeros, p [n_col]
+\end{DoxyVerb}
+
+
+-\/6 p \mbox{[}0\mbox{]} is nonzero \begin{DoxyVerb}    stats [4]: p [0]
+\end{DoxyVerb}
+
+
+-\/7 \hyperlink{classA}{A} is too small \begin{DoxyVerb}    stats [4]: required size
+    stats [5]: actual size (Alen)
+\end{DoxyVerb}
+
+
+-\/8 a column has a negative number of entries \begin{DoxyVerb}    stats [4]: column with < 0 entries
+    stats [5]: number of entries in col
+\end{DoxyVerb}
+
+
+-\/9 a row index is out of bounds \begin{DoxyVerb}    stats [4]: column with bad row index
+    stats [5]: bad row index
+    stats [6]: n_row, # of rows of matrx
+\end{DoxyVerb}
+
+
+-\/10 (unused; see symamd.\+c)
+
+-\/999 (unused; see symamd.\+c)
+
+Future versions may return more statistics in the stats array.
+
+Example\+: \begin{DoxyVerb}See http://www.cise.ufl.edu/research/sparse/colamd/example.c
+for a complete example.
+
+To order the columns of a 5-by-4 matrix with 11 nonzero entries in
+the following nonzero pattern
+
+ x 0 x 0
+\end{DoxyVerb}
+ x 0 x x 0 x x 0 0 0 x x x x 0 0
+
+with default knobs and no output statistics, do the following\+:
+
+\#include \char`\"{}colamd.\+h\char`\"{} \#define A\+L\+E\+N C\+O\+L\+A\+M\+D\+\_\+\+R\+E\+C\+O\+M\+M\+E\+N\+D\+E\+D (11, 5, 4) int \hyperlink{classA}{A} \mbox{[}A\+L\+E\+N\mbox{]} = \{1, 2, 5, 3, 5, 1, 2, 3, 4, 2, 4\} ; int p \mbox{[} \mbox{]} = \{0, 3, 5, 9, 11\} ; int stats \mbox{[}C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]} ; colamd (5, 4, A\+L\+E\+N, \hyperlink{classA}{A}, p, (double $\ast$) N\+U\+L\+L, stats) ;
+
+The permutation is returned in the array p, and \hyperlink{classA}{A} is destroyed. 
+
+ \subsubsection*{symamd\+: }
+
+C syntax\+: \begin{DoxyVerb}#include "colamd.h"
+int symamd (int n, int *A, int *p, int *perm,
+ double knobs [COLAMD_KNOBS], int stats [COLAMD_STATS],
+\end{DoxyVerb}
+ void ($\ast$allocate) (size\+\_\+t, size\+\_\+t), void ($\ast$release) (void $\ast$)) ;
+
+Purpose\+: \begin{DoxyVerb} The symamd routine computes an ordering P of a symmetric sparse
+matrix A such that the Cholesky factorization PAP' = LL' remains
+sparse.  It is based on a column ordering of a matrix M constructed
+so that the nonzero pattern of M'M is the same as A.  The matrix A
+is assumed to be symmetric; only the strictly lower triangular part
+is accessed.  You must pass your selected memory allocator (usually
+calloc/free or mxCalloc/mxFree) to symamd, for it to allocate
+memory for the temporary matrix M.
+\end{DoxyVerb}
+
+
+Returns\+: \begin{DoxyVerb}TRUE (1) if successful, FALSE (0) otherwise.
+\end{DoxyVerb}
+
+
+Arguments\+: \begin{DoxyVerb}int n ;      Input argument.
+
+ Number of rows and columns in the symmetrix matrix A.
+\end{DoxyVerb}
+ Restriction\+: n $>$= 0. Symamd returns F\+A\+L\+S\+E if n is negative.
+
+int \hyperlink{classA}{A} \mbox{[}nnz\mbox{]} ; Input argument.
+
+\hyperlink{classA}{A} is an integer array of size nnz, where nnz = p \mbox{[}n\mbox{]}.
+
+The row indices of the entries in column c of the matrix are held in \hyperlink{classA}{A} \mbox{[}(p \mbox{[}c\mbox{]}) ... (p \mbox{[}c+1\mbox{]}-\/1)\mbox{]}. The row indices in a given column c need not be in ascending order, and duplicate row indices may be present. However, symamd will run faster if the columns are in sorted order with no duplicate entries.
+
+The matrix is 0-\/based. That is, rows are in the range 0 to n-\/1, and columns are in the range 0 to n-\/1. Symamd returns F\+A\+L\+S\+E if any row index is out of range.
+
+The contents of \hyperlink{classA}{A} are not modified.
+
+int p \mbox{[}n+1\mbox{]} ; Input argument.
+
+p is an integer array of size n+1. On input, it holds the \char`\"{}pointers\char`\"{} for the column form of the matrix \hyperlink{classA}{A}. Column c of the matrix \hyperlink{classA}{A} is held in \hyperlink{classA}{A} \mbox{[}(p \mbox{[}c\mbox{]}) ... (p \mbox{[}c+1\mbox{]}-\/1)\mbox{]}. The first entry, p \mbox{[}0\mbox{]}, must be zero, and p \mbox{[}c\mbox{]} $<$= p \mbox{[}c+1\mbox{]} must hold for all c in the range 0 to n-\/1. The value p \mbox{[}n\mbox{]} is thus the total number of entries in the pattern of the matrix \hyperlink{classA}{A}. Symamd returns F\+A\+L\+S\+E if these conditions are not met.
+
+The contents of p are not modified.
+
+int perm \mbox{[}n+1\mbox{]} ; Output argument.
+
+On output, if symamd returns T\+R\+U\+E, the array perm holds the permutation P, where perm \mbox{[}0\mbox{]} is the first index in the new ordering, and perm \mbox{[}n-\/1\mbox{]} is the last. That is, perm \mbox{[}k\mbox{]} = j means that row and column j of \hyperlink{classA}{A} is the kth column in P\+A\+P', where k is in the range 0 to n-\/1 (perm \mbox{[}0\mbox{]} = j means that row and column j of \hyperlink{classA}{A} are the first row and column in P\+A\+P'). The array is used as a workspace during the ordering, which is why it must be of length n+1, not just n.
+
+double knobs \mbox{[}C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S\mbox{]} ; Input argument.
+
+See colamd\+\_\+set\+\_\+defaults for a description.
+
+int stats \mbox{[}C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]} ; Output argument.
+
+Statistics on the ordering, and error status. See \hyperlink{colamd_8h}{colamd.\+h} for related definitions. Symamd returns F\+A\+L\+S\+E if stats is not present.
+
+stats \mbox{[}0\mbox{]}\+: number of dense or empty row and columns ignored (and ordered last in the output permutation perm). Note that a row/column can become \char`\"{}empty\char`\"{} if it contains only \char`\"{}dense\char`\"{} and/or \char`\"{}empty\char`\"{} columns/rows.
+
+stats \mbox{[}1\mbox{]}\+: (same as stats \mbox{[}0\mbox{]})
+
+stats \mbox{[}2\mbox{]}\+: number of garbage collections performed.
+
+stats \mbox{[}3\mbox{]}\+: status code. $<$ 0 is an error code. $>$ 1 is a warning or notice.
+
+0 O\+K. Each column of the input matrix contained row indices in increasing order, with no duplicates.
+
+1 O\+K, but columns of input matrix were jumbled (unsorted columns or duplicate entries). Symamd had to do some extra work to sort the matrix first and remove duplicate entries, but it still was able to return a valid permutation (return value of symamd was T\+R\+U\+E). \begin{DoxyVerb}stats [4]: highest numbered column that
+    is unsorted or has duplicate
+    entries.
+stats [5]: last seen duplicate or
+    unsorted row index.
+stats [6]: number of duplicate or
+    unsorted row indices.
+\end{DoxyVerb}
+
+
+-\/1 \hyperlink{classA}{A} is a null pointer
+
+-\/2 p is a null pointer
+
+-\/3 (unused, see \hyperlink{colamd_8c}{colamd.\+c})
+
+-\/4 n is negative \begin{DoxyVerb}    stats [4]: n
+\end{DoxyVerb}
+
+
+-\/5 number of nonzeros in matrix is negative \begin{DoxyVerb}    stats [4]: # of nonzeros (p [n]).
+\end{DoxyVerb}
+
+
+-\/6 p \mbox{[}0\mbox{]} is nonzero \begin{DoxyVerb}    stats [4]: p [0]
+\end{DoxyVerb}
+
+
+-\/7 (unused)
+
+-\/8 a column has a negative number of entries \begin{DoxyVerb}    stats [4]: column with < 0 entries
+    stats [5]: number of entries in col
+\end{DoxyVerb}
+
+
+-\/9 a row index is out of bounds \begin{DoxyVerb}    stats [4]: column with bad row index
+    stats [5]: bad row index
+    stats [6]: n_row, # of rows of matrx
+\end{DoxyVerb}
+
+
+-\/10 out of memory (unable to allocate temporary workspace for M or count arrays using the \char`\"{}allocate\char`\"{} routine passed into symamd).
+
+-\/999 internal error. colamd failed to order the matrix M, when it should have succeeded. This indicates a bug. If this (and {\itshape only} this) error code occurs, please contact the authors. Don't contact the authors if you get any other error code.
+
+Future versions may return more statistics in the stats array.
+
+void $\ast$ ($\ast$allocate) (size\+\_\+t, size\+\_\+t)
+
+\hyperlink{classA}{A} pointer to a function providing memory allocation. The allocated memory must be returned initialized to zero. For a C application, this argument should normally be a pointer to calloc. For a M\+A\+T\+L\+A\+B mex\+Function, the routine mx\+Calloc is passed instead.
+
+void ($\ast$release) (size\+\_\+t, size\+\_\+t)
+
+\hyperlink{classA}{A} pointer to a function that frees memory allocated by the memory allocation routine above. For a C application, this argument should normally be a pointer to free. For a M\+A\+T\+L\+A\+B mex\+Function, the routine mx\+Free is passed instead.
+
+
+
+ \subsubsection*{colamd\+\_\+report\+: }
+
+C syntax\+: \begin{DoxyVerb}#include "colamd.h"
+colamd_report (int stats [COLAMD_STATS]) ;
+\end{DoxyVerb}
+
+
+Purpose\+: \begin{DoxyVerb}Prints the error status and statistics recorded in the stats
+array on the standard error output (for a standard C routine)
+or on the MATLAB output (for a mexFunction).
+\end{DoxyVerb}
+
+
+Arguments\+: \begin{DoxyVerb}int stats [COLAMD_STATS] ;   Input only.  Statistics from colamd.
+\end{DoxyVerb}
+
+
+
+
+ \subsubsection*{symamd\+\_\+report\+: }
+
+C syntax\+: \begin{DoxyVerb}#include "colamd.h"
+symamd_report (int stats [COLAMD_STATS]) ;
+\end{DoxyVerb}
+
+
+Purpose\+: \begin{DoxyVerb}Prints the error status and statistics recorded in the stats
+array on the standard error output (for a standard C routine)
+or on the MATLAB output (for a mexFunction).
+\end{DoxyVerb}
+
+
+Arguments\+: \begin{DoxyVerb}int stats [COLAMD_STATS] ;   Input only.  Statistics from symamd.
+\end{DoxyVerb}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{colamd_8c_ad8beef706da0344be19d59438fcdab6d}{}\index{colamd.\+c@{colamd.\+c}!A\+L\+I\+V\+E@{A\+L\+I\+V\+E}}
+\index{A\+L\+I\+V\+E@{A\+L\+I\+V\+E}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{A\+L\+I\+V\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+I\+V\+E~(0)}\label{colamd_8c_ad8beef706da0344be19d59438fcdab6d}
+\hypertarget{colamd_8c_a87e006a00875d2e518652108f6cb5790}{}\index{colamd.\+c@{colamd.\+c}!A\+S\+S\+E\+R\+T@{A\+S\+S\+E\+R\+T}}
+\index{A\+S\+S\+E\+R\+T@{A\+S\+S\+E\+R\+T}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{A\+S\+S\+E\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+S\+S\+E\+R\+T(
+\begin{DoxyParamCaption}
+\item[{}]{expression}
+\end{DoxyParamCaption}
+)~((void) 0)}\label{colamd_8c_a87e006a00875d2e518652108f6cb5790}
+\hypertarget{colamd_8c_a50f9ca65904b13f345862cb46d08d84b}{}\index{colamd.\+c@{colamd.\+c}!C\+O\+L\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E@{C\+O\+L\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E}}
+\index{C\+O\+L\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E@{C\+O\+L\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{C\+O\+L\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~(Col \mbox{[}c\mbox{]}.start $>$= {\bf A\+L\+I\+V\+E})}\label{colamd_8c_a50f9ca65904b13f345862cb46d08d84b}
+\hypertarget{colamd_8c_aa08664bd5b8133f28dbeedc9a030fc86}{}\index{colamd.\+c@{colamd.\+c}!C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D@{C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D}}
+\index{C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D@{C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~(Col \mbox{[}c\mbox{]}.start $<$ {\bf A\+L\+I\+V\+E})}\label{colamd_8c_aa08664bd5b8133f28dbeedc9a030fc86}
+\hypertarget{colamd_8c_a003c0e2dae54bcb7c680333304dd4dcb}{}\index{colamd.\+c@{colamd.\+c}!C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L@{C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}}
+\index{C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L@{C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~(Col \mbox{[}c\mbox{]}.start == {\bf D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L})}\label{colamd_8c_a003c0e2dae54bcb7c680333304dd4dcb}
+\hypertarget{colamd_8c_a3c8793c7acb4598d2ebcd8288f29ee69}{}\index{colamd.\+c@{colamd.\+c}!D\+E\+A\+D@{D\+E\+A\+D}}
+\index{D\+E\+A\+D@{D\+E\+A\+D}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{D\+E\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+A\+D~(-\/1)}\label{colamd_8c_a3c8793c7acb4598d2ebcd8288f29ee69}
+\hypertarget{colamd_8c_a0f66923672bcc495333995f7d238945f}{}\index{colamd.\+c@{colamd.\+c}!D\+E\+A\+D\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L@{D\+E\+A\+D\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}}
+\index{D\+E\+A\+D\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L@{D\+E\+A\+D\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{D\+E\+A\+D\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+A\+D\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L~(-\/2)}\label{colamd_8c_a0f66923672bcc495333995f7d238945f}
+\hypertarget{colamd_8c_ac0adce1e7d70351cef4752f3373709af}{}\index{colamd.\+c@{colamd.\+c}!D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L@{D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}}
+\index{D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L@{D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L~(-\/1)}\label{colamd_8c_ac0adce1e7d70351cef4752f3373709af}
+\hypertarget{colamd_8c_a144524f0a43ebe1a97d576a76f6557a0}{}\index{colamd.\+c@{colamd.\+c}!D\+E\+B\+U\+G0@{D\+E\+B\+U\+G0}}
+\index{D\+E\+B\+U\+G0@{D\+E\+B\+U\+G0}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{D\+E\+B\+U\+G0}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+U\+G0(
+\begin{DoxyParamCaption}
+\item[{}]{params}
+\end{DoxyParamCaption}
+)~;}\label{colamd_8c_a144524f0a43ebe1a97d576a76f6557a0}
+\hypertarget{colamd_8c_a5083dbf79682be78336cc6b458c32ab4}{}\index{colamd.\+c@{colamd.\+c}!D\+E\+B\+U\+G1@{D\+E\+B\+U\+G1}}
+\index{D\+E\+B\+U\+G1@{D\+E\+B\+U\+G1}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{D\+E\+B\+U\+G1}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+U\+G1(
+\begin{DoxyParamCaption}
+\item[{}]{params}
+\end{DoxyParamCaption}
+)~;}\label{colamd_8c_a5083dbf79682be78336cc6b458c32ab4}
+\hypertarget{colamd_8c_a65bd10ffc88aa9edca29d4f6ae0da2df}{}\index{colamd.\+c@{colamd.\+c}!D\+E\+B\+U\+G2@{D\+E\+B\+U\+G2}}
+\index{D\+E\+B\+U\+G2@{D\+E\+B\+U\+G2}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{D\+E\+B\+U\+G2}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+U\+G2(
+\begin{DoxyParamCaption}
+\item[{}]{params}
+\end{DoxyParamCaption}
+)~;}\label{colamd_8c_a65bd10ffc88aa9edca29d4f6ae0da2df}
+\hypertarget{colamd_8c_a86ce320fe5d3f3088d89fdf451943008}{}\index{colamd.\+c@{colamd.\+c}!D\+E\+B\+U\+G3@{D\+E\+B\+U\+G3}}
+\index{D\+E\+B\+U\+G3@{D\+E\+B\+U\+G3}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{D\+E\+B\+U\+G3}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+U\+G3(
+\begin{DoxyParamCaption}
+\item[{}]{params}
+\end{DoxyParamCaption}
+)~;}\label{colamd_8c_a86ce320fe5d3f3088d89fdf451943008}
+\hypertarget{colamd_8c_a0ff047166d36dd8103bd12a4fbc7f7f9}{}\index{colamd.\+c@{colamd.\+c}!D\+E\+B\+U\+G4@{D\+E\+B\+U\+G4}}
+\index{D\+E\+B\+U\+G4@{D\+E\+B\+U\+G4}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{D\+E\+B\+U\+G4}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+B\+U\+G4(
+\begin{DoxyParamCaption}
+\item[{}]{params}
+\end{DoxyParamCaption}
+)~;}\label{colamd_8c_a0ff047166d36dd8103bd12a4fbc7f7f9}
+\hypertarget{colamd_8c_a2b7cf2a3641be7b89138615764d60ba3}{}\index{colamd.\+c@{colamd.\+c}!E\+M\+P\+T\+Y@{E\+M\+P\+T\+Y}}
+\index{E\+M\+P\+T\+Y@{E\+M\+P\+T\+Y}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{E\+M\+P\+T\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+P\+T\+Y~(-\/1)}\label{colamd_8c_a2b7cf2a3641be7b89138615764d60ba3}
+\hypertarget{colamd_8c_aa93f0eb578d23995850d61f7d61c55c1}{}\index{colamd.\+c@{colamd.\+c}!F\+A\+L\+S\+E@{F\+A\+L\+S\+E}}
+\index{F\+A\+L\+S\+E@{F\+A\+L\+S\+E}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{F\+A\+L\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+L\+S\+E~(0)}\label{colamd_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{colamd_8c_aa5fad23b2a5eed790e6661e896a506b7}{}\index{colamd.\+c@{colamd.\+c}!I\+N\+D\+E\+X@{I\+N\+D\+E\+X}}
+\index{I\+N\+D\+E\+X@{I\+N\+D\+E\+X}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{I\+N\+D\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+D\+E\+X(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf i}}
+\end{DoxyParamCaption}
+)~({\bf i})}\label{colamd_8c_aa5fad23b2a5eed790e6661e896a506b7}
+\hypertarget{colamd_8c_a0458a358e752473d86e6f21a56b44a26}{}\index{colamd.\+c@{colamd.\+c}!K\+I\+L\+L\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L@{K\+I\+L\+L\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L}}
+\index{K\+I\+L\+L\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L@{K\+I\+L\+L\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{K\+I\+L\+L\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+I\+L\+L\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~\{ Col \mbox{[}c\mbox{]}.start = {\bf D\+E\+A\+D\+\_\+\+N\+O\+N\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L} ; \}}\label{colamd_8c_a0458a358e752473d86e6f21a56b44a26}
+\hypertarget{colamd_8c_a7882929a7898e09a3de9e7676ae1aa29}{}\index{colamd.\+c@{colamd.\+c}!K\+I\+L\+L\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L@{K\+I\+L\+L\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L}}
+\index{K\+I\+L\+L\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L@{K\+I\+L\+L\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{K\+I\+L\+L\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+I\+L\+L\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L\+\_\+\+C\+O\+L(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~\{ Col \mbox{[}c\mbox{]}.start = {\bf D\+E\+A\+D\+\_\+\+P\+R\+I\+N\+C\+I\+P\+A\+L} ; \}}\label{colamd_8c_a7882929a7898e09a3de9e7676ae1aa29}
+\hypertarget{colamd_8c_adde21248544152df48ab70b6da1b38b5}{}\index{colamd.\+c@{colamd.\+c}!K\+I\+L\+L\+\_\+\+R\+O\+W@{K\+I\+L\+L\+\_\+\+R\+O\+W}}
+\index{K\+I\+L\+L\+\_\+\+R\+O\+W@{K\+I\+L\+L\+\_\+\+R\+O\+W}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{K\+I\+L\+L\+\_\+\+R\+O\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+I\+L\+L\+\_\+\+R\+O\+W(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf r}}
+\end{DoxyParamCaption}
+)~\{ Row \mbox{[}{\bf r}\mbox{]}.shared2.\+mark = {\bf D\+E\+A\+D} ; \}}\label{colamd_8c_adde21248544152df48ab70b6da1b38b5}
+\hypertarget{colamd_8c_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{}\index{colamd.\+c@{colamd.\+c}!M\+A\+X@{M\+A\+X}}
+\index{M\+A\+X@{M\+A\+X}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~((({\bf a}) $>$ ({\bf b})) ? ({\bf a}) \+: ({\bf b}))}\label{colamd_8c_afa99ec4acc4ecb2dc3c2d05da15d0e3f}
+\hypertarget{colamd_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{}\index{colamd.\+c@{colamd.\+c}!M\+I\+N@{M\+I\+N}}
+\index{M\+I\+N@{M\+I\+N}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+I\+N(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~((({\bf a}) $<$ ({\bf b})) ? ({\bf a}) \+: ({\bf b}))}\label{colamd_8c_a3acffbd305ee72dcd4593c0d8af64a4f}
+\hypertarget{colamd_8c_a8de3ed741dadc9c979a4ff17c0a9116e}{}\index{colamd.\+c@{colamd.\+c}!N\+D\+E\+B\+U\+G@{N\+D\+E\+B\+U\+G}}
+\index{N\+D\+E\+B\+U\+G@{N\+D\+E\+B\+U\+G}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{N\+D\+E\+B\+U\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+D\+E\+B\+U\+G}\label{colamd_8c_a8de3ed741dadc9c979a4ff17c0a9116e}
+\hypertarget{colamd_8c_af4201cc2809d450d2484680ee1b958ca}{}\index{colamd.\+c@{colamd.\+c}!O\+N\+E\+S\+\_\+\+C\+O\+M\+P\+L\+E\+M\+E\+N\+T@{O\+N\+E\+S\+\_\+\+C\+O\+M\+P\+L\+E\+M\+E\+N\+T}}
+\index{O\+N\+E\+S\+\_\+\+C\+O\+M\+P\+L\+E\+M\+E\+N\+T@{O\+N\+E\+S\+\_\+\+C\+O\+M\+P\+L\+E\+M\+E\+N\+T}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{O\+N\+E\+S\+\_\+\+C\+O\+M\+P\+L\+E\+M\+E\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+N\+E\+S\+\_\+\+C\+O\+M\+P\+L\+E\+M\+E\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf r}}
+\end{DoxyParamCaption}
+)~(-\/({\bf r})-\/1)}\label{colamd_8c_af4201cc2809d450d2484680ee1b958ca}
+\hypertarget{colamd_8c_ae1649fc947ca37a86917a08354f48d1a}{}\index{colamd.\+c@{colamd.\+c}!P\+R\+I\+N\+T\+F@{P\+R\+I\+N\+T\+F}}
+\index{P\+R\+I\+N\+T\+F@{P\+R\+I\+N\+T\+F}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{P\+R\+I\+N\+T\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+I\+N\+T\+F~printf}\label{colamd_8c_ae1649fc947ca37a86917a08354f48d1a}
+\hypertarget{colamd_8c_a5e151c615eda34903514212f05a5ccf8}{}\index{colamd.\+c@{colamd.\+c}!P\+R\+I\+V\+A\+T\+E@{P\+R\+I\+V\+A\+T\+E}}
+\index{P\+R\+I\+V\+A\+T\+E@{P\+R\+I\+V\+A\+T\+E}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{P\+R\+I\+V\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+I\+V\+A\+T\+E~static}\label{colamd_8c_a5e151c615eda34903514212f05a5ccf8}
+\hypertarget{colamd_8c_ad17d551e31d1828c68acf40684849b7e}{}\index{colamd.\+c@{colamd.\+c}!P\+U\+B\+L\+I\+C@{P\+U\+B\+L\+I\+C}}
+\index{P\+U\+B\+L\+I\+C@{P\+U\+B\+L\+I\+C}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{P\+U\+B\+L\+I\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+U\+B\+L\+I\+C}\label{colamd_8c_ad17d551e31d1828c68acf40684849b7e}
+\hypertarget{colamd_8c_abc775359cfa45ffaf6250522c521110d}{}\index{colamd.\+c@{colamd.\+c}!R\+O\+W\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E@{R\+O\+W\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E}}
+\index{R\+O\+W\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E@{R\+O\+W\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{R\+O\+W\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+O\+W\+\_\+\+I\+S\+\_\+\+A\+L\+I\+V\+E(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf r}}
+\end{DoxyParamCaption}
+)~(Row \mbox{[}{\bf r}\mbox{]}.shared2.\+mark $>$= {\bf A\+L\+I\+V\+E})}\label{colamd_8c_abc775359cfa45ffaf6250522c521110d}
+\hypertarget{colamd_8c_ae200d2ac8149305712af7230f9ee24d5}{}\index{colamd.\+c@{colamd.\+c}!R\+O\+W\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D@{R\+O\+W\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D}}
+\index{R\+O\+W\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D@{R\+O\+W\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{R\+O\+W\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+O\+W\+\_\+\+I\+S\+\_\+\+D\+E\+A\+D(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf r}}
+\end{DoxyParamCaption}
+)~{\bf R\+O\+W\+\_\+\+I\+S\+\_\+\+M\+A\+R\+K\+E\+D\+\_\+\+D\+E\+A\+D} (Row\mbox{[}{\bf r}\mbox{]}.shared2.\+mark)}\label{colamd_8c_ae200d2ac8149305712af7230f9ee24d5}
+\hypertarget{colamd_8c_a0d68b03acc587c11fe6dffbfede78c2d}{}\index{colamd.\+c@{colamd.\+c}!R\+O\+W\+\_\+\+I\+S\+\_\+\+M\+A\+R\+K\+E\+D\+\_\+\+D\+E\+A\+D@{R\+O\+W\+\_\+\+I\+S\+\_\+\+M\+A\+R\+K\+E\+D\+\_\+\+D\+E\+A\+D}}
+\index{R\+O\+W\+\_\+\+I\+S\+\_\+\+M\+A\+R\+K\+E\+D\+\_\+\+D\+E\+A\+D@{R\+O\+W\+\_\+\+I\+S\+\_\+\+M\+A\+R\+K\+E\+D\+\_\+\+D\+E\+A\+D}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{R\+O\+W\+\_\+\+I\+S\+\_\+\+M\+A\+R\+K\+E\+D\+\_\+\+D\+E\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+O\+W\+\_\+\+I\+S\+\_\+\+M\+A\+R\+K\+E\+D\+\_\+\+D\+E\+A\+D(
+\begin{DoxyParamCaption}
+\item[{}]{row\+\_\+mark}
+\end{DoxyParamCaption}
+)~(row\+\_\+mark $<$ {\bf A\+L\+I\+V\+E})}\label{colamd_8c_a0d68b03acc587c11fe6dffbfede78c2d}
+\hypertarget{colamd_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{}\index{colamd.\+c@{colamd.\+c}!T\+R\+U\+E@{T\+R\+U\+E}}
+\index{T\+R\+U\+E@{T\+R\+U\+E}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{T\+R\+U\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+R\+U\+E~(1)}\label{colamd_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{colamd_8c_a7eb036c63565d8fc7c05e1074510601a}{}\index{colamd.\+c@{colamd.\+c}!clear\+\_\+mark@{clear\+\_\+mark}}
+\index{clear\+\_\+mark@{clear\+\_\+mark}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{clear\+\_\+mark}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+R\+I\+V\+A\+T\+E} int clear\+\_\+mark (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+\_\+row, }
+\item[{{\bf Colamd\+\_\+\+Row}}]{Row\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_a7eb036c63565d8fc7c05e1074510601a}
+\hypertarget{colamd_8c_a4ace2482b681af56de48dd3ba8971baf}{}\index{colamd.\+c@{colamd.\+c}!colamd@{colamd}}
+\index{colamd@{colamd}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{colamd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+U\+B\+L\+I\+C} int colamd (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+\_\+row, }
+\item[{int}]{n\+\_\+col, }
+\item[{int}]{Alen, }
+\item[{int}]{A\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{p\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{knobs\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S\mbox{]}, }
+\item[{int}]{stats\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_a4ace2482b681af56de48dd3ba8971baf}
+\hypertarget{colamd_8c_aac7214b99bcf4db1b13547521367817f}{}\index{colamd.\+c@{colamd.\+c}!colamd\+\_\+recommended@{colamd\+\_\+recommended}}
+\index{colamd\+\_\+recommended@{colamd\+\_\+recommended}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{colamd\+\_\+recommended}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+U\+B\+L\+I\+C} int colamd\+\_\+recommended (
+\begin{DoxyParamCaption}
+\item[{int}]{nnz, }
+\item[{int}]{n\+\_\+row, }
+\item[{int}]{n\+\_\+col}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_aac7214b99bcf4db1b13547521367817f}
+\hypertarget{colamd_8c_a85f2c13be93dea98e624144272d00eed}{}\index{colamd.\+c@{colamd.\+c}!colamd\+\_\+report@{colamd\+\_\+report}}
+\index{colamd\+\_\+report@{colamd\+\_\+report}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{colamd\+\_\+report}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+U\+B\+L\+I\+C} void colamd\+\_\+report (
+\begin{DoxyParamCaption}
+\item[{int}]{stats\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_a85f2c13be93dea98e624144272d00eed}
+\hypertarget{colamd_8c_acd15277a8a063dd0586e280004a92c89}{}\index{colamd.\+c@{colamd.\+c}!colamd\+\_\+set\+\_\+defaults@{colamd\+\_\+set\+\_\+defaults}}
+\index{colamd\+\_\+set\+\_\+defaults@{colamd\+\_\+set\+\_\+defaults}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{colamd\+\_\+set\+\_\+defaults}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+U\+B\+L\+I\+C} void colamd\+\_\+set\+\_\+defaults (
+\begin{DoxyParamCaption}
+\item[{double}]{knobs\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_acd15277a8a063dd0586e280004a92c89}
+\hypertarget{colamd_8c_a27211c7dc11832c4675d8d3fcd7167a0}{}\index{colamd.\+c@{colamd.\+c}!detect\+\_\+super\+\_\+cols@{detect\+\_\+super\+\_\+cols}}
+\index{detect\+\_\+super\+\_\+cols@{detect\+\_\+super\+\_\+cols}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{detect\+\_\+super\+\_\+cols}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+R\+I\+V\+A\+T\+E} void detect\+\_\+super\+\_\+cols (
+\begin{DoxyParamCaption}
+\item[{{\bf Colamd\+\_\+\+Col}}]{Col\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{A\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{head\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{row\+\_\+start, }
+\item[{int}]{row\+\_\+length}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_a27211c7dc11832c4675d8d3fcd7167a0}
+\hypertarget{colamd_8c_a10da36e975e03d3c0fd68dbe14eb27cc}{}\index{colamd.\+c@{colamd.\+c}!find\+\_\+ordering@{find\+\_\+ordering}}
+\index{find\+\_\+ordering@{find\+\_\+ordering}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{find\+\_\+ordering}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+R\+I\+V\+A\+T\+E} int find\+\_\+ordering (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+\_\+row, }
+\item[{int}]{n\+\_\+col, }
+\item[{int}]{Alen, }
+\item[{{\bf Colamd\+\_\+\+Row}}]{Row\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Colamd\+\_\+\+Col}}]{Col\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{A\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{head\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{n\+\_\+col2, }
+\item[{int}]{max\+\_\+deg, }
+\item[{int}]{pfree}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_a10da36e975e03d3c0fd68dbe14eb27cc}
+\hypertarget{colamd_8c_a9a0dc18af9f72ad8e436a98980e55c41}{}\index{colamd.\+c@{colamd.\+c}!garbage\+\_\+collection@{garbage\+\_\+collection}}
+\index{garbage\+\_\+collection@{garbage\+\_\+collection}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{garbage\+\_\+collection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+R\+I\+V\+A\+T\+E} int garbage\+\_\+collection (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+\_\+row, }
+\item[{int}]{n\+\_\+col, }
+\item[{{\bf Colamd\+\_\+\+Row}}]{Row\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Colamd\+\_\+\+Col}}]{Col\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{A\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{pfree}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_a9a0dc18af9f72ad8e436a98980e55c41}
+\hypertarget{colamd_8c_ad632adbb6b5d2516805a965b42b601c8}{}\index{colamd.\+c@{colamd.\+c}!init\+\_\+rows\+\_\+cols@{init\+\_\+rows\+\_\+cols}}
+\index{init\+\_\+rows\+\_\+cols@{init\+\_\+rows\+\_\+cols}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{init\+\_\+rows\+\_\+cols}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+R\+I\+V\+A\+T\+E} int init\+\_\+rows\+\_\+cols (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+\_\+row, }
+\item[{int}]{n\+\_\+col, }
+\item[{{\bf Colamd\+\_\+\+Row}}]{Row\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Colamd\+\_\+\+Col}}]{Col\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{A\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{p\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{stats\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_ad632adbb6b5d2516805a965b42b601c8}
+\hypertarget{colamd_8c_ac804543e35e2ab481d9e2c19ed0ebcf6}{}\index{colamd.\+c@{colamd.\+c}!init\+\_\+scoring@{init\+\_\+scoring}}
+\index{init\+\_\+scoring@{init\+\_\+scoring}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{init\+\_\+scoring}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+R\+I\+V\+A\+T\+E} void init\+\_\+scoring (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+\_\+row, }
+\item[{int}]{n\+\_\+col, }
+\item[{{\bf Colamd\+\_\+\+Row}}]{Row\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Colamd\+\_\+\+Col}}]{Col\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{A\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{head\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{knobs\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S\mbox{]}, }
+\item[{int $\ast$}]{p\+\_\+n\+\_\+row2, }
+\item[{int $\ast$}]{p\+\_\+n\+\_\+col2, }
+\item[{int $\ast$}]{p\+\_\+max\+\_\+deg}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_ac804543e35e2ab481d9e2c19ed0ebcf6}
+\hypertarget{colamd_8c_ad9896b63f5b2823065686f63a1096130}{}\index{colamd.\+c@{colamd.\+c}!order\+\_\+children@{order\+\_\+children}}
+\index{order\+\_\+children@{order\+\_\+children}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{order\+\_\+children}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+R\+I\+V\+A\+T\+E} void order\+\_\+children (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+\_\+col, }
+\item[{{\bf Colamd\+\_\+\+Col}}]{Col\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{p\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_ad9896b63f5b2823065686f63a1096130}
+\hypertarget{colamd_8c_a5ba6567b2e4ac6f69086d2ac7ab5c58a}{}\index{colamd.\+c@{colamd.\+c}!print\+\_\+report@{print\+\_\+report}}
+\index{print\+\_\+report@{print\+\_\+report}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{print\+\_\+report}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+R\+I\+V\+A\+T\+E} void print\+\_\+report (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{method, }
+\item[{int}]{stats\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_a5ba6567b2e4ac6f69086d2ac7ab5c58a}
+\hypertarget{colamd_8c_ae81243e57d577e17400b3f532aa4f1e9}{}\index{colamd.\+c@{colamd.\+c}!symamd@{symamd}}
+\index{symamd@{symamd}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{symamd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+U\+B\+L\+I\+C} int symamd (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{A\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{p\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{perm\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{knobs\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S\mbox{]}, }
+\item[{int}]{stats\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]}, }
+\item[{void $\ast$($\ast$)(size\+\_\+t, size\+\_\+t)}]{allocate, }
+\item[{void($\ast$)(void $\ast$)}]{release}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_ae81243e57d577e17400b3f532aa4f1e9}
+\hypertarget{colamd_8c_adf3bb99ff64711d528dafe21fd450512}{}\index{colamd.\+c@{colamd.\+c}!symamd\+\_\+report@{symamd\+\_\+report}}
+\index{symamd\+\_\+report@{symamd\+\_\+report}!colamd.\+c@{colamd.\+c}}
+\subsubsection[{symamd\+\_\+report}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+U\+B\+L\+I\+C} void symamd\+\_\+report (
+\begin{DoxyParamCaption}
+\item[{int}]{stats\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8c_adf3bb99ff64711d528dafe21fd450512}

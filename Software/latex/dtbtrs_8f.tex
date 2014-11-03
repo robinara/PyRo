@@ -1,0 +1,117 @@
+\hypertarget{dtbtrs_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dtbtrs.f File Reference}
+\label{dtbtrs_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dtbtrs.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dtbtrs.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dtbtrs_8f_aadacbb4c29e9604acd77ada4963827c5}{dtbtrs} (U\+P\+L\+O, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, D\+I\+A\+G, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+D, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, A\+B, L\+D\+A\+B, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+T\+B\+T\+R\+S} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dtbtrs_8f_aadacbb4c29e9604acd77ada4963827c5}{}\index{dtbtrs.\+f@{dtbtrs.\+f}!dtbtrs@{dtbtrs}}
+\index{dtbtrs@{dtbtrs}!dtbtrs.\+f@{dtbtrs.\+f}}
+\subsubsection[{dtbtrs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dtbtrs (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{character}]{D\+I\+A\+G, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+D, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{double {\bf precision}, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dtbtrs_8f_aadacbb4c29e9604acd77ada4963827c5}
+
+
+{\bfseries D\+T\+B\+T\+R\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DTBTRS solves a triangular system of the form
+
+    A * X = B  or  A**T * X = B,
+
+ where A is a triangular band matrix of order N, and B is an
+ N-by NRHS matrix.  A check is made to verify that A is nonsingular.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  A is upper triangular;
+          = 'L':  A is lower triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          Specifies the form the system of equations:
+          = 'N':  A * X = B  (No transpose)
+          = 'T':  A**T * X = B  (Transpose)
+          = 'C':  A**H * X = B  (Conjugate transpose = Transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+A\+G} & \begin{DoxyVerb}          DIAG is CHARACTER*1
+          = 'N':  A is non-unit triangular;
+          = 'U':  A is unit triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+D} & \begin{DoxyVerb}          KD is INTEGER
+          The number of superdiagonals or subdiagonals of the
+          triangular band matrix A.  KD >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+B} & \begin{DoxyVerb}          AB is DOUBLE PRECISION array, dimension (LDAB,N)
+          The upper or lower triangular band matrix A, stored in the
+          first kd+1 rows of AB.  The j-th column of A is stored
+          in the j-th column of the array AB as follows:
+          if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
+          If DIAG = 'U', the diagonal elements of A are not referenced
+          and are assumed to be 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KD+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+          On entry, the right hand side matrix B.
+          On exit, if INFO = 0, the solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i, the i-th diagonal element of A is zero,
+                indicating that the matrix is singular and the
+                solutions X have not been computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

@@ -1,0 +1,54 @@
+\hypertarget{classscipy_1_1optimize_1_1__trustregion__ncg_1_1CGSteihaugSubproblem}{}\section{scipy.\+optimize.\+\_\+trustregion\+\_\+ncg.\+C\+G\+Steihaug\+Subproblem Class Reference}
+\label{classscipy_1_1optimize_1_1__trustregion__ncg_1_1CGSteihaugSubproblem}\index{scipy.\+optimize.\+\_\+trustregion\+\_\+ncg.\+C\+G\+Steihaug\+Subproblem@{scipy.\+optimize.\+\_\+trustregion\+\_\+ncg.\+C\+G\+Steihaug\+Subproblem}}
+Inheritance diagram for scipy.\+optimize.\+\_\+trustregion\+\_\+ncg.\+C\+G\+Steihaug\+Subproblem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1optimize_1_1__trustregion__ncg_1_1CGSteihaugSubproblem}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion__ncg_1_1CGSteihaugSubproblem_a16b7bd4b83c30d86747448af7cd684d0}{solve}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Quadratic subproblem solved by a conjugate gradient method\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1optimize_1_1__trustregion__ncg_1_1CGSteihaugSubproblem_a16b7bd4b83c30d86747448af7cd684d0}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+\_\+ncg\+::\+C\+G\+Steihaug\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+\_\+ncg\+::\+C\+G\+Steihaug\+Subproblem}!solve@{solve}}
+\index{solve@{solve}!scipy\+::optimize\+::\+\_\+trustregion\+\_\+ncg\+::\+C\+G\+Steihaug\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+\_\+ncg\+::\+C\+G\+Steihaug\+Subproblem}}
+\subsubsection[{solve}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion\+\_\+ncg.\+C\+G\+Steihaug\+Subproblem.\+solve (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{trust\+\_\+radius}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion__ncg_1_1CGSteihaugSubproblem_a16b7bd4b83c30d86747448af7cd684d0}
+\begin{DoxyVerb}Solve the subproblem using a conjugate gradient method.
+
+Parameters
+----------
+trust_radius : float
+    We are allowed to wander only this far away from the origin.
+
+Returns
+-------
+p : ndarray
+    The proposed step.
+hits_boundary : bool
+    True if the proposed step is on the boundary of the trust region.
+
+Notes
+-----
+This is algorithm (7.2) of Nocedal and Wright 2nd edition.
+Only the function that computes the Hessian-vector product is required.
+The Hessian itself is not required, and the Hessian does
+not need to be positive semidefinite.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/optimize/\hyperlink{__trustregion__ncg_8py}{\+\_\+trustregion\+\_\+ncg.\+py}\end{DoxyCompactItemize}

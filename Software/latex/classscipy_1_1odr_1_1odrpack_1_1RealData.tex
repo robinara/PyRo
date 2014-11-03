@@ -1,0 +1,152 @@
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData}{}\section{scipy.\+odr.\+odrpack.\+Real\+Data Class Reference}
+\label{classscipy_1_1odr_1_1odrpack_1_1RealData}\index{scipy.\+odr.\+odrpack.\+Real\+Data@{scipy.\+odr.\+odrpack.\+Real\+Data}}
+Inheritance diagram for scipy.\+odr.\+odrpack.\+Real\+Data\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classscipy_1_1odr_1_1odrpack_1_1RealData}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData_ac0c312791efceedac9eec2bf34f19269}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData_adfc07a9bf9bfedeaa4069ebc2ba63a39}{\+\_\+\+\_\+getattr\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData_a55d11a86068288d55f3d4f7566a027f7}{x}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData_a3729ed46bfabdac27dffe13af65c0e10}{y}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData_a0b61f9cdaabaac23a3a2a46a0719cf37}{sx}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData_a56b11a5d3d7b1d9eaed36f1d9b701cb6}{sy}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData_a45680b59113f26664b5a053caa31aba4}{covx}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData_a2a5f97be7cf30c6123229ad4573b4d82}{covy}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData_a3cb0afee6b1a7577994459b123d133f8}{fix}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData_a21b450fdf7ae7eadadb7884447f9b422}{meta}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}The data, with weightings as actual standard deviations and/or
+covariances.
+
+Parameters
+----------
+x : array_like
+    x
+y : array_like, optional
+    y
+sx, sy : array_like, optional
+    Standard deviations of `x`.
+    `sx` are standard deviations of `x` and are converted to weights by
+     dividing 1.0 by their squares.
+sy : array_like, optional
+    Standard deviations of `y`.
+    `sy` are standard deviations of `y` and are converted to weights by
+    dividing 1.0 by their squares.
+covx : array_like, optional
+    Covariance of `x`
+    `covx` is an array of covariance matrices of `x` and are converted to
+    weights by performing a matrix inversion on each observation's
+    covariance matrix.
+covy : array_like, optional
+    Covariance of `y`
+    `covy` is an array of covariance matrices and are converted to
+    weights by performing a matrix inversion on each observation's
+    covariance matrix.
+fix : array_like, optional
+    The argument and member fix is the same as Data.fix and ODR.ifixx:
+    It is an array of integers with the same shape as `x` that
+    determines which input observations are treated as fixed. One can
+    use a sequence of length m (the dimensionality of the input
+    observations) to fix some dimensions for all observations. A value
+    of 0 fixes the observation, a value > 0 makes it free.
+meta : dict, optional
+    Free-form dictionary for metadata.
+
+Notes
+-----
+The weights `wd` and `we` are computed from provided values as follows:
+
+`sx` and `sy` are converted to weights by dividing 1.0 by their squares.
+For example, ``wd = 1./numpy.power(`sx`, 2)``.
+
+`covx` and `covy` are arrays of covariance matrices and are converted to
+weights by performing a matrix inversion on each observation's covariance
+matrix.  For example, ``we[i] = numpy.linalg.inv(covy[i])``.
+
+These arguments follow the same structured argument conventions as wd and
+we only restricted by their natures: `sx` and `sy` can't be rank-3, but
+`covx` and `covy` can be.
+
+Only set *either* `sx` or `covx` (not both). Setting both will raise an
+exception.  Same with `sy` and `covy`.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData_ac0c312791efceedac9eec2bf34f19269}{}\index{scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+odr.\+odrpack.\+Real\+Data.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y = {\ttfamily None}, }
+\item[{}]{sx = {\ttfamily None}, }
+\item[{}]{sy = {\ttfamily None}, }
+\item[{}]{covx = {\ttfamily None}, }
+\item[{}]{covy = {\ttfamily None}, }
+\item[{}]{fix = {\ttfamily None}, }
+\item[{}]{meta = {\ttfamily \{\}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1odr_1_1odrpack_1_1RealData_ac0c312791efceedac9eec2bf34f19269}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData_adfc07a9bf9bfedeaa4069ebc2ba63a39}{}\index{scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}!\+\_\+\+\_\+getattr\+\_\+\+\_\+@{\+\_\+\+\_\+getattr\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+getattr\+\_\+\+\_\+@{\+\_\+\+\_\+getattr\+\_\+\+\_\+}!scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}}
+\subsubsection[{\+\_\+\+\_\+getattr\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+odr.\+odrpack.\+Real\+Data.\+\_\+\+\_\+getattr\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{attr}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1odr_1_1odrpack_1_1RealData_adfc07a9bf9bfedeaa4069ebc2ba63a39}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData_a45680b59113f26664b5a053caa31aba4}{}\index{scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}!covx@{covx}}
+\index{covx@{covx}!scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}}
+\subsubsection[{covx}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Real\+Data.\+covx}\label{classscipy_1_1odr_1_1odrpack_1_1RealData_a45680b59113f26664b5a053caa31aba4}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData_a2a5f97be7cf30c6123229ad4573b4d82}{}\index{scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}!covy@{covy}}
+\index{covy@{covy}!scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}}
+\subsubsection[{covy}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Real\+Data.\+covy}\label{classscipy_1_1odr_1_1odrpack_1_1RealData_a2a5f97be7cf30c6123229ad4573b4d82}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData_a3cb0afee6b1a7577994459b123d133f8}{}\index{scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}!fix@{fix}}
+\index{fix@{fix}!scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}}
+\subsubsection[{fix}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Real\+Data.\+fix}\label{classscipy_1_1odr_1_1odrpack_1_1RealData_a3cb0afee6b1a7577994459b123d133f8}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData_a21b450fdf7ae7eadadb7884447f9b422}{}\index{scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}!meta@{meta}}
+\index{meta@{meta}!scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}}
+\subsubsection[{meta}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Real\+Data.\+meta}\label{classscipy_1_1odr_1_1odrpack_1_1RealData_a21b450fdf7ae7eadadb7884447f9b422}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData_a0b61f9cdaabaac23a3a2a46a0719cf37}{}\index{scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}!sx@{sx}}
+\index{sx@{sx}!scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}}
+\subsubsection[{sx}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Real\+Data.\+sx}\label{classscipy_1_1odr_1_1odrpack_1_1RealData_a0b61f9cdaabaac23a3a2a46a0719cf37}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData_a56b11a5d3d7b1d9eaed36f1d9b701cb6}{}\index{scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}!sy@{sy}}
+\index{sy@{sy}!scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}}
+\subsubsection[{sy}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Real\+Data.\+sy}\label{classscipy_1_1odr_1_1odrpack_1_1RealData_a56b11a5d3d7b1d9eaed36f1d9b701cb6}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData_a55d11a86068288d55f3d4f7566a027f7}{}\index{scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}!x@{x}}
+\index{x@{x}!scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Real\+Data.\+x}\label{classscipy_1_1odr_1_1odrpack_1_1RealData_a55d11a86068288d55f3d4f7566a027f7}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1RealData_a3729ed46bfabdac27dffe13af65c0e10}{}\index{scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}!y@{y}}
+\index{y@{y}!scipy\+::odr\+::odrpack\+::\+Real\+Data@{scipy\+::odr\+::odrpack\+::\+Real\+Data}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Real\+Data.\+y}\label{classscipy_1_1odr_1_1odrpack_1_1RealData_a3729ed46bfabdac27dffe13af65c0e10}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/odr/\hyperlink{odrpack_8py}{odrpack.\+py}\end{DoxyCompactItemize}

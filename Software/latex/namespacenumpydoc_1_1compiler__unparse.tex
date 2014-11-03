@@ -1,0 +1,54 @@
+\hypertarget{namespacenumpydoc_1_1compiler__unparse}{}\section{numpydoc.\+compiler\+\_\+unparse Namespace Reference}
+\label{namespacenumpydoc_1_1compiler__unparse}\index{numpydoc.\+compiler\+\_\+unparse@{numpydoc.\+compiler\+\_\+unparse}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classnumpydoc_1_1compiler__unparse_1_1UnparseCompilerAst}{Unparse\+Compiler\+Ast}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacenumpydoc_1_1compiler__unparse_a01a260f130da09c556c6b450469aa302}{unparse}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \hyperlink{namespacenumpydoc_1_1compiler__unparse_a5d24e3b59f35071c9eb84d10365945c1}{op\+\_\+precedence}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Turn compiler.ast structures back into executable python code.
+
+    The unparse method takes a compiler.ast tree and transforms it back into
+    valid python code.  It is incomplete and currently only works for
+    import statements, function calls, function definitions, assignments, and
+    basic expressions.
+
+    Inspired by python-2.5-svn/Demo/parser/unparse.py
+
+    fixme: We may want to move to using _ast trees because the compiler for
+           them is about 6 times faster than compiler.compile.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacenumpydoc_1_1compiler__unparse_a01a260f130da09c556c6b450469aa302}{}\index{numpydoc\+::compiler\+\_\+unparse@{numpydoc\+::compiler\+\_\+unparse}!unparse@{unparse}}
+\index{unparse@{unparse}!numpydoc\+::compiler\+\_\+unparse@{numpydoc\+::compiler\+\_\+unparse}}
+\subsubsection[{unparse}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+compiler\+\_\+unparse.\+unparse (
+\begin{DoxyParamCaption}
+\item[{}]{ast, }
+\item[{}]{single\+\_\+line\+\_\+functions = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1compiler__unparse_a01a260f130da09c556c6b450469aa302}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacenumpydoc_1_1compiler__unparse_a5d24e3b59f35071c9eb84d10365945c1}{}\index{numpydoc\+::compiler\+\_\+unparse@{numpydoc\+::compiler\+\_\+unparse}!op\+\_\+precedence@{op\+\_\+precedence}}
+\index{op\+\_\+precedence@{op\+\_\+precedence}!numpydoc\+::compiler\+\_\+unparse@{numpydoc\+::compiler\+\_\+unparse}}
+\subsubsection[{op\+\_\+precedence}]{\setlength{\rightskip}{0pt plus 5cm}dictionary numpydoc.\+compiler\+\_\+unparse.\+op\+\_\+precedence}\label{namespacenumpydoc_1_1compiler__unparse_a5d24e3b59f35071c9eb84d10365945c1}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{ \textcolor{stringliteral}{'compiler.ast.Power'}:3, \textcolor{stringliteral}{'compiler.ast.Mul'}:2, \textcolor{stringliteral}{'compiler.ast.Div'}:2,
+2                   \textcolor{stringliteral}{'compiler.ast.Add'}:1, \textcolor{stringliteral}{'compiler.ast.Sub'}:1 \}
+\end{DoxyCode}

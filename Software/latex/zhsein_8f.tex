@@ -1,0 +1,198 @@
+\hypertarget{zhsein_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zhsein.f File Reference}
+\label{zhsein_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhsein.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhsein.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zhsein_8f_ae3613cc30520d60d705dcc04ad31a321}{zhsein} (S\+I\+D\+E, E\+I\+G\+S\+R\+C, I\+N\+I\+T\+V, S\+E\+L\+E\+C\+T, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, H, L\+D\+H, W, V\+L, L\+D\+V\+L, V\+R, L\+D\+V\+R, M\+M, M, W\+O\+R\+K, R\+W\+O\+R\+K, I\+F\+A\+I\+L\+L, I\+F\+A\+I\+L\+R, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+H\+S\+E\+I\+N} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zhsein_8f_ae3613cc30520d60d705dcc04ad31a321}{}\index{zhsein.\+f@{zhsein.\+f}!zhsein@{zhsein}}
+\index{zhsein@{zhsein}!zhsein.\+f@{zhsein.\+f}}
+\subsubsection[{zhsein}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zhsein (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{character}]{E\+I\+G\+S\+R\+C, }
+\item[{character}]{I\+N\+I\+T\+V, }
+\item[{{\bf logical}, dimension( $\ast$ )}]{S\+E\+L\+E\+C\+T, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( ldh, $\ast$ )}]{H, }
+\item[{integer}]{L\+D\+H, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W, }
+\item[{{\bf complex}$\ast$16, dimension( ldvl, $\ast$ )}]{V\+L, }
+\item[{integer}]{L\+D\+V\+L, }
+\item[{{\bf complex}$\ast$16, dimension( ldvr, $\ast$ )}]{V\+R, }
+\item[{integer}]{L\+D\+V\+R, }
+\item[{integer}]{M\+M, }
+\item[{integer}]{M, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+F\+A\+I\+L\+L, }
+\item[{integer, dimension( $\ast$ )}]{I\+F\+A\+I\+L\+R, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zhsein_8f_ae3613cc30520d60d705dcc04ad31a321}
+
+
+{\bfseries Z\+H\+S\+E\+I\+N} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZHSEIN uses inverse iteration to find specified right and/or left
+ eigenvectors of a complex upper Hessenberg matrix H.
+
+ The right eigenvector x and the left eigenvector y of the matrix H
+ corresponding to an eigenvalue w are defined by:
+
+              H * x = w * x,     y**h * H = w * y**h
+
+ where y**h denotes the conjugate transpose of the vector y.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+          = 'R': compute right eigenvectors only;
+          = 'L': compute left eigenvectors only;
+          = 'B': compute both right and left eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E\+I\+G\+S\+R\+C} & \begin{DoxyVerb}          EIGSRC is CHARACTER*1
+          Specifies the source of eigenvalues supplied in W:
+          = 'Q': the eigenvalues were found using ZHSEQR; thus, if
+                 H has zero subdiagonal elements, and so is
+                 block-triangular, then the j-th eigenvalue can be
+                 assumed to be an eigenvalue of the block containing
+                 the j-th row/column.  This property allows ZHSEIN to
+                 perform inverse iteration on just one diagonal block.
+          = 'N': no assumptions are made on the correspondence
+                 between eigenvalues and diagonal blocks.  In this
+                 case, ZHSEIN must always perform inverse iteration
+                 using the whole matrix H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+I\+T\+V} & \begin{DoxyVerb}          INITV is CHARACTER*1
+          = 'N': no initial vectors are supplied;
+          = 'U': user-supplied initial vectors are stored in the arrays
+                 VL and/or VR.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+E\+L\+E\+C\+T} & \begin{DoxyVerb}          SELECT is LOGICAL array, dimension (N)
+          Specifies the eigenvectors to be computed. To select the
+          eigenvector corresponding to the eigenvalue W(j),
+          SELECT(j) must be set to .TRUE..\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix H.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em H} & \begin{DoxyVerb}          H is COMPLEX*16 array, dimension (LDH,N)
+          The upper Hessenberg matrix H.
+          If a NaN is detected in H, the routine will return with INFO=-6.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+H} & \begin{DoxyVerb}          LDH is INTEGER
+          The leading dimension of the array H.  LDH >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em W} & \begin{DoxyVerb}          W is COMPLEX*16 array, dimension (N)
+          On entry, the eigenvalues of H.
+          On exit, the real parts of W may have been altered since
+          close eigenvalues are perturbed slightly in searching for
+          independent eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V\+L} & \begin{DoxyVerb}          VL is COMPLEX*16 array, dimension (LDVL,MM)
+          On entry, if INITV = 'U' and SIDE = 'L' or 'B', VL must
+          contain starting vectors for the inverse iteration for the
+          left eigenvectors; the starting vector for each eigenvector
+          must be in the same column in which the eigenvector will be
+          stored.
+          On exit, if SIDE = 'L' or 'B', the left eigenvectors
+          specified by SELECT will be stored consecutively in the
+          columns of VL, in the same order as their eigenvalues.
+          If SIDE = 'R', VL is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V\+L} & \begin{DoxyVerb}          LDVL is INTEGER
+          The leading dimension of the array VL.
+          LDVL >= max(1,N) if SIDE = 'L' or 'B'; LDVL >= 1 otherwise.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V\+R} & \begin{DoxyVerb}          VR is COMPLEX*16 array, dimension (LDVR,MM)
+          On entry, if INITV = 'U' and SIDE = 'R' or 'B', VR must
+          contain starting vectors for the inverse iteration for the
+          right eigenvectors; the starting vector for each eigenvector
+          must be in the same column in which the eigenvector will be
+          stored.
+          On exit, if SIDE = 'R' or 'B', the right eigenvectors
+          specified by SELECT will be stored consecutively in the
+          columns of VR, in the same order as their eigenvalues.
+          If SIDE = 'L', VR is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V\+R} & \begin{DoxyVerb}          LDVR is INTEGER
+          The leading dimension of the array VR.
+          LDVR >= max(1,N) if SIDE = 'R' or 'B'; LDVR >= 1 otherwise.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M\+M} & \begin{DoxyVerb}          MM is INTEGER
+          The number of columns in the arrays VL and/or VR. MM >= M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of columns in the arrays VL and/or VR required to
+          store the eigenvectors (= the number of .TRUE. elements in
+          SELECT).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (N*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is DOUBLE PRECISION array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+F\+A\+I\+L\+L} & \begin{DoxyVerb}          IFAILL is INTEGER array, dimension (MM)
+          If SIDE = 'L' or 'B', IFAILL(i) = j > 0 if the left
+          eigenvector in the i-th column of VL (corresponding to the
+          eigenvalue w(j)) failed to converge; IFAILL(i) = 0 if the
+          eigenvector converged satisfactorily.
+          If SIDE = 'R', IFAILL is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+F\+A\+I\+L\+R} & \begin{DoxyVerb}          IFAILR is INTEGER array, dimension (MM)
+          If SIDE = 'R' or 'B', IFAILR(i) = j > 0 if the right
+          eigenvector in the i-th column of VR (corresponding to the
+          eigenvalue w(j)) failed to converge; IFAILR(i) = 0 if the
+          eigenvector converged satisfactorily.
+          If SIDE = 'L', IFAILR is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i, i is the number of eigenvectors which
+                failed to converge; see IFAILL and IFAILR for further
+                details.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2013 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  Each eigenvector is normalized so that the element of largest
+  magnitude has magnitude 1; here the magnitude of a complex number
+  (x,y) is taken to be |x|+|y|.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

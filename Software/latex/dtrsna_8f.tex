@@ -1,0 +1,220 @@
+\hypertarget{dtrsna_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dtrsna.f File Reference}
+\label{dtrsna_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dtrsna.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dtrsna.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dtrsna_8f_ab43d2d84b0705732572c187aa4558077}{dtrsna} (J\+O\+B, H\+O\+W\+M\+N\+Y, S\+E\+L\+E\+C\+T, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, T, L\+D\+T, V\+L, L\+D\+V\+L, V\+R, L\+D\+V\+R, S, S\+E\+P, M\+M, M, W\+O\+R\+K, L\+D\+W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+T\+R\+S\+N\+A} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dtrsna_8f_ab43d2d84b0705732572c187aa4558077}{}\index{dtrsna.\+f@{dtrsna.\+f}!dtrsna@{dtrsna}}
+\index{dtrsna@{dtrsna}!dtrsna.\+f@{dtrsna.\+f}}
+\subsubsection[{dtrsna}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dtrsna (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B, }
+\item[{character}]{H\+O\+W\+M\+N\+Y, }
+\item[{{\bf logical}, dimension( $\ast$ )}]{S\+E\+L\+E\+C\+T, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{double {\bf precision}, dimension( ldvl, $\ast$ )}]{V\+L, }
+\item[{integer}]{L\+D\+V\+L, }
+\item[{double {\bf precision}, dimension( ldvr, $\ast$ )}]{V\+R, }
+\item[{integer}]{L\+D\+V\+R, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{S, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{S\+E\+P, }
+\item[{integer}]{M\+M, }
+\item[{integer}]{M, }
+\item[{double {\bf precision}, dimension( ldwork, $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+D\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dtrsna_8f_ab43d2d84b0705732572c187aa4558077}
+
+
+{\bfseries D\+T\+R\+S\+N\+A} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DTRSNA estimates reciprocal condition numbers for specified
+ eigenvalues and/or right eigenvectors of a real upper
+ quasi-triangular matrix T (or of any matrix Q*T*Q**T with Q
+ orthogonal).
+
+ T must be in Schur canonical form (as returned by DHSEQR), that is,
+ block upper triangular with 1-by-1 and 2-by-2 diagonal blocks; each
+ 2-by-2 diagonal block has its diagonal elements equal and its
+ off-diagonal elements of opposite sign.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B} & \begin{DoxyVerb}          JOB is CHARACTER*1
+          Specifies whether condition numbers are required for
+          eigenvalues (S) or eigenvectors (SEP):
+          = 'E': for eigenvalues only (S);
+          = 'V': for eigenvectors only (SEP);
+          = 'B': for both eigenvalues and eigenvectors (S and SEP).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em H\+O\+W\+M\+N\+Y} & \begin{DoxyVerb}          HOWMNY is CHARACTER*1
+          = 'A': compute condition numbers for all eigenpairs;
+          = 'S': compute condition numbers for selected eigenpairs
+                 specified by the array SELECT.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+E\+L\+E\+C\+T} & \begin{DoxyVerb}          SELECT is LOGICAL array, dimension (N)
+          If HOWMNY = 'S', SELECT specifies the eigenpairs for which
+          condition numbers are required. To select condition numbers
+          for the eigenpair corresponding to a real eigenvalue w(j),
+          SELECT(j) must be set to .TRUE.. To select condition numbers
+          corresponding to a complex conjugate pair of eigenvalues w(j)
+          and w(j+1), either SELECT(j) or SELECT(j+1) or both, must be
+          set to .TRUE..
+          If HOWMNY = 'A', SELECT is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix T. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T} & \begin{DoxyVerb}          T is DOUBLE PRECISION array, dimension (LDT,N)
+          The upper quasi-triangular matrix T, in Schur canonical form.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T. LDT >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V\+L} & \begin{DoxyVerb}          VL is DOUBLE PRECISION array, dimension (LDVL,M)
+          If JOB = 'E' or 'B', VL must contain left eigenvectors of T
+          (or of any Q*T*Q**T with Q orthogonal), corresponding to the
+          eigenpairs specified by HOWMNY and SELECT. The eigenvectors
+          must be stored in consecutive columns of VL, as returned by
+          DHSEIN or DTREVC.
+          If JOB = 'V', VL is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V\+L} & \begin{DoxyVerb}          LDVL is INTEGER
+          The leading dimension of the array VL.
+          LDVL >= 1; and if JOB = 'E' or 'B', LDVL >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V\+R} & \begin{DoxyVerb}          VR is DOUBLE PRECISION array, dimension (LDVR,M)
+          If JOB = 'E' or 'B', VR must contain right eigenvectors of T
+          (or of any Q*T*Q**T with Q orthogonal), corresponding to the
+          eigenpairs specified by HOWMNY and SELECT. The eigenvectors
+          must be stored in consecutive columns of VR, as returned by
+          DHSEIN or DTREVC.
+          If JOB = 'V', VR is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V\+R} & \begin{DoxyVerb}          LDVR is INTEGER
+          The leading dimension of the array VR.
+          LDVR >= 1; and if JOB = 'E' or 'B', LDVR >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S} & \begin{DoxyVerb}          S is DOUBLE PRECISION array, dimension (MM)
+          If JOB = 'E' or 'B', the reciprocal condition numbers of the
+          selected eigenvalues, stored in consecutive elements of the
+          array. For a complex conjugate pair of eigenvalues two
+          consecutive elements of S are set to the same value. Thus
+          S(j), SEP(j), and the j-th columns of VL and VR all
+          correspond to the same eigenpair (but not in general the
+          j-th eigenpair, unless all eigenpairs are selected).
+          If JOB = 'V', S is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+E\+P} & \begin{DoxyVerb}          SEP is DOUBLE PRECISION array, dimension (MM)
+          If JOB = 'V' or 'B', the estimated reciprocal condition
+          numbers of the selected eigenvectors, stored in consecutive
+          elements of the array. For a complex eigenvector two
+          consecutive elements of SEP are set to the same value. If
+          the eigenvalues cannot be reordered to compute SEP(j), SEP(j)
+          is set to 0; this can only occur when the true value would be
+          very small anyway.
+          If JOB = 'E', SEP is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M\+M} & \begin{DoxyVerb}          MM is INTEGER
+          The number of elements in the arrays S (if JOB = 'E' or 'B')
+           and/or SEP (if JOB = 'V' or 'B'). MM >= M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of elements of the arrays S and/or SEP actually
+          used to store the estimated condition numbers.
+          If HOWMNY = 'A', M is set to N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (LDWORK,N+6)
+          If JOB = 'E', WORK is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+W\+O\+R\+K} & \begin{DoxyVerb}          LDWORK is INTEGER
+          The leading dimension of the array WORK.
+          LDWORK >= 1; and if JOB = 'V' or 'B', LDWORK >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (2*(N-1))
+          If JOB = 'E', IWORK is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The reciprocal of the condition number of an eigenvalue lambda is
+  defined as
+
+          S(lambda) = |v**T*u| / (norm(u)*norm(v))
+
+  where u and v are the right and left eigenvectors of T corresponding
+  to lambda; v**T denotes the transpose of v, and norm(u)
+  denotes the Euclidean norm. These reciprocal condition numbers always
+  lie between zero (very badly conditioned) and one (very well
+  conditioned). If n = 1, S(lambda) is defined to be 1.
+
+  An approximate error bound for a computed eigenvalue W(i) is given by
+
+                      EPS * norm(T) / S(i)
+
+  where EPS is the machine precision.
+
+  The reciprocal of the condition number of the right eigenvector u
+  corresponding to lambda is defined as follows. Suppose
+
+              T = ( lambda  c  )
+                  (   0    T22 )
+
+  Then the reciprocal condition number is
+
+          SEP( lambda, T22 ) = sigma-min( T22 - lambda*I )
+
+  where sigma-min denotes the smallest singular value. We approximate
+  the smallest singular value by the reciprocal of an estimate of the
+  one-norm of the inverse of T22 - lambda*I. If n = 1, SEP(1) is
+  defined to be abs(T(1,1)).
+
+  An approximate error bound for a computed right eigenvector VR(i)
+  is given by
+
+                      EPS * norm(T) / SEP(i)\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

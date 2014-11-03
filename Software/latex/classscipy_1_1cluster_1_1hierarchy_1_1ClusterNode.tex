@@ -1,0 +1,193 @@
+\hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode}{}\section{scipy.\+cluster.\+hierarchy.\+Cluster\+Node Class Reference}
+\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode}\index{scipy.\+cluster.\+hierarchy.\+Cluster\+Node@{scipy.\+cluster.\+hierarchy.\+Cluster\+Node}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a0c77add827c006543fe7c20b98258a1f}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a5255f73a4b91661bdbde3b12f5f39e84}{get\+\_\+id}
+\item 
+def \hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_ab60eb73019a05a1e1d4370781c9cbb10}{get\+\_\+count}
+\item 
+def \hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a03741b0243d50112120708cce8269828}{get\+\_\+left}
+\item 
+def \hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a7c0c5bc71e4ecbc3a7884203f33e27c6}{get\+\_\+right}
+\item 
+def \hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a3c14621515b7ece8d29781843ac080ec}{is\+\_\+leaf}
+\item 
+def \hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a6e4d7620f3bd1c7269ac1761646de4c5}{pre\+\_\+order}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a33a3651b872cce6ececa0632613ab950}{id}
+\item 
+\hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a289f67739ecb94da191ec5d6f5a4977a}{left}
+\item 
+\hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a79b2cad6da3ba1a2d9962ccd7cacf3f4}{right}
+\item 
+\hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a9f65b1e44aafb91c95857ed6c7132b69}{dist}
+\item 
+\hyperlink{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a6b8d33da76d118bf9c4669e8b7833d7e}{count}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}A tree node class for representing a cluster.
+
+Leaf nodes correspond to original observations, while non-leaf nodes
+correspond to non-singleton clusters.
+
+The to_tree function converts a matrix returned by the linkage
+function into an easy-to-use tree representation.
+
+See Also
+--------
+to_tree : for converting a linkage matrix ``Z`` into a tree object.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a0c77add827c006543fe7c20b98258a1f}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{id, }
+\item[{}]{left = {\ttfamily None}, }
+\item[{}]{right = {\ttfamily None}, }
+\item[{}]{dist = {\ttfamily 0}, }
+\item[{}]{count = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a0c77add827c006543fe7c20b98258a1f}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_ab60eb73019a05a1e1d4370781c9cbb10}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!get\+\_\+count@{get\+\_\+count}}
+\index{get\+\_\+count@{get\+\_\+count}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{get\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+get\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_ab60eb73019a05a1e1d4370781c9cbb10}
+\begin{DoxyVerb}The number of leaf nodes (original observations) belonging to
+the cluster node nd. If the target node is a leaf, 1 is
+returned.
+
+Returns
+-------
+get_count : int
+    The number of leaf nodes below the target node.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a5255f73a4b91661bdbde3b12f5f39e84}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!get\+\_\+id@{get\+\_\+id}}
+\index{get\+\_\+id@{get\+\_\+id}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{get\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+get\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a5255f73a4b91661bdbde3b12f5f39e84}
+\begin{DoxyVerb}The identifier of the target node.
+
+For ``0 <= i < n``, `i` corresponds to original observation i.
+For ``n <= i < 2n-1``, `i` corresponds to non-singleton cluster formed
+at iteration ``i-n``.
+
+Returns
+-------
+id : int
+    The identifier of the target node.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a03741b0243d50112120708cce8269828}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!get\+\_\+left@{get\+\_\+left}}
+\index{get\+\_\+left@{get\+\_\+left}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{get\+\_\+left}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+get\+\_\+left (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a03741b0243d50112120708cce8269828}
+\begin{DoxyVerb}Return a reference to the left child tree object.
+
+Returns
+-------
+left : ClusterNode
+    The left child of the target node.  If the node is a leaf,
+    None is returned.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a7c0c5bc71e4ecbc3a7884203f33e27c6}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!get\+\_\+right@{get\+\_\+right}}
+\index{get\+\_\+right@{get\+\_\+right}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{get\+\_\+right}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+get\+\_\+right (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a7c0c5bc71e4ecbc3a7884203f33e27c6}
+\begin{DoxyVerb}Returns a reference to the right child tree object.
+
+Returns
+-------
+right : ClusterNode
+    The left child of the target node.  If the node is a leaf,
+    None is returned.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a3c14621515b7ece8d29781843ac080ec}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!is\+\_\+leaf@{is\+\_\+leaf}}
+\index{is\+\_\+leaf@{is\+\_\+leaf}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{is\+\_\+leaf}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+is\+\_\+leaf (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a3c14621515b7ece8d29781843ac080ec}
+\begin{DoxyVerb}Returns True if the target node is a leaf.
+
+Returns
+-------
+leafness : bool
+    True if the target node is a leaf node.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a6e4d7620f3bd1c7269ac1761646de4c5}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!pre\+\_\+order@{pre\+\_\+order}}
+\index{pre\+\_\+order@{pre\+\_\+order}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{pre\+\_\+order}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+pre\+\_\+order (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{func = {\ttfamily (lambda~x\+:~x.id)}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a6e4d7620f3bd1c7269ac1761646de4c5}
+\begin{DoxyVerb}Performs pre-order traversal without recursive function calls.
+
+When a leaf node is first encountered, ``func`` is called with
+the leaf node as its argument, and its result is appended to
+the list.
+
+For example, the statement::
+
+   ids = root.pre_order(lambda x: x.id)
+
+returns a list of the node ids corresponding to the leaf nodes
+of the tree as they appear from left to right.
+
+Parameters
+----------
+func : function
+    Applied to each leaf ClusterNode object in the pre-order traversal.
+    Given the i'th leaf node in the pre-ordeR traversal ``n[i]``, the
+    result of func(n[i]) is stored in L[i]. If not provided, the index
+    of the original observation to which the node corresponds is used.
+
+Returns
+-------
+L : list
+    The pre-order traversal.\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a6b8d33da76d118bf9c4669e8b7833d7e}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!count@{count}}
+\index{count@{count}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+count}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a6b8d33da76d118bf9c4669e8b7833d7e}
+\hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a9f65b1e44aafb91c95857ed6c7132b69}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!dist@{dist}}
+\index{dist@{dist}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{dist}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+dist}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a9f65b1e44aafb91c95857ed6c7132b69}
+\hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a33a3651b872cce6ececa0632613ab950}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!id@{id}}
+\index{id@{id}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+id}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a33a3651b872cce6ececa0632613ab950}
+\hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a289f67739ecb94da191ec5d6f5a4977a}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!left@{left}}
+\index{left@{left}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{left}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+left}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a289f67739ecb94da191ec5d6f5a4977a}
+\hypertarget{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a79b2cad6da3ba1a2d9962ccd7cacf3f4}{}\index{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}!right@{right}}
+\index{right@{right}!scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node@{scipy\+::cluster\+::hierarchy\+::\+Cluster\+Node}}
+\subsubsection[{right}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+cluster.\+hierarchy.\+Cluster\+Node.\+right}\label{classscipy_1_1cluster_1_1hierarchy_1_1ClusterNode_a79b2cad6da3ba1a2d9962ccd7cacf3f4}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/cluster/\hyperlink{hierarchy_8py}{hierarchy.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,79 @@
+\hypertarget{crot_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/crot.f File Reference}
+\label{crot_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/crot.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/crot.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{crot_8f_a4afb8af3ae70d2f82fffafe91e933c12}{crot} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{scsum1_8c_a5a76da95c549c41790389a76e12fdcb5}{C\+X}, I\+N\+C\+X, C\+Y, I\+N\+C\+Y, C, S)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+R\+O\+T} applies a plane rotation with real cosine and complex sine to a pair of complex vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{crot_8f_a4afb8af3ae70d2f82fffafe91e933c12}{}\index{crot.\+f@{crot.\+f}!crot@{crot}}
+\index{crot@{crot}!crot.\+f@{crot.\+f}}
+\subsubsection[{crot}]{\setlength{\rightskip}{0pt plus 5cm}subroutine crot (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{C\+X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{C\+Y, }
+\item[{integer}]{I\+N\+C\+Y, }
+\item[{real}]{C, }
+\item[{{\bf complex}}]{S}
+\end{DoxyParamCaption}
+)}\label{crot_8f_a4afb8af3ae70d2f82fffafe91e933c12}
+
+
+{\bfseries C\+R\+O\+T} applies a plane rotation with real cosine and complex sine to a pair of complex vectors. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CROT   applies a plane rotation, where the cos (C) is real and the
+ sin (S) is complex, and the vectors CX and CY are complex.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of elements in the vectors CX and CY.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C\+X} & \begin{DoxyVerb}          CX is COMPLEX array, dimension (N)
+          On input, the vector X.
+          On output, CX is overwritten with C*X + S*Y.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between successive values of CY.  INCX <> 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C\+Y} & \begin{DoxyVerb}          CY is COMPLEX array, dimension (N)
+          On input, the vector Y.
+          On output, CY is overwritten with -CONJG(S)*X + C*Y.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+Y} & \begin{DoxyVerb}          INCY is INTEGER
+          The increment between successive values of CY.  INCX <> 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is COMPLEX
+          C and S define a rotation
+             [  C          S  ]
+             [ -conjg(S)   C  ]
+          where C*C + S*CONJG(S) = 1.0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

@@ -1,0 +1,360 @@
+\hypertarget{classBenchmarkExt}{}\section{Benchmark\+Ext$<$ P\+\_\+parameter $>$ Class Template Reference}
+\label{classBenchmarkExt}\index{Benchmark\+Ext$<$ P\+\_\+parameter $>$@{Benchmark\+Ext$<$ P\+\_\+parameter $>$}}
+
+
+{\ttfamily \#include $<$benchext.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef P\+\_\+parameter \hyperlink{classBenchmarkExt_a8b17d300898ee83a0c10463c1b53cfa5}{T\+\_\+parameter}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBenchmarkExt_a1a5b14c2e31e3fe37c27169be8087bc5}{Benchmark\+Ext} (const char $\ast$description, int num\+Implementations)
+\item 
+\hyperlink{classBenchmarkExt_af91c59a54f02d648bb018c2720f93819}{$\sim$\+Benchmark\+Ext} ()
+\item 
+void \hyperlink{classBenchmarkExt_ab74df38c62726bf13d0ecfc90d800c00}{set\+Num\+Parameters} (int num\+Parameters)
+\item 
+void \hyperlink{classBenchmarkExt_a3dfa7c135fc783ffbcae7b35b8b526aa}{set\+Parameter\+Vector} (\hyperlink{classVector}{Vector}$<$ \hyperlink{classBenchmarkExt_a8b17d300898ee83a0c10463c1b53cfa5}{T\+\_\+parameter} $>$ parms)
+\item 
+void \hyperlink{classBenchmarkExt_a6f5265a1e4ed60d8d857a3b46a434b5c}{set\+Parameter\+Description} (const char $\ast$string)
+\item 
+void \hyperlink{classBenchmarkExt_a8525237682dc47897abb8d6d414be331}{set\+Iterations} (\hyperlink{classVector}{Vector}$<$ long $>$ iters)
+\item 
+void \hyperlink{classBenchmarkExt_ab8188dedb93ad5178924b94274a14f7c}{set\+Flops\+Per\+Iteration} (\hyperlink{classVector}{Vector}$<$ double $>$ flops\+Per\+Iteration)
+\item 
+void \hyperlink{classBenchmarkExt_ac239788dd114923c82613dc0b3ccb0dc}{set\+Rate\+Description} (const char $\ast$string)
+\item 
+void \hyperlink{classBenchmarkExt_abf8d40a12c57994e3c47a2d127e069ce}{begin\+Benchmarking} ()
+\item 
+void \hyperlink{classBenchmarkExt_af8d3b582d9cc15bee2fa430b64dd7cd0}{begin\+Implementation} (const char $\ast$description)
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classBenchmarkExt_ab6a85b279a40d018404eccf5c902ba97}{done\+Implementation\+Benchmark} () const 
+\item 
+\hyperlink{classBenchmarkExt_a8b17d300898ee83a0c10463c1b53cfa5}{T\+\_\+parameter} \hyperlink{classBenchmarkExt_ac118531363dcb4e37ca6c73fe8c652b2}{get\+Parameter} () const 
+\item 
+long \hyperlink{classBenchmarkExt_a03b0411a11416af48e6a53372d174088}{get\+Iterations} () const 
+\item 
+void \hyperlink{classBenchmarkExt_a98bbac917db2353740730ac73258bb3a}{start} ()
+\item 
+void \hyperlink{classBenchmarkExt_ac014ea2e61d5a02cb9c1a2004422f495}{stop} ()
+\item 
+void \hyperlink{classBenchmarkExt_a9f1bedb03cd8a8124c2713633183fc5c}{start\+Overhead} ()
+\item 
+void \hyperlink{classBenchmarkExt_a26fd92767c375e3539f08c6c542e89b6}{stop\+Overhead} ()
+\item 
+void \hyperlink{classBenchmarkExt_a7bfa377672de0d9d50a65db4147877c2}{end\+Implementation} ()
+\item 
+void \hyperlink{classBenchmarkExt_a9200b8acb26cf12fce1ad76cf68eb482}{end\+Benchmarking} ()
+\item 
+double \hyperlink{classBenchmarkExt_ae3132627feae9ecb764840e9efa201ae}{get\+Mflops} (unsigned implementation, unsigned parameter\+Num) const 
+\item 
+void \hyperlink{classBenchmarkExt_aeb9b16cfd88b642752b4bed62249b1da}{save\+Matlab\+Graph} (const char $\ast$filename, const char $\ast$graph\+Type=\char`\"{}semilogx\char`\"{}) const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \\*
+\hyperlink{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379ac1685f3de9451f8999ddc220c41112c3}{initializing}, 
+\hyperlink{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a2dbdb8ed5bf69d77871198d57f61b950}{benchmarking}, 
+\hyperlink{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a929e1c22283b0f4c9139d9a8ddd16aaa}{benchmarking\+Implementation}, 
+\hyperlink{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a3be87a26f1f7c27f1bade230bddfa2b4}{running}, 
+\\*
+\hyperlink{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a3b9014d41ffedb8319adc77024b8dd2e}{running\+Overhead}, 
+\hyperlink{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379afa431ea190fb7c2a26b5170844379962}{done}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBenchmarkExt_a8b1bee1787a76da9701f72685c5efa57}{Benchmark\+Ext} (const \hyperlink{classBenchmarkExt}{Benchmark\+Ext}$<$ P\+\_\+parameter $>$ \&)
+\item 
+void \hyperlink{classBenchmarkExt_a435740f4b1390802068df2768d9459bd}{operator=} (const \hyperlink{classBenchmarkExt}{Benchmark\+Ext}$<$ P\+\_\+parameter $>$ \&)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+enum Benchmark\+Ext\+:: \{ ... \}  \hyperlink{classBenchmarkExt_ac79be62db2a83276e89ab21960fd1cf7}{state\+\_\+}
+\item 
+unsigned \hyperlink{classBenchmarkExt_a113bc04dbe3b34a0cac58d15e1c63ed6}{num\+Implementations\+\_\+}
+\item 
+unsigned \hyperlink{classBenchmarkExt_a1d559c9a7dec5b5eb99896a45476a40d}{implementation\+Number\+\_\+}
+\item 
+const char $\ast$ \hyperlink{classBenchmarkExt_a3a381fb60c6576ac1f0a85202bcb2813}{description\+\_\+}
+\item 
+\hyperlink{classVector}{Vector}$<$ const char $\ast$ $>$ \hyperlink{classBenchmarkExt_a0bf72f1aa5fb68ab91e6a361409d2b8e}{implementation\+Descriptions\+\_\+}
+\item 
+\hyperlink{classMatrix}{Matrix}$<$ double, \hyperlink{classRowMajor}{Row\+Major} $>$ \hyperlink{classBenchmarkExt_ae5e33ddbac604a0ada9c6e95f2d6341d}{times\+\_\+}
+\item 
+\hyperlink{classVector}{Vector}$<$ \hyperlink{classBenchmarkExt_a8b17d300898ee83a0c10463c1b53cfa5}{T\+\_\+parameter} $>$ \hyperlink{classBenchmarkExt_a227f3a8ff41b5c86c40aa8b9c6cf7402}{parameters\+\_\+}
+\item 
+\hyperlink{classVector}{Vector}$<$ long $>$ \hyperlink{classBenchmarkExt_abb305956ddfc7f52e081390eb630e8b6}{iterations\+\_\+}
+\item 
+\hyperlink{classVector}{Vector}$<$ double $>$ \hyperlink{classBenchmarkExt_a4dce95721728453b7e10db0c7373e3cd}{flops\+Per\+Iteration\+\_\+}
+\item 
+\hyperlink{classTimer}{Timer} \hyperlink{classBenchmarkExt_ab04058d86f083b514773494c17593c0b}{timer\+\_\+}
+\item 
+\hyperlink{classTimer}{Timer} \hyperlink{classBenchmarkExt_a2e1215f0dfeceea6fdcbf8908a9a3b8b}{overhead\+Timer\+\_\+}
+\item 
+const char $\ast$ \hyperlink{classBenchmarkExt_ae1c3dfaa3c0ca464100a01e01d2dff1c}{parameter\+Description\+\_\+}
+\item 
+const char $\ast$ \hyperlink{classBenchmarkExt_aebe65cfdf45cfdb601b2b54059ba7628}{rate\+Description\+\_\+}
+\item 
+unsigned \hyperlink{classBenchmarkExt_aa8504a4be8de5aa135895c34efbb15c0}{num\+Parameters\+\_\+}
+\item 
+unsigned \hyperlink{classBenchmarkExt_a02f860acfdd29c1d2874996d3d187dad}{parameter\+Number\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classBenchmarkExt_a8b17d300898ee83a0c10463c1b53cfa5}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!T\+\_\+parameter@{T\+\_\+parameter}}
+\index{T\+\_\+parameter@{T\+\_\+parameter}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{T\+\_\+parameter}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ typedef P\+\_\+parameter {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::{\bf T\+\_\+parameter}}\label{classBenchmarkExt_a8b17d300898ee83a0c10463c1b53cfa5}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379}{}\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ anonymous enum\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{initializing@{initializing}!Benchmark\+Ext@{Benchmark\+Ext}}\index{Benchmark\+Ext@{Benchmark\+Ext}!initializing@{initializing}}\item[{\em 
+\hypertarget{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379ac1685f3de9451f8999ddc220c41112c3}{}initializing\label{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379ac1685f3de9451f8999ddc220c41112c3}
+}]\index{benchmarking@{benchmarking}!Benchmark\+Ext@{Benchmark\+Ext}}\index{Benchmark\+Ext@{Benchmark\+Ext}!benchmarking@{benchmarking}}\item[{\em 
+\hypertarget{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a2dbdb8ed5bf69d77871198d57f61b950}{}benchmarking\label{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a2dbdb8ed5bf69d77871198d57f61b950}
+}]\index{benchmarking\+Implementation@{benchmarking\+Implementation}!Benchmark\+Ext@{Benchmark\+Ext}}\index{Benchmark\+Ext@{Benchmark\+Ext}!benchmarking\+Implementation@{benchmarking\+Implementation}}\item[{\em 
+\hypertarget{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a929e1c22283b0f4c9139d9a8ddd16aaa}{}benchmarking\+Implementation\label{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a929e1c22283b0f4c9139d9a8ddd16aaa}
+}]\index{running@{running}!Benchmark\+Ext@{Benchmark\+Ext}}\index{Benchmark\+Ext@{Benchmark\+Ext}!running@{running}}\item[{\em 
+\hypertarget{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a3be87a26f1f7c27f1bade230bddfa2b4}{}running\label{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a3be87a26f1f7c27f1bade230bddfa2b4}
+}]\index{running\+Overhead@{running\+Overhead}!Benchmark\+Ext@{Benchmark\+Ext}}\index{Benchmark\+Ext@{Benchmark\+Ext}!running\+Overhead@{running\+Overhead}}\item[{\em 
+\hypertarget{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a3b9014d41ffedb8319adc77024b8dd2e}{}running\+Overhead\label{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379a3b9014d41ffedb8319adc77024b8dd2e}
+}]\index{done@{done}!Benchmark\+Ext@{Benchmark\+Ext}}\index{Benchmark\+Ext@{Benchmark\+Ext}!done@{done}}\item[{\em 
+\hypertarget{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379afa431ea190fb7c2a26b5170844379962}{}done\label{classBenchmarkExt_a55b7d793a0348db07b3f72500a1cd379afa431ea190fb7c2a26b5170844379962}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBenchmarkExt_a1a5b14c2e31e3fe37c27169be8087bc5}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!Benchmark\+Ext@{Benchmark\+Ext}}
+\index{Benchmark\+Ext@{Benchmark\+Ext}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{Benchmark\+Ext}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::{\bf Benchmark\+Ext} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{description, }
+\item[{int}]{num\+Implementations}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_a1a5b14c2e31e3fe37c27169be8087bc5}
+\hypertarget{classBenchmarkExt_af91c59a54f02d648bb018c2720f93819}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!````~Benchmark\+Ext@{$\sim$\+Benchmark\+Ext}}
+\index{````~Benchmark\+Ext@{$\sim$\+Benchmark\+Ext}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{$\sim$\+Benchmark\+Ext}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::$\sim${\bf Benchmark\+Ext} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_af91c59a54f02d648bb018c2720f93819}
+\hypertarget{classBenchmarkExt_a8b1bee1787a76da9701f72685c5efa57}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!Benchmark\+Ext@{Benchmark\+Ext}}
+\index{Benchmark\+Ext@{Benchmark\+Ext}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{Benchmark\+Ext}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::{\bf Benchmark\+Ext} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classBenchmarkExt_a8b1bee1787a76da9701f72685c5efa57}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBenchmarkExt_abf8d40a12c57994e3c47a2d127e069ce}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!begin\+Benchmarking@{begin\+Benchmarking}}
+\index{begin\+Benchmarking@{begin\+Benchmarking}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{begin\+Benchmarking}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::begin\+Benchmarking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_abf8d40a12c57994e3c47a2d127e069ce}
+\hypertarget{classBenchmarkExt_af8d3b582d9cc15bee2fa430b64dd7cd0}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!begin\+Implementation@{begin\+Implementation}}
+\index{begin\+Implementation@{begin\+Implementation}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{begin\+Implementation}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::begin\+Implementation (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{description}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_af8d3b582d9cc15bee2fa430b64dd7cd0}
+\hypertarget{classBenchmarkExt_ab6a85b279a40d018404eccf5c902ba97}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!done\+Implementation\+Benchmark@{done\+Implementation\+Benchmark}}
+\index{done\+Implementation\+Benchmark@{done\+Implementation\+Benchmark}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{done\+Implementation\+Benchmark}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ {\bf bool} {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::done\+Implementation\+Benchmark (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classBenchmarkExt_ab6a85b279a40d018404eccf5c902ba97}
+\hypertarget{classBenchmarkExt_a9200b8acb26cf12fce1ad76cf68eb482}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!end\+Benchmarking@{end\+Benchmarking}}
+\index{end\+Benchmarking@{end\+Benchmarking}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{end\+Benchmarking}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::end\+Benchmarking (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_a9200b8acb26cf12fce1ad76cf68eb482}
+\hypertarget{classBenchmarkExt_a7bfa377672de0d9d50a65db4147877c2}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!end\+Implementation@{end\+Implementation}}
+\index{end\+Implementation@{end\+Implementation}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{end\+Implementation}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::end\+Implementation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_a7bfa377672de0d9d50a65db4147877c2}
+\hypertarget{classBenchmarkExt_a03b0411a11416af48e6a53372d174088}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!get\+Iterations@{get\+Iterations}}
+\index{get\+Iterations@{get\+Iterations}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{get\+Iterations}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ long {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::get\+Iterations (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classBenchmarkExt_a03b0411a11416af48e6a53372d174088}
+\hypertarget{classBenchmarkExt_ae3132627feae9ecb764840e9efa201ae}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!get\+Mflops@{get\+Mflops}}
+\index{get\+Mflops@{get\+Mflops}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{get\+Mflops}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ double {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::get\+Mflops (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{implementation, }
+\item[{unsigned}]{parameter\+Num}
+\end{DoxyParamCaption}
+) const}\label{classBenchmarkExt_ae3132627feae9ecb764840e9efa201ae}
+\hypertarget{classBenchmarkExt_ac118531363dcb4e37ca6c73fe8c652b2}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!get\+Parameter@{get\+Parameter}}
+\index{get\+Parameter@{get\+Parameter}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{get\+Parameter}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ P\+\_\+parameter {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::get\+Parameter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classBenchmarkExt_ac118531363dcb4e37ca6c73fe8c652b2}
+\hypertarget{classBenchmarkExt_a435740f4b1390802068df2768d9459bd}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!operator=@{operator=}}
+\index{operator=@{operator=}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classBenchmarkExt_a435740f4b1390802068df2768d9459bd}
+\hypertarget{classBenchmarkExt_aeb9b16cfd88b642752b4bed62249b1da}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!save\+Matlab\+Graph@{save\+Matlab\+Graph}}
+\index{save\+Matlab\+Graph@{save\+Matlab\+Graph}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{save\+Matlab\+Graph}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::save\+Matlab\+Graph (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename, }
+\item[{const char $\ast$}]{graph\+Type = {\ttfamily \char`\"{}semilogx\char`\"{}}}
+\end{DoxyParamCaption}
+) const}\label{classBenchmarkExt_aeb9b16cfd88b642752b4bed62249b1da}
+\hypertarget{classBenchmarkExt_ab8188dedb93ad5178924b94274a14f7c}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!set\+Flops\+Per\+Iteration@{set\+Flops\+Per\+Iteration}}
+\index{set\+Flops\+Per\+Iteration@{set\+Flops\+Per\+Iteration}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{set\+Flops\+Per\+Iteration}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::set\+Flops\+Per\+Iteration (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ double $>$}]{flops\+Per\+Iteration}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_ab8188dedb93ad5178924b94274a14f7c}
+\hypertarget{classBenchmarkExt_a8525237682dc47897abb8d6d414be331}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!set\+Iterations@{set\+Iterations}}
+\index{set\+Iterations@{set\+Iterations}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{set\+Iterations}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::set\+Iterations (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ long $>$}]{iters}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_a8525237682dc47897abb8d6d414be331}
+\hypertarget{classBenchmarkExt_ab74df38c62726bf13d0ecfc90d800c00}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!set\+Num\+Parameters@{set\+Num\+Parameters}}
+\index{set\+Num\+Parameters@{set\+Num\+Parameters}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{set\+Num\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::set\+Num\+Parameters (
+\begin{DoxyParamCaption}
+\item[{int}]{num\+Parameters}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_ab74df38c62726bf13d0ecfc90d800c00}
+\hypertarget{classBenchmarkExt_a6f5265a1e4ed60d8d857a3b46a434b5c}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!set\+Parameter\+Description@{set\+Parameter\+Description}}
+\index{set\+Parameter\+Description@{set\+Parameter\+Description}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{set\+Parameter\+Description}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::set\+Parameter\+Description (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_a6f5265a1e4ed60d8d857a3b46a434b5c}
+\hypertarget{classBenchmarkExt_a3dfa7c135fc783ffbcae7b35b8b526aa}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!set\+Parameter\+Vector@{set\+Parameter\+Vector}}
+\index{set\+Parameter\+Vector@{set\+Parameter\+Vector}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{set\+Parameter\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::set\+Parameter\+Vector (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector}$<$ {\bf T\+\_\+parameter} $>$}]{parms}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_a3dfa7c135fc783ffbcae7b35b8b526aa}
+\hypertarget{classBenchmarkExt_ac239788dd114923c82613dc0b3ccb0dc}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!set\+Rate\+Description@{set\+Rate\+Description}}
+\index{set\+Rate\+Description@{set\+Rate\+Description}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{set\+Rate\+Description}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::set\+Rate\+Description (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}\label{classBenchmarkExt_ac239788dd114923c82613dc0b3ccb0dc}
+\hypertarget{classBenchmarkExt_a98bbac917db2353740730ac73258bb3a}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!start@{start}}
+\index{start@{start}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classBenchmarkExt_a98bbac917db2353740730ac73258bb3a}
+\hypertarget{classBenchmarkExt_a9f1bedb03cd8a8124c2713633183fc5c}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!start\+Overhead@{start\+Overhead}}
+\index{start\+Overhead@{start\+Overhead}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{start\+Overhead}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::start\+Overhead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classBenchmarkExt_a9f1bedb03cd8a8124c2713633183fc5c}
+\hypertarget{classBenchmarkExt_ac014ea2e61d5a02cb9c1a2004422f495}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!stop@{stop}}
+\index{stop@{stop}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classBenchmarkExt_ac014ea2e61d5a02cb9c1a2004422f495}
+\hypertarget{classBenchmarkExt_a26fd92767c375e3539f08c6c542e89b6}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!stop\+Overhead@{stop\+Overhead}}
+\index{stop\+Overhead@{stop\+Overhead}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{stop\+Overhead}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter $>$ void {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::stop\+Overhead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classBenchmarkExt_a26fd92767c375e3539f08c6c542e89b6}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classBenchmarkExt_a3a381fb60c6576ac1f0a85202bcb2813}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!description\+\_\+@{description\+\_\+}}
+\index{description\+\_\+@{description\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{description\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ const char$\ast$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::description\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_a3a381fb60c6576ac1f0a85202bcb2813}
+\hypertarget{classBenchmarkExt_a4dce95721728453b7e10db0c7373e3cd}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!flops\+Per\+Iteration\+\_\+@{flops\+Per\+Iteration\+\_\+}}
+\index{flops\+Per\+Iteration\+\_\+@{flops\+Per\+Iteration\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{flops\+Per\+Iteration\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ {\bf Vector}$<$double$>$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::flops\+Per\+Iteration\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_a4dce95721728453b7e10db0c7373e3cd}
+\hypertarget{classBenchmarkExt_a0bf72f1aa5fb68ab91e6a361409d2b8e}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!implementation\+Descriptions\+\_\+@{implementation\+Descriptions\+\_\+}}
+\index{implementation\+Descriptions\+\_\+@{implementation\+Descriptions\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{implementation\+Descriptions\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ {\bf Vector}$<$const char$\ast$$>$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::implementation\+Descriptions\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_a0bf72f1aa5fb68ab91e6a361409d2b8e}
+\hypertarget{classBenchmarkExt_a1d559c9a7dec5b5eb99896a45476a40d}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!implementation\+Number\+\_\+@{implementation\+Number\+\_\+}}
+\index{implementation\+Number\+\_\+@{implementation\+Number\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{implementation\+Number\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ unsigned {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::implementation\+Number\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_a1d559c9a7dec5b5eb99896a45476a40d}
+\hypertarget{classBenchmarkExt_abb305956ddfc7f52e081390eb630e8b6}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!iterations\+\_\+@{iterations\+\_\+}}
+\index{iterations\+\_\+@{iterations\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{iterations\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ {\bf Vector}$<$long$>$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::iterations\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_abb305956ddfc7f52e081390eb630e8b6}
+\hypertarget{classBenchmarkExt_a113bc04dbe3b34a0cac58d15e1c63ed6}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!num\+Implementations\+\_\+@{num\+Implementations\+\_\+}}
+\index{num\+Implementations\+\_\+@{num\+Implementations\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{num\+Implementations\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ unsigned {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::num\+Implementations\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_a113bc04dbe3b34a0cac58d15e1c63ed6}
+\hypertarget{classBenchmarkExt_aa8504a4be8de5aa135895c34efbb15c0}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!num\+Parameters\+\_\+@{num\+Parameters\+\_\+}}
+\index{num\+Parameters\+\_\+@{num\+Parameters\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{num\+Parameters\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ unsigned {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::num\+Parameters\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_aa8504a4be8de5aa135895c34efbb15c0}
+\hypertarget{classBenchmarkExt_a2e1215f0dfeceea6fdcbf8908a9a3b8b}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!overhead\+Timer\+\_\+@{overhead\+Timer\+\_\+}}
+\index{overhead\+Timer\+\_\+@{overhead\+Timer\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{overhead\+Timer\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ {\bf Timer} {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::overhead\+Timer\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_a2e1215f0dfeceea6fdcbf8908a9a3b8b}
+\hypertarget{classBenchmarkExt_ae1c3dfaa3c0ca464100a01e01d2dff1c}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!parameter\+Description\+\_\+@{parameter\+Description\+\_\+}}
+\index{parameter\+Description\+\_\+@{parameter\+Description\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{parameter\+Description\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ const char$\ast$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::parameter\+Description\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_ae1c3dfaa3c0ca464100a01e01d2dff1c}
+\hypertarget{classBenchmarkExt_a02f860acfdd29c1d2874996d3d187dad}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!parameter\+Number\+\_\+@{parameter\+Number\+\_\+}}
+\index{parameter\+Number\+\_\+@{parameter\+Number\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{parameter\+Number\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ unsigned {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::parameter\+Number\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_a02f860acfdd29c1d2874996d3d187dad}
+\hypertarget{classBenchmarkExt_a227f3a8ff41b5c86c40aa8b9c6cf7402}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!parameters\+\_\+@{parameters\+\_\+}}
+\index{parameters\+\_\+@{parameters\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{parameters\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ {\bf Vector}$<${\bf T\+\_\+parameter}$>$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::parameters\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_a227f3a8ff41b5c86c40aa8b9c6cf7402}
+\hypertarget{classBenchmarkExt_aebe65cfdf45cfdb601b2b54059ba7628}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!rate\+Description\+\_\+@{rate\+Description\+\_\+}}
+\index{rate\+Description\+\_\+@{rate\+Description\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{rate\+Description\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ const char$\ast$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::rate\+Description\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_aebe65cfdf45cfdb601b2b54059ba7628}
+\hypertarget{classBenchmarkExt_ac79be62db2a83276e89ab21960fd1cf7}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!state\+\_\+@{state\+\_\+}}
+\index{state\+\_\+@{state\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{state\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}enum \{ ... \}   {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::state\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_ac79be62db2a83276e89ab21960fd1cf7}
+\hypertarget{classBenchmarkExt_ab04058d86f083b514773494c17593c0b}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!timer\+\_\+@{timer\+\_\+}}
+\index{timer\+\_\+@{timer\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{timer\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ {\bf Timer} {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::timer\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_ab04058d86f083b514773494c17593c0b}
+\hypertarget{classBenchmarkExt_ae5e33ddbac604a0ada9c6e95f2d6341d}{}\index{Benchmark\+Ext@{Benchmark\+Ext}!times\+\_\+@{times\+\_\+}}
+\index{times\+\_\+@{times\+\_\+}!Benchmark\+Ext@{Benchmark\+Ext}}
+\subsubsection[{times\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+parameter  = unsigned$>$ {\bf Matrix}$<$double,{\bf Row\+Major}$>$ {\bf Benchmark\+Ext}$<$ P\+\_\+parameter $>$\+::times\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{classBenchmarkExt_ae5e33ddbac604a0ada9c6e95f2d6341d}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/\hyperlink{benchext_8h}{benchext.\+h}\item 
+packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/\hyperlink{benchext_8cc}{benchext.\+cc}\end{DoxyCompactItemize}

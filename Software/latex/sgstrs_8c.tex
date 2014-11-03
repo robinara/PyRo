@@ -1,0 +1,190 @@
+\hypertarget{sgstrs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sgstrs.c File Reference}
+\label{sgstrs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sgstrs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sgstrs.\+c}}
+
+
+Solves a system using L\+U factorization.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sgstrs_8c_a25ea48f4f948c68a423f5bd3929e3c1f}{susolve} (int, int, float $\ast$, float $\ast$)
+\item 
+void \hyperlink{sgstrs_8c_aa8bbeb2abbd5a10ac13fa9b48504691c}{slsolve} (int, int, float $\ast$, float $\ast$)
+\item 
+void \hyperlink{sgstrs_8c_ab452e957171a4d0d9cfe6abb3d8a950c}{smatvec} (int, int, int, float $\ast$, float $\ast$, float $\ast$)
+\item 
+void \hyperlink{sgstrs_8c_a9b6e1e555af9cf109ef3a584054a91e2}{sgstrs} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62}{trans\+\_\+t} trans, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, int $\ast$perm\+\_\+c, int $\ast$perm\+\_\+r, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$B, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat, int $\ast$info)
+\item 
+void \hyperlink{sgstrs_8c_ad582f185cce067a3f9dd4225248af758}{sprint\+\_\+soln} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nrhs, float $\ast$soln)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Solves a system using L\+U factorization. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Permission is hereby granted to use or copy this program for any
+purpose, provided the above notices are retained on all copies.
+Permission to modify the code and to distribute modified code is
+granted, provided the above notices are retained, and a notice that
+the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{sgstrs_8c_a9b6e1e555af9cf109ef3a584054a91e2}{}\index{sgstrs.\+c@{sgstrs.\+c}!sgstrs@{sgstrs}}
+\index{sgstrs@{sgstrs}!sgstrs.\+c@{sgstrs.\+c}}
+\subsubsection[{sgstrs}]{\setlength{\rightskip}{0pt plus 5cm}void sgstrs (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\+\_\+t}}]{trans, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{sgstrs_8c_a9b6e1e555af9cf109ef3a584054a91e2}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}SGSTRS solves a system of linear equations A*X=B or \hyperlink{classA}{A}'*X=B
+with \hyperlink{classA}{A} sparse and B dense, using the LU factorization computed by
+SGSTRF.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}trans   (input) trans\_t
+         Specifies the form of the system of equations:
+         = NOTRANS: \hyperlink{classA}{A} * X = B  (No transpose)
+         = TRANS:   \hyperlink{classA}{A}'* X = B  (Transpose)
+         = CONJ:    A**H * X = B  (Conjugate transpose)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L       (input) SuperMatrix*
+        The factor L from the factorization Pr*A*Pc=L*U as computed by
+        \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf()}. Use compressed row subscripts storage for supernodes,
+        i.e., L has types: Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U       (input) SuperMatrix*
+        The factor U from the factorization Pr*A*Pc=L*U as computed by
+        \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf()}. Use column-wise storage scheme, i.e., U has types:
+        Stype = SLU\_NC, Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (input) int*, dimension (L->ncol)
+    Column permutation vector, which defines the 
+        permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+        in position j in A*Pc.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_r  (input) int*, dimension (L->nrow)
+        Row permutation vector, which defines the permutation matrix Pr; 
+        perm\_r[i] = j means row i of \hyperlink{classA}{A} is in position j in Pr*A.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}B       (input/output) SuperMatrix*
+        B has types: Stype = SLU\_DN, Dtype = SLU\_S, Mtype = SLU\_GE.
+        On entry, the right hand side matrix.
+        On exit, the solution matrix if info = 0;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}stat     (output) SuperLUStat\_t*
+         Record the statistics on runtime and floating-point operation count.
+         See util.h for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}info    (output) int*
+       = 0: successful exit
+    < 0: if info = -i, the i-th argument had an illegal value
+\end{DoxyPre}
+ \hypertarget{sgstrs_8c_aa8bbeb2abbd5a10ac13fa9b48504691c}{}\index{sgstrs.\+c@{sgstrs.\+c}!slsolve@{slsolve}}
+\index{slsolve@{slsolve}!sgstrs.\+c@{sgstrs.\+c}}
+\subsubsection[{slsolve}]{\setlength{\rightskip}{0pt plus 5cm}void slsolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{sgstrs_8c_aa8bbeb2abbd5a10ac13fa9b48504691c}
+\hypertarget{sgstrs_8c_ab452e957171a4d0d9cfe6abb3d8a950c}{}\index{sgstrs.\+c@{sgstrs.\+c}!smatvec@{smatvec}}
+\index{smatvec@{smatvec}!sgstrs.\+c@{sgstrs.\+c}}
+\subsubsection[{smatvec}]{\setlength{\rightskip}{0pt plus 5cm}void smatvec (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{sgstrs_8c_ab452e957171a4d0d9cfe6abb3d8a950c}
+\hypertarget{sgstrs_8c_ad582f185cce067a3f9dd4225248af758}{}\index{sgstrs.\+c@{sgstrs.\+c}!sprint\+\_\+soln@{sprint\+\_\+soln}}
+\index{sprint\+\_\+soln@{sprint\+\_\+soln}!sgstrs.\+c@{sgstrs.\+c}}
+\subsubsection[{sprint\+\_\+soln}]{\setlength{\rightskip}{0pt plus 5cm}void sprint\+\_\+soln (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{nrhs, }
+\item[{float $\ast$}]{soln}
+\end{DoxyParamCaption}
+)}\label{sgstrs_8c_ad582f185cce067a3f9dd4225248af758}
+\hypertarget{sgstrs_8c_a25ea48f4f948c68a423f5bd3929e3c1f}{}\index{sgstrs.\+c@{sgstrs.\+c}!susolve@{susolve}}
+\index{susolve@{susolve}!sgstrs.\+c@{sgstrs.\+c}}
+\subsubsection[{susolve}]{\setlength{\rightskip}{0pt plus 5cm}void susolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{sgstrs_8c_a25ea48f4f948c68a423f5bd3929e3c1f}

@@ -1,0 +1,144 @@
+\hypertarget{launcher_8c}{}\section{packages/pypa-\/setuptools-\/f35c107404b4/launcher.c File Reference}
+\label{launcher_8c}\index{packages/pypa-\/setuptools-\/f35c107404b4/launcher.\+c@{packages/pypa-\/setuptools-\/f35c107404b4/launcher.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$windows.\+h$>$}\\*
+{\ttfamily \#include $<$tchar.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail} (char $\ast$format, char $\ast$data)
+\item 
+char $\ast$ \hyperlink{launcher_8c_adeda2fdbbc730fb4efca737e837a9801}{quoted} (char $\ast$data)
+\item 
+char $\ast$ \hyperlink{launcher_8c_aec4466c919252d2e6cf59355f28852cd}{loadable\+\_\+exe} (char $\ast$exename)
+\item 
+char $\ast$ \hyperlink{launcher_8c_aca21f7f2a095baf62f95e7172895c813}{find\+\_\+exe} (char $\ast$exename, char $\ast$script)
+\item 
+char $\ast$$\ast$ \hyperlink{launcher_8c_a2317a63d72c44435fa8f30b12a3e0dba}{parse\+\_\+argv} (char $\ast$cmdline, int $\ast$argc)
+\item 
+void \hyperlink{launcher_8c_a9562424e1d6364ee643edeb93ddee117}{pass\+\_\+control\+\_\+to\+\_\+child} (D\+W\+O\+R\+D control\+\_\+type)
+\item 
+B\+O\+O\+L \hyperlink{launcher_8c_a21d7ac4293a76f0575f33a9095e60ca2}{control\+\_\+handler} (D\+W\+O\+R\+D control\+\_\+type)
+\item 
+int \hyperlink{launcher_8c_a4a4f8658030fa64e158c50d7c94f1626}{create\+\_\+and\+\_\+wait\+\_\+for\+\_\+subprocess} (char $\ast$command)
+\item 
+char $\ast$ \hyperlink{launcher_8c_a2d0f9260462a499c7da84c76f956a306}{join\+\_\+executable\+\_\+and\+\_\+args} (char $\ast$executable, char $\ast$$\ast$args, int argc)
+\item 
+int \hyperlink{launcher_8c_afc9dc0966bae283062b8562ca56d5409}{run} (int argc, char $\ast$$\ast$argv, int is\+\_\+gui)
+\item 
+int W\+I\+N\+A\+P\+I \hyperlink{launcher_8c_a5e34df9e8bc9bd5f48b216e47157fbd2}{Win\+Main} (H\+I\+N\+S\+T\+A\+N\+C\+E h\+I, H\+I\+N\+S\+T\+A\+N\+C\+E h\+P, L\+P\+S\+T\+R lp\+Cmd, int n\+Show)
+\item 
+int \hyperlink{launcher_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{launcher_8c_ad87735e70fc41093acf35f03b55ca4b0}{child\+\_\+pid} =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{launcher_8c_a21d7ac4293a76f0575f33a9095e60ca2}{}\index{launcher.\+c@{launcher.\+c}!control\+\_\+handler@{control\+\_\+handler}}
+\index{control\+\_\+handler@{control\+\_\+handler}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{control\+\_\+handler}]{\setlength{\rightskip}{0pt plus 5cm}B\+O\+O\+L control\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{D\+W\+O\+R\+D}]{control\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_a21d7ac4293a76f0575f33a9095e60ca2}
+\hypertarget{launcher_8c_a4a4f8658030fa64e158c50d7c94f1626}{}\index{launcher.\+c@{launcher.\+c}!create\+\_\+and\+\_\+wait\+\_\+for\+\_\+subprocess@{create\+\_\+and\+\_\+wait\+\_\+for\+\_\+subprocess}}
+\index{create\+\_\+and\+\_\+wait\+\_\+for\+\_\+subprocess@{create\+\_\+and\+\_\+wait\+\_\+for\+\_\+subprocess}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{create\+\_\+and\+\_\+wait\+\_\+for\+\_\+subprocess}]{\setlength{\rightskip}{0pt plus 5cm}int create\+\_\+and\+\_\+wait\+\_\+for\+\_\+subprocess (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_a4a4f8658030fa64e158c50d7c94f1626}
+\hypertarget{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{}\index{launcher.\+c@{launcher.\+c}!fail@{fail}}
+\index{fail@{fail}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{fail}]{\setlength{\rightskip}{0pt plus 5cm}int fail (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{format, }
+\item[{char $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}
+\hypertarget{launcher_8c_aca21f7f2a095baf62f95e7172895c813}{}\index{launcher.\+c@{launcher.\+c}!find\+\_\+exe@{find\+\_\+exe}}
+\index{find\+\_\+exe@{find\+\_\+exe}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{find\+\_\+exe}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ find\+\_\+exe (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{exename, }
+\item[{char $\ast$}]{script}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_aca21f7f2a095baf62f95e7172895c813}
+\hypertarget{launcher_8c_a2d0f9260462a499c7da84c76f956a306}{}\index{launcher.\+c@{launcher.\+c}!join\+\_\+executable\+\_\+and\+\_\+args@{join\+\_\+executable\+\_\+and\+\_\+args}}
+\index{join\+\_\+executable\+\_\+and\+\_\+args@{join\+\_\+executable\+\_\+and\+\_\+args}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{join\+\_\+executable\+\_\+and\+\_\+args}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ join\+\_\+executable\+\_\+and\+\_\+args (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{executable, }
+\item[{char $\ast$$\ast$}]{args, }
+\item[{int}]{argc}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_a2d0f9260462a499c7da84c76f956a306}
+\hypertarget{launcher_8c_aec4466c919252d2e6cf59355f28852cd}{}\index{launcher.\+c@{launcher.\+c}!loadable\+\_\+exe@{loadable\+\_\+exe}}
+\index{loadable\+\_\+exe@{loadable\+\_\+exe}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{loadable\+\_\+exe}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ loadable\+\_\+exe (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{exename}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_aec4466c919252d2e6cf59355f28852cd}
+\hypertarget{launcher_8c_a3c04138a5bfe5d72780bb7e82a18e627}{}\index{launcher.\+c@{launcher.\+c}!main@{main}}
+\index{main@{main}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_a3c04138a5bfe5d72780bb7e82a18e627}
+\hypertarget{launcher_8c_a2317a63d72c44435fa8f30b12a3e0dba}{}\index{launcher.\+c@{launcher.\+c}!parse\+\_\+argv@{parse\+\_\+argv}}
+\index{parse\+\_\+argv@{parse\+\_\+argv}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{parse\+\_\+argv}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ parse\+\_\+argv (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{cmdline, }
+\item[{int $\ast$}]{argc}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_a2317a63d72c44435fa8f30b12a3e0dba}
+\hypertarget{launcher_8c_a9562424e1d6364ee643edeb93ddee117}{}\index{launcher.\+c@{launcher.\+c}!pass\+\_\+control\+\_\+to\+\_\+child@{pass\+\_\+control\+\_\+to\+\_\+child}}
+\index{pass\+\_\+control\+\_\+to\+\_\+child@{pass\+\_\+control\+\_\+to\+\_\+child}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{pass\+\_\+control\+\_\+to\+\_\+child}]{\setlength{\rightskip}{0pt plus 5cm}void pass\+\_\+control\+\_\+to\+\_\+child (
+\begin{DoxyParamCaption}
+\item[{D\+W\+O\+R\+D}]{control\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_a9562424e1d6364ee643edeb93ddee117}
+\hypertarget{launcher_8c_adeda2fdbbc730fb4efca737e837a9801}{}\index{launcher.\+c@{launcher.\+c}!quoted@{quoted}}
+\index{quoted@{quoted}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{quoted}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ quoted (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_adeda2fdbbc730fb4efca737e837a9801}
+\hypertarget{launcher_8c_afc9dc0966bae283062b8562ca56d5409}{}\index{launcher.\+c@{launcher.\+c}!run@{run}}
+\index{run@{run}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}int run (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv, }
+\item[{int}]{is\+\_\+gui}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_afc9dc0966bae283062b8562ca56d5409}
+\hypertarget{launcher_8c_a5e34df9e8bc9bd5f48b216e47157fbd2}{}\index{launcher.\+c@{launcher.\+c}!Win\+Main@{Win\+Main}}
+\index{Win\+Main@{Win\+Main}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{Win\+Main}]{\setlength{\rightskip}{0pt plus 5cm}int W\+I\+N\+A\+P\+I Win\+Main (
+\begin{DoxyParamCaption}
+\item[{H\+I\+N\+S\+T\+A\+N\+C\+E}]{h\+I, }
+\item[{H\+I\+N\+S\+T\+A\+N\+C\+E}]{h\+P, }
+\item[{L\+P\+S\+T\+R}]{lp\+Cmd, }
+\item[{int}]{n\+Show}
+\end{DoxyParamCaption}
+)}\label{launcher_8c_a5e34df9e8bc9bd5f48b216e47157fbd2}
+
+
+\subsection{Variable Documentation}
+\hypertarget{launcher_8c_ad87735e70fc41093acf35f03b55ca4b0}{}\index{launcher.\+c@{launcher.\+c}!child\+\_\+pid@{child\+\_\+pid}}
+\index{child\+\_\+pid@{child\+\_\+pid}!launcher.\+c@{launcher.\+c}}
+\subsubsection[{child\+\_\+pid}]{\setlength{\rightskip}{0pt plus 5cm}int child\+\_\+pid =0}\label{launcher_8c_ad87735e70fc41093acf35f03b55ca4b0}

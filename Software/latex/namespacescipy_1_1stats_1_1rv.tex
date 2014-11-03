@@ -1,0 +1,80 @@
+\hypertarget{namespacescipy_1_1stats_1_1rv}{}\section{scipy.\+stats.\+rv Namespace Reference}
+\label{namespacescipy_1_1stats_1_1rv}\index{scipy.\+stats.\+rv@{scipy.\+stats.\+rv}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1stats_1_1rv_a98aa6952095c285ea143c28e26b0b5aa}{randwppf}
+\begin{DoxyCompactList}\small\item\em General purpose continuous. \end{DoxyCompactList}\item 
+def \hyperlink{namespacescipy_1_1stats_1_1rv_a4082a2535e9af6917c06d3d7fffea91c}{randwcdf}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1stats_1_1rv_a18083c1fd557047ee83ecbb055ee84d7}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1stats_1_1rv_a98aa6952095c285ea143c28e26b0b5aa}{randwppf}', '\hyperlink{namespacescipy_1_1stats_1_1rv_a4082a2535e9af6917c06d3d7fffea91c}{randwcdf}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1stats_1_1rv_a4082a2535e9af6917c06d3d7fffea91c}{}\index{scipy\+::stats\+::rv@{scipy\+::stats\+::rv}!randwcdf@{randwcdf}}
+\index{randwcdf@{randwcdf}!scipy\+::stats\+::rv@{scipy\+::stats\+::rv}}
+\subsubsection[{randwcdf}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+rv.\+randwcdf (
+\begin{DoxyParamCaption}
+\item[{}]{cdf, }
+\item[{}]{mean = {\ttfamily 1.0}, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{size = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1stats_1_1rv_a4082a2535e9af6917c06d3d7fffea91c}
+\begin{DoxyVerb}Returns an array of randomly distributed integers given a CDF.
+
+Given a cumulative distribution function (CDF) returns an array of
+randomly distributed integers that would satisfy the CDF.
+
+Parameters
+----------
+cdf : function
+    CDF function that accepts a single value and `args`, and returns
+    an single value.
+mean : float, optional
+    The mean of the distribution which helps the solver.  Defaults
+    to 1.0.
+args : tuple, optional
+    Extra arguments to the cdf function (i.e. shape, location, scale)
+size : {int, None}, optional
+    Is the size of the output.  If None, only 1 value will be returned.
+
+Returns
+-------
+randwcdf : ndarray
+    Array of random numbers.
+
+Notes
+-----
+Can use the ``scipy.stats.distributions.*.cdf`` functions for the
+`cdf` parameter.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1stats_1_1rv_a98aa6952095c285ea143c28e26b0b5aa}{}\index{scipy\+::stats\+::rv@{scipy\+::stats\+::rv}!randwppf@{randwppf}}
+\index{randwppf@{randwppf}!scipy\+::stats\+::rv@{scipy\+::stats\+::rv}}
+\subsubsection[{randwppf}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+rv.\+randwppf (
+\begin{DoxyParamCaption}
+\item[{}]{ppf, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{size = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1stats_1_1rv_a98aa6952095c285ea143c28e26b0b5aa}
+
+
+General purpose continuous. 
+
+\begin{DoxyVerb}returns an array of randomly distributed integers of a distribution
+whose percent point function (inverse of the CDF or quantile function)
+is given.
+
+args is a tuple of extra arguments to the ppf function (i.e. shape,
+location, scale), and size is the size of the output.  Note the ppf
+function must accept an array of q values to compute over.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1stats_1_1rv_a18083c1fd557047ee83ecbb055ee84d7}{}\index{scipy\+::stats\+::rv@{scipy\+::stats\+::rv}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::stats\+::rv@{scipy\+::stats\+::rv}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+stats.\+rv.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf randwppf}', '{\bf randwcdf}'\mbox{]}}\label{namespacescipy_1_1stats_1_1rv_a18083c1fd557047ee83ecbb055ee84d7}

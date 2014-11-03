@@ -1,0 +1,185 @@
+\hypertarget{ssp__blas3_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ssp\+\_\+blas3.c File Reference}
+\label{ssp__blas3_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ssp\+\_\+blas3.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ssp\+\_\+blas3.\+c}}
+
+
+Sparse B\+L\+A\+S3, using some dense B\+L\+A\+S3 operations.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ssp__blas3_8c_a4922193147765a6b36d753e5db65a268}{sp\+\_\+sgemm} (char $\ast$transa, char $\ast$transb, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int \hyperlink{indexexpr_8h_abb72938a198351550846b37a84588b63}{k}, float alpha, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, float $\ast$\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}, int ldb, float \hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, float $\ast$c, int ldc)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sparse B\+L\+A\+S3, using some dense B\+L\+A\+S3 operations. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{ssp__blas3_8c_a4922193147765a6b36d753e5db65a268}{}\index{ssp\+\_\+blas3.\+c@{ssp\+\_\+blas3.\+c}!sp\+\_\+sgemm@{sp\+\_\+sgemm}}
+\index{sp\+\_\+sgemm@{sp\+\_\+sgemm}!ssp\+\_\+blas3.\+c@{ssp\+\_\+blas3.\+c}}
+\subsubsection[{sp\+\_\+sgemm}]{\setlength{\rightskip}{0pt plus 5cm}int sp\+\_\+sgemm (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{transa, }
+\item[{char $\ast$}]{transb, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{k, }
+\item[{float}]{alpha, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{float $\ast$}]{b, }
+\item[{int}]{ldb, }
+\item[{float}]{beta, }
+\item[{float $\ast$}]{c, }
+\item[{int}]{ldc}
+\end{DoxyParamCaption}
+)}\label{ssp__blas3_8c_a4922193147765a6b36d753e5db65a268}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  sp\_s performs one of the matrix-matrix operations\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     C := alpha*op( \hyperlink{classA}{A} )*op( B ) + beta*C,\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  where  op( X ) is one of\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     op( X ) = X   or   op( X ) = X'   or   op( X ) = conjg( X' ),\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  alpha and beta are scalars, and \hyperlink{classA}{A}, B and C are matrices, with op( A ) 
+  an m by k matrix,  op( B )  a  k by n matrix and  C an m by n matrix.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Parameters   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  TRANSA - (input) char*
+           On entry, TRANSA specifies the form of op( A ) to be used in 
+           the matrix multiplication as follows:   
+              TRANSA = 'N' or 'n',  op( A ) = \hyperlink{classA}{A}.   
+              TRANSA = 'T' or 't',  op( A ) = \hyperlink{classA}{A}'.   
+              TRANSA = 'C' or 'c',  op( A ) = conjg( \hyperlink{classA}{A}' ).   
+           Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  TRANSB - (input) char*
+           On entry, TRANSB specifies the form of op( B ) to be used in 
+           the matrix multiplication as follows:   
+              TRANSB = 'N' or 'n',  op( B ) = B.   
+              TRANSB = 'T' or 't',  op( B ) = B'.   
+              TRANSB = 'C' or 'c',  op( B ) = conjg( B' ).   
+           Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  M      - (input) int   
+           On entry,  M  specifies  the number of rows of the matrix 
+      op( A ) and of the matrix C.  M must be at least zero. 
+      Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  N      - (input) int
+           On entry,  N specifies the number of columns of the matrix 
+      op( B ) and the number of columns of the matrix C. N must be 
+      at least zero.
+      Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  K      - (input) int
+           On entry, K specifies the number of columns of the matrix 
+      op( A ) and the number of rows of the matrix op( B ). K must 
+      be at least  zero.   
+          Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ALPHA  - (input) float
+           On entry, ALPHA specifies the scalar alpha.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A}      - (input) SuperMatrix*
+           \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} with a sparse format, of dimension (A->nrow, A->ncol).
+           Currently, the type of \hyperlink{classA}{A} can be:
+               Stype = NC or NCP; Dtype = SLU\_S; Mtype = GE. 
+           In the future, more general \hyperlink{classA}{A} can be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  B      - FLOAT PRECISION array of DIMENSION ( LDB, kb ), where kb is 
+           n when TRANSB = 'N' or 'n',  and is  k otherwise.   
+           Before entry with  TRANSB = 'N' or 'n',  the leading k by n 
+           part of the array B must contain the matrix B, otherwise 
+           the leading n by k part of the array B must contain the 
+           matrix B.   
+           Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  LDB    - (input) int
+           On entry, LDB specifies the first dimension of B as declared 
+           in the calling (sub) program. LDB must be at least \hyperlink{slamch_8c_affe776513b24d84b39af8ab0930fef7f}{max( 1, n )}.  
+           Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  BETA   - (input) float
+           On entry, BETA specifies the scalar beta. When BETA is   
+           supplied as zero then C need not be set on input.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  C      - FLOAT PRECISION array of DIMENSION ( LDC, n ).   
+           Before entry, the leading m by n part of the array C must 
+           contain the matrix C,  except when beta is zero, in which 
+           case C need not be set on entry.   
+           On exit, the array C is overwritten by the m by n matrix 
+      ( alpha*op( \hyperlink{classA}{A} )*B + beta*C ).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  LDC    - (input) int
+           On entry, LDC specifies the first dimension of C as declared 
+           in the calling (sub)program. LDC must be at least \hyperlink{slamch_8c_affe776513b24d84b39af8ab0930fef7f}{max(1,m)}.   
+           Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ==== Sparse Level 3 Blas routine.   
+\end{DoxyPre}
+ 

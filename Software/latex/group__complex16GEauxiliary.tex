@@ -1,0 +1,482 @@
+\hypertarget{group__complex16GEauxiliary}{}\section{complex16}
+\label{group__complex16GEauxiliary}\index{complex16@{complex16}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{group__complex16GEauxiliary_ga9adcef3bc45139ea3693275252880c29}{zgesc2} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, R\+H\+S, I\+P\+I\+V, J\+P\+I\+V, S\+C\+A\+L\+E)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+G\+E\+S\+C2} solves a system of linear equations using the L\+U factorization with complete pivoting computed by sgetc2. \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex16GEauxiliary_gae5d1dc8c626b248e836d865f428aa399}{zgetc2} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+P\+I\+V, J\+P\+I\+V, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+G\+E\+T\+C2} computes the L\+U factorization with complete pivoting of the general n-\/by-\/n matrix. \end{DoxyCompactList}\item 
+double \hyperlink{numinquire_8h_a2c8e616467665d0b2814d4c1589ba74e}{precision} \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{group__complex16GEauxiliary_ga7908bb12a6f02dbfa4d5a92a27c0e9b7}{zlange} (N\+O\+R\+M, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+N\+G\+E} returns the value of the 1-\/norm, Frobenius norm, infinity-\/norm, or the largest absolute value of any element of a general rectangular matrix. \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex16GEauxiliary_gad847103d204693cb8b9356ff7adfb9b1}{zlaqge} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, R, C, R\+O\+W\+C\+N\+D, C\+O\+L\+C\+N\+D, A\+M\+A\+X, E\+Q\+U\+E\+D)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+Q\+G\+E} scales a general rectangular matrix, using row and column scaling factors computed by sgeequ. \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex16GEauxiliary_ga9b8dc8981846f349260173092928b059}{ztgex2} (W\+A\+N\+T\+Q, W\+A\+N\+T\+Z, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, Q, L\+D\+Q, Z, L\+D\+Z, J1, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+T\+G\+E\+X2} swaps adjacent diagonal blocks in an upper (quasi) triangular matrix pair by an unitary equivalence transformation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of complex16 auxiliary functions for G\+E matrices 
+
+\subsection{Function Documentation}
+\hypertarget{group__complex16GEauxiliary_ga9adcef3bc45139ea3693275252880c29}{}\index{complex16@{complex16}!zgesc2@{zgesc2}}
+\index{zgesc2@{zgesc2}!complex16@{complex16}}
+\subsubsection[{zgesc2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zgesc2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{R\+H\+S, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{integer, dimension( $\ast$ )}]{J\+P\+I\+V, }
+\item[{double {\bf precision}}]{S\+C\+A\+L\+E}
+\end{DoxyParamCaption}
+)}\label{group__complex16GEauxiliary_ga9adcef3bc45139ea3693275252880c29}
+
+
+{\bfseries Z\+G\+E\+S\+C2} solves a system of linear equations using the L\+U factorization with complete pivoting computed by sgetc2. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZGESC2 solves a system of linear equations
+
+           A * X = scale* RHS
+
+ with a general N-by-N matrix A using the LU factorization with
+ complete pivoting computed by ZGETC2.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA, N)
+          On entry, the  LU part of the factorization of the n-by-n
+          matrix A computed by ZGETC2:  A = P * L * U * Q\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1, N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em R\+H\+S} & \begin{DoxyVerb}          RHS is COMPLEX*16 array, dimension N.
+          On entry, the right hand side vector b.
+          On exit, the solution vector X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N).
+          The pivot indices; for 1 <= i <= N, row i of the
+          matrix has been interchanged with row IPIV(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J\+P\+I\+V} & \begin{DoxyVerb}          JPIV is INTEGER array, dimension (N).
+          The pivot indices; for 1 <= j <= N, column j of the
+          matrix has been interchanged with column JPIV(j).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+C\+A\+L\+E} & \begin{DoxyVerb}          SCALE is DOUBLE PRECISION
+           On exit, SCALE contains the scale factor. SCALE is chosen
+           0 <= SCALE <= 1 to prevent owerflow in the solution.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Bo Kagstrom and Peter Poromaa, Department of Computing Science, Umea University, S-\/901 87 Umea, Sweden. 
+\end{DoxyParagraph}
+\hypertarget{group__complex16GEauxiliary_gae5d1dc8c626b248e836d865f428aa399}{}\index{complex16@{complex16}!zgetc2@{zgetc2}}
+\index{zgetc2@{zgetc2}!complex16@{complex16}}
+\subsubsection[{zgetc2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zgetc2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{integer, dimension( $\ast$ )}]{J\+P\+I\+V, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complex16GEauxiliary_gae5d1dc8c626b248e836d865f428aa399}
+
+
+{\bfseries Z\+G\+E\+T\+C2} computes the L\+U factorization with complete pivoting of the general n-\/by-\/n matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZGETC2 computes an LU factorization, using complete pivoting, of the
+ n-by-n matrix A. The factorization has the form A = P * L * U * Q,
+ where P and Q are permutation matrices, L is lower triangular with
+ unit diagonal elements and U is upper triangular.
+
+ This is a level 1 BLAS version of the algorithm.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA, N)
+          On entry, the n-by-n matrix to be factored.
+          On exit, the factors L and U from the factorization
+          A = P*L*U*Q; the unit diagonal elements of L are not stored.
+          If U(k, k) appears to be less than SMIN, U(k, k) is given the
+          value of SMIN, giving a nonsingular perturbed system.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1, N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N).
+          The pivot indices; for 1 <= i <= N, row i of the
+          matrix has been interchanged with row IPIV(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em J\+P\+I\+V} & \begin{DoxyVerb}          JPIV is INTEGER array, dimension (N).
+          The pivot indices; for 1 <= j <= N, column j of the
+          matrix has been interchanged with column JPIV(j).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+           = 0: successful exit
+           > 0: if INFO = k, U(k, k) is likely to produce overflow if
+                one tries to solve for x in Ax = b. So U is perturbed
+                to avoid the overflow.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2013 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Bo Kagstrom and Peter Poromaa, Department of Computing Science, Umea University, S-\/901 87 Umea, Sweden. 
+\end{DoxyParagraph}
+\hypertarget{group__complex16GEauxiliary_ga7908bb12a6f02dbfa4d5a92a27c0e9b7}{}\index{complex16@{complex16}!zlange@{zlange}}
+\index{zlange@{zlange}!complex16@{complex16}}
+\subsubsection[{zlange}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf precision} {\bf function} zlange (
+\begin{DoxyParamCaption}
+\item[{character}]{N\+O\+R\+M, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{group__complex16GEauxiliary_ga7908bb12a6f02dbfa4d5a92a27c0e9b7}
+
+
+{\bfseries Z\+L\+A\+N\+G\+E} returns the value of the 1-\/norm, Frobenius norm, infinity-\/norm, or the largest absolute value of any element of a general rectangular matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLANGE  returns the value of the one norm,  or the Frobenius norm, or
+ the  infinity norm,  or the  element of  largest absolute value  of a
+ complex matrix A.\end{DoxyVerb}
+
+\end{DoxyParagraph}
+\begin{DoxyReturn}{Returns}
+Z\+L\+A\+N\+G\+E \begin{DoxyVerb}    ZLANGE = ( max(abs(A(i,j))), NORM = 'M' or 'm'
+             (
+             ( norm1(A),         NORM = '1', 'O' or 'o'
+             (
+             ( normI(A),         NORM = 'I' or 'i'
+             (
+             ( normF(A),         NORM = 'F', 'f', 'E' or 'e'
+
+ where  norm1  denotes the  one norm of a matrix (maximum column sum),
+ normI  denotes the  infinity norm  of a matrix  (maximum row sum) and
+ normF  denotes the  Frobenius norm of a matrix (square root of sum of
+ squares).  Note that  max(abs(A(i,j)))  is not a consistent matrix norm.\end{DoxyVerb}
+ 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N\+O\+R\+M} & \begin{DoxyVerb}          NORM is CHARACTER*1
+          Specifies the value to be returned in ZLANGE as described
+          above.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A.  M >= 0.  When M = 0,
+          ZLANGE is set to zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A.  N >= 0.  When N = 0,
+          ZLANGE is set to zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          The m by n matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(M,1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
+          where LWORK >= M when NORM = 'I'; otherwise, WORK is not
+          referenced.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complex16GEauxiliary_gad847103d204693cb8b9356ff7adfb9b1}{}\index{complex16@{complex16}!zlaqge@{zlaqge}}
+\index{zlaqge@{zlaqge}!complex16@{complex16}}
+\subsubsection[{zlaqge}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlaqge (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{C, }
+\item[{double {\bf precision}}]{R\+O\+W\+C\+N\+D, }
+\item[{double {\bf precision}}]{C\+O\+L\+C\+N\+D, }
+\item[{double {\bf precision}}]{A\+M\+A\+X, }
+\item[{character}]{E\+Q\+U\+E\+D}
+\end{DoxyParamCaption}
+)}\label{group__complex16GEauxiliary_gad847103d204693cb8b9356ff7adfb9b1}
+
+
+{\bfseries Z\+L\+A\+Q\+G\+E} scales a general rectangular matrix, using row and column scaling factors computed by sgeequ. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLAQGE equilibrates a general M by N matrix A using the row and
+ column scaling factors in the vectors R and C.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A.  M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the M by N matrix A.
+          On exit, the equilibrated matrix.  See EQUED for the form of
+          the equilibrated matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(M,1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R} & \begin{DoxyVerb}          R is DOUBLE PRECISION array, dimension (M)
+          The row scale factors for A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array, dimension (N)
+          The column scale factors for A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+O\+W\+C\+N\+D} & \begin{DoxyVerb}          ROWCND is DOUBLE PRECISION
+          Ratio of the smallest R(i) to the largest R(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+O\+L\+C\+N\+D} & \begin{DoxyVerb}          COLCND is DOUBLE PRECISION
+          Ratio of the smallest C(i) to the largest C(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+M\+A\+X} & \begin{DoxyVerb}          AMAX is DOUBLE PRECISION
+          Absolute value of largest matrix entry.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em E\+Q\+U\+E\+D} & \begin{DoxyVerb}          EQUED is CHARACTER*1
+          Specifies the form of equilibration that was done.
+          = 'N':  No equilibration
+          = 'R':  Row equilibration, i.e., A has been premultiplied by
+                  diag(R).
+          = 'C':  Column equilibration, i.e., A has been postmultiplied
+                  by diag(C).
+          = 'B':  Both row and column equilibration, i.e., A has been
+                  replaced by diag(R) * A * diag(C).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  THRESH is a threshold value used to decide if row or column scaling
+  should be done based on the ratio of the row or column scaling
+  factors.  If ROWCND < THRESH, row scaling is done, and if
+  COLCND < THRESH, column scaling is done.
+
+  LARGE and SMALL are threshold values used to decide if row scaling
+  should be done based on the absolute size of the largest matrix
+  element.  If AMAX > LARGE or AMAX < SMALL, row scaling is done.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complex16GEauxiliary_ga9b8dc8981846f349260173092928b059}{}\index{complex16@{complex16}!ztgex2@{ztgex2}}
+\index{ztgex2@{ztgex2}!complex16@{complex16}}
+\subsubsection[{ztgex2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ztgex2 (
+\begin{DoxyParamCaption}
+\item[{{\bf logical}}]{W\+A\+N\+T\+Q, }
+\item[{{\bf logical}}]{W\+A\+N\+T\+Z, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{{\bf complex}$\ast$16, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{{\bf complex}$\ast$16, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{integer}]{J1, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complex16GEauxiliary_ga9b8dc8981846f349260173092928b059}
+
+
+{\bfseries Z\+T\+G\+E\+X2} swaps adjacent diagonal blocks in an upper (quasi) triangular matrix pair by an unitary equivalence transformation. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZTGEX2 swaps adjacent diagonal 1 by 1 blocks (A11,B11) and (A22,B22)
+ in an upper triangular matrix pair (A, B) by an unitary equivalence
+ transformation.
+
+ (A, B) must be in generalized Schur canonical form, that is, A and
+ B are both upper triangular.
+
+ Optionally, the matrices Q and Z of generalized Schur vectors are
+ updated.
+
+        Q(in) * A(in) * Z(in)**H = Q(out) * A(out) * Z(out)**H
+        Q(in) * B(in) * Z(in)**H = Q(out) * B(out) * Z(out)**H\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em W\+A\+N\+T\+Q} & \begin{DoxyVerb}          WANTQ is LOGICAL
+          .TRUE. : update the left transformation matrix Q;
+          .FALSE.: do not update Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W\+A\+N\+T\+Z} & \begin{DoxyVerb}          WANTZ is LOGICAL
+          .TRUE. : update the right transformation matrix Z;
+          .FALSE.: do not update Z.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrices A and B. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 arrays, dimensions (LDA,N)
+          On entry, the matrix A in the pair (A, B).
+          On exit, the updated matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A. LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX*16 arrays, dimensions (LDB,N)
+          On entry, the matrix B in the pair (A, B).
+          On exit, the updated matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B. LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q} & \begin{DoxyVerb}          Q is COMPLEX*16 array, dimension (LDZ,N)
+          If WANTQ = .TRUE, on entry, the unitary matrix Q. On exit,
+          the updated matrix Q.
+          Not referenced if WANTQ = .FALSE..\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+          The leading dimension of the array Q. LDQ >= 1;
+          If WANTQ = .TRUE., LDQ >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Z} & \begin{DoxyVerb}          Z is COMPLEX*16 array, dimension (LDZ,N)
+          If WANTZ = .TRUE, on entry, the unitary matrix Z. On exit,
+          the updated matrix Z.
+          Not referenced if WANTZ = .FALSE..\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z. LDZ >= 1;
+          If WANTZ = .TRUE., LDZ >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J1} & \begin{DoxyVerb}          J1 is INTEGER
+          The index to the first block (A11, B11).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+           =0:  Successful exit.
+           =1:  The transformed matrix pair (A, B) would be too far
+                from generalized Schur form; the problem is ill-
+                conditioned. \end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+In the current code both weak and strong stability tests are performed. The user can omit the strong stability test by changing the internal logical parameter W\+A\+N\+D\+S to .F\+A\+L\+S\+E.. See ref. \mbox{[}2\mbox{]} for details. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Contributors\+: }
+Bo Kagstrom and Peter Poromaa, Department of Computing Science, Umea University, S-\/901 87 Umea, Sweden. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{References\+: }
+\mbox{[}1\mbox{]} B. Kagstrom; \hyperlink{classA}{A} Direct Method for Reordering Eigenvalues in the Generalized Real Schur Form of a Regular \hyperlink{classMatrix}{Matrix} Pair (\hyperlink{classA}{A}, B), in M.\+S. Moonen et al (eds), Linear Algebra for Large Scale and Real-\/\+Time Applications, Kluwer Academic Publ. 1993, pp 195-\/218. ~\newline
+ \mbox{[}2\mbox{]} B. Kagstrom and P. Poromaa; Computing Eigenspaces with Specified Eigenvalues of a Regular \hyperlink{classMatrix}{Matrix} Pair (\hyperlink{classA}{A}, B) and Condition Estimation\+: Theory, Algorithms and Software, Report U\+M\+I\+N\+F-\/94.\+04, Department of Computing Science, Umea University, S-\/901 87 Umea, Sweden, 1994. Also as L\+A\+P\+A\+C\+K Working Note 87. To appear in Numerical Algorithms, 1996. 
+\end{DoxyParagraph}

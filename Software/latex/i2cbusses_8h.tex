@@ -1,0 +1,84 @@
+\hypertarget{i2cbusses_8h}{}\section{packages/i2c-\/tools-\/3.1.1/tools/i2cbusses.h File Reference}
+\label{i2cbusses_8h}\index{packages/i2c-\/tools-\/3.\+1.\+1/tools/i2cbusses.\+h@{packages/i2c-\/tools-\/3.\+1.\+1/tools/i2cbusses.\+h}}
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structi2c__adap}{i2c\+\_\+adap}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{i2cbusses_8h_a1039c4b6b57bd59b18b448d5ac99a30e}{M\+I\+S\+S\+I\+N\+G\+\_\+\+F\+U\+N\+C\+\_\+\+F\+M\+T}~\char`\"{}Error\+: Adapter does not have \%\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{capability\textbackslash{}n}\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structi2c__adap}{i2c\+\_\+adap} $\ast$ \hyperlink{i2cbusses_8h_a3eea5874e128d8e459efd7c182a63dd3}{gather\+\_\+i2c\+\_\+busses} (void)
+\item 
+void \hyperlink{i2cbusses_8h_ab380dfabe908464d9d3be6ab19419212}{free\+\_\+adapters} (\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structi2c__adap}{i2c\+\_\+adap} $\ast$adapters)
+\item 
+int \hyperlink{i2cbusses_8h_afa69ee0069b3d97d841ce597fb276cf3}{lookup\+\_\+i2c\+\_\+bus} (const char $\ast$i2cbus\+\_\+arg)
+\item 
+int \hyperlink{i2cbusses_8h_a955cdc2a77057030e6dea376a9213c15}{parse\+\_\+i2c\+\_\+address} (const char $\ast$address\+\_\+arg)
+\item 
+int \hyperlink{i2cbusses_8h_acf81e4bea190780e085e690fc11abb22}{open\+\_\+i2c\+\_\+dev} (int i2cbus, char $\ast$filename, size\+\_\+t size, int quiet)
+\item 
+int \hyperlink{i2cbusses_8h_a04782fe78c4b0aee7af4de36bdbf48e0}{set\+\_\+slave\+\_\+addr} (int file, int address, int force)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{i2cbusses_8h_a1039c4b6b57bd59b18b448d5ac99a30e}{}\index{i2cbusses.\+h@{i2cbusses.\+h}!M\+I\+S\+S\+I\+N\+G\+\_\+\+F\+U\+N\+C\+\_\+\+F\+M\+T@{M\+I\+S\+S\+I\+N\+G\+\_\+\+F\+U\+N\+C\+\_\+\+F\+M\+T}}
+\index{M\+I\+S\+S\+I\+N\+G\+\_\+\+F\+U\+N\+C\+\_\+\+F\+M\+T@{M\+I\+S\+S\+I\+N\+G\+\_\+\+F\+U\+N\+C\+\_\+\+F\+M\+T}!i2cbusses.\+h@{i2cbusses.\+h}}
+\subsubsection[{M\+I\+S\+S\+I\+N\+G\+\_\+\+F\+U\+N\+C\+\_\+\+F\+M\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+I\+S\+S\+I\+N\+G\+\_\+\+F\+U\+N\+C\+\_\+\+F\+M\+T~\char`\"{}Error\+: Adapter does not have \%{\bf s} {\bf capability\textbackslash{}n}\char`\"{}}\label{i2cbusses_8h_a1039c4b6b57bd59b18b448d5ac99a30e}
+
+
+\subsection{Function Documentation}
+\hypertarget{i2cbusses_8h_ab380dfabe908464d9d3be6ab19419212}{}\index{i2cbusses.\+h@{i2cbusses.\+h}!free\+\_\+adapters@{free\+\_\+adapters}}
+\index{free\+\_\+adapters@{free\+\_\+adapters}!i2cbusses.\+h@{i2cbusses.\+h}}
+\subsubsection[{free\+\_\+adapters}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+adapters (
+\begin{DoxyParamCaption}
+\item[{{\bf struct} {\bf i2c\+\_\+adap} $\ast$}]{adapters}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8h_ab380dfabe908464d9d3be6ab19419212}
+\hypertarget{i2cbusses_8h_a3eea5874e128d8e459efd7c182a63dd3}{}\index{i2cbusses.\+h@{i2cbusses.\+h}!gather\+\_\+i2c\+\_\+busses@{gather\+\_\+i2c\+\_\+busses}}
+\index{gather\+\_\+i2c\+\_\+busses@{gather\+\_\+i2c\+\_\+busses}!i2cbusses.\+h@{i2cbusses.\+h}}
+\subsubsection[{gather\+\_\+i2c\+\_\+busses}]{\setlength{\rightskip}{0pt plus 5cm}{\bf struct} {\bf i2c\+\_\+adap}$\ast$ gather\+\_\+i2c\+\_\+busses (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8h_a3eea5874e128d8e459efd7c182a63dd3}
+\hypertarget{i2cbusses_8h_afa69ee0069b3d97d841ce597fb276cf3}{}\index{i2cbusses.\+h@{i2cbusses.\+h}!lookup\+\_\+i2c\+\_\+bus@{lookup\+\_\+i2c\+\_\+bus}}
+\index{lookup\+\_\+i2c\+\_\+bus@{lookup\+\_\+i2c\+\_\+bus}!i2cbusses.\+h@{i2cbusses.\+h}}
+\subsubsection[{lookup\+\_\+i2c\+\_\+bus}]{\setlength{\rightskip}{0pt plus 5cm}int lookup\+\_\+i2c\+\_\+bus (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{i2cbus\+\_\+arg}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8h_afa69ee0069b3d97d841ce597fb276cf3}
+\hypertarget{i2cbusses_8h_acf81e4bea190780e085e690fc11abb22}{}\index{i2cbusses.\+h@{i2cbusses.\+h}!open\+\_\+i2c\+\_\+dev@{open\+\_\+i2c\+\_\+dev}}
+\index{open\+\_\+i2c\+\_\+dev@{open\+\_\+i2c\+\_\+dev}!i2cbusses.\+h@{i2cbusses.\+h}}
+\subsubsection[{open\+\_\+i2c\+\_\+dev}]{\setlength{\rightskip}{0pt plus 5cm}int open\+\_\+i2c\+\_\+dev (
+\begin{DoxyParamCaption}
+\item[{int}]{i2cbus, }
+\item[{char $\ast$}]{filename, }
+\item[{size\+\_\+t}]{size, }
+\item[{int}]{quiet}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8h_acf81e4bea190780e085e690fc11abb22}
+\hypertarget{i2cbusses_8h_a955cdc2a77057030e6dea376a9213c15}{}\index{i2cbusses.\+h@{i2cbusses.\+h}!parse\+\_\+i2c\+\_\+address@{parse\+\_\+i2c\+\_\+address}}
+\index{parse\+\_\+i2c\+\_\+address@{parse\+\_\+i2c\+\_\+address}!i2cbusses.\+h@{i2cbusses.\+h}}
+\subsubsection[{parse\+\_\+i2c\+\_\+address}]{\setlength{\rightskip}{0pt plus 5cm}int parse\+\_\+i2c\+\_\+address (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{address\+\_\+arg}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8h_a955cdc2a77057030e6dea376a9213c15}
+\hypertarget{i2cbusses_8h_a04782fe78c4b0aee7af4de36bdbf48e0}{}\index{i2cbusses.\+h@{i2cbusses.\+h}!set\+\_\+slave\+\_\+addr@{set\+\_\+slave\+\_\+addr}}
+\index{set\+\_\+slave\+\_\+addr@{set\+\_\+slave\+\_\+addr}!i2cbusses.\+h@{i2cbusses.\+h}}
+\subsubsection[{set\+\_\+slave\+\_\+addr}]{\setlength{\rightskip}{0pt plus 5cm}int set\+\_\+slave\+\_\+addr (
+\begin{DoxyParamCaption}
+\item[{int}]{file, }
+\item[{int}]{address, }
+\item[{int}]{force}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8h_a04782fe78c4b0aee7af4de36bdbf48e0}

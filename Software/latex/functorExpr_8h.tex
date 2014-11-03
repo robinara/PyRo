@@ -1,0 +1,660 @@
+\hypertarget{functorExpr_8h}{}\section{packages/scipy-\/0.14.0/scipy/weave/blitz/blitz/array/functor\+Expr.h File Reference}
+\label{functorExpr_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/functor\+Expr.\+h@{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/functor\+Expr.\+h}}
+{\ttfamily \#include $<$blitz/prettyprint.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/shapecheck.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/tinyvec.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class__bz__FunctorExpr}{\+\_\+bz\+\_\+\+Functor\+Expr$<$ P\+\_\+functor, P\+\_\+expr, P\+\_\+result $>$}
+\item 
+class \hyperlink{class__bz__FunctorExpr2}{\+\_\+bz\+\_\+\+Functor\+Expr2$<$ P\+\_\+functor, P\+\_\+expr1, P\+\_\+expr2, P\+\_\+result $>$}
+\item 
+class \hyperlink{class__bz__FunctorExpr3}{\+\_\+bz\+\_\+\+Functor\+Expr3$<$ P\+\_\+functor, P\+\_\+expr1, P\+\_\+expr2, P\+\_\+expr3, P\+\_\+result $>$}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{functorExpr_8h_a53e9a660036f6c740499c45a4836c9a4}{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R}(classname,  funcname)
+\item 
+\#define \hyperlink{functorExpr_8h_aca76dd312302c8a6c60243d7274cb67c}{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2}(classname,  funcname)
+\item 
+\#define \hyperlink{functorExpr_8h_a15ff933248299f3bffa6d16dd4dc3f26}{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3}(classname,  funcname)
+\item 
+\#define \hyperlink{functorExpr_8h_a89024c6674be00b8c1b79952815a8c8f}{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T}(classname,  funcname,  ret)
+\item 
+\#define \hyperlink{functorExpr_8h_a3bfc05a7ad8025fcda7faef0497bd944}{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T}(classname,  funcname,  ret)
+\item 
+\#define \hyperlink{functorExpr_8h_a5f23c286d9638bed16b088fc322f8e27}{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T}(classname,  funcname,  ret)
+\item 
+\#define \hyperlink{functorExpr_8h_a195dbac2989f7c6614afe46a3b60f3c2}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R}(classname)
+\item 
+\#define \hyperlink{functorExpr_8h_a5b5a0d357c5293d100aba9db37c32877}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2}(classname)
+\item 
+\#define \hyperlink{functorExpr_8h_a2b0a48ff729a8100d1c28117b1379016}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3}(classname)
+\item 
+\#define \hyperlink{functorExpr_8h_aaf395ab0279605092541fe95ca6157e0}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T}(classname,  ret)
+\item 
+\#define \hyperlink{functorExpr_8h_a3dd6425642c7c729184799d2af6e3a41}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T}(classname,  ret)
+\item 
+\#define \hyperlink{functorExpr_8h_ae6e6aa8780473dec64cb26f8d9feb215}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T}(classname,  ret)
+\item 
+\#define \hyperlink{functorExpr_8h_aa658f8ced7f1a05415e913f773a0b6c0}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}(classname,  funcname)
+\item 
+\#define \hyperlink{functorExpr_8h_a5ce1233fda0e19077f778120e7d0938b}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2}(classname,  funcname)
+\item 
+\#define \hyperlink{functorExpr_8h_aa783cfef90038efb935069cd19bee95e}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3}(classname,  funcname)
+\item 
+\#define \hyperlink{functorExpr_8h_a7dcf20050154bb16afb4bb83b860964f}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+R\+E\+T}(classname,  funcname,  ret)
+\item 
+\#define \hyperlink{functorExpr_8h_ab27ded2fd78f7e8f52271e27cace9366}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2\+\_\+\+R\+E\+T}(classname,  funcname,  ret)
+\item 
+\#define \hyperlink{functorExpr_8h_afff8eeff6a28da9e6f92aab7ec915047}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3\+\_\+\+R\+E\+T}(classname,  funcname,  ret)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename P\+\_\+functor , typename P\+\_\+expr $>$ }\\\hyperlink{tuning_8h_a31026bac941bf7709da55dccf45eb3dc}{\+\_\+bz\+\_\+inline\+\_\+et} \hyperlink{class__bz__ArrayExpr}{\+\_\+bz\+\_\+\+Array\+Expr}$<$ \hyperlink{class__bz__FunctorExpr}{\+\_\+bz\+\_\+\+Functor\+Expr}$<$ P\+\_\+functor, \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr $>$\+::T\+\_\+expr, \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr $>$\+::T\+\_\+expr\+::\+T\+\_\+numtype $>$ $>$ \hyperlink{functorExpr_8h_a416016d09e2d954d6964b579bfdca01e}{apply\+Functor} (const P\+\_\+functor \&f, const \hyperlink{classETBase}{E\+T\+Base}$<$ P\+\_\+expr $>$ \&\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})
+\item 
+{\footnotesize template$<$typename P\+\_\+functor , typename P\+\_\+expr1 , typename P\+\_\+expr2 $>$ }\\\hyperlink{tuning_8h_a31026bac941bf7709da55dccf45eb3dc}{\+\_\+bz\+\_\+inline\+\_\+et} \hyperlink{class__bz__ArrayExpr}{\+\_\+bz\+\_\+\+Array\+Expr}$<$ \hyperlink{class__bz__FunctorExpr2}{\+\_\+bz\+\_\+\+Functor\+Expr2}$<$ P\+\_\+functor, \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr1 $>$\+::T\+\_\+expr, \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr2 $>$\+::T\+\_\+expr, \hyperlink{tvecglobs_8h_a0b5dfafdfc457cbaf3582d0779eb5e7f}{B\+Z\+\_\+\+P\+R\+O\+M\+O\+T\+E}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr1 $>$\+::T\+\_\+expr\+::\+T\+\_\+numtype, \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr2 $>$\+::T\+\_\+expr\+::\+T\+\_\+numtype)$>$ $>$ \hyperlink{functorExpr_8h_a43dccffb00124d204739ec88c92e99ca}{apply\+Functor} (const P\+\_\+functor \&f, const \hyperlink{classETBase}{E\+T\+Base}$<$ P\+\_\+expr1 $>$ \&\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, const \hyperlink{classETBase}{E\+T\+Base}$<$ P\+\_\+expr2 $>$ \&\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})
+\item 
+{\footnotesize template$<$typename P\+\_\+functor , typename P\+\_\+expr1 , typename P\+\_\+expr2 , typename P\+\_\+expr3 $>$ }\\\hyperlink{tuning_8h_a31026bac941bf7709da55dccf45eb3dc}{\+\_\+bz\+\_\+inline\+\_\+et} \hyperlink{class__bz__ArrayExpr}{\+\_\+bz\+\_\+\+Array\+Expr}$<$ \hyperlink{class__bz__FunctorExpr3}{\+\_\+bz\+\_\+\+Functor\+Expr3}$<$ P\+\_\+functor, \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr1 $>$\+::T\+\_\+expr, \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr2 $>$\+::T\+\_\+expr, \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr3 $>$\+::T\+\_\+expr, \hyperlink{tvecglobs_8h_a0b5dfafdfc457cbaf3582d0779eb5e7f}{B\+Z\+\_\+\+P\+R\+O\+M\+O\+T\+E}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr1 $>$\+::T\+\_\+expr\+::\+T\+\_\+numtype, \hyperlink{tvecglobs_8h_a0b5dfafdfc457cbaf3582d0779eb5e7f}{B\+Z\+\_\+\+P\+R\+O\+M\+O\+T\+E}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr2 $>$\+::T\+\_\+expr\+::\+T\+\_\+numtype, \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} \hyperlink{structasExpr}{as\+Expr}$<$ P\+\_\+expr3 $>$\+::T\+\_\+expr\+::\+T\+\_\+numtype))$>$ $>$ \hyperlink{functorExpr_8h_af95d70a7921b0eaffa8c191839c2b73e}{apply\+Functor} (const P\+\_\+functor \&f, const \hyperlink{classETBase}{E\+T\+Base}$<$ P\+\_\+expr1 $>$ \&\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, const \hyperlink{classETBase}{E\+T\+Base}$<$ P\+\_\+expr2 $>$ \&\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}, const \hyperlink{classETBase}{E\+T\+Base}$<$ P\+\_\+expr3 $>$ \&c)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{functorExpr_8h_a53e9a660036f6c740499c45a4836c9a4}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R}}
+\index{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a53e9a660036f6c740499c45a4836c9a4}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }\_bz\_Functor ## classname ## funcname                                \(\backslash\)
+\{                                                                         \(\backslash\)
+public:                                                                   \(\backslash\)
+    \_bz\_Functor ## classname ## funcname (\textcolor{keyword}{const} classname& \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})             \(\backslash\)
+        : c\_(\hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})                                                           \(\backslash\)
+    \{ \}                                                                   \(\backslash\)
+    template<typename T\_numtype1>                                            \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{    inline} T\_numtype1 operator()(T\_numtype1 \hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}) \textcolor{keyword}{const}                      \(\backslash\)
+    \{ \textcolor{keywordflow}{return} c\_.funcname(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}); \}                                            \(\backslash\)
+private:                                                                  \(\backslash\)
+    const classname& c\_;                                                  \(\backslash\)
+\};
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_aca76dd312302c8a6c60243d7274cb67c}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2}}
+\index{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_aca76dd312302c8a6c60243d7274cb67c}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }\_bz\_Functor ## classname ## funcname                                \(\backslash\)
+\{                                                                         \(\backslash\)
+public:                                                                   \(\backslash\)
+    \_bz\_Functor ## classname ## funcname (\textcolor{keyword}{const} classname& \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})             \(\backslash\)
+        : c\_(\hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})                                                           \(\backslash\)
+    \{ \}                                                                   \(\backslash\)
+    template<typename T\_numtype1, typename T\_numtype2>                          
+      \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{    inline} \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{BZ\_PROMOTE}(T\_numtype1, T\_numtype2)                             \(\backslash\)
+    operator()(T\_numtype1 \hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}, T\_numtype2 y) \textcolor{keyword}{const}                          \(\backslash\)
+    \{ \textcolor{keywordflow}{return} c\_.funcname(x,y); \}                                          \(\backslash\)
+private:                                                                  \(\backslash\)
+    const classname& c\_;                                                  \(\backslash\)
+\};
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_a3bfc05a7ad8025fcda7faef0497bd944}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T}}
+\index{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a3bfc05a7ad8025fcda7faef0497bd944}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }\_bz\_Functor ## classname ## funcname                                \(\backslash\)
+\{                                                                         \(\backslash\)
+public:                                                                   \(\backslash\)
+    \_bz\_Functor ## classname ## funcname (\textcolor{keyword}{const} classname& \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})             \(\backslash\)
+        : c\_(\hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})                                                           \(\backslash\)
+    \{ \}                                                                   \(\backslash\)
+    template<typename T\_numtype1, typename T\_numtype2>                          
+      \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{    inline} \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{ret} operator()(T\_numtype1 \hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}, T\_numtype2 y) \textcolor{keyword}{const}               \(\backslash\)
+    \{ \textcolor{keywordflow}{return} c\_.funcname(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x},y); \}                                          \(\backslash\)
+private:                                                                  \(\backslash\)
+    const classname& c\_;                                                  \(\backslash\)
+\};
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_a15ff933248299f3bffa6d16dd4dc3f26}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3}}
+\index{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a15ff933248299f3bffa6d16dd4dc3f26}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }\_bz\_Functor ## classname ## funcname                                \(\backslash\)
+\{                                                                         \(\backslash\)
+public:                                                                   \(\backslash\)
+    \_bz\_Functor ## classname ## funcname (\textcolor{keyword}{const} classname& \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})             \(\backslash\)
+        : c\_(\hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})                                                           \(\backslash\)
+    \{ \}                                                                   \(\backslash\)
+    template<typename T\_numtype1, typename T\_numtype2, typename T\_numtype3>        
+      \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{    inline} \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{BZ\_PROMOTE}(\hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{BZ\_PROMOTE}(T\_numtype1, T\_numtype2), T\_numtype3)     \(\backslash\)
+    operator()(T\_numtype1 \hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}, T\_numtype2 y, T\_numtype3 \hyperlink{namespacescipy_1_1stats_1_1morestats_aa8cc3d21cb73a29266cecf589cc91372}{z}) \textcolor{keyword}{const}            \(\backslash\)
+    \{ \textcolor{keywordflow}{return} c\_.funcname(x,y,\hyperlink{namespacescipy_1_1stats_1_1morestats_aa8cc3d21cb73a29266cecf589cc91372}{z}); \}                                        \(\backslash\)
+private:                                                                  \(\backslash\)
+    const classname& c\_;                                                  \(\backslash\)
+\};
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_a5f23c286d9638bed16b088fc322f8e27}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T}}
+\index{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a5f23c286d9638bed16b088fc322f8e27}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }\_bz\_Functor ## classname ## funcname                                \(\backslash\)
+\{                                                                         \(\backslash\)
+public:                                                                   \(\backslash\)
+    \_bz\_Functor ## classname ## funcname (\textcolor{keyword}{const} classname& \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})             \(\backslash\)
+        : c\_(\hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})                                                           \(\backslash\)
+    \{ \}                                                                   \(\backslash\)
+    template<typename T\_numtype1, typename T\_numtype2, typename T\_numtype3>        
+      \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{    inline} \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{ret} operator()(T\_numtype1 \hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}, T\_numtype2 y, T\_numtype3 \hyperlink{namespacescipy_1_1stats_1_1morestats_aa8cc3d21cb73a29266cecf589cc91372}{z}) \textcolor{keyword}{const} \(\backslash\)
+    \{ \textcolor{keywordflow}{return} c\_.funcname(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x},y,\hyperlink{namespacescipy_1_1stats_1_1morestats_aa8cc3d21cb73a29266cecf589cc91372}{z}); \}                                        \(\backslash\)
+private:                                                                  \(\backslash\)
+    const classname& c\_;                                                  \(\backslash\)
+\};
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_a89024c6674be00b8c1b79952815a8c8f}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T}}
+\index{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T@{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{\+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+B\+Z\+\_\+\+M\+A\+K\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a89024c6674be00b8c1b79952815a8c8f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{class }\_bz\_Functor ## classname ## funcname                                \(\backslash\)
+\{                                                                         \(\backslash\)
+public:                                                                   \(\backslash\)
+    \_bz\_Functor ## classname ## funcname (\textcolor{keyword}{const} classname& \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})             \(\backslash\)
+        : c\_(\hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c})                                                           \(\backslash\)
+    \{ \}                                                                   \(\backslash\)
+    template<typename T\_numtype1>                                            \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{    inline} \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{ret} operator()(T\_numtype1 \hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}) \textcolor{keyword}{const}                             \(\backslash\)
+    \{ \textcolor{keywordflow}{return} c\_.funcname(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}); \}                                            \(\backslash\)
+private:                                                                  \(\backslash\)
+    const classname& c\_;                                                  \(\backslash\)
+\};
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_a195dbac2989f7c6614afe46a3b60f3c2}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R(
+\begin{DoxyParamCaption}
+\item[{}]{classname}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a195dbac2989f7c6614afe46a3b60f3c2}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr>                                                 \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr}{\_bz\_FunctorExpr})<            \(\backslash\)
+    classname,                                                            \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>::T\_expr,               
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>::T\_expr::T\_numtype> >  
+         \(\backslash\)
+operator()(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}) \textcolor{keyword}{const}                 \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr}{\_bz\_FunctorExpr})<classname,                    
+          \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>::T\_expr,       
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>
+      ::T\_expr::T\_numtype> > \(\backslash\)
+        (*\textcolor{keyword}{this}, \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}.unwrap());                                              \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_a5b5a0d357c5293d100aba9db37c32877}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2(
+\begin{DoxyParamCaption}
+\item[{}]{classname}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a5b5a0d357c5293d100aba9db37c32877}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr1, typename P\_expr2>                              \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr2}{\_bz\_FunctorExpr2})<           \(\backslash\)
+    classname,                                                            \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,              
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,              
+         \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{\(\backslash\)}
+\hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{    BZ\_PROMOTE}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                               \(\backslash\)
+               \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr::T\_numtype,        \(\backslash\)
+               \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                               \(\backslash\)
+               \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr::T\_numtype)> >     \(\backslash\)
+operator()(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr1>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a},                      \(\backslash\)
+           const \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr2>& \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}) \textcolor{keyword}{const}                \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr2}{\_bz\_FunctorExpr2})<classname,                  
+           \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,      
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,      
+             \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{\(\backslash\)}
+\hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{        BZ\_PROMOTE}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                           \(\backslash\)
+                   \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr::T\_numtype,    \(\backslash\)
+                   \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                           \(\backslash\)
+                   \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr::T\_numtype)> > \(\backslash\)
+        (*\textcolor{keyword}{this}, a.unwrap(), \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}.unwrap());                                  \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_a3dd6425642c7c729184799d2af6e3a41}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R2\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a3dd6425642c7c729184799d2af6e3a41}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr1, typename P\_expr2>                              \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr2}{\_bz\_FunctorExpr2})<           \(\backslash\)
+    classname,                                                            \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,              
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,              
+         \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{    ret}> >                                                                \(\backslash\)
+operator()(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr1>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a},                      \(\backslash\)
+           const \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr2>& \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}) \textcolor{keyword}{const}                \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr2}{\_bz\_FunctorExpr2})<classname,                  
+           \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,      
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,      
+             \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{        ret}> >                                                            \(\backslash\)
+        (*\textcolor{keyword}{this}, \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}.unwrap(), \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}.unwrap());                                  \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_a2b0a48ff729a8100d1c28117b1379016}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3(
+\begin{DoxyParamCaption}
+\item[{}]{classname}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a2b0a48ff729a8100d1c28117b1379016}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr1, typename P\_expr2, typename P\_expr3>            \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr3}{\_bz\_FunctorExpr3})<           \(\backslash\)
+    classname,                                                            \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,              
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,              
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr3>::T\_expr,              
+         \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{\(\backslash\)}
+\hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{    BZ\_PROMOTE}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                               \(\backslash\)
+               \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr::T\_numtype,        \(\backslash\)
+    \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{BZ\_PROMOTE}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                               \(\backslash\)
+               \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr::T\_numtype,        \(\backslash\)
+               \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                               \(\backslash\)
+               \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr3>::T\_expr::T\_numtype))> >    \(\backslash\)
+operator()(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr1>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a},                      \(\backslash\)
+           const \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr2>& \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b},                      \(\backslash\)
+           const \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr3>& \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c}) \textcolor{keyword}{const}                \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr3}{\_bz\_FunctorExpr3})<classname,                  
+           \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,      
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,      
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr3>::T\_expr,      
+             \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{\(\backslash\)}
+\hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{        BZ\_PROMOTE}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                           \(\backslash\)
+                   \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr::T\_numtype,    \(\backslash\)
+        \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{BZ\_PROMOTE}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                           \(\backslash\)
+                   \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr::T\_numtype,    \(\backslash\)
+                   \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                           \(\backslash\)
+                   \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr3>::T\_expr::T\_numtype))> >\(\backslash\)
+        (*\textcolor{keyword}{this}, a.unwrap(), b.unwrap(), \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c}.unwrap());                      \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_ae6e6aa8780473dec64cb26f8d9feb215}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R3\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_ae6e6aa8780473dec64cb26f8d9feb215}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr1, typename P\_expr2, typename P\_expr3>            \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr3}{\_bz\_FunctorExpr3})<           \(\backslash\)
+    classname,                                                            \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,              
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,              
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr3>::T\_expr,              
+         \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{    ret}> >                                                                \(\backslash\)
+operator()(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr1>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a},                      \(\backslash\)
+           const \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr2>& \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b},                      \(\backslash\)
+           const \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr3>& \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c}) \textcolor{keyword}{const}                \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr3}{\_bz\_FunctorExpr3})<classname,                  
+           \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,      
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,      
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr3>::T\_expr,      
+             \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{        ret}> >                                                            \(\backslash\)
+        (*\textcolor{keyword}{this}, \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}.unwrap(), \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}.unwrap(), \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c}.unwrap());                      \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_aaf395ab0279605092541fe95ca6157e0}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+F\+U\+N\+C\+T\+O\+R\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_aaf395ab0279605092541fe95ca6157e0}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr>                                                 \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr}{\_bz\_FunctorExpr})<            \(\backslash\)
+    classname,                                                            \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>::T\_expr,               
+         \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{    ret}> >                                                                \(\backslash\)
+operator()(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}) \textcolor{keyword}{const}                 \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr}{\_bz\_FunctorExpr})<classname,                    
+          \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>::T\_expr,       
+             \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{        ret}> >                                                            \(\backslash\)
+        (*\textcolor{keyword}{this}, \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}.unwrap());                                              \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_aa658f8ced7f1a05415e913f773a0b6c0}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_aa658f8ced7f1a05415e913f773a0b6c0}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{functorExpr_8h_a53e9a660036f6c740499c45a4836c9a4}{\_BZ\_MAKE\_FUNCTOR}(classname, funcname)                                     
+      \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr>                                                 \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr}{\_bz\_FunctorExpr})<            \(\backslash\)
+    \_bz\_Functor ## classname ## funcname,                                 \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>::T\_expr,               
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>::T\_expr::T\_numtype> >  
+         \(\backslash\)
+funcname(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}) const                   \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr}{\_bz\_FunctorExpr})<                              
+          \(\backslash\)
+        \_bz\_Functor ## classname ## funcname,                             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>::T\_expr,       
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>
+      ::T\_expr::T\_numtype> > \(\backslash\)
+        (*\textcolor{keyword}{this}, \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}.unwrap());                                              \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_a5ce1233fda0e19077f778120e7d0938b}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a5ce1233fda0e19077f778120e7d0938b}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{functorExpr_8h_aca76dd312302c8a6c60243d7274cb67c}{\_BZ\_MAKE\_FUNCTOR2}(classname, funcname)                                    
+      \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr1, typename P\_expr2>                              \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr2}{\_bz\_FunctorExpr2})<           \(\backslash\)
+    \_bz\_Functor ## classname ## funcname,                                 \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,              
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,              
+         \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{\(\backslash\)}
+\hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{    BZ\_PROMOTE}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                               \(\backslash\)
+               \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr::T\_numtype,        \(\backslash\)
+               \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                               \(\backslash\)
+               \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr::T\_numtype)> >     \(\backslash\)
+funcname(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr1>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a},                        \(\backslash\)
+         \textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr2>& \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}) const                  \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr2}{\_bz\_FunctorExpr2})<                            
+           \(\backslash\)
+        \_bz\_Functor ## classname ## funcname,                             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,      
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,      
+             \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{\(\backslash\)}
+\hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{        BZ\_PROMOTE}(\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                           \(\backslash\)
+                   \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr::T\_numtype,    \(\backslash\)
+                   \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename}                                           \(\backslash\)
+                   \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr::T\_numtype)> > \(\backslash\)
+        (*\textcolor{keyword}{this}, \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}.unwrap(), \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}.unwrap());                                  \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_ab27ded2fd78f7e8f52271e27cace9366}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2\+\_\+\+R\+E\+T}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2\+\_\+\+R\+E\+T}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N2\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_ab27ded2fd78f7e8f52271e27cace9366}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{functorExpr_8h_a3bfc05a7ad8025fcda7faef0497bd944}{\_BZ\_MAKE\_FUNCTOR2\_RET}(classname, funcname, \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{ret})                           
+      \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr1, typename P\_expr2>                              \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr2}{\_bz\_FunctorExpr2})<           \(\backslash\)
+    \_bz\_Functor ## classname ## funcname,                                 \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,              
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,              
+         \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{    ret}> >                                                                \(\backslash\)
+funcname(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr1>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a},                        \(\backslash\)
+         \textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr2>& \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}) const                  \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr2}{\_bz\_FunctorExpr2})<                            
+           \(\backslash\)
+        \_bz\_Functor ## classname ## funcname,                             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,      
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,      
+             \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{        ret}> >                                                            \(\backslash\)
+        (*\textcolor{keyword}{this}, \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}.unwrap(), \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}.unwrap());                                  \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_aa783cfef90038efb935069cd19bee95e}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_aa783cfef90038efb935069cd19bee95e}
+\hypertarget{functorExpr_8h_afff8eeff6a28da9e6f92aab7ec915047}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3\+\_\+\+R\+E\+T}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3\+\_\+\+R\+E\+T}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N3\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_afff8eeff6a28da9e6f92aab7ec915047}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{functorExpr_8h_a5f23c286d9638bed16b088fc322f8e27}{\_BZ\_MAKE\_FUNCTOR3\_RET}(classname, funcname, \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{ret})                           
+      \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr1, typename P\_expr2, typename P\_expr3>            \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr3}{\_bz\_FunctorExpr3})<           \(\backslash\)
+    \_bz\_Functor ## classname ## funcname,                                 \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,              
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,              
+         \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr3>::T\_expr,              
+         \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{    ret}> >                                                                \(\backslash\)
+funcname(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr1>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a},                        \(\backslash\)
+         \textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr2>& \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b},                        \(\backslash\)
+         \textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr3>& \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c}) const                  \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr3}{\_bz\_FunctorExpr3})<                            
+           \(\backslash\)
+        \_bz\_Functor ## classname ## funcname,                             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr1>::T\_expr,      
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr2>::T\_expr,      
+             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr3>::T\_expr,      
+             \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{        ret}> >                                                            \(\backslash\)
+        (*\textcolor{keyword}{this}, \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}.unwrap(), \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}.unwrap(), \hyperlink{namespaceanchorlayout_aff01d0aa95f3f581b1bae38d57c55710}{c}.unwrap());                      \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{functorExpr_8h_a7dcf20050154bb16afb4bb83b860964f}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+R\+E\+T}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+R\+E\+T}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+B\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{classname, }
+\item[{}]{funcname, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a7dcf20050154bb16afb4bb83b860964f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{functorExpr_8h_a89024c6674be00b8c1b79952815a8c8f}{\_BZ\_MAKE\_FUNCTOR\_RET}(classname, funcname, \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{ret})                            
+      \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{template<typename P\_expr>                                                 \(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(
+      \hyperlink{class__bz__FunctorExpr}{\_bz\_FunctorExpr})<            \(\backslash\)
+    \_bz\_Functor ## classname ## funcname,                                 \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{    \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>::T\_expr,               
+         \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{    ret}> >                                                                \(\backslash\)
+funcname(\textcolor{keyword}{const} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{classETBase}{ETBase})<P\_expr>& \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}) const                   \(\backslash\)
+\{                                                                         \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr})<                             
+          \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{\(\backslash\)}
+\hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{        BZ\_BLITZ\_SCOPE}(\hyperlink{class__bz__FunctorExpr}{\_bz\_FunctorExpr})<                              
+          \(\backslash\)
+        \_bz\_Functor ## classname ## funcname,                             \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{        \_bz\_typename} \hyperlink{compiler_8h_ac2335d5f319cb7e8f510bb6a444ef5fb}{BZ\_BLITZ\_SCOPE}(\hyperlink{structasExpr}{asExpr})<P\_expr>::T\_expr,       
+             \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{        ret}> >                                                            \(\backslash\)
+        (*\textcolor{keyword}{this}, \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}.unwrap());                                              \(\backslash\)
+\}
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{functorExpr_8h_a416016d09e2d954d6964b579bfdca01e}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!apply\+Functor@{apply\+Functor}}
+\index{apply\+Functor@{apply\+Functor}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{apply\+Functor}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+functor , typename P\+\_\+expr $>$ {\bf \+\_\+bz\+\_\+inline\+\_\+et} {\bf \+\_\+bz\+\_\+\+Array\+Expr}$<${\bf \+\_\+bz\+\_\+\+Functor\+Expr}$<$P\+\_\+functor, {\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr$>$\+::T\+\_\+expr, {\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr$>$\+::T\+\_\+expr\+::\+T\+\_\+numtype$>$ $>$ apply\+Functor (
+\begin{DoxyParamCaption}
+\item[{const P\+\_\+functor \&}]{f, }
+\item[{const {\bf E\+T\+Base}$<$ P\+\_\+expr $>$ \&}]{a}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a416016d09e2d954d6964b579bfdca01e}
+\hypertarget{functorExpr_8h_a43dccffb00124d204739ec88c92e99ca}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!apply\+Functor@{apply\+Functor}}
+\index{apply\+Functor@{apply\+Functor}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{apply\+Functor}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+functor , typename P\+\_\+expr1 , typename P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+inline\+\_\+et} {\bf \+\_\+bz\+\_\+\+Array\+Expr}$<${\bf \+\_\+bz\+\_\+\+Functor\+Expr2}$<$P\+\_\+functor, {\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr1$>$\+::T\+\_\+expr, {\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr2$>$\+::T\+\_\+expr, {\bf B\+Z\+\_\+\+P\+R\+O\+M\+O\+T\+E}({\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr1$>$\+::T\+\_\+expr\+::\+T\+\_\+numtype, {\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr2$>$\+::T\+\_\+expr\+::\+T\+\_\+numtype)$>$ $>$ apply\+Functor (
+\begin{DoxyParamCaption}
+\item[{const P\+\_\+functor \&}]{f, }
+\item[{const {\bf E\+T\+Base}$<$ P\+\_\+expr1 $>$ \&}]{a, }
+\item[{const {\bf E\+T\+Base}$<$ P\+\_\+expr2 $>$ \&}]{b}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_a43dccffb00124d204739ec88c92e99ca}
+\hypertarget{functorExpr_8h_af95d70a7921b0eaffa8c191839c2b73e}{}\index{functor\+Expr.\+h@{functor\+Expr.\+h}!apply\+Functor@{apply\+Functor}}
+\index{apply\+Functor@{apply\+Functor}!functor\+Expr.\+h@{functor\+Expr.\+h}}
+\subsubsection[{apply\+Functor}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P\+\_\+functor , typename P\+\_\+expr1 , typename P\+\_\+expr2 , typename P\+\_\+expr3 $>$ {\bf \+\_\+bz\+\_\+inline\+\_\+et} {\bf \+\_\+bz\+\_\+\+Array\+Expr}$<${\bf \+\_\+bz\+\_\+\+Functor\+Expr3}$<$P\+\_\+functor, {\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr1$>$\+::T\+\_\+expr, {\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr2$>$\+::T\+\_\+expr, {\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr3$>$\+::T\+\_\+expr, {\bf B\+Z\+\_\+\+P\+R\+O\+M\+O\+T\+E}({\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr1$>$\+::T\+\_\+expr\+::\+T\+\_\+numtype, {\bf B\+Z\+\_\+\+P\+R\+O\+M\+O\+T\+E}({\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr2$>$\+::T\+\_\+expr\+::\+T\+\_\+numtype, {\bf \+\_\+bz\+\_\+typename} {\bf as\+Expr}$<$P\+\_\+expr3$>$\+::T\+\_\+expr\+::\+T\+\_\+numtype))$>$ $>$ apply\+Functor (
+\begin{DoxyParamCaption}
+\item[{const P\+\_\+functor \&}]{f, }
+\item[{const {\bf E\+T\+Base}$<$ P\+\_\+expr1 $>$ \&}]{a, }
+\item[{const {\bf E\+T\+Base}$<$ P\+\_\+expr2 $>$ \&}]{b, }
+\item[{const {\bf E\+T\+Base}$<$ P\+\_\+expr3 $>$ \&}]{c}
+\end{DoxyParamCaption}
+)}\label{functorExpr_8h_af95d70a7921b0eaffa8c191839c2b73e}

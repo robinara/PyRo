@@ -1,0 +1,443 @@
+\hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde}{}\section{scipy.\+stats.\+kde.\+gaussian\+\_\+kde Class Reference}
+\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde}\index{scipy.\+stats.\+kde.\+gaussian\+\_\+kde@{scipy.\+stats.\+kde.\+gaussian\+\_\+kde}}
+Inheritance diagram for scipy.\+stats.\+kde.\+gaussian\+\_\+kde\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1stats_1_1kde_1_1gaussian__kde}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a1f2f6321606db43a79fa5f731b4d2e5d}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a4c11bcd420ef6c0bd8cdf3d830f59cab}{evaluate}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_ac717733cff5d6db8f95619a53bc599d3}{integrate\+\_\+gaussian}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a6903c7b8133672165725104da3a438cc}{integrate\+\_\+box\+\_\+1d}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a2eff8bd4f53dd6a124108b5b8d4610f5}{integrate\+\_\+box}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a23a1b59fd77308aa23fcdd4f859e8205}{integrate\+\_\+kde}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a6d17f47c334aa576f9f76d3eaa6cb180}{resample}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a8ca0e79f1ef67e1c6d44b0be28b2a73b}{scotts\+\_\+factor}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a8e85dee070dbd89a42ce43cbec1084a2}{silverman\+\_\+factor}
+\item 
+def \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_ab45443a62b816e3404c7fce2da735300}{set\+\_\+bandwidth}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a9b885c9459c184a1c516a33b38444c16}{dataset}
+\item 
+\hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a1db123868b2181c0454880533ac00c60}{n}
+\item 
+\hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_acee9260bd649ac101e5ccfbb5f180543}{factor}
+\item 
+\hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a735953115cddccf764caf021835bc0ca}{covariance}
+\item 
+\hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a92eef97e05fed104ccce6746ad07710c}{inv\+\_\+cov}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a919c68108e8515aa9d08d47df5268463}{covariance\+\_\+factor} = \hyperlink{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a8ca0e79f1ef67e1c6d44b0be28b2a73b}{scotts\+\_\+factor}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Representation of a kernel-density estimate using Gaussian kernels.
+
+Kernel density estimation is a way to estimate the probability density
+function (PDF) of a random variable in a non-parametric way.
+`gaussian_kde` works for both uni-variate and multi-variate data.   It
+includes automatic bandwidth determination.  The estimation works best for
+a unimodal distribution; bimodal or multi-modal distributions tend to be
+oversmoothed.
+
+Parameters
+----------
+dataset : array_like
+    Datapoints to estimate from. In case of univariate data this is a 1-D
+    array, otherwise a 2-D array with shape (# of dims, # of data).
+bw_method : str, scalar or callable, optional
+    The method used to calculate the estimator bandwidth.  This can be
+    'scott', 'silverman', a scalar constant or a callable.  If a scalar,
+    this will be used directly as `kde.factor`.  If a callable, it should
+    take a `gaussian_kde` instance as only parameter and return a scalar.
+    If None (default), 'scott' is used.  See Notes for more details.
+
+Attributes
+----------
+dataset : ndarray
+    The dataset with which `gaussian_kde` was initialized.
+d : int
+    Number of dimensions.
+n : int
+    Number of datapoints.
+factor : float
+    The bandwidth factor, obtained from `kde.covariance_factor`, with which
+    the covariance matrix is multiplied.
+covariance : ndarray
+    The covariance matrix of `dataset`, scaled by the calculated bandwidth
+    (`kde.factor`).
+inv_cov : ndarray
+    The inverse of `covariance`.
+
+Methods
+-------
+kde.evaluate(points) : ndarray
+    Evaluate the estimated pdf on a provided set of points.
+kde(points) : ndarray
+    Same as kde.evaluate(points)
+kde.integrate_gaussian(mean, cov) : float
+    Multiply pdf with a specified Gaussian and integrate over the whole
+    domain.
+kde.integrate_box_1d(low, high) : float
+    Integrate pdf (1D only) between two bounds.
+kde.integrate_box(low_bounds, high_bounds) : float
+    Integrate pdf over a rectangular space between low_bounds and
+    high_bounds.
+kde.integrate_kde(other_kde) : float
+    Integrate two kernel density estimates multiplied together.
+kde.resample(size=None) : ndarray
+    Randomly sample a dataset from the estimated pdf.
+kde.set_bandwidth(bw_method='scott') : None
+    Computes the bandwidth, i.e. the coefficient that multiplies the data
+    covariance matrix to obtain the kernel covariance matrix.
+    .. versionadded:: 0.11.0
+kde.covariance_factor : float
+    Computes the coefficient (`kde.factor`) that multiplies the data
+    covariance matrix to obtain the kernel covariance matrix.
+    The default is `scotts_factor`.  A subclass can overwrite this method
+    to provide a different method, or set it through a call to
+    `kde.set_bandwidth`.
+
+
+Notes
+-----
+Bandwidth selection strongly influences the estimate obtained from the KDE
+(much more so than the actual shape of the kernel).  Bandwidth selection
+can be done by a "rule of thumb", by cross-validation, by "plug-in
+methods" or by other means; see [3]_, [4]_ for reviews.  `gaussian_kde`
+uses a rule of thumb, the default is Scott's Rule.
+
+Scott's Rule [1]_, implemented as `scotts_factor`, is::
+
+    n**(-1./(d+4)),
+
+with ``n`` the number of data points and ``d`` the number of dimensions.
+Silverman's Rule [2]_, implemented as `silverman_factor`, is::
+
+    n * (d + 2) / 4.)**(-1. / (d + 4)).
+
+Good general descriptions of kernel density estimation can be found in [1]_
+and [2]_, the mathematics for this multi-dimensional implementation can be
+found in [1]_.
+
+References
+----------
+.. [1] D.W. Scott, "Multivariate Density Estimation: Theory, Practice, and
+       Visualization", John Wiley & Sons, New York, Chicester, 1992.
+.. [2] B.W. Silverman, "Density Estimation for Statistics and Data
+       Analysis", Vol. 26, Monographs on Statistics and Applied Probability,
+       Chapman and Hall, London, 1986.
+.. [3] B.A. Turlach, "Bandwidth Selection in Kernel Density Estimation: A
+       Review", CORE and Institut de Statistique, Vol. 19, pp. 1-33, 1993.
+.. [4] D.M. Bashtannyk and R.J. Hyndman, "Bandwidth selection for kernel
+       conditional density estimation", Computational Statistics & Data
+       Analysis, Vol. 36, pp. 279-298, 2001.
+
+Examples
+--------
+Generate some random two-dimensional data:
+
+>>> from scipy import stats
+>>> def measure(n):
+>>>     "Measurement model, return two coupled measurements."
+>>>     m1 = np.random.normal(size=n)
+>>>     m2 = np.random.normal(scale=0.5, size=n)
+>>>     return m1+m2, m1-m2
+
+>>> m1, m2 = measure(2000)
+>>> xmin = m1.min()
+>>> xmax = m1.max()
+>>> ymin = m2.min()
+>>> ymax = m2.max()
+
+Perform a kernel density estimate on the data:
+
+>>> X, Y = np.mgrid[xmin:xmax:100j, ymin:ymax:100j]
+>>> positions = np.vstack([X.ravel(), Y.ravel()])
+>>> values = np.vstack([m1, m2])
+>>> kernel = stats.gaussian_kde(values)
+>>> Z = np.reshape(kernel(positions).T, X.shape)
+
+Plot the results:
+
+>>> import matplotlib.pyplot as plt
+>>> fig = plt.figure()
+>>> ax = fig.add_subplot(111)
+>>> ax.imshow(np.rot90(Z), cmap=plt.cm.gist_earth_r,
+...           extent=[xmin, xmax, ymin, ymax])
+>>> ax.plot(m1, m2, 'k.', markersize=2)
+>>> ax.set_xlim([xmin, xmax])
+>>> ax.set_ylim([ymin, ymax])
+>>> plt.show()\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a1f2f6321606db43a79fa5f731b4d2e5d}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{dataset, }
+\item[{}]{bw\+\_\+method = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a1f2f6321606db43a79fa5f731b4d2e5d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a4c11bcd420ef6c0bd8cdf3d830f59cab}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{evaluate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+evaluate (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{points}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a4c11bcd420ef6c0bd8cdf3d830f59cab}
+\begin{DoxyVerb}Evaluate the estimated pdf on a set of points.
+
+Parameters
+----------
+points : (# of dimensions, # of points)-array
+    Alternatively, a (# of dimensions,) vector can be passed in and
+    treated as a single point.
+
+Returns
+-------
+values : (# of points,)-array
+    The values at each point.
+
+Raises
+------
+ValueError : if the dimensionality of the input points is different than
+     the dimensionality of the KDE.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a2eff8bd4f53dd6a124108b5b8d4610f5}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!integrate\+\_\+box@{integrate\+\_\+box}}
+\index{integrate\+\_\+box@{integrate\+\_\+box}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{integrate\+\_\+box}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+integrate\+\_\+box (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{low\+\_\+bounds, }
+\item[{}]{high\+\_\+bounds, }
+\item[{}]{maxpts = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a2eff8bd4f53dd6a124108b5b8d4610f5}
+\begin{DoxyVerb}Computes the integral of a pdf over a rectangular interval.
+
+Parameters
+----------
+low_bounds : array_like
+    A 1-D array containing the lower bounds of integration.
+high_bounds : array_like
+    A 1-D array containing the upper bounds of integration.
+maxpts : int, optional
+    The maximum number of points to use for integration.
+
+Returns
+-------
+value : scalar
+    The result of the integral.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a6903c7b8133672165725104da3a438cc}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!integrate\+\_\+box\+\_\+1d@{integrate\+\_\+box\+\_\+1d}}
+\index{integrate\+\_\+box\+\_\+1d@{integrate\+\_\+box\+\_\+1d}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{integrate\+\_\+box\+\_\+1d}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+integrate\+\_\+box\+\_\+1d (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{low, }
+\item[{}]{high}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a6903c7b8133672165725104da3a438cc}
+\begin{DoxyVerb}Computes the integral of a 1D pdf between two bounds.
+
+Parameters
+----------
+low : scalar
+    Lower bound of integration.
+high : scalar
+    Upper bound of integration.
+
+Returns
+-------
+value : scalar
+    The result of the integral.
+
+Raises
+------
+ValueError
+    If the KDE is over more than one dimension.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_ac717733cff5d6db8f95619a53bc599d3}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!integrate\+\_\+gaussian@{integrate\+\_\+gaussian}}
+\index{integrate\+\_\+gaussian@{integrate\+\_\+gaussian}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{integrate\+\_\+gaussian}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+integrate\+\_\+gaussian (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{mean, }
+\item[{}]{cov}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_ac717733cff5d6db8f95619a53bc599d3}
+\begin{DoxyVerb}Multiply estimated density by a multivariate Gaussian and integrate
+over the whole space.
+
+Parameters
+----------
+mean : aray_like
+    A 1-D array, specifying the mean of the Gaussian.
+cov : array_like
+    A 2-D array, specifying the covariance matrix of the Gaussian.
+
+Returns
+-------
+result : scalar
+    The value of the integral.
+
+Raises
+------
+ValueError :
+    If the mean or covariance of the input Gaussian differs from
+    the KDE's dimensionality.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a23a1b59fd77308aa23fcdd4f859e8205}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!integrate\+\_\+kde@{integrate\+\_\+kde}}
+\index{integrate\+\_\+kde@{integrate\+\_\+kde}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{integrate\+\_\+kde}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+integrate\+\_\+kde (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{other}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a23a1b59fd77308aa23fcdd4f859e8205}
+\begin{DoxyVerb}Computes the integral of the product of this  kernel density estimate
+with another.
+
+Parameters
+----------
+other : gaussian_kde instance
+    The other kde.
+
+Returns
+-------
+value : scalar
+    The result of the integral.
+
+Raises
+------
+ValueError
+    If the KDEs have different dimensionality.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a6d17f47c334aa576f9f76d3eaa6cb180}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!resample@{resample}}
+\index{resample@{resample}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{resample}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+resample (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{size = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a6d17f47c334aa576f9f76d3eaa6cb180}
+\begin{DoxyVerb}Randomly sample a dataset from the estimated pdf.
+
+Parameters
+----------
+size : int, optional
+    The number of samples to draw.  If not provided, then the size is
+    the same as the underlying dataset.
+
+Returns
+-------
+resample : (self.d, `size`) ndarray
+    The sampled dataset.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a8ca0e79f1ef67e1c6d44b0be28b2a73b}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!scotts\+\_\+factor@{scotts\+\_\+factor}}
+\index{scotts\+\_\+factor@{scotts\+\_\+factor}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{scotts\+\_\+factor}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+scotts\+\_\+factor (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a8ca0e79f1ef67e1c6d44b0be28b2a73b}
+\hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_ab45443a62b816e3404c7fce2da735300}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!set\+\_\+bandwidth@{set\+\_\+bandwidth}}
+\index{set\+\_\+bandwidth@{set\+\_\+bandwidth}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{set\+\_\+bandwidth}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+set\+\_\+bandwidth (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{bw\+\_\+method = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_ab45443a62b816e3404c7fce2da735300}
+\begin{DoxyVerb}Compute the estimator bandwidth with given method.
+
+The new bandwidth calculated after a call to `set_bandwidth` is used
+for subsequent evaluations of the estimated density.
+
+Parameters
+----------
+bw_method : str, scalar or callable, optional
+    The method used to calculate the estimator bandwidth.  This can be
+    'scott', 'silverman', a scalar constant or a callable.  If a
+    scalar, this will be used directly as `kde.factor`.  If a callable,
+    it should take a `gaussian_kde` instance as only parameter and
+    return a scalar.  If None (default), nothing happens; the current
+    `kde.covariance_factor` method is kept.
+
+Notes
+-----
+.. versionadded:: 0.11
+
+Examples
+--------
+>>> x1 = np.array([-7, -5, 1, 4, 5.])
+>>> kde = stats.gaussian_kde(x1)
+>>> xs = np.linspace(-10, 10, num=50)
+>>> y1 = kde(xs)
+>>> kde.set_bandwidth(bw_method='silverman')
+>>> y2 = kde(xs)
+>>> kde.set_bandwidth(bw_method=kde.factor / 3.)
+>>> y3 = kde(xs)
+
+>>> fig = plt.figure()
+>>> ax = fig.add_subplot(111)
+>>> ax.plot(x1, np.ones(x1.shape) / (4. * x1.size), 'bo',
+...         label='Data points (rescaled)')
+>>> ax.plot(xs, y1, label='Scott (default)')
+>>> ax.plot(xs, y2, label='Silverman')
+>>> ax.plot(xs, y3, label='Const (1/3 * Silverman)')
+>>> ax.legend()
+>>> plt.show()\end{DoxyVerb}
+ \hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a8e85dee070dbd89a42ce43cbec1084a2}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!silverman\+\_\+factor@{silverman\+\_\+factor}}
+\index{silverman\+\_\+factor@{silverman\+\_\+factor}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{silverman\+\_\+factor}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+silverman\+\_\+factor (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a8e85dee070dbd89a42ce43cbec1084a2}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a735953115cddccf764caf021835bc0ca}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!covariance@{covariance}}
+\index{covariance@{covariance}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{covariance}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+covariance}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a735953115cddccf764caf021835bc0ca}
+\hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a919c68108e8515aa9d08d47df5268463}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!covariance\+\_\+factor@{covariance\+\_\+factor}}
+\index{covariance\+\_\+factor@{covariance\+\_\+factor}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{covariance\+\_\+factor}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+covariance\+\_\+factor = {\bf scotts\+\_\+factor}\hspace{0.3cm}{\ttfamily [static]}}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a919c68108e8515aa9d08d47df5268463}
+\hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a9b885c9459c184a1c516a33b38444c16}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!dataset@{dataset}}
+\index{dataset@{dataset}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{dataset}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+dataset}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a9b885c9459c184a1c516a33b38444c16}
+\hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_acee9260bd649ac101e5ccfbb5f180543}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!factor@{factor}}
+\index{factor@{factor}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{factor}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+factor}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_acee9260bd649ac101e5ccfbb5f180543}
+\hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a92eef97e05fed104ccce6746ad07710c}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!inv\+\_\+cov@{inv\+\_\+cov}}
+\index{inv\+\_\+cov@{inv\+\_\+cov}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{inv\+\_\+cov}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+inv\+\_\+cov}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a92eef97e05fed104ccce6746ad07710c}
+\hypertarget{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a1db123868b2181c0454880533ac00c60}{}\index{scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}!n@{n}}
+\index{n@{n}!scipy\+::stats\+::kde\+::gaussian\+\_\+kde@{scipy\+::stats\+::kde\+::gaussian\+\_\+kde}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+stats.\+kde.\+gaussian\+\_\+kde.\+n}\label{classscipy_1_1stats_1_1kde_1_1gaussian__kde_a1db123868b2181c0454880533ac00c60}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/stats/\hyperlink{kde_8py}{kde.\+py}\end{DoxyCompactItemize}

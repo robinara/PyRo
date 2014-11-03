@@ -1,0 +1,136 @@
+\hypertarget{dlaein_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlaein.f File Reference}
+\label{dlaein_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaein.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaein.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlaein_8f_a10da782c8833b0a63452726912c827b3}{dlaein} (R\+I\+G\+H\+T\+V, N\+O\+I\+N\+I\+T, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, H, L\+D\+H, W\+R, W\+I, V\+R, V\+I, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, W\+O\+R\+K, E\+P\+S3, S\+M\+L\+N\+U\+M, B\+I\+G\+N\+U\+M, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+E\+I\+N} computes a specified right or left eigenvector of an upper Hessenberg matrix by inverse iteration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlaein_8f_a10da782c8833b0a63452726912c827b3}{}\index{dlaein.\+f@{dlaein.\+f}!dlaein@{dlaein}}
+\index{dlaein@{dlaein}!dlaein.\+f@{dlaein.\+f}}
+\subsubsection[{dlaein}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlaein (
+\begin{DoxyParamCaption}
+\item[{{\bf logical}}]{R\+I\+G\+H\+T\+V, }
+\item[{{\bf logical}}]{N\+O\+I\+N\+I\+T, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( ldh, $\ast$ )}]{H, }
+\item[{integer}]{L\+D\+H, }
+\item[{double {\bf precision}}]{W\+R, }
+\item[{double {\bf precision}}]{W\+I, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{V\+R, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{V\+I, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{double {\bf precision}}]{E\+P\+S3, }
+\item[{double {\bf precision}}]{S\+M\+L\+N\+U\+M, }
+\item[{double {\bf precision}}]{B\+I\+G\+N\+U\+M, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dlaein_8f_a10da782c8833b0a63452726912c827b3}
+
+
+{\bfseries D\+L\+A\+E\+I\+N} computes a specified right or left eigenvector of an upper Hessenberg matrix by inverse iteration. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLAEIN uses inverse iteration to find a right or left eigenvector
+ corresponding to the eigenvalue (WR,WI) of a real upper Hessenberg
+ matrix H.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em R\+I\+G\+H\+T\+V} & \begin{DoxyVerb}          RIGHTV is LOGICAL
+          = .TRUE. : compute right eigenvector;
+          = .FALSE.: compute left eigenvector.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+O\+I\+N\+I\+T} & \begin{DoxyVerb}          NOINIT is LOGICAL
+          = .TRUE. : no initial vector supplied in (VR,VI).
+          = .FALSE.: initial vector supplied in (VR,VI).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix H.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em H} & \begin{DoxyVerb}          H is DOUBLE PRECISION array, dimension (LDH,N)
+          The upper Hessenberg matrix H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+H} & \begin{DoxyVerb}          LDH is INTEGER
+          The leading dimension of the array H.  LDH >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W\+R} & \begin{DoxyVerb}          WR is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W\+I} & \begin{DoxyVerb}          WI is DOUBLE PRECISION
+          The real and imaginary parts of the eigenvalue of H whose
+          corresponding right or left eigenvector is to be computed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V\+R} & \begin{DoxyVerb}          VR is DOUBLE PRECISION array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V\+I} & \begin{DoxyVerb}          VI is DOUBLE PRECISION array, dimension (N)
+          On entry, if NOINIT = .FALSE. and WI = 0.0, VR must contain
+          a real starting vector for inverse iteration using the real
+          eigenvalue WR; if NOINIT = .FALSE. and WI.ne.0.0, VR and VI
+          must contain the real and imaginary parts of a complex
+          starting vector for inverse iteration using the complex
+          eigenvalue (WR,WI); otherwise VR and VI need not be set.
+          On exit, if WI = 0.0 (real eigenvalue), VR contains the
+          computed real eigenvector; if WI.ne.0.0 (complex eigenvalue),
+          VR and VI contain the real and imaginary parts of the
+          computed complex eigenvector. The eigenvector is normalized
+          so that the component of largest magnitude has magnitude 1;
+          here the magnitude of a complex number (x,y) is taken to be
+          |x| + |y|.
+          VI is not referenced if WI = 0.0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= N+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E\+P\+S3} & \begin{DoxyVerb}          EPS3 is DOUBLE PRECISION
+          A small machine-dependent value which is used to perturb
+          close eigenvalues, and to replace zero pivots.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+M\+L\+N\+U\+M} & \begin{DoxyVerb}          SMLNUM is DOUBLE PRECISION
+          A machine-dependent value close to the underflow threshold.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+I\+G\+N\+U\+M} & \begin{DoxyVerb}          BIGNUM is DOUBLE PRECISION
+          A machine-dependent value close to the overflow threshold.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          = 1:  inverse iteration did not converge; VR is set to the
+                last iterate, and so is VI if WI.ne.0.0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

@@ -1,0 +1,182 @@
+\hypertarget{odrpack_8h}{}\section{packages/scipy-\/0.14.0/scipy/odr/odrpack.h File Reference}
+\label{odrpack_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/odr/odrpack.\+h@{packages/scipy-\/0.\+14.\+0/scipy/odr/odrpack.\+h}}
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}numpy/arrayobject.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}numpy/npy\+\_\+3kcompat.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structODR__info__}{O\+D\+R\+\_\+info\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{odrpack_8h_a8e6e29f9da22093a2a5e8af4fd1e3181}{F\+\_\+\+F\+U\+N\+C}(f,  F)~f\#\#\+\_\+
+\item 
+\#define \hyperlink{odrpack_8h_a718693babfa893da17b1d586aa77c4a8}{P\+Y\+E\+R\+R}(errobj,  message)~\{Py\+Err\+\_\+\+Set\+String(errobj,message); goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail};\}
+\item 
+\#define \hyperlink{odrpack_8h_aefd5acc2a1fab9899a820e1a9bc2bb2a}{P\+Y\+E\+R\+R2}(errobj,  message)~\{Py\+Err\+\_\+\+Print(); Py\+Err\+\_\+\+Set\+String(errobj, message); goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail};\}
+\item 
+\#define \hyperlink{odrpack_8h_a31ddc3bae85ae4bfc4e7b4557fb9744e}{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})~((\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})-\/$>$flags \& C\+O\+N\+T\+I\+G\+U\+O\+U\+S)
+\item 
+\#define \hyperlink{odrpack_8h_afb2e746a2e52fb54db4ebdb4bd0fc7a5}{M\+A\+X}(n1,  n2)~((n1) $>$ (n2))?(n1)\+:(n2);
+\item 
+\#define \hyperlink{odrpack_8h_a265c3540d0a48d63111cff573e4a8485}{M\+I\+N}(n1,  n2)~((n1) $>$ (n2))?(n2)\+:(n1);
+\item 
+\#define \hyperlink{odrpack_8h_ae4872a0b97f8c577194b0bd928ee16f4}{Py\+Array\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})
+\item 
+\#define \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}(dbg)~printf(\char`\"{}we're here\+: \%\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{i\textbackslash{}n}\char`\"{}, dbg)
+\item 
+\#define \hyperlink{odrpack_8h_a9a316ab7316788d1bb52b5848a955d5d}{E\+X\+I\+S\+T}(name,  obj)~\hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} (obj==N\+U\+L\+L)\{printf(\char`\"{}\%s\textbackslash{}n\char`\"{},name);\}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structODR__info__}{O\+D\+R\+\_\+info\+\_\+} \hyperlink{odrpack_8h_a53b31c4d7a044e658a618c7ce4f4f9e1}{O\+D\+R\+\_\+info}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{odrpack_8h_a000016c8688e708fdde1dc101e61739f}{fcn\+\_\+callback} (int $\ast$\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int $\ast$\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int $\ast$np, int $\ast$nq, int $\ast$ldn, int $\ast$ldm, int $\ast$ldnp, double $\ast$\hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, double $\ast$xplusd, int $\ast$ifixb, int $\ast$ifixx, int $\ast$ldfix, int $\ast$ideval, double $\ast$f, double $\ast$fjacb, double $\ast$fjacd, int $\ast$istop)
+\item 
+Py\+Object $\ast$ \hyperlink{odrpack_8h_aa6c7a9a7e463388ea21b9b7f054a46c5}{gen\+\_\+output} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int np, int nq, int ldwe, int ld2we, Py\+Array\+Object $\ast$\hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, Py\+Array\+Object $\ast$work, Py\+Array\+Object $\ast$iwork, int isodr, int info, int full\+\_\+output)
+\item 
+Py\+Object $\ast$ \hyperlink{odrpack_8h_ab628d5d7db6bcf008f7744ba0738eb83}{odr} (Py\+Object $\ast$self, Py\+Object $\ast$args, Py\+Object $\ast$kwds)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{}\index{odrpack.\+h@{odrpack.\+h}!D@{D}}
+\index{D@{D}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D(
+\begin{DoxyParamCaption}
+\item[{}]{dbg}
+\end{DoxyParamCaption}
+)~printf(\char`\"{}we're here\+: \%{\bf i\textbackslash{}n}\char`\"{}, dbg)}\label{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}
+\hypertarget{odrpack_8h_a9a316ab7316788d1bb52b5848a955d5d}{}\index{odrpack.\+h@{odrpack.\+h}!E\+X\+I\+S\+T@{E\+X\+I\+S\+T}}
+\index{E\+X\+I\+S\+T@{E\+X\+I\+S\+T}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{E\+X\+I\+S\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+X\+I\+S\+T(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{obj}
+\end{DoxyParamCaption}
+)~{\bf if} (obj==N\+U\+L\+L)\{printf(\char`\"{}\%s\textbackslash{}n\char`\"{},name);\}}\label{odrpack_8h_a9a316ab7316788d1bb52b5848a955d5d}
+\hypertarget{odrpack_8h_a8e6e29f9da22093a2a5e8af4fd1e3181}{}\index{odrpack.\+h@{odrpack.\+h}!F\+\_\+\+F\+U\+N\+C@{F\+\_\+\+F\+U\+N\+C}}
+\index{F\+\_\+\+F\+U\+N\+C@{F\+\_\+\+F\+U\+N\+C}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{F\+\_\+\+F\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+\_\+\+F\+U\+N\+C(
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{F}
+\end{DoxyParamCaption}
+)~f\#\#\+\_\+}\label{odrpack_8h_a8e6e29f9da22093a2a5e8af4fd1e3181}
+\hypertarget{odrpack_8h_a31ddc3bae85ae4bfc4e7b4557fb9744e}{}\index{odrpack.\+h@{odrpack.\+h}!I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}}
+\index{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf m}}
+\end{DoxyParamCaption}
+)~(({\bf m})-\/$>$flags \& C\+O\+N\+T\+I\+G\+U\+O\+U\+S)}\label{odrpack_8h_a31ddc3bae85ae4bfc4e7b4557fb9744e}
+\hypertarget{odrpack_8h_afb2e746a2e52fb54db4ebdb4bd0fc7a5}{}\index{odrpack.\+h@{odrpack.\+h}!M\+A\+X@{M\+A\+X}}
+\index{M\+A\+X@{M\+A\+X}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X(
+\begin{DoxyParamCaption}
+\item[{}]{n1, }
+\item[{}]{n2}
+\end{DoxyParamCaption}
+)~((n1) $>$ (n2))?(n1)\+:(n2);}\label{odrpack_8h_afb2e746a2e52fb54db4ebdb4bd0fc7a5}
+\hypertarget{odrpack_8h_a265c3540d0a48d63111cff573e4a8485}{}\index{odrpack.\+h@{odrpack.\+h}!M\+I\+N@{M\+I\+N}}
+\index{M\+I\+N@{M\+I\+N}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+I\+N(
+\begin{DoxyParamCaption}
+\item[{}]{n1, }
+\item[{}]{n2}
+\end{DoxyParamCaption}
+)~((n1) $>$ (n2))?(n2)\+:(n1);}\label{odrpack_8h_a265c3540d0a48d63111cff573e4a8485}
+\hypertarget{odrpack_8h_ae4872a0b97f8c577194b0bd928ee16f4}{}\index{odrpack.\+h@{odrpack.\+h}!Py\+Array\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{Py\+Array\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}}
+\index{Py\+Array\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{Py\+Array\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{Py\+Array\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Py\+Array\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf m}}
+\end{DoxyParamCaption}
+)}\label{odrpack_8h_ae4872a0b97f8c577194b0bd928ee16f4}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(\hyperlink{odrpack_8h_a31ddc3bae85ae4bfc4e7b4557fb9744e}{ISCONTIGUOUS}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}) ? Py\_INCREF(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}), \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m} : \(\backslash\)
+(PyArrayObject *)(PyArray\_ContiguousFromObject((PyObject *)(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}), \(\backslash\)
+(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})->descr->type\_num, 0,0)))
+\end{DoxyCode}
+\hypertarget{odrpack_8h_a718693babfa893da17b1d586aa77c4a8}{}\index{odrpack.\+h@{odrpack.\+h}!P\+Y\+E\+R\+R@{P\+Y\+E\+R\+R}}
+\index{P\+Y\+E\+R\+R@{P\+Y\+E\+R\+R}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{P\+Y\+E\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+E\+R\+R(
+\begin{DoxyParamCaption}
+\item[{}]{errobj, }
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~\{Py\+Err\+\_\+\+Set\+String(errobj,message); goto {\bf fail};\}}\label{odrpack_8h_a718693babfa893da17b1d586aa77c4a8}
+\hypertarget{odrpack_8h_aefd5acc2a1fab9899a820e1a9bc2bb2a}{}\index{odrpack.\+h@{odrpack.\+h}!P\+Y\+E\+R\+R2@{P\+Y\+E\+R\+R2}}
+\index{P\+Y\+E\+R\+R2@{P\+Y\+E\+R\+R2}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{P\+Y\+E\+R\+R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+E\+R\+R2(
+\begin{DoxyParamCaption}
+\item[{}]{errobj, }
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~\{Py\+Err\+\_\+\+Print(); Py\+Err\+\_\+\+Set\+String(errobj, message); goto {\bf fail};\}}\label{odrpack_8h_aefd5acc2a1fab9899a820e1a9bc2bb2a}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{odrpack_8h_a53b31c4d7a044e658a618c7ce4f4f9e1}{}\index{odrpack.\+h@{odrpack.\+h}!O\+D\+R\+\_\+info@{O\+D\+R\+\_\+info}}
+\index{O\+D\+R\+\_\+info@{O\+D\+R\+\_\+info}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{O\+D\+R\+\_\+info}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf O\+D\+R\+\_\+info\+\_\+} {\bf O\+D\+R\+\_\+info}}\label{odrpack_8h_a53b31c4d7a044e658a618c7ce4f4f9e1}
+
+
+\subsection{Function Documentation}
+\hypertarget{odrpack_8h_a000016c8688e708fdde1dc101e61739f}{}\index{odrpack.\+h@{odrpack.\+h}!fcn\+\_\+callback@{fcn\+\_\+callback}}
+\index{fcn\+\_\+callback@{fcn\+\_\+callback}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{fcn\+\_\+callback}]{\setlength{\rightskip}{0pt plus 5cm}void fcn\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{n, }
+\item[{int $\ast$}]{m, }
+\item[{int $\ast$}]{np, }
+\item[{int $\ast$}]{nq, }
+\item[{int $\ast$}]{ldn, }
+\item[{int $\ast$}]{ldm, }
+\item[{int $\ast$}]{ldnp, }
+\item[{double $\ast$}]{beta, }
+\item[{double $\ast$}]{xplusd, }
+\item[{int $\ast$}]{ifixb, }
+\item[{int $\ast$}]{ifixx, }
+\item[{int $\ast$}]{ldfix, }
+\item[{int $\ast$}]{ideval, }
+\item[{double $\ast$}]{f, }
+\item[{double $\ast$}]{fjacb, }
+\item[{double $\ast$}]{fjacd, }
+\item[{int $\ast$}]{istop}
+\end{DoxyParamCaption}
+)}\label{odrpack_8h_a000016c8688e708fdde1dc101e61739f}
+\hypertarget{odrpack_8h_aa6c7a9a7e463388ea21b9b7f054a46c5}{}\index{odrpack.\+h@{odrpack.\+h}!gen\+\_\+output@{gen\+\_\+output}}
+\index{gen\+\_\+output@{gen\+\_\+output}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{gen\+\_\+output}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ gen\+\_\+output (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{m, }
+\item[{int}]{np, }
+\item[{int}]{nq, }
+\item[{int}]{ldwe, }
+\item[{int}]{ld2we, }
+\item[{Py\+Array\+Object $\ast$}]{beta, }
+\item[{Py\+Array\+Object $\ast$}]{work, }
+\item[{Py\+Array\+Object $\ast$}]{iwork, }
+\item[{int}]{isodr, }
+\item[{int}]{info, }
+\item[{int}]{full\+\_\+output}
+\end{DoxyParamCaption}
+)}\label{odrpack_8h_aa6c7a9a7e463388ea21b9b7f054a46c5}
+\hypertarget{odrpack_8h_ab628d5d7db6bcf008f7744ba0738eb83}{}\index{odrpack.\+h@{odrpack.\+h}!odr@{odr}}
+\index{odr@{odr}!odrpack.\+h@{odrpack.\+h}}
+\subsubsection[{odr}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ odr (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args, }
+\item[{Py\+Object $\ast$}]{kwds}
+\end{DoxyParamCaption}
+)}\label{odrpack_8h_ab628d5d7db6bcf008f7744ba0738eb83}

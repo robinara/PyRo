@@ -1,0 +1,194 @@
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__svd}{}\section{scipy.\+linalg.\+decomp\+\_\+svd Namespace Reference}
+\label{namespacescipy_1_1linalg_1_1decomp__svd}\index{scipy.\+linalg.\+decomp\+\_\+svd@{scipy.\+linalg.\+decomp\+\_\+svd}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__svd_a1d4ce639a3f2e2bc9f2f035a3355639c}{svd}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__svd_a81400bb2f5c2a09055f82c692fa56df8}{svdvals}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__svd_a6462b146a9ff3bcad5be37c67933ebfd}{diagsvd}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__svd_a93b5577f27f7966fe0af61ac32b3f295}{orth}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1linalg_1_1decomp__svd_ac1789ea757919572c6d33eff59ea048e}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1linalg_1_1decomp__svd_a1d4ce639a3f2e2bc9f2f035a3355639c}{svd}', '\hyperlink{namespacescipy_1_1linalg_1_1decomp__svd_a81400bb2f5c2a09055f82c692fa56df8}{svdvals}', '\hyperlink{namespacescipy_1_1linalg_1_1decomp__svd_a6462b146a9ff3bcad5be37c67933ebfd}{diagsvd}', '\hyperlink{namespacescipy_1_1linalg_1_1decomp__svd_a93b5577f27f7966fe0af61ac32b3f295}{orth}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}SVD decomposition functions.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__svd_a6462b146a9ff3bcad5be37c67933ebfd}{}\index{scipy\+::linalg\+::decomp\+\_\+svd@{scipy\+::linalg\+::decomp\+\_\+svd}!diagsvd@{diagsvd}}
+\index{diagsvd@{diagsvd}!scipy\+::linalg\+::decomp\+\_\+svd@{scipy\+::linalg\+::decomp\+\_\+svd}}
+\subsubsection[{diagsvd}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+svd.\+diagsvd (
+\begin{DoxyParamCaption}
+\item[{}]{s, }
+\item[{}]{M, }
+\item[{}]{N}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__svd_a6462b146a9ff3bcad5be37c67933ebfd}
+\begin{DoxyVerb}Construct the sigma matrix in SVD from singular values and size M, N.
+
+Parameters
+----------
+s : (M,) or (N,) array_like
+    Singular values
+M : int
+    Size of the matrix whose singular values are `s`.
+N : int
+    Size of the matrix whose singular values are `s`.
+
+Returns
+-------
+S : (M, N) ndarray
+    The S-matrix in the singular value decomposition\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__svd_a93b5577f27f7966fe0af61ac32b3f295}{}\index{scipy\+::linalg\+::decomp\+\_\+svd@{scipy\+::linalg\+::decomp\+\_\+svd}!orth@{orth}}
+\index{orth@{orth}!scipy\+::linalg\+::decomp\+\_\+svd@{scipy\+::linalg\+::decomp\+\_\+svd}}
+\subsubsection[{orth}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+svd.\+orth (
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__svd_a93b5577f27f7966fe0af61ac32b3f295}
+\begin{DoxyVerb}Construct an orthonormal basis for the range of A using SVD
+
+Parameters
+----------
+A : (M, N) ndarray
+    Input array
+
+Returns
+-------
+Q : (M, K) ndarray
+    Orthonormal basis for the range of A.
+    K = effective rank of A, as determined by automatic cutoff
+
+See also
+--------
+svd : Singular value decomposition of a matrix\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__svd_a1d4ce639a3f2e2bc9f2f035a3355639c}{}\index{scipy\+::linalg\+::decomp\+\_\+svd@{scipy\+::linalg\+::decomp\+\_\+svd}!svd@{svd}}
+\index{svd@{svd}!scipy\+::linalg\+::decomp\+\_\+svd@{scipy\+::linalg\+::decomp\+\_\+svd}}
+\subsubsection[{svd}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+svd.\+svd (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{full\+\_\+matrices = {\ttfamily {\bf True}}, }
+\item[{}]{compute\+\_\+uv = {\ttfamily {\bf True}}, }
+\item[{}]{overwrite\+\_\+a = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__svd_a1d4ce639a3f2e2bc9f2f035a3355639c}
+\begin{DoxyVerb}Singular Value Decomposition.
+
+Factorizes the matrix a into two unitary matrices U and Vh, and
+a 1-D array s of singular values (real, non-negative) such that
+``a == U*S*Vh``, where S is a suitably shaped matrix of zeros with
+main diagonal s.
+
+Parameters
+----------
+a : (M, N) array_like
+    Matrix to decompose.
+full_matrices : bool, optional
+    If True, `U` and `Vh` are of shape ``(M,M)``, ``(N,N)``.
+    If False, the shapes are ``(M,K)`` and ``(K,N)``, where
+    ``K = min(M,N)``.
+compute_uv : bool, optional
+    Whether to compute also `U` and `Vh` in addition to `s`.
+    Default is True.
+overwrite_a : bool, optional
+    Whether to overwrite `a`; may improve performance.
+    Default is False.
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+U : ndarray
+    Unitary matrix having left singular vectors as columns.
+    Of shape ``(M,M)`` or ``(M,K)``, depending on `full_matrices`.
+s : ndarray
+    The singular values, sorted in non-increasing order.
+    Of shape (K,), with ``K = min(M, N)``.
+Vh : ndarray
+    Unitary matrix having right singular vectors as rows.
+    Of shape ``(N,N)`` or ``(K,N)`` depending on `full_matrices`.
+
+For ``compute_uv = False``, only `s` is returned.
+
+Raises
+------
+LinAlgError
+    If SVD computation does not converge.
+
+See also
+--------
+svdvals : Compute singular values of a matrix.
+diagsvd : Construct the Sigma matrix, given the vector s.
+
+Examples
+--------
+>>> from scipy import linalg
+>>> a = np.random.randn(9, 6) + 1.j*np.random.randn(9, 6)
+>>> U, s, Vh = linalg.svd(a)
+>>> U.shape, Vh.shape, s.shape
+((9, 9), (6, 6), (6,))
+
+>>> U, s, Vh = linalg.svd(a, full_matrices=False)
+>>> U.shape, Vh.shape, s.shape
+((9, 6), (6, 6), (6,))
+>>> S = linalg.diagsvd(s, 6, 6)
+>>> np.allclose(a, np.dot(U, np.dot(S, Vh)))
+True
+
+>>> s2 = linalg.svd(a, compute_uv=False)
+>>> np.allclose(s, s2)
+True\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__svd_a81400bb2f5c2a09055f82c692fa56df8}{}\index{scipy\+::linalg\+::decomp\+\_\+svd@{scipy\+::linalg\+::decomp\+\_\+svd}!svdvals@{svdvals}}
+\index{svdvals@{svdvals}!scipy\+::linalg\+::decomp\+\_\+svd@{scipy\+::linalg\+::decomp\+\_\+svd}}
+\subsubsection[{svdvals}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+svd.\+svdvals (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{overwrite\+\_\+a = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__svd_a81400bb2f5c2a09055f82c692fa56df8}
+\begin{DoxyVerb}Compute singular values of a matrix.
+
+Parameters
+----------
+a : (M, N) array_like
+    Matrix to decompose.
+overwrite_a : bool, optional
+    Whether to overwrite `a`; may improve performance.
+    Default is False.
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+s : (min(M, N),) ndarray
+    The singular values, sorted in decreasing order.
+
+Raises
+------
+LinAlgError
+    If SVD computation does not converge.
+
+See also
+--------
+svd : Compute the full singular value decomposition of a matrix.
+diagsvd : Construct the Sigma matrix, given the vector s.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__svd_ac1789ea757919572c6d33eff59ea048e}{}\index{scipy\+::linalg\+::decomp\+\_\+svd@{scipy\+::linalg\+::decomp\+\_\+svd}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::linalg\+::decomp\+\_\+svd@{scipy\+::linalg\+::decomp\+\_\+svd}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+linalg.\+decomp\+\_\+svd.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf svd}', '{\bf svdvals}', '{\bf diagsvd}', '{\bf orth}'\mbox{]}}\label{namespacescipy_1_1linalg_1_1decomp__svd_ac1789ea757919572c6d33eff59ea048e}

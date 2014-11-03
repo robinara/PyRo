@@ -1,0 +1,68 @@
+\hypertarget{slasrt_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slasrt.f File Reference}
+\label{slasrt_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slasrt.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slasrt.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slasrt_8f_a66e14f999e0c96b0d974849882160a07}{slasrt} (I\+D, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+S\+R\+T} sorts numbers in increasing or decreasing order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slasrt_8f_a66e14f999e0c96b0d974849882160a07}{}\index{slasrt.\+f@{slasrt.\+f}!slasrt@{slasrt}}
+\index{slasrt@{slasrt}!slasrt.\+f@{slasrt.\+f}}
+\subsubsection[{slasrt}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slasrt (
+\begin{DoxyParamCaption}
+\item[{character}]{I\+D, }
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{slasrt_8f_a66e14f999e0c96b0d974849882160a07}
+
+
+{\bfseries S\+L\+A\+S\+R\+T} sorts numbers in increasing or decreasing order. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} Sort the numbers in D in increasing order (if ID = 'I') or
+ in decreasing order (if ID = 'D' ).
+
+ Use Quick Sort, reverting to Insertion sort on arrays of
+ size <= 20. Dimension of STACK limits N to about 2**32.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I\+D} & \begin{DoxyVerb}          ID is CHARACTER*1
+          = 'I': sort D in increasing order;
+          = 'D': sort D in decreasing order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The length of the array D.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          On entry, the array to be sorted.
+          On exit, D has been sorted into increasing order
+          (D(1) <= ... <= D(N) ) or into decreasing order
+          (D(1) >= ... >= D(N) ), depending on ID.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

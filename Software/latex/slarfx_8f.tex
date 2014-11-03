@@ -1,0 +1,95 @@
+\hypertarget{slarfx_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slarfx.f File Reference}
+\label{slarfx_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slarfx.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slarfx.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slarfx_8f_a0a4884a7b75e6c790eca8488d4ec6754}{slarfx} (S\+I\+D\+E, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, V, T\+A\+U, C, L\+D\+C, W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+R\+F\+X} applies an elementary reflector to a general rectangular matrix, with loop unrolling when the reflector has order ≤ 10. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slarfx_8f_a0a4884a7b75e6c790eca8488d4ec6754}{}\index{slarfx.\+f@{slarfx.\+f}!slarfx@{slarfx}}
+\index{slarfx@{slarfx}!slarfx.\+f@{slarfx.\+f}}
+\subsubsection[{slarfx}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slarfx (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{V, }
+\item[{real}]{T\+A\+U, }
+\item[{real, dimension( ldc, $\ast$ )}]{C, }
+\item[{integer}]{L\+D\+C, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{slarfx_8f_a0a4884a7b75e6c790eca8488d4ec6754}
+
+
+{\bfseries S\+L\+A\+R\+F\+X} applies an elementary reflector to a general rectangular matrix, with loop unrolling when the reflector has order ≤ 10. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLARFX applies a real elementary reflector H to a real m by n
+ matrix C, from either the left or the right. H is represented in the
+ form
+
+       H = I - tau * v * v**T
+
+ where tau is a real scalar and v is a real vector.
+
+ If tau = 0, then H is taken to be the unit matrix
+
+ This version uses inline code if H has order < 11.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+          = 'L': form  H * C
+          = 'R': form  C * H\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V} & \begin{DoxyVerb}          V is REAL array, dimension (M) if SIDE = 'L'
+                                     or (N) if SIDE = 'R'
+          The vector v in the representation of H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is REAL
+          The value tau in the representation of H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is REAL array, dimension (LDC,N)
+          On entry, the m by n matrix C.
+          On exit, C is overwritten by the matrix H * C if SIDE = 'L',
+          or C * H if SIDE = 'R'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+          The leading dimension of the array C. LDA >= (1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension
+                      (N) if SIDE = 'L'
+                      or (M) if SIDE = 'R'
+          WORK is not referenced if H has order < 11.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

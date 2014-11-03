@@ -1,0 +1,140 @@
+\hypertarget{cgsequ_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/cgsequ.c File Reference}
+\label{cgsequ_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/cgsequ.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/cgsequ.\+c}}
+
+
+Computes row and column scalings.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+cdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{cgsequ_8c_a36bb68fea3ee44ff05eb7da2ee059fa5}{cgsequ} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, float $\ast$\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}, float $\ast$c, float $\ast$rowcnd, float $\ast$colcnd, float $\ast$amax, int $\ast$info)
+\begin{DoxyCompactList}\small\item\em Driver related. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Computes row and column scalings. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Modified from LAPACK routine CGEEQU
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{cgsequ_8c_a36bb68fea3ee44ff05eb7da2ee059fa5}{}\index{cgsequ.\+c@{cgsequ.\+c}!cgsequ@{cgsequ}}
+\index{cgsequ@{cgsequ}!cgsequ.\+c@{cgsequ.\+c}}
+\subsubsection[{cgsequ}]{\setlength{\rightskip}{0pt plus 5cm}void cgsequ (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{float $\ast$}]{r, }
+\item[{float $\ast$}]{c, }
+\item[{float $\ast$}]{rowcnd, }
+\item[{float $\ast$}]{colcnd, }
+\item[{float $\ast$}]{amax, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{cgsequ_8c_a36bb68fea3ee44ff05eb7da2ee059fa5}
+
+
+Driver related. 
+
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  CGSEQU computes row and column scalings intended to equilibrate an   
+  M-by-N sparse matrix \hyperlink{classA}{A} and reduce its condition number. R returns the row
+  scale factors and C the column scale factors, chosen to try to make   
+  the largest element in each row and column of the matrix B with   
+  elements B(i,j)=R(i)*A(i,j)*C(j) have absolute value 1.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  R(i) and C(j) are restricted to be between SMLNUM = smallest safe   
+  number and BIGNUM = largest safe number.  Use of these scaling   
+  factors is not guaranteed to reduce the condition number of \hyperlink{classA}{A} but   
+  works well in practice.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A}       (input) SuperMatrix*
+          The matrix of dimension (A->nrow, A->ncol) whose equilibration
+          factors are to be computed. The type of \hyperlink{classA}{A} can be:
+          Stype = SLU\_NC; Dtype = SLU\_C; Mtype = SLU\_GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  R       (output) float*, size A->nrow
+          If INFO = 0 or INFO > M, R contains the row scale factors   
+          for \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  C       (output) float*, size A->ncol
+          If INFO = 0,  C contains the column scale factors for \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ROWCND  (output) float*
+          If INFO = 0 or INFO > M, ROWCND contains the ratio of the   
+          smallest R(i) to the largest R(i).  If ROWCND >= 0.1 and   
+          AMAX is neither too large nor too small, it is not worth   
+          scaling by R.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  COLCND  (output) float*
+          If INFO = 0, COLCND contains the ratio of the smallest   
+          C(i) to the largest C(i).  If COLCND >= 0.1, it is not   
+          worth scaling by C.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  AMAX    (output) float*
+          Absolute value of largest matrix element.  If AMAX is very   
+          close to overflow or very close to underflow, the matrix   
+          should be scaled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  INFO    (output) int*
+          = 0:  successful exit   
+          < 0:  if INFO = -i, the i-th argument had an illegal value   
+          > 0:  if INFO = i,  and i is   
+                <= A->nrow:  the i-th row of \hyperlink{classA}{A} is exactly zero   
+                >  A->ncol:  the (i-M)-th column of \hyperlink{classA}{A} is exactly zero   
+
+
+
+\end{DoxyPre}
+ 

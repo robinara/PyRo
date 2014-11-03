@@ -1,0 +1,280 @@
+\hypertarget{dggsvd_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dggsvd.f File Reference}
+\label{dggsvd_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dggsvd.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dggsvd.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dggsvd_8f_af81db37b433882a26f692aeff19f002e}{dggsvd} (J\+O\+B\+U, J\+O\+B\+V, J\+O\+B\+Q, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, P, K, L, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, A\+L\+P\+H\+A, B\+E\+T\+A, U, L\+D\+U, V, L\+D\+V, Q, L\+D\+Q, W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  D\+G\+G\+S\+V\+D computes the singular value decomposition (S\+V\+D) for O\+T\+H\+E\+R matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dggsvd_8f_af81db37b433882a26f692aeff19f002e}{}\index{dggsvd.\+f@{dggsvd.\+f}!dggsvd@{dggsvd}}
+\index{dggsvd@{dggsvd}!dggsvd.\+f@{dggsvd.\+f}}
+\subsubsection[{dggsvd}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dggsvd (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B\+U, }
+\item[{character}]{J\+O\+B\+V, }
+\item[{character}]{J\+O\+B\+Q, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{P, }
+\item[{integer}]{K, }
+\item[{integer}]{L, }
+\item[{double {\bf precision}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{A\+L\+P\+H\+A, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B\+E\+T\+A, }
+\item[{double {\bf precision}, dimension( ldu, $\ast$ )}]{U, }
+\item[{integer}]{L\+D\+U, }
+\item[{double {\bf precision}, dimension( ldv, $\ast$ )}]{V, }
+\item[{integer}]{L\+D\+V, }
+\item[{double {\bf precision}, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dggsvd_8f_af81db37b433882a26f692aeff19f002e}
+
+
+{\bfseries  D\+G\+G\+S\+V\+D computes the singular value decomposition (S\+V\+D) for O\+T\+H\+E\+R matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DGGSVD computes the generalized singular value decomposition (GSVD)
+ of an M-by-N real matrix A and P-by-N real matrix B:
+
+       U**T*A*Q = D1*( 0 R ),    V**T*B*Q = D2*( 0 R )
+
+ where U, V and Q are orthogonal matrices.
+ Let K+L = the effective numerical rank of the matrix (A**T,B**T)**T,
+ then R is a K+L-by-K+L nonsingular upper triangular matrix, D1 and
+ D2 are M-by-(K+L) and P-by-(K+L) "diagonal" matrices and of the
+ following structures, respectively:
+
+ If M-K-L >= 0,
+
+                     K  L
+        D1 =     K ( I  0 )
+                 L ( 0  C )
+             M-K-L ( 0  0 )
+
+                   K  L
+        D2 =   L ( 0  S )
+             P-L ( 0  0 )
+
+                 N-K-L  K    L
+   ( 0 R ) = K (  0   R11  R12 )
+             L (  0    0   R22 )
+
+ where
+
+   C = diag( ALPHA(K+1), ... , ALPHA(K+L) ),
+   S = diag( BETA(K+1),  ... , BETA(K+L) ),
+   C**2 + S**2 = I.
+
+   R is stored in A(1:K+L,N-K-L+1:N) on exit.
+
+ If M-K-L < 0,
+
+                   K M-K K+L-M
+        D1 =   K ( I  0    0   )
+             M-K ( 0  C    0   )
+
+                     K M-K K+L-M
+        D2 =   M-K ( 0  S    0  )
+             K+L-M ( 0  0    I  )
+               P-L ( 0  0    0  )
+
+                    N-K-L  K   M-K  K+L-M
+   ( 0 R ) =     K ( 0    R11  R12  R13  )
+               M-K ( 0     0   R22  R23  )
+             K+L-M ( 0     0    0   R33  )
+
+ where
+
+   C = diag( ALPHA(K+1), ... , ALPHA(M) ),
+   S = diag( BETA(K+1),  ... , BETA(M) ),
+   C**2 + S**2 = I.
+
+   (R11 R12 R13 ) is stored in A(1:M, N-K-L+1:N), and R33 is stored
+   ( 0  R22 R23 )
+   in B(M-K+1:L,N+M-K-L+1:N) on exit.
+
+ The routine computes C, S, R, and optionally the orthogonal
+ transformation matrices U, V and Q.
+
+ In particular, if B is an N-by-N nonsingular matrix, then the GSVD of
+ A and B implicitly gives the SVD of A*inv(B):
+                      A*inv(B) = U*(D1*inv(D2))*V**T.
+ If ( A**T,B**T)**T  has orthonormal columns, then the GSVD of A and B is
+ also equal to the CS decomposition of A and B. Furthermore, the GSVD
+ can be used to derive the solution of the eigenvalue problem:
+                      A**T*A x = lambda* B**T*B x.
+ In some literature, the GSVD of A and B is presented in the form
+                  U**T*A*X = ( 0 D1 ),   V**T*B*X = ( 0 D2 )
+ where U and V are orthogonal and X is nonsingular, D1 and D2 are
+ ``diagonal''.  The former GSVD form can be converted to the latter
+ form by taking the nonsingular matrix X as
+
+                      X = Q*( I   0    )
+                            ( 0 inv(R) ).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B\+U} & \begin{DoxyVerb}          JOBU is CHARACTER*1
+          = 'U':  Orthogonal matrix U is computed;
+          = 'N':  U is not computed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J\+O\+B\+V} & \begin{DoxyVerb}          JOBV is CHARACTER*1
+          = 'V':  Orthogonal matrix V is computed;
+          = 'N':  V is not computed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J\+O\+B\+Q} & \begin{DoxyVerb}          JOBQ is CHARACTER*1
+          = 'Q':  Orthogonal matrix Q is computed;
+          = 'N':  Q is not computed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A.  M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrices A and B.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P} & \begin{DoxyVerb}          P is INTEGER
+          The number of rows of the matrix B.  P >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em K} & \begin{DoxyVerb}          K is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em L} & \begin{DoxyVerb}          L is INTEGER
+
+          On exit, K and L specify the dimension of the subblocks
+          described in Purpose.
+          K + L = effective numerical rank of (A**T,B**T)**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the M-by-N matrix A.
+          On exit, A contains the triangular matrix R, or part of R.
+          See Purpose for details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A. LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,N)
+          On entry, the P-by-N matrix B.
+          On exit, B contains the triangular matrix R if M-K-L < 0.
+          See Purpose for details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B. LDB >= max(1,P).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is DOUBLE PRECISION array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+T\+A} & \begin{DoxyVerb}          BETA is DOUBLE PRECISION array, dimension (N)
+
+          On exit, ALPHA and BETA contain the generalized singular
+          value pairs of A and B;
+            ALPHA(1:K) = 1,
+            BETA(1:K)  = 0,
+          and if M-K-L >= 0,
+            ALPHA(K+1:K+L) = C,
+            BETA(K+1:K+L)  = S,
+          or if M-K-L < 0,
+            ALPHA(K+1:M)=C, ALPHA(M+1:K+L)=0
+            BETA(K+1:M) =S, BETA(M+1:K+L) =1
+          and
+            ALPHA(K+L+1:N) = 0
+            BETA(K+L+1:N)  = 0\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em U} & \begin{DoxyVerb}          U is DOUBLE PRECISION array, dimension (LDU,M)
+          If JOBU = 'U', U contains the M-by-M orthogonal matrix U.
+          If JOBU = 'N', U is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+U} & \begin{DoxyVerb}          LDU is INTEGER
+          The leading dimension of the array U. LDU >= max(1,M) if
+          JOBU = 'U'; LDU >= 1 otherwise.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em V} & \begin{DoxyVerb}          V is DOUBLE PRECISION array, dimension (LDV,P)
+          If JOBV = 'V', V contains the P-by-P orthogonal matrix V.
+          If JOBV = 'N', V is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V} & \begin{DoxyVerb}          LDV is INTEGER
+          The leading dimension of the array V. LDV >= max(1,P) if
+          JOBV = 'V'; LDV >= 1 otherwise.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Q} & \begin{DoxyVerb}          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+          If JOBQ = 'Q', Q contains the N-by-N orthogonal matrix Q.
+          If JOBQ = 'N', Q is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+          The leading dimension of the array Q. LDQ >= max(1,N) if
+          JOBQ = 'Q'; LDQ >= 1 otherwise.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array,
+                      dimension (max(3*N,M,P)+N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (N)
+          On exit, IWORK stores the sorting information. More
+          precisely, the following loop will sort ALPHA
+             for I = K+1, min(M,K+L)
+                 swap ALPHA(I) and ALPHA(IWORK(I))
+             endfor
+          such that ALPHA(1) >= ALPHA(2) >= ... >= ALPHA(N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if INFO = 1, the Jacobi-type procedure failed to
+                converge.  For further details, see subroutine DTGSJA.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  TOLA    DOUBLE PRECISION
+  TOLB    DOUBLE PRECISION
+          TOLA and TOLB are the thresholds to determine the effective
+          rank of (A',B')**T. Generally, they are set to
+                   TOLA = MAX(M,N)*norm(A)*MAZHEPS,
+                   TOLB = MAX(P,N)*norm(B)*MAZHEPS.
+          The size of TOLA and TOLB may affect the size of backward
+          errors of the decomposition.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Ming Gu and Huan Ren, Computer Science Division, University of California at Berkeley, U\+S\+A 
+\end{DoxyParagraph}

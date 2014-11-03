@@ -1,0 +1,136 @@
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline}{}\section{scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Sphere\+Bivariate\+Spline Class Reference}
+\label{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline}\index{scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Sphere\+Bivariate\+Spline@{scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Sphere\+Bivariate\+Spline}}
+Inheritance diagram for scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Sphere\+Bivariate\+Spline\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_a9ffd1180eaebd276f7ed5cb03fc8bd82}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_ab325f0a49593c7b952421bec8a4eb44e}{fp}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_aac91f689a74f0fa821845a4dbd0202df}{tck}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_a274bf24b5a51c49d199c59579ac0a191}{degrees}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Weighted least-squares bivariate spline approximation in spherical
+coordinates.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+theta, phi, r : array_like
+    1-D sequences of data points (order is not important). Coordinates
+    must be given in radians. Theta must lie within the interval (0, pi),
+    and phi must lie within the interval (0, 2pi).
+tt, tp : array_like
+    Strictly ordered 1-D sequences of knots coordinates.
+    Coordinates must satisfy ``0 < tt[i] < pi``, ``0 < tp[i] < 2*pi``.
+w : array_like, optional
+    Positive 1-D sequence of weights, of the same length as `theta`, `phi`
+    and `r`.
+eps : float, optional
+    A threshold for determining the effective rank of an over-determined
+    linear system of equations. `eps` should have a value between 0 and 1,
+    the default is 1e-16.
+
+Notes
+-----
+For more information, see the FITPACK_ site about this function.
+
+.. _FITPACK: http://www.netlib.org/dierckx/sphere.f
+
+Examples
+--------
+Suppose we have global data on a coarse grid (the input data does not
+have to be on a grid):
+
+>>> theta = np.linspace(0., np.pi, 7)
+>>> phi = np.linspace(0., 2*np.pi, 9)
+>>> data = np.empty((theta.shape[0], phi.shape[0]))
+>>> data[:,0], data[0,:], data[-1,:] = 0., 0., 0.
+>>> data[1:-1,1], data[1:-1,-1] = 1., 1.
+>>> data[1,1:-1], data[-2,1:-1] = 1., 1.
+>>> data[2:-2,2], data[2:-2,-2] = 2., 2.
+>>> data[2,2:-2], data[-3,2:-2] = 2., 2.
+>>> data[3,3:-2] = 3.
+>>> data = np.roll(data, 4, 1)
+
+We need to set up the interpolator object. Here, we must also specify the
+coordinates of the knots to use.
+
+>>> lats, lons = np.meshgrid(theta, phi)
+>>> knotst, knotsp = theta.copy(), phi.copy()
+>>> knotst[0] += .0001
+>>> knotst[-1] -= .0001
+>>> knotsp[0] += .0001
+>>> knotsp[-1] -= .0001
+>>> from scipy.interpolate import LSQSphereBivariateSpline
+>>> lut = LSQSphereBivariateSpline(lats.ravel(), lons.ravel(),
+                                   data.T.ravel(),knotst,knotsp)
+
+As a first test, we'll see what the algorithm returns when run on the
+input coordinates
+
+>>> data_orig = lut(theta, phi)
+
+Finally we interpolate the data to a finer grid
+
+>>> fine_lats = np.linspace(0., np.pi, 70)
+>>> fine_lons = np.linspace(0., 2*np.pi, 90)
+
+>>> data_lsq = lut(fine_lats, fine_lons)
+
+>>> fig = plt.figure()
+>>> ax1 = fig.add_subplot(131)
+>>> ax1.imshow(data, interpolation='nearest')
+>>> ax2 = fig.add_subplot(132)
+>>> ax2.imshow(data_orig, interpolation='nearest')
+>>> ax3 = fig.add_subplot(133)
+>>> ax3.imshow(data_lsq, interpolation='nearest')
+>>> plt.show()\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_a9ffd1180eaebd276f7ed5cb03fc8bd82}{}\index{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Sphere\+Bivariate\+Spline.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{theta, }
+\item[{}]{phi, }
+\item[{}]{r, }
+\item[{}]{tt, }
+\item[{}]{tp, }
+\item[{}]{w = {\ttfamily None}, }
+\item[{}]{eps = {\ttfamily 1E-\/16}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_a9ffd1180eaebd276f7ed5cb03fc8bd82}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_a274bf24b5a51c49d199c59579ac0a191}{}\index{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline}!degrees@{degrees}}
+\index{degrees@{degrees}!scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline}}
+\subsubsection[{degrees}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Sphere\+Bivariate\+Spline.\+degrees}\label{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_a274bf24b5a51c49d199c59579ac0a191}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_ab325f0a49593c7b952421bec8a4eb44e}{}\index{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline}!fp@{fp}}
+\index{fp@{fp}!scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline}}
+\subsubsection[{fp}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Sphere\+Bivariate\+Spline.\+fp}\label{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_ab325f0a49593c7b952421bec8a4eb44e}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_aac91f689a74f0fa821845a4dbd0202df}{}\index{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline}!tck@{tck}}
+\index{tck@{tck}!scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+L\+S\+Q\+Sphere\+Bivariate\+Spline}}
+\subsubsection[{tck}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+L\+S\+Q\+Sphere\+Bivariate\+Spline.\+tck}\label{classscipy_1_1interpolate_1_1fitpack2_1_1LSQSphereBivariateSpline_aac91f689a74f0fa821845a4dbd0202df}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{fitpack2_8py}{fitpack2.\+py}\end{DoxyCompactItemize}

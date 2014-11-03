@@ -1,0 +1,231 @@
+\hypertarget{namespacescipy_1_1linalg_1_1__solvers}{}\section{scipy.\+linalg.\+\_\+solvers Namespace Reference}
+\label{namespacescipy_1_1linalg_1_1__solvers}\index{scipy.\+linalg.\+\_\+solvers@{scipy.\+linalg.\+\_\+solvers}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__solvers_a9968270913d8aebdfe496cbc9b4e4909}{solve\+\_\+sylvester}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__solvers_af2510713e1ae7d53c8b26193ff98e929}{solve\+\_\+lyapunov}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__solvers_ae6a7f34e2f73311a2b3a995bd0119314}{solve\+\_\+discrete\+\_\+lyapunov}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__solvers_a767e8143ba71f2239029bc6ae424c1d6}{solve\+\_\+continuous\+\_\+are}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__solvers_a59716674940b0641724d2df8caa5680d}{solve\+\_\+discrete\+\_\+are}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1linalg_1_1__solvers_ae47545360ff6e70df51361aee24589d3}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Matrix equation solver routines\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1__solvers_a767e8143ba71f2239029bc6ae424c1d6}{}\index{scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}!solve\+\_\+continuous\+\_\+are@{solve\+\_\+continuous\+\_\+are}}
+\index{solve\+\_\+continuous\+\_\+are@{solve\+\_\+continuous\+\_\+are}!scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}}
+\subsubsection[{solve\+\_\+continuous\+\_\+are}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+solvers.\+solve\+\_\+continuous\+\_\+are (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{q, }
+\item[{}]{r}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__solvers_a767e8143ba71f2239029bc6ae424c1d6}
+\begin{DoxyVerb}Solves the continuous algebraic Riccati equation, or CARE, defined
+as (A'X + XA - XBR^-1B'X+Q=0) directly using a Schur decomposition
+method.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+a : (M, M) array_like
+    Input
+b : (M, N) array_like
+    Input
+q : (M, M) array_like
+    Input
+r : (N, N) array_like
+    Non-singular, square matrix
+
+Returns
+-------
+x : (M, M) ndarray
+    Solution to the continuous algebraic Riccati equation
+
+See Also
+--------
+solve_discrete_are : Solves the discrete algebraic Riccati equation
+
+Notes
+-----
+Method taken from:
+Laub, "A Schur Method for Solving Algebraic Riccati Equations."
+U.S. Energy Research and Development Agency under contract
+ERDA-E(49-18)-2087.
+http://dspace.mit.edu/bitstream/handle/1721.1/1301/R-0859-05666488.pdf\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1__solvers_a59716674940b0641724d2df8caa5680d}{}\index{scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}!solve\+\_\+discrete\+\_\+are@{solve\+\_\+discrete\+\_\+are}}
+\index{solve\+\_\+discrete\+\_\+are@{solve\+\_\+discrete\+\_\+are}!scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}}
+\subsubsection[{solve\+\_\+discrete\+\_\+are}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+solvers.\+solve\+\_\+discrete\+\_\+are (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{q, }
+\item[{}]{r}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__solvers_a59716674940b0641724d2df8caa5680d}
+\begin{DoxyVerb}Solves the disctrete algebraic Riccati equation, or DARE, defined as
+(X = A'XA-(A'XB)(R+B'XB)^-1(B'XA)+Q), directly using a Schur decomposition
+method.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+a : (M, M) array_like
+    Non-singular, square matrix
+b : (M, N) array_like
+    Input
+q : (M, M) array_like
+    Input
+r : (N, N) array_like
+    Non-singular, square matrix
+
+Returns
+-------
+x : ndarray
+    Solution to the continuous Lyapunov equation
+
+See Also
+--------
+solve_continuous_are : Solves the continuous algebraic Riccati equation
+
+Notes
+-----
+Method taken from:
+Laub, "A Schur Method for Solving Algebraic Riccati Equations."
+U.S. Energy Research and Development Agency under contract
+ERDA-E(49-18)-2087.
+http://dspace.mit.edu/bitstream/handle/1721.1/1301/R-0859-05666488.pdf\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1__solvers_ae6a7f34e2f73311a2b3a995bd0119314}{}\index{scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}!solve\+\_\+discrete\+\_\+lyapunov@{solve\+\_\+discrete\+\_\+lyapunov}}
+\index{solve\+\_\+discrete\+\_\+lyapunov@{solve\+\_\+discrete\+\_\+lyapunov}!scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}}
+\subsubsection[{solve\+\_\+discrete\+\_\+lyapunov}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+solvers.\+solve\+\_\+discrete\+\_\+lyapunov (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{q}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__solvers_ae6a7f34e2f73311a2b3a995bd0119314}
+\begin{DoxyVerb}Solves the Discrete Lyapunov Equation (A'XA-X=-Q) directly.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+a : (M, M) array_like
+    A square matrix
+
+q : (M, M) array_like
+    Right-hand side square matrix
+
+Returns
+-------
+x : ndarray
+    Solution to the continuous Lyapunov equation
+
+Notes
+-----
+Algorithm is based on a direct analytical solution from:
+Hamilton, James D. Time Series Analysis, Princeton: Princeton University
+Press, 1994.  265.  Print.
+http://www.scribd.com/doc/20577138/Hamilton-1994-Time-Series-Analysis\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1__solvers_af2510713e1ae7d53c8b26193ff98e929}{}\index{scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}!solve\+\_\+lyapunov@{solve\+\_\+lyapunov}}
+\index{solve\+\_\+lyapunov@{solve\+\_\+lyapunov}!scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}}
+\subsubsection[{solve\+\_\+lyapunov}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+solvers.\+solve\+\_\+lyapunov (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{q}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__solvers_af2510713e1ae7d53c8b26193ff98e929}
+\begin{DoxyVerb}Solves the continuous Lyapunov equation (AX + XA^H = Q) given the values
+of A and Q using the Bartels-Stewart algorithm.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+a : array_like
+    A square matrix
+
+q : array_like
+    Right-hand side square matrix
+
+Returns
+-------
+x : array_like
+    Solution to the continuous Lyapunov equation
+
+See Also
+--------
+solve_sylvester : computes the solution to the Sylvester equation
+
+Notes
+-----
+Because the continuous Lyapunov equation is just a special form of the
+Sylvester equation, this solver relies entirely on solve_sylvester for a
+solution.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1__solvers_a9968270913d8aebdfe496cbc9b4e4909}{}\index{scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}!solve\+\_\+sylvester@{solve\+\_\+sylvester}}
+\index{solve\+\_\+sylvester@{solve\+\_\+sylvester}!scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}}
+\subsubsection[{solve\+\_\+sylvester}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+solvers.\+solve\+\_\+sylvester (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{q}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__solvers_a9968270913d8aebdfe496cbc9b4e4909}
+\begin{DoxyVerb}Computes a solution (X) to the Sylvester equation (AX + XB = Q).
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+a : (M, M) array_like
+    Leading matrix of the Sylvester equation
+b : (N, N) array_like
+    Trailing matrix of the Sylvester equation
+q : (M, N) array_like
+    Right-hand side
+
+Returns
+-------
+x : (M, N) ndarray
+    The solution to the Sylvester equation.
+
+Raises
+------
+LinAlgError
+    If solution was not found
+
+Notes
+-----
+Computes a solution to the Sylvester matrix equation via the Bartels-
+Stewart algorithm.  The A and B matrices first undergo Schur
+decompositions.  The resulting matrices are used to construct an
+alternative Sylvester equation (``RY + YS^T = F``) where the R and S
+matrices are in quasi-triangular form (or, when R, S or F are complex,
+triangular form).  The simplified equation is then solved using
+``*TRSYL`` from LAPACK directly.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1__solvers_ae47545360ff6e70df51361aee24589d3}{}\index{scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::linalg\+::\+\_\+solvers@{scipy\+::linalg\+::\+\_\+solvers}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+linalg.\+\_\+solvers.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1linalg_1_1__solvers_ae47545360ff6e70df51361aee24589d3}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'solve\_sylvester'}, \textcolor{stringliteral}{'solve\_lyapunov'}, \textcolor{stringliteral}{'solve\_discrete\_lyapunov'},
+2            \textcolor{stringliteral}{'solve\_continuous\_are'}, \textcolor{stringliteral}{'solve\_discrete\_are'}]
+\end{DoxyCode}

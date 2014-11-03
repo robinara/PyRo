@@ -1,0 +1,111 @@
+\hypertarget{zlaqhb_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlaqhb.f File Reference}
+\label{zlaqhb_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaqhb.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaqhb.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlaqhb_8f_a5adbc9af8779630aee9d9baf14c6290f}{zlaqhb} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+D, A\+B, L\+D\+A\+B, S, S\+C\+O\+N\+D, A\+M\+A\+X, E\+Q\+U\+E\+D)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+Q\+H\+B} scales a Hermitian band matrix, using scaling factors computed by cpbequ. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlaqhb_8f_a5adbc9af8779630aee9d9baf14c6290f}{}\index{zlaqhb.\+f@{zlaqhb.\+f}!zlaqhb@{zlaqhb}}
+\index{zlaqhb@{zlaqhb}!zlaqhb.\+f@{zlaqhb.\+f}}
+\subsubsection[{zlaqhb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlaqhb (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+D, }
+\item[{{\bf complex}$\ast$16, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{S, }
+\item[{double {\bf precision}}]{S\+C\+O\+N\+D, }
+\item[{double {\bf precision}}]{A\+M\+A\+X, }
+\item[{character}]{E\+Q\+U\+E\+D}
+\end{DoxyParamCaption}
+)}\label{zlaqhb_8f_a5adbc9af8779630aee9d9baf14c6290f}
+
+
+{\bfseries Z\+L\+A\+Q\+H\+B} scales a Hermitian band matrix, using scaling factors computed by cpbequ. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLAQHB equilibrates a Hermitian band matrix A 
+ using the scaling factors in the vector S.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the upper or lower triangular part of the
+          symmetric matrix A is stored.
+          = 'U':  Upper triangular
+          = 'L':  Lower triangular\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+D} & \begin{DoxyVerb}          KD is INTEGER
+          The number of super-diagonals of the matrix A if UPLO = 'U',
+          or the number of sub-diagonals if UPLO = 'L'.  KD >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+B} & \begin{DoxyVerb}          AB is COMPLEX*16 array, dimension (LDAB,N)
+          On entry, the upper or lower triangle of the symmetric band
+          matrix A, stored in the first KD+1 rows of the array.  The
+          j-th column of A is stored in the j-th column of the array AB
+          as follows:
+          if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
+
+          On exit, if INFO = 0, the triangular factor U or L from the
+          Cholesky factorization A = U**H *U or A = L*L**H of the band
+          matrix A, in the same storage format as A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KD+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S} & \begin{DoxyVerb}          S is DOUBLE PRECISION array, dimension (N)
+          The scale factors for A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+C\+O\+N\+D} & \begin{DoxyVerb}          SCOND is DOUBLE PRECISION
+          Ratio of the smallest S(i) to the largest S(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+M\+A\+X} & \begin{DoxyVerb}          AMAX is DOUBLE PRECISION
+          Absolute value of largest matrix entry.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em E\+Q\+U\+E\+D} & \begin{DoxyVerb}          EQUED is CHARACTER*1
+          Specifies whether or not equilibration was done.
+          = 'N':  No equilibration.
+          = 'Y':  Equilibration was done, i.e., A has been replaced by
+                  diag(S) * A * diag(S).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  THRESH is a threshold value used to decide if scaling should be done
+  based on the ratio of the scaling factors.  If SCOND < THRESH,
+  scaling is done.
+
+  LARGE and SMALL are threshold values used to decide if scaling should
+  be done based on the absolute size of the largest matrix element.
+  If AMAX > LARGE or AMAX < SMALL, scaling is done.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

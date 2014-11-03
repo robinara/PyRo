@@ -1,0 +1,83 @@
+\hypertarget{dlaed5_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlaed5.f File Reference}
+\label{dlaed5_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaed5.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaed5.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlaed5_8f_ae5927d0d0d438b3bc90a0679eaafe747}{dlaed5} (I, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, Z, D\+E\+L\+T\+A, R\+H\+O, D\+L\+A\+M)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+E\+D5} used by sstedc. Solves the 2-\/by-\/2 secular equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlaed5_8f_ae5927d0d0d438b3bc90a0679eaafe747}{}\index{dlaed5.\+f@{dlaed5.\+f}!dlaed5@{dlaed5}}
+\index{dlaed5@{dlaed5}!dlaed5.\+f@{dlaed5.\+f}}
+\subsubsection[{dlaed5}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlaed5 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I, }
+\item[{double {\bf precision}, dimension( 2 )}]{D, }
+\item[{double {\bf precision}, dimension( 2 )}]{Z, }
+\item[{double {\bf precision}, dimension( 2 )}]{D\+E\+L\+T\+A, }
+\item[{double {\bf precision}}]{R\+H\+O, }
+\item[{double {\bf precision}}]{D\+L\+A\+M}
+\end{DoxyParamCaption}
+)}\label{dlaed5_8f_ae5927d0d0d438b3bc90a0679eaafe747}
+
+
+{\bfseries D\+L\+A\+E\+D5} used by sstedc. Solves the 2-\/by-\/2 secular equation. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} This subroutine computes the I-th eigenvalue of a symmetric rank-one
+ modification of a 2-by-2 diagonal matrix
+
+            diag( D )  +  RHO * Z * transpose(Z) .
+
+ The diagonal elements in the array D are assumed to satisfy
+
+            D(i) < D(j)  for  i < j .
+
+ We also assume RHO > 0 and that the Euclidean norm of the vector
+ Z is one.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I} & \begin{DoxyVerb}          I is INTEGER
+         The index of the eigenvalue to be computed.  I = 1 or I = 2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (2)
+         The original eigenvalues.  We assume D(1) < D(2).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array, dimension (2)
+         The components of the updating vector.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+E\+L\+T\+A} & \begin{DoxyVerb}          DELTA is DOUBLE PRECISION array, dimension (2)
+         The vector DELTA contains the information necessary
+         to construct the eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+H\+O} & \begin{DoxyVerb}          RHO is DOUBLE PRECISION
+         The scalar in the symmetric updating formula.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+L\+A\+M} & \begin{DoxyVerb}          DLAM is DOUBLE PRECISION
+         The computed lambda_I, the I-th updated eigenvalue.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Ren-\/\+Cang Li, Computer Science Division, University of California at Berkeley, U\+S\+A 
+\end{DoxyParagraph}

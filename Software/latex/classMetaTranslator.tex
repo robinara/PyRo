@@ -1,0 +1,274 @@
+\hypertarget{classMetaTranslator}{}\section{Meta\+Translator Class Reference}
+\label{classMetaTranslator}\index{Meta\+Translator@{Meta\+Translator}}
+
+
+{\ttfamily \#include $<$metatranslator.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMetaTranslator_a98ac314409ee2b8059c4969e83f8fd56}{Meta\+Translator} ()
+\item 
+\hyperlink{classMetaTranslator_a6af9d90fd6364213c4420bfcd26e588a}{Meta\+Translator} (const \hyperlink{classMetaTranslator}{Meta\+Translator} \&tor)
+\item 
+\hyperlink{classMetaTranslator}{Meta\+Translator} \& \hyperlink{classMetaTranslator_a2352e8125907f8062c97041e0716d62c}{operator=} (const \hyperlink{classMetaTranslator}{Meta\+Translator} \&tor)
+\item 
+void \hyperlink{classMetaTranslator_af110abad5057b337aef8268f0548bab9}{clear} ()
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classMetaTranslator_ad2031826d53e3648996ca1a749e80cb9}{load} (const Q\+String \&filename)
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classMetaTranslator_a51da1f00daf7fa00bcfe61aab4331924}{save} (const Q\+String \&filename) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classMetaTranslator_a521371d724c1a00328db396d39c1486c}{release} (const Q\+String \&filename, \hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} verbose=\hyperlink{compiler_8h_a65e9886d74aaee76545e83dd09011727}{false}, \hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} ignore\+Unfinished=\hyperlink{compiler_8h_a65e9886d74aaee76545e83dd09011727}{false}, \hyperlink{classTranslator_aefe656fdfa14952a99d6d25e61749a99}{Translator\+::\+Save\+Mode} mode=\hyperlink{classTranslator_aefe656fdfa14952a99d6d25e61749a99a68d586d3f7ea596c2a5d1252fad326d6}{Translator\+::\+Stripped}) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classMetaTranslator_a576274a034461e0054cd314228391230}{contains} (const char $\ast$context, const char $\ast$source\+Text, const char $\ast$comment) const 
+\item 
+\hyperlink{classMetaTranslatorMessage}{Meta\+Translator\+Message} \hyperlink{classMetaTranslator_a38ec3c28ebc6bd642f05e6d28c946589}{find} (const char $\ast$context, const char $\ast$source\+Text, const char $\ast$comment) const 
+\item 
+\hyperlink{classMetaTranslatorMessage}{Meta\+Translator\+Message} \hyperlink{classMetaTranslator_a2df7a4a1b4755e38ba28a14ca16ad3e1}{find} (const char $\ast$context, const char $\ast$comment, const Q\+String \&file\+Name, int line\+Number) const 
+\item 
+void \hyperlink{classMetaTranslator_aa284dd7f3a10389769f61874e7236e5d}{insert} (const \hyperlink{classMetaTranslatorMessage}{Meta\+Translator\+Message} \&\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})
+\item 
+void \hyperlink{classMetaTranslator_a3b4b6a569414e9c4224829414ca4a180}{strip\+Obsolete\+Messages} ()
+\item 
+void \hyperlink{classMetaTranslator_a22080e2bda3afdc0d6a5258dcea37406}{strip\+Empty\+Contexts} ()
+\item 
+void \hyperlink{classMetaTranslator_a1aa773ea94d377dbe9a0150dc90fc1c9}{set\+Codec} (const char $\ast$name)
+\item 
+void \hyperlink{classMetaTranslator_a00bf7fa55e126bc4dd82f3039699ebb2}{set\+Codec\+For\+Tr} (const char $\ast$name)
+\item 
+Q\+Text\+Codec $\ast$ \hyperlink{classMetaTranslator_a5728906c05d799ae7b03a97fedce50c2}{codec\+For\+Tr} () const 
+\item 
+Q\+String \hyperlink{classMetaTranslator_ab5c961c144399b7c4f1a62bf3c8474b8}{to\+Unicode} (const char $\ast$str, \hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} utf8) const 
+\item 
+Q\+String \hyperlink{classMetaTranslator_aa7f2a95fe50a464cf3c3da6a0f02d9dd}{language\+Code} () const 
+\item 
+Q\+String \hyperlink{classMetaTranslator_a920468be07dae99a08309112e5dfbff9}{source\+Language\+Code} () const 
+\item 
+void \hyperlink{classMetaTranslator_a51033b57a11392889ea0b44a6a665887}{set\+Language\+Code} (const Q\+String \&\hyperlink{classMetaTranslator_aa7f2a95fe50a464cf3c3da6a0f02d9dd}{language\+Code})
+\item 
+void \hyperlink{classMetaTranslator_a03feec6c41244368793f2dcb1f303397}{set\+Source\+Language\+Code} (const Q\+String \&\hyperlink{classMetaTranslator_aa7f2a95fe50a464cf3c3da6a0f02d9dd}{language\+Code})
+\item 
+\hyperlink{classQList}{Q\+List}$<$ \hyperlink{classMetaTranslatorMessage}{Meta\+Translator\+Message} $>$ \hyperlink{classMetaTranslator_ae7dc01828a233ae53a8f85fd19c321e1}{messages} () const 
+\item 
+\hyperlink{classQList}{Q\+List}$<$ \hyperlink{classMetaTranslatorMessage}{Meta\+Translator\+Message} $>$ \hyperlink{classMetaTranslator_ab6fa767107e43e2bf72345fa72ed8445}{translated\+Messages} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classMetaTranslator_a9a94bb4f6a4b2fd7e8884034580aedf7}{language\+And\+Country} (const Q\+String \&\hyperlink{classMetaTranslator_aa7f2a95fe50a464cf3c3da6a0f02d9dd}{language\+Code}, Q\+Locale\+::\+Language $\ast$lang, Q\+Locale\+::\+Country $\ast$country)
+\item 
+static int \hyperlink{classMetaTranslator_a87d1954ca867c26db70f7d0525d626ae}{grammatical\+Numerus} (Q\+Locale\+::\+Language language, Q\+Locale\+::\+Country country)
+\item 
+static Q\+String\+List \hyperlink{classMetaTranslator_a43ef7d95424a7cb11dc6d580090fe7a6}{normalized\+Translations} (const \hyperlink{classMetaTranslatorMessage}{Meta\+Translator\+Message} \&\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, Q\+Locale\+::\+Language lang, Q\+Locale\+::\+Country country)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMetaTranslator_a98ac314409ee2b8059c4969e83f8fd56}{}\index{Meta\+Translator@{Meta\+Translator}!Meta\+Translator@{Meta\+Translator}}
+\index{Meta\+Translator@{Meta\+Translator}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{Meta\+Translator}]{\setlength{\rightskip}{0pt plus 5cm}Meta\+Translator\+::\+Meta\+Translator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_a98ac314409ee2b8059c4969e83f8fd56}
+\hypertarget{classMetaTranslator_a6af9d90fd6364213c4420bfcd26e588a}{}\index{Meta\+Translator@{Meta\+Translator}!Meta\+Translator@{Meta\+Translator}}
+\index{Meta\+Translator@{Meta\+Translator}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{Meta\+Translator}]{\setlength{\rightskip}{0pt plus 5cm}Meta\+Translator\+::\+Meta\+Translator (
+\begin{DoxyParamCaption}
+\item[{const {\bf Meta\+Translator} \&}]{tor}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_a6af9d90fd6364213c4420bfcd26e588a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMetaTranslator_af110abad5057b337aef8268f0548bab9}{}\index{Meta\+Translator@{Meta\+Translator}!clear@{clear}}
+\index{clear@{clear}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void Meta\+Translator\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_af110abad5057b337aef8268f0548bab9}
+\hypertarget{classMetaTranslator_a5728906c05d799ae7b03a97fedce50c2}{}\index{Meta\+Translator@{Meta\+Translator}!codec\+For\+Tr@{codec\+For\+Tr}}
+\index{codec\+For\+Tr@{codec\+For\+Tr}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{codec\+For\+Tr}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Text\+Codec$\ast$ Meta\+Translator\+::codec\+For\+Tr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classMetaTranslator_a5728906c05d799ae7b03a97fedce50c2}
+\hypertarget{classMetaTranslator_a576274a034461e0054cd314228391230}{}\index{Meta\+Translator@{Meta\+Translator}!contains@{contains}}
+\index{contains@{contains}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Meta\+Translator\+::contains (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{context, }
+\item[{const char $\ast$}]{source\+Text, }
+\item[{const char $\ast$}]{comment}
+\end{DoxyParamCaption}
+) const}\label{classMetaTranslator_a576274a034461e0054cd314228391230}
+\hypertarget{classMetaTranslator_a38ec3c28ebc6bd642f05e6d28c946589}{}\index{Meta\+Translator@{Meta\+Translator}!find@{find}}
+\index{find@{find}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Meta\+Translator\+Message} Meta\+Translator\+::find (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{context, }
+\item[{const char $\ast$}]{source\+Text, }
+\item[{const char $\ast$}]{comment}
+\end{DoxyParamCaption}
+) const}\label{classMetaTranslator_a38ec3c28ebc6bd642f05e6d28c946589}
+\hypertarget{classMetaTranslator_a2df7a4a1b4755e38ba28a14ca16ad3e1}{}\index{Meta\+Translator@{Meta\+Translator}!find@{find}}
+\index{find@{find}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Meta\+Translator\+Message} Meta\+Translator\+::find (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{context, }
+\item[{const char $\ast$}]{comment, }
+\item[{const Q\+String \&}]{file\+Name, }
+\item[{int}]{line\+Number}
+\end{DoxyParamCaption}
+) const}\label{classMetaTranslator_a2df7a4a1b4755e38ba28a14ca16ad3e1}
+\hypertarget{classMetaTranslator_a87d1954ca867c26db70f7d0525d626ae}{}\index{Meta\+Translator@{Meta\+Translator}!grammatical\+Numerus@{grammatical\+Numerus}}
+\index{grammatical\+Numerus@{grammatical\+Numerus}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{grammatical\+Numerus}]{\setlength{\rightskip}{0pt plus 5cm}int Meta\+Translator\+::grammatical\+Numerus (
+\begin{DoxyParamCaption}
+\item[{Q\+Locale\+::\+Language}]{language, }
+\item[{Q\+Locale\+::\+Country}]{country}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMetaTranslator_a87d1954ca867c26db70f7d0525d626ae}
+\hypertarget{classMetaTranslator_aa284dd7f3a10389769f61874e7236e5d}{}\index{Meta\+Translator@{Meta\+Translator}!insert@{insert}}
+\index{insert@{insert}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}void Meta\+Translator\+::insert (
+\begin{DoxyParamCaption}
+\item[{const {\bf Meta\+Translator\+Message} \&}]{m}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_aa284dd7f3a10389769f61874e7236e5d}
+\hypertarget{classMetaTranslator_a9a94bb4f6a4b2fd7e8884034580aedf7}{}\index{Meta\+Translator@{Meta\+Translator}!language\+And\+Country@{language\+And\+Country}}
+\index{language\+And\+Country@{language\+And\+Country}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{language\+And\+Country}]{\setlength{\rightskip}{0pt plus 5cm}void Meta\+Translator\+::language\+And\+Country (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{language\+Code, }
+\item[{Q\+Locale\+::\+Language $\ast$}]{lang, }
+\item[{Q\+Locale\+::\+Country $\ast$}]{country}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMetaTranslator_a9a94bb4f6a4b2fd7e8884034580aedf7}
+\hypertarget{classMetaTranslator_aa7f2a95fe50a464cf3c3da6a0f02d9dd}{}\index{Meta\+Translator@{Meta\+Translator}!language\+Code@{language\+Code}}
+\index{language\+Code@{language\+Code}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{language\+Code}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Meta\+Translator\+::language\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classMetaTranslator_aa7f2a95fe50a464cf3c3da6a0f02d9dd}
+\hypertarget{classMetaTranslator_ad2031826d53e3648996ca1a749e80cb9}{}\index{Meta\+Translator@{Meta\+Translator}!load@{load}}
+\index{load@{load}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Meta\+Translator\+::load (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{filename}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_ad2031826d53e3648996ca1a749e80cb9}
+\hypertarget{classMetaTranslator_ae7dc01828a233ae53a8f85fd19c321e1}{}\index{Meta\+Translator@{Meta\+Translator}!messages@{messages}}
+\index{messages@{messages}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{messages}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+List}$<$ {\bf Meta\+Translator\+Message} $>$ Meta\+Translator\+::messages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classMetaTranslator_ae7dc01828a233ae53a8f85fd19c321e1}
+\hypertarget{classMetaTranslator_a43ef7d95424a7cb11dc6d580090fe7a6}{}\index{Meta\+Translator@{Meta\+Translator}!normalized\+Translations@{normalized\+Translations}}
+\index{normalized\+Translations@{normalized\+Translations}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{normalized\+Translations}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String\+List Meta\+Translator\+::normalized\+Translations (
+\begin{DoxyParamCaption}
+\item[{const {\bf Meta\+Translator\+Message} \&}]{m, }
+\item[{Q\+Locale\+::\+Language}]{lang, }
+\item[{Q\+Locale\+::\+Country}]{country}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classMetaTranslator_a43ef7d95424a7cb11dc6d580090fe7a6}
+\hypertarget{classMetaTranslator_a2352e8125907f8062c97041e0716d62c}{}\index{Meta\+Translator@{Meta\+Translator}!operator=@{operator=}}
+\index{operator=@{operator=}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Meta\+Translator} \& Meta\+Translator\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Meta\+Translator} \&}]{tor}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_a2352e8125907f8062c97041e0716d62c}
+\hypertarget{classMetaTranslator_a521371d724c1a00328db396d39c1486c}{}\index{Meta\+Translator@{Meta\+Translator}!release@{release}}
+\index{release@{release}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{release}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Meta\+Translator\+::release (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{filename, }
+\item[{{\bf bool}}]{verbose = {\ttfamily {\bf false}}, }
+\item[{{\bf bool}}]{ignore\+Unfinished = {\ttfamily {\bf false}}, }
+\item[{{\bf Translator\+::\+Save\+Mode}}]{mode = {\ttfamily {\bf Translator\+::\+Stripped}}}
+\end{DoxyParamCaption}
+) const}\label{classMetaTranslator_a521371d724c1a00328db396d39c1486c}
+\hypertarget{classMetaTranslator_a51da1f00daf7fa00bcfe61aab4331924}{}\index{Meta\+Translator@{Meta\+Translator}!save@{save}}
+\index{save@{save}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Meta\+Translator\+::save (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{filename}
+\end{DoxyParamCaption}
+) const}\label{classMetaTranslator_a51da1f00daf7fa00bcfe61aab4331924}
+\hypertarget{classMetaTranslator_a1aa773ea94d377dbe9a0150dc90fc1c9}{}\index{Meta\+Translator@{Meta\+Translator}!set\+Codec@{set\+Codec}}
+\index{set\+Codec@{set\+Codec}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{set\+Codec}]{\setlength{\rightskip}{0pt plus 5cm}void Meta\+Translator\+::set\+Codec (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_a1aa773ea94d377dbe9a0150dc90fc1c9}
+\hypertarget{classMetaTranslator_a00bf7fa55e126bc4dd82f3039699ebb2}{}\index{Meta\+Translator@{Meta\+Translator}!set\+Codec\+For\+Tr@{set\+Codec\+For\+Tr}}
+\index{set\+Codec\+For\+Tr@{set\+Codec\+For\+Tr}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{set\+Codec\+For\+Tr}]{\setlength{\rightskip}{0pt plus 5cm}void Meta\+Translator\+::set\+Codec\+For\+Tr (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classMetaTranslator_a00bf7fa55e126bc4dd82f3039699ebb2}
+\hypertarget{classMetaTranslator_a51033b57a11392889ea0b44a6a665887}{}\index{Meta\+Translator@{Meta\+Translator}!set\+Language\+Code@{set\+Language\+Code}}
+\index{set\+Language\+Code@{set\+Language\+Code}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{set\+Language\+Code}]{\setlength{\rightskip}{0pt plus 5cm}void Meta\+Translator\+::set\+Language\+Code (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{language\+Code}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_a51033b57a11392889ea0b44a6a665887}
+\hypertarget{classMetaTranslator_a03feec6c41244368793f2dcb1f303397}{}\index{Meta\+Translator@{Meta\+Translator}!set\+Source\+Language\+Code@{set\+Source\+Language\+Code}}
+\index{set\+Source\+Language\+Code@{set\+Source\+Language\+Code}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{set\+Source\+Language\+Code}]{\setlength{\rightskip}{0pt plus 5cm}void Meta\+Translator\+::set\+Source\+Language\+Code (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{language\+Code}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_a03feec6c41244368793f2dcb1f303397}
+\hypertarget{classMetaTranslator_a920468be07dae99a08309112e5dfbff9}{}\index{Meta\+Translator@{Meta\+Translator}!source\+Language\+Code@{source\+Language\+Code}}
+\index{source\+Language\+Code@{source\+Language\+Code}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{source\+Language\+Code}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Meta\+Translator\+::source\+Language\+Code (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classMetaTranslator_a920468be07dae99a08309112e5dfbff9}
+\hypertarget{classMetaTranslator_a22080e2bda3afdc0d6a5258dcea37406}{}\index{Meta\+Translator@{Meta\+Translator}!strip\+Empty\+Contexts@{strip\+Empty\+Contexts}}
+\index{strip\+Empty\+Contexts@{strip\+Empty\+Contexts}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{strip\+Empty\+Contexts}]{\setlength{\rightskip}{0pt plus 5cm}void Meta\+Translator\+::strip\+Empty\+Contexts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_a22080e2bda3afdc0d6a5258dcea37406}
+\hypertarget{classMetaTranslator_a3b4b6a569414e9c4224829414ca4a180}{}\index{Meta\+Translator@{Meta\+Translator}!strip\+Obsolete\+Messages@{strip\+Obsolete\+Messages}}
+\index{strip\+Obsolete\+Messages@{strip\+Obsolete\+Messages}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{strip\+Obsolete\+Messages}]{\setlength{\rightskip}{0pt plus 5cm}void Meta\+Translator\+::strip\+Obsolete\+Messages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classMetaTranslator_a3b4b6a569414e9c4224829414ca4a180}
+\hypertarget{classMetaTranslator_ab5c961c144399b7c4f1a62bf3c8474b8}{}\index{Meta\+Translator@{Meta\+Translator}!to\+Unicode@{to\+Unicode}}
+\index{to\+Unicode@{to\+Unicode}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{to\+Unicode}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Meta\+Translator\+::to\+Unicode (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str, }
+\item[{{\bf bool}}]{utf8}
+\end{DoxyParamCaption}
+) const}\label{classMetaTranslator_ab5c961c144399b7c4f1a62bf3c8474b8}
+\hypertarget{classMetaTranslator_ab6fa767107e43e2bf72345fa72ed8445}{}\index{Meta\+Translator@{Meta\+Translator}!translated\+Messages@{translated\+Messages}}
+\index{translated\+Messages@{translated\+Messages}!Meta\+Translator@{Meta\+Translator}}
+\subsubsection[{translated\+Messages}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+List}$<$ {\bf Meta\+Translator\+Message} $>$ Meta\+Translator\+::translated\+Messages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classMetaTranslator_ab6fa767107e43e2bf72345fa72ed8445}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/pylupdate/\hyperlink{metatranslator_8h}{metatranslator.\+h}\item 
+packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/pylupdate/\hyperlink{metatranslator_8cpp}{metatranslator.\+cpp}\end{DoxyCompactItemize}

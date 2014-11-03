@@ -1,0 +1,82 @@
+\hypertarget{clacrt_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clacrt.f File Reference}
+\label{clacrt_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clacrt.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clacrt.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clacrt_8f_a5aaf0a584b672ab1fb1620838431bdac}{clacrt} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{scsum1_8c_a5a76da95c549c41790389a76e12fdcb5}{C\+X}, I\+N\+C\+X, C\+Y, I\+N\+C\+Y, C, S)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+C\+R\+T} performs a linear transformation of a pair of complex vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clacrt_8f_a5aaf0a584b672ab1fb1620838431bdac}{}\index{clacrt.\+f@{clacrt.\+f}!clacrt@{clacrt}}
+\index{clacrt@{clacrt}!clacrt.\+f@{clacrt.\+f}}
+\subsubsection[{clacrt}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clacrt (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{C\+X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{C\+Y, }
+\item[{integer}]{I\+N\+C\+Y, }
+\item[{{\bf complex}}]{C, }
+\item[{{\bf complex}}]{S}
+\end{DoxyParamCaption}
+)}\label{clacrt_8f_a5aaf0a584b672ab1fb1620838431bdac}
+
+
+{\bfseries C\+L\+A\+C\+R\+T} performs a linear transformation of a pair of complex vectors. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLACRT performs the operation
+
+    (  c  s )( x )  ==> ( x )
+    ( -s  c )( y )      ( y )
+
+ where c and s are complex and the vectors x and y are complex.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of elements in the vectors CX and CY.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C\+X} & \begin{DoxyVerb}          CX is COMPLEX array, dimension (N)
+          On input, the vector x.
+          On output, CX is overwritten with c*x + s*y.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between successive values of CX.  INCX <> 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C\+Y} & \begin{DoxyVerb}          CY is COMPLEX array, dimension (N)
+          On input, the vector y.
+          On output, CY is overwritten with -s*x + c*y.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+Y} & \begin{DoxyVerb}          INCY is INTEGER
+          The increment between successive values of CY.  INCY <> 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is COMPLEX\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is COMPLEX
+          C and S define the matrix
+             [  C   S  ].
+             [ -S   C  ]\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

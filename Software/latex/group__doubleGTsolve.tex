@@ -1,0 +1,342 @@
+\hypertarget{group__doubleGTsolve}{}\section{double}
+\label{group__doubleGTsolve}\index{double@{double}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{group__doubleGTsolve_ga2bf93f2ddefa5e671866eb2191dc19d4}{dgtsv} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  D\+G\+T\+S\+V computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for G\+T matrices {\bfseries  }}\end{DoxyCompactList}\item 
+subroutine \hyperlink{group__doubleGTsolve_gaa9e938f737eedf395c4429393c769d07}{dgtsvx} (\hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a1b6692b56d378abb85bd49063721d034}{F\+A\+C\+T}, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+L\+F, D\+F, D\+U\+F, D\+U2, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, X, L\+D\+X, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a78fd14d7abebae04095cfbe02928f153}{F\+E\+R\+R}, B\+E\+R\+R, W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  D\+G\+T\+S\+V\+X computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for G\+T matrices {\bfseries  }}\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of double solve driver functions for G\+T matrices 
+
+\subsection{Function Documentation}
+\hypertarget{group__doubleGTsolve_ga2bf93f2ddefa5e671866eb2191dc19d4}{}\index{double@{double}!dgtsv@{dgtsv}}
+\index{dgtsv@{dgtsv}!double@{double}}
+\subsubsection[{dgtsv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dgtsv (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+L, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+U, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__doubleGTsolve_ga2bf93f2ddefa5e671866eb2191dc19d4}
+
+
+{\bfseries  D\+G\+T\+S\+V computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for G\+T matrices {\bfseries  }}
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DGTSV  solves the equation
+
+    A*X = B,
+
+ where A is an n by n tridiagonal matrix, by Gaussian elimination with
+ partial pivoting.
+
+ Note that the equation  A**T*X = B  may be solved by interchanging the
+ order of the arguments DU and DL.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+L} & \begin{DoxyVerb}          DL is DOUBLE PRECISION array, dimension (N-1)
+          On entry, DL must contain the (n-1) sub-diagonal elements of
+          A.
+
+          On exit, DL is overwritten by the (n-2) elements of the
+          second super-diagonal of the upper triangular matrix U from
+          the LU factorization of A, in DL(1), ..., DL(n-2).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+          On entry, D must contain the diagonal elements of A.
+
+          On exit, D is overwritten by the n diagonal elements of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+U} & \begin{DoxyVerb}          DU is DOUBLE PRECISION array, dimension (N-1)
+          On entry, DU must contain the (n-1) super-diagonal elements
+          of A.
+
+          On exit, DU is overwritten by the (n-1) elements of the first
+          super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+          On entry, the N by NRHS matrix of right hand side matrix B.
+          On exit, if INFO = 0, the N by NRHS solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          > 0: if INFO = i, U(i,i) is exactly zero, and the solution
+               has not been computed.  The factorization has not been
+               completed unless i = N.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__doubleGTsolve_gaa9e938f737eedf395c4429393c769d07}{}\index{double@{double}!dgtsvx@{dgtsvx}}
+\index{dgtsvx@{dgtsvx}!double@{double}}
+\subsubsection[{dgtsvx}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dgtsvx (
+\begin{DoxyParamCaption}
+\item[{character}]{F\+A\+C\+T, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+L, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+U, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+L\+F, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+F, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+U\+F, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{double {\bf precision}}]{R\+C\+O\+N\+D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{F\+E\+R\+R, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B\+E\+R\+R, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__doubleGTsolve_gaa9e938f737eedf395c4429393c769d07}
+
+
+{\bfseries  D\+G\+T\+S\+V\+X computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for G\+T matrices {\bfseries  }}
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DGTSVX uses the LU factorization to compute the solution to a real
+ system of linear equations A * X = B or A**T * X = B,
+ where A is a tridiagonal matrix of order N and X and B are N-by-NRHS
+ matrices.
+
+ Error bounds on the solution and a condition estimate are also
+ provided.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Description\+: }
+\begin{DoxyVerb} The following steps are performed:
+
+ 1. If FACT = 'N', the LU decomposition is used to factor the matrix A
+    as A = L * U, where L is a product of permutation and unit lower
+    bidiagonal matrices and U is upper triangular with nonzeros in
+    only the main diagonal and first two superdiagonals.
+
+ 2. If some U(i,i)=0, so that U is exactly singular, then the routine
+    returns with INFO = i. Otherwise, the factored form of A is used
+    to estimate the condition number of the matrix A.  If the
+    reciprocal of the condition number is less than machine precision,
+    INFO = N+1 is returned as a warning, but the routine still goes on
+    to solve for X and compute error bounds as described below.
+
+ 3. The system of equations is solved for X using the factored form
+    of A.
+
+ 4. Iterative refinement is applied to improve the computed solution
+    matrix and calculate error bounds and backward error estimates
+    for it.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em F\+A\+C\+T} & \begin{DoxyVerb}          FACT is CHARACTER*1
+          Specifies whether or not the factored form of A has been
+          supplied on entry.
+          = 'F':  DLF, DF, DUF, DU2, and IPIV contain the factored
+                  form of A; DL, D, DU, DLF, DF, DUF, DU2 and IPIV
+                  will not be modified.
+          = 'N':  The matrix will be copied to DLF, DF, and DUF
+                  and factored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          Specifies the form of the system of equations:
+          = 'N':  A * X = B     (No transpose)
+          = 'T':  A**T * X = B  (Transpose)
+          = 'C':  A**H * X = B  (Conjugate transpose = Transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L} & \begin{DoxyVerb}          DL is DOUBLE PRECISION array, dimension (N-1)
+          The (n-1) subdiagonal elements of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+          The n diagonal elements of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U} & \begin{DoxyVerb}          DU is DOUBLE PRECISION array, dimension (N-1)
+          The (n-1) superdiagonal elements of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+L\+F} & \begin{DoxyVerb}          DLF is DOUBLE PRECISION array, dimension (N-1)
+          If FACT = 'F', then DLF is an input argument and on entry
+          contains the (n-1) multipliers that define the matrix L from
+          the LU factorization of A as computed by DGTTRF.
+
+          If FACT = 'N', then DLF is an output argument and on exit
+          contains the (n-1) multipliers that define the matrix L from
+          the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+F} & \begin{DoxyVerb}          DF is DOUBLE PRECISION array, dimension (N)
+          If FACT = 'F', then DF is an input argument and on entry
+          contains the n diagonal elements of the upper triangular
+          matrix U from the LU factorization of A.
+
+          If FACT = 'N', then DF is an output argument and on exit
+          contains the n diagonal elements of the upper triangular
+          matrix U from the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+U\+F} & \begin{DoxyVerb}          DUF is DOUBLE PRECISION array, dimension (N-1)
+          If FACT = 'F', then DUF is an input argument and on entry
+          contains the (n-1) elements of the first superdiagonal of U.
+
+          If FACT = 'N', then DUF is an output argument and on exit
+          contains the (n-1) elements of the first superdiagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is DOUBLE PRECISION array, dimension (N-2)
+          If FACT = 'F', then DU2 is an input argument and on entry
+          contains the (n-2) elements of the second superdiagonal of
+          U.
+
+          If FACT = 'N', then DU2 is an output argument and on exit
+          contains the (n-2) elements of the second superdiagonal of
+          U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          If FACT = 'F', then IPIV is an input argument and on entry
+          contains the pivot indices from the LU factorization of A as
+          computed by DGTTRF.
+
+          If FACT = 'N', then IPIV is an output argument and on exit
+          contains the pivot indices from the LU factorization of A;
+          row i of the matrix was interchanged with row IPIV(i).
+          IPIV(i) will always be either i or i+1; IPIV(i) = i indicates
+          a row interchange was not required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+          The N-by-NRHS right hand side matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em X} & \begin{DoxyVerb}          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+          If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.  LDX >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is DOUBLE PRECISION
+          The estimate of the reciprocal condition number of the matrix
+          A.  If RCOND is less than the machine precision (in
+          particular, if RCOND = 0), the matrix is singular to working
+          precision.  This condition is indicated by a return code of
+          INFO > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em F\+E\+R\+R} & \begin{DoxyVerb}          FERR is DOUBLE PRECISION array, dimension (NRHS)
+          The estimated forward error bound for each solution vector
+          X(j) (the j-th column of the solution matrix X).
+          If XTRUE is the true solution corresponding to X(j), FERR(j)
+          is an estimated upper bound for the magnitude of the largest
+          element in (X(j) - XTRUE) divided by the magnitude of the
+          largest element in X(j).  The estimate is as reliable as
+          the estimate for RCOND, and is almost always a slight
+          overestimate of the true error.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+R\+R} & \begin{DoxyVerb}          BERR is DOUBLE PRECISION array, dimension (NRHS)
+          The componentwise relative backward error of each solution
+          vector X(j) (i.e., the smallest relative change in
+          any element of A or B that makes X(j) an exact solution).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (3*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i, and i is
+                <= N:  U(i,i) is exactly zero.  The factorization
+                       has not been completed unless i = N, but the
+                       factor U is exactly singular, so the solution
+                       and error bounds could not be computed.
+                       RCOND = 0 is returned.
+                = N+1: U is nonsingular, but RCOND is less than machine
+                       precision, meaning that the matrix is singular
+                       to working precision.  Nevertheless, the
+                       solution and error bounds are computed because
+                       there are a number of situations where the
+                       computed solution can be more accurate than the
+                       value of RCOND would suggest.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

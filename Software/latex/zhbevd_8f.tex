@@ -1,0 +1,179 @@
+\hypertarget{zhbevd_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zhbevd.f File Reference}
+\label{zhbevd_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhbevd.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhbevd.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zhbevd_8f_a3854721b34946230321131ed9e3c08e3}{zhbevd} (J\+O\+B\+Z, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+D, A\+B, L\+D\+A\+B, W, Z, L\+D\+Z, W\+O\+R\+K, L\+W\+O\+R\+K, R\+W\+O\+R\+K, L\+R\+W\+O\+R\+K, I\+W\+O\+R\+K, L\+I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  Z\+H\+B\+E\+V\+D computes the eigenvalues and, optionally, the left and/or right eigenvectors for O\+T\+H\+E\+R matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zhbevd_8f_a3854721b34946230321131ed9e3c08e3}{}\index{zhbevd.\+f@{zhbevd.\+f}!zhbevd@{zhbevd}}
+\index{zhbevd@{zhbevd}!zhbevd.\+f@{zhbevd.\+f}}
+\subsubsection[{zhbevd}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zhbevd (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B\+Z, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+D, }
+\item[{{\bf complex}$\ast$16, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W, }
+\item[{{\bf complex}$\ast$16, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{L\+R\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{L\+I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zhbevd_8f_a3854721b34946230321131ed9e3c08e3}
+
+
+{\bfseries  Z\+H\+B\+E\+V\+D computes the eigenvalues and, optionally, the left and/or right eigenvectors for O\+T\+H\+E\+R matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZHBEVD computes all the eigenvalues and, optionally, eigenvectors of
+ a complex Hermitian band matrix A.  If eigenvectors are desired, it
+ uses a divide and conquer algorithm.
+
+ The divide and conquer algorithm makes very mild assumptions about
+ floating point arithmetic. It will work on machines with a guard
+ digit in add/subtract, or on those binary machines without guard
+ digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or
+ Cray-2. It could conceivably fail on hexadecimal or decimal machines
+ without guard digits, but we know of none.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B\+Z} & \begin{DoxyVerb}          JOBZ is CHARACTER*1
+          = 'N':  Compute eigenvalues only;
+          = 'V':  Compute eigenvalues and eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+D} & \begin{DoxyVerb}          KD is INTEGER
+          The number of superdiagonals of the matrix A if UPLO = 'U',
+          or the number of subdiagonals if UPLO = 'L'.  KD >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+B} & \begin{DoxyVerb}          AB is COMPLEX*16 array, dimension (LDAB, N)
+          On entry, the upper or lower triangle of the Hermitian band
+          matrix A, stored in the first KD+1 rows of the array.  The
+          j-th column of A is stored in the j-th column of the array AB
+          as follows:
+          if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
+
+          On exit, AB is overwritten by values generated during the
+          reduction to tridiagonal form.  If UPLO = 'U', the first
+          superdiagonal and the diagonal of the tridiagonal matrix T
+          are returned in rows KD and KD+1 of AB, and if UPLO = 'L',
+          the diagonal and first subdiagonal of T are returned in the
+          first two rows of AB.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KD + 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W} & \begin{DoxyVerb}          W is DOUBLE PRECISION array, dimension (N)
+          If INFO = 0, the eigenvalues in ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Z} & \begin{DoxyVerb}          Z is COMPLEX*16 array, dimension (LDZ, N)
+          If JOBZ = 'V', then if INFO = 0, Z contains the orthonormal
+          eigenvectors of the matrix A, with the i-th column of Z
+          holding the eigenvector associated with W(i).
+          If JOBZ = 'N', then Z is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDZ >= 1, and if
+          JOBZ = 'V', LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The dimension of the array WORK.
+          If N <= 1,               LWORK must be at least 1.
+          If JOBZ = 'N' and N > 1, LWORK must be at least N.
+          If JOBZ = 'V' and N > 1, LWORK must be at least 2*N**2.
+
+          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal sizes of the WORK, RWORK and
+          IWORK arrays, returns these values as the first entries of
+          the WORK, RWORK and IWORK arrays, and no error message
+          related to LWORK or LRWORK or LIWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is DOUBLE PRECISION array,
+                                         dimension (LRWORK)
+          On exit, if INFO = 0, RWORK(1) returns the optimal LRWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+R\+W\+O\+R\+K} & \begin{DoxyVerb}          LRWORK is INTEGER
+          The dimension of array RWORK.
+          If N <= 1,               LRWORK must be at least 1.
+          If JOBZ = 'N' and N > 1, LRWORK must be at least N.
+          If JOBZ = 'V' and N > 1, LRWORK must be at least
+                        1 + 5*N + 2*N**2.
+
+          If LRWORK = -1, then a workspace query is assumed; the
+          routine only calculates the optimal sizes of the WORK, RWORK
+          and IWORK arrays, returns these values as the first entries
+          of the WORK, RWORK and IWORK arrays, and no error message
+          related to LWORK or LRWORK or LIWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (MAX(1,LIWORK))
+          On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+I\+W\+O\+R\+K} & \begin{DoxyVerb}          LIWORK is INTEGER
+          The dimension of array IWORK.
+          If JOBZ = 'N' or N <= 1, LIWORK must be at least 1.
+          If JOBZ = 'V' and N > 1, LIWORK must be at least 3 + 5*N .
+
+          If LIWORK = -1, then a workspace query is assumed; the
+          routine only calculates the optimal sizes of the WORK, RWORK
+          and IWORK arrays, returns these values as the first entries
+          of the WORK, RWORK and IWORK arrays, and no error message
+          related to LWORK or LRWORK or LIWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if INFO = i, the algorithm failed to converge; i
+                off-diagonal elements of an intermediate tridiagonal
+                form did not converge to zero.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

@@ -1,0 +1,74 @@
+\hypertarget{namespacescipy_1_1sparse_1_1csgraph_1_1__components}{}\section{scipy.\+sparse.\+csgraph.\+\_\+components Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1csgraph_1_1__components}\index{scipy.\+sparse.\+csgraph.\+\_\+components@{scipy.\+sparse.\+csgraph.\+\_\+components}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1csgraph_1_1__components_a7cc89135ad9707bda3c24fc3ee887588}{cs\+\_\+graph\+\_\+components}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1csgraph_1_1__components_a85bc8d379704c7577c9544bb51e90030}{\+\_\+msg0} = '\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x} must be \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} symmetric square matrix!'
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1csgraph_1_1__components_a14ac0d16483cf73d38dc6d1d549da9f6}{\+\_\+msg1} = \hyperlink{namespacescipy_1_1sparse_1_1csgraph_1_1__components_a85bc8d379704c7577c9544bb51e90030}{\+\_\+msg0}+'(has \hyperlink{shape_8h_a9d9da3dcaecbbde6cf1961063f2e838b}{shape} \%\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s})'
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1csgraph_1_1__components_a7cc89135ad9707bda3c24fc3ee887588}{}\index{scipy\+::sparse\+::csgraph\+::\+\_\+components@{scipy\+::sparse\+::csgraph\+::\+\_\+components}!cs\+\_\+graph\+\_\+components@{cs\+\_\+graph\+\_\+components}}
+\index{cs\+\_\+graph\+\_\+components@{cs\+\_\+graph\+\_\+components}!scipy\+::sparse\+::csgraph\+::\+\_\+components@{scipy\+::sparse\+::csgraph\+::\+\_\+components}}
+\subsubsection[{cs\+\_\+graph\+\_\+components}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+csgraph.\+\_\+components.\+cs\+\_\+graph\+\_\+components (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1csgraph_1_1__components_a7cc89135ad9707bda3c24fc3ee887588}
+\begin{DoxyVerb}Determine connected components of a graph stored as a compressed
+sparse row or column matrix.
+
+For speed reasons, the symmetry of the matrix x is not checked. A
+nonzero at index `(i, j)` means that node `i` is connected to node
+`j` by an edge. The number of rows/columns of the matrix thus
+corresponds to the number of nodes in the graph.
+
+Parameters
+-----------
+x : array_like or sparse matrix, 2 dimensions
+    The adjacency matrix of the graph. Only the upper triangular part
+    is used.
+
+Returns
+--------
+n_comp : int
+    The number of connected components.
+label : ndarray (ints, 1 dimension):
+    The label array of each connected component (-2 is used to
+    indicate empty rows in the matrix: 0 everywhere, including
+    diagonal). This array has the length of the number of nodes,
+    i.e. one label for each node of the graph. Nodes having the same
+    label belong to the same connected component.
+
+Notes
+------
+The matrix is assumed to be symmetric and the upper triangular part
+of the matrix is used. The matrix is converted to a CSR matrix unless
+it is already a CSR.
+
+Examples
+--------
+>>> from scipy.sparse.csgraph import connected_components
+>>> D = np.eye(4)
+>>> D[0,1] = D[1,0] = 1
+>>> cs_graph_components(D)
+(3, array([0, 0, 1, 2]))
+>>> from scipy.sparse import dok_matrix
+>>> cs_graph_components(dok_matrix(D))
+(3, array([0, 0, 1, 2]))\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1csgraph_1_1__components_a85bc8d379704c7577c9544bb51e90030}{}\index{scipy\+::sparse\+::csgraph\+::\+\_\+components@{scipy\+::sparse\+::csgraph\+::\+\_\+components}!\+\_\+msg0@{\+\_\+msg0}}
+\index{\+\_\+msg0@{\+\_\+msg0}!scipy\+::sparse\+::csgraph\+::\+\_\+components@{scipy\+::sparse\+::csgraph\+::\+\_\+components}}
+\subsubsection[{\+\_\+msg0}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+csgraph.\+\_\+components.\+\_\+msg0 = '{\bf x} must be {\bf a} symmetric square matrix!'}\label{namespacescipy_1_1sparse_1_1csgraph_1_1__components_a85bc8d379704c7577c9544bb51e90030}
+\hypertarget{namespacescipy_1_1sparse_1_1csgraph_1_1__components_a14ac0d16483cf73d38dc6d1d549da9f6}{}\index{scipy\+::sparse\+::csgraph\+::\+\_\+components@{scipy\+::sparse\+::csgraph\+::\+\_\+components}!\+\_\+msg1@{\+\_\+msg1}}
+\index{\+\_\+msg1@{\+\_\+msg1}!scipy\+::sparse\+::csgraph\+::\+\_\+components@{scipy\+::sparse\+::csgraph\+::\+\_\+components}}
+\subsubsection[{\+\_\+msg1}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+csgraph.\+\_\+components.\+\_\+msg1 = {\bf \+\_\+msg0}+'(has {\bf shape} \%{\bf s})'}\label{namespacescipy_1_1sparse_1_1csgraph_1_1__components_a14ac0d16483cf73d38dc6d1d549da9f6}

@@ -1,0 +1,122 @@
+\hypertarget{cunbdb5_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/cunbdb5.f File Reference}
+\label{cunbdb5_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cunbdb5.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cunbdb5.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{cunbdb5_8f_ada0b6134859c994e11839cb28f571ecc}{cunbdb5} (M1, M2, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, X1, I\+N\+C\+X1, X2, I\+N\+C\+X2, Q1, L\+D\+Q1, Q2, L\+D\+Q2, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+U\+N\+B\+D\+B5} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{cunbdb5_8f_ada0b6134859c994e11839cb28f571ecc}{}\index{cunbdb5.\+f@{cunbdb5.\+f}!cunbdb5@{cunbdb5}}
+\index{cunbdb5@{cunbdb5}!cunbdb5.\+f@{cunbdb5.\+f}}
+\subsubsection[{cunbdb5}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cunbdb5 (
+\begin{DoxyParamCaption}
+\item[{integer}]{M1, }
+\item[{integer}]{M2, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension($\ast$)}]{X1, }
+\item[{integer}]{I\+N\+C\+X1, }
+\item[{{\bf complex}, dimension($\ast$)}]{X2, }
+\item[{integer}]{I\+N\+C\+X2, }
+\item[{{\bf complex}, dimension(ldq1,$\ast$)}]{Q1, }
+\item[{integer}]{L\+D\+Q1, }
+\item[{{\bf complex}, dimension(ldq2,$\ast$)}]{Q2, }
+\item[{integer}]{L\+D\+Q2, }
+\item[{{\bf complex}, dimension($\ast$)}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{cunbdb5_8f_ada0b6134859c994e11839cb28f571ecc}
+
+
+{\bfseries C\+U\+N\+B\+D\+B5} 
+
+\subsection*{Purpose\+: }
+
+\begin{DoxyVerb} CUNBDB5 orthogonalizes the column vector
+      X = [ X1 ]
+          [ X2 ]
+ with respect to the columns of
+      Q = [ Q1 ] .
+          [ Q2 ]
+ The columns of Q must be orthonormal.
+
+ If the projection is zero according to Kahan's "twice is enough"
+ criterion, then some other vector from the orthogonal complement
+ is returned. This vector is chosen in an arbitrary but deterministic
+ way.\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M1} & \begin{DoxyVerb}          M1 is INTEGER
+           The dimension of X1 and the number of rows in Q1. 0 <= M1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M2} & \begin{DoxyVerb}          M2 is INTEGER
+           The dimension of X2 and the number of rows in Q2. 0 <= M2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+           The number of columns in Q1 and Q2. 0 <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X1} & \begin{DoxyVerb}          X1 is COMPLEX array, dimension (M1)
+           On entry, the top part of the vector to be orthogonalized.
+           On exit, the top part of the projected vector.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X1} & \begin{DoxyVerb}          INCX1 is INTEGER
+           Increment for entries of X1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X2} & \begin{DoxyVerb}          X2 is COMPLEX array, dimension (M2)
+           On entry, the bottom part of the vector to be
+           orthogonalized. On exit, the bottom part of the projected
+           vector.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X2} & \begin{DoxyVerb}          INCX2 is INTEGER
+           Increment for entries of X2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q1} & \begin{DoxyVerb}          Q1 is COMPLEX array, dimension (LDQ1, N)
+           The top part of the orthonormal basis matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q1} & \begin{DoxyVerb}          LDQ1 is INTEGER
+           The leading dimension of Q1. LDQ1 >= M1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q2} & \begin{DoxyVerb}          Q2 is COMPLEX array, dimension (LDQ2, N)
+           The bottom part of the orthonormal basis matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q2} & \begin{DoxyVerb}          LDQ2 is INTEGER
+           The leading dimension of Q2. LDQ2 >= M2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (LWORK)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+           The dimension of the array WORK. LWORK >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+           = 0:  successful exit.
+           < 0:  if INFO = -i, the i-th argument had an illegal value.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+July 2012 
+\end{DoxyDate}

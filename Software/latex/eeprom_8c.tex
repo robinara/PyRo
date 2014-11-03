@@ -1,0 +1,84 @@
+\hypertarget{eeprom_8c}{}\section{packages/i2c-\/tools-\/3.1.1/eepromer/eeprom.c File Reference}
+\label{eeprom_8c}\index{packages/i2c-\/tools-\/3.\+1.\+1/eepromer/eeprom.\+c@{packages/i2c-\/tools-\/3.\+1.\+1/eepromer/eeprom.\+c}}
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{eeprom_8c_a77664727b70d3a4c919604dc428d239f}{D\+E\+F\+A\+U\+L\+T\+\_\+\+I2\+C\+\_\+\+B\+U\+S}~\char`\"{}/dev/i2c-\/0\char`\"{}
+\item 
+\#define \hyperlink{eeprom_8c_a9c33b13aacce4d3ef75f36ad833f97e5}{D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+A\+D\+D\+R}~0x50         /$\ast$ the 24\+C16 sits on i2c address 0x50 $\ast$/
+\item 
+\#define \hyperlink{eeprom_8c_a2cd5139476bdfbab4f96f7425f7c47da}{D\+E\+F\+A\+U\+L\+T\+\_\+\+N\+U\+M\+\_\+\+P\+A\+G\+E\+S}~8            /$\ast$ we default to \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} 24\+C16 eeprom which has 8 pages $\ast$/
+\item 
+\#define \hyperlink{eeprom_8c_a2b520a0a219bb124f24412ed000c323c}{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+P\+A\+G\+E}~256          /$\ast$ \hyperlink{numinquire_8h_a5f33a631fa63f9af6c5db425e4dc3d37}{one} \hyperlink{structeeprom}{eeprom} page is 256 byte $\ast$/
+\item 
+\#define \hyperlink{eeprom_8c_aabb27f74e9a532512f75b57584b5d420}{M\+A\+X\+\_\+\+B\+Y\+T\+E\+S}~8            /$\ast$ \hyperlink{vecbfn_8cc_a71f214d4a304fdc2089c54dbaf979fe5}{max} number of bytes to write in \hyperlink{numinquire_8h_a5f33a631fa63f9af6c5db425e4dc3d37}{one} chunk $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{eeprom_8c_aacab844d875bef19e9b5b93d29034844}{eeprom\+\_\+write} (int fd, unsigned int addr, unsigned int offset, unsigned char $\ast$buf, unsigned char len)
+\item 
+int \hyperlink{eeprom_8c_a78d713859e23859e94329c4abfe861f2}{eeprom\+\_\+read} (int fd, unsigned int addr, unsigned int offset, unsigned char $\ast$buf, unsigned char len)
+\item 
+int \hyperlink{eeprom_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{eeprom_8c_a2b520a0a219bb124f24412ed000c323c}{}\index{eeprom.\+c@{eeprom.\+c}!B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+P\+A\+G\+E@{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+P\+A\+G\+E}}
+\index{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+P\+A\+G\+E@{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+P\+A\+G\+E}!eeprom.\+c@{eeprom.\+c}}
+\subsubsection[{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+P\+A\+G\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+P\+A\+G\+E~256          /$\ast$ {\bf one} {\bf eeprom} page is 256 byte $\ast$/}\label{eeprom_8c_a2b520a0a219bb124f24412ed000c323c}
+\hypertarget{eeprom_8c_a9c33b13aacce4d3ef75f36ad833f97e5}{}\index{eeprom.\+c@{eeprom.\+c}!D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+A\+D\+D\+R@{D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+A\+D\+D\+R}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+A\+D\+D\+R@{D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+A\+D\+D\+R}!eeprom.\+c@{eeprom.\+c}}
+\subsubsection[{D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+A\+D\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+E\+P\+R\+O\+M\+\_\+\+A\+D\+D\+R~0x50         /$\ast$ the 24\+C16 sits on i2c address 0x50 $\ast$/}\label{eeprom_8c_a9c33b13aacce4d3ef75f36ad833f97e5}
+\hypertarget{eeprom_8c_a77664727b70d3a4c919604dc428d239f}{}\index{eeprom.\+c@{eeprom.\+c}!D\+E\+F\+A\+U\+L\+T\+\_\+\+I2\+C\+\_\+\+B\+U\+S@{D\+E\+F\+A\+U\+L\+T\+\_\+\+I2\+C\+\_\+\+B\+U\+S}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+I2\+C\+\_\+\+B\+U\+S@{D\+E\+F\+A\+U\+L\+T\+\_\+\+I2\+C\+\_\+\+B\+U\+S}!eeprom.\+c@{eeprom.\+c}}
+\subsubsection[{D\+E\+F\+A\+U\+L\+T\+\_\+\+I2\+C\+\_\+\+B\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+F\+A\+U\+L\+T\+\_\+\+I2\+C\+\_\+\+B\+U\+S~\char`\"{}/dev/i2c-\/0\char`\"{}}\label{eeprom_8c_a77664727b70d3a4c919604dc428d239f}
+\hypertarget{eeprom_8c_a2cd5139476bdfbab4f96f7425f7c47da}{}\index{eeprom.\+c@{eeprom.\+c}!D\+E\+F\+A\+U\+L\+T\+\_\+\+N\+U\+M\+\_\+\+P\+A\+G\+E\+S@{D\+E\+F\+A\+U\+L\+T\+\_\+\+N\+U\+M\+\_\+\+P\+A\+G\+E\+S}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+N\+U\+M\+\_\+\+P\+A\+G\+E\+S@{D\+E\+F\+A\+U\+L\+T\+\_\+\+N\+U\+M\+\_\+\+P\+A\+G\+E\+S}!eeprom.\+c@{eeprom.\+c}}
+\subsubsection[{D\+E\+F\+A\+U\+L\+T\+\_\+\+N\+U\+M\+\_\+\+P\+A\+G\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+F\+A\+U\+L\+T\+\_\+\+N\+U\+M\+\_\+\+P\+A\+G\+E\+S~8            /$\ast$ we default to {\bf a} 24\+C16 eeprom which has 8 pages $\ast$/}\label{eeprom_8c_a2cd5139476bdfbab4f96f7425f7c47da}
+\hypertarget{eeprom_8c_aabb27f74e9a532512f75b57584b5d420}{}\index{eeprom.\+c@{eeprom.\+c}!M\+A\+X\+\_\+\+B\+Y\+T\+E\+S@{M\+A\+X\+\_\+\+B\+Y\+T\+E\+S}}
+\index{M\+A\+X\+\_\+\+B\+Y\+T\+E\+S@{M\+A\+X\+\_\+\+B\+Y\+T\+E\+S}!eeprom.\+c@{eeprom.\+c}}
+\subsubsection[{M\+A\+X\+\_\+\+B\+Y\+T\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+B\+Y\+T\+E\+S~8            /$\ast$ {\bf max} number of bytes to write in {\bf one} chunk $\ast$/}\label{eeprom_8c_aabb27f74e9a532512f75b57584b5d420}
+
+
+\subsection{Function Documentation}
+\hypertarget{eeprom_8c_a78d713859e23859e94329c4abfe861f2}{}\index{eeprom.\+c@{eeprom.\+c}!eeprom\+\_\+read@{eeprom\+\_\+read}}
+\index{eeprom\+\_\+read@{eeprom\+\_\+read}!eeprom.\+c@{eeprom.\+c}}
+\subsubsection[{eeprom\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int eeprom\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{unsigned int}]{addr, }
+\item[{unsigned int}]{offset, }
+\item[{unsigned char $\ast$}]{buf, }
+\item[{unsigned char}]{len}
+\end{DoxyParamCaption}
+)}\label{eeprom_8c_a78d713859e23859e94329c4abfe861f2}
+\hypertarget{eeprom_8c_aacab844d875bef19e9b5b93d29034844}{}\index{eeprom.\+c@{eeprom.\+c}!eeprom\+\_\+write@{eeprom\+\_\+write}}
+\index{eeprom\+\_\+write@{eeprom\+\_\+write}!eeprom.\+c@{eeprom.\+c}}
+\subsubsection[{eeprom\+\_\+write}]{\setlength{\rightskip}{0pt plus 5cm}int eeprom\+\_\+write (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{unsigned int}]{addr, }
+\item[{unsigned int}]{offset, }
+\item[{unsigned char $\ast$}]{buf, }
+\item[{unsigned char}]{len}
+\end{DoxyParamCaption}
+)}\label{eeprom_8c_aacab844d875bef19e9b5b93d29034844}
+\hypertarget{eeprom_8c_a3c04138a5bfe5d72780bb7e82a18e627}{}\index{eeprom.\+c@{eeprom.\+c}!main@{main}}
+\index{main@{main}!eeprom.\+c@{eeprom.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\label{eeprom_8c_a3c04138a5bfe5d72780bb7e82a18e627}

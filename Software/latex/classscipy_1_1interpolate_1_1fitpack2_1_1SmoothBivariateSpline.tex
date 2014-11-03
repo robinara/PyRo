@@ -1,0 +1,95 @@
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline}{}\section{scipy.\+interpolate.\+fitpack2.\+Smooth\+Bivariate\+Spline Class Reference}
+\label{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline}\index{scipy.\+interpolate.\+fitpack2.\+Smooth\+Bivariate\+Spline@{scipy.\+interpolate.\+fitpack2.\+Smooth\+Bivariate\+Spline}}
+Inheritance diagram for scipy.\+interpolate.\+fitpack2.\+Smooth\+Bivariate\+Spline\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_a2a5715e873c68fac0083919130bdecd0}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_ac327a5d375e78d0371ee8d620bb5bd0b}{fp}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_a7b6a3bbcf8998bc9d9267532087d77e4}{tck}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_a1e66f2470bb311d2ba5893790fbda49e}{degrees}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Smooth bivariate spline approximation.
+
+Parameters
+----------
+x, y, z : array_like
+    1-D sequences of data points (order is not important).
+w : array_like, optional
+    Positive 1-D sequence of weights, of same length as `x`, `y` and `z`.
+bbox : array_like, optional
+    Sequence of length 4 specifying the boundary of the rectangular
+    approximation domain.  By default,
+    ``bbox=[min(x,tx),max(x,tx), min(y,ty),max(y,ty)]``.
+kx, ky : ints, optional
+    Degrees of the bivariate spline. Default is 3.
+s : float, optional
+    Positive smoothing factor defined for estimation condition:
+    ``sum((w[i]*(z[i]-s(x[i], y[i])))**2, axis=0) <= s``
+    Default ``s=len(w)`` which should be a good value if ``1/w[i]`` is an
+    estimate of the standard deviation of ``z[i]``.
+eps : float, optional
+    A threshold for determining the effective rank of an over-determined
+    linear system of equations. `eps` should have a value between 0 and 1,
+    the default is 1e-16.
+
+See Also
+--------
+bisplrep : an older wrapping of FITPACK
+bisplev : an older wrapping of FITPACK
+UnivariateSpline : a similar class for univariate spline interpolation
+LSQUnivariateSpline : to create a BivariateSpline using weighted
+
+Notes
+-----
+The length of `x`, `y` and `z` should be at least ``(kx+1) * (ky+1)``.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_a2a5715e873c68fac0083919130bdecd0}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Smooth\+Bivariate\+Spline.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z, }
+\item[{}]{w = {\ttfamily None}, }
+\item[{}]{bbox = {\ttfamily \mbox{[}None\mbox{]}~$\ast$~4}, }
+\item[{}]{kx = {\ttfamily 3}, }
+\item[{}]{ky = {\ttfamily 3}, }
+\item[{}]{s = {\ttfamily None}, }
+\item[{}]{eps = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_a2a5715e873c68fac0083919130bdecd0}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_a1e66f2470bb311d2ba5893790fbda49e}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline}!degrees@{degrees}}
+\index{degrees@{degrees}!scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline}}
+\subsubsection[{degrees}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+Smooth\+Bivariate\+Spline.\+degrees}\label{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_a1e66f2470bb311d2ba5893790fbda49e}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_ac327a5d375e78d0371ee8d620bb5bd0b}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline}!fp@{fp}}
+\index{fp@{fp}!scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline}}
+\subsubsection[{fp}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+Smooth\+Bivariate\+Spline.\+fp}\label{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_ac327a5d375e78d0371ee8d620bb5bd0b}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_a7b6a3bbcf8998bc9d9267532087d77e4}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline}!tck@{tck}}
+\index{tck@{tck}!scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Smooth\+Bivariate\+Spline}}
+\subsubsection[{tck}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+Smooth\+Bivariate\+Spline.\+tck}\label{classscipy_1_1interpolate_1_1fitpack2_1_1SmoothBivariateSpline_a7b6a3bbcf8998bc9d9267532087d77e4}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{fitpack2_8py}{fitpack2.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,598 @@
+\hypertarget{namespacescipy_1_1signal_1_1ltisys}{}\section{scipy.\+signal.\+ltisys Namespace Reference}
+\label{namespacescipy_1_1signal_1_1ltisys}\index{scipy.\+signal.\+ltisys@{scipy.\+signal.\+ltisys}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1signal_1_1ltisys_1_1lti}{lti}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_a6327b64c5fa8945c25546d161d33de48}{tf2ss}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_ab3413715b7b1409c9099a0033cc1ac2f}{abcd\+\_\+normalize}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_a30be5e88c78cc3f0bff961a849e31ec6}{ss2tf}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_a9e76fff225dd3a0fb382035f204ddee2}{zpk2ss}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_a27359ccaead3107af63ab06b5f505789}{ss2zpk}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_a446187c7665d3dd346390c2224a2470e}{lsim2}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_a5617028330ac7aa7b08c775a6e25f24f}{lsim}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_afa12868e1501b9259b2d31bd68f0c047}{impulse}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_a5c7a1b00f308205fcdacd2def77fdab9}{impulse2}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_ab267d47edfdcdeb7beac79ddeefa1365}{step}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_af948bb055bee6873ec5ef6328b8c715f}{step2}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_a82f9bc0359f142d4bd7d6b846bfdcb40}{bode}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1ltisys_ac9e60072137080411f1ef74457689e6e}{freqresp}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1signal_1_1ltisys_affd8c107dc80b4c2cd829f822d2b7678}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}ltisys -- a collection of classes and functions for modeling linear
+time invariant systems.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1ltisys_ab3413715b7b1409c9099a0033cc1ac2f}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!abcd\+\_\+normalize@{abcd\+\_\+normalize}}
+\index{abcd\+\_\+normalize@{abcd\+\_\+normalize}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{abcd\+\_\+normalize}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+abcd\+\_\+normalize (
+\begin{DoxyParamCaption}
+\item[{}]{A = {\ttfamily None}, }
+\item[{}]{B = {\ttfamily None}, }
+\item[{}]{C = {\ttfamily None}, }
+\item[{}]{D = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_ab3413715b7b1409c9099a0033cc1ac2f}
+\begin{DoxyVerb}Check state-space matrices and ensure they are rank-2.
+
+If enough information on the system is provided, that is, enough
+properly-shaped arrays are passed to the function, the missing ones
+are built from this information, ensuring the correct number of
+rows and columns. Otherwise a ValueError is raised.
+
+Parameters
+----------
+A, B, C, D : array_like, optional
+    State-space matrices. All of them are None (missing) by default.
+
+Returns
+-------
+A, B, C, D : array
+    Properly shaped state-space matrices.
+
+Raises
+------
+ValueError
+    If not enough information on the system was provided.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_a82f9bc0359f142d4bd7d6b846bfdcb40}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!bode@{bode}}
+\index{bode@{bode}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{bode}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+bode (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{w = {\ttfamily None}, }
+\item[{}]{n = {\ttfamily 100}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_a82f9bc0359f142d4bd7d6b846bfdcb40}
+\begin{DoxyVerb}Calculate Bode magnitude and phase data of a continuous-time system.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+system : an instance of the LTI class or a tuple describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+        * 2 (num, den)
+        * 3 (zeros, poles, gain)
+        * 4 (A, B, C, D)
+
+w : array_like, optional
+    Array of frequencies (in rad/s). Magnitude and phase data is calculated
+    for every value in this array. If not given a reasonable set will be
+    calculated.
+n : int, optional
+    Number of frequency points to compute if `w` is not given. The `n`
+    frequencies are logarithmically spaced in an interval chosen to
+    include the influence of the poles and zeros of the system.
+
+Returns
+-------
+w : 1D ndarray
+    Frequency array [rad/s]
+mag : 1D ndarray
+    Magnitude array [dB]
+phase : 1D ndarray
+    Phase array [deg]
+
+Examples
+--------
+>>> from scipy import signal
+>>> import matplotlib.pyplot as plt
+
+>>> s1 = signal.lti([1], [1, 1])
+>>> w, mag, phase = signal.bode(s1)
+
+>>> plt.figure()
+>>> plt.semilogx(w, mag)    # Bode magnitude plot
+>>> plt.figure()
+>>> plt.semilogx(w, phase)  # Bode phase plot
+>>> plt.show()\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_ac9e60072137080411f1ef74457689e6e}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!freqresp@{freqresp}}
+\index{freqresp@{freqresp}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{freqresp}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+freqresp (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{w = {\ttfamily None}, }
+\item[{}]{n = {\ttfamily 10000}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_ac9e60072137080411f1ef74457689e6e}
+\begin{DoxyVerb}Calculate the frequency response of a continuous-time system.
+
+Parameters
+----------
+system : an instance of the LTI class or a tuple describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+        * 2 (num, den)
+        * 3 (zeros, poles, gain)
+        * 4 (A, B, C, D)
+
+w : array_like, optional
+    Array of frequencies (in rad/s). Magnitude and phase data is
+    calculated for every value in this array. If not given a reasonable
+    set will be calculated.
+n : int, optional
+    Number of frequency points to compute if `w` is not given. The `n`
+    frequencies are logarithmically spaced in an interval chosen to
+    include the influence of the poles and zeros of the system.
+
+Returns
+-------
+w : 1D ndarray
+    Frequency array [rad/s]
+H : 1D ndarray
+    Array of complex magnitude values
+
+Examples
+--------
+# Generating the Nyquist plot of a transfer function
+
+>>> from scipy import signal
+>>> import matplotlib.pyplot as plt
+
+>>> s1 = signal.lti([], [1, 1, 1], [5])
+# transfer function: H(s) = 5 / (s-1)^3
+
+>>> w, H = signal.freqresp(s1)
+
+>>> plt.figure()
+>>> plt.plot(H.real, H.imag, "b")
+>>> plt.plot(H.real, -H.imag, "r")
+>>> plt.show()
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_afa12868e1501b9259b2d31bd68f0c047}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!impulse@{impulse}}
+\index{impulse@{impulse}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{impulse}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+impulse (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{X0 = {\ttfamily None}, }
+\item[{}]{T = {\ttfamily None}, }
+\item[{}]{N = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_afa12868e1501b9259b2d31bd68f0c047}
+\begin{DoxyVerb}Impulse response of continuous-time system.
+
+Parameters
+----------
+system : an instance of the LTI class or a tuple of array_like
+    describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+        * 2 (num, den)
+        * 3 (zeros, poles, gain)
+        * 4 (A, B, C, D)
+
+X0 : array_like, optional
+    Initial state-vector.  Defaults to zero.
+T : array_like, optional
+    Time points.  Computed if not given.
+N : int, optional
+    The number of time points to compute (if `T` is not given).
+
+Returns
+-------
+T : ndarray
+    A 1-D array of time points.
+yout : ndarray
+    A 1-D array containing the impulse response of the system (except for
+    singularities at zero).\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_a5c7a1b00f308205fcdacd2def77fdab9}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!impulse2@{impulse2}}
+\index{impulse2@{impulse2}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{impulse2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+impulse2 (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{X0 = {\ttfamily None}, }
+\item[{}]{T = {\ttfamily None}, }
+\item[{}]{N = {\ttfamily None}, }
+\item[{}]{kwargs}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_a5c7a1b00f308205fcdacd2def77fdab9}
+\begin{DoxyVerb}Impulse response of a single-input, continuous-time linear system.
+
+Parameters
+----------
+system : an instance of the LTI class or a tuple of array_like
+    describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+        * 2 (num, den)
+        * 3 (zeros, poles, gain)
+        * 4 (A, B, C, D)
+
+X0 : 1-D array_like, optional
+    The initial condition of the state vector.  Default: 0 (the
+    zero vector).
+T : 1-D array_like, optional
+    The time steps at which the input is defined and at which the
+    output is desired.  If `T` is not given, the function will
+    generate a set of time samples automatically.
+N : int, optional
+    Number of time points to compute.  Default: 100.
+kwargs : various types
+    Additional keyword arguments are passed on to the function
+    `scipy.signal.lsim2`, which in turn passes them on to
+    `scipy.integrate.odeint`; see the latter's documentation for
+    information about these arguments.
+
+Returns
+-------
+T : ndarray
+    The time values for the output.
+yout : ndarray
+    The output response of the system.
+
+See Also
+--------
+impulse, lsim2, integrate.odeint
+
+Notes
+-----
+The solution is generated by calling `scipy.signal.lsim2`, which uses
+the differential equation solver `scipy.integrate.odeint`.
+
+.. versionadded:: 0.8.0
+
+Examples
+--------
+Second order system with a repeated root: x''(t) + 2*x(t) + x(t) = u(t)
+
+>>> from scipy import signal
+>>> system = ([1.0], [1.0, 2.0, 1.0])
+>>> t, y = signal.impulse2(system)
+>>> import matplotlib.pyplot as plt
+>>> plt.plot(t, y)\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_a5617028330ac7aa7b08c775a6e25f24f}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!lsim@{lsim}}
+\index{lsim@{lsim}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{lsim}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+lsim (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{U, }
+\item[{}]{T, }
+\item[{}]{X0 = {\ttfamily None}, }
+\item[{}]{interp = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_a5617028330ac7aa7b08c775a6e25f24f}
+\begin{DoxyVerb}Simulate output of a continuous-time linear system.
+
+Parameters
+----------
+system : an instance of the LTI class or a tuple describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+    * 2: (num, den)
+    * 3: (zeros, poles, gain)
+    * 4: (A, B, C, D)
+
+U : array_like
+    An input array describing the input at each time `T`
+    (interpolation is assumed between given times).  If there are
+    multiple inputs, then each column of the rank-2 array
+    represents an input.
+T : array_like
+    The time steps at which the input is defined and at which the
+    output is desired.
+X0 :
+    The initial conditions on the state vector (zero by default).
+interp : {1, 0}
+    Whether to use linear (1) or zero-order hold (0) interpolation.
+
+Returns
+-------
+T : 1D ndarray
+    Time values for the output.
+yout : 1D ndarray
+    System response.
+xout : ndarray
+    Time-evolution of the state-vector.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_a446187c7665d3dd346390c2224a2470e}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!lsim2@{lsim2}}
+\index{lsim2@{lsim2}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{lsim2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+lsim2 (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{U = {\ttfamily None}, }
+\item[{}]{T = {\ttfamily None}, }
+\item[{}]{X0 = {\ttfamily None}, }
+\item[{}]{kwargs}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_a446187c7665d3dd346390c2224a2470e}
+\begin{DoxyVerb}Simulate output of a continuous-time linear system, by using
+the ODE solver `scipy.integrate.odeint`.
+
+Parameters
+----------
+system : an instance of the LTI class or a tuple describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+    * 2: (num, den)
+    * 3: (zeros, poles, gain)
+    * 4: (A, B, C, D)
+
+U : array_like (1D or 2D), optional
+    An input array describing the input at each time T.  Linear
+    interpolation is used between given times.  If there are
+    multiple inputs, then each column of the rank-2 array
+    represents an input.  If U is not given, the input is assumed
+    to be zero.
+T : array_like (1D or 2D), optional
+    The time steps at which the input is defined and at which the
+    output is desired.  The default is 101 evenly spaced points on
+    the interval [0,10.0].
+X0 : array_like (1D), optional
+    The initial condition of the state vector.  If `X0` is not
+    given, the initial conditions are assumed to be 0.
+kwargs : dict
+    Additional keyword arguments are passed on to the function
+    `odeint`.  See the notes below for more details.
+
+Returns
+-------
+T : 1D ndarray
+    The time values for the output.
+yout : ndarray
+    The response of the system.
+xout : ndarray
+    The time-evolution of the state-vector.
+
+Notes
+-----
+This function uses `scipy.integrate.odeint` to solve the
+system's differential equations.  Additional keyword arguments
+given to `lsim2` are passed on to `odeint`.  See the documentation
+for `scipy.integrate.odeint` for the full list of arguments.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_a30be5e88c78cc3f0bff961a849e31ec6}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!ss2tf@{ss2tf}}
+\index{ss2tf@{ss2tf}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{ss2tf}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+ss2tf (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{B, }
+\item[{}]{C, }
+\item[{}]{D, }
+\item[{}]{input = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_a30be5e88c78cc3f0bff961a849e31ec6}
+\begin{DoxyVerb}State-space to transfer function.
+
+Parameters
+----------
+A, B, C, D : ndarray
+    State-space representation of linear system.
+input : int, optional
+    For multiple-input systems, the input to use.
+
+Returns
+-------
+num : 2-D ndarray
+    Numerator(s) of the resulting transfer function(s).  `num` has one row
+    for each of the system's outputs. Each row is a sequence representation
+    of the numerator polynomial.
+den : 1-D ndarray
+    Denominator of the resulting transfer function(s).  `den` is a sequence
+    representation of the denominator polynomial.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_a27359ccaead3107af63ab06b5f505789}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!ss2zpk@{ss2zpk}}
+\index{ss2zpk@{ss2zpk}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{ss2zpk}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+ss2zpk (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{B, }
+\item[{}]{C, }
+\item[{}]{D, }
+\item[{}]{input = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_a27359ccaead3107af63ab06b5f505789}
+\begin{DoxyVerb}State-space representation to zero-pole-gain representation.
+
+Parameters
+----------
+A, B, C, D : ndarray
+    State-space representation of linear system.
+input : int, optional
+    For multiple-input systems, the input to use.
+
+Returns
+-------
+z, p : sequence
+    Zeros and poles.
+k : float
+    System gain.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_ab267d47edfdcdeb7beac79ddeefa1365}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!step@{step}}
+\index{step@{step}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{step}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+step (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{X0 = {\ttfamily None}, }
+\item[{}]{T = {\ttfamily None}, }
+\item[{}]{N = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_ab267d47edfdcdeb7beac79ddeefa1365}
+\begin{DoxyVerb}Step response of continuous-time system.
+
+Parameters
+----------
+system : an instance of the LTI class or a tuple of array_like
+    describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+        * 2 (num, den)
+        * 3 (zeros, poles, gain)
+        * 4 (A, B, C, D)
+
+X0 : array_like, optional
+    Initial state-vector (default is zero).
+T : array_like, optional
+    Time points (computed if not given).
+N : int
+    Number of time points to compute if `T` is not given.
+
+Returns
+-------
+T : 1D ndarray
+    Output time points.
+yout : 1D ndarray
+    Step response of system.
+
+See also
+--------
+scipy.signal.step2\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_af948bb055bee6873ec5ef6328b8c715f}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!step2@{step2}}
+\index{step2@{step2}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{step2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+step2 (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{X0 = {\ttfamily None}, }
+\item[{}]{T = {\ttfamily None}, }
+\item[{}]{N = {\ttfamily None}, }
+\item[{}]{kwargs}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_af948bb055bee6873ec5ef6328b8c715f}
+\begin{DoxyVerb}Step response of continuous-time system.
+
+This function is functionally the same as `scipy.signal.step`, but
+it uses the function `scipy.signal.lsim2` to compute the step
+response.
+
+Parameters
+----------
+system : an instance of the LTI class or a tuple of array_like
+    describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+        * 2 (num, den)
+        * 3 (zeros, poles, gain)
+        * 4 (A, B, C, D)
+
+X0 : array_like, optional
+    Initial state-vector (default is zero).
+T : array_like, optional
+    Time points (computed if not given).
+N : int
+    Number of time points to compute if `T` is not given.
+kwargs : various types
+    Additional keyword arguments are passed on the function
+    `scipy.signal.lsim2`, which in turn passes them on to
+    `scipy.integrate.odeint`.  See the documentation for
+    `scipy.integrate.odeint` for information about these arguments.
+
+Returns
+-------
+T : 1D ndarray
+    Output time points.
+yout : 1D ndarray
+    Step response of system.
+
+See also
+--------
+scipy.signal.step
+
+Notes
+-----
+.. versionadded:: 0.8.0
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_a6327b64c5fa8945c25546d161d33de48}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!tf2ss@{tf2ss}}
+\index{tf2ss@{tf2ss}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{tf2ss}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+tf2ss (
+\begin{DoxyParamCaption}
+\item[{}]{num, }
+\item[{}]{den}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_a6327b64c5fa8945c25546d161d33de48}
+\begin{DoxyVerb}Transfer function to state-space representation.
+
+Parameters
+----------
+num, den : array_like
+    Sequences representing the numerator and denominator polynomials.
+    The denominator needs to be at least as long as the numerator.
+
+Returns
+-------
+A, B, C, D : ndarray
+    State space representation of the system, in controller canonical
+    form.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1ltisys_a9e76fff225dd3a0fb382035f204ddee2}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!zpk2ss@{zpk2ss}}
+\index{zpk2ss@{zpk2ss}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{zpk2ss}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+ltisys.\+zpk2ss (
+\begin{DoxyParamCaption}
+\item[{}]{z, }
+\item[{}]{p, }
+\item[{}]{k}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1ltisys_a9e76fff225dd3a0fb382035f204ddee2}
+\begin{DoxyVerb}Zero-pole-gain representation to state-space representation
+
+Parameters
+----------
+z, p : sequence
+    Zeros and poles.
+k : float
+    System gain.
+
+Returns
+-------
+A, B, C, D : ndarray
+    State space representation of the system, in controller canonical
+    form.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1ltisys_affd8c107dc80b4c2cd829f822d2b7678}{}\index{scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::signal\+::ltisys@{scipy\+::signal\+::ltisys}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+signal.\+ltisys.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1signal_1_1ltisys_affd8c107dc80b4c2cd829f822d2b7678}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'tf2ss'}, \textcolor{stringliteral}{'ss2tf'}, \textcolor{stringliteral}{'abcd\_normalize'}, \textcolor{stringliteral}{'zpk2ss'}, \textcolor{stringliteral}{'ss2zpk'}, \textcolor{stringliteral}{'lti'},
+2            \textcolor{stringliteral}{'lsim'}, \textcolor{stringliteral}{'lsim2'}, \textcolor{stringliteral}{'impulse'}, \textcolor{stringliteral}{'impulse2'}, \textcolor{stringliteral}{'step'}, \textcolor{stringliteral}{'step2'}, \textcolor{stringliteral}{'bode'},
+3            \textcolor{stringliteral}{'freqresp'}]
+\end{DoxyCode}

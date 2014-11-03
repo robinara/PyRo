@@ -1,0 +1,353 @@
+\hypertarget{namespacescipy_1_1optimize_1_1linesearch}{}\section{scipy.\+optimize.\+linesearch Namespace Reference}
+\label{namespacescipy_1_1optimize_1_1linesearch}\index{scipy.\+optimize.\+linesearch@{scipy.\+optimize.\+linesearch}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1linesearch_a493e6ce47a10a75918797bd31d6e45f8}{line\+\_\+search\+\_\+wolfe1}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1linesearch_af336dff853f3e4e6f694eb853b50ba0d}{scalar\+\_\+search\+\_\+wolfe1}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1linesearch_a91f89f89b468960d956000bcc64d9262}{line\+\_\+search\+\_\+wolfe2}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1linesearch_a2271529963085031cf938a091b42c7c7}{scalar\+\_\+search\+\_\+wolfe2}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1linesearch_a9ffcf875a3c5f400ca81ffc62bfe6202}{line\+\_\+search\+\_\+armijo}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1linesearch_a0d116e4dca1384e35e53ba04806c86df}{line\+\_\+search\+\_\+\+B\+F\+G\+S}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1linesearch_a999e7311d3781b63e159d4d30cba3b65}{scalar\+\_\+search\+\_\+armijo}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1optimize_1_1linesearch_a43abb0559c075e1f3f528db85543d76d}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+\hyperlink{namespacescipy_1_1optimize_1_1linesearch_abdaf0387f19bd1267f58bff82abafb88}{line\+\_\+search} = \hyperlink{namespacescipy_1_1optimize_1_1linesearch_a493e6ce47a10a75918797bd31d6e45f8}{line\+\_\+search\+\_\+wolfe1}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Functions
+---------
+.. autosummary::
+   :toctree: generated/
+
+line_search_armijo
+line_search_wolfe1
+line_search_wolfe2
+scalar_search_wolfe1
+scalar_search_wolfe2\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1linesearch_a9ffcf875a3c5f400ca81ffc62bfe6202}{}\index{scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}!line\+\_\+search\+\_\+armijo@{line\+\_\+search\+\_\+armijo}}
+\index{line\+\_\+search\+\_\+armijo@{line\+\_\+search\+\_\+armijo}!scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}}
+\subsubsection[{line\+\_\+search\+\_\+armijo}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+linesearch.\+line\+\_\+search\+\_\+armijo (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{xk, }
+\item[{}]{pk, }
+\item[{}]{gfk, }
+\item[{}]{old\+\_\+fval, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{c1 = {\ttfamily 1e-\/4}, }
+\item[{}]{alpha0 = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1linesearch_a9ffcf875a3c5f400ca81ffc62bfe6202}
+\begin{DoxyVerb}Minimize over alpha, the function ``f(xk+alpha pk)``.
+
+Parameters
+----------
+f : callable
+    Function to be minimized.
+xk : array_like
+    Current point.
+pk : array_like
+    Search direction.
+gfk : array_like
+    Gradient of `f` at point `xk`.
+old_fval : float
+    Value of `f` at point `xk`.
+args : tuple, optional
+    Optional arguments.
+c1 : float, optional
+    Value to control stopping criterion.
+alpha0 : scalar, optional
+    Value of `alpha` at start of the optimization.
+
+Returns
+-------
+alpha
+f_count
+f_val_at_alpha
+
+Notes
+-----
+Uses the interpolation algorithm (Armijo backtracking) as suggested by
+Wright and Nocedal in 'Numerical Optimization', 1999, pg. 56-57\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1linesearch_a0d116e4dca1384e35e53ba04806c86df}{}\index{scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}!line\+\_\+search\+\_\+\+B\+F\+G\+S@{line\+\_\+search\+\_\+\+B\+F\+G\+S}}
+\index{line\+\_\+search\+\_\+\+B\+F\+G\+S@{line\+\_\+search\+\_\+\+B\+F\+G\+S}!scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}}
+\subsubsection[{line\+\_\+search\+\_\+\+B\+F\+G\+S}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+linesearch.\+line\+\_\+search\+\_\+\+B\+F\+G\+S (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{xk, }
+\item[{}]{pk, }
+\item[{}]{gfk, }
+\item[{}]{old\+\_\+fval, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{c1 = {\ttfamily 1e-\/4}, }
+\item[{}]{alpha0 = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1linesearch_a0d116e4dca1384e35e53ba04806c86df}
+\begin{DoxyVerb}Compatibility wrapper for `line_search_armijo`
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1linesearch_a493e6ce47a10a75918797bd31d6e45f8}{}\index{scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}!line\+\_\+search\+\_\+wolfe1@{line\+\_\+search\+\_\+wolfe1}}
+\index{line\+\_\+search\+\_\+wolfe1@{line\+\_\+search\+\_\+wolfe1}!scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}}
+\subsubsection[{line\+\_\+search\+\_\+wolfe1}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+linesearch.\+line\+\_\+search\+\_\+wolfe1 (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{fprime, }
+\item[{}]{xk, }
+\item[{}]{pk, }
+\item[{}]{gfk = {\ttfamily None}, }
+\item[{}]{old\+\_\+fval = {\ttfamily None}, }
+\item[{}]{old\+\_\+old\+\_\+fval = {\ttfamily None}, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{c1 = {\ttfamily 1e-\/4}, }
+\item[{}]{c2 = {\ttfamily 0.9}, }
+\item[{}]{amax = {\ttfamily 50}, }
+\item[{}]{amin = {\ttfamily 1e-\/8}, }
+\item[{}]{xtol = {\ttfamily 1e-\/14}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1linesearch_a493e6ce47a10a75918797bd31d6e45f8}
+\begin{DoxyVerb}As `scalar_search_wolfe1` but do a line search to direction `pk`
+
+Parameters
+----------
+f : callable
+    Function `f(x)`
+fprime : callable
+    Gradient of `f`
+xk : array_like
+    Current point
+pk : array_like
+    Search direction
+
+gfk : array_like, optional
+    Gradient of `f` at point `xk`
+old_fval : float, optional
+    Value of `f` at point `xk`
+old_old_fval : float, optional
+    Value of `f` at point preceding `xk`
+
+The rest of the parameters are the same as for `scalar_search_wolfe1`.
+
+Returns
+-------
+stp, f_count, g_count, fval, old_fval
+    As in `line_search_wolfe1`
+gval : array
+    Gradient of `f` at the final point\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1linesearch_a91f89f89b468960d956000bcc64d9262}{}\index{scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}!line\+\_\+search\+\_\+wolfe2@{line\+\_\+search\+\_\+wolfe2}}
+\index{line\+\_\+search\+\_\+wolfe2@{line\+\_\+search\+\_\+wolfe2}!scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}}
+\subsubsection[{line\+\_\+search\+\_\+wolfe2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+linesearch.\+line\+\_\+search\+\_\+wolfe2 (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{myfprime, }
+\item[{}]{xk, }
+\item[{}]{pk, }
+\item[{}]{gfk = {\ttfamily None}, }
+\item[{}]{old\+\_\+fval = {\ttfamily None}, }
+\item[{}]{old\+\_\+old\+\_\+fval = {\ttfamily None}, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{c1 = {\ttfamily 1e-\/4}, }
+\item[{}]{c2 = {\ttfamily 0.9}, }
+\item[{}]{amax = {\ttfamily 50}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1linesearch_a91f89f89b468960d956000bcc64d9262}
+\begin{DoxyVerb}Find alpha that satisfies strong Wolfe conditions.
+
+Parameters
+----------
+f : callable f(x,*args)
+    Objective function.
+myfprime : callable f'(x,*args)
+    Objective function gradient.
+xk : ndarray
+    Starting point.
+pk : ndarray
+    Search direction.
+gfk : ndarray, optional
+    Gradient value for x=xk (xk being the current parameter
+    estimate). Will be recomputed if omitted.
+old_fval : float, optional
+    Function value for x=xk. Will be recomputed if omitted.
+old_old_fval : float, optional
+    Function value for the point preceding x=xk
+args : tuple, optional
+    Additional arguments passed to objective function.
+c1 : float, optional
+    Parameter for Armijo condition rule.
+c2 : float, optional
+    Parameter for curvature condition rule.
+
+Returns
+-------
+alpha0 : float
+    Alpha for which ``x_new = x0 + alpha * pk``.
+fc : int
+    Number of function evaluations made.
+gc : int
+    Number of gradient evaluations made.
+
+Notes
+-----
+Uses the line search algorithm to enforce strong Wolfe
+conditions.  See Wright and Nocedal, 'Numerical Optimization',
+1999, pg. 59-60.
+
+For the zoom phase it uses an algorithm by [...].\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1linesearch_a999e7311d3781b63e159d4d30cba3b65}{}\index{scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}!scalar\+\_\+search\+\_\+armijo@{scalar\+\_\+search\+\_\+armijo}}
+\index{scalar\+\_\+search\+\_\+armijo@{scalar\+\_\+search\+\_\+armijo}!scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}}
+\subsubsection[{scalar\+\_\+search\+\_\+armijo}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+linesearch.\+scalar\+\_\+search\+\_\+armijo (
+\begin{DoxyParamCaption}
+\item[{}]{phi, }
+\item[{}]{phi0, }
+\item[{}]{derphi0, }
+\item[{}]{c1 = {\ttfamily 1e-\/4}, }
+\item[{}]{alpha0 = {\ttfamily 1}, }
+\item[{}]{amin = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1linesearch_a999e7311d3781b63e159d4d30cba3b65}
+\begin{DoxyVerb}Minimize over alpha, the function ``phi(alpha)``.
+
+Uses the interpolation algorithm (Armijo backtracking) as suggested by
+Wright and Nocedal in 'Numerical Optimization', 1999, pg. 56-57
+
+alpha > 0 is assumed to be a descent direction.
+
+Returns
+-------
+alpha
+phi1\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1linesearch_af336dff853f3e4e6f694eb853b50ba0d}{}\index{scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}!scalar\+\_\+search\+\_\+wolfe1@{scalar\+\_\+search\+\_\+wolfe1}}
+\index{scalar\+\_\+search\+\_\+wolfe1@{scalar\+\_\+search\+\_\+wolfe1}!scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}}
+\subsubsection[{scalar\+\_\+search\+\_\+wolfe1}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+linesearch.\+scalar\+\_\+search\+\_\+wolfe1 (
+\begin{DoxyParamCaption}
+\item[{}]{phi, }
+\item[{}]{derphi, }
+\item[{}]{phi0 = {\ttfamily None}, }
+\item[{}]{old\+\_\+phi0 = {\ttfamily None}, }
+\item[{}]{derphi0 = {\ttfamily None}, }
+\item[{}]{c1 = {\ttfamily 1e-\/4}, }
+\item[{}]{c2 = {\ttfamily 0.9}, }
+\item[{}]{amax = {\ttfamily 50}, }
+\item[{}]{amin = {\ttfamily 1e-\/8}, }
+\item[{}]{xtol = {\ttfamily 1e-\/14}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1linesearch_af336dff853f3e4e6f694eb853b50ba0d}
+\begin{DoxyVerb}Scalar function search for alpha that satisfies strong Wolfe conditions
+
+alpha > 0 is assumed to be a descent direction.
+
+Parameters
+----------
+phi : callable phi(alpha)
+    Function at point `alpha`
+derphi : callable dphi(alpha)
+    Derivative `d phi(alpha)/ds`. Returns a scalar.
+
+phi0 : float, optional
+    Value of `f` at 0
+old_phi0 : float, optional
+    Value of `f` at the previous point
+derphi0 : float, optional
+    Value `derphi` at 0
+amax : float, optional
+    Maximum step size
+c1, c2 : float, optional
+    Wolfe parameters
+
+Returns
+-------
+alpha : float
+    Step size, or None if no suitable step was found
+phi : float
+    Value of `phi` at the new point `alpha`
+phi0 : float
+    Value of `phi` at `alpha=0`
+
+Notes
+-----
+Uses routine DCSRCH from MINPACK.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1linesearch_a2271529963085031cf938a091b42c7c7}{}\index{scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}!scalar\+\_\+search\+\_\+wolfe2@{scalar\+\_\+search\+\_\+wolfe2}}
+\index{scalar\+\_\+search\+\_\+wolfe2@{scalar\+\_\+search\+\_\+wolfe2}!scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}}
+\subsubsection[{scalar\+\_\+search\+\_\+wolfe2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+linesearch.\+scalar\+\_\+search\+\_\+wolfe2 (
+\begin{DoxyParamCaption}
+\item[{}]{phi, }
+\item[{}]{derphi = {\ttfamily None}, }
+\item[{}]{phi0 = {\ttfamily None}, }
+\item[{}]{old\+\_\+phi0 = {\ttfamily None}, }
+\item[{}]{derphi0 = {\ttfamily None}, }
+\item[{}]{c1 = {\ttfamily 1e-\/4}, }
+\item[{}]{c2 = {\ttfamily 0.9}, }
+\item[{}]{amax = {\ttfamily 50}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1linesearch_a2271529963085031cf938a091b42c7c7}
+\begin{DoxyVerb}Find alpha that satisfies strong Wolfe conditions.
+
+alpha > 0 is assumed to be a descent direction.
+
+Parameters
+----------
+phi : callable f(x,*args)
+    Objective scalar function.
+
+derphi : callable f'(x,*args), optional
+    Objective function derivative (can be None)
+phi0 : float, optional
+    Value of phi at s=0
+old_phi0 : float, optional
+    Value of phi at previous point
+derphi0 : float, optional
+    Value of derphi at s=0
+args : tuple
+    Additional arguments passed to objective function.
+c1 : float
+    Parameter for Armijo condition rule.
+c2 : float
+    Parameter for curvature condition rule.
+
+Returns
+-------
+alpha_star : float
+    Best alpha
+phi_star
+    phi at alpha_star
+phi0
+    phi at 0
+derphi_star
+    derphi at alpha_star
+
+Notes
+-----
+Uses the line search algorithm to enforce strong Wolfe
+conditions.  See Wright and Nocedal, 'Numerical Optimization',
+1999, pg. 59-60.
+
+For the zoom phase it uses an algorithm by [...].\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1linesearch_a43abb0559c075e1f3f528db85543d76d}{}\index{scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+optimize.\+linesearch.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1optimize_1_1linesearch_a43abb0559c075e1f3f528db85543d76d}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'line\_search\_wolfe1'}, \textcolor{stringliteral}{'line\_search\_wolfe2'},
+2            \textcolor{stringliteral}{'scalar\_search\_wolfe1'}, \textcolor{stringliteral}{'scalar\_search\_wolfe2'},
+3            \textcolor{stringliteral}{'line\_search\_armijo'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1optimize_1_1linesearch_abdaf0387f19bd1267f58bff82abafb88}{}\index{scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}!line\+\_\+search@{line\+\_\+search}}
+\index{line\+\_\+search@{line\+\_\+search}!scipy\+::optimize\+::linesearch@{scipy\+::optimize\+::linesearch}}
+\subsubsection[{line\+\_\+search}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+linesearch.\+line\+\_\+search = {\bf line\+\_\+search\+\_\+wolfe1}}\label{namespacescipy_1_1optimize_1_1linesearch_abdaf0387f19bd1267f58bff82abafb88}

@@ -1,0 +1,205 @@
+\hypertarget{S__bspline__util_8c}{}\section{packages/scipy-\/0.14.0/scipy/signal/\+S\+\_\+bspline\+\_\+util.c File Reference}
+\label{S__bspline__util_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/signal/\+S\+\_\+bspline\+\_\+util.\+c@{packages/scipy-\/0.\+14.\+0/scipy/signal/\+S\+\_\+bspline\+\_\+util.\+c}}
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stddef.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}numpy/noprefix.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{S__bspline__util_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}
+\item 
+\#define \hyperlink{S__bspline__util_8c_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+P\+I}~3.\+14159265358979323846  /$\ast$ pi $\ast$/
+\item 
+\#define \hyperlink{S__bspline__util_8c_ac70ebd52806a8b25fa446654eb522e43}{C\+O\+N\+J}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})~((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}))
+\item 
+\#define \hyperlink{S__bspline__util_8c_a34faeb641fcc8ccc42af30be61afe859}{A\+B\+S\+Q}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})~( (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}$\ast$\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a26a53d2d0576982e73a770a90087a619}{C\+O\+N\+J}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{S__bspline__util_8c_aa69e5bd2a76e03fbd0ed98d7c946bccd}{compute\+\_\+root\+\_\+from\+\_\+lambda} (double, double $\ast$, double $\ast$)
+\item 
+void \hyperlink{S__bspline__util_8c_a8b8a146f4c012eb3209ad7d99c448d03}{S\+\_\+\+I\+I\+R\+\_\+order1} (float, float, float $\ast$, float $\ast$, int, int, int)
+\item 
+void \hyperlink{S__bspline__util_8c_a98eea85c5ad11fe32ad93cdd7ceea157}{S\+\_\+\+I\+I\+R\+\_\+order2} (float, float, float, float $\ast$, float $\ast$, int, int, int)
+\item 
+void \hyperlink{S__bspline__util_8c_a910ad62dd6190331892a4bbc0ad0eca7}{S\+\_\+\+I\+I\+R\+\_\+order2\+\_\+cascade} (float, float, float, float, float $\ast$, float $\ast$, int, int, int)
+\item 
+int \hyperlink{S__bspline__util_8c_aa75a48718c99a38a3b6b6d7a7b38586c}{S\+\_\+\+I\+I\+R\+\_\+forback1} (float, float, float $\ast$, float $\ast$, int, int, int, float)
+\item 
+void \hyperlink{S__bspline__util_8c_acedf62aa729e01acaab9f730bc5cd975}{S\+\_\+\+F\+I\+R\+\_\+mirror\+\_\+symmetric} (float $\ast$, float $\ast$, int, float $\ast$, int, int, int)
+\item 
+int \hyperlink{S__bspline__util_8c_aeb816988551cfac6870e44b847cbba46}{S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror} (float $\ast$, float $\ast$, int, int, float $\ast$, float $\ast$, int, int, intp $\ast$, intp $\ast$)
+\item 
+int \hyperlink{S__bspline__util_8c_a227739435f497ddb1a01f6e65ac6cd79}{S\+\_\+\+I\+I\+R\+\_\+forback2} (double, double, float $\ast$, float $\ast$, int, int, int, float)
+\item 
+int \hyperlink{S__bspline__util_8c_a72d608baa45201953107f32ac108a6c6}{S\+\_\+cubic\+\_\+spline2\+D} (float $\ast$, float $\ast$, int, int, double, intp $\ast$, intp $\ast$, float)
+\item 
+int \hyperlink{S__bspline__util_8c_a11f5ffda4ab1d84d135c0d5a0ef53a72}{S\+\_\+quadratic\+\_\+spline2\+D} (float $\ast$, float $\ast$, int, int, double, intp $\ast$, intp $\ast$, float)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{S__bspline__util_8c_a34faeb641fcc8ccc42af30be61afe859}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!A\+B\+S\+Q@{A\+B\+S\+Q}}
+\index{A\+B\+S\+Q@{A\+B\+S\+Q}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{A\+B\+S\+Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+B\+S\+Q(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)~( ({\bf a}$\ast${\bf C\+O\+N\+J}({\bf a})))}\label{S__bspline__util_8c_a34faeb641fcc8ccc42af30be61afe859}
+\hypertarget{S__bspline__util_8c_ac70ebd52806a8b25fa446654eb522e43}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!C\+O\+N\+J@{C\+O\+N\+J}}
+\index{C\+O\+N\+J@{C\+O\+N\+J}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{C\+O\+N\+J}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+N\+J(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)~(({\bf a}))}\label{S__bspline__util_8c_ac70ebd52806a8b25fa446654eb522e43}
+\hypertarget{S__bspline__util_8c_ae71449b1cc6e6250b91f539153a7a0d3}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!M\+\_\+\+P\+I@{M\+\_\+\+P\+I}}
+\index{M\+\_\+\+P\+I@{M\+\_\+\+P\+I}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{M\+\_\+\+P\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+\_\+\+P\+I~3.\+14159265358979323846  /$\ast$ pi $\ast$/}\label{S__bspline__util_8c_ae71449b1cc6e6250b91f539153a7a0d3}
+\hypertarget{S__bspline__util_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}}
+\index{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}\label{S__bspline__util_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}
+
+
+\subsection{Function Documentation}
+\hypertarget{S__bspline__util_8c_aa69e5bd2a76e03fbd0ed98d7c946bccd}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!compute\+\_\+root\+\_\+from\+\_\+lambda@{compute\+\_\+root\+\_\+from\+\_\+lambda}}
+\index{compute\+\_\+root\+\_\+from\+\_\+lambda@{compute\+\_\+root\+\_\+from\+\_\+lambda}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{compute\+\_\+root\+\_\+from\+\_\+lambda}]{\setlength{\rightskip}{0pt plus 5cm}void compute\+\_\+root\+\_\+from\+\_\+lambda (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{S__bspline__util_8c_aa69e5bd2a76e03fbd0ed98d7c946bccd}
+\hypertarget{S__bspline__util_8c_a72d608baa45201953107f32ac108a6c6}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!S\+\_\+cubic\+\_\+spline2\+D@{S\+\_\+cubic\+\_\+spline2\+D}}
+\index{S\+\_\+cubic\+\_\+spline2\+D@{S\+\_\+cubic\+\_\+spline2\+D}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{S\+\_\+cubic\+\_\+spline2\+D}]{\setlength{\rightskip}{0pt plus 5cm}int S\+\_\+cubic\+\_\+spline2\+D (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{image, }
+\item[{float $\ast$}]{coeffs, }
+\item[{int}]{M, }
+\item[{int}]{N, }
+\item[{double}]{lambda, }
+\item[{intp $\ast$}]{strides, }
+\item[{intp $\ast$}]{cstrides, }
+\item[{float}]{precision}
+\end{DoxyParamCaption}
+)}\label{S__bspline__util_8c_a72d608baa45201953107f32ac108a6c6}
+\hypertarget{S__bspline__util_8c_acedf62aa729e01acaab9f730bc5cd975}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!S\+\_\+\+F\+I\+R\+\_\+mirror\+\_\+symmetric@{S\+\_\+\+F\+I\+R\+\_\+mirror\+\_\+symmetric}}
+\index{S\+\_\+\+F\+I\+R\+\_\+mirror\+\_\+symmetric@{S\+\_\+\+F\+I\+R\+\_\+mirror\+\_\+symmetric}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{S\+\_\+\+F\+I\+R\+\_\+mirror\+\_\+symmetric}]{\setlength{\rightskip}{0pt plus 5cm}void S\+\_\+\+F\+I\+R\+\_\+mirror\+\_\+symmetric (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{in, }
+\item[{float $\ast$}]{out, }
+\item[{int}]{N, }
+\item[{float $\ast$}]{h, }
+\item[{int}]{Nh, }
+\item[{int}]{instride, }
+\item[{int}]{outstride}
+\end{DoxyParamCaption}
+)}\label{S__bspline__util_8c_acedf62aa729e01acaab9f730bc5cd975}
+\hypertarget{S__bspline__util_8c_aa75a48718c99a38a3b6b6d7a7b38586c}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!S\+\_\+\+I\+I\+R\+\_\+forback1@{S\+\_\+\+I\+I\+R\+\_\+forback1}}
+\index{S\+\_\+\+I\+I\+R\+\_\+forback1@{S\+\_\+\+I\+I\+R\+\_\+forback1}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{S\+\_\+\+I\+I\+R\+\_\+forback1}]{\setlength{\rightskip}{0pt plus 5cm}int S\+\_\+\+I\+I\+R\+\_\+forback1 (
+\begin{DoxyParamCaption}
+\item[{float}]{c0, }
+\item[{float}]{z1, }
+\item[{float $\ast$}]{x, }
+\item[{float $\ast$}]{y, }
+\item[{int}]{N, }
+\item[{int}]{stridex, }
+\item[{int}]{stridey, }
+\item[{float}]{precision}
+\end{DoxyParamCaption}
+)}\label{S__bspline__util_8c_aa75a48718c99a38a3b6b6d7a7b38586c}
+\hypertarget{S__bspline__util_8c_a227739435f497ddb1a01f6e65ac6cd79}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!S\+\_\+\+I\+I\+R\+\_\+forback2@{S\+\_\+\+I\+I\+R\+\_\+forback2}}
+\index{S\+\_\+\+I\+I\+R\+\_\+forback2@{S\+\_\+\+I\+I\+R\+\_\+forback2}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{S\+\_\+\+I\+I\+R\+\_\+forback2}]{\setlength{\rightskip}{0pt plus 5cm}int S\+\_\+\+I\+I\+R\+\_\+forback2 (
+\begin{DoxyParamCaption}
+\item[{double}]{r, }
+\item[{double}]{omega, }
+\item[{float $\ast$}]{x, }
+\item[{float $\ast$}]{y, }
+\item[{int}]{N, }
+\item[{int}]{stridex, }
+\item[{int}]{stridey, }
+\item[{float}]{precision}
+\end{DoxyParamCaption}
+)}\label{S__bspline__util_8c_a227739435f497ddb1a01f6e65ac6cd79}
+\hypertarget{S__bspline__util_8c_a8b8a146f4c012eb3209ad7d99c448d03}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!S\+\_\+\+I\+I\+R\+\_\+order1@{S\+\_\+\+I\+I\+R\+\_\+order1}}
+\index{S\+\_\+\+I\+I\+R\+\_\+order1@{S\+\_\+\+I\+I\+R\+\_\+order1}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{S\+\_\+\+I\+I\+R\+\_\+order1}]{\setlength{\rightskip}{0pt plus 5cm}void S\+\_\+\+I\+I\+R\+\_\+order1 (
+\begin{DoxyParamCaption}
+\item[{float}]{a1, }
+\item[{float}]{a2, }
+\item[{float $\ast$}]{x, }
+\item[{float $\ast$}]{y, }
+\item[{int}]{N, }
+\item[{int}]{stridex, }
+\item[{int}]{stridey}
+\end{DoxyParamCaption}
+)}\label{S__bspline__util_8c_a8b8a146f4c012eb3209ad7d99c448d03}
+\hypertarget{S__bspline__util_8c_a98eea85c5ad11fe32ad93cdd7ceea157}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!S\+\_\+\+I\+I\+R\+\_\+order2@{S\+\_\+\+I\+I\+R\+\_\+order2}}
+\index{S\+\_\+\+I\+I\+R\+\_\+order2@{S\+\_\+\+I\+I\+R\+\_\+order2}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{S\+\_\+\+I\+I\+R\+\_\+order2}]{\setlength{\rightskip}{0pt plus 5cm}void S\+\_\+\+I\+I\+R\+\_\+order2 (
+\begin{DoxyParamCaption}
+\item[{float}]{a1, }
+\item[{float}]{a2, }
+\item[{float}]{a3, }
+\item[{float $\ast$}]{x, }
+\item[{float $\ast$}]{y, }
+\item[{int}]{N, }
+\item[{int}]{stridex, }
+\item[{int}]{stridey}
+\end{DoxyParamCaption}
+)}\label{S__bspline__util_8c_a98eea85c5ad11fe32ad93cdd7ceea157}
+\hypertarget{S__bspline__util_8c_a910ad62dd6190331892a4bbc0ad0eca7}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!S\+\_\+\+I\+I\+R\+\_\+order2\+\_\+cascade@{S\+\_\+\+I\+I\+R\+\_\+order2\+\_\+cascade}}
+\index{S\+\_\+\+I\+I\+R\+\_\+order2\+\_\+cascade@{S\+\_\+\+I\+I\+R\+\_\+order2\+\_\+cascade}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{S\+\_\+\+I\+I\+R\+\_\+order2\+\_\+cascade}]{\setlength{\rightskip}{0pt plus 5cm}void S\+\_\+\+I\+I\+R\+\_\+order2\+\_\+cascade (
+\begin{DoxyParamCaption}
+\item[{float}]{cs, }
+\item[{float}]{z1, }
+\item[{float}]{z2, }
+\item[{float}]{y1\+\_\+0, }
+\item[{float $\ast$}]{x, }
+\item[{float $\ast$}]{yp, }
+\item[{int}]{N, }
+\item[{int}]{stridex, }
+\item[{int}]{stridey}
+\end{DoxyParamCaption}
+)}\label{S__bspline__util_8c_a910ad62dd6190331892a4bbc0ad0eca7}
+\hypertarget{S__bspline__util_8c_a11f5ffda4ab1d84d135c0d5a0ef53a72}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!S\+\_\+quadratic\+\_\+spline2\+D@{S\+\_\+quadratic\+\_\+spline2\+D}}
+\index{S\+\_\+quadratic\+\_\+spline2\+D@{S\+\_\+quadratic\+\_\+spline2\+D}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{S\+\_\+quadratic\+\_\+spline2\+D}]{\setlength{\rightskip}{0pt plus 5cm}int S\+\_\+quadratic\+\_\+spline2\+D (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{image, }
+\item[{float $\ast$}]{coeffs, }
+\item[{int}]{M, }
+\item[{int}]{N, }
+\item[{double}]{lambda, }
+\item[{intp $\ast$}]{strides, }
+\item[{intp $\ast$}]{cstrides, }
+\item[{float}]{precision}
+\end{DoxyParamCaption}
+)}\label{S__bspline__util_8c_a11f5ffda4ab1d84d135c0d5a0ef53a72}
+\hypertarget{S__bspline__util_8c_aeb816988551cfac6870e44b847cbba46}{}\index{S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}!S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror@{S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror}}
+\index{S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror@{S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror}!S\+\_\+bspline\+\_\+util.\+c@{S\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror}]{\setlength{\rightskip}{0pt plus 5cm}int S\+\_\+separable\+\_\+2\+Dconvolve\+\_\+mirror (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{in, }
+\item[{float $\ast$}]{out, }
+\item[{int}]{M, }
+\item[{int}]{N, }
+\item[{float $\ast$}]{hr, }
+\item[{float $\ast$}]{hc, }
+\item[{int}]{Nhr, }
+\item[{int}]{Nhc, }
+\item[{intp $\ast$}]{instrides, }
+\item[{intp $\ast$}]{outstrides}
+\end{DoxyParamCaption}
+)}\label{S__bspline__util_8c_aeb816988551cfac6870e44b847cbba46}

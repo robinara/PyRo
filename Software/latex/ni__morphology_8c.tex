@@ -1,0 +1,212 @@
+\hypertarget{ni__morphology_8c}{}\section{packages/scipy-\/0.14.0/scipy/ndimage/src/ni\+\_\+morphology.c File Reference}
+\label{ni__morphology_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+morphology.\+c@{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+morphology.\+c}}
+{\ttfamily \#include \char`\"{}ni\+\_\+support.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ni\+\_\+morphology.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include $<$float.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ni__morphology_8c_a3b965b30176f000b28ee90e75865ee20}{L\+I\+S\+T\+\_\+\+S\+I\+Z\+E}~100000
+\item 
+\#define \hyperlink{ni__morphology_8c_af21cd643ac33f61edfa5ff1b3546f074}{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+M\+A\+S\+K}(\+\_\+msk\+\_\+value,  \+\_\+pm,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__morphology_8c_a663ffb7f6ed89a4efb76cee9c569fbaf}{C\+A\+S\+E\+\_\+\+O\+U\+T\+P\+U\+T}(\+\_\+po,  \+\_\+out,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__morphology_8c_a052a91fa910272f1701b8d3b2b64c85e}{C\+A\+S\+E\+\_\+\+N\+I\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T}(\+\_\+pi,  \+\_\+out,  \+\_\+offsets,  \+\_\+filter\+\_\+size,  \+\_\+type,  \+\_\+mv, \+\_\+border\+\_\+value,  \+\_\+bv,  \+\_\+center\+\_\+is\+\_\+true,  \+\_\+true,  \+\_\+false,  \+\_\+changed)
+\item 
+\#define \hyperlink{ni__morphology_8c_affa4a447d5875c34fc9920267ace216d}{C\+A\+S\+E\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T2}(\+\_\+struct\+\_\+size,  \+\_\+offsets,  \+\_\+coordinate\+\_\+offsets,  \+\_\+pi,  \+\_\+oo,  \+\_\+irank,  \+\_\+list1,  \+\_\+list2, \+\_\+current\+\_\+coors1,  \+\_\+current\+\_\+coors2,  \+\_\+block1, \+\_\+block2,  \+\_\+bf\+\_\+value,  \+\_\+true,  \+\_\+false,  \+\_\+type, \+\_\+mklist)
+\item 
+\#define \hyperlink{ni__morphology_8c_a6f7299fecf81ddac4f854bdb46fb11cf}{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+E\+U\+C\+L\+I\+D\+I\+A\+N}~1
+\item 
+\#define \hyperlink{ni__morphology_8c_ab8924c28b22a3b0fbf16447d58a334af}{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+I\+T\+Y\+\_\+\+B\+L\+O\+C\+K}~2
+\item 
+\#define \hyperlink{ni__morphology_8c_addb05dbd48e6721a09fa1c8db0bc651a}{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+H\+E\+S\+S\+B\+O\+A\+R\+D}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ni__morphology_8c_aa7568baa7d1f9bb768ce831af92e1246}{N\+I\+\_\+\+Binary\+Erosion} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$strct, Py\+Array\+Object $\ast$mask, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, int bdr\+\_\+value, npy\+\_\+intp $\ast$origins, int invert, int center\+\_\+is\+\_\+true, int $\ast$changed, \hyperlink{structNI__CoordinateList}{N\+I\+\_\+\+Coordinate\+List} $\ast$$\ast$coordinate\+\_\+list)
+\item 
+int \hyperlink{ni__morphology_8c_aaa45a4e2c74b0b06a21357abab65a98a}{N\+I\+\_\+\+Binary\+Erosion2} (Py\+Array\+Object $\ast$array, Py\+Array\+Object $\ast$strct, Py\+Array\+Object $\ast$mask, int niter, npy\+\_\+intp $\ast$origins, int invert, \hyperlink{structNI__CoordinateList}{N\+I\+\_\+\+Coordinate\+List} $\ast$$\ast$iclist)
+\item 
+int \hyperlink{ni__morphology_8c_aed411e8a0ed1b838210a8dfb4f400163}{N\+I\+\_\+\+Distance\+Transform\+Brute\+Force} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, int metric, Py\+Array\+Object $\ast$sampling\+\_\+arr, Py\+Array\+Object $\ast$distances, Py\+Array\+Object $\ast$features)
+\item 
+int \hyperlink{ni__morphology_8c_aa57967bdda7a5dbc3b18f52467d9d95e}{N\+I\+\_\+\+Distance\+Transform\+One\+Pass} (Py\+Array\+Object $\ast$strct, Py\+Array\+Object $\ast$distances, Py\+Array\+Object $\ast$features)
+\item 
+int \hyperlink{ni__morphology_8c_a243d3cc0a926b089d5b2c8a22cc7e821}{N\+I\+\_\+\+Euclidean\+Feature\+Transform} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$sampling\+\_\+arr, Py\+Array\+Object $\ast$features)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ni__morphology_8c_affa4a447d5875c34fc9920267ace216d}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!C\+A\+S\+E\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T2@{C\+A\+S\+E\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T2}}
+\index{C\+A\+S\+E\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T2@{C\+A\+S\+E\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T2}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T2}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T2(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+struct\+\_\+size, }
+\item[{}]{\+\_\+offsets, }
+\item[{}]{\+\_\+coordinate\+\_\+offsets, }
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+oo, }
+\item[{}]{\+\_\+irank, }
+\item[{}]{\+\_\+list1, }
+\item[{}]{\+\_\+list2, }
+\item[{}]{\+\_\+current\+\_\+coors1, }
+\item[{}]{\+\_\+current\+\_\+coors2, }
+\item[{}]{\+\_\+block1, }
+\item[{}]{\+\_\+block2, }
+\item[{}]{\+\_\+bf\+\_\+value, }
+\item[{}]{\+\_\+true, }
+\item[{}]{\+\_\+false, }
+\item[{}]{\+\_\+type, }
+\item[{}]{\+\_\+mklist}
+\end{DoxyParamCaption}
+)}\label{ni__morphology_8c_affa4a447d5875c34fc9920267ace216d}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                       \(\backslash\)
+\{                                                                      \(\backslash\)
+    npy\_intp \_hh, \_kk;                                                        \(\backslash\)
+    for(\_hh = 0; \_hh < \_struct\_size; \_hh++) \{                            \(\backslash\)
+        npy\_intp \_to = \_offsets[\_oo + \_hh];                                   \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_to != \_bf\_value && *(\_type*)(\_pi + \_to) == \_true) \{           
+      \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{            if} (\_mklist) \{                                                   \(\backslash\)
+                npy\_intp *\_tc = &(\_coordinate\_offsets[(\_oo + \_hh) * \_irank]); \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{                if} (\_block2 == NULL || \_block2->size == \_list2->block\_size) \{  \(\backslash\)
+                    \_block2 = \hyperlink{ni__support_8c_a5c474f94110ed1333e3fecc35d432103}{NI\_CoordinateListAddBlock}(\_list2);                 \(\backslash\)
+                    \_current\_coors2 = \_block2->coordinates;                      \(\backslash\)
+                \}                                                              \(\backslash\)
+                for(\_kk = 0; \_kk < \_irank; \_kk++)                              \(\backslash\)
+                    *\_current\_coors2++ = \_current\_coors1[\_kk] + \_tc[\_kk];        \(\backslash\)
+                \_block2->size++;                                               \(\backslash\)
+            \}                                                                \(\backslash\)
+            *(\_type*)(\_pi + \_to) = \_false;                                   \(\backslash\)
+        \}                                                                  \(\backslash\)
+    \}                                                                    \(\backslash\)
+\}                                                                      \(\backslash\)
+break
+\end{DoxyCode}
+\hypertarget{ni__morphology_8c_af21cd643ac33f61edfa5ff1b3546f074}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+M\+A\+S\+K@{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+M\+A\+S\+K}}
+\index{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+M\+A\+S\+K@{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+M\+A\+S\+K}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+M\+A\+S\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+M\+A\+S\+K(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+msk\+\_\+value, }
+\item[{}]{\+\_\+pm, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__morphology_8c_af21cd643ac33f61edfa5ff1b3546f074}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                              \(\backslash\)
+    \_msk\_value = *(\_type*)\_pm ? 1 : 0;          \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__morphology_8c_a052a91fa910272f1701b8d3b2b64c85e}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!C\+A\+S\+E\+\_\+\+N\+I\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+N\+I\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T}}
+\index{C\+A\+S\+E\+\_\+\+N\+I\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+N\+I\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+N\+I\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+N\+I\+\_\+\+E\+R\+O\+D\+E\+\_\+\+P\+O\+I\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+out, }
+\item[{}]{\+\_\+offsets, }
+\item[{}]{\+\_\+filter\+\_\+size, }
+\item[{}]{\+\_\+type, }
+\item[{}]{\+\_\+mv, }
+\item[{}]{\+\_\+border\+\_\+value, }
+\item[{}]{\+\_\+bv, }
+\item[{}]{\+\_\+center\+\_\+is\+\_\+true, }
+\item[{}]{\+\_\+true, }
+\item[{}]{\+\_\+false, }
+\item[{}]{\+\_\+changed}
+\end{DoxyParamCaption}
+)}\label{ni__morphology_8c_a052a91fa910272f1701b8d3b2b64c85e}
+\hypertarget{ni__morphology_8c_a663ffb7f6ed89a4efb76cee9c569fbaf}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!C\+A\+S\+E\+\_\+\+O\+U\+T\+P\+U\+T@{C\+A\+S\+E\+\_\+\+O\+U\+T\+P\+U\+T}}
+\index{C\+A\+S\+E\+\_\+\+O\+U\+T\+P\+U\+T@{C\+A\+S\+E\+\_\+\+O\+U\+T\+P\+U\+T}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+O\+U\+T\+P\+U\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+O\+U\+T\+P\+U\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+po, }
+\item[{}]{\+\_\+out, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__morphology_8c_a663ffb7f6ed89a4efb76cee9c569fbaf}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                      \(\backslash\)
+    *(\_type*)\_po = (\_type)\_out;         \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__morphology_8c_a3b965b30176f000b28ee90e75865ee20}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!L\+I\+S\+T\+\_\+\+S\+I\+Z\+E@{L\+I\+S\+T\+\_\+\+S\+I\+Z\+E}}
+\index{L\+I\+S\+T\+\_\+\+S\+I\+Z\+E@{L\+I\+S\+T\+\_\+\+S\+I\+Z\+E}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{L\+I\+S\+T\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+I\+S\+T\+\_\+\+S\+I\+Z\+E~100000}\label{ni__morphology_8c_a3b965b30176f000b28ee90e75865ee20}
+\hypertarget{ni__morphology_8c_addb05dbd48e6721a09fa1c8db0bc651a}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+H\+E\+S\+S\+B\+O\+A\+R\+D@{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+H\+E\+S\+S\+B\+O\+A\+R\+D}}
+\index{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+H\+E\+S\+S\+B\+O\+A\+R\+D@{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+H\+E\+S\+S\+B\+O\+A\+R\+D}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+H\+E\+S\+S\+B\+O\+A\+R\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+H\+E\+S\+S\+B\+O\+A\+R\+D~3}\label{ni__morphology_8c_addb05dbd48e6721a09fa1c8db0bc651a}
+\hypertarget{ni__morphology_8c_ab8924c28b22a3b0fbf16447d58a334af}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+I\+T\+Y\+\_\+\+B\+L\+O\+C\+K@{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+I\+T\+Y\+\_\+\+B\+L\+O\+C\+K}}
+\index{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+I\+T\+Y\+\_\+\+B\+L\+O\+C\+K@{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+I\+T\+Y\+\_\+\+B\+L\+O\+C\+K}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+I\+T\+Y\+\_\+\+B\+L\+O\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+C\+I\+T\+Y\+\_\+\+B\+L\+O\+C\+K~2}\label{ni__morphology_8c_ab8924c28b22a3b0fbf16447d58a334af}
+\hypertarget{ni__morphology_8c_a6f7299fecf81ddac4f854bdb46fb11cf}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+E\+U\+C\+L\+I\+D\+I\+A\+N@{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+E\+U\+C\+L\+I\+D\+I\+A\+N}}
+\index{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+E\+U\+C\+L\+I\+D\+I\+A\+N@{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+E\+U\+C\+L\+I\+D\+I\+A\+N}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+E\+U\+C\+L\+I\+D\+I\+A\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+D\+I\+S\+T\+A\+N\+C\+E\+\_\+\+E\+U\+C\+L\+I\+D\+I\+A\+N~1}\label{ni__morphology_8c_a6f7299fecf81ddac4f854bdb46fb11cf}
+
+
+\subsection{Function Documentation}
+\hypertarget{ni__morphology_8c_aa7568baa7d1f9bb768ce831af92e1246}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!N\+I\+\_\+\+Binary\+Erosion@{N\+I\+\_\+\+Binary\+Erosion}}
+\index{N\+I\+\_\+\+Binary\+Erosion@{N\+I\+\_\+\+Binary\+Erosion}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{N\+I\+\_\+\+Binary\+Erosion}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Binary\+Erosion (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{strct, }
+\item[{Py\+Array\+Object $\ast$}]{mask, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{int}]{bdr\+\_\+value, }
+\item[{npy\+\_\+intp $\ast$}]{origins, }
+\item[{int}]{invert, }
+\item[{int}]{center\+\_\+is\+\_\+true, }
+\item[{int $\ast$}]{changed, }
+\item[{{\bf N\+I\+\_\+\+Coordinate\+List} $\ast$$\ast$}]{coordinate\+\_\+list}
+\end{DoxyParamCaption}
+)}\label{ni__morphology_8c_aa7568baa7d1f9bb768ce831af92e1246}
+\hypertarget{ni__morphology_8c_aaa45a4e2c74b0b06a21357abab65a98a}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!N\+I\+\_\+\+Binary\+Erosion2@{N\+I\+\_\+\+Binary\+Erosion2}}
+\index{N\+I\+\_\+\+Binary\+Erosion2@{N\+I\+\_\+\+Binary\+Erosion2}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{N\+I\+\_\+\+Binary\+Erosion2}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Binary\+Erosion2 (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{array, }
+\item[{Py\+Array\+Object $\ast$}]{strct, }
+\item[{Py\+Array\+Object $\ast$}]{mask, }
+\item[{int}]{niter, }
+\item[{npy\+\_\+intp $\ast$}]{origins, }
+\item[{int}]{invert, }
+\item[{{\bf N\+I\+\_\+\+Coordinate\+List} $\ast$$\ast$}]{iclist}
+\end{DoxyParamCaption}
+)}\label{ni__morphology_8c_aaa45a4e2c74b0b06a21357abab65a98a}
+\hypertarget{ni__morphology_8c_aed411e8a0ed1b838210a8dfb4f400163}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!N\+I\+\_\+\+Distance\+Transform\+Brute\+Force@{N\+I\+\_\+\+Distance\+Transform\+Brute\+Force}}
+\index{N\+I\+\_\+\+Distance\+Transform\+Brute\+Force@{N\+I\+\_\+\+Distance\+Transform\+Brute\+Force}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{N\+I\+\_\+\+Distance\+Transform\+Brute\+Force}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Distance\+Transform\+Brute\+Force (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{int}]{metric, }
+\item[{Py\+Array\+Object $\ast$}]{sampling\+\_\+arr, }
+\item[{Py\+Array\+Object $\ast$}]{distances, }
+\item[{Py\+Array\+Object $\ast$}]{features}
+\end{DoxyParamCaption}
+)}\label{ni__morphology_8c_aed411e8a0ed1b838210a8dfb4f400163}
+\hypertarget{ni__morphology_8c_aa57967bdda7a5dbc3b18f52467d9d95e}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!N\+I\+\_\+\+Distance\+Transform\+One\+Pass@{N\+I\+\_\+\+Distance\+Transform\+One\+Pass}}
+\index{N\+I\+\_\+\+Distance\+Transform\+One\+Pass@{N\+I\+\_\+\+Distance\+Transform\+One\+Pass}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{N\+I\+\_\+\+Distance\+Transform\+One\+Pass}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Distance\+Transform\+One\+Pass (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{strct, }
+\item[{Py\+Array\+Object $\ast$}]{distances, }
+\item[{Py\+Array\+Object $\ast$}]{features}
+\end{DoxyParamCaption}
+)}\label{ni__morphology_8c_aa57967bdda7a5dbc3b18f52467d9d95e}
+\hypertarget{ni__morphology_8c_a243d3cc0a926b089d5b2c8a22cc7e821}{}\index{ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}!N\+I\+\_\+\+Euclidean\+Feature\+Transform@{N\+I\+\_\+\+Euclidean\+Feature\+Transform}}
+\index{N\+I\+\_\+\+Euclidean\+Feature\+Transform@{N\+I\+\_\+\+Euclidean\+Feature\+Transform}!ni\+\_\+morphology.\+c@{ni\+\_\+morphology.\+c}}
+\subsubsection[{N\+I\+\_\+\+Euclidean\+Feature\+Transform}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Euclidean\+Feature\+Transform (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{sampling\+\_\+arr, }
+\item[{Py\+Array\+Object $\ast$}]{features}
+\end{DoxyParamCaption}
+)}\label{ni__morphology_8c_a243d3cc0a926b089d5b2c8a22cc7e821}

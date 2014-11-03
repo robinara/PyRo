@@ -1,0 +1,59 @@
+\hypertarget{quadpack_8h}{}\section{packages/scipy-\/0.14.0/scipy/integrate/quadpack.h File Reference}
+\label{quadpack_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/integrate/quadpack.\+h@{packages/scipy-\/0.\+14.\+0/scipy/integrate/quadpack.\+h}}
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}numpy/npy\+\_\+3kcompat.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}numpy/arrayobject.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$setjmp.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structQStorage}{Q\+Storage}
+\item 
+struct \hyperlink{struct__sp__cfuncptr__object}{\+\_\+sp\+\_\+cfuncptr\+\_\+object}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{quadpack_8h_a718693babfa893da17b1d586aa77c4a8}{P\+Y\+E\+R\+R}(errobj,  message)~\{Py\+Err\+\_\+\+Set\+String(errobj,message); goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail};\}
+\item 
+\#define \hyperlink{quadpack_8h_aefd5acc2a1fab9899a820e1a9bc2bb2a}{P\+Y\+E\+R\+R2}(errobj,  message)~\{Py\+Err\+\_\+\+Print(); Py\+Err\+\_\+\+Set\+String(errobj, message); goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail};\}
+\item 
+\#define \hyperlink{quadpack_8h_a31ddc3bae85ae4bfc4e7b4557fb9744e}{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})~((\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})-\/$>$flags \& C\+O\+N\+T\+I\+G\+U\+O\+U\+S)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef double($\ast$ \hyperlink{quadpack_8h_ad5ea852a65efd369dc44ab3e358e7e34}{\+\_\+sp\+\_\+double\+\_\+func}) (double)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{quadpack_8h_a31ddc3bae85ae4bfc4e7b4557fb9744e}{}\index{quadpack.\+h@{quadpack.\+h}!I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}}
+\index{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}!quadpack.\+h@{quadpack.\+h}}
+\subsubsection[{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf m}}
+\end{DoxyParamCaption}
+)~(({\bf m})-\/$>$flags \& C\+O\+N\+T\+I\+G\+U\+O\+U\+S)}\label{quadpack_8h_a31ddc3bae85ae4bfc4e7b4557fb9744e}
+\hypertarget{quadpack_8h_a718693babfa893da17b1d586aa77c4a8}{}\index{quadpack.\+h@{quadpack.\+h}!P\+Y\+E\+R\+R@{P\+Y\+E\+R\+R}}
+\index{P\+Y\+E\+R\+R@{P\+Y\+E\+R\+R}!quadpack.\+h@{quadpack.\+h}}
+\subsubsection[{P\+Y\+E\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+E\+R\+R(
+\begin{DoxyParamCaption}
+\item[{}]{errobj, }
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~\{Py\+Err\+\_\+\+Set\+String(errobj,message); goto {\bf fail};\}}\label{quadpack_8h_a718693babfa893da17b1d586aa77c4a8}
+\hypertarget{quadpack_8h_aefd5acc2a1fab9899a820e1a9bc2bb2a}{}\index{quadpack.\+h@{quadpack.\+h}!P\+Y\+E\+R\+R2@{P\+Y\+E\+R\+R2}}
+\index{P\+Y\+E\+R\+R2@{P\+Y\+E\+R\+R2}!quadpack.\+h@{quadpack.\+h}}
+\subsubsection[{P\+Y\+E\+R\+R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+E\+R\+R2(
+\begin{DoxyParamCaption}
+\item[{}]{errobj, }
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~\{Py\+Err\+\_\+\+Print(); Py\+Err\+\_\+\+Set\+String(errobj, message); goto {\bf fail};\}}\label{quadpack_8h_aefd5acc2a1fab9899a820e1a9bc2bb2a}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{quadpack_8h_ad5ea852a65efd369dc44ab3e358e7e34}{}\index{quadpack.\+h@{quadpack.\+h}!\+\_\+sp\+\_\+double\+\_\+func@{\+\_\+sp\+\_\+double\+\_\+func}}
+\index{\+\_\+sp\+\_\+double\+\_\+func@{\+\_\+sp\+\_\+double\+\_\+func}!quadpack.\+h@{quadpack.\+h}}
+\subsubsection[{\+\_\+sp\+\_\+double\+\_\+func}]{\setlength{\rightskip}{0pt plus 5cm}typedef double($\ast$ \+\_\+sp\+\_\+double\+\_\+func) (double)}\label{quadpack_8h_ad5ea852a65efd369dc44ab3e358e7e34}

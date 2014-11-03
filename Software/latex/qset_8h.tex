@@ -1,0 +1,659 @@
+\hypertarget{qset_8h}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/qset.h File Reference}
+\label{qset_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/qset.\+h@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/qset.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionsetelemT}{setelem\+T}
+\item 
+struct \hyperlink{structsetT}{set\+T}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{qset_8h_a80a65aa94d8afc86b78449fa661df329}{D\+E\+Fset\+T}~1
+\item 
+\#define \hyperlink{qset_8h_a5681e992b087b005695b31cad566d051}{S\+E\+Telemsize}~((int)sizeof(\hyperlink{unionsetelemT}{setelem\+T}))
+\item 
+\#define \hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type},  set,  variable)
+\item 
+\#define \hyperlink{qset_8h_a655f34954bee824ad79f34c06353649c}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type},  set,  variable)
+\item 
+\#define \hyperlink{qset_8h_a7255f85de159037e91a87bef3f60abf9}{F\+O\+R\+E\+A\+C\+Hsetelementreverse\+\_\+}(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type},  set,  variable)
+\item 
+\#define \hyperlink{qset_8h_abccdb519017515dc5f8ff11fc003fcfe}{F\+O\+R\+E\+A\+C\+Hsetelementreverse12\+\_\+}(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type},  set,  variable)
+\item 
+\#define \hyperlink{qset_8h_ae470048d6bb3ef39f375cc3de07b136b}{F\+O\+R\+E\+A\+C\+Helem\+\_\+}(set)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(void, set, elem)
+\item 
+\#define \hyperlink{qset_8h_a3dd5af5eb68dcf3fdb0467abcf156d5c}{F\+O\+R\+E\+A\+C\+Hset\+\_\+}(sets)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{structsetT}{set\+T}, sets, set)
+\item 
+\#define \hyperlink{qset_8h_a36b83429188ea8ad042d675ee097bc9c}{S\+E\+Tindex\+\_\+}(set,  elem)~((int)((void $\ast$$\ast$)elem\#\#\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p} -\/ (void $\ast$$\ast$)\&(set)-\/$>$e\mbox{[}1\mbox{]}.\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}))
+\item 
+\#define \hyperlink{qset_8h_a7c66ed4842cde1d25c828754c3cb1874}{S\+E\+Tref\+\_\+}(elem)~(elem\#\#\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}\mbox{[}-\/1\mbox{]})
+\item 
+\#define \hyperlink{qset_8h_a928d1423efee7a3e8fe3b179d8aaf546}{S\+E\+Telem\+\_\+}(set,  \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})~((set)-\/$>$e\mbox{[}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}\mbox{]}.\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p})
+\item 
+\#define \hyperlink{qset_8h_acb4d58a4888cb9b6a194190e9cf8457b}{S\+E\+Telemt\+\_\+}(set,  \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n},  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})~((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}$\ast$)((set)-\/$>$e\mbox{[}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}\mbox{]}.\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}))
+\item 
+\#define \hyperlink{qset_8h_a87fb98253d734bdf9b50b53a4f09e188}{S\+E\+Telemaddr\+\_\+}(set,  \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n},  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})~((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} $\ast$$\ast$)(\&((set)-\/$>$e\mbox{[}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}\mbox{]}.\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p})))
+\item 
+\#define \hyperlink{qset_8h_a7eac84362fc43dc70265971ede3c74d0}{S\+E\+Tfirst\+\_\+}(set)~((set)-\/$>$e\mbox{[}0\mbox{]}.\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p})
+\item 
+\#define \hyperlink{qset_8h_ad9b909f1337b053e362aa2bb92d6f9bf}{S\+E\+Tfirstt\+\_\+}(set,  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})~((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}$\ast$)((set)-\/$>$e\mbox{[}0\mbox{]}.\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}))
+\item 
+\#define \hyperlink{qset_8h_a18652989e78c5873505cbe753bdc9535}{S\+E\+Tsecond\+\_\+}(set)~((set)-\/$>$e\mbox{[}1\mbox{]}.\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p})
+\item 
+\#define \hyperlink{qset_8h_a544e6c1f5226ae0d01849dd6098cd315}{S\+E\+Tsecondt\+\_\+}(set,  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})~((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}$\ast$)((set)-\/$>$e\mbox{[}1\mbox{]}.\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}))
+\item 
+\#define \hyperlink{qset_8h_ada790debb5d1e16ae2c8d1ef93fa26fe}{S\+E\+Taddr\+\_\+}(set,  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})~((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} $\ast$$\ast$)(\&((set)-\/$>$e\mbox{[}0\mbox{]}.\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p})))
+\item 
+\#define \hyperlink{qset_8h_a344473c2a5a19e7248056f30e34f5361}{S\+E\+Treturnsize\+\_\+}(set,  size)~(((size)= ((set)-\/$>$e\mbox{[}(set)-\/$>$maxsize\mbox{]}.\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}))?(-\/-\/(size))\+:((size)= (set)-\/$>$maxsize))
+\item 
+\#define \hyperlink{qset_8h_a4f06571e7353444a7325973a17449654}{S\+E\+Tempty\+\_\+}(set)~(!set $\vert$$\vert$ (\hyperlink{qset_8h_a7eac84362fc43dc70265971ede3c74d0}{S\+E\+Tfirst\+\_\+}(set) ? 0 \+: 1))
+\item 
+\#define \hyperlink{qset_8h_a1fa7a50e8b60c78159e7cc454ff3782f}{S\+E\+Tsizeaddr\+\_\+}(set)~(\&((set)-\/$>$e\mbox{[}(set)-\/$>$maxsize\mbox{]}))
+\item 
+\#define \hyperlink{qset_8h_a4cbe2e0a25c63ae5d5d23dd898d757c0}{S\+E\+Ttruncate\+\_\+}(set,  size)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structsetT}{set\+T} \hyperlink{qset_8h_a2234a3aa7efa796357973b9ccfea253a}{set\+T}
+\item 
+typedef union \hyperlink{unionsetelemT}{setelem\+T} \hyperlink{qset_8h_a45077d9b27384a66d9f7cb03ab4d2568}{setelem\+T}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{qset_8h_a1c1ed1b79360cda0c197e490da718233}{qh\+\_\+setaddsorted} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$setp, void $\ast$elem)
+\item 
+void \hyperlink{qset_8h_a56248d28295d42bcd7ddd0a34c4ac291}{qh\+\_\+setaddnth} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$setp, int nth, void $\ast$newelem)
+\item 
+void \hyperlink{qset_8h_aa49edec70cba944eda6934d4bb1a09c2}{qh\+\_\+setappend} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$setp, void $\ast$elem)
+\item 
+void \hyperlink{qset_8h_a965973f00d79f1f8d3fb216350723253}{qh\+\_\+setappend\+\_\+set} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$setp, \hyperlink{structsetT}{set\+T} $\ast$set\+A)
+\item 
+void \hyperlink{qset_8h_aac5c94adb705df8a4ced88f4a5cfd535}{qh\+\_\+setappend2ndlast} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$setp, void $\ast$elem)
+\item 
+void \hyperlink{qset_8h_a0270b26cfb331ee9f1ab94d589f9baf7}{qh\+\_\+setcheck} (\hyperlink{structsetT}{set\+T} $\ast$set, const char $\ast$tname, unsigned id)
+\item 
+void \hyperlink{qset_8h_ac943951f0ff631e0a0738d64c56a7ec9}{qh\+\_\+setcompact} (\hyperlink{structsetT}{set\+T} $\ast$set)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{qset_8h_a4369b86d882c4e7969c9b78e0cbd11a3}{qh\+\_\+setcopy} (\hyperlink{structsetT}{set\+T} $\ast$set, int extra)
+\item 
+void $\ast$ \hyperlink{qset_8h_a9037561f234f0b6c9de9ad78246c0886}{qh\+\_\+setdel} (\hyperlink{structsetT}{set\+T} $\ast$set, void $\ast$elem)
+\item 
+void $\ast$ \hyperlink{qset_8h_a1e3ebcc3de52feaf1901b6d88ff63531}{qh\+\_\+setdellast} (\hyperlink{structsetT}{set\+T} $\ast$set)
+\item 
+void $\ast$ \hyperlink{qset_8h_a6ef95968031102b315847bfb459ba2d1}{qh\+\_\+setdelnth} (\hyperlink{structsetT}{set\+T} $\ast$set, int nth)
+\item 
+void $\ast$ \hyperlink{qset_8h_a376df79452a6e963e7f6eff8ad50f6bc}{qh\+\_\+setdelnthsorted} (\hyperlink{structsetT}{set\+T} $\ast$set, int nth)
+\item 
+void $\ast$ \hyperlink{qset_8h_a0e68113c858c3576aaa5c453878249eb}{qh\+\_\+setdelsorted} (\hyperlink{structsetT}{set\+T} $\ast$set, void $\ast$newelem)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{qset_8h_a8887ffcb876dcee3e44e6fbe63feeea3}{qh\+\_\+setduplicate} (\hyperlink{structsetT}{set\+T} $\ast$set, int elemsize)
+\item 
+int \hyperlink{qset_8h_ae10605b1fcf3758d97e1074f0a5f29f7}{qh\+\_\+setequal} (\hyperlink{structsetT}{set\+T} $\ast$set\+A, \hyperlink{structsetT}{set\+T} $\ast$set\+B)
+\item 
+int \hyperlink{qset_8h_a9dcb2500099cfd32c37b4b6cfec30bfa}{qh\+\_\+setequal\+\_\+except} (\hyperlink{structsetT}{set\+T} $\ast$set\+A, void $\ast$skipelem\+A, \hyperlink{structsetT}{set\+T} $\ast$set\+B, void $\ast$skipelem\+B)
+\item 
+int \hyperlink{qset_8h_af80db04a9b10839d18fd778b2623cfe8}{qh\+\_\+setequal\+\_\+skip} (\hyperlink{structsetT}{set\+T} $\ast$set\+A, int skip\+A, \hyperlink{structsetT}{set\+T} $\ast$set\+B, int skip\+B)
+\item 
+void $\ast$$\ast$ \hyperlink{qset_8h_ae725773fefe23507d3ec147f72e5c0b9}{qh\+\_\+setendpointer} (\hyperlink{structsetT}{set\+T} $\ast$set)
+\item 
+void \hyperlink{qset_8h_aba356c547a8765968c2a42a9a6bef2d3}{qh\+\_\+setfree} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$set)
+\item 
+void \hyperlink{qset_8h_a1db090e7f5ce6e36cc60ae0bb0224342}{qh\+\_\+setfree2} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$setp, int elemsize)
+\item 
+void \hyperlink{qset_8h_a3e9c2c321e56e964924cfd1f750e463b}{qh\+\_\+setfreelong} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$set)
+\item 
+int \hyperlink{qset_8h_a771c3b3f0dfb28fa9161ed4b669d489f}{qh\+\_\+setin} (\hyperlink{structsetT}{set\+T} $\ast$set, void $\ast$setelem)
+\item 
+int \hyperlink{qset_8h_ab5cce731b82dbfe4cab97da48d6119ff}{qh\+\_\+setindex} (\hyperlink{structsetT}{set\+T} $\ast$set, void $\ast$setelem)
+\item 
+void \hyperlink{qset_8h_ab9c634031463995a1d762f2a4715ad15}{qh\+\_\+setlarger} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$setp)
+\item 
+void $\ast$ \hyperlink{qset_8h_ae813c9ef0936126ace3191c42f3f8679}{qh\+\_\+setlast} (\hyperlink{structsetT}{set\+T} $\ast$set)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{qset_8h_ada5048d324960b93135711d13ec027fd}{qh\+\_\+setnew} (int size)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{qset_8h_adef2371b562b9c0fc4afd292e3c704de}{qh\+\_\+setnew\+\_\+delnthsorted} (\hyperlink{structsetT}{set\+T} $\ast$set, int size, int nth, int prepend)
+\item 
+void \hyperlink{qset_8h_ac0c7aadfe381969831da0cccaeead510}{qh\+\_\+setprint} (F\+I\+L\+E $\ast$fp, const char $\ast$string, \hyperlink{structsetT}{set\+T} $\ast$set)
+\item 
+void \hyperlink{qset_8h_a01616011be5e08514ca96b5f4dfd9406}{qh\+\_\+setreplace} (\hyperlink{structsetT}{set\+T} $\ast$set, void $\ast$oldelem, void $\ast$newelem)
+\item 
+int \hyperlink{qset_8h_a5bf663b8bdd3b1c91fe945b569fbf682}{qh\+\_\+setsize} (\hyperlink{structsetT}{set\+T} $\ast$set)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{qset_8h_afef24b070959f43bb34b2c9423340f1f}{qh\+\_\+settemp} (int setsize)
+\item 
+void \hyperlink{qset_8h_a4b33b21aae293d414c313186341d0d88}{qh\+\_\+settempfree} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$set)
+\item 
+void \hyperlink{qset_8h_a066dd30cb49f6d87cb4dd7d526e96119}{qh\+\_\+settempfree\+\_\+all} (void)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{qset_8h_a2609120ef4d592e7bfe753e782cc7345}{qh\+\_\+settemppop} (void)
+\item 
+void \hyperlink{qset_8h_a127516e251de9d9594e66d6ce98a04c9}{qh\+\_\+settemppush} (\hyperlink{structsetT}{set\+T} $\ast$set)
+\item 
+void \hyperlink{qset_8h_ae266748fc3a895d616a7a0e4384a96de}{qh\+\_\+settruncate} (\hyperlink{structsetT}{set\+T} $\ast$set, int size)
+\item 
+int \hyperlink{qset_8h_a331ed57bfd8e0ffc37ff2a018ef49bf3}{qh\+\_\+setunique} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$set, void $\ast$elem)
+\item 
+void \hyperlink{qset_8h_aa3277f0be8922b9ebb9b819616de362f}{qh\+\_\+setzero} (\hyperlink{structsetT}{set\+T} $\ast$set, int idx, int size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{qset_8h_a80a65aa94d8afc86b78449fa661df329}{}\index{qset.\+h@{qset.\+h}!D\+E\+Fset\+T@{D\+E\+Fset\+T}}
+\index{D\+E\+Fset\+T@{D\+E\+Fset\+T}!qset.\+h@{qset.\+h}}
+\subsubsection[{D\+E\+Fset\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+Fset\+T~1}\label{qset_8h_a80a65aa94d8afc86b78449fa661df329}
+\hypertarget{qset_8h_ae470048d6bb3ef39f375cc3de07b136b}{}\index{qset.\+h@{qset.\+h}!F\+O\+R\+E\+A\+C\+Helem\+\_\+@{F\+O\+R\+E\+A\+C\+Helem\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Helem\+\_\+@{F\+O\+R\+E\+A\+C\+Helem\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Helem\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Helem\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(void, set, elem)}\label{qset_8h_ae470048d6bb3ef39f375cc3de07b136b}
+\hypertarget{qset_8h_a3dd5af5eb68dcf3fdb0467abcf156d5c}{}\index{qset.\+h@{qset.\+h}!F\+O\+R\+E\+A\+C\+Hset\+\_\+@{F\+O\+R\+E\+A\+C\+Hset\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hset\+\_\+@{F\+O\+R\+E\+A\+C\+Hset\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hset\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hset\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{sets}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}({\bf set\+T}, sets, set)}\label{qset_8h_a3dd5af5eb68dcf3fdb0467abcf156d5c}
+\hypertarget{qset_8h_a37515c127da4992369069ca60768a13a}{}\index{qset.\+h@{qset.\+h}!F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+@{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+@{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf type}, }
+\item[{}]{set, }
+\item[{}]{variable}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a37515c127da4992369069ca60768a13a}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (((variable= NULL), set)) \textcolor{keywordflow}{for} (\(\backslash\)
+          variable##\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}= (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} **)&((set)->\hyperlink{namespaceanchorlayout_afef44353655532b8178bdd762c271458}{e}[0].\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}); \(\backslash\)
+          (variable= *variable##p++);)
+\end{DoxyCode}
+\hypertarget{qset_8h_a655f34954bee824ad79f34c06353649c}{}\index{qset.\+h@{qset.\+h}!F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf type}, }
+\item[{}]{set, }
+\item[{}]{variable}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a655f34954bee824ad79f34c06353649c}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (((variable= NULL), set)) \textcolor{keywordflow}{for} (\(\backslash\)
+          variable##\_i= 0, variable= (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *)((set)->\hyperlink{namespaceanchorlayout_afef44353655532b8178bdd762c271458}{e}[0].\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}), \(\backslash\)
+                   variable##\_n= \hyperlink{qset_8h_a5bf663b8bdd3b1c91fe945b569fbf682}{qh\_setsize}(set);\(\backslash\)
+          variable##\_i < variable##\_n;\(\backslash\)
+          variable= (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *)((set)->\hyperlink{namespaceanchorlayout_afef44353655532b8178bdd762c271458}{e}[++variable##\_i].p) )
+\end{DoxyCode}
+\hypertarget{qset_8h_abccdb519017515dc5f8ff11fc003fcfe}{}\index{qset.\+h@{qset.\+h}!F\+O\+R\+E\+A\+C\+Hsetelementreverse12\+\_\+@{F\+O\+R\+E\+A\+C\+Hsetelementreverse12\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hsetelementreverse12\+\_\+@{F\+O\+R\+E\+A\+C\+Hsetelementreverse12\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hsetelementreverse12\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hsetelementreverse12\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf type}, }
+\item[{}]{set, }
+\item[{}]{variable}
+\end{DoxyParamCaption}
+)}\label{qset_8h_abccdb519017515dc5f8ff11fc003fcfe}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (((variable= NULL), set)) \textcolor{keywordflow}{for} (\(\backslash\)
+          variable##\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}= (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} **)&((set)->\hyperlink{namespaceanchorlayout_afef44353655532b8178bdd762c271458}{e}[1].\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}); \(\backslash\)
+          (variable= *variable##\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}); \(\backslash\)
+          variable##p == ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} **)&((set)->e[0].p))?variable##p += 2: \(\backslash\)
+              (variable##p == ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} **)&((set)->e[1].p))?variable##p--:variable##p++))
+\end{DoxyCode}
+\hypertarget{qset_8h_a7255f85de159037e91a87bef3f60abf9}{}\index{qset.\+h@{qset.\+h}!F\+O\+R\+E\+A\+C\+Hsetelementreverse\+\_\+@{F\+O\+R\+E\+A\+C\+Hsetelementreverse\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hsetelementreverse\+\_\+@{F\+O\+R\+E\+A\+C\+Hsetelementreverse\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hsetelementreverse\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hsetelementreverse\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf type}, }
+\item[{}]{set, }
+\item[{}]{variable}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a7255f85de159037e91a87bef3f60abf9}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (((variable= NULL), set)) \textcolor{keywordflow}{for} (\(\backslash\)
+           variable##\hyperlink{gen__mat5files_8m_a905c521e05ec8042631a912b71d0454e}{temp}= \hyperlink{qset_8h_a5bf663b8bdd3b1c91fe945b569fbf682}{qh\_setsize}(set)-1, variable= \hyperlink{qset_8h_ae813c9ef0936126ace3191c42f3f8679}{qh\_setlast}(set);\(\backslash\)
+           variable; variable= \(\backslash\)
+           ((--variable##\hyperlink{gen__mat5files_8m_a905c521e05ec8042631a912b71d0454e}{temp} >= 0) ? \hyperlink{qset_8h_acb4d58a4888cb9b6a194190e9cf8457b}{SETelemt\_}(set, variable##temp, 
+      \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}) : NULL))
+\end{DoxyCode}
+\hypertarget{qset_8h_ada790debb5d1e16ae2c8d1ef93fa26fe}{}\index{qset.\+h@{qset.\+h}!S\+E\+Taddr\+\_\+@{S\+E\+Taddr\+\_\+}}
+\index{S\+E\+Taddr\+\_\+@{S\+E\+Taddr\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Taddr\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Taddr\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)~(({\bf type} $\ast$$\ast$)(\&((set)-\/$>$e\mbox{[}0\mbox{]}.{\bf p})))}\label{qset_8h_ada790debb5d1e16ae2c8d1ef93fa26fe}
+\hypertarget{qset_8h_a928d1423efee7a3e8fe3b179d8aaf546}{}\index{qset.\+h@{qset.\+h}!S\+E\+Telem\+\_\+@{S\+E\+Telem\+\_\+}}
+\index{S\+E\+Telem\+\_\+@{S\+E\+Telem\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Telem\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Telem\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{{\bf n}}
+\end{DoxyParamCaption}
+)~((set)-\/$>$e\mbox{[}{\bf n}\mbox{]}.{\bf p})}\label{qset_8h_a928d1423efee7a3e8fe3b179d8aaf546}
+\hypertarget{qset_8h_a87fb98253d734bdf9b50b53a4f09e188}{}\index{qset.\+h@{qset.\+h}!S\+E\+Telemaddr\+\_\+@{S\+E\+Telemaddr\+\_\+}}
+\index{S\+E\+Telemaddr\+\_\+@{S\+E\+Telemaddr\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Telemaddr\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Telemaddr\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{{\bf n}, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)~(({\bf type} $\ast$$\ast$)(\&((set)-\/$>$e\mbox{[}{\bf n}\mbox{]}.{\bf p})))}\label{qset_8h_a87fb98253d734bdf9b50b53a4f09e188}
+\hypertarget{qset_8h_a5681e992b087b005695b31cad566d051}{}\index{qset.\+h@{qset.\+h}!S\+E\+Telemsize@{S\+E\+Telemsize}}
+\index{S\+E\+Telemsize@{S\+E\+Telemsize}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Telemsize}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Telemsize~((int)sizeof({\bf setelem\+T}))}\label{qset_8h_a5681e992b087b005695b31cad566d051}
+\hypertarget{qset_8h_acb4d58a4888cb9b6a194190e9cf8457b}{}\index{qset.\+h@{qset.\+h}!S\+E\+Telemt\+\_\+@{S\+E\+Telemt\+\_\+}}
+\index{S\+E\+Telemt\+\_\+@{S\+E\+Telemt\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Telemt\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Telemt\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{{\bf n}, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)~(({\bf type}$\ast$)((set)-\/$>$e\mbox{[}{\bf n}\mbox{]}.{\bf p}))}\label{qset_8h_acb4d58a4888cb9b6a194190e9cf8457b}
+\hypertarget{qset_8h_a4f06571e7353444a7325973a17449654}{}\index{qset.\+h@{qset.\+h}!S\+E\+Tempty\+\_\+@{S\+E\+Tempty\+\_\+}}
+\index{S\+E\+Tempty\+\_\+@{S\+E\+Tempty\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Tempty\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Tempty\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set}
+\end{DoxyParamCaption}
+)~(!set $\vert$$\vert$ ({\bf S\+E\+Tfirst\+\_\+}(set) ? 0 \+: 1))}\label{qset_8h_a4f06571e7353444a7325973a17449654}
+\hypertarget{qset_8h_a7eac84362fc43dc70265971ede3c74d0}{}\index{qset.\+h@{qset.\+h}!S\+E\+Tfirst\+\_\+@{S\+E\+Tfirst\+\_\+}}
+\index{S\+E\+Tfirst\+\_\+@{S\+E\+Tfirst\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Tfirst\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Tfirst\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set}
+\end{DoxyParamCaption}
+)~((set)-\/$>$e\mbox{[}0\mbox{]}.{\bf p})}\label{qset_8h_a7eac84362fc43dc70265971ede3c74d0}
+\hypertarget{qset_8h_ad9b909f1337b053e362aa2bb92d6f9bf}{}\index{qset.\+h@{qset.\+h}!S\+E\+Tfirstt\+\_\+@{S\+E\+Tfirstt\+\_\+}}
+\index{S\+E\+Tfirstt\+\_\+@{S\+E\+Tfirstt\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Tfirstt\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Tfirstt\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)~(({\bf type}$\ast$)((set)-\/$>$e\mbox{[}0\mbox{]}.{\bf p}))}\label{qset_8h_ad9b909f1337b053e362aa2bb92d6f9bf}
+\hypertarget{qset_8h_a36b83429188ea8ad042d675ee097bc9c}{}\index{qset.\+h@{qset.\+h}!S\+E\+Tindex\+\_\+@{S\+E\+Tindex\+\_\+}}
+\index{S\+E\+Tindex\+\_\+@{S\+E\+Tindex\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Tindex\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Tindex\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{elem}
+\end{DoxyParamCaption}
+)~((int)((void $\ast$$\ast$)elem\#\#{\bf p} -\/ (void $\ast$$\ast$)\&(set)-\/$>$e\mbox{[}1\mbox{]}.{\bf p}))}\label{qset_8h_a36b83429188ea8ad042d675ee097bc9c}
+\hypertarget{qset_8h_a7c66ed4842cde1d25c828754c3cb1874}{}\index{qset.\+h@{qset.\+h}!S\+E\+Tref\+\_\+@{S\+E\+Tref\+\_\+}}
+\index{S\+E\+Tref\+\_\+@{S\+E\+Tref\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Tref\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Tref\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{elem}
+\end{DoxyParamCaption}
+)~(elem\#\#{\bf p}\mbox{[}-\/1\mbox{]})}\label{qset_8h_a7c66ed4842cde1d25c828754c3cb1874}
+\hypertarget{qset_8h_a344473c2a5a19e7248056f30e34f5361}{}\index{qset.\+h@{qset.\+h}!S\+E\+Treturnsize\+\_\+@{S\+E\+Treturnsize\+\_\+}}
+\index{S\+E\+Treturnsize\+\_\+@{S\+E\+Treturnsize\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Treturnsize\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Treturnsize\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{size}
+\end{DoxyParamCaption}
+)~(((size)= ((set)-\/$>$e\mbox{[}(set)-\/$>$maxsize\mbox{]}.{\bf i}))?(-\/-\/(size))\+:((size)= (set)-\/$>$maxsize))}\label{qset_8h_a344473c2a5a19e7248056f30e34f5361}
+\hypertarget{qset_8h_a18652989e78c5873505cbe753bdc9535}{}\index{qset.\+h@{qset.\+h}!S\+E\+Tsecond\+\_\+@{S\+E\+Tsecond\+\_\+}}
+\index{S\+E\+Tsecond\+\_\+@{S\+E\+Tsecond\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Tsecond\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Tsecond\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set}
+\end{DoxyParamCaption}
+)~((set)-\/$>$e\mbox{[}1\mbox{]}.{\bf p})}\label{qset_8h_a18652989e78c5873505cbe753bdc9535}
+\hypertarget{qset_8h_a544e6c1f5226ae0d01849dd6098cd315}{}\index{qset.\+h@{qset.\+h}!S\+E\+Tsecondt\+\_\+@{S\+E\+Tsecondt\+\_\+}}
+\index{S\+E\+Tsecondt\+\_\+@{S\+E\+Tsecondt\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Tsecondt\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Tsecondt\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)~(({\bf type}$\ast$)((set)-\/$>$e\mbox{[}1\mbox{]}.{\bf p}))}\label{qset_8h_a544e6c1f5226ae0d01849dd6098cd315}
+\hypertarget{qset_8h_a1fa7a50e8b60c78159e7cc454ff3782f}{}\index{qset.\+h@{qset.\+h}!S\+E\+Tsizeaddr\+\_\+@{S\+E\+Tsizeaddr\+\_\+}}
+\index{S\+E\+Tsizeaddr\+\_\+@{S\+E\+Tsizeaddr\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Tsizeaddr\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Tsizeaddr\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set}
+\end{DoxyParamCaption}
+)~(\&((set)-\/$>$e\mbox{[}(set)-\/$>$maxsize\mbox{]}))}\label{qset_8h_a1fa7a50e8b60c78159e7cc454ff3782f}
+\hypertarget{qset_8h_a4cbe2e0a25c63ae5d5d23dd898d757c0}{}\index{qset.\+h@{qset.\+h}!S\+E\+Ttruncate\+\_\+@{S\+E\+Ttruncate\+\_\+}}
+\index{S\+E\+Ttruncate\+\_\+@{S\+E\+Ttruncate\+\_\+}!qset.\+h@{qset.\+h}}
+\subsubsection[{S\+E\+Ttruncate\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+Ttruncate\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{set, }
+\item[{}]{size}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a4cbe2e0a25c63ae5d5d23dd898d757c0}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{set->e[set->maxsize].i= size+1; \textcolor{comment}{/* maybe overwritten */} \(\backslash\)
+      set->e[size].p= NULL;\}
+\end{DoxyCode}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{qset_8h_a45077d9b27384a66d9f7cb03ab4d2568}{}\index{qset.\+h@{qset.\+h}!setelem\+T@{setelem\+T}}
+\index{setelem\+T@{setelem\+T}!qset.\+h@{qset.\+h}}
+\subsubsection[{setelem\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef union {\bf setelem\+T} {\bf setelem\+T}}\label{qset_8h_a45077d9b27384a66d9f7cb03ab4d2568}
+\hypertarget{qset_8h_a2234a3aa7efa796357973b9ccfea253a}{}\index{qset.\+h@{qset.\+h}!set\+T@{set\+T}}
+\index{set\+T@{set\+T}!qset.\+h@{qset.\+h}}
+\subsubsection[{set\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf set\+T} {\bf set\+T}}\label{qset_8h_a2234a3aa7efa796357973b9ccfea253a}
+
+
+\subsection{Function Documentation}
+\hypertarget{qset_8h_a56248d28295d42bcd7ddd0a34c4ac291}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setaddnth@{qh\+\_\+setaddnth}}
+\index{qh\+\_\+setaddnth@{qh\+\_\+setaddnth}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setaddnth}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setaddnth (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{setp, }
+\item[{int}]{nth, }
+\item[{void $\ast$}]{newelem}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a56248d28295d42bcd7ddd0a34c4ac291}
+\hypertarget{qset_8h_a1c1ed1b79360cda0c197e490da718233}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setaddsorted@{qh\+\_\+setaddsorted}}
+\index{qh\+\_\+setaddsorted@{qh\+\_\+setaddsorted}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setaddsorted}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setaddsorted (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{setp, }
+\item[{void $\ast$}]{elem}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a1c1ed1b79360cda0c197e490da718233}
+\hypertarget{qset_8h_aa49edec70cba944eda6934d4bb1a09c2}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setappend@{qh\+\_\+setappend}}
+\index{qh\+\_\+setappend@{qh\+\_\+setappend}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setappend}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setappend (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{setp, }
+\item[{void $\ast$}]{elem}
+\end{DoxyParamCaption}
+)}\label{qset_8h_aa49edec70cba944eda6934d4bb1a09c2}
+\hypertarget{qset_8h_aac5c94adb705df8a4ced88f4a5cfd535}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setappend2ndlast@{qh\+\_\+setappend2ndlast}}
+\index{qh\+\_\+setappend2ndlast@{qh\+\_\+setappend2ndlast}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setappend2ndlast}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setappend2ndlast (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{setp, }
+\item[{void $\ast$}]{elem}
+\end{DoxyParamCaption}
+)}\label{qset_8h_aac5c94adb705df8a4ced88f4a5cfd535}
+\hypertarget{qset_8h_a965973f00d79f1f8d3fb216350723253}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setappend\+\_\+set@{qh\+\_\+setappend\+\_\+set}}
+\index{qh\+\_\+setappend\+\_\+set@{qh\+\_\+setappend\+\_\+set}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setappend\+\_\+set}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setappend\+\_\+set (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{setp, }
+\item[{{\bf set\+T} $\ast$}]{set\+A}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a965973f00d79f1f8d3fb216350723253}
+\hypertarget{qset_8h_a0270b26cfb331ee9f1ab94d589f9baf7}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setcheck@{qh\+\_\+setcheck}}
+\index{qh\+\_\+setcheck@{qh\+\_\+setcheck}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setcheck}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setcheck (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{const char $\ast$}]{tname, }
+\item[{unsigned}]{id}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a0270b26cfb331ee9f1ab94d589f9baf7}
+\hypertarget{qset_8h_ac943951f0ff631e0a0738d64c56a7ec9}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setcompact@{qh\+\_\+setcompact}}
+\index{qh\+\_\+setcompact@{qh\+\_\+setcompact}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setcompact}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setcompact (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{qset_8h_ac943951f0ff631e0a0738d64c56a7ec9}
+\hypertarget{qset_8h_a4369b86d882c4e7969c9b78e0cbd11a3}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setcopy@{qh\+\_\+setcopy}}
+\index{qh\+\_\+setcopy@{qh\+\_\+setcopy}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setcopy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+setcopy (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{int}]{extra}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a4369b86d882c4e7969c9b78e0cbd11a3}
+\hypertarget{qset_8h_a9037561f234f0b6c9de9ad78246c0886}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setdel@{qh\+\_\+setdel}}
+\index{qh\+\_\+setdel@{qh\+\_\+setdel}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setdel}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ qh\+\_\+setdel (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{void $\ast$}]{elem}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a9037561f234f0b6c9de9ad78246c0886}
+\hypertarget{qset_8h_a1e3ebcc3de52feaf1901b6d88ff63531}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setdellast@{qh\+\_\+setdellast}}
+\index{qh\+\_\+setdellast@{qh\+\_\+setdellast}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setdellast}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ qh\+\_\+setdellast (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a1e3ebcc3de52feaf1901b6d88ff63531}
+\hypertarget{qset_8h_a6ef95968031102b315847bfb459ba2d1}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setdelnth@{qh\+\_\+setdelnth}}
+\index{qh\+\_\+setdelnth@{qh\+\_\+setdelnth}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setdelnth}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ qh\+\_\+setdelnth (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{int}]{nth}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a6ef95968031102b315847bfb459ba2d1}
+\hypertarget{qset_8h_a376df79452a6e963e7f6eff8ad50f6bc}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setdelnthsorted@{qh\+\_\+setdelnthsorted}}
+\index{qh\+\_\+setdelnthsorted@{qh\+\_\+setdelnthsorted}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setdelnthsorted}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ qh\+\_\+setdelnthsorted (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{int}]{nth}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a376df79452a6e963e7f6eff8ad50f6bc}
+\hypertarget{qset_8h_a0e68113c858c3576aaa5c453878249eb}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setdelsorted@{qh\+\_\+setdelsorted}}
+\index{qh\+\_\+setdelsorted@{qh\+\_\+setdelsorted}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setdelsorted}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ qh\+\_\+setdelsorted (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{void $\ast$}]{newelem}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a0e68113c858c3576aaa5c453878249eb}
+\hypertarget{qset_8h_a8887ffcb876dcee3e44e6fbe63feeea3}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setduplicate@{qh\+\_\+setduplicate}}
+\index{qh\+\_\+setduplicate@{qh\+\_\+setduplicate}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setduplicate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+setduplicate (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{int}]{elemsize}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a8887ffcb876dcee3e44e6fbe63feeea3}
+\hypertarget{qset_8h_ae725773fefe23507d3ec147f72e5c0b9}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setendpointer@{qh\+\_\+setendpointer}}
+\index{qh\+\_\+setendpointer@{qh\+\_\+setendpointer}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setendpointer}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ qh\+\_\+setendpointer (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{qset_8h_ae725773fefe23507d3ec147f72e5c0b9}
+\hypertarget{qset_8h_ae10605b1fcf3758d97e1074f0a5f29f7}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setequal@{qh\+\_\+setequal}}
+\index{qh\+\_\+setequal@{qh\+\_\+setequal}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setequal}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+setequal (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set\+A, }
+\item[{{\bf set\+T} $\ast$}]{set\+B}
+\end{DoxyParamCaption}
+)}\label{qset_8h_ae10605b1fcf3758d97e1074f0a5f29f7}
+\hypertarget{qset_8h_a9dcb2500099cfd32c37b4b6cfec30bfa}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setequal\+\_\+except@{qh\+\_\+setequal\+\_\+except}}
+\index{qh\+\_\+setequal\+\_\+except@{qh\+\_\+setequal\+\_\+except}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setequal\+\_\+except}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+setequal\+\_\+except (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set\+A, }
+\item[{void $\ast$}]{skipelem\+A, }
+\item[{{\bf set\+T} $\ast$}]{set\+B, }
+\item[{void $\ast$}]{skipelem\+B}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a9dcb2500099cfd32c37b4b6cfec30bfa}
+\hypertarget{qset_8h_af80db04a9b10839d18fd778b2623cfe8}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setequal\+\_\+skip@{qh\+\_\+setequal\+\_\+skip}}
+\index{qh\+\_\+setequal\+\_\+skip@{qh\+\_\+setequal\+\_\+skip}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setequal\+\_\+skip}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+setequal\+\_\+skip (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set\+A, }
+\item[{int}]{skip\+A, }
+\item[{{\bf set\+T} $\ast$}]{set\+B, }
+\item[{int}]{skip\+B}
+\end{DoxyParamCaption}
+)}\label{qset_8h_af80db04a9b10839d18fd778b2623cfe8}
+\hypertarget{qset_8h_aba356c547a8765968c2a42a9a6bef2d3}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setfree@{qh\+\_\+setfree}}
+\index{qh\+\_\+setfree@{qh\+\_\+setfree}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setfree}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setfree (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{qset_8h_aba356c547a8765968c2a42a9a6bef2d3}
+\hypertarget{qset_8h_a1db090e7f5ce6e36cc60ae0bb0224342}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setfree2@{qh\+\_\+setfree2}}
+\index{qh\+\_\+setfree2@{qh\+\_\+setfree2}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setfree2}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setfree2 (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{setp, }
+\item[{int}]{elemsize}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a1db090e7f5ce6e36cc60ae0bb0224342}
+\hypertarget{qset_8h_a3e9c2c321e56e964924cfd1f750e463b}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setfreelong@{qh\+\_\+setfreelong}}
+\index{qh\+\_\+setfreelong@{qh\+\_\+setfreelong}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setfreelong}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setfreelong (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a3e9c2c321e56e964924cfd1f750e463b}
+\hypertarget{qset_8h_a771c3b3f0dfb28fa9161ed4b669d489f}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setin@{qh\+\_\+setin}}
+\index{qh\+\_\+setin@{qh\+\_\+setin}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setin}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+setin (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{void $\ast$}]{setelem}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a771c3b3f0dfb28fa9161ed4b669d489f}
+\hypertarget{qset_8h_ab5cce731b82dbfe4cab97da48d6119ff}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setindex@{qh\+\_\+setindex}}
+\index{qh\+\_\+setindex@{qh\+\_\+setindex}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setindex}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+setindex (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{void $\ast$}]{setelem}
+\end{DoxyParamCaption}
+)}\label{qset_8h_ab5cce731b82dbfe4cab97da48d6119ff}
+\hypertarget{qset_8h_ab9c634031463995a1d762f2a4715ad15}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setlarger@{qh\+\_\+setlarger}}
+\index{qh\+\_\+setlarger@{qh\+\_\+setlarger}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setlarger}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setlarger (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{setp}
+\end{DoxyParamCaption}
+)}\label{qset_8h_ab9c634031463995a1d762f2a4715ad15}
+\hypertarget{qset_8h_ae813c9ef0936126ace3191c42f3f8679}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setlast@{qh\+\_\+setlast}}
+\index{qh\+\_\+setlast@{qh\+\_\+setlast}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setlast}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ qh\+\_\+setlast (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{qset_8h_ae813c9ef0936126ace3191c42f3f8679}
+\hypertarget{qset_8h_ada5048d324960b93135711d13ec027fd}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setnew@{qh\+\_\+setnew}}
+\index{qh\+\_\+setnew@{qh\+\_\+setnew}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setnew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+setnew (
+\begin{DoxyParamCaption}
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\label{qset_8h_ada5048d324960b93135711d13ec027fd}
+\hypertarget{qset_8h_adef2371b562b9c0fc4afd292e3c704de}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setnew\+\_\+delnthsorted@{qh\+\_\+setnew\+\_\+delnthsorted}}
+\index{qh\+\_\+setnew\+\_\+delnthsorted@{qh\+\_\+setnew\+\_\+delnthsorted}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setnew\+\_\+delnthsorted}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+setnew\+\_\+delnthsorted (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{int}]{size, }
+\item[{int}]{nth, }
+\item[{int}]{prepend}
+\end{DoxyParamCaption}
+)}\label{qset_8h_adef2371b562b9c0fc4afd292e3c704de}
+\hypertarget{qset_8h_ac0c7aadfe381969831da0cccaeead510}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setprint@{qh\+\_\+setprint}}
+\index{qh\+\_\+setprint@{qh\+\_\+setprint}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setprint}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setprint (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{const char $\ast$}]{string, }
+\item[{{\bf set\+T} $\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{qset_8h_ac0c7aadfe381969831da0cccaeead510}
+\hypertarget{qset_8h_a01616011be5e08514ca96b5f4dfd9406}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setreplace@{qh\+\_\+setreplace}}
+\index{qh\+\_\+setreplace@{qh\+\_\+setreplace}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setreplace}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setreplace (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{void $\ast$}]{oldelem, }
+\item[{void $\ast$}]{newelem}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a01616011be5e08514ca96b5f4dfd9406}
+\hypertarget{qset_8h_a5bf663b8bdd3b1c91fe945b569fbf682}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setsize@{qh\+\_\+setsize}}
+\index{qh\+\_\+setsize@{qh\+\_\+setsize}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setsize}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+setsize (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a5bf663b8bdd3b1c91fe945b569fbf682}
+\hypertarget{qset_8h_afef24b070959f43bb34b2c9423340f1f}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+settemp@{qh\+\_\+settemp}}
+\index{qh\+\_\+settemp@{qh\+\_\+settemp}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+settemp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+settemp (
+\begin{DoxyParamCaption}
+\item[{int}]{setsize}
+\end{DoxyParamCaption}
+)}\label{qset_8h_afef24b070959f43bb34b2c9423340f1f}
+\hypertarget{qset_8h_a4b33b21aae293d414c313186341d0d88}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+settempfree@{qh\+\_\+settempfree}}
+\index{qh\+\_\+settempfree@{qh\+\_\+settempfree}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+settempfree}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+settempfree (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a4b33b21aae293d414c313186341d0d88}
+\hypertarget{qset_8h_a066dd30cb49f6d87cb4dd7d526e96119}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+settempfree\+\_\+all@{qh\+\_\+settempfree\+\_\+all}}
+\index{qh\+\_\+settempfree\+\_\+all@{qh\+\_\+settempfree\+\_\+all}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+settempfree\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+settempfree\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a066dd30cb49f6d87cb4dd7d526e96119}
+\hypertarget{qset_8h_a2609120ef4d592e7bfe753e782cc7345}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+settemppop@{qh\+\_\+settemppop}}
+\index{qh\+\_\+settemppop@{qh\+\_\+settemppop}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+settemppop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+settemppop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a2609120ef4d592e7bfe753e782cc7345}
+\hypertarget{qset_8h_a127516e251de9d9594e66d6ce98a04c9}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+settemppush@{qh\+\_\+settemppush}}
+\index{qh\+\_\+settemppush@{qh\+\_\+settemppush}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+settemppush}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+settemppush (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a127516e251de9d9594e66d6ce98a04c9}
+\hypertarget{qset_8h_ae266748fc3a895d616a7a0e4384a96de}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+settruncate@{qh\+\_\+settruncate}}
+\index{qh\+\_\+settruncate@{qh\+\_\+settruncate}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+settruncate}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+settruncate (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\label{qset_8h_ae266748fc3a895d616a7a0e4384a96de}
+\hypertarget{qset_8h_a331ed57bfd8e0ffc37ff2a018ef49bf3}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setunique@{qh\+\_\+setunique}}
+\index{qh\+\_\+setunique@{qh\+\_\+setunique}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setunique}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+setunique (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{set, }
+\item[{void $\ast$}]{elem}
+\end{DoxyParamCaption}
+)}\label{qset_8h_a331ed57bfd8e0ffc37ff2a018ef49bf3}
+\hypertarget{qset_8h_aa3277f0be8922b9ebb9b819616de362f}{}\index{qset.\+h@{qset.\+h}!qh\+\_\+setzero@{qh\+\_\+setzero}}
+\index{qh\+\_\+setzero@{qh\+\_\+setzero}!qset.\+h@{qset.\+h}}
+\subsubsection[{qh\+\_\+setzero}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setzero (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{int}]{idx, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\label{qset_8h_aa3277f0be8922b9ebb9b819616de362f}

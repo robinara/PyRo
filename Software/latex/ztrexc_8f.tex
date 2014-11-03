@@ -1,0 +1,99 @@
+\hypertarget{ztrexc_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/ztrexc.f File Reference}
+\label{ztrexc_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ztrexc.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ztrexc.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ztrexc_8f_a470b89b631cac16cac631539465ae014}{ztrexc} (C\+O\+M\+P\+Q, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, T, L\+D\+T, Q, L\+D\+Q, I\+F\+S\+T, I\+L\+S\+T, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+T\+R\+E\+X\+C} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ztrexc_8f_a470b89b631cac16cac631539465ae014}{}\index{ztrexc.\+f@{ztrexc.\+f}!ztrexc@{ztrexc}}
+\index{ztrexc@{ztrexc}!ztrexc.\+f@{ztrexc.\+f}}
+\subsubsection[{ztrexc}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ztrexc (
+\begin{DoxyParamCaption}
+\item[{character}]{C\+O\+M\+P\+Q, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{{\bf complex}$\ast$16, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{integer}]{I\+F\+S\+T, }
+\item[{integer}]{I\+L\+S\+T, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{ztrexc_8f_a470b89b631cac16cac631539465ae014}
+
+
+{\bfseries Z\+T\+R\+E\+X\+C} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZTREXC reorders the Schur factorization of a complex matrix
+ A = Q*T*Q**H, so that the diagonal element of T with row index IFST
+ is moved to row ILST.
+
+ The Schur form T is reordered by a unitary similarity transformation
+ Z**H*T*Z, and optionally the matrix Q of Schur vectors is updated by
+ postmultplying it with Z.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em C\+O\+M\+P\+Q} & \begin{DoxyVerb}          COMPQ is CHARACTER*1
+          = 'V':  update the matrix Q of Schur vectors;
+          = 'N':  do not update Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix T. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em T} & \begin{DoxyVerb}          T is COMPLEX*16 array, dimension (LDT,N)
+          On entry, the upper triangular matrix T.
+          On exit, the reordered upper triangular matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T. LDT >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q} & \begin{DoxyVerb}          Q is COMPLEX*16 array, dimension (LDQ,N)
+          On entry, if COMPQ = 'V', the matrix Q of Schur vectors.
+          On exit, if COMPQ = 'V', Q has been postmultiplied by the
+          unitary transformation matrix Z which reorders T.
+          If COMPQ = 'N', Q is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+          The leading dimension of the array Q.  LDQ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+F\+S\+T} & \begin{DoxyVerb}          IFST is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+L\+S\+T} & \begin{DoxyVerb}          ILST is INTEGER
+
+          Specify the reordering of the diagonal elements of T:
+          The element with row index IFST is moved to row ILST by a
+          sequence of transpositions between adjacent elements.
+          1 <= IFST <= N; 1 <= ILST <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

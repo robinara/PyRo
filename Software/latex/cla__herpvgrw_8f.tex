@@ -1,0 +1,93 @@
+\hypertarget{cla__herpvgrw_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/cla\+\_\+herpvgrw.f File Reference}
+\label{cla__herpvgrw_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cla\+\_\+herpvgrw.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cla\+\_\+herpvgrw.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+real \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{cla__herpvgrw_8f_ae506741f6642ba9fb440941f170f9d39}{cla\+\_\+herpvgrw} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, I\+N\+F\+O, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, A\+F, L\+D\+A\+F, I\+P\+I\+V, W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+\_\+\+H\+E\+R\+P\+V\+G\+R\+W} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{cla__herpvgrw_8f_ae506741f6642ba9fb440941f170f9d39}{}\index{cla\+\_\+herpvgrw.\+f@{cla\+\_\+herpvgrw.\+f}!cla\+\_\+herpvgrw@{cla\+\_\+herpvgrw}}
+\index{cla\+\_\+herpvgrw@{cla\+\_\+herpvgrw}!cla\+\_\+herpvgrw.\+f@{cla\+\_\+herpvgrw.\+f}}
+\subsubsection[{cla\+\_\+herpvgrw}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf function} cla\+\_\+herpvgrw (
+\begin{DoxyParamCaption}
+\item[{character$\ast$1}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{I\+N\+F\+O, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}, dimension( ldaf, $\ast$ )}]{A\+F, }
+\item[{integer}]{L\+D\+A\+F, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{cla__herpvgrw_8f_ae506741f6642ba9fb440941f170f9d39}
+
+
+{\bfseries C\+L\+A\+\_\+\+H\+E\+R\+P\+V\+G\+R\+W} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLA_HERPVGRW computes the reciprocal pivot growth factor
+ norm(A)/norm(U). The "max absolute element" norm is used. If this is
+ much less than 1, the stability of the LU factorization of the
+ (equilibrated) matrix A could be poor. This also means that the
+ solution X, estimated condition numbers, and error bounds could be
+ unreliable.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+       = 'U':  Upper triangle of A is stored;
+       = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+     The number of linear equations, i.e., the order of the
+     matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+     The value of INFO returned from SSYTRF, .i.e., the pivot in
+     column INFO is exactly 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+     On entry, the N-by-N matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+     The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+F} & \begin{DoxyVerb}          AF is COMPLEX array, dimension (LDAF,N)
+     The block diagonal matrix D and the multipliers used to
+     obtain the factor U or L as computed by CHETRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+F} & \begin{DoxyVerb}          LDAF is INTEGER
+     The leading dimension of the array AF.  LDAF >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+     Details of the interchanges and the block structure of D
+     as determined by CHETRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (2*N)\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

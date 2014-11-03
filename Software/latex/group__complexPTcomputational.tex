@@ -1,0 +1,575 @@
+\hypertarget{group__complexPTcomputational}{}\section{complex}
+\label{group__complexPTcomputational}\index{complex@{complex}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{group__complexPTcomputational_ga4e9b4c5682a455e0c1a60ca3166a050c}{cptcon} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, A\+N\+O\+R\+M, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, R\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+P\+T\+C\+O\+N} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complexPTcomputational_ga0333b0f77b9e0af4ad1012b14d9d9d22}{cpteqr} (C\+O\+M\+P\+Z, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, Z, L\+D\+Z, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+P\+T\+E\+Q\+R} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complexPTcomputational_ga2d92211a4a19cad8b7c36d9aa1602069}{cptrfs} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, D\+F, E\+F, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, X, L\+D\+X, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a78fd14d7abebae04095cfbe02928f153}{F\+E\+R\+R}, B\+E\+R\+R, W\+O\+R\+K, R\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+P\+T\+R\+F\+S} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complexPTcomputational_gab4ab4f156ac9e5e7e67f4c45b6033ba6}{cpttrf} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+P\+T\+T\+R\+F} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complexPTcomputational_ga63605a86c7011a213f3e3f95c98cda5c}{cpttrs} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+P\+T\+T\+R\+S} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complexPTcomputational_gadecb0ce69b03e2b960effe0754e322d4}{cptts2} (I\+U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B})
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+P\+T\+T\+S2} solves a tridiagonal system of the form A\+X=B using the L D L\+H factorization computed by spttrf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of complex computational functions for P\+T matrices 
+
+\subsection{Function Documentation}
+\hypertarget{group__complexPTcomputational_ga4e9b4c5682a455e0c1a60ca3166a050c}{}\index{complex@{complex}!cptcon@{cptcon}}
+\index{cptcon@{cptcon}!complex@{complex}}
+\subsubsection[{cptcon}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cptcon (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{E, }
+\item[{real}]{A\+N\+O\+R\+M, }
+\item[{real}]{R\+C\+O\+N\+D, }
+\item[{real, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complexPTcomputational_ga4e9b4c5682a455e0c1a60ca3166a050c}
+
+
+{\bfseries C\+P\+T\+C\+O\+N} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CPTCON computes the reciprocal of the condition number (in the
+ 1-norm) of a complex Hermitian positive definite tridiagonal matrix
+ using the factorization A = L*D*L**H or A = U**H*D*U computed by
+ CPTTRF.
+
+ Norm(inv(A)) is computed by a direct method, and the reciprocal of
+ the condition number is computed as
+                  RCOND = 1 / (ANORM * norm(inv(A))).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The n diagonal elements of the diagonal matrix D from the
+          factorization of A, as computed by CPTTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is COMPLEX array, dimension (N-1)
+          The (n-1) off-diagonal elements of the unit bidiagonal factor
+          U or L from the factorization of A, as computed by CPTTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+N\+O\+R\+M} & \begin{DoxyVerb}          ANORM is REAL
+          The 1-norm of the original matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is REAL
+          The reciprocal of the condition number of the matrix A,
+          computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is the
+          1-norm of inv(A) computed in this routine.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is REAL array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The method used is described in Nicholas J. Higham, "Efficient
+  Algorithms for Computing the Condition Number of a Tridiagonal
+  Matrix", SIAM J. Sci. Stat. Comput., Vol. 7, No. 1, January 1986.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__complexPTcomputational_ga0333b0f77b9e0af4ad1012b14d9d9d22}{}\index{complex@{complex}!cpteqr@{cpteqr}}
+\index{cpteqr@{cpteqr}!complex@{complex}}
+\subsubsection[{cpteqr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cpteqr (
+\begin{DoxyParamCaption}
+\item[{character}]{C\+O\+M\+P\+Z, }
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{E, }
+\item[{{\bf complex}, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complexPTcomputational_ga0333b0f77b9e0af4ad1012b14d9d9d22}
+
+
+{\bfseries C\+P\+T\+E\+Q\+R} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CPTEQR computes all eigenvalues and, optionally, eigenvectors of a
+ symmetric positive definite tridiagonal matrix by first factoring the
+ matrix using SPTTRF and then calling CBDSQR to compute the singular
+ values of the bidiagonal factor.
+
+ This routine computes the eigenvalues of the positive definite
+ tridiagonal matrix to high relative accuracy.  This means that if the
+ eigenvalues range over many orders of magnitude in size, then the
+ small eigenvalues and corresponding eigenvectors will be computed
+ more accurately than, for example, with the standard QR method.
+
+ The eigenvectors of a full or band positive definite Hermitian matrix
+ can also be found if CHETRD, CHPTRD, or CHBTRD has been used to
+ reduce this matrix to tridiagonal form.  (The reduction to
+ tridiagonal form, however, may preclude the possibility of obtaining
+ high relative accuracy in the small eigenvalues of the original
+ matrix, if these eigenvalues range over many orders of magnitude.)\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em C\+O\+M\+P\+Z} & \begin{DoxyVerb}          COMPZ is CHARACTER*1
+          = 'N':  Compute eigenvalues only.
+          = 'V':  Compute eigenvectors of original Hermitian
+                  matrix also.  Array Z contains the unitary matrix
+                  used to reduce the original matrix to tridiagonal
+                  form.
+          = 'I':  Compute eigenvectors of tridiagonal matrix also.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          On entry, the n diagonal elements of the tridiagonal matrix.
+          On normal exit, D contains the eigenvalues, in descending
+          order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E} & \begin{DoxyVerb}          E is REAL array, dimension (N-1)
+          On entry, the (n-1) subdiagonal elements of the tridiagonal
+          matrix.
+          On exit, E has been destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Z} & \begin{DoxyVerb}          Z is COMPLEX array, dimension (LDZ, N)
+          On entry, if COMPZ = 'V', the unitary matrix used in the
+          reduction to tridiagonal form.
+          On exit, if COMPZ = 'V', the orthonormal eigenvectors of the
+          original Hermitian matrix;
+          if COMPZ = 'I', the orthonormal eigenvectors of the
+          tridiagonal matrix.
+          If INFO > 0 on exit, Z contains the eigenvectors associated
+          with only the stored eigenvalues.
+          If  COMPZ = 'N', then Z is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDZ >= 1, and if
+          COMPZ = 'V' or 'I', LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (4*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if INFO = i, and i is:
+                <= N  the Cholesky factorization of the matrix could
+                      not be performed because the i-th principal minor
+                      was not positive definite.
+                > N   the SVD algorithm failed to converge;
+                      if INFO = N+i, i off-diagonal elements of the
+                      bidiagonal factor did not converge to zero.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complexPTcomputational_ga2d92211a4a19cad8b7c36d9aa1602069}{}\index{complex@{complex}!cptrfs@{cptrfs}}
+\index{cptrfs@{cptrfs}!complex@{complex}}
+\subsubsection[{cptrfs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cptrfs (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{E, }
+\item[{real, dimension( $\ast$ )}]{D\+F, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{E\+F, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{{\bf complex}, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{real, dimension( $\ast$ )}]{F\+E\+R\+R, }
+\item[{real, dimension( $\ast$ )}]{B\+E\+R\+R, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{real, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complexPTcomputational_ga2d92211a4a19cad8b7c36d9aa1602069}
+
+
+{\bfseries C\+P\+T\+R\+F\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CPTRFS improves the computed solution to a system of linear
+ equations when the coefficient matrix is Hermitian positive definite
+ and tridiagonal, and provides error bounds and backward error
+ estimates for the solution.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the superdiagonal or the subdiagonal of the
+          tridiagonal matrix A is stored and the form of the
+          factorization:
+          = 'U':  E is the superdiagonal of A, and A = U**H*D*U;
+          = 'L':  E is the subdiagonal of A, and A = L*D*L**H.
+          (The two forms are equivalent if A is real.)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The n real diagonal elements of the tridiagonal matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is COMPLEX array, dimension (N-1)
+          The (n-1) off-diagonal elements of the tridiagonal matrix A
+          (see UPLO).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+F} & \begin{DoxyVerb}          DF is REAL array, dimension (N)
+          The n diagonal elements of the diagonal matrix D from
+          the factorization computed by CPTTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E\+F} & \begin{DoxyVerb}          EF is COMPLEX array, dimension (N-1)
+          The (n-1) off-diagonal elements of the unit bidiagonal
+          factor U or L from the factorization computed by CPTTRF
+          (see UPLO).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX array, dimension (LDB,NRHS)
+          The right hand side matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX array, dimension (LDX,NRHS)
+          On entry, the solution matrix X, as computed by CPTTRS.
+          On exit, the improved solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.  LDX >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em F\+E\+R\+R} & \begin{DoxyVerb}          FERR is REAL array, dimension (NRHS)
+          The forward error bound for each solution vector
+          X(j) (the j-th column of the solution matrix X).
+          If XTRUE is the true solution corresponding to X(j), FERR(j)
+          is an estimated upper bound for the magnitude of the largest
+          element in (X(j) - XTRUE) divided by the magnitude of the
+          largest element in X(j).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+R\+R} & \begin{DoxyVerb}          BERR is REAL array, dimension (NRHS)
+          The componentwise relative backward error of each solution
+          vector X(j) (i.e., the smallest relative change in
+          any element of A or B that makes X(j) an exact solution).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is REAL array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  ITMAX is the maximum number of steps of iterative refinement.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complexPTcomputational_gab4ab4f156ac9e5e7e67f4c45b6033ba6}{}\index{complex@{complex}!cpttrf@{cpttrf}}
+\index{cpttrf@{cpttrf}!complex@{complex}}
+\subsubsection[{cpttrf}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cpttrf (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{E, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complexPTcomputational_gab4ab4f156ac9e5e7e67f4c45b6033ba6}
+
+
+{\bfseries C\+P\+T\+T\+R\+F} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CPTTRF computes the L*D*L**H factorization of a complex Hermitian
+ positive definite tridiagonal matrix A.  The factorization may also
+ be regarded as having the form A = U**H *D*U.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          On entry, the n diagonal elements of the tridiagonal matrix
+          A.  On exit, the n diagonal elements of the diagonal matrix
+          D from the L*D*L**H factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E} & \begin{DoxyVerb}          E is COMPLEX array, dimension (N-1)
+          On entry, the (n-1) subdiagonal elements of the tridiagonal
+          matrix A.  On exit, the (n-1) subdiagonal elements of the
+          unit bidiagonal factor L from the L*D*L**H factorization of A.
+          E can also be regarded as the superdiagonal of the unit
+          bidiagonal factor U from the U**H *D*U factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -k, the k-th argument had an illegal value
+          > 0: if INFO = k, the leading minor of order k is not
+               positive definite; if k < N, the factorization could not
+               be completed, while if k = N, the factorization was
+               completed, but D(N) <= 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complexPTcomputational_ga63605a86c7011a213f3e3f95c98cda5c}{}\index{complex@{complex}!cpttrs@{cpttrs}}
+\index{cpttrs@{cpttrs}!complex@{complex}}
+\subsubsection[{cpttrs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cpttrs (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{E, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complexPTcomputational_ga63605a86c7011a213f3e3f95c98cda5c}
+
+
+{\bfseries C\+P\+T\+T\+R\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CPTTRS solves a tridiagonal system of the form
+    A * X = B
+ using the factorization A = U**H*D*U or A = L*D*L**H computed by CPTTRF.
+ D is a diagonal matrix specified in the vector D, U (or L) is a unit
+ bidiagonal matrix whose superdiagonal (subdiagonal) is specified in
+ the vector E, and X and B are N by NRHS matrices.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies the form of the factorization and whether the
+          vector E is the superdiagonal of the upper bidiagonal factor
+          U or the subdiagonal of the lower bidiagonal factor L.
+          = 'U':  A = U**H*D*U, E is the superdiagonal of U
+          = 'L':  A = L*D*L**H, E is the subdiagonal of L\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the tridiagonal matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The n diagonal elements of the diagonal matrix D from the
+          factorization A = U**H*D*U or A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is COMPLEX array, dimension (N-1)
+          If UPLO = 'U', the (n-1) superdiagonal elements of the unit
+          bidiagonal factor U from the factorization A = U**H*D*U.
+          If UPLO = 'L', the (n-1) subdiagonal elements of the unit
+          bidiagonal factor L from the factorization A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          On entry, the right hand side vectors B for the system of
+          linear equations.
+          On exit, the solution vectors, X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -k, the k-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complexPTcomputational_gadecb0ce69b03e2b960effe0754e322d4}{}\index{complex@{complex}!cptts2@{cptts2}}
+\index{cptts2@{cptts2}!complex@{complex}}
+\subsubsection[{cptts2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cptts2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I\+U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{E, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B}
+\end{DoxyParamCaption}
+)}\label{group__complexPTcomputational_gadecb0ce69b03e2b960effe0754e322d4}
+
+
+{\bfseries C\+P\+T\+T\+S2} solves a tridiagonal system of the form A\+X=B using the L D L\+H factorization computed by spttrf. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CPTTS2 solves a tridiagonal system of the form
+    A * X = B
+ using the factorization A = U**H*D*U or A = L*D*L**H computed by CPTTRF.
+ D is a diagonal matrix specified in the vector D, U (or L) is a unit
+ bidiagonal matrix whose superdiagonal (subdiagonal) is specified in
+ the vector E, and X and B are N by NRHS matrices.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I\+U\+P\+L\+O} & \begin{DoxyVerb}          IUPLO is INTEGER
+          Specifies the form of the factorization and whether the
+          vector E is the superdiagonal of the upper bidiagonal factor
+          U or the subdiagonal of the lower bidiagonal factor L.
+          = 1:  A = U**H *D*U, E is the superdiagonal of U
+          = 0:  A = L*D*L**H, E is the subdiagonal of L\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the tridiagonal matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The n diagonal elements of the diagonal matrix D from the
+          factorization A = U**H *D*U or A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is COMPLEX array, dimension (N-1)
+          If IUPLO = 1, the (n-1) superdiagonal elements of the unit
+          bidiagonal factor U from the factorization A = U**H*D*U.
+          If IUPLO = 0, the (n-1) subdiagonal elements of the unit
+          bidiagonal factor L from the factorization A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          On entry, the right hand side vectors B for the system of
+          linear equations.
+          On exit, the solution vectors, X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

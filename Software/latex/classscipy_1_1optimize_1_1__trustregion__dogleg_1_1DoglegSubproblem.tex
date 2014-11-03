@@ -1,0 +1,83 @@
+\hypertarget{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem}{}\section{scipy.\+optimize.\+\_\+trustregion\+\_\+dogleg.\+Dogleg\+Subproblem Class Reference}
+\label{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem}\index{scipy.\+optimize.\+\_\+trustregion\+\_\+dogleg.\+Dogleg\+Subproblem@{scipy.\+optimize.\+\_\+trustregion\+\_\+dogleg.\+Dogleg\+Subproblem}}
+Inheritance diagram for scipy.\+optimize.\+\_\+trustregion\+\_\+dogleg.\+Dogleg\+Subproblem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem_a124675dd48861f84f6a932396dfa8a0d}{cauchy\+\_\+point}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem_af9be248619c78b2b3dcb35b984bfab4f}{newton\+\_\+point}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem_a60321f9ce4340fd18f09e1d5545575a4}{solve}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Quadratic subproblem solved by the dogleg method\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem_a124675dd48861f84f6a932396dfa8a0d}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem}!cauchy\+\_\+point@{cauchy\+\_\+point}}
+\index{cauchy\+\_\+point@{cauchy\+\_\+point}!scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem}}
+\subsubsection[{cauchy\+\_\+point}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion\+\_\+dogleg.\+Dogleg\+Subproblem.\+cauchy\+\_\+point (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem_a124675dd48861f84f6a932396dfa8a0d}
+\begin{DoxyVerb}The Cauchy point is minimal along the direction of steepest descent.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem_af9be248619c78b2b3dcb35b984bfab4f}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem}!newton\+\_\+point@{newton\+\_\+point}}
+\index{newton\+\_\+point@{newton\+\_\+point}!scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem}}
+\subsubsection[{newton\+\_\+point}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion\+\_\+dogleg.\+Dogleg\+Subproblem.\+newton\+\_\+point (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem_af9be248619c78b2b3dcb35b984bfab4f}
+\begin{DoxyVerb}The Newton point is a global minimum of the approximate function.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem_a60321f9ce4340fd18f09e1d5545575a4}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem}!solve@{solve}}
+\index{solve@{solve}!scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+\_\+dogleg\+::\+Dogleg\+Subproblem}}
+\subsubsection[{solve}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion\+\_\+dogleg.\+Dogleg\+Subproblem.\+solve (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{trust\+\_\+radius}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion__dogleg_1_1DoglegSubproblem_a60321f9ce4340fd18f09e1d5545575a4}
+\begin{DoxyVerb}Minimize a function using the dog-leg trust-region algorithm.
+
+This algorithm requires function values and first and second derivatives.
+It also performs a costly Hessian decomposition for most iterations,
+and the Hessian is required to be positive definite.
+
+Parameters
+----------
+trust_radius : float
+    We are allowed to wander only this far away from the origin.
+
+Returns
+-------
+p : ndarray
+    The proposed step.
+hits_boundary : bool
+    True if the proposed step is on the boundary of the trust region.
+
+Notes
+-----
+The Hessian is required to be positive definite.
+
+References
+----------
+.. [1] Jorge Nocedal and Stephen Wright,
+       Numerical Optimization, second edition,
+       Springer-Verlag, 2006, page 73.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/optimize/\hyperlink{__trustregion__dogleg_8py}{\+\_\+trustregion\+\_\+dogleg.\+py}\end{DoxyCompactItemize}

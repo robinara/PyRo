@@ -1,0 +1,113 @@
+\hypertarget{dlagtm_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlagtm.f File Reference}
+\label{dlagtm_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlagtm.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlagtm.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlagtm_8f_aef588ae9e76526cc89802086ae5eec11}{dlagtm} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, A\+L\+P\+H\+A, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, X, L\+D\+X, B\+E\+T\+A, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B})
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+G\+T\+M} performs a matrix-\/matrix product of the form C = α\+A\+B+β\+C, where \hyperlink{classA}{A} is a tridiagonal matrix, B and C are rectangular matrices, and α and β are scalars, which may be 0, 1, or -\/1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlagtm_8f_aef588ae9e76526cc89802086ae5eec11}{}\index{dlagtm.\+f@{dlagtm.\+f}!dlagtm@{dlagtm}}
+\index{dlagtm@{dlagtm}!dlagtm.\+f@{dlagtm.\+f}}
+\subsubsection[{dlagtm}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlagtm (
+\begin{DoxyParamCaption}
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{double {\bf precision}}]{A\+L\+P\+H\+A, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+L, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+U, }
+\item[{double {\bf precision}, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{double {\bf precision}}]{B\+E\+T\+A, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B}
+\end{DoxyParamCaption}
+)}\label{dlagtm_8f_aef588ae9e76526cc89802086ae5eec11}
+
+
+{\bfseries D\+L\+A\+G\+T\+M} performs a matrix-\/matrix product of the form C = α\+A\+B+β\+C, where \hyperlink{classA}{A} is a tridiagonal matrix, B and C are rectangular matrices, and α and β are scalars, which may be 0, 1, or -\/1. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLAGTM performs a matrix-vector product of the form
+
+    B := alpha * A * X + beta * B
+
+ where A is a tridiagonal matrix of order N, B and X are N by NRHS
+ matrices, and alpha and beta are real scalars, each of which may be
+ 0., 1., or -1.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          Specifies the operation applied to A.
+          = 'N':  No transpose, B := alpha * A * X + beta * B
+          = 'T':  Transpose,    B := alpha * A'* X + beta * B
+          = 'C':  Conjugate transpose = Transpose\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrices X and B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is DOUBLE PRECISION
+          The scalar alpha.  ALPHA must be 0., 1., or -1.; otherwise,
+          it is assumed to be 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L} & \begin{DoxyVerb}          DL is DOUBLE PRECISION array, dimension (N-1)
+          The (n-1) sub-diagonal elements of T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+          The diagonal elements of T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U} & \begin{DoxyVerb}          DU is DOUBLE PRECISION array, dimension (N-1)
+          The (n-1) super-diagonal elements of T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em X} & \begin{DoxyVerb}          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+          The N by NRHS matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.  LDX >= max(N,1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+E\+T\+A} & \begin{DoxyVerb}          BETA is DOUBLE PRECISION
+          The scalar beta.  BETA must be 0., 1., or -1.; otherwise,
+          it is assumed to be 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+          On entry, the N by NRHS matrix B.
+          On exit, B is overwritten by the matrix expression
+          B := alpha * A * X + beta * B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(N,1).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

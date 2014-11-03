@@ -1,0 +1,169 @@
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__schur}{}\section{scipy.\+linalg.\+decomp\+\_\+schur Namespace Reference}
+\label{namespacescipy_1_1linalg_1_1decomp__schur}\index{scipy.\+linalg.\+decomp\+\_\+schur@{scipy.\+linalg.\+decomp\+\_\+schur}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_ac53f71422f1b2beef35daf1f09e24e67}{schur}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_a46c66e09bba3b88752ecdf20820476ca}{rsf2csf}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_ad28d55f825fb195698f9183379595ba1}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_ac53f71422f1b2beef35daf1f09e24e67}{schur}', '\hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_a46c66e09bba3b88752ecdf20820476ca}{rsf2csf}'\mbox{]}
+\item 
+list \hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_ad2f19b0afbd9ac7726320e84f767c528}{\+\_\+double\+\_\+precision} = \mbox{[}'\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}','\hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}','d'\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_a1dad44a280fa110f881719af6845e93a}{eps} = numpy.\+finfo(float)
+\item 
+tuple \hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_a270f819ccd3f1c74e6fbabfab2677a8c}{feps} = numpy.\+finfo(single)
+\item 
+dictionary \hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_a8d395e7398502384e8f125487fc4beff}{\+\_\+array\+\_\+kind} = \{'\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}'\+:0, 'h'\+:0, 'B'\+: 0, '\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}'\+:0, '\hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}'\+: 0, 'f'\+: 0, 'd'\+: 0, 'F'\+: 1, '\hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}'\+: 1\}
+\item 
+dictionary \hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_a2af49e2309599ba19009871ad098da08}{\+\_\+array\+\_\+precision} = \{'\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}'\+: 1, '\hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}'\+: 1, 'f'\+: 0, 'd'\+: 1, 'F'\+: 0, '\hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}'\+: 1\}
+\item 
+list \hyperlink{namespacescipy_1_1linalg_1_1decomp__schur_a1150815720cb4787dc838ec5c857d0cb}{\+\_\+array\+\_\+type} = \mbox{[}\mbox{[}'f', 'd'\mbox{]}, \mbox{[}'F', '\hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}'\mbox{]}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Schur decomposition functions.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__schur_a46c66e09bba3b88752ecdf20820476ca}{}\index{scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}!rsf2csf@{rsf2csf}}
+\index{rsf2csf@{rsf2csf}!scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}}
+\subsubsection[{rsf2csf}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+schur.\+rsf2csf (
+\begin{DoxyParamCaption}
+\item[{}]{T, }
+\item[{}]{Z, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__schur_a46c66e09bba3b88752ecdf20820476ca}
+\begin{DoxyVerb}Convert real Schur form to complex Schur form.
+
+Convert a quasi-diagonal real-valued Schur form to the upper triangular
+complex-valued Schur form.
+
+Parameters
+----------
+T : (M, M) array_like
+    Real Schur form of the original matrix
+Z : (M, M) array_like
+    Schur transformation matrix
+check_finite : boolean, optional
+    Whether to check that the input matrices contain only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+T : (M, M) ndarray
+    Complex Schur form of the original matrix
+Z : (M, M) ndarray
+    Schur transformation matrix corresponding to the complex form
+
+See also
+--------
+schur : Schur decompose a matrix\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__schur_ac53f71422f1b2beef35daf1f09e24e67}{}\index{scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}!schur@{schur}}
+\index{schur@{schur}!scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}}
+\subsubsection[{schur}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+schur.\+schur (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{output = {\ttfamily 'real'}, }
+\item[{}]{lwork = {\ttfamily None}, }
+\item[{}]{overwrite\+\_\+a = {\ttfamily {\bf False}}, }
+\item[{}]{sort = {\ttfamily None}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__schur_ac53f71422f1b2beef35daf1f09e24e67}
+\begin{DoxyVerb}Compute Schur decomposition of a matrix.
+
+The Schur decomposition is::
+
+    A = Z T Z^H
+
+where Z is unitary and T is either upper-triangular, or for real
+Schur decomposition (output='real'), quasi-upper triangular.  In
+the quasi-triangular form, 2x2 blocks describing complex-valued
+eigenvalue pairs may extrude from the diagonal.
+
+Parameters
+----------
+a : (M, M) array_like
+    Matrix to decompose
+output : {'real', 'complex'}, optional
+    Construct the real or complex Schur decomposition (for real matrices).
+lwork : int, optional
+    Work array size. If None or -1, it is automatically computed.
+overwrite_a : bool, optional
+    Whether to overwrite data in a (may improve performance).
+sort : {None, callable, 'lhp', 'rhp', 'iuc', 'ouc'}, optional
+    Specifies whether the upper eigenvalues should be sorted.  A callable
+    may be passed that, given a eigenvalue, returns a boolean denoting
+    whether the eigenvalue should be sorted to the top-left (True).
+    Alternatively, string parameters may be used::
+
+        'lhp'   Left-hand plane (x.real < 0.0)
+        'rhp'   Right-hand plane (x.real > 0.0)
+        'iuc'   Inside the unit circle (x*x.conjugate() <= 1.0)
+        'ouc'   Outside the unit circle (x*x.conjugate() > 1.0)
+
+    Defaults to None (no sorting).
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+T : (M, M) ndarray
+    Schur form of A. It is real-valued for the real Schur decomposition.
+Z : (M, M) ndarray
+    An unitary Schur transformation matrix for A.
+    It is real-valued for the real Schur decomposition.
+sdim : int
+    If and only if sorting was requested, a third return value will
+    contain the number of eigenvalues satisfying the sort condition.
+
+Raises
+------
+LinAlgError
+    Error raised under three conditions:
+
+    1. The algorithm failed due to a failure of the QR algorithm to
+       compute all eigenvalues
+    2. If eigenvalue sorting was requested, the eigenvalues could not be
+       reordered due to a failure to separate eigenvalues, usually because
+       of poor conditioning
+    3. If eigenvalue sorting was requested, roundoff errors caused the
+       leading eigenvalues to no longer satisfy the sorting condition
+
+See also
+--------
+rsf2csf : Convert real Schur form to complex Schur form\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__schur_ad28d55f825fb195698f9183379595ba1}{}\index{scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+linalg.\+decomp\+\_\+schur.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf schur}', '{\bf rsf2csf}'\mbox{]}}\label{namespacescipy_1_1linalg_1_1decomp__schur_ad28d55f825fb195698f9183379595ba1}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__schur_a8d395e7398502384e8f125487fc4beff}{}\index{scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}!\+\_\+array\+\_\+kind@{\+\_\+array\+\_\+kind}}
+\index{\+\_\+array\+\_\+kind@{\+\_\+array\+\_\+kind}!scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}}
+\subsubsection[{\+\_\+array\+\_\+kind}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+linalg.\+decomp\+\_\+schur.\+\_\+array\+\_\+kind = \{'{\bf b}'\+:0, 'h'\+:0, 'B'\+: 0, '{\bf i}'\+:0, '{\bf l}'\+: 0, 'f'\+: 0, 'd'\+: 0, 'F'\+: 1, '{\bf D}'\+: 1\}}\label{namespacescipy_1_1linalg_1_1decomp__schur_a8d395e7398502384e8f125487fc4beff}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__schur_a2af49e2309599ba19009871ad098da08}{}\index{scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}!\+\_\+array\+\_\+precision@{\+\_\+array\+\_\+precision}}
+\index{\+\_\+array\+\_\+precision@{\+\_\+array\+\_\+precision}!scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}}
+\subsubsection[{\+\_\+array\+\_\+precision}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+linalg.\+decomp\+\_\+schur.\+\_\+array\+\_\+precision = \{'{\bf i}'\+: 1, '{\bf l}'\+: 1, 'f'\+: 0, 'd'\+: 1, 'F'\+: 0, '{\bf D}'\+: 1\}}\label{namespacescipy_1_1linalg_1_1decomp__schur_a2af49e2309599ba19009871ad098da08}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__schur_a1150815720cb4787dc838ec5c857d0cb}{}\index{scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}!\+\_\+array\+\_\+type@{\+\_\+array\+\_\+type}}
+\index{\+\_\+array\+\_\+type@{\+\_\+array\+\_\+type}!scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}}
+\subsubsection[{\+\_\+array\+\_\+type}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+linalg.\+decomp\+\_\+schur.\+\_\+array\+\_\+type = \mbox{[}\mbox{[}'f', 'd'\mbox{]}, \mbox{[}'F', '{\bf D}'\mbox{]}\mbox{]}}\label{namespacescipy_1_1linalg_1_1decomp__schur_a1150815720cb4787dc838ec5c857d0cb}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__schur_ad2f19b0afbd9ac7726320e84f767c528}{}\index{scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}!\+\_\+double\+\_\+precision@{\+\_\+double\+\_\+precision}}
+\index{\+\_\+double\+\_\+precision@{\+\_\+double\+\_\+precision}!scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}}
+\subsubsection[{\+\_\+double\+\_\+precision}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+linalg.\+decomp\+\_\+schur.\+\_\+double\+\_\+precision = \mbox{[}'{\bf i}','{\bf l}','d'\mbox{]}}\label{namespacescipy_1_1linalg_1_1decomp__schur_ad2f19b0afbd9ac7726320e84f767c528}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__schur_a1dad44a280fa110f881719af6845e93a}{}\index{scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}!eps@{eps}}
+\index{eps@{eps}!scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}}
+\subsubsection[{eps}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+linalg.\+decomp\+\_\+schur.\+eps = numpy.\+finfo(float)}\label{namespacescipy_1_1linalg_1_1decomp__schur_a1dad44a280fa110f881719af6845e93a}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__schur_a270f819ccd3f1c74e6fbabfab2677a8c}{}\index{scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}!feps@{feps}}
+\index{feps@{feps}!scipy\+::linalg\+::decomp\+\_\+schur@{scipy\+::linalg\+::decomp\+\_\+schur}}
+\subsubsection[{feps}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+linalg.\+decomp\+\_\+schur.\+feps = numpy.\+finfo(single)}\label{namespacescipy_1_1linalg_1_1decomp__schur_a270f819ccd3f1c74e6fbabfab2677a8c}

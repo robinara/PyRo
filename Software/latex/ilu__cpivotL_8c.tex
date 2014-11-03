@@ -1,0 +1,96 @@
+\hypertarget{ilu__cpivotL_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+cpivot\+L.c File Reference}
+\label{ilu__cpivotL_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+cpivot\+L.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+cpivot\+L.\+c}}
+
+
+Performs numerical pivoting.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+cdefs.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ilu__cpivotL_8c_a95ed41486ca0ed53262e4b8934d4afac}{S\+G\+N}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})~((\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})$>$=0?1\+:-\/1)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ilu__cpivotL_8c_a5eadb2e028608a33e9de84d4d6895796}{ilu\+\_\+cpivot\+L} (const int jcol, const double u, int $\ast$usepr, int $\ast$perm\+\_\+r, int diagind, int $\ast$\hyperlink{array-impl_8h_a8483fb33f01b49fbcbe388ca8f4c46ec}{swap}, int $\ast$\hyperlink{iswap_8f_a3837f5f7d011fd43365665d7713ec81a}{iswap}, int $\ast$marker, int $\ast$pivrow, double fill\+\_\+tol, \hyperlink{superlu__enum__consts_8h_a0cb73c13a7c2390c3a9a0a8913477ff0}{milu\+\_\+t} milu, \hyperlink{structcomplex}{complex} drop\+\_\+sum, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Performs numerical pivoting. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.0) --
+Lawrence Berkeley National Laboratory
+June 30, 2009
+\end{DoxyPre}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ilu__cpivotL_8c_a95ed41486ca0ed53262e4b8934d4afac}{}\index{ilu\+\_\+cpivot\+L.\+c@{ilu\+\_\+cpivot\+L.\+c}!S\+G\+N@{S\+G\+N}}
+\index{S\+G\+N@{S\+G\+N}!ilu\+\_\+cpivot\+L.\+c@{ilu\+\_\+cpivot\+L.\+c}}
+\subsubsection[{S\+G\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+G\+N(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~(({\bf x})$>$=0?1\+:-\/1)}\label{ilu__cpivotL_8c_a95ed41486ca0ed53262e4b8934d4afac}
+
+
+\subsection{Function Documentation}
+\hypertarget{ilu__cpivotL_8c_a5eadb2e028608a33e9de84d4d6895796}{}\index{ilu\+\_\+cpivot\+L.\+c@{ilu\+\_\+cpivot\+L.\+c}!ilu\+\_\+cpivot\+L@{ilu\+\_\+cpivot\+L}}
+\index{ilu\+\_\+cpivot\+L@{ilu\+\_\+cpivot\+L}!ilu\+\_\+cpivot\+L.\+c@{ilu\+\_\+cpivot\+L.\+c}}
+\subsubsection[{ilu\+\_\+cpivot\+L}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+cpivot\+L (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const double}]{u, }
+\item[{int $\ast$}]{usepr, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int}]{diagind, }
+\item[{int $\ast$}]{swap, }
+\item[{int $\ast$}]{iswap, }
+\item[{int $\ast$}]{marker, }
+\item[{int $\ast$}]{pivrow, }
+\item[{double}]{fill\+\_\+tol, }
+\item[{{\bf milu\+\_\+t}}]{milu, }
+\item[{{\bf complex}}]{drop\+\_\+sum, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{ilu__cpivotL_8c_a5eadb2e028608a33e9de84d4d6895796}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  Performs the numerical pivoting on the current column of L,
+  and the CDIV operation.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Pivot policy:
+  (1) Compute thresh = u * max\_(i>=j) \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_ij)};
+  (2) IF user specifies pivot row k and \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_kj)} >= thresh THEN
+      pivot row = k;
+  ELSE IF \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_jj)} >= thresh THEN
+      pivot row = j;
+  ELSE
+      pivot row = m;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Note: If you absolutely want to use a given pivot order, then set u=0.0.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Return value: 0     success;
+       i > 0  U(i,i) is exactly zero.
+\end{DoxyPre}
+ 

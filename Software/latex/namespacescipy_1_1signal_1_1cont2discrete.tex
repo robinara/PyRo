@@ -1,0 +1,92 @@
+\hypertarget{namespacescipy_1_1signal_1_1cont2discrete}{}\section{scipy.\+signal.\+cont2discrete Namespace Reference}
+\label{namespacescipy_1_1signal_1_1cont2discrete}\index{scipy.\+signal.\+cont2discrete@{scipy.\+signal.\+cont2discrete}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1cont2discrete_aa561668fca0655c1c555f20f27646d6a}{cont2discrete}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1signal_1_1cont2discrete_ace13df92f3015de5a92827be014c5c5f}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1signal_1_1cont2discrete_aa561668fca0655c1c555f20f27646d6a}{cont2discrete}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Continuous to discrete transformations for state-space and transfer function.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1cont2discrete_aa561668fca0655c1c555f20f27646d6a}{}\index{scipy\+::signal\+::cont2discrete@{scipy\+::signal\+::cont2discrete}!cont2discrete@{cont2discrete}}
+\index{cont2discrete@{cont2discrete}!scipy\+::signal\+::cont2discrete@{scipy\+::signal\+::cont2discrete}}
+\subsubsection[{cont2discrete}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+cont2discrete.\+cont2discrete (
+\begin{DoxyParamCaption}
+\item[{}]{sys, }
+\item[{}]{dt, }
+\item[{}]{method = {\ttfamily \char`\"{}zoh\char`\"{}}, }
+\item[{}]{alpha = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1cont2discrete_aa561668fca0655c1c555f20f27646d6a}
+\begin{DoxyVerb}Transform a continuous to a discrete state-space system.
+
+Parameters
+----------
+sys : a tuple describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+       * 2: (num, den)
+       * 3: (zeros, poles, gain)
+       * 4: (A, B, C, D)
+
+dt : float
+    The discretization time step.
+method : {"gbt", "bilinear", "euler", "backward_diff", "zoh"}
+    Which method to use:
+
+       * gbt: generalized bilinear transformation
+       * bilinear: Tustin's approximation ("gbt" with alpha=0.5)
+       * euler: Euler (or forward differencing) method ("gbt" with alpha=0)
+       * backward_diff: Backwards differencing ("gbt" with alpha=1.0)
+       * zoh: zero-order hold (default)
+
+alpha : float within [0, 1]
+    The generalized bilinear transformation weighting parameter, which
+    should only be specified with method="gbt", and is ignored otherwise
+
+Returns
+-------
+sysd : tuple containing the discrete system
+    Based on the input type, the output will be of the form
+
+    * (num, den, dt)   for transfer function input
+    * (zeros, poles, gain, dt)   for zeros-poles-gain input
+    * (A, B, C, D, dt) for state-space system input
+
+Notes
+-----
+By default, the routine uses a Zero-Order Hold (zoh) method to perform
+the transformation.  Alternatively, a generalized bilinear transformation
+may be used, which includes the common Tustin's bilinear approximation,
+an Euler's method technique, or a backwards differencing technique.
+
+The Zero-Order Hold (zoh) method is based on [1]_, the generalized bilinear
+approximation is based on [2]_ and [3]_.
+
+References
+----------
+.. [1] http://en.wikipedia.org/wiki/Discretization#Discretization_of_linear_state_space_models
+
+.. [2] http://techteach.no/publications/discretetime_signals_systems/discrete.pdf
+
+.. [3] G. Zhang, X. Chen, and T. Chen, Digital redesign via the generalized
+    bilinear transformation, Int. J. Control, vol. 82, no. 4, pp. 741-754,
+    2009.
+    (http://www.ece.ualberta.ca/~gfzhang/research/ZCC07_preprint.pdf)\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1cont2discrete_ace13df92f3015de5a92827be014c5c5f}{}\index{scipy\+::signal\+::cont2discrete@{scipy\+::signal\+::cont2discrete}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::signal\+::cont2discrete@{scipy\+::signal\+::cont2discrete}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+signal.\+cont2discrete.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf cont2discrete}'\mbox{]}}\label{namespacescipy_1_1signal_1_1cont2discrete_ace13df92f3015de5a92827be014c5c5f}

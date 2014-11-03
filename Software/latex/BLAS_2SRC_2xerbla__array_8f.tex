@@ -1,0 +1,72 @@
+\hypertarget{BLAS_2SRC_2xerbla__array_8f}{}\section{packages/lapack-\/3.5.0/\+B\+L\+A\+S/\+S\+R\+C/xerbla\+\_\+array.f File Reference}
+\label{BLAS_2SRC_2xerbla__array_8f}\index{packages/lapack-\/3.\+5.\+0/\+B\+L\+A\+S/\+S\+R\+C/xerbla\+\_\+array.\+f@{packages/lapack-\/3.\+5.\+0/\+B\+L\+A\+S/\+S\+R\+C/xerbla\+\_\+array.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{BLAS_2SRC_2xerbla__array_8f_a45f1b23f68dd586f20299b80d1c9288d}{xerbla\+\_\+array} (S\+R\+N\+A\+M\+E\+\_\+\+A\+R\+R\+A\+Y, S\+R\+N\+A\+M\+E\+\_\+\+L\+E\+N, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries X\+E\+R\+B\+L\+A\+\_\+\+A\+R\+R\+A\+Y} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{BLAS_2SRC_2xerbla__array_8f_a45f1b23f68dd586f20299b80d1c9288d}{}\index{B\+L\+A\+S/\+S\+R\+C/xerbla\+\_\+array.\+f@{B\+L\+A\+S/\+S\+R\+C/xerbla\+\_\+array.\+f}!xerbla\+\_\+array@{xerbla\+\_\+array}}
+\index{xerbla\+\_\+array@{xerbla\+\_\+array}!B\+L\+A\+S/\+S\+R\+C/xerbla\+\_\+array.\+f@{B\+L\+A\+S/\+S\+R\+C/xerbla\+\_\+array.\+f}}
+\subsubsection[{xerbla\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}subroutine xerbla\+\_\+array (
+\begin{DoxyParamCaption}
+\item[{character(1), dimension(srname\+\_\+len)}]{S\+R\+N\+A\+M\+E\+\_\+\+A\+R\+R\+A\+Y, }
+\item[{integer}]{S\+R\+N\+A\+M\+E\+\_\+\+L\+E\+N, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{BLAS_2SRC_2xerbla__array_8f_a45f1b23f68dd586f20299b80d1c9288d}
+
+
+{\bfseries X\+E\+R\+B\+L\+A\+\_\+\+A\+R\+R\+A\+Y} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} XERBLA_ARRAY assists other languages in calling XERBLA, the LAPACK
+ and BLAS error handler.  Rather than taking a Fortran string argument
+ as the function's name, XERBLA_ARRAY takes an array of single
+ characters along with the array's length.  XERBLA_ARRAY then copies
+ up to 32 characters of that array into a Fortran string and passes
+ that to XERBLA.  If called with a non-positive SRNAME_LEN,
+ XERBLA_ARRAY will call XERBLA with a string of all blank characters.
+
+ Say some macro or other device makes XERBLA_ARRAY available to C99
+ by a name lapack_xerbla and with a common Fortran calling convention.
+ Then a C99 program could invoke XERBLA via:
+    {
+      int flen = strlen(__func__);
+      lapack_xerbla(__func__, &flen, &info);
+    }
+
+ Providing XERBLA_ARRAY is not necessary for intercepting LAPACK
+ errors.  XERBLA_ARRAY calls XERBLA.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+R\+N\+A\+M\+E\+\_\+\+A\+R\+R\+A\+Y} & \begin{DoxyVerb}          SRNAME_ARRAY is CHARACTER(1) array, dimension (SRNAME_LEN)
+          The name of the routine which called XERBLA_ARRAY.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+R\+N\+A\+M\+E\+\_\+\+L\+E\+N} & \begin{DoxyVerb}          SRNAME_LEN is INTEGER
+          The length of the name in SRNAME_ARRAY.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          The position of the invalid parameter in the parameter list
+          of the calling routine.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['radian',['radian',['../cephes__names_8h.html#a44b92d40663e50ac09e79dfc86eb8733',1,'cephes_names.h']]],
+  ['rank',['RANK',['../sigtoolsmodule_8c.html#a3a88bcc63386de30443dacede2e01847',1,'RANK():&#160;sigtoolsmodule.c'],['../splinemodule_8c.html#a3a88bcc63386de30443dacede2e01847',1,'RANK():&#160;splinemodule.c']]],
+  ['read',['READ',['../eepromer_8c.html#ada74e7db007a68e763f20c17f2985356',1,'eepromer.c']]],
+  ['real',['REAL',['../specfun__wrappers_8h.html#a30c0585f613ca64bb784b68d15a6b995',1,'specfun_wrappers.h']]],
+  ['realepsilon',['REALepsilon',['../user_8h.html#a9dca4737b01c315f10c484849ed1bd7d',1,'user.h']]],
+  ['realfloat',['REALfloat',['../user_8h.html#afa54cd49a006c1942eab788e08f27452',1,'user.h']]],
+  ['realmax',['REALmax',['../user_8h.html#aba15dac41a46cf890eeedd70e00fd649',1,'user.h']]],
+  ['realmin',['REALmin',['../user_8h.html#ac9cb2033d7465e45f5fbb3b44e0c918b',1,'user.h']]],
+  ['realt',['realT',['../user_8h.html#ad6fe71dff955732ea8682263e9540bb7',1,'user.h']]],
+  ['reduce',['Reduce',['../cmemory_8c.html#a7b2a35bfd2e6c9d03e2a6ccdba9fa847',1,'Reduce():&#160;cmemory.c'],['../dmemory_8c.html#a7b2a35bfd2e6c9d03e2a6ccdba9fa847',1,'Reduce():&#160;dmemory.c'],['../smemory_8c.html#a7b2a35bfd2e6c9d03e2a6ccdba9fa847',1,'Reduce():&#160;smemory.c'],['../zmemory_8c.html#a7b2a35bfd2e6c9d03e2a6ccdba9fa847',1,'Reduce():&#160;zmemory.c']]],
+  ['reflect',['REFLECT',['../sigtools_8h.html#a72fdd33dcd0fe4f3b00907c3a1261ed3',1,'sigtools.h']]],
+  ['restore_5ffunc',['RESTORE_FUNC',['../integrate_2multipack_8h.html#a4b4cb591ce86e6a2887664b86b4a4e0c',1,'RESTORE_FUNC():&#160;multipack.h'],['../interpolate_2src_2multipack_8h.html#a4b4cb591ce86e6a2887664b86b4a4e0c',1,'RESTORE_FUNC():&#160;multipack.h'],['../minpack_8h.html#a4b4cb591ce86e6a2887664b86b4a4e0c',1,'RESTORE_FUNC():&#160;minpack.h']]],
+  ['restore_5fjac_5ffunc',['RESTORE_JAC_FUNC',['../integrate_2multipack_8h.html#a091122cf1ad8839de6ee094c4f56e615',1,'RESTORE_JAC_FUNC():&#160;multipack.h'],['../interpolate_2src_2multipack_8h.html#a091122cf1ad8839de6ee094c4f56e615',1,'RESTORE_JAC_FUNC():&#160;multipack.h'],['../minpack_8h.html#a091122cf1ad8839de6ee094c4f56e615',1,'RESTORE_JAC_FUNC():&#160;minpack.h']]],
+  ['restrict',['restrict',['../compiler_8h.html#a080abdcb9c02438f1cd2bb707af25af8',1,'compiler.h']]],
+  ['rgamma',['rgamma',['../cephes__names_8h.html#ab427c0abfe754000cb08721ad14ead1a',1,'cephes_names.h']]],
+  ['rising_5fedge',['RISING_EDGE',['../event__gpio_8h.html#af13ff90bb3a97b9d46ae59f02c515b67',1,'event_gpio.h']]],
+  ['round',['round',['../cephes__names_8h.html#a391a6101dbe52ca4c7a42f8b74541e14',1,'cephes_names.h']]],
+  ['row_5fis_5falive',['ROW_IS_ALIVE',['../colamd_8c.html#abc775359cfa45ffaf6250522c521110d',1,'colamd.c']]],
+  ['row_5fis_5fdead',['ROW_IS_DEAD',['../colamd_8c.html#ae200d2ac8149305712af7230f9ee24d5',1,'colamd.c']]],
+  ['row_5fis_5fmarked_5fdead',['ROW_IS_MARKED_DEAD',['../colamd_8c.html#a0d68b03acc587c11fe6dffbfede78c2d',1,'colamd.c']]]
+];

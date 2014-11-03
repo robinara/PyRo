@@ -1,0 +1,115 @@
+\hypertarget{namespacestickman}{}\section{stickman Namespace Reference}
+\label{namespacestickman}\index{stickman@{stickman}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classstickman_1_1Animation}{Animation}
+\item 
+class \hyperlink{classstickman_1_1Frame}{Frame}
+\item 
+class \hyperlink{classstickman_1_1GraphicsView}{Graphics\+View}
+\item 
+class \hyperlink{classstickman_1_1KeyPressTransition}{Key\+Press\+Transition}
+\item 
+class \hyperlink{classstickman_1_1LifeCycle}{Life\+Cycle}
+\item 
+class \hyperlink{classstickman_1_1LightningStrikesTransition}{Lightning\+Strikes\+Transition}
+\item 
+class \hyperlink{classstickman_1_1Node}{Node}
+\item 
+class \hyperlink{classstickman_1_1StickMan}{Stick\+Man}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tuple \hyperlink{namespacestickman_a91345d1dd0e2be6b1befb5e313110484}{Coords}
+\item 
+tuple \hyperlink{namespacestickman_ac04f7c67fc601ea018a0d7a134680432}{Bones}
+\item 
+tuple \hyperlink{namespacestickman_a7a6768c8c5fa928570f79e25a6f23498}{app} = Qt\+Gui.\+Q\+Application(sys.\+argv)
+\item 
+tuple \hyperlink{namespacestickman_aa61853c5c059feeabc36dee3af2732fb}{stick\+Man} = \hyperlink{classstickman_1_1StickMan}{Stick\+Man}()
+\item 
+tuple \hyperlink{namespacestickman_a7ff8a6268683719b836aa5fe64be9a12}{text\+Item} = Qt\+Gui.\+Q\+Graphics\+Text\+Item()
+\item 
+tuple \hyperlink{namespacestickman_a1061806814c37e16835abeaab049a871}{w} = text\+Item.\+bounding\+Rect()
+\item 
+tuple \hyperlink{namespacestickman_aae11c6b85a7efe27b0ef9db3ebbd07de}{stick\+Man\+Bounding\+Rect} = stick\+Man.\+map\+To\+Scene(stick\+Man.\+bounding\+Rect())
+\item 
+tuple \hyperlink{namespacestickman_ac4826e705d36794cd0b5e270df055801}{scene} = Qt\+Gui.\+Q\+Graphics\+Scene()
+\item 
+tuple \hyperlink{namespacestickman_a9b7b294b6b24ca2dca6ecceee16e3d9b}{view} = \hyperlink{classstickman_1_1GraphicsView}{Graphics\+View}()
+\item 
+tuple \hyperlink{namespacestickman_a2cb447118bb11d15c1b1316e6cbc0b18}{scene\+Rect} = scene.\+scene\+Rect()
+\item 
+tuple \hyperlink{namespacestickman_a5715a748a28470f614e05a26d1c7bc4c}{cycle} = \hyperlink{classstickman_1_1LifeCycle}{Life\+Cycle}(\hyperlink{namespacestickman_aa61853c5c059feeabc36dee3af2732fb}{stick\+Man}, \hyperlink{namespacestickman_a9b7b294b6b24ca2dca6ecceee16e3d9b}{view})
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacestickman_a7a6768c8c5fa928570f79e25a6f23498}{}\index{stickman@{stickman}!app@{app}}
+\index{app@{app}!stickman@{stickman}}
+\subsubsection[{app}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+app = Qt\+Gui.\+Q\+Application(sys.\+argv)}\label{namespacestickman_a7a6768c8c5fa928570f79e25a6f23498}
+\hypertarget{namespacestickman_ac04f7c67fc601ea018a0d7a134680432}{}\index{stickman@{stickman}!Bones@{Bones}}
+\index{Bones@{Bones}!stickman@{stickman}}
+\subsubsection[{Bones}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+Bones}\label{namespacestickman_ac04f7c67fc601ea018a0d7a134680432}
+\hypertarget{namespacestickman_a91345d1dd0e2be6b1befb5e313110484}{}\index{stickman@{stickman}!Coords@{Coords}}
+\index{Coords@{Coords}!stickman@{stickman}}
+\subsubsection[{Coords}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+Coords}\label{namespacestickman_a91345d1dd0e2be6b1befb5e313110484}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = (
+2     \textcolor{comment}{# Head: 0}
+3     (0.0, -150.0),
+4 
+5     \textcolor{comment}{# Body pentagon, top->bottom, left->right: 1 - 5}
+6     (0.0, -100.0),
+7     (-50.0, -50.0),
+8     (50.0, -50.0),
+9     (-25.0, 50.0),
+10     (25.0, 50.0),
+11 
+12     \textcolor{comment}{# Right arm: 6 - 7}
+13     (-100.0, 0.0),
+14     (-125.0, 50.0),
+15 
+16     \textcolor{comment}{# Left arm: 8 - 9}
+17     (100.0, 0.0),
+18     (125.0, 50.0),
+19 
+20     \textcolor{comment}{# Lower body: 10 - 11}
+21     (-35.0, 75.0),
+22     (35.0, 75.0),
+23 
+24     \textcolor{comment}{# Right leg: 12 - 13}
+25     (-25.0, 200.0),
+26     (-30.0, 300.0),
+27 
+28     \textcolor{comment}{# Left leg: 14 - 15}
+29     (25.0, 200.0),
+30     (30.0, 300.0))
+\end{DoxyCode}
+\hypertarget{namespacestickman_a5715a748a28470f614e05a26d1c7bc4c}{}\index{stickman@{stickman}!cycle@{cycle}}
+\index{cycle@{cycle}!stickman@{stickman}}
+\subsubsection[{cycle}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+cycle = {\bf Life\+Cycle}({\bf stick\+Man}, {\bf view})}\label{namespacestickman_a5715a748a28470f614e05a26d1c7bc4c}
+\hypertarget{namespacestickman_ac4826e705d36794cd0b5e270df055801}{}\index{stickman@{stickman}!scene@{scene}}
+\index{scene@{scene}!stickman@{stickman}}
+\subsubsection[{scene}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+scene = Qt\+Gui.\+Q\+Graphics\+Scene()}\label{namespacestickman_ac4826e705d36794cd0b5e270df055801}
+\hypertarget{namespacestickman_a2cb447118bb11d15c1b1316e6cbc0b18}{}\index{stickman@{stickman}!scene\+Rect@{scene\+Rect}}
+\index{scene\+Rect@{scene\+Rect}!stickman@{stickman}}
+\subsubsection[{scene\+Rect}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+scene\+Rect = scene.\+scene\+Rect()}\label{namespacestickman_a2cb447118bb11d15c1b1316e6cbc0b18}
+\hypertarget{namespacestickman_aa61853c5c059feeabc36dee3af2732fb}{}\index{stickman@{stickman}!stick\+Man@{stick\+Man}}
+\index{stick\+Man@{stick\+Man}!stickman@{stickman}}
+\subsubsection[{stick\+Man}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+stick\+Man = {\bf Stick\+Man}()}\label{namespacestickman_aa61853c5c059feeabc36dee3af2732fb}
+\hypertarget{namespacestickman_aae11c6b85a7efe27b0ef9db3ebbd07de}{}\index{stickman@{stickman}!stick\+Man\+Bounding\+Rect@{stick\+Man\+Bounding\+Rect}}
+\index{stick\+Man\+Bounding\+Rect@{stick\+Man\+Bounding\+Rect}!stickman@{stickman}}
+\subsubsection[{stick\+Man\+Bounding\+Rect}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+stick\+Man\+Bounding\+Rect = stick\+Man.\+map\+To\+Scene(stick\+Man.\+bounding\+Rect())}\label{namespacestickman_aae11c6b85a7efe27b0ef9db3ebbd07de}
+\hypertarget{namespacestickman_a7ff8a6268683719b836aa5fe64be9a12}{}\index{stickman@{stickman}!text\+Item@{text\+Item}}
+\index{text\+Item@{text\+Item}!stickman@{stickman}}
+\subsubsection[{text\+Item}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+text\+Item = Qt\+Gui.\+Q\+Graphics\+Text\+Item()}\label{namespacestickman_a7ff8a6268683719b836aa5fe64be9a12}
+\hypertarget{namespacestickman_a9b7b294b6b24ca2dca6ecceee16e3d9b}{}\index{stickman@{stickman}!view@{view}}
+\index{view@{view}!stickman@{stickman}}
+\subsubsection[{view}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+view = {\bf Graphics\+View}()}\label{namespacestickman_a9b7b294b6b24ca2dca6ecceee16e3d9b}
+\hypertarget{namespacestickman_a1061806814c37e16835abeaab049a871}{}\index{stickman@{stickman}!w@{w}}
+\index{w@{w}!stickman@{stickman}}
+\subsubsection[{w}]{\setlength{\rightskip}{0pt plus 5cm}tuple stickman.\+w = text\+Item.\+bounding\+Rect()}\label{namespacestickman_a1061806814c37e16835abeaab049a871}

@@ -1,0 +1,94 @@
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1DWithDerivatives}{}\section{scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D\+With\+Derivatives Class Reference}
+\label{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1DWithDerivatives}\index{scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D\+With\+Derivatives@{scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D\+With\+Derivatives}}
+Inheritance diagram for scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D\+With\+Derivatives\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.363364cm]{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1DWithDerivatives}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1DWithDerivatives_a049ca750798900348f7949c314891364}{derivatives}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1DWithDerivatives_a4d30edd0af8d25f2aa92f03f4cc1700f}{derivative}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1DWithDerivatives_a4d30edd0af8d25f2aa92f03f4cc1700f}{}\index{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D\+With\+Derivatives@{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D\+With\+Derivatives}!derivative@{derivative}}
+\index{derivative@{derivative}!scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D\+With\+Derivatives@{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D\+With\+Derivatives}}
+\subsubsection[{derivative}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D\+With\+Derivatives.\+derivative (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{der = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1DWithDerivatives_a4d30edd0af8d25f2aa92f03f4cc1700f}
+\begin{DoxyVerb}Evaluate one derivative of the polynomial at the point x
+
+Parameters
+----------
+x : array-like
+    Point or points at which to evaluate the derivatives
+
+der : integer, optional
+    Which derivative to extract. This number includes the
+    function value as 0th derivative.
+
+Returns
+-------
+d : ndarray
+    Derivative interpolated at the x-points.  Shape of d is
+    determined by replacing the interpolation axis in the
+    original array with the shape of x.
+
+Notes
+-----
+This is computed by evaluating all derivatives up to the desired
+one (using self.derivatives()) and then discarding the rest.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1DWithDerivatives_a049ca750798900348f7949c314891364}{}\index{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D\+With\+Derivatives@{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D\+With\+Derivatives}!derivatives@{derivatives}}
+\index{derivatives@{derivatives}!scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D\+With\+Derivatives@{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D\+With\+Derivatives}}
+\subsubsection[{derivatives}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D\+With\+Derivatives.\+derivatives (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{der = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1DWithDerivatives_a049ca750798900348f7949c314891364}
+\begin{DoxyVerb}Evaluate many derivatives of the polynomial at the point x
+
+Produce an array of all derivative values at the point x.
+
+Parameters
+----------
+x : array-like
+    Point or points at which to evaluate the derivatives
+
+der : None or integer
+    How many derivatives to extract; None for all potentially
+    nonzero derivatives (that is a number equal to the number
+    of points). This number includes the function value as 0th
+    derivative.
+
+Returns
+-------
+d : ndarray
+    Array with derivatives; d[j] contains the j-th derivative.
+    Shape of d[j] is determined by replacing the interpolation
+    axis in the original array with the shape of x.
+
+Examples
+--------
+>>> KroghInterpolator([0,0,0],[1,2,3]).derivatives(0)
+array([1.0,2.0,3.0])
+>>> KroghInterpolator([0,0,0],[1,2,3]).derivatives([0,0])
+array([[1.0,1.0],
+       [2.0,2.0],
+       [3.0,3.0]])\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{polyint_8py}{polyint.\+py}\end{DoxyCompactItemize}

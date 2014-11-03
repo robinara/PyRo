@@ -1,0 +1,515 @@
+\hypertarget{distance__wrap_8c}{}\section{packages/scipy-\/0.14.0/scipy/spatial/src/distance\+\_\+wrap.c File Reference}
+\label{distance__wrap_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/src/distance\+\_\+wrap.\+c@{packages/scipy-\/0.\+14.\+0/scipy/spatial/src/distance\+\_\+wrap.\+c}}
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}distance.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$numpy/arrayobject.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a0c645b7bcd5581aac0a8dc95e28d2f00}{cdist\+\_\+euclidean\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a7bc8296de73c9cbe3918db3d463c277e}{cdist\+\_\+sqeuclidean\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a2ffd301a3e66a08e14bed4250986f8e2}{cdist\+\_\+canberra\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_ae3c884c4e020e80aace312eedef1b795}{cdist\+\_\+bray\+\_\+curtis\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_aeeef4b319338339f3c8449c1aca13376}{cdist\+\_\+mahalanobis\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_aad2ef2f5d47d556bb3cf4db0079682c9}{cdist\+\_\+chebyshev\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_ab1f8ebd3770bc5cd358f7bc93ea7e19f}{cdist\+\_\+cosine\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_aa0a834e442a2ef5506a1285ec1162346}{cdist\+\_\+seuclidean\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_abd637874f95130ee793fbc93cd593899}{cdist\+\_\+city\+\_\+block\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_affef85e612a7614582c4269e1d7a931e}{cdist\+\_\+hamming\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_ab153b4cc4186480249aef419d453bf16}{cdist\+\_\+hamming\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a152621445ec0853b65c054b7d9c9203e}{cdist\+\_\+jaccard\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a9a47b5d7a89ef81253357fdabbaffbd0}{cdist\+\_\+jaccard\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a49f91969953f51ad174c90247b8dbbbd}{cdist\+\_\+minkowski\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a9b6ec88b6a3312eff9eea359076e23b2}{cdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_acff0f81380550e82dedb8e4b73f6dec6}{cdist\+\_\+yule\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_abdb65e7b2621a33629eb299cf3c4a9ef}{cdist\+\_\+matching\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_aea0f9dfb3b21e86a9de1137a5fcd789d}{cdist\+\_\+dice\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a6146fd7179f1c7a5a9fe3bdaad78e2d5}{cdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_ae03b7364a4613244a7eb1233713ece5c}{cdist\+\_\+russellrao\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a98c9afc0ce958ec78c75153c0f1d0190}{cdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a86f95c3d4aa704b1bd763aeb200dec84}{cdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_ae07ba1009bd9c816fc07889a451fcb14}{cdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_af3cc8a4285cbd75c83dd8d6fdaa2b5bd}{pdist\+\_\+euclidean\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a1a74e1d231d3e2b5c23e9fd2baf6d432}{pdist\+\_\+sqeuclidean\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a50c34d6b769ea2ed265d039398693c22}{pdist\+\_\+canberra\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_aa540e7006531b20cbbb00fd6d8562897}{pdist\+\_\+bray\+\_\+curtis\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_aa047ed1cf84268091bc68f92756e8a25}{pdist\+\_\+mahalanobis\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a7e58b654023f8ced719f601a4f283407}{pdist\+\_\+chebyshev\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_aaa62ef176a41b90d3f34262d97670e56}{pdist\+\_\+cosine\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a79f087450920687f28b75a951e01c361}{pdist\+\_\+seuclidean\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_add54df34c5bc98c0788c0f0860c8ead1}{pdist\+\_\+city\+\_\+block\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a6b330058e871fe3d08be2c8cda658cc3}{pdist\+\_\+hamming\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_ae3efac9fe513f9ecccc0a4a12d137cf6}{pdist\+\_\+hamming\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_aabe446f3bc9bc0676aecd3d8fe0d141c}{pdist\+\_\+jaccard\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a0263ce27c45fb58ad2548ae136df1edb}{pdist\+\_\+jaccard\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a90059a6f96680dfa92c340e0bf735927}{pdist\+\_\+minkowski\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_ae99bce855ef32a7e5f4bd7826b1c266a}{pdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a89c716ffefffd4a0b3170e0bf7266227}{pdist\+\_\+yule\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a467d1688391d084bec05690ce5889039}{pdist\+\_\+matching\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_ac62d829c3bac7d68db22b8029efa8bed}{pdist\+\_\+dice\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_ab2828a8aa8054166e64fbce7f40768e5}{pdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_af1d915b22d2e62320a167882a56bb5a4}{pdist\+\_\+russellrao\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_ad622226f4871f6c5de91621be219554f}{pdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a6a0aef3d592f5372db724fc01bcd0431}{pdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a3e46cc2b4fd7ff22ed0a306d967ab3dc}{pdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a1272c8dcfcdacdfce86136f707071656}{to\+\_\+squareform\+\_\+from\+\_\+vector\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+Py\+Object $\ast$ \hyperlink{distance__wrap_8c_a9dae1adf7a26f5b88e08d4750a02f6ba}{to\+\_\+vector\+\_\+from\+\_\+squareform\+\_\+wrap} (Py\+Object $\ast$self, Py\+Object $\ast$args)
+\item 
+\hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} \hyperlink{distance__wrap_8c_a6e36ddf0cc2960873801510f1d1ec7b6}{init\+\_\+distance\+\_\+wrap} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{distance__wrap_8c_ae3c884c4e020e80aace312eedef1b795}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+bray\+\_\+curtis\+\_\+wrap@{cdist\+\_\+bray\+\_\+curtis\+\_\+wrap}}
+\index{cdist\+\_\+bray\+\_\+curtis\+\_\+wrap@{cdist\+\_\+bray\+\_\+curtis\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+bray\+\_\+curtis\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+bray\+\_\+curtis\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_ae3c884c4e020e80aace312eedef1b795}
+\hypertarget{distance__wrap_8c_a2ffd301a3e66a08e14bed4250986f8e2}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+canberra\+\_\+wrap@{cdist\+\_\+canberra\+\_\+wrap}}
+\index{cdist\+\_\+canberra\+\_\+wrap@{cdist\+\_\+canberra\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+canberra\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+canberra\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a2ffd301a3e66a08e14bed4250986f8e2}
+\hypertarget{distance__wrap_8c_aad2ef2f5d47d556bb3cf4db0079682c9}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+chebyshev\+\_\+wrap@{cdist\+\_\+chebyshev\+\_\+wrap}}
+\index{cdist\+\_\+chebyshev\+\_\+wrap@{cdist\+\_\+chebyshev\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+chebyshev\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+chebyshev\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_aad2ef2f5d47d556bb3cf4db0079682c9}
+\hypertarget{distance__wrap_8c_abd637874f95130ee793fbc93cd593899}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+city\+\_\+block\+\_\+wrap@{cdist\+\_\+city\+\_\+block\+\_\+wrap}}
+\index{cdist\+\_\+city\+\_\+block\+\_\+wrap@{cdist\+\_\+city\+\_\+block\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+city\+\_\+block\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+city\+\_\+block\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_abd637874f95130ee793fbc93cd593899}
+\hypertarget{distance__wrap_8c_ab1f8ebd3770bc5cd358f7bc93ea7e19f}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+cosine\+\_\+wrap@{cdist\+\_\+cosine\+\_\+wrap}}
+\index{cdist\+\_\+cosine\+\_\+wrap@{cdist\+\_\+cosine\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+cosine\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+cosine\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_ab1f8ebd3770bc5cd358f7bc93ea7e19f}
+\hypertarget{distance__wrap_8c_aea0f9dfb3b21e86a9de1137a5fcd789d}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+dice\+\_\+bool\+\_\+wrap@{cdist\+\_\+dice\+\_\+bool\+\_\+wrap}}
+\index{cdist\+\_\+dice\+\_\+bool\+\_\+wrap@{cdist\+\_\+dice\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+dice\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+dice\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_aea0f9dfb3b21e86a9de1137a5fcd789d}
+\hypertarget{distance__wrap_8c_a0c645b7bcd5581aac0a8dc95e28d2f00}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+euclidean\+\_\+wrap@{cdist\+\_\+euclidean\+\_\+wrap}}
+\index{cdist\+\_\+euclidean\+\_\+wrap@{cdist\+\_\+euclidean\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+euclidean\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+euclidean\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a0c645b7bcd5581aac0a8dc95e28d2f00}
+\hyperlink{distance__wrap_8c}{distance\+\_\+wrap.\+c}
+
+Author\+: Damian Eads Date\+: September 22, 2007 (moved to new file on June 8, 2008) Adapted for incorporation into Scipy, April 9, 2008.
+
+Copyright (c) 2007, Damian Eads. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyItemize}
+
+T\+H\+I\+S S\+O\+F\+T\+W\+A\+R\+E I\+S P\+R\+O\+V\+I\+D\+E\+D B\+Y T\+H\+E C\+O\+P\+Y\+R\+I\+G\+H\+T H\+O\+L\+D\+E\+R\+S A\+N\+D C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+R\+S \char`\"{}\+A\+S I\+S\char`\"{} A\+N\+D A\+N\+Y E\+X\+P\+R\+E\+S\+S O\+R I\+M\+P\+L\+I\+E\+D W\+A\+R\+R\+A\+N\+T\+I\+E\+S, I\+N\+C\+L\+U\+D\+I\+N\+G, B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O, T\+H\+E I\+M\+P\+L\+I\+E\+D W\+A\+R\+R\+A\+N\+T\+I\+E\+S O\+F M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+T\+Y A\+N\+D F\+I\+T\+N\+E\+S\+S F\+O\+R \hyperlink{classA}{A} P\+A\+R\+T\+I\+C\+U\+L\+A\+R P\+U\+R\+P\+O\+S\+E A\+R\+E D\+I\+S\+C\+L\+A\+I\+M\+E\+D. I\+N N\+O E\+V\+E\+N\+T S\+H\+A\+L\+L T\+H\+E C\+O\+P\+Y\+R\+I\+G\+H\+T O\+W\+N\+E\+R O\+R C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+R\+S B\+E L\+I\+A\+B\+L\+E F\+O\+R A\+N\+Y D\+I\+R\+E\+C\+T, I\+N\+D\+I\+R\+E\+C\+T, I\+N\+C\+I\+D\+E\+N\+T\+A\+L, S\+P\+E\+C\+I\+A\+L, E\+X\+E\+M\+P\+L\+A\+R\+Y, O\+R C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+A\+L D\+A\+M\+A\+G\+E\+S (I\+N\+C\+L\+U\+D\+I\+N\+G, B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O, P\+R\+O\+C\+U\+R\+E\+M\+E\+N\+T O\+F S\+U\+B\+S\+T\+I\+T\+U\+T\+E G\+O\+O\+D\+S O\+R S\+E\+R\+V\+I\+C\+E\+S; L\+O\+S\+S O\+F U\+S\+E, D\+A\+T\+A, O\+R P\+R\+O\+F\+I\+T\+S; O\+R B\+U\+S\+I\+N\+E\+S\+S I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+O\+N) H\+O\+W\+E\+V\+E\+R C\+A\+U\+S\+E\+D A\+N\+D O\+N A\+N\+Y T\+H\+E\+O\+R\+Y O\+F L\+I\+A\+B\+I\+L\+I\+T\+Y, W\+H\+E\+T\+H\+E\+R I\+N C\+O\+N\+T\+R\+A\+C\+T, S\+T\+R\+I\+C\+T L\+I\+A\+B\+I\+L\+I\+T\+Y, O\+R T\+O\+R\+T (I\+N\+C\+L\+U\+D\+I\+N\+G N\+E\+G\+L\+I\+G\+E\+N\+C\+E O\+R O\+T\+H\+E\+R\+W\+I\+S\+E) A\+R\+I\+S\+I\+N\+G I\+N A\+N\+Y W\+A\+Y O\+U\+T O\+F T\+H\+E U\+S\+E O\+F T\+H\+I\+S S\+O\+F\+T\+W\+A\+R\+E, E\+V\+E\+N I\+F A\+D\+V\+I\+S\+E\+D O\+F T\+H\+E P\+O\+S\+S\+I\+B\+I\+L\+I\+T\+Y O\+F S\+U\+C\+H D\+A\+M\+A\+G\+E. \hypertarget{distance__wrap_8c_ab153b4cc4186480249aef419d453bf16}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+hamming\+\_\+bool\+\_\+wrap@{cdist\+\_\+hamming\+\_\+bool\+\_\+wrap}}
+\index{cdist\+\_\+hamming\+\_\+bool\+\_\+wrap@{cdist\+\_\+hamming\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+hamming\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+hamming\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_ab153b4cc4186480249aef419d453bf16}
+\hypertarget{distance__wrap_8c_affef85e612a7614582c4269e1d7a931e}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+hamming\+\_\+wrap@{cdist\+\_\+hamming\+\_\+wrap}}
+\index{cdist\+\_\+hamming\+\_\+wrap@{cdist\+\_\+hamming\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+hamming\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+hamming\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_affef85e612a7614582c4269e1d7a931e}
+\hypertarget{distance__wrap_8c_a9a47b5d7a89ef81253357fdabbaffbd0}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+jaccard\+\_\+bool\+\_\+wrap@{cdist\+\_\+jaccard\+\_\+bool\+\_\+wrap}}
+\index{cdist\+\_\+jaccard\+\_\+bool\+\_\+wrap@{cdist\+\_\+jaccard\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+jaccard\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+jaccard\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a9a47b5d7a89ef81253357fdabbaffbd0}
+\hypertarget{distance__wrap_8c_a152621445ec0853b65c054b7d9c9203e}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+jaccard\+\_\+wrap@{cdist\+\_\+jaccard\+\_\+wrap}}
+\index{cdist\+\_\+jaccard\+\_\+wrap@{cdist\+\_\+jaccard\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+jaccard\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+jaccard\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a152621445ec0853b65c054b7d9c9203e}
+\hypertarget{distance__wrap_8c_a98c9afc0ce958ec78c75153c0f1d0190}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap@{cdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap}}
+\index{cdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap@{cdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a98c9afc0ce958ec78c75153c0f1d0190}
+\hypertarget{distance__wrap_8c_aeeef4b319338339f3c8449c1aca13376}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+mahalanobis\+\_\+wrap@{cdist\+\_\+mahalanobis\+\_\+wrap}}
+\index{cdist\+\_\+mahalanobis\+\_\+wrap@{cdist\+\_\+mahalanobis\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+mahalanobis\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+mahalanobis\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_aeeef4b319338339f3c8449c1aca13376}
+\hypertarget{distance__wrap_8c_abdb65e7b2621a33629eb299cf3c4a9ef}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+matching\+\_\+bool\+\_\+wrap@{cdist\+\_\+matching\+\_\+bool\+\_\+wrap}}
+\index{cdist\+\_\+matching\+\_\+bool\+\_\+wrap@{cdist\+\_\+matching\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+matching\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+matching\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_abdb65e7b2621a33629eb299cf3c4a9ef}
+\hypertarget{distance__wrap_8c_a49f91969953f51ad174c90247b8dbbbd}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+minkowski\+\_\+wrap@{cdist\+\_\+minkowski\+\_\+wrap}}
+\index{cdist\+\_\+minkowski\+\_\+wrap@{cdist\+\_\+minkowski\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+minkowski\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+minkowski\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a49f91969953f51ad174c90247b8dbbbd}
+\hypertarget{distance__wrap_8c_a6146fd7179f1c7a5a9fe3bdaad78e2d5}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap@{cdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap}}
+\index{cdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap@{cdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a6146fd7179f1c7a5a9fe3bdaad78e2d5}
+\hypertarget{distance__wrap_8c_ae03b7364a4613244a7eb1233713ece5c}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+russellrao\+\_\+bool\+\_\+wrap@{cdist\+\_\+russellrao\+\_\+bool\+\_\+wrap}}
+\index{cdist\+\_\+russellrao\+\_\+bool\+\_\+wrap@{cdist\+\_\+russellrao\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+russellrao\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+russellrao\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_ae03b7364a4613244a7eb1233713ece5c}
+\hypertarget{distance__wrap_8c_aa0a834e442a2ef5506a1285ec1162346}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+seuclidean\+\_\+wrap@{cdist\+\_\+seuclidean\+\_\+wrap}}
+\index{cdist\+\_\+seuclidean\+\_\+wrap@{cdist\+\_\+seuclidean\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+seuclidean\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+seuclidean\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_aa0a834e442a2ef5506a1285ec1162346}
+\hypertarget{distance__wrap_8c_a86f95c3d4aa704b1bd763aeb200dec84}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap@{cdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap}}
+\index{cdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap@{cdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a86f95c3d4aa704b1bd763aeb200dec84}
+\hypertarget{distance__wrap_8c_ae07ba1009bd9c816fc07889a451fcb14}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap@{cdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap}}
+\index{cdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap@{cdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_ae07ba1009bd9c816fc07889a451fcb14}
+\hypertarget{distance__wrap_8c_a7bc8296de73c9cbe3918db3d463c277e}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+sqeuclidean\+\_\+wrap@{cdist\+\_\+sqeuclidean\+\_\+wrap}}
+\index{cdist\+\_\+sqeuclidean\+\_\+wrap@{cdist\+\_\+sqeuclidean\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+sqeuclidean\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+sqeuclidean\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a7bc8296de73c9cbe3918db3d463c277e}
+\hypertarget{distance__wrap_8c_a9b6ec88b6a3312eff9eea359076e23b2}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap@{cdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap}}
+\index{cdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap@{cdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a9b6ec88b6a3312eff9eea359076e23b2}
+\hypertarget{distance__wrap_8c_acff0f81380550e82dedb8e4b73f6dec6}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!cdist\+\_\+yule\+\_\+bool\+\_\+wrap@{cdist\+\_\+yule\+\_\+bool\+\_\+wrap}}
+\index{cdist\+\_\+yule\+\_\+bool\+\_\+wrap@{cdist\+\_\+yule\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{cdist\+\_\+yule\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ cdist\+\_\+yule\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_acff0f81380550e82dedb8e4b73f6dec6}
+\hypertarget{distance__wrap_8c_a6e36ddf0cc2960873801510f1d1ec7b6}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!init\+\_\+distance\+\_\+wrap@{init\+\_\+distance\+\_\+wrap}}
+\index{init\+\_\+distance\+\_\+wrap@{init\+\_\+distance\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{init\+\_\+distance\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} init\+\_\+distance\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a6e36ddf0cc2960873801510f1d1ec7b6}
+\hypertarget{distance__wrap_8c_aa540e7006531b20cbbb00fd6d8562897}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+bray\+\_\+curtis\+\_\+wrap@{pdist\+\_\+bray\+\_\+curtis\+\_\+wrap}}
+\index{pdist\+\_\+bray\+\_\+curtis\+\_\+wrap@{pdist\+\_\+bray\+\_\+curtis\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+bray\+\_\+curtis\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+bray\+\_\+curtis\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_aa540e7006531b20cbbb00fd6d8562897}
+\hypertarget{distance__wrap_8c_a50c34d6b769ea2ed265d039398693c22}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+canberra\+\_\+wrap@{pdist\+\_\+canberra\+\_\+wrap}}
+\index{pdist\+\_\+canberra\+\_\+wrap@{pdist\+\_\+canberra\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+canberra\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+canberra\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a50c34d6b769ea2ed265d039398693c22}
+\hypertarget{distance__wrap_8c_a7e58b654023f8ced719f601a4f283407}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+chebyshev\+\_\+wrap@{pdist\+\_\+chebyshev\+\_\+wrap}}
+\index{pdist\+\_\+chebyshev\+\_\+wrap@{pdist\+\_\+chebyshev\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+chebyshev\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+chebyshev\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a7e58b654023f8ced719f601a4f283407}
+\hypertarget{distance__wrap_8c_add54df34c5bc98c0788c0f0860c8ead1}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+city\+\_\+block\+\_\+wrap@{pdist\+\_\+city\+\_\+block\+\_\+wrap}}
+\index{pdist\+\_\+city\+\_\+block\+\_\+wrap@{pdist\+\_\+city\+\_\+block\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+city\+\_\+block\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+city\+\_\+block\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_add54df34c5bc98c0788c0f0860c8ead1}
+\hypertarget{distance__wrap_8c_aaa62ef176a41b90d3f34262d97670e56}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+cosine\+\_\+wrap@{pdist\+\_\+cosine\+\_\+wrap}}
+\index{pdist\+\_\+cosine\+\_\+wrap@{pdist\+\_\+cosine\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+cosine\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+cosine\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_aaa62ef176a41b90d3f34262d97670e56}
+\hypertarget{distance__wrap_8c_ac62d829c3bac7d68db22b8029efa8bed}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+dice\+\_\+bool\+\_\+wrap@{pdist\+\_\+dice\+\_\+bool\+\_\+wrap}}
+\index{pdist\+\_\+dice\+\_\+bool\+\_\+wrap@{pdist\+\_\+dice\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+dice\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+dice\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_ac62d829c3bac7d68db22b8029efa8bed}
+\hypertarget{distance__wrap_8c_af3cc8a4285cbd75c83dd8d6fdaa2b5bd}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+euclidean\+\_\+wrap@{pdist\+\_\+euclidean\+\_\+wrap}}
+\index{pdist\+\_\+euclidean\+\_\+wrap@{pdist\+\_\+euclidean\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+euclidean\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+euclidean\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_af3cc8a4285cbd75c83dd8d6fdaa2b5bd}
+\hypertarget{distance__wrap_8c_ae3efac9fe513f9ecccc0a4a12d137cf6}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+hamming\+\_\+bool\+\_\+wrap@{pdist\+\_\+hamming\+\_\+bool\+\_\+wrap}}
+\index{pdist\+\_\+hamming\+\_\+bool\+\_\+wrap@{pdist\+\_\+hamming\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+hamming\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+hamming\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_ae3efac9fe513f9ecccc0a4a12d137cf6}
+\hypertarget{distance__wrap_8c_a6b330058e871fe3d08be2c8cda658cc3}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+hamming\+\_\+wrap@{pdist\+\_\+hamming\+\_\+wrap}}
+\index{pdist\+\_\+hamming\+\_\+wrap@{pdist\+\_\+hamming\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+hamming\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+hamming\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a6b330058e871fe3d08be2c8cda658cc3}
+\hypertarget{distance__wrap_8c_a0263ce27c45fb58ad2548ae136df1edb}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+jaccard\+\_\+bool\+\_\+wrap@{pdist\+\_\+jaccard\+\_\+bool\+\_\+wrap}}
+\index{pdist\+\_\+jaccard\+\_\+bool\+\_\+wrap@{pdist\+\_\+jaccard\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+jaccard\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+jaccard\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a0263ce27c45fb58ad2548ae136df1edb}
+\hypertarget{distance__wrap_8c_aabe446f3bc9bc0676aecd3d8fe0d141c}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+jaccard\+\_\+wrap@{pdist\+\_\+jaccard\+\_\+wrap}}
+\index{pdist\+\_\+jaccard\+\_\+wrap@{pdist\+\_\+jaccard\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+jaccard\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+jaccard\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_aabe446f3bc9bc0676aecd3d8fe0d141c}
+\hypertarget{distance__wrap_8c_ad622226f4871f6c5de91621be219554f}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap@{pdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap}}
+\index{pdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap@{pdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+kulsinski\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_ad622226f4871f6c5de91621be219554f}
+\hypertarget{distance__wrap_8c_aa047ed1cf84268091bc68f92756e8a25}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+mahalanobis\+\_\+wrap@{pdist\+\_\+mahalanobis\+\_\+wrap}}
+\index{pdist\+\_\+mahalanobis\+\_\+wrap@{pdist\+\_\+mahalanobis\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+mahalanobis\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+mahalanobis\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_aa047ed1cf84268091bc68f92756e8a25}
+\hypertarget{distance__wrap_8c_a467d1688391d084bec05690ce5889039}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+matching\+\_\+bool\+\_\+wrap@{pdist\+\_\+matching\+\_\+bool\+\_\+wrap}}
+\index{pdist\+\_\+matching\+\_\+bool\+\_\+wrap@{pdist\+\_\+matching\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+matching\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+matching\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a467d1688391d084bec05690ce5889039}
+\hypertarget{distance__wrap_8c_a90059a6f96680dfa92c340e0bf735927}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+minkowski\+\_\+wrap@{pdist\+\_\+minkowski\+\_\+wrap}}
+\index{pdist\+\_\+minkowski\+\_\+wrap@{pdist\+\_\+minkowski\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+minkowski\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+minkowski\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a90059a6f96680dfa92c340e0bf735927}
+\hypertarget{distance__wrap_8c_ab2828a8aa8054166e64fbce7f40768e5}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap@{pdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap}}
+\index{pdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap@{pdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+rogerstanimoto\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_ab2828a8aa8054166e64fbce7f40768e5}
+\hypertarget{distance__wrap_8c_af1d915b22d2e62320a167882a56bb5a4}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+russellrao\+\_\+bool\+\_\+wrap@{pdist\+\_\+russellrao\+\_\+bool\+\_\+wrap}}
+\index{pdist\+\_\+russellrao\+\_\+bool\+\_\+wrap@{pdist\+\_\+russellrao\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+russellrao\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+russellrao\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_af1d915b22d2e62320a167882a56bb5a4}
+\hypertarget{distance__wrap_8c_a79f087450920687f28b75a951e01c361}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+seuclidean\+\_\+wrap@{pdist\+\_\+seuclidean\+\_\+wrap}}
+\index{pdist\+\_\+seuclidean\+\_\+wrap@{pdist\+\_\+seuclidean\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+seuclidean\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+seuclidean\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a79f087450920687f28b75a951e01c361}
+\hypertarget{distance__wrap_8c_a6a0aef3d592f5372db724fc01bcd0431}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap@{pdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap}}
+\index{pdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap@{pdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+sokalmichener\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a6a0aef3d592f5372db724fc01bcd0431}
+\hypertarget{distance__wrap_8c_a3e46cc2b4fd7ff22ed0a306d967ab3dc}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap@{pdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap}}
+\index{pdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap@{pdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+sokalsneath\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a3e46cc2b4fd7ff22ed0a306d967ab3dc}
+\hypertarget{distance__wrap_8c_a1a74e1d231d3e2b5c23e9fd2baf6d432}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+sqeuclidean\+\_\+wrap@{pdist\+\_\+sqeuclidean\+\_\+wrap}}
+\index{pdist\+\_\+sqeuclidean\+\_\+wrap@{pdist\+\_\+sqeuclidean\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+sqeuclidean\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+sqeuclidean\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a1a74e1d231d3e2b5c23e9fd2baf6d432}
+\hypertarget{distance__wrap_8c_ae99bce855ef32a7e5f4bd7826b1c266a}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap@{pdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap}}
+\index{pdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap@{pdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+weighted\+\_\+minkowski\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_ae99bce855ef32a7e5f4bd7826b1c266a}
+\hypertarget{distance__wrap_8c_a89c716ffefffd4a0b3170e0bf7266227}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!pdist\+\_\+yule\+\_\+bool\+\_\+wrap@{pdist\+\_\+yule\+\_\+bool\+\_\+wrap}}
+\index{pdist\+\_\+yule\+\_\+bool\+\_\+wrap@{pdist\+\_\+yule\+\_\+bool\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{pdist\+\_\+yule\+\_\+bool\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ pdist\+\_\+yule\+\_\+bool\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a89c716ffefffd4a0b3170e0bf7266227}
+\hypertarget{distance__wrap_8c_a1272c8dcfcdacdfce86136f707071656}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!to\+\_\+squareform\+\_\+from\+\_\+vector\+\_\+wrap@{to\+\_\+squareform\+\_\+from\+\_\+vector\+\_\+wrap}}
+\index{to\+\_\+squareform\+\_\+from\+\_\+vector\+\_\+wrap@{to\+\_\+squareform\+\_\+from\+\_\+vector\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{to\+\_\+squareform\+\_\+from\+\_\+vector\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ to\+\_\+squareform\+\_\+from\+\_\+vector\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a1272c8dcfcdacdfce86136f707071656}
+\hypertarget{distance__wrap_8c_a9dae1adf7a26f5b88e08d4750a02f6ba}{}\index{distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}!to\+\_\+vector\+\_\+from\+\_\+squareform\+\_\+wrap@{to\+\_\+vector\+\_\+from\+\_\+squareform\+\_\+wrap}}
+\index{to\+\_\+vector\+\_\+from\+\_\+squareform\+\_\+wrap@{to\+\_\+vector\+\_\+from\+\_\+squareform\+\_\+wrap}!distance\+\_\+wrap.\+c@{distance\+\_\+wrap.\+c}}
+\subsubsection[{to\+\_\+vector\+\_\+from\+\_\+squareform\+\_\+wrap}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ to\+\_\+vector\+\_\+from\+\_\+squareform\+\_\+wrap (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{self, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{distance__wrap_8c_a9dae1adf7a26f5b88e08d4750a02f6ba}

@@ -1,0 +1,171 @@
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__lu}{}\section{scipy.\+linalg.\+decomp\+\_\+lu Namespace Reference}
+\label{namespacescipy_1_1linalg_1_1decomp__lu}\index{scipy.\+linalg.\+decomp\+\_\+lu@{scipy.\+linalg.\+decomp\+\_\+lu}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__lu_afc213c8435456c90ba27bda0b1db20f4}{lu\+\_\+factor}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__lu_ac9a5c9b939bdf4283dcfbeba0b9aa0d5}{lu\+\_\+solve}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__lu_a01c528deaae79afb2a800b91f8da9a45}{lu}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1linalg_1_1decomp__lu_a03330e72df07fe58c89c53c9205ee9d8}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1linalg_1_1decomp__lu_a01c528deaae79afb2a800b91f8da9a45}{lu}', '\hyperlink{namespacescipy_1_1linalg_1_1decomp__lu_ac9a5c9b939bdf4283dcfbeba0b9aa0d5}{lu\+\_\+solve}', '\hyperlink{namespacescipy_1_1linalg_1_1decomp__lu_afc213c8435456c90ba27bda0b1db20f4}{lu\+\_\+factor}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}LU decomposition functions.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__lu_a01c528deaae79afb2a800b91f8da9a45}{}\index{scipy\+::linalg\+::decomp\+\_\+lu@{scipy\+::linalg\+::decomp\+\_\+lu}!lu@{lu}}
+\index{lu@{lu}!scipy\+::linalg\+::decomp\+\_\+lu@{scipy\+::linalg\+::decomp\+\_\+lu}}
+\subsubsection[{lu}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+lu.\+lu (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{permute\+\_\+l = {\ttfamily {\bf False}}, }
+\item[{}]{overwrite\+\_\+a = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__lu_a01c528deaae79afb2a800b91f8da9a45}
+\begin{DoxyVerb}Compute pivoted LU decompostion of a matrix.
+
+The decomposition is::
+
+    A = P L U
+
+where P is a permutation matrix, L lower triangular with unit
+diagonal elements, and U upper triangular.
+
+Parameters
+----------
+a : (M, N) array_like
+    Array to decompose
+permute_l : bool
+    Perform the multiplication P*L  (Default: do not permute)
+overwrite_a : bool
+    Whether to overwrite data in a (may improve performance)
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+**(If permute_l == False)**
+
+p : (M, M) ndarray
+    Permutation matrix
+l : (M, K) ndarray
+    Lower triangular or trapezoidal matrix with unit diagonal.
+    K = min(M, N)
+u : (K, N) ndarray
+    Upper triangular or trapezoidal matrix
+
+**(If permute_l == True)**
+
+pl : (M, K) ndarray
+    Permuted L matrix.
+    K = min(M, N)
+u : (K, N) ndarray
+    Upper triangular or trapezoidal matrix
+
+Notes
+-----
+This is a LU factorization routine written for Scipy.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__lu_afc213c8435456c90ba27bda0b1db20f4}{}\index{scipy\+::linalg\+::decomp\+\_\+lu@{scipy\+::linalg\+::decomp\+\_\+lu}!lu\+\_\+factor@{lu\+\_\+factor}}
+\index{lu\+\_\+factor@{lu\+\_\+factor}!scipy\+::linalg\+::decomp\+\_\+lu@{scipy\+::linalg\+::decomp\+\_\+lu}}
+\subsubsection[{lu\+\_\+factor}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+lu.\+lu\+\_\+factor (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{overwrite\+\_\+a = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__lu_afc213c8435456c90ba27bda0b1db20f4}
+\begin{DoxyVerb}Compute pivoted LU decomposition of a matrix.
+
+The decomposition is::
+
+    A = P L U
+
+where P is a permutation matrix, L lower triangular with unit
+diagonal elements, and U upper triangular.
+
+Parameters
+----------
+a : (M, M) array_like
+    Matrix to decompose
+overwrite_a : boolean
+    Whether to overwrite data in A (may increase performance)
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+lu : (N, N) ndarray
+    Matrix containing U in its upper triangle, and L in its lower triangle.
+    The unit diagonal elements of L are not stored.
+piv : (N,) ndarray
+    Pivot indices representing the permutation matrix P:
+    row i of matrix was interchanged with row piv[i].
+
+See also
+--------
+lu_solve : solve an equation system using the LU factorization of a matrix
+
+Notes
+-----
+This is a wrapper to the ``*GETRF`` routines from LAPACK.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__lu_ac9a5c9b939bdf4283dcfbeba0b9aa0d5}{}\index{scipy\+::linalg\+::decomp\+\_\+lu@{scipy\+::linalg\+::decomp\+\_\+lu}!lu\+\_\+solve@{lu\+\_\+solve}}
+\index{lu\+\_\+solve@{lu\+\_\+solve}!scipy\+::linalg\+::decomp\+\_\+lu@{scipy\+::linalg\+::decomp\+\_\+lu}}
+\subsubsection[{lu\+\_\+solve}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+lu.\+lu\+\_\+solve (
+\begin{DoxyParamCaption}
+\item[{}]{lu\+\_\+and\+\_\+piv, }
+\item[{}]{b, }
+\item[{}]{trans = {\ttfamily 0}, }
+\item[{}]{overwrite\+\_\+b = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__lu_ac9a5c9b939bdf4283dcfbeba0b9aa0d5}
+\begin{DoxyVerb}Solve an equation system, a x = b, given the LU factorization of a
+
+Parameters
+----------
+(lu, piv)
+    Factorization of the coefficient matrix a, as given by lu_factor
+b : array
+    Right-hand side
+trans : {0, 1, 2}
+    Type of system to solve:
+
+    =====  =========
+    trans  system
+    =====  =========
+    0      a x   = b
+    1      a^T x = b
+    2      a^H x = b
+    =====  =========
+check_finite : boolean, optional
+    Whether to check that the input matrices contain only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+x : array
+    Solution to the system
+
+See also
+--------
+lu_factor : LU factorize a matrix\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__lu_a03330e72df07fe58c89c53c9205ee9d8}{}\index{scipy\+::linalg\+::decomp\+\_\+lu@{scipy\+::linalg\+::decomp\+\_\+lu}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::linalg\+::decomp\+\_\+lu@{scipy\+::linalg\+::decomp\+\_\+lu}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+linalg.\+decomp\+\_\+lu.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf lu}', '{\bf lu\+\_\+solve}', '{\bf lu\+\_\+factor}'\mbox{]}}\label{namespacescipy_1_1linalg_1_1decomp__lu_a03330e72df07fe58c89c53c9205ee9d8}

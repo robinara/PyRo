@@ -1,0 +1,82 @@
+\hypertarget{slargv_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slargv.f File Reference}
+\label{slargv_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slargv.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slargv.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slargv_8f_afe308752f1cc74f915fa28d0fe3fec4e}{slargv} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, X, I\+N\+C\+X, Y, I\+N\+C\+Y, C, I\+N\+C\+C)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+R\+G\+V} generates a vector of plane rotations with real cosines and real sines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slargv_8f_afe308752f1cc74f915fa28d0fe3fec4e}{}\index{slargv.\+f@{slargv.\+f}!slargv@{slargv}}
+\index{slargv@{slargv}!slargv.\+f@{slargv.\+f}}
+\subsubsection[{slargv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slargv (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{real, dimension( $\ast$ )}]{Y, }
+\item[{integer}]{I\+N\+C\+Y, }
+\item[{real, dimension( $\ast$ )}]{C, }
+\item[{integer}]{I\+N\+C\+C}
+\end{DoxyParamCaption}
+)}\label{slargv_8f_afe308752f1cc74f915fa28d0fe3fec4e}
+
+
+{\bfseries S\+L\+A\+R\+G\+V} generates a vector of plane rotations with real cosines and real sines. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLARGV generates a vector of real plane rotations, determined by
+ elements of the real vectors x and y. For i = 1,2,...,n
+
+    (  c(i)  s(i) ) ( x(i) ) = ( a(i) )
+    ( -s(i)  c(i) ) ( y(i) ) = (   0  )\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of plane rotations to be generated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is REAL array,
+                         dimension (1+(N-1)*INCX)
+          On entry, the vector x.
+          On exit, x(i) is overwritten by a(i), for i = 1,...,n.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between elements of X. INCX > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Y} & \begin{DoxyVerb}          Y is REAL array,
+                         dimension (1+(N-1)*INCY)
+          On entry, the vector y.
+          On exit, the sines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+Y} & \begin{DoxyVerb}          INCY is INTEGER
+          The increment between elements of Y. INCY > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C} & \begin{DoxyVerb}          C is REAL array, dimension (1+(N-1)*INCC)
+          The cosines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+C} & \begin{DoxyVerb}          INCC is INTEGER
+          The increment between elements of C. INCC > 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

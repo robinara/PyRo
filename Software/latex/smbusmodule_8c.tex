@@ -1,0 +1,243 @@
+\hypertarget{smbusmodule_8c}{}\section{packages/i2c-\/tools-\/3.1.1/py-\/smbus/smbusmodule.c File Reference}
+\label{smbusmodule_8c}\index{packages/i2c-\/tools-\/3.\+1.\+1/py-\/smbus/smbusmodule.\+c@{packages/i2c-\/tools-\/3.\+1.\+1/py-\/smbus/smbusmodule.\+c}}
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}structmember.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{smbusmodule_8c_a36bcbcb9294695fddb8606a32cbedc9b}{I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B\+R\+O\+K\+E\+N}~6
+\item 
+\#define \hyperlink{smbusmodule_8c_aa5ecbb0ceaddcb905d68d366edfb026c}{I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+D\+A\+T\+A}~8
+\item 
+\#define \hyperlink{smbusmodule_8c_a2d1edde91ea515b363277f4bbdc3244d}{M\+A\+X\+P\+A\+T\+H}~16
+\item 
+\#define \hyperlink{smbusmodule_8c_ae9e417493bd56a61f6de6dfce922ac0f}{S\+M\+Bus\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R}(self,  addr)
+\item 
+\#define \hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C}~void
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{smbusmodule_8c_a7d487aca7ef6b28a4bb839e86ac50cb2}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+module\+\_\+doc,\char`\"{}This module defines an object \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} that allows S\+M\+Bus \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transactions\textbackslash{}n}\char`\"{}\char`\"{}on hosts running the Linux kernel.  The host kernel must have \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{I2\+C\textbackslash{}n}\char`\"{}\char`\"{}support, I2\+C device interface support, and \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} bus adapter \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{driver.\textbackslash{}n}\char`\"{}\char`\"{}All of these can be either built-\/in to the kernel, or loaded \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{from\textbackslash{}n}\char`\"{}\char`\"{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{modules.\textbackslash{}n}\char`\"{}\char`\"{}\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}\char`\"{}\char`\"{}Because the I2\+C device interface is opened R/W, users of \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{this\textbackslash{}n}\char`\"{}\char`\"{}module usually must have root \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{permissions.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a0649486b3030d1fa5de354c643973e5c}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+close\+\_\+doc,\char`\"{}close()\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Disconnects the object from the \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{bus.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a457c65ecd54048981f122a34b1e4d8f6}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+open\+\_\+doc,\char`\"{}open(bus)\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Connects the object to the specified \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{S\+M\+Bus.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a95ecb9c74ff950152fbb93b3c4f77aee}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+write\+\_\+quick\+\_\+doc,\char`\"{}write\+\_\+quick(addr)\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Quick \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a587e0c25972b672599f9ed751dfc68eb}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+read\+\_\+byte\+\_\+doc,\char`\"{}read\+\_\+byte(addr) -\/$>$ \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{result\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Read Byte \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_ac9012efaff3384356f6aa311024400e7}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+write\+\_\+byte\+\_\+doc,\char`\"{}write\+\_\+byte(addr, val)\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Write Byte \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_ac246d5a22d68e0a214c02e017a967299}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+read\+\_\+byte\+\_\+data\+\_\+doc,\char`\"{}read\+\_\+byte\+\_\+data(addr, cmd) -\/$>$ \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{result\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Read Byte Data \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a39547f9959cce90aa44d183a35ef4b31}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+write\+\_\+byte\+\_\+data\+\_\+doc,\char`\"{}write\+\_\+byte\+\_\+data(addr, cmd, val)\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Write Byte Data \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_af9663f671a01430ab194b181262df682}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+read\+\_\+word\+\_\+data\+\_\+doc,\char`\"{}read\+\_\+word\+\_\+data(addr, cmd) -\/$>$ \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{result\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Read Word Data \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a586b5480d495cf2cfb78e106c69149bb}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+write\+\_\+word\+\_\+data\+\_\+doc,\char`\"{}write\+\_\+word\+\_\+data(addr, cmd, val)\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Write Word Data \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a351c29be28888d6b9ff1943320d974b9}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+process\+\_\+call\+\_\+doc,\char`\"{}process\+\_\+call(addr, cmd, val)\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Process Call \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a44a460bb7bedcf478a162d540fabc248}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+read\+\_\+block\+\_\+data\+\_\+doc,\char`\"{}read\+\_\+block\+\_\+data(addr, cmd) -\/$>$ \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{results\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Read Block Data \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a188ddb9a612d083c5959a05a513081c1}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+write\+\_\+block\+\_\+data\+\_\+doc,\char`\"{}write\+\_\+block\+\_\+data(addr, cmd, \mbox{[}vals\mbox{]})\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Write Block Data \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a8e569ea306e2a0f4fa4cb8ef20f81f04}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+block\+\_\+process\+\_\+call\+\_\+doc,\char`\"{}block\+\_\+process\+\_\+call(addr, cmd, \mbox{[}vals\mbox{]}) -\/$>$ \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{results\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Block Process Call \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_ad4ce6fd98d428d4efde8ffad68cd0d9d}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+read\+\_\+i2c\+\_\+block\+\_\+data\+\_\+doc,\char`\"{}read\+\_\+i2c\+\_\+block\+\_\+data(addr, cmd, len=32) -\/$>$ \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{results\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform I2\+C Block Read \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a76addf3e8faa52ec05b827eafbb5cab7}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+write\+\_\+i2c\+\_\+block\+\_\+data\+\_\+doc,\char`\"{}write\+\_\+i2c\+\_\+block\+\_\+data(addr, cmd, \mbox{[}vals\mbox{]})\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Perform I2\+C Block Write \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_ac8e7affc69239d87f23adeb9a4761bc7}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+M\+Bus\+\_\+type\+\_\+doc,\char`\"{}S\+M\+Bus(\mbox{[}bus\mbox{]}) -\/$>$ \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{S\+M\+Bus\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Return \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} new S\+M\+Bus object that is (optionally) connected to \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{the\textbackslash{}n}\char`\"{}\char`\"{}specified I2\+C device \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{interface.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} \hyperlink{smbusmodule_8c_ab98bdf3cdc8d49ea48f40fd2265d8a5d}{initsmbus} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{smbusmodule_8c_a36bcbcb9294695fddb8606a32cbedc9b}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B\+R\+O\+K\+E\+N@{I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B\+R\+O\+K\+E\+N}}
+\index{I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B\+R\+O\+K\+E\+N@{I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B\+R\+O\+K\+E\+N}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B\+R\+O\+K\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B\+R\+O\+K\+E\+N~6}\label{smbusmodule_8c_a36bcbcb9294695fddb8606a32cbedc9b}
+\hypertarget{smbusmodule_8c_aa5ecbb0ceaddcb905d68d366edfb026c}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+D\+A\+T\+A@{I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+D\+A\+T\+A}}
+\index{I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+D\+A\+T\+A@{I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+D\+A\+T\+A}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+D\+A\+T\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\+C\+\_\+\+S\+M\+B\+U\+S\+\_\+\+I2\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+D\+A\+T\+A~8}\label{smbusmodule_8c_aa5ecbb0ceaddcb905d68d366edfb026c}
+\hypertarget{smbusmodule_8c_a2d1edde91ea515b363277f4bbdc3244d}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!M\+A\+X\+P\+A\+T\+H@{M\+A\+X\+P\+A\+T\+H}}
+\index{M\+A\+X\+P\+A\+T\+H@{M\+A\+X\+P\+A\+T\+H}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{M\+A\+X\+P\+A\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+P\+A\+T\+H~16}\label{smbusmodule_8c_a2d1edde91ea515b363277f4bbdc3244d}
+\hypertarget{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C@{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C}}
+\index{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C@{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C~void}\label{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}
+\hypertarget{smbusmodule_8c_ae9e417493bd56a61f6de6dfce922ac0f}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!S\+M\+Bus\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R@{S\+M\+Bus\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R}}
+\index{S\+M\+Bus\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R@{S\+M\+Bus\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{S\+M\+Bus\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+M\+Bus\+\_\+\+S\+E\+T\+\_\+\+A\+D\+D\+R(
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_ae9e417493bd56a61f6de6dfce922ac0f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} (SMBus\_set\_addr(\textcolor{keyword}{self}, addr)) \{ \(\backslash\)
+        PyErr\_SetFromErrno(PyExc\_IOError); \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{        return} NULL; \(\backslash\)
+    \} \(\backslash\)
+\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{smbusmodule_8c_ab98bdf3cdc8d49ea48f40fd2265d8a5d}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!initsmbus@{initsmbus}}
+\index{initsmbus@{initsmbus}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{initsmbus}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} initsmbus (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_ab98bdf3cdc8d49ea48f40fd2265d8a5d}
+\hypertarget{smbusmodule_8c_a7d487aca7ef6b28a4bb839e86ac50cb2}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+module\+\_\+doc}]{, }
+\item[{\char`\"{}This module defines an object {\bf type} that allows S\+M\+Bus {\bf transactions\textbackslash{}n}\char`\"{}\char`\"{}on hosts running the Linux kernel. The host kernel must have {\bf I2\+C\textbackslash{}n}\char`\"{}\char`\"{}}]{support, }
+\item[{I2\+C device interface}]{support, }
+\item[{and {\bf a} bus adapter {\bf driver.\textbackslash{}n}\char`\"{}\char`\"{}All of these can be either built-\/in to the}]{kernel, }
+\item[{or loaded {\bf from\textbackslash{}n}\char`\"{}\char`\"{}{\bf modules.\textbackslash{}n}\char`\"{}\char`\"{}\textbackslash{}{\bf n}\char`\"{}\char`\"{}Because the I2\+C device interface is opened R/}]{W, }
+\item[{users of {\bf this\textbackslash{}n}\char`\"{}\char`\"{}module usually must have root {\bf permissions.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a7d487aca7ef6b28a4bb839e86ac50cb2}
+\hypertarget{smbusmodule_8c_a0649486b3030d1fa5de354c643973e5c}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+close\+\_\+doc}]{, }
+\item[{\char`\"{}close()\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Disconnects the object from the {\bf bus.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a0649486b3030d1fa5de354c643973e5c}
+\hypertarget{smbusmodule_8c_a457c65ecd54048981f122a34b1e4d8f6}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+open\+\_\+doc}]{, }
+\item[{\char`\"{}open(bus)\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Connects the object to the specified {\bf S\+M\+Bus.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a457c65ecd54048981f122a34b1e4d8f6}
+\hypertarget{smbusmodule_8c_a95ecb9c74ff950152fbb93b3c4f77aee}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+write\+\_\+quick\+\_\+doc}]{, }
+\item[{\char`\"{}write\+\_\+quick(addr)\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Quick {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a95ecb9c74ff950152fbb93b3c4f77aee}
+\hypertarget{smbusmodule_8c_a587e0c25972b672599f9ed751dfc68eb}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+read\+\_\+byte\+\_\+doc}]{, }
+\item[{\char`\"{}read\+\_\+byte(addr) -\/$>$ {\bf result\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Read Byte {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a587e0c25972b672599f9ed751dfc68eb}
+\hypertarget{smbusmodule_8c_ac9012efaff3384356f6aa311024400e7}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+write\+\_\+byte\+\_\+doc}]{, }
+\item[{\char`\"{}write\+\_\+byte(addr, val)\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Write Byte {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_ac9012efaff3384356f6aa311024400e7}
+\hypertarget{smbusmodule_8c_ac246d5a22d68e0a214c02e017a967299}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+read\+\_\+byte\+\_\+data\+\_\+doc}]{, }
+\item[{\char`\"{}read\+\_\+byte\+\_\+data(addr, cmd) -\/$>$ {\bf result\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Read Byte Data {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_ac246d5a22d68e0a214c02e017a967299}
+\hypertarget{smbusmodule_8c_a39547f9959cce90aa44d183a35ef4b31}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+write\+\_\+byte\+\_\+data\+\_\+doc}]{, }
+\item[{\char`\"{}write\+\_\+byte\+\_\+data(addr, cmd, val)\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Write Byte Data {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a39547f9959cce90aa44d183a35ef4b31}
+\hypertarget{smbusmodule_8c_af9663f671a01430ab194b181262df682}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+read\+\_\+word\+\_\+data\+\_\+doc}]{, }
+\item[{\char`\"{}read\+\_\+word\+\_\+data(addr, cmd) -\/$>$ {\bf result\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Read Word Data {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_af9663f671a01430ab194b181262df682}
+\hypertarget{smbusmodule_8c_a586b5480d495cf2cfb78e106c69149bb}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+write\+\_\+word\+\_\+data\+\_\+doc}]{, }
+\item[{\char`\"{}write\+\_\+word\+\_\+data(addr, cmd, val)\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Write Word Data {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a586b5480d495cf2cfb78e106c69149bb}
+\hypertarget{smbusmodule_8c_a351c29be28888d6b9ff1943320d974b9}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+process\+\_\+call\+\_\+doc}]{, }
+\item[{\char`\"{}process\+\_\+call(addr, cmd, val)\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Process Call {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a351c29be28888d6b9ff1943320d974b9}
+\hypertarget{smbusmodule_8c_a44a460bb7bedcf478a162d540fabc248}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+read\+\_\+block\+\_\+data\+\_\+doc}]{, }
+\item[{\char`\"{}read\+\_\+block\+\_\+data(addr, cmd) -\/$>$ {\bf results\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Read Block Data {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a44a460bb7bedcf478a162d540fabc248}
+\hypertarget{smbusmodule_8c_a188ddb9a612d083c5959a05a513081c1}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+write\+\_\+block\+\_\+data\+\_\+doc}]{, }
+\item[{\char`\"{}write\+\_\+block\+\_\+data(addr, cmd, \mbox{[}vals\mbox{]})\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Write Block Data {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a188ddb9a612d083c5959a05a513081c1}
+\hypertarget{smbusmodule_8c_a8e569ea306e2a0f4fa4cb8ef20f81f04}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+block\+\_\+process\+\_\+call\+\_\+doc}]{, }
+\item[{\char`\"{}block\+\_\+process\+\_\+call(addr, cmd, \mbox{[}vals\mbox{]}) -\/$>$ {\bf results\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+M\+Bus Block Process Call {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a8e569ea306e2a0f4fa4cb8ef20f81f04}
+\hypertarget{smbusmodule_8c_ad4ce6fd98d428d4efde8ffad68cd0d9d}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+read\+\_\+i2c\+\_\+block\+\_\+data\+\_\+doc}]{, }
+\item[{\char`\"{}read\+\_\+i2c\+\_\+block\+\_\+data(addr, cmd, len=32) -\/$>$ {\bf results\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Perform I2\+C Block Read {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_ad4ce6fd98d428d4efde8ffad68cd0d9d}
+\hypertarget{smbusmodule_8c_a76addf3e8faa52ec05b827eafbb5cab7}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+write\+\_\+i2c\+\_\+block\+\_\+data\+\_\+doc}]{, }
+\item[{\char`\"{}write\+\_\+i2c\+\_\+block\+\_\+data(addr, cmd, \mbox{[}vals\mbox{]})\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Perform I2\+C Block Write {\bf transaction.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_a76addf3e8faa52ec05b827eafbb5cab7}
+\hypertarget{smbusmodule_8c_ac8e7affc69239d87f23adeb9a4761bc7}{}\index{smbusmodule.\+c@{smbusmodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!smbusmodule.\+c@{smbusmodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+M\+Bus\+\_\+type\+\_\+doc}]{, }
+\item[{\char`\"{}S\+M\+Bus(\mbox{[}bus\mbox{]}) -\/$>$ {\bf S\+M\+Bus\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Return {\bf a} new S\+M\+Bus object that is (optionally) connected to {\bf the\textbackslash{}n}\char`\"{}\char`\"{}specified I2\+C device {\bf interface.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{smbusmodule_8c_ac8e7affc69239d87f23adeb9a4761bc7}

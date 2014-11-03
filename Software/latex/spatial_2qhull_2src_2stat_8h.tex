@@ -1,0 +1,1227 @@
+\hypertarget{spatial_2qhull_2src_2stat_8h}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/stat.h File Reference}
+\label{spatial_2qhull_2src_2stat_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/stat.\+h@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/stat.\+h}}
+{\ttfamily \#include \char`\"{}libqhull.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionintrealT}{intreal\+T}
+\item 
+struct \hyperlink{structqhstatT}{qhstat\+T}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_ad2932f480d5f81c2a8bab064ede7cc03}{zzdef\+\_\+}(stype,  name,  string,  cnt)
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_ae394df93e126232e7aad9ef9e080468c}{zdef\+\_\+}(stype,  name,  string,  cnt)
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_a4f3bc6b51acbee68f2f0661d257461f5}{zzinc\+\_\+}(id)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}++;\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_a1c80d3f3e201d08fcab489a6530abd39}{zinc\+\_\+}(id)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}++;\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_abf1d35f64b29b9009b75d0a91731e6f0}{zzadd\+\_\+}(id,  val)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i} += (val);\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_a9038c2e829d96b98265b682bd7a46e78}{wwadd\+\_\+}(id,  val)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r} += (val);\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_aabf00328ea81ee866f79e3eff1b80eb4}{zadd\+\_\+}(id,  val)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i} += (val);\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_abe698daf0b3800e601c5f8529df66155}{wadd\+\_\+}(id,  val)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r} += (val);\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_a33a7ae9b574ecdf701fd1ca64c8224f3}{zzval\+\_\+}(id)~((\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}).\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i})
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_a01505182e26f4503e012356f74f7428d}{wwval\+\_\+}(id)~((\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}).\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r})
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_a0813c5bc4a2c3a837fd417bd5c9818f3}{zval\+\_\+}(id)~((\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}).\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i})
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_afba8717a9b2e7fe2a9fa8f8613618e6c}{wval\+\_\+}(id)~((\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}).\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r})
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_acd2e90cea281cb0cd466c7da957a77d8}{wwmax\+\_\+}(id,  val)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{geom_8h_aaa24a6e244cc65eeabdbd4a3028af4db}{maximize\+\_\+}(\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r},(val));\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_ae43285788a800ff33f082b7766af91e0}{zmax\+\_\+}(id,  val)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{geom_8h_aaa24a6e244cc65eeabdbd4a3028af4db}{maximize\+\_\+}(\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i},(val));\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_a0caac87ce881769e487f8a035a40acf8}{wmax\+\_\+}(id,  val)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{geom_8h_aaa24a6e244cc65eeabdbd4a3028af4db}{maximize\+\_\+}(\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r},(val));\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_a0dd030769140943c4d5e71c33437f1c9}{zmin\+\_\+}(id,  val)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{geom_8h_a62e5a90b8c812260df104e089e8c5a74}{minimize\+\_\+}(\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i},(val));\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_ae7f271e85ad41efb7847dda694241313}{wmin\+\_\+}(id,  val)~\{\hyperlink{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{M\+A\+Ydebugx}; \hyperlink{geom_8h_a62e5a90b8c812260df104e089e8c5a74}{minimize\+\_\+}(\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} stats\mbox{[}id\mbox{]}.\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r},(val));\}
+\item 
+\#define \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat}~qh\+\_\+qhstat.
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef union \hyperlink{unionintrealT}{intreal\+T} \hyperlink{spatial_2qhull_2src_2stat_8h_a353a825152799a325f01954911890c10}{intreal\+T}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fd}{statistics} \{ \\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa6ffdb66ba64fa4baa3dc0cad5f2122d}{Zacoplanar}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa3b028208f328505933eaf95019c9ab0}{Wacoplanarmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda513403e3ecf743581dc805664d9293b3}{Wacoplanartot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaad697ced698830e1c111a555f33978b7}{Zangle}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65adfe2f0fcf048f4e34c3f6e771695f}{Wangle}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa13a3e15b2beba91ba2703b7918ac791}{Wanglemax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa18aef25dae14672b2349b1bdf64e16e}{Wanglemin}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaeb19fae51412966c500b952ed44cfac1}{Zangletests}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf47594aaf0c886a142fa9f0ab55dbc8c}{Wareatot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda33c28e091730496be36d550d97af1579}{Wareamax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3155785bec6b2f06342fa29b49c3348b}{Wareamin}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1576a36aeb0cf345c2822d8930ce2473}{Zavoidold}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdade8e60185a6993cc5b7bc0c437d0c9df}{Wavoidoldmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda58a79243d4590b8781983fe832f0da62}{Wavoidoldtot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7f36a096bd09a674a2d96dbd1900dc16}{Zback0}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3a6d81ac05700439aa2ad52c4650aeb0}{Zbestcentrum}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5ae04331dd47e10bd72971c5cbca4838}{Zbestdist}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda67956fee6054be310275a71ecdf28e13}{Zbestlower}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda04826778220bb69a855987fab9fb6d32}{Zbestlowerv}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda156681422e050c02fa6e06b544b1c91c}{Zcentrumtests}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda540de494873345370d8fd92ce3b5bfee}{Zcheckpart}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6a0176332a052e1151dc82931e68dcd2}{Zcomputefurthest}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaced444a68b9cc955fdcbc46468d1cdb5}{Zconcave}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda57188d15bbbedd5afdf9e446027d6ff3}{Wconcavemax}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac6f8ac8cb8aa772c0ea04127169b1f8e}{Wconcavetot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae3389f51decedfb5a9fb76cc851cb783}{Zconcaveridges}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4dedb4f368eaa690bf09d36e4b23101c}{Zconcaveridge}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda42ca442a061e85e307d85ad3a6166ad0}{Zcoplanar}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda98bd8b4947c673f0fc93a61f9388b5e2}{Wcoplanarmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab5e536b5593c84758703fa527514363b}{Wcoplanartot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda50f25d4e17cd545fe8ac4c68da3ae9f7}{Zcoplanarangle}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa8972270453a8f3292aa2e5bf1d2c5b3}{Zcoplanarcentrum}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf2fa0ba95ac49166688fd0f3cb46efcd}{Zcoplanarhorizon}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf86312fb48c4dc0a8cbf1c519ae32133}{Zcoplanarinside}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda419bcf56d9102732230a6dbc964265bf}{Zcoplanarpart}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2306bb12feb0f7e0ba2efd33177c34bc}{Zcoplanarridges}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab2dc4b59fa12797e5db9dcc6cc2875ea}{Wcpu}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda88549ecd60984f356a375c7317508a17}{Zcyclefacetmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda03759e03d42a053418fea861f19cce00}{Zcyclefacettot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8523e74724943d8d0b51d6e091735f1e}{Zcyclehorizon}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabda7ebb5780f8de8fd4562787cd0a261}{Zcyclevertex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4aed2eaa8fd5452201f2ca0fb8fd836c}{Zdegen}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4467bd0c518691c1f4cdf19ad39bec60}{Wdegenmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaaca7aa9d059a1114125660001cbf1c2}{Wdegentot}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac95ff84bc8521ee3a176359eb6bc0c13}{Zdegenvertex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf1046cb021b4af9d2aaf51896a035da6}{Zdelfacetdup}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda870a7cdb72b4ee271a505392c19b1dc3}{Zdelridge}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7d01bb7055c9aa1504d37dfbcfffbdee}{Zdelvertextot}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda760a6618fbd3aea8e461b324957c31f2}{Zdelvertexmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaf3acd655de05a836d4d5f66ac3a4316}{Zdetsimplex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad9c980ad8958a5d920f8ca567f01d356}{Zdistcheck}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda20f1b614300a9e489f6b3e613192e558}{Zdistconvex}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda874ad4849883671bb13f8e97b7dde335}{Zdistgood}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4c8d98bd7d7916dd91fc79b7d8a13b2e}{Zdistio}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7bd85c6503026dc50937fc26481835ef}{Zdistplane}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6ab545d71cfab196945021c226c248e5}{Zdiststat}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa205da1427f3dd711aa6c46946c39226}{Zdistvertex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabafc3e74d6936575bc4cab764f97b957}{Zdistzero}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa92495a32fb34860c1d65c9f0ed53e32}{Zdoc1}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda199123efe1bebf4b6cebb3ffbda488ae}{Zdoc2}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac4acbc0d8e19b9fc2889784802654e68}{Zdoc3}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6f296f8a66b9b22ef805ceb691fbaef0}{Zdoc4}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9fbca23919080de1dbf50a5195bc32e8}{Zdoc5}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad21d482068f1edd03e941e132e1de5b3}{Zdoc6}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8082671cdebf3635a84c6517d05881c1}{Zdoc7}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda538440695edbebd01e00fa32a8e80b22}{Zdoc8}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda76daf281afdce1df19f334fac9191e0e}{Zdoc9}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad4d050451e8919089ceeef30cb8c0e48}{Zdoc10}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6b5f15567417a689dcb89395277967cd}{Zdoc11}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8eab372fe34c8c73242f6df686a6bf48}{Zdoc12}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7008efd9904fdad921adea6d059aa14b}{Zdropdegen}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7e6a8b0dfd2a79441fb51903d73b6f2c}{Zdropneighbor}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda32db286b9d3b40123052de68d87d6c80}{Zdupflip}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf36dfd480faa9fb1349dca287590e656}{Zduplicate}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda229ea5de112cbdc0b86d44109b72df2e}{Wduplicatemax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1e0648cd7cbd0690ec0e6308b1e0b597}{Wduplicatetot}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda90521f2f539b95109f51acbd32c7be57}{Zdupridge}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabbb165147fd36a5990905443a15812fd}{Zdupsame}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda078dd5d788d6f7479f39c34dbcd2bf34}{Zflipped}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda92e24b100dc7121c29c022722cd9445e}{Wflippedmax}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda055c606d276e89e05ff851a8b5888347}{Wflippedtot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae517991538ad7bdb70fcb32e32d4ddf5}{Zflippedfacets}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf4b788c6cb3040827efa14e1bcc46504}{Zfindbest}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2a669675319dab526df647d56b665b81}{Zfindbestmax}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda27eedc9909297dce86b673b3b2ea7082}{Zfindbesttot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa72f27974b33336f4f6e5e8fa72d17b0}{Zfindcoplanar}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda088f3c1cfba5393a48679432032ad128}{Zfindfail}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa9cd3dfa80de4b002f901423a1bf71ec}{Zfindhorizon}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7ceeb24c9de20d6e52ffbfb2331b378b}{Zfindhorizonmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac36f7fa510fe7a1abf0e443198b0ccfa}{Zfindhorizontot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5f717880e67a8f22cf73ee03ce83b9c1}{Zfindjump}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda468adb7cf03cadf95e74fee7febf9f88}{Zfindnew}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf4ea8ef1a9dc745ca37c59c3978eb1df}{Zfindnewmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad09a02556040df064e1c9aef583f9cbc}{Zfindnewtot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda35660d0392da7b57cdb286008d426945}{Zfindnewjump}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdadab21cba2fff42ea3547e97ee0457d1d}{Zfindnewsharp}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacf27c7c12efa427acbd0b20235eaf93e}{Zgauss0}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda894653ceee761ae25dbcbae7fbadac1e}{Zgoodfacet}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad37950cee88f36fc8d1455ddf3f7ae25}{Zhashlookup}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacec9e730d3c9ce3eafd9dc11ca0e947e}{Zhashridge}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda72bf986aac02adf3339a779d31797b98}{Zhashridgetest}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda628b0d4e11931cbd9cbef6d812648c79}{Zhashtests}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf7e58e01d9205aea6d45492595d722bf}{Zinsidevisible}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7acbf57257cedae349cf7f557f024a12}{Zintersect}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda665ba2336a336df9b57d081631ebf0e0}{Zintersectfail}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda462ba8ec8c7882990b0c496771e2b30b}{Zintersectmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac0df8cbd0c91dff114e508fc366d4cd2}{Zintersectnum}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdadb62589110f70355034434c0e50c3863}{Zintersecttot}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafe27ed7998858bfbf54ef6d08d774621}{Zmaxneighbors}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda500ec4d106535fb059d61d75ccbca1e1}{Wmaxout}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabc40d172ad092bd9099b29c8bd5efee8}{Wmaxoutside}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7661c19d8bf5fb9149e164f3f6184e5e}{Zmaxridges}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac7f25fa995b65f4ecaa9a20ad2882f65}{Zmaxvertex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda0ee88bfaa2c54d26bab549d37f38680e}{Zmaxvertices}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad73626dd150e40104aeaaeaa9789515e}{Zmaxvneighbors}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda88f7c0022ce0a94e334f37746da1db7a}{Zmemfacets}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad9a8aabb4537b6cb5913810ce8ec0c63}{Zmempoints}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65c2f4f34d32cb7977e54775a138ef2f}{Zmemridges}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda601825704424aa611fd1452083c02373}{Zmemvertices}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7b7024aa702f542bf618760ebf514c27}{Zmergeflipdup}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaef2f842497cd8b2ab12d5934adcdced1}{Zmergehorizon}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda596fd8b849353e781ea491be757864c4}{Zmergeinittot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf403537fd7872ea00b3abd45c3be1d16}{Zmergeinitmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5fab27c74ab6b3f1d2b154d4ad66ce95}{Zmergeinittot2}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda02630041efff79fd8789ff33982f2072}{Zmergeintohorizon}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda638e8e1649fd365fd4e07617c339c9d2}{Zmergenew}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacb94c1d31a7c08bc9e07ce6e72c156e2}{Zmergesettot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad86f08b5fefc210c35d967e59cb78d37}{Zmergesetmax}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7b9464afea8934b896216b47a9056a76}{Zmergesettot2}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65a57f675631c469d180147f6991953d}{Zmergesimplex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9e41a618d59dd4365b63f5c05a63359b}{Zmergevertex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda43110d1f9a2a5aff2fe427ebd424b1ec}{Wmindenom}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7cd7fbf362a8f7517dfc7b4ac894fa1c}{Wminvertex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaafa408959970e17b1d3a85a62a2541a6}{Zminnorm}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacee1e1334d6c10e8da01a4b8df296520}{Zmultiridge}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda35687af575ac9c237de8de5138229a56}{Znearlysingular}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9ffd744905cea1bd1e799820db592ca2}{Zneighbor}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8973fb65f9731369a2c857bd3397e87c}{Wnewbalance}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1dd945a4809f925479dff65a11bfb8a3}{Wnewbalance2}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda431dc1583fa3d0c1436e0c54cc482eed}{Znewfacettot}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac00d2ec296f101129bdf7929fbb142ca}{Znewfacetmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac19e0820571c591d9e93df75aab9aec7}{Znewvertex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda41203ed37f653b2f61240397202114e9}{Wnewvertex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda0475c31b6b5cc39d5f065652c8556816}{Wnewvertexmax}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda13eb8a877acf658a3278389126e62aad}{Znoarea}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafde9c242f189d74963867120e4311e37}{Znonsimplicial}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaddac51f1d92bf774648c6ef12deb4b61}{Znowsimplicial}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae6f593569abdf3b19772b47a3f69110b}{Znotgood}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5273dc4643195eb106255153efb51c6a}{Znotgoodnew}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda679c1b113d1fcdd951b2dd307705ebcd}{Znotmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9fd79d4f577e1929f0372b8814d1da16}{Znumfacets}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda12825dd9d19e124ab9dff10ab8d029b5}{Znummergemax}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4fc2386555ba3f2798963303f43102a0}{Znummergetot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7a233fffa7b79d32d9d0dc3fcee5298f}{Znumneighbors}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf40288eaa43f5ae0a2f12ae855e416b7}{Znumridges}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8b4d95b734a2bd2e1dc8689d252911ab}{Znumvertices}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda56c40988ff32069c7912cbccef4535aa}{Znumvisibility}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaff8a9cbca97f0386d97aca9b8a4fd03c}{Znumvneighbors}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae04d410b66b642e34f1bc25d3e3859fa}{Zonehorizon}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaca97e3f26059e052e587e4aa6722a5fb}{Zpartangle}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda19b4224548a9ed9651c0f242dcd64e93}{Zpartcoplanar}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda596f2f615761bb5493aa68c14ffc5a62}{Zpartflip}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa9ccca72355cb78a6e3c3214bcfa8b64}{Zparthorizon}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4107005c6c2a0c6031a2a6d25c1ce377}{Zpartinside}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6c3e8b1b2d5822d05eb8202c7f792e68}{Zpartition}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6f52cc7ecb67c5d2655ffd3e151b6d91}{Zpartitionall}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6b163e6a0273e05cf2b5f8e654e7c83e}{Zpartnear}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4d507323d292e1781ae083a77c437e15}{Zpbalance}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabc74af9912a18976c6069597795cd918}{Wpbalance}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2e4aa0dc632b337f11f7c871b6ac3588}{Wpbalance2}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad4798aaa892992c3b2dcfa05df2dbe43}{Zpostfacets}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1b026c738cd28542fed7e1067f6462a3}{Zpremergetot}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda26c4b07f3a142c585c79285c6545da6d}{Zprocessed}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1c4396df8f3e8e525fb9d8fa47ce6b5b}{Zremvertex}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65f52131383c007690c7c17f8353e986}{Zremvertexdel}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafa5460900e1d7c8f2cabf42b91193199}{Zrenameall}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9f01be8343c1715ed89878af59b4779b}{Zrenamepinch}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda249d83b5e95b566c99683912c9223ae5}{Zrenameshare}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf376bae82bc459c0ca86b72cbd77f4d0}{Zretry}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda13f3481e17109b177a902504758cec9d}{Wretrymax}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9b36fc3d34c9ac01e862c164ef45704f}{Zridge}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda19767f6cea4bf3ca174987675da6d65a}{Wridge}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1a7568be86e52ab2da10d1dd4041d5e7}{Wridgemax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda48e2b9efa63607ac80116564f55044bc}{Zridge0}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda288c94d3d7516f22ad88c11b894a74b3}{Wridge0}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6814ae66c516dc62a242e59bc8bf6896}{Wridge0max}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9e7a7063d37cb4da932e854adfee7051}{Zridgemid}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda52c31e4e4c965c9b1c6d047fc6ad7a40}{Wridgemid}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda76fcd191336030fc8672483468e8ad37}{Wridgemidmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafea0f7f96f4ae8b8a098145b46df3ed8}{Zridgeok}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7cbb73c0f02466c8bf1f2b34bc095b79}{Wridgeok}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4b3d112abd5ab91545126e9c26d94b23}{Wridgeokmax}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3cc07ba111ddc81c948f1c2952c3d6b6}{Zsearchpoints}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2d863c818b4bb493e6ff774077f8531d}{Zsetplane}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda19d1ca6afb74efb84e7cba69a3c9a97f}{Ztestvneighbor}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda102ebc0472ca6b524e420bca9946822c}{Ztotcheck}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaefd07227321cb32b46c797f8cdb810f7}{Ztothorizon}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda392ed93e7fe07207117714c7cd630ce9}{Ztotmerge}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda650a6fa08540b42fe6e1fe084573fb6e}{Ztotpartcoplanar}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa74a39636dbfcc603b19d3bd7521f619}{Ztotpartition}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda68ad781b2be49d7201b94c224beb96b2}{Ztotridges}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaea2af57591b25f17a2c224ba6fe5b028}{Ztotvertices}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabb3332f1ebf72015b2fa694378c9e048}{Ztotvisible}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad33d4a15ad9fe69804b960e4025ad96f}{Ztricoplanar}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaae05f2b1aaf02c749e82efbd7d56579}{Ztricoplanarmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1dd43c407ab5663d40ba733f37826d59}{Ztricoplanartot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab395f66a6400b1b3abd7009e9771a126}{Ztridegen}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8e30f6fde6ced63f9ce396cb87eb333a}{Ztrimirror}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab979f1130f72e3bcebc69f0516d56cad}{Ztrinull}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3ab49d2a5035775d29f7f135d3ba8cb2}{Wvertexmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaf921fff80caa129fa065fc49f16b9ee}{Wvertexmin}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad105026941c374cccf84ac9d91d1fea8}{Zvertexridge}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda31d0f12921026ccf364146d45d4b18ed}{Zvertexridgetot}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda48945787be81b9190b6c8a3432a8a3e4}{Zvertexridgemax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf8deb4ec5198c12033cc2a504167e0e1}{Zvertices}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda840390ef53cefe614764b69a1fa29c61}{Zvisfacettot}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda154bfeff6b415875a596db213d15eea3}{Zvisfacetmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9ee17f7825f3c69a73857f01e7c6dbe2}{Zvisit}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1fbfd8b6879d359bd2a0654b430d16db}{Zvisit2max}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda75eb658a09d67e9463adaabc07a7e879}{Zvisvertextot}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa2f12a8c962994d9a7453ca2c23e79c2}{Zvisvertexmax}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda82bc524d2af2e528c9f3ddeffffd2ce5}{Zvvisit}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6e2ec1523a5fbc756801d66b2822d685}{Zvvisit2max}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8f41fc80dce594690d037f85ba3cef23}{Zwidefacet}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac43263022b474abd3a5c6c600c1d1f07}{Zwidevertices}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacc1aeb24e409a582092fe083d9ea1e41}{Z\+E\+N\+D}
+ \}
+\item 
+enum \hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7}{ztypes} \{ \\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7aecf0c0ea60cc9fbd728459031501f40f}{zdoc}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a5fa7f3d3f86be303334bb71ea0c16a6b}{zinc}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7afebd794def03ad96e53bbfc7fd2a035b}{zadd}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7acd20ac2e1b2e25e33293516660048674}{zmax}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7abaca913d02bce2f4a9b78d5884f9a8f7}{zmin}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7ad1127da9fcb4b5fb30154cfa80fc057d}{Z\+T\+Y\+P\+Ereal}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a354e1786dcad0acf59a3e1d093d080c0}{wadd}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a027ecbf50177b8b2a00aa867ad7daab4}{wmax}, 
+\\*
+\hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a8e7bf8666791c0b13ceff240d21e4cb8}{wmin}, 
+\hyperlink{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a0e4e54ca92c802f645e777a8a47f248e}{Z\+T\+Y\+P\+Eend}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_aa91acc64e500df58e15e971e5fdd751e}{qh\+\_\+allstat\+A} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_a73e0514790e5eea445b1f47e8e8e6b40}{qh\+\_\+allstat\+B} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_a0a8d11092a2aab701bb4b2150cdf767c}{qh\+\_\+allstat\+C} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_ae6f5db825b77e48f138beb54a881e9ee}{qh\+\_\+allstat\+D} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_a21e4bf74ec7a12cb2ee8998ab517f1eb}{qh\+\_\+allstat\+E} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_ab42054e3440c14ca78263e51b48b74a7}{qh\+\_\+allstat\+E2} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_a326c10bb740823d488dfc96e2f9c87ba}{qh\+\_\+allstat\+F} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_a1a83c440c9b4a9cb5cbc053e39611d9c}{qh\+\_\+allstat\+G} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_ab3b6af869cbd5b6ef56391c6025e6fe6}{qh\+\_\+allstat\+H} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_a222738bb24ccb5a2a51123697bafa965}{qh\+\_\+allstat\+I} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_ab14c0f36f890ebe6b60724ebe8c1e339}{qh\+\_\+allstatistics} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_a323eaccbfe6576549fbbcc27b1fc0293}{qh\+\_\+collectstatistics} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_ae87f9d902a259a70dd5db0bd385175b7}{qh\+\_\+freestatistics} (void)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_a6d94ef3715de57cfdfe447c09fcffe81}{qh\+\_\+initstatistics} (void)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{spatial_2qhull_2src_2stat_8h_a8052de0b944148fcf86be51df976e467}{qh\+\_\+newstats} (int idx, int $\ast$nextindex)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{spatial_2qhull_2src_2stat_8h_a55dd186b05d7b30126b6cdfed892000e}{qh\+\_\+nostatistic} (int \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i})
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_ac5705bb4d6269c5c94fa02049c9628c0}{qh\+\_\+printallstatistics} (F\+I\+L\+E $\ast$fp, const char $\ast$string)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_a3c01830b2f8283b2634932d2d46666b7}{qh\+\_\+printstatistics} (F\+I\+L\+E $\ast$fp, const char $\ast$string)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_ae5b2defa33f7ab5570cfc58b6061032f}{qh\+\_\+printstatlevel} (F\+I\+L\+E $\ast$fp, int id, int start)
+\item 
+void \hyperlink{spatial_2qhull_2src_2stat_8h_af508cc7e7257750c7a539c31ea647556}{qh\+\_\+printstats} (F\+I\+L\+E $\ast$fp, int idx, int $\ast$nextindex)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{spatial_2qhull_2src_2stat_8h_af3eabded8ac6cc450637080839b9b293}{qh\+\_\+stddev} (int num, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} tot, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} tot2, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$ave)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structqhstatT}{qhstat\+T} \hyperlink{spatial_2qhull_2src_2stat_8h_a5e48037e5b2caeb6713df1a9fa4473ac}{qh\+\_\+qhstat}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!M\+A\+Ydebugx@{M\+A\+Ydebugx}}
+\index{M\+A\+Ydebugx@{M\+A\+Ydebugx}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{M\+A\+Ydebugx}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+Ydebugx}\label{spatial_2qhull_2src_2stat_8h_abb2aa969e97a199c78ef57ee972da717}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qhstat@{qhstat}}
+\index{qhstat@{qhstat}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qhstat}]{\setlength{\rightskip}{0pt plus 5cm}\#define qhstat~qh\+\_\+qhstat.}\label{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}
+\hypertarget{spatial_2qhull_2src_2stat_8h_abe698daf0b3800e601c5f8529df66155}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!wadd\+\_\+@{wadd\+\_\+}}
+\index{wadd\+\_\+@{wadd\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{wadd\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define wadd\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf r} += (val);\}}\label{spatial_2qhull_2src_2stat_8h_abe698daf0b3800e601c5f8529df66155}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0caac87ce881769e487f8a035a40acf8}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!wmax\+\_\+@{wmax\+\_\+}}
+\index{wmax\+\_\+@{wmax\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{wmax\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define wmax\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf maximize\+\_\+}({\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf r},(val));\}}\label{spatial_2qhull_2src_2stat_8h_a0caac87ce881769e487f8a035a40acf8}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ae7f271e85ad41efb7847dda694241313}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!wmin\+\_\+@{wmin\+\_\+}}
+\index{wmin\+\_\+@{wmin\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{wmin\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define wmin\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf minimize\+\_\+}({\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf r},(val));\}}\label{spatial_2qhull_2src_2stat_8h_ae7f271e85ad41efb7847dda694241313}
+\hypertarget{spatial_2qhull_2src_2stat_8h_afba8717a9b2e7fe2a9fa8f8613618e6c}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!wval\+\_\+@{wval\+\_\+}}
+\index{wval\+\_\+@{wval\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{wval\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define wval\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~(({\bf qhstat} stats\mbox{[}id\mbox{]}).{\bf r})}\label{spatial_2qhull_2src_2stat_8h_afba8717a9b2e7fe2a9fa8f8613618e6c}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a9038c2e829d96b98265b682bd7a46e78}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!wwadd\+\_\+@{wwadd\+\_\+}}
+\index{wwadd\+\_\+@{wwadd\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{wwadd\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define wwadd\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf r} += (val);\}}\label{spatial_2qhull_2src_2stat_8h_a9038c2e829d96b98265b682bd7a46e78}
+\hypertarget{spatial_2qhull_2src_2stat_8h_acd2e90cea281cb0cd466c7da957a77d8}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!wwmax\+\_\+@{wwmax\+\_\+}}
+\index{wwmax\+\_\+@{wwmax\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{wwmax\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define wwmax\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf maximize\+\_\+}({\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf r},(val));\}}\label{spatial_2qhull_2src_2stat_8h_acd2e90cea281cb0cd466c7da957a77d8}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a01505182e26f4503e012356f74f7428d}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!wwval\+\_\+@{wwval\+\_\+}}
+\index{wwval\+\_\+@{wwval\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{wwval\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define wwval\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~(({\bf qhstat} stats\mbox{[}id\mbox{]}).{\bf r})}\label{spatial_2qhull_2src_2stat_8h_a01505182e26f4503e012356f74f7428d}
+\hypertarget{spatial_2qhull_2src_2stat_8h_aabf00328ea81ee866f79e3eff1b80eb4}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zadd\+\_\+@{zadd\+\_\+}}
+\index{zadd\+\_\+@{zadd\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{zadd\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define zadd\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf i} += (val);\}}\label{spatial_2qhull_2src_2stat_8h_aabf00328ea81ee866f79e3eff1b80eb4}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ae394df93e126232e7aad9ef9e080468c}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zdef\+\_\+@{zdef\+\_\+}}
+\index{zdef\+\_\+@{zdef\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{zdef\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define zdef\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{stype, }
+\item[{}]{name, }
+\item[{}]{string, }
+\item[{}]{cnt}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_ae394df93e126232e7aad9ef9e080468c}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} \textcolor{keywordtype}{id}[\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} \hyperlink{namespacescipy_1_1lib_1_1six_ad6757495ee04551ef94f22f4e8b786cf}{next}++]=\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}; \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{\(\backslash\)}
+\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{   qhstat} \hyperlink{namespacetest__docscrape_a48ca7345134aadf2d83e46c5a8bfafca}{doc}[\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}]= string; \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} \hyperlink{namespacedemo__lgmres_ac9e673dc62252034a7fe574079efd706}{count}[\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}]= cnt; 
+      \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}[\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}]= stype
+\end{DoxyCode}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a1c80d3f3e201d08fcab489a6530abd39}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zinc\+\_\+@{zinc\+\_\+}}
+\index{zinc\+\_\+@{zinc\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{zinc\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define zinc\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf i}++;\}}\label{spatial_2qhull_2src_2stat_8h_a1c80d3f3e201d08fcab489a6530abd39}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ae43285788a800ff33f082b7766af91e0}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zmax\+\_\+@{zmax\+\_\+}}
+\index{zmax\+\_\+@{zmax\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{zmax\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define zmax\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf maximize\+\_\+}({\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf i},(val));\}}\label{spatial_2qhull_2src_2stat_8h_ae43285788a800ff33f082b7766af91e0}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0dd030769140943c4d5e71c33437f1c9}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zmin\+\_\+@{zmin\+\_\+}}
+\index{zmin\+\_\+@{zmin\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{zmin\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define zmin\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf minimize\+\_\+}({\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf i},(val));\}}\label{spatial_2qhull_2src_2stat_8h_a0dd030769140943c4d5e71c33437f1c9}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0813c5bc4a2c3a837fd417bd5c9818f3}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zval\+\_\+@{zval\+\_\+}}
+\index{zval\+\_\+@{zval\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{zval\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define zval\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~(({\bf qhstat} stats\mbox{[}id\mbox{]}).{\bf i})}\label{spatial_2qhull_2src_2stat_8h_a0813c5bc4a2c3a837fd417bd5c9818f3}
+\hypertarget{spatial_2qhull_2src_2stat_8h_abf1d35f64b29b9009b75d0a91731e6f0}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zzadd\+\_\+@{zzadd\+\_\+}}
+\index{zzadd\+\_\+@{zzadd\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{zzadd\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define zzadd\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf i} += (val);\}}\label{spatial_2qhull_2src_2stat_8h_abf1d35f64b29b9009b75d0a91731e6f0}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ad2932f480d5f81c2a8bab064ede7cc03}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zzdef\+\_\+@{zzdef\+\_\+}}
+\index{zzdef\+\_\+@{zzdef\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{zzdef\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define zzdef\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{stype, }
+\item[{}]{name, }
+\item[{}]{string, }
+\item[{}]{cnt}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_ad2932f480d5f81c2a8bab064ede7cc03}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} \textcolor{keywordtype}{id}[\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} \hyperlink{namespacescipy_1_1lib_1_1six_ad6757495ee04551ef94f22f4e8b786cf}{next}++]=\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}; \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{\(\backslash\)}
+\hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{   qhstat} \hyperlink{namespacetest__docscrape_a48ca7345134aadf2d83e46c5a8bfafca}{doc}[\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}]= string; \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} \hyperlink{namespacedemo__lgmres_ac9e673dc62252034a7fe574079efd706}{count}[\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}]= cnt; 
+      \hyperlink{spatial_2qhull_2src_2stat_8h_a18bbcc099e59f3146294b29d8e0fe3cc}{qhstat} \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}[\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}]= stype
+\end{DoxyCode}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a4f3bc6b51acbee68f2f0661d257461f5}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zzinc\+\_\+@{zzinc\+\_\+}}
+\index{zzinc\+\_\+@{zzinc\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{zzinc\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define zzinc\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~\{{\bf M\+A\+Ydebugx}; {\bf qhstat} stats\mbox{[}id\mbox{]}.{\bf i}++;\}}\label{spatial_2qhull_2src_2stat_8h_a4f3bc6b51acbee68f2f0661d257461f5}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a33a7ae9b574ecdf701fd1ca64c8224f3}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zzval\+\_\+@{zzval\+\_\+}}
+\index{zzval\+\_\+@{zzval\+\_\+}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{zzval\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define zzval\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{id}
+\end{DoxyParamCaption}
+)~(({\bf qhstat} stats\mbox{[}id\mbox{]}).{\bf i})}\label{spatial_2qhull_2src_2stat_8h_a33a7ae9b574ecdf701fd1ca64c8224f3}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a353a825152799a325f01954911890c10}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!intreal\+T@{intreal\+T}}
+\index{intreal\+T@{intreal\+T}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{intreal\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef union {\bf intreal\+T} {\bf intreal\+T}}\label{spatial_2qhull_2src_2stat_8h_a353a825152799a325f01954911890c10}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fd}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!statistics@{statistics}}
+\index{statistics@{statistics}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{statistics}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf statistics}}\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fd}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Zacoplanar@{Zacoplanar}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zacoplanar@{Zacoplanar}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa6ffdb66ba64fa4baa3dc0cad5f2122d}{}Zacoplanar\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa6ffdb66ba64fa4baa3dc0cad5f2122d}
+}]\index{Wacoplanarmax@{Wacoplanarmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wacoplanarmax@{Wacoplanarmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa3b028208f328505933eaf95019c9ab0}{}Wacoplanarmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa3b028208f328505933eaf95019c9ab0}
+}]\index{Wacoplanartot@{Wacoplanartot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wacoplanartot@{Wacoplanartot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda513403e3ecf743581dc805664d9293b3}{}Wacoplanartot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda513403e3ecf743581dc805664d9293b3}
+}]\index{Zangle@{Zangle}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zangle@{Zangle}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaad697ced698830e1c111a555f33978b7}{}Zangle\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaad697ced698830e1c111a555f33978b7}
+}]\index{Wangle@{Wangle}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wangle@{Wangle}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65adfe2f0fcf048f4e34c3f6e771695f}{}Wangle\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65adfe2f0fcf048f4e34c3f6e771695f}
+}]\index{Wanglemax@{Wanglemax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wanglemax@{Wanglemax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa13a3e15b2beba91ba2703b7918ac791}{}Wanglemax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa13a3e15b2beba91ba2703b7918ac791}
+}]\index{Wanglemin@{Wanglemin}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wanglemin@{Wanglemin}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa18aef25dae14672b2349b1bdf64e16e}{}Wanglemin\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa18aef25dae14672b2349b1bdf64e16e}
+}]\index{Zangletests@{Zangletests}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zangletests@{Zangletests}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaeb19fae51412966c500b952ed44cfac1}{}Zangletests\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaeb19fae51412966c500b952ed44cfac1}
+}]\index{Wareatot@{Wareatot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wareatot@{Wareatot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf47594aaf0c886a142fa9f0ab55dbc8c}{}Wareatot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf47594aaf0c886a142fa9f0ab55dbc8c}
+}]\index{Wareamax@{Wareamax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wareamax@{Wareamax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda33c28e091730496be36d550d97af1579}{}Wareamax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda33c28e091730496be36d550d97af1579}
+}]\index{Wareamin@{Wareamin}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wareamin@{Wareamin}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3155785bec6b2f06342fa29b49c3348b}{}Wareamin\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3155785bec6b2f06342fa29b49c3348b}
+}]\index{Zavoidold@{Zavoidold}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zavoidold@{Zavoidold}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1576a36aeb0cf345c2822d8930ce2473}{}Zavoidold\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1576a36aeb0cf345c2822d8930ce2473}
+}]\index{Wavoidoldmax@{Wavoidoldmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wavoidoldmax@{Wavoidoldmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdade8e60185a6993cc5b7bc0c437d0c9df}{}Wavoidoldmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdade8e60185a6993cc5b7bc0c437d0c9df}
+}]\index{Wavoidoldtot@{Wavoidoldtot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wavoidoldtot@{Wavoidoldtot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda58a79243d4590b8781983fe832f0da62}{}Wavoidoldtot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda58a79243d4590b8781983fe832f0da62}
+}]\index{Zback0@{Zback0}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zback0@{Zback0}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7f36a096bd09a674a2d96dbd1900dc16}{}Zback0\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7f36a096bd09a674a2d96dbd1900dc16}
+}]\index{Zbestcentrum@{Zbestcentrum}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zbestcentrum@{Zbestcentrum}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3a6d81ac05700439aa2ad52c4650aeb0}{}Zbestcentrum\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3a6d81ac05700439aa2ad52c4650aeb0}
+}]\index{Zbestdist@{Zbestdist}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zbestdist@{Zbestdist}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5ae04331dd47e10bd72971c5cbca4838}{}Zbestdist\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5ae04331dd47e10bd72971c5cbca4838}
+}]\index{Zbestlower@{Zbestlower}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zbestlower@{Zbestlower}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda67956fee6054be310275a71ecdf28e13}{}Zbestlower\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda67956fee6054be310275a71ecdf28e13}
+}]\index{Zbestlowerv@{Zbestlowerv}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zbestlowerv@{Zbestlowerv}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda04826778220bb69a855987fab9fb6d32}{}Zbestlowerv\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda04826778220bb69a855987fab9fb6d32}
+}]\index{Zcentrumtests@{Zcentrumtests}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcentrumtests@{Zcentrumtests}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda156681422e050c02fa6e06b544b1c91c}{}Zcentrumtests\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda156681422e050c02fa6e06b544b1c91c}
+}]\index{Zcheckpart@{Zcheckpart}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcheckpart@{Zcheckpart}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda540de494873345370d8fd92ce3b5bfee}{}Zcheckpart\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda540de494873345370d8fd92ce3b5bfee}
+}]\index{Zcomputefurthest@{Zcomputefurthest}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcomputefurthest@{Zcomputefurthest}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6a0176332a052e1151dc82931e68dcd2}{}Zcomputefurthest\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6a0176332a052e1151dc82931e68dcd2}
+}]\index{Zconcave@{Zconcave}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zconcave@{Zconcave}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaced444a68b9cc955fdcbc46468d1cdb5}{}Zconcave\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaced444a68b9cc955fdcbc46468d1cdb5}
+}]\index{Wconcavemax@{Wconcavemax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wconcavemax@{Wconcavemax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda57188d15bbbedd5afdf9e446027d6ff3}{}Wconcavemax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda57188d15bbbedd5afdf9e446027d6ff3}
+}]\index{Wconcavetot@{Wconcavetot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wconcavetot@{Wconcavetot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac6f8ac8cb8aa772c0ea04127169b1f8e}{}Wconcavetot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac6f8ac8cb8aa772c0ea04127169b1f8e}
+}]\index{Zconcaveridges@{Zconcaveridges}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zconcaveridges@{Zconcaveridges}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae3389f51decedfb5a9fb76cc851cb783}{}Zconcaveridges\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae3389f51decedfb5a9fb76cc851cb783}
+}]\index{Zconcaveridge@{Zconcaveridge}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zconcaveridge@{Zconcaveridge}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4dedb4f368eaa690bf09d36e4b23101c}{}Zconcaveridge\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4dedb4f368eaa690bf09d36e4b23101c}
+}]\index{Zcoplanar@{Zcoplanar}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcoplanar@{Zcoplanar}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda42ca442a061e85e307d85ad3a6166ad0}{}Zcoplanar\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda42ca442a061e85e307d85ad3a6166ad0}
+}]\index{Wcoplanarmax@{Wcoplanarmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wcoplanarmax@{Wcoplanarmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda98bd8b4947c673f0fc93a61f9388b5e2}{}Wcoplanarmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda98bd8b4947c673f0fc93a61f9388b5e2}
+}]\index{Wcoplanartot@{Wcoplanartot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wcoplanartot@{Wcoplanartot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab5e536b5593c84758703fa527514363b}{}Wcoplanartot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab5e536b5593c84758703fa527514363b}
+}]\index{Zcoplanarangle@{Zcoplanarangle}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcoplanarangle@{Zcoplanarangle}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda50f25d4e17cd545fe8ac4c68da3ae9f7}{}Zcoplanarangle\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda50f25d4e17cd545fe8ac4c68da3ae9f7}
+}]\index{Zcoplanarcentrum@{Zcoplanarcentrum}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcoplanarcentrum@{Zcoplanarcentrum}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa8972270453a8f3292aa2e5bf1d2c5b3}{}Zcoplanarcentrum\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa8972270453a8f3292aa2e5bf1d2c5b3}
+}]\index{Zcoplanarhorizon@{Zcoplanarhorizon}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcoplanarhorizon@{Zcoplanarhorizon}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf2fa0ba95ac49166688fd0f3cb46efcd}{}Zcoplanarhorizon\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf2fa0ba95ac49166688fd0f3cb46efcd}
+}]\index{Zcoplanarinside@{Zcoplanarinside}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcoplanarinside@{Zcoplanarinside}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf86312fb48c4dc0a8cbf1c519ae32133}{}Zcoplanarinside\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf86312fb48c4dc0a8cbf1c519ae32133}
+}]\index{Zcoplanarpart@{Zcoplanarpart}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcoplanarpart@{Zcoplanarpart}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda419bcf56d9102732230a6dbc964265bf}{}Zcoplanarpart\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda419bcf56d9102732230a6dbc964265bf}
+}]\index{Zcoplanarridges@{Zcoplanarridges}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcoplanarridges@{Zcoplanarridges}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2306bb12feb0f7e0ba2efd33177c34bc}{}Zcoplanarridges\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2306bb12feb0f7e0ba2efd33177c34bc}
+}]\index{Wcpu@{Wcpu}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wcpu@{Wcpu}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab2dc4b59fa12797e5db9dcc6cc2875ea}{}Wcpu\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab2dc4b59fa12797e5db9dcc6cc2875ea}
+}]\index{Zcyclefacetmax@{Zcyclefacetmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcyclefacetmax@{Zcyclefacetmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda88549ecd60984f356a375c7317508a17}{}Zcyclefacetmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda88549ecd60984f356a375c7317508a17}
+}]\index{Zcyclefacettot@{Zcyclefacettot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcyclefacettot@{Zcyclefacettot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda03759e03d42a053418fea861f19cce00}{}Zcyclefacettot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda03759e03d42a053418fea861f19cce00}
+}]\index{Zcyclehorizon@{Zcyclehorizon}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcyclehorizon@{Zcyclehorizon}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8523e74724943d8d0b51d6e091735f1e}{}Zcyclehorizon\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8523e74724943d8d0b51d6e091735f1e}
+}]\index{Zcyclevertex@{Zcyclevertex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zcyclevertex@{Zcyclevertex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabda7ebb5780f8de8fd4562787cd0a261}{}Zcyclevertex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabda7ebb5780f8de8fd4562787cd0a261}
+}]\index{Zdegen@{Zdegen}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdegen@{Zdegen}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4aed2eaa8fd5452201f2ca0fb8fd836c}{}Zdegen\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4aed2eaa8fd5452201f2ca0fb8fd836c}
+}]\index{Wdegenmax@{Wdegenmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wdegenmax@{Wdegenmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4467bd0c518691c1f4cdf19ad39bec60}{}Wdegenmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4467bd0c518691c1f4cdf19ad39bec60}
+}]\index{Wdegentot@{Wdegentot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wdegentot@{Wdegentot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaaca7aa9d059a1114125660001cbf1c2}{}Wdegentot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaaca7aa9d059a1114125660001cbf1c2}
+}]\index{Zdegenvertex@{Zdegenvertex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdegenvertex@{Zdegenvertex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac95ff84bc8521ee3a176359eb6bc0c13}{}Zdegenvertex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac95ff84bc8521ee3a176359eb6bc0c13}
+}]\index{Zdelfacetdup@{Zdelfacetdup}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdelfacetdup@{Zdelfacetdup}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf1046cb021b4af9d2aaf51896a035da6}{}Zdelfacetdup\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf1046cb021b4af9d2aaf51896a035da6}
+}]\index{Zdelridge@{Zdelridge}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdelridge@{Zdelridge}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda870a7cdb72b4ee271a505392c19b1dc3}{}Zdelridge\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda870a7cdb72b4ee271a505392c19b1dc3}
+}]\index{Zdelvertextot@{Zdelvertextot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdelvertextot@{Zdelvertextot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7d01bb7055c9aa1504d37dfbcfffbdee}{}Zdelvertextot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7d01bb7055c9aa1504d37dfbcfffbdee}
+}]\index{Zdelvertexmax@{Zdelvertexmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdelvertexmax@{Zdelvertexmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda760a6618fbd3aea8e461b324957c31f2}{}Zdelvertexmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda760a6618fbd3aea8e461b324957c31f2}
+}]\index{Zdetsimplex@{Zdetsimplex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdetsimplex@{Zdetsimplex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaf3acd655de05a836d4d5f66ac3a4316}{}Zdetsimplex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaf3acd655de05a836d4d5f66ac3a4316}
+}]\index{Zdistcheck@{Zdistcheck}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdistcheck@{Zdistcheck}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad9c980ad8958a5d920f8ca567f01d356}{}Zdistcheck\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad9c980ad8958a5d920f8ca567f01d356}
+}]\index{Zdistconvex@{Zdistconvex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdistconvex@{Zdistconvex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda20f1b614300a9e489f6b3e613192e558}{}Zdistconvex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda20f1b614300a9e489f6b3e613192e558}
+}]\index{Zdistgood@{Zdistgood}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdistgood@{Zdistgood}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda874ad4849883671bb13f8e97b7dde335}{}Zdistgood\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda874ad4849883671bb13f8e97b7dde335}
+}]\index{Zdistio@{Zdistio}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdistio@{Zdistio}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4c8d98bd7d7916dd91fc79b7d8a13b2e}{}Zdistio\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4c8d98bd7d7916dd91fc79b7d8a13b2e}
+}]\index{Zdistplane@{Zdistplane}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdistplane@{Zdistplane}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7bd85c6503026dc50937fc26481835ef}{}Zdistplane\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7bd85c6503026dc50937fc26481835ef}
+}]\index{Zdiststat@{Zdiststat}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdiststat@{Zdiststat}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6ab545d71cfab196945021c226c248e5}{}Zdiststat\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6ab545d71cfab196945021c226c248e5}
+}]\index{Zdistvertex@{Zdistvertex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdistvertex@{Zdistvertex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa205da1427f3dd711aa6c46946c39226}{}Zdistvertex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa205da1427f3dd711aa6c46946c39226}
+}]\index{Zdistzero@{Zdistzero}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdistzero@{Zdistzero}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabafc3e74d6936575bc4cab764f97b957}{}Zdistzero\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabafc3e74d6936575bc4cab764f97b957}
+}]\index{Zdoc1@{Zdoc1}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc1@{Zdoc1}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa92495a32fb34860c1d65c9f0ed53e32}{}Zdoc1\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa92495a32fb34860c1d65c9f0ed53e32}
+}]\index{Zdoc2@{Zdoc2}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc2@{Zdoc2}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda199123efe1bebf4b6cebb3ffbda488ae}{}Zdoc2\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda199123efe1bebf4b6cebb3ffbda488ae}
+}]\index{Zdoc3@{Zdoc3}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc3@{Zdoc3}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac4acbc0d8e19b9fc2889784802654e68}{}Zdoc3\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac4acbc0d8e19b9fc2889784802654e68}
+}]\index{Zdoc4@{Zdoc4}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc4@{Zdoc4}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6f296f8a66b9b22ef805ceb691fbaef0}{}Zdoc4\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6f296f8a66b9b22ef805ceb691fbaef0}
+}]\index{Zdoc5@{Zdoc5}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc5@{Zdoc5}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9fbca23919080de1dbf50a5195bc32e8}{}Zdoc5\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9fbca23919080de1dbf50a5195bc32e8}
+}]\index{Zdoc6@{Zdoc6}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc6@{Zdoc6}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad21d482068f1edd03e941e132e1de5b3}{}Zdoc6\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad21d482068f1edd03e941e132e1de5b3}
+}]\index{Zdoc7@{Zdoc7}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc7@{Zdoc7}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8082671cdebf3635a84c6517d05881c1}{}Zdoc7\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8082671cdebf3635a84c6517d05881c1}
+}]\index{Zdoc8@{Zdoc8}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc8@{Zdoc8}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda538440695edbebd01e00fa32a8e80b22}{}Zdoc8\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda538440695edbebd01e00fa32a8e80b22}
+}]\index{Zdoc9@{Zdoc9}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc9@{Zdoc9}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda76daf281afdce1df19f334fac9191e0e}{}Zdoc9\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda76daf281afdce1df19f334fac9191e0e}
+}]\index{Zdoc10@{Zdoc10}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc10@{Zdoc10}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad4d050451e8919089ceeef30cb8c0e48}{}Zdoc10\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad4d050451e8919089ceeef30cb8c0e48}
+}]\index{Zdoc11@{Zdoc11}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc11@{Zdoc11}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6b5f15567417a689dcb89395277967cd}{}Zdoc11\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6b5f15567417a689dcb89395277967cd}
+}]\index{Zdoc12@{Zdoc12}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdoc12@{Zdoc12}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8eab372fe34c8c73242f6df686a6bf48}{}Zdoc12\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8eab372fe34c8c73242f6df686a6bf48}
+}]\index{Zdropdegen@{Zdropdegen}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdropdegen@{Zdropdegen}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7008efd9904fdad921adea6d059aa14b}{}Zdropdegen\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7008efd9904fdad921adea6d059aa14b}
+}]\index{Zdropneighbor@{Zdropneighbor}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdropneighbor@{Zdropneighbor}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7e6a8b0dfd2a79441fb51903d73b6f2c}{}Zdropneighbor\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7e6a8b0dfd2a79441fb51903d73b6f2c}
+}]\index{Zdupflip@{Zdupflip}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdupflip@{Zdupflip}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda32db286b9d3b40123052de68d87d6c80}{}Zdupflip\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda32db286b9d3b40123052de68d87d6c80}
+}]\index{Zduplicate@{Zduplicate}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zduplicate@{Zduplicate}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf36dfd480faa9fb1349dca287590e656}{}Zduplicate\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf36dfd480faa9fb1349dca287590e656}
+}]\index{Wduplicatemax@{Wduplicatemax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wduplicatemax@{Wduplicatemax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda229ea5de112cbdc0b86d44109b72df2e}{}Wduplicatemax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda229ea5de112cbdc0b86d44109b72df2e}
+}]\index{Wduplicatetot@{Wduplicatetot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wduplicatetot@{Wduplicatetot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1e0648cd7cbd0690ec0e6308b1e0b597}{}Wduplicatetot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1e0648cd7cbd0690ec0e6308b1e0b597}
+}]\index{Zdupridge@{Zdupridge}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdupridge@{Zdupridge}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda90521f2f539b95109f51acbd32c7be57}{}Zdupridge\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda90521f2f539b95109f51acbd32c7be57}
+}]\index{Zdupsame@{Zdupsame}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zdupsame@{Zdupsame}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabbb165147fd36a5990905443a15812fd}{}Zdupsame\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabbb165147fd36a5990905443a15812fd}
+}]\index{Zflipped@{Zflipped}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zflipped@{Zflipped}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda078dd5d788d6f7479f39c34dbcd2bf34}{}Zflipped\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda078dd5d788d6f7479f39c34dbcd2bf34}
+}]\index{Wflippedmax@{Wflippedmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wflippedmax@{Wflippedmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda92e24b100dc7121c29c022722cd9445e}{}Wflippedmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda92e24b100dc7121c29c022722cd9445e}
+}]\index{Wflippedtot@{Wflippedtot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wflippedtot@{Wflippedtot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda055c606d276e89e05ff851a8b5888347}{}Wflippedtot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda055c606d276e89e05ff851a8b5888347}
+}]\index{Zflippedfacets@{Zflippedfacets}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zflippedfacets@{Zflippedfacets}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae517991538ad7bdb70fcb32e32d4ddf5}{}Zflippedfacets\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae517991538ad7bdb70fcb32e32d4ddf5}
+}]\index{Zfindbest@{Zfindbest}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindbest@{Zfindbest}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf4b788c6cb3040827efa14e1bcc46504}{}Zfindbest\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf4b788c6cb3040827efa14e1bcc46504}
+}]\index{Zfindbestmax@{Zfindbestmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindbestmax@{Zfindbestmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2a669675319dab526df647d56b665b81}{}Zfindbestmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2a669675319dab526df647d56b665b81}
+}]\index{Zfindbesttot@{Zfindbesttot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindbesttot@{Zfindbesttot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda27eedc9909297dce86b673b3b2ea7082}{}Zfindbesttot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda27eedc9909297dce86b673b3b2ea7082}
+}]\index{Zfindcoplanar@{Zfindcoplanar}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindcoplanar@{Zfindcoplanar}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa72f27974b33336f4f6e5e8fa72d17b0}{}Zfindcoplanar\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa72f27974b33336f4f6e5e8fa72d17b0}
+}]\index{Zfindfail@{Zfindfail}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindfail@{Zfindfail}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda088f3c1cfba5393a48679432032ad128}{}Zfindfail\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda088f3c1cfba5393a48679432032ad128}
+}]\index{Zfindhorizon@{Zfindhorizon}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindhorizon@{Zfindhorizon}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa9cd3dfa80de4b002f901423a1bf71ec}{}Zfindhorizon\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa9cd3dfa80de4b002f901423a1bf71ec}
+}]\index{Zfindhorizonmax@{Zfindhorizonmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindhorizonmax@{Zfindhorizonmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7ceeb24c9de20d6e52ffbfb2331b378b}{}Zfindhorizonmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7ceeb24c9de20d6e52ffbfb2331b378b}
+}]\index{Zfindhorizontot@{Zfindhorizontot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindhorizontot@{Zfindhorizontot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac36f7fa510fe7a1abf0e443198b0ccfa}{}Zfindhorizontot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac36f7fa510fe7a1abf0e443198b0ccfa}
+}]\index{Zfindjump@{Zfindjump}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindjump@{Zfindjump}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5f717880e67a8f22cf73ee03ce83b9c1}{}Zfindjump\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5f717880e67a8f22cf73ee03ce83b9c1}
+}]\index{Zfindnew@{Zfindnew}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindnew@{Zfindnew}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda468adb7cf03cadf95e74fee7febf9f88}{}Zfindnew\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda468adb7cf03cadf95e74fee7febf9f88}
+}]\index{Zfindnewmax@{Zfindnewmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindnewmax@{Zfindnewmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf4ea8ef1a9dc745ca37c59c3978eb1df}{}Zfindnewmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf4ea8ef1a9dc745ca37c59c3978eb1df}
+}]\index{Zfindnewtot@{Zfindnewtot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindnewtot@{Zfindnewtot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad09a02556040df064e1c9aef583f9cbc}{}Zfindnewtot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad09a02556040df064e1c9aef583f9cbc}
+}]\index{Zfindnewjump@{Zfindnewjump}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindnewjump@{Zfindnewjump}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda35660d0392da7b57cdb286008d426945}{}Zfindnewjump\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda35660d0392da7b57cdb286008d426945}
+}]\index{Zfindnewsharp@{Zfindnewsharp}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zfindnewsharp@{Zfindnewsharp}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdadab21cba2fff42ea3547e97ee0457d1d}{}Zfindnewsharp\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdadab21cba2fff42ea3547e97ee0457d1d}
+}]\index{Zgauss0@{Zgauss0}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zgauss0@{Zgauss0}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacf27c7c12efa427acbd0b20235eaf93e}{}Zgauss0\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacf27c7c12efa427acbd0b20235eaf93e}
+}]\index{Zgoodfacet@{Zgoodfacet}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zgoodfacet@{Zgoodfacet}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda894653ceee761ae25dbcbae7fbadac1e}{}Zgoodfacet\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda894653ceee761ae25dbcbae7fbadac1e}
+}]\index{Zhashlookup@{Zhashlookup}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zhashlookup@{Zhashlookup}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad37950cee88f36fc8d1455ddf3f7ae25}{}Zhashlookup\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad37950cee88f36fc8d1455ddf3f7ae25}
+}]\index{Zhashridge@{Zhashridge}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zhashridge@{Zhashridge}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacec9e730d3c9ce3eafd9dc11ca0e947e}{}Zhashridge\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacec9e730d3c9ce3eafd9dc11ca0e947e}
+}]\index{Zhashridgetest@{Zhashridgetest}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zhashridgetest@{Zhashridgetest}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda72bf986aac02adf3339a779d31797b98}{}Zhashridgetest\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda72bf986aac02adf3339a779d31797b98}
+}]\index{Zhashtests@{Zhashtests}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zhashtests@{Zhashtests}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda628b0d4e11931cbd9cbef6d812648c79}{}Zhashtests\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda628b0d4e11931cbd9cbef6d812648c79}
+}]\index{Zinsidevisible@{Zinsidevisible}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zinsidevisible@{Zinsidevisible}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf7e58e01d9205aea6d45492595d722bf}{}Zinsidevisible\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf7e58e01d9205aea6d45492595d722bf}
+}]\index{Zintersect@{Zintersect}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zintersect@{Zintersect}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7acbf57257cedae349cf7f557f024a12}{}Zintersect\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7acbf57257cedae349cf7f557f024a12}
+}]\index{Zintersectfail@{Zintersectfail}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zintersectfail@{Zintersectfail}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda665ba2336a336df9b57d081631ebf0e0}{}Zintersectfail\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda665ba2336a336df9b57d081631ebf0e0}
+}]\index{Zintersectmax@{Zintersectmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zintersectmax@{Zintersectmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda462ba8ec8c7882990b0c496771e2b30b}{}Zintersectmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda462ba8ec8c7882990b0c496771e2b30b}
+}]\index{Zintersectnum@{Zintersectnum}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zintersectnum@{Zintersectnum}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac0df8cbd0c91dff114e508fc366d4cd2}{}Zintersectnum\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac0df8cbd0c91dff114e508fc366d4cd2}
+}]\index{Zintersecttot@{Zintersecttot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zintersecttot@{Zintersecttot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdadb62589110f70355034434c0e50c3863}{}Zintersecttot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdadb62589110f70355034434c0e50c3863}
+}]\index{Zmaxneighbors@{Zmaxneighbors}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmaxneighbors@{Zmaxneighbors}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafe27ed7998858bfbf54ef6d08d774621}{}Zmaxneighbors\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafe27ed7998858bfbf54ef6d08d774621}
+}]\index{Wmaxout@{Wmaxout}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wmaxout@{Wmaxout}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda500ec4d106535fb059d61d75ccbca1e1}{}Wmaxout\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda500ec4d106535fb059d61d75ccbca1e1}
+}]\index{Wmaxoutside@{Wmaxoutside}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wmaxoutside@{Wmaxoutside}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabc40d172ad092bd9099b29c8bd5efee8}{}Wmaxoutside\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabc40d172ad092bd9099b29c8bd5efee8}
+}]\index{Zmaxridges@{Zmaxridges}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmaxridges@{Zmaxridges}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7661c19d8bf5fb9149e164f3f6184e5e}{}Zmaxridges\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7661c19d8bf5fb9149e164f3f6184e5e}
+}]\index{Zmaxvertex@{Zmaxvertex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmaxvertex@{Zmaxvertex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac7f25fa995b65f4ecaa9a20ad2882f65}{}Zmaxvertex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac7f25fa995b65f4ecaa9a20ad2882f65}
+}]\index{Zmaxvertices@{Zmaxvertices}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmaxvertices@{Zmaxvertices}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda0ee88bfaa2c54d26bab549d37f38680e}{}Zmaxvertices\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda0ee88bfaa2c54d26bab549d37f38680e}
+}]\index{Zmaxvneighbors@{Zmaxvneighbors}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmaxvneighbors@{Zmaxvneighbors}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad73626dd150e40104aeaaeaa9789515e}{}Zmaxvneighbors\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad73626dd150e40104aeaaeaa9789515e}
+}]\index{Zmemfacets@{Zmemfacets}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmemfacets@{Zmemfacets}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda88f7c0022ce0a94e334f37746da1db7a}{}Zmemfacets\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda88f7c0022ce0a94e334f37746da1db7a}
+}]\index{Zmempoints@{Zmempoints}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmempoints@{Zmempoints}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad9a8aabb4537b6cb5913810ce8ec0c63}{}Zmempoints\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad9a8aabb4537b6cb5913810ce8ec0c63}
+}]\index{Zmemridges@{Zmemridges}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmemridges@{Zmemridges}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65c2f4f34d32cb7977e54775a138ef2f}{}Zmemridges\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65c2f4f34d32cb7977e54775a138ef2f}
+}]\index{Zmemvertices@{Zmemvertices}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmemvertices@{Zmemvertices}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda601825704424aa611fd1452083c02373}{}Zmemvertices\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda601825704424aa611fd1452083c02373}
+}]\index{Zmergeflipdup@{Zmergeflipdup}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergeflipdup@{Zmergeflipdup}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7b7024aa702f542bf618760ebf514c27}{}Zmergeflipdup\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7b7024aa702f542bf618760ebf514c27}
+}]\index{Zmergehorizon@{Zmergehorizon}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergehorizon@{Zmergehorizon}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaef2f842497cd8b2ab12d5934adcdced1}{}Zmergehorizon\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaef2f842497cd8b2ab12d5934adcdced1}
+}]\index{Zmergeinittot@{Zmergeinittot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergeinittot@{Zmergeinittot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda596fd8b849353e781ea491be757864c4}{}Zmergeinittot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda596fd8b849353e781ea491be757864c4}
+}]\index{Zmergeinitmax@{Zmergeinitmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergeinitmax@{Zmergeinitmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf403537fd7872ea00b3abd45c3be1d16}{}Zmergeinitmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf403537fd7872ea00b3abd45c3be1d16}
+}]\index{Zmergeinittot2@{Zmergeinittot2}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergeinittot2@{Zmergeinittot2}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5fab27c74ab6b3f1d2b154d4ad66ce95}{}Zmergeinittot2\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5fab27c74ab6b3f1d2b154d4ad66ce95}
+}]\index{Zmergeintohorizon@{Zmergeintohorizon}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergeintohorizon@{Zmergeintohorizon}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda02630041efff79fd8789ff33982f2072}{}Zmergeintohorizon\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda02630041efff79fd8789ff33982f2072}
+}]\index{Zmergenew@{Zmergenew}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergenew@{Zmergenew}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda638e8e1649fd365fd4e07617c339c9d2}{}Zmergenew\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda638e8e1649fd365fd4e07617c339c9d2}
+}]\index{Zmergesettot@{Zmergesettot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergesettot@{Zmergesettot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacb94c1d31a7c08bc9e07ce6e72c156e2}{}Zmergesettot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacb94c1d31a7c08bc9e07ce6e72c156e2}
+}]\index{Zmergesetmax@{Zmergesetmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergesetmax@{Zmergesetmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad86f08b5fefc210c35d967e59cb78d37}{}Zmergesetmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad86f08b5fefc210c35d967e59cb78d37}
+}]\index{Zmergesettot2@{Zmergesettot2}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergesettot2@{Zmergesettot2}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7b9464afea8934b896216b47a9056a76}{}Zmergesettot2\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7b9464afea8934b896216b47a9056a76}
+}]\index{Zmergesimplex@{Zmergesimplex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergesimplex@{Zmergesimplex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65a57f675631c469d180147f6991953d}{}Zmergesimplex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65a57f675631c469d180147f6991953d}
+}]\index{Zmergevertex@{Zmergevertex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmergevertex@{Zmergevertex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9e41a618d59dd4365b63f5c05a63359b}{}Zmergevertex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9e41a618d59dd4365b63f5c05a63359b}
+}]\index{Wmindenom@{Wmindenom}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wmindenom@{Wmindenom}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda43110d1f9a2a5aff2fe427ebd424b1ec}{}Wmindenom\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda43110d1f9a2a5aff2fe427ebd424b1ec}
+}]\index{Wminvertex@{Wminvertex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wminvertex@{Wminvertex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7cd7fbf362a8f7517dfc7b4ac894fa1c}{}Wminvertex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7cd7fbf362a8f7517dfc7b4ac894fa1c}
+}]\index{Zminnorm@{Zminnorm}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zminnorm@{Zminnorm}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaafa408959970e17b1d3a85a62a2541a6}{}Zminnorm\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaafa408959970e17b1d3a85a62a2541a6}
+}]\index{Zmultiridge@{Zmultiridge}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zmultiridge@{Zmultiridge}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacee1e1334d6c10e8da01a4b8df296520}{}Zmultiridge\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacee1e1334d6c10e8da01a4b8df296520}
+}]\index{Znearlysingular@{Znearlysingular}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znearlysingular@{Znearlysingular}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda35687af575ac9c237de8de5138229a56}{}Znearlysingular\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda35687af575ac9c237de8de5138229a56}
+}]\index{Zneighbor@{Zneighbor}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zneighbor@{Zneighbor}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9ffd744905cea1bd1e799820db592ca2}{}Zneighbor\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9ffd744905cea1bd1e799820db592ca2}
+}]\index{Wnewbalance@{Wnewbalance}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wnewbalance@{Wnewbalance}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8973fb65f9731369a2c857bd3397e87c}{}Wnewbalance\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8973fb65f9731369a2c857bd3397e87c}
+}]\index{Wnewbalance2@{Wnewbalance2}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wnewbalance2@{Wnewbalance2}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1dd945a4809f925479dff65a11bfb8a3}{}Wnewbalance2\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1dd945a4809f925479dff65a11bfb8a3}
+}]\index{Znewfacettot@{Znewfacettot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znewfacettot@{Znewfacettot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda431dc1583fa3d0c1436e0c54cc482eed}{}Znewfacettot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda431dc1583fa3d0c1436e0c54cc482eed}
+}]\index{Znewfacetmax@{Znewfacetmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znewfacetmax@{Znewfacetmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac00d2ec296f101129bdf7929fbb142ca}{}Znewfacetmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac00d2ec296f101129bdf7929fbb142ca}
+}]\index{Znewvertex@{Znewvertex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znewvertex@{Znewvertex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac19e0820571c591d9e93df75aab9aec7}{}Znewvertex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac19e0820571c591d9e93df75aab9aec7}
+}]\index{Wnewvertex@{Wnewvertex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wnewvertex@{Wnewvertex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda41203ed37f653b2f61240397202114e9}{}Wnewvertex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda41203ed37f653b2f61240397202114e9}
+}]\index{Wnewvertexmax@{Wnewvertexmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wnewvertexmax@{Wnewvertexmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda0475c31b6b5cc39d5f065652c8556816}{}Wnewvertexmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda0475c31b6b5cc39d5f065652c8556816}
+}]\index{Znoarea@{Znoarea}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znoarea@{Znoarea}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda13eb8a877acf658a3278389126e62aad}{}Znoarea\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda13eb8a877acf658a3278389126e62aad}
+}]\index{Znonsimplicial@{Znonsimplicial}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znonsimplicial@{Znonsimplicial}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafde9c242f189d74963867120e4311e37}{}Znonsimplicial\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafde9c242f189d74963867120e4311e37}
+}]\index{Znowsimplicial@{Znowsimplicial}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znowsimplicial@{Znowsimplicial}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaddac51f1d92bf774648c6ef12deb4b61}{}Znowsimplicial\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaddac51f1d92bf774648c6ef12deb4b61}
+}]\index{Znotgood@{Znotgood}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znotgood@{Znotgood}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae6f593569abdf3b19772b47a3f69110b}{}Znotgood\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae6f593569abdf3b19772b47a3f69110b}
+}]\index{Znotgoodnew@{Znotgoodnew}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znotgoodnew@{Znotgoodnew}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5273dc4643195eb106255153efb51c6a}{}Znotgoodnew\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda5273dc4643195eb106255153efb51c6a}
+}]\index{Znotmax@{Znotmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znotmax@{Znotmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda679c1b113d1fcdd951b2dd307705ebcd}{}Znotmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda679c1b113d1fcdd951b2dd307705ebcd}
+}]\index{Znumfacets@{Znumfacets}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znumfacets@{Znumfacets}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9fd79d4f577e1929f0372b8814d1da16}{}Znumfacets\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9fd79d4f577e1929f0372b8814d1da16}
+}]\index{Znummergemax@{Znummergemax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znummergemax@{Znummergemax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda12825dd9d19e124ab9dff10ab8d029b5}{}Znummergemax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda12825dd9d19e124ab9dff10ab8d029b5}
+}]\index{Znummergetot@{Znummergetot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znummergetot@{Znummergetot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4fc2386555ba3f2798963303f43102a0}{}Znummergetot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4fc2386555ba3f2798963303f43102a0}
+}]\index{Znumneighbors@{Znumneighbors}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znumneighbors@{Znumneighbors}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7a233fffa7b79d32d9d0dc3fcee5298f}{}Znumneighbors\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7a233fffa7b79d32d9d0dc3fcee5298f}
+}]\index{Znumridges@{Znumridges}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znumridges@{Znumridges}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf40288eaa43f5ae0a2f12ae855e416b7}{}Znumridges\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf40288eaa43f5ae0a2f12ae855e416b7}
+}]\index{Znumvertices@{Znumvertices}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znumvertices@{Znumvertices}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8b4d95b734a2bd2e1dc8689d252911ab}{}Znumvertices\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8b4d95b734a2bd2e1dc8689d252911ab}
+}]\index{Znumvisibility@{Znumvisibility}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znumvisibility@{Znumvisibility}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda56c40988ff32069c7912cbccef4535aa}{}Znumvisibility\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda56c40988ff32069c7912cbccef4535aa}
+}]\index{Znumvneighbors@{Znumvneighbors}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Znumvneighbors@{Znumvneighbors}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaff8a9cbca97f0386d97aca9b8a4fd03c}{}Znumvneighbors\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaff8a9cbca97f0386d97aca9b8a4fd03c}
+}]\index{Zonehorizon@{Zonehorizon}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zonehorizon@{Zonehorizon}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae04d410b66b642e34f1bc25d3e3859fa}{}Zonehorizon\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdae04d410b66b642e34f1bc25d3e3859fa}
+}]\index{Zpartangle@{Zpartangle}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zpartangle@{Zpartangle}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaca97e3f26059e052e587e4aa6722a5fb}{}Zpartangle\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaca97e3f26059e052e587e4aa6722a5fb}
+}]\index{Zpartcoplanar@{Zpartcoplanar}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zpartcoplanar@{Zpartcoplanar}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda19b4224548a9ed9651c0f242dcd64e93}{}Zpartcoplanar\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda19b4224548a9ed9651c0f242dcd64e93}
+}]\index{Zpartflip@{Zpartflip}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zpartflip@{Zpartflip}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda596f2f615761bb5493aa68c14ffc5a62}{}Zpartflip\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda596f2f615761bb5493aa68c14ffc5a62}
+}]\index{Zparthorizon@{Zparthorizon}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zparthorizon@{Zparthorizon}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa9ccca72355cb78a6e3c3214bcfa8b64}{}Zparthorizon\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa9ccca72355cb78a6e3c3214bcfa8b64}
+}]\index{Zpartinside@{Zpartinside}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zpartinside@{Zpartinside}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4107005c6c2a0c6031a2a6d25c1ce377}{}Zpartinside\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4107005c6c2a0c6031a2a6d25c1ce377}
+}]\index{Zpartition@{Zpartition}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zpartition@{Zpartition}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6c3e8b1b2d5822d05eb8202c7f792e68}{}Zpartition\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6c3e8b1b2d5822d05eb8202c7f792e68}
+}]\index{Zpartitionall@{Zpartitionall}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zpartitionall@{Zpartitionall}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6f52cc7ecb67c5d2655ffd3e151b6d91}{}Zpartitionall\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6f52cc7ecb67c5d2655ffd3e151b6d91}
+}]\index{Zpartnear@{Zpartnear}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zpartnear@{Zpartnear}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6b163e6a0273e05cf2b5f8e654e7c83e}{}Zpartnear\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6b163e6a0273e05cf2b5f8e654e7c83e}
+}]\index{Zpbalance@{Zpbalance}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zpbalance@{Zpbalance}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4d507323d292e1781ae083a77c437e15}{}Zpbalance\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4d507323d292e1781ae083a77c437e15}
+}]\index{Wpbalance@{Wpbalance}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wpbalance@{Wpbalance}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabc74af9912a18976c6069597795cd918}{}Wpbalance\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabc74af9912a18976c6069597795cd918}
+}]\index{Wpbalance2@{Wpbalance2}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wpbalance2@{Wpbalance2}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2e4aa0dc632b337f11f7c871b6ac3588}{}Wpbalance2\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2e4aa0dc632b337f11f7c871b6ac3588}
+}]\index{Zpostfacets@{Zpostfacets}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zpostfacets@{Zpostfacets}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad4798aaa892992c3b2dcfa05df2dbe43}{}Zpostfacets\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad4798aaa892992c3b2dcfa05df2dbe43}
+}]\index{Zpremergetot@{Zpremergetot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zpremergetot@{Zpremergetot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1b026c738cd28542fed7e1067f6462a3}{}Zpremergetot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1b026c738cd28542fed7e1067f6462a3}
+}]\index{Zprocessed@{Zprocessed}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zprocessed@{Zprocessed}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda26c4b07f3a142c585c79285c6545da6d}{}Zprocessed\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda26c4b07f3a142c585c79285c6545da6d}
+}]\index{Zremvertex@{Zremvertex}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zremvertex@{Zremvertex}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1c4396df8f3e8e525fb9d8fa47ce6b5b}{}Zremvertex\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1c4396df8f3e8e525fb9d8fa47ce6b5b}
+}]\index{Zremvertexdel@{Zremvertexdel}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zremvertexdel@{Zremvertexdel}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65f52131383c007690c7c17f8353e986}{}Zremvertexdel\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda65f52131383c007690c7c17f8353e986}
+}]\index{Zrenameall@{Zrenameall}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zrenameall@{Zrenameall}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafa5460900e1d7c8f2cabf42b91193199}{}Zrenameall\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafa5460900e1d7c8f2cabf42b91193199}
+}]\index{Zrenamepinch@{Zrenamepinch}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zrenamepinch@{Zrenamepinch}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9f01be8343c1715ed89878af59b4779b}{}Zrenamepinch\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9f01be8343c1715ed89878af59b4779b}
+}]\index{Zrenameshare@{Zrenameshare}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zrenameshare@{Zrenameshare}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda249d83b5e95b566c99683912c9223ae5}{}Zrenameshare\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda249d83b5e95b566c99683912c9223ae5}
+}]\index{Zretry@{Zretry}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zretry@{Zretry}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf376bae82bc459c0ca86b72cbd77f4d0}{}Zretry\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf376bae82bc459c0ca86b72cbd77f4d0}
+}]\index{Wretrymax@{Wretrymax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wretrymax@{Wretrymax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda13f3481e17109b177a902504758cec9d}{}Wretrymax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda13f3481e17109b177a902504758cec9d}
+}]\index{Zridge@{Zridge}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zridge@{Zridge}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9b36fc3d34c9ac01e862c164ef45704f}{}Zridge\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9b36fc3d34c9ac01e862c164ef45704f}
+}]\index{Wridge@{Wridge}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wridge@{Wridge}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda19767f6cea4bf3ca174987675da6d65a}{}Wridge\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda19767f6cea4bf3ca174987675da6d65a}
+}]\index{Wridgemax@{Wridgemax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wridgemax@{Wridgemax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1a7568be86e52ab2da10d1dd4041d5e7}{}Wridgemax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1a7568be86e52ab2da10d1dd4041d5e7}
+}]\index{Zridge0@{Zridge0}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zridge0@{Zridge0}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda48e2b9efa63607ac80116564f55044bc}{}Zridge0\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda48e2b9efa63607ac80116564f55044bc}
+}]\index{Wridge0@{Wridge0}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wridge0@{Wridge0}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda288c94d3d7516f22ad88c11b894a74b3}{}Wridge0\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda288c94d3d7516f22ad88c11b894a74b3}
+}]\index{Wridge0max@{Wridge0max}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wridge0max@{Wridge0max}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6814ae66c516dc62a242e59bc8bf6896}{}Wridge0max\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6814ae66c516dc62a242e59bc8bf6896}
+}]\index{Zridgemid@{Zridgemid}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zridgemid@{Zridgemid}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9e7a7063d37cb4da932e854adfee7051}{}Zridgemid\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9e7a7063d37cb4da932e854adfee7051}
+}]\index{Wridgemid@{Wridgemid}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wridgemid@{Wridgemid}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda52c31e4e4c965c9b1c6d047fc6ad7a40}{}Wridgemid\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda52c31e4e4c965c9b1c6d047fc6ad7a40}
+}]\index{Wridgemidmax@{Wridgemidmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wridgemidmax@{Wridgemidmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda76fcd191336030fc8672483468e8ad37}{}Wridgemidmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda76fcd191336030fc8672483468e8ad37}
+}]\index{Zridgeok@{Zridgeok}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zridgeok@{Zridgeok}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafea0f7f96f4ae8b8a098145b46df3ed8}{}Zridgeok\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdafea0f7f96f4ae8b8a098145b46df3ed8}
+}]\index{Wridgeok@{Wridgeok}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wridgeok@{Wridgeok}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7cbb73c0f02466c8bf1f2b34bc095b79}{}Wridgeok\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda7cbb73c0f02466c8bf1f2b34bc095b79}
+}]\index{Wridgeokmax@{Wridgeokmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wridgeokmax@{Wridgeokmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4b3d112abd5ab91545126e9c26d94b23}{}Wridgeokmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda4b3d112abd5ab91545126e9c26d94b23}
+}]\index{Zsearchpoints@{Zsearchpoints}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zsearchpoints@{Zsearchpoints}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3cc07ba111ddc81c948f1c2952c3d6b6}{}Zsearchpoints\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3cc07ba111ddc81c948f1c2952c3d6b6}
+}]\index{Zsetplane@{Zsetplane}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zsetplane@{Zsetplane}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2d863c818b4bb493e6ff774077f8531d}{}Zsetplane\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda2d863c818b4bb493e6ff774077f8531d}
+}]\index{Ztestvneighbor@{Ztestvneighbor}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztestvneighbor@{Ztestvneighbor}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda19d1ca6afb74efb84e7cba69a3c9a97f}{}Ztestvneighbor\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda19d1ca6afb74efb84e7cba69a3c9a97f}
+}]\index{Ztotcheck@{Ztotcheck}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztotcheck@{Ztotcheck}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda102ebc0472ca6b524e420bca9946822c}{}Ztotcheck\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda102ebc0472ca6b524e420bca9946822c}
+}]\index{Ztothorizon@{Ztothorizon}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztothorizon@{Ztothorizon}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaefd07227321cb32b46c797f8cdb810f7}{}Ztothorizon\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaefd07227321cb32b46c797f8cdb810f7}
+}]\index{Ztotmerge@{Ztotmerge}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztotmerge@{Ztotmerge}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda392ed93e7fe07207117714c7cd630ce9}{}Ztotmerge\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda392ed93e7fe07207117714c7cd630ce9}
+}]\index{Ztotpartcoplanar@{Ztotpartcoplanar}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztotpartcoplanar@{Ztotpartcoplanar}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda650a6fa08540b42fe6e1fe084573fb6e}{}Ztotpartcoplanar\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda650a6fa08540b42fe6e1fe084573fb6e}
+}]\index{Ztotpartition@{Ztotpartition}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztotpartition@{Ztotpartition}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa74a39636dbfcc603b19d3bd7521f619}{}Ztotpartition\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa74a39636dbfcc603b19d3bd7521f619}
+}]\index{Ztotridges@{Ztotridges}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztotridges@{Ztotridges}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda68ad781b2be49d7201b94c224beb96b2}{}Ztotridges\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda68ad781b2be49d7201b94c224beb96b2}
+}]\index{Ztotvertices@{Ztotvertices}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztotvertices@{Ztotvertices}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaea2af57591b25f17a2c224ba6fe5b028}{}Ztotvertices\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaea2af57591b25f17a2c224ba6fe5b028}
+}]\index{Ztotvisible@{Ztotvisible}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztotvisible@{Ztotvisible}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabb3332f1ebf72015b2fa694378c9e048}{}Ztotvisible\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdabb3332f1ebf72015b2fa694378c9e048}
+}]\index{Ztricoplanar@{Ztricoplanar}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztricoplanar@{Ztricoplanar}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad33d4a15ad9fe69804b960e4025ad96f}{}Ztricoplanar\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad33d4a15ad9fe69804b960e4025ad96f}
+}]\index{Ztricoplanarmax@{Ztricoplanarmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztricoplanarmax@{Ztricoplanarmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaae05f2b1aaf02c749e82efbd7d56579}{}Ztricoplanarmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaae05f2b1aaf02c749e82efbd7d56579}
+}]\index{Ztricoplanartot@{Ztricoplanartot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztricoplanartot@{Ztricoplanartot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1dd43c407ab5663d40ba733f37826d59}{}Ztricoplanartot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1dd43c407ab5663d40ba733f37826d59}
+}]\index{Ztridegen@{Ztridegen}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztridegen@{Ztridegen}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab395f66a6400b1b3abd7009e9771a126}{}Ztridegen\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab395f66a6400b1b3abd7009e9771a126}
+}]\index{Ztrimirror@{Ztrimirror}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztrimirror@{Ztrimirror}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8e30f6fde6ced63f9ce396cb87eb333a}{}Ztrimirror\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8e30f6fde6ced63f9ce396cb87eb333a}
+}]\index{Ztrinull@{Ztrinull}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Ztrinull@{Ztrinull}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab979f1130f72e3bcebc69f0516d56cad}{}Ztrinull\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdab979f1130f72e3bcebc69f0516d56cad}
+}]\index{Wvertexmax@{Wvertexmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wvertexmax@{Wvertexmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3ab49d2a5035775d29f7f135d3ba8cb2}{}Wvertexmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda3ab49d2a5035775d29f7f135d3ba8cb2}
+}]\index{Wvertexmin@{Wvertexmin}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Wvertexmin@{Wvertexmin}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaf921fff80caa129fa065fc49f16b9ee}{}Wvertexmin\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaaf921fff80caa129fa065fc49f16b9ee}
+}]\index{Zvertexridge@{Zvertexridge}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvertexridge@{Zvertexridge}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad105026941c374cccf84ac9d91d1fea8}{}Zvertexridge\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdad105026941c374cccf84ac9d91d1fea8}
+}]\index{Zvertexridgetot@{Zvertexridgetot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvertexridgetot@{Zvertexridgetot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda31d0f12921026ccf364146d45d4b18ed}{}Zvertexridgetot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda31d0f12921026ccf364146d45d4b18ed}
+}]\index{Zvertexridgemax@{Zvertexridgemax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvertexridgemax@{Zvertexridgemax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda48945787be81b9190b6c8a3432a8a3e4}{}Zvertexridgemax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda48945787be81b9190b6c8a3432a8a3e4}
+}]\index{Zvertices@{Zvertices}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvertices@{Zvertices}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf8deb4ec5198c12033cc2a504167e0e1}{}Zvertices\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaf8deb4ec5198c12033cc2a504167e0e1}
+}]\index{Zvisfacettot@{Zvisfacettot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvisfacettot@{Zvisfacettot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda840390ef53cefe614764b69a1fa29c61}{}Zvisfacettot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda840390ef53cefe614764b69a1fa29c61}
+}]\index{Zvisfacetmax@{Zvisfacetmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvisfacetmax@{Zvisfacetmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda154bfeff6b415875a596db213d15eea3}{}Zvisfacetmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda154bfeff6b415875a596db213d15eea3}
+}]\index{Zvisit@{Zvisit}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvisit@{Zvisit}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9ee17f7825f3c69a73857f01e7c6dbe2}{}Zvisit\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda9ee17f7825f3c69a73857f01e7c6dbe2}
+}]\index{Zvisit2max@{Zvisit2max}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvisit2max@{Zvisit2max}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1fbfd8b6879d359bd2a0654b430d16db}{}Zvisit2max\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda1fbfd8b6879d359bd2a0654b430d16db}
+}]\index{Zvisvertextot@{Zvisvertextot}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvisvertextot@{Zvisvertextot}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda75eb658a09d67e9463adaabc07a7e879}{}Zvisvertextot\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda75eb658a09d67e9463adaabc07a7e879}
+}]\index{Zvisvertexmax@{Zvisvertexmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvisvertexmax@{Zvisvertexmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa2f12a8c962994d9a7453ca2c23e79c2}{}Zvisvertexmax\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdaa2f12a8c962994d9a7453ca2c23e79c2}
+}]\index{Zvvisit@{Zvvisit}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvvisit@{Zvvisit}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda82bc524d2af2e528c9f3ddeffffd2ce5}{}Zvvisit\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda82bc524d2af2e528c9f3ddeffffd2ce5}
+}]\index{Zvvisit2max@{Zvvisit2max}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zvvisit2max@{Zvvisit2max}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6e2ec1523a5fbc756801d66b2822d685}{}Zvvisit2max\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda6e2ec1523a5fbc756801d66b2822d685}
+}]\index{Zwidefacet@{Zwidefacet}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zwidefacet@{Zwidefacet}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8f41fc80dce594690d037f85ba3cef23}{}Zwidefacet\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fda8f41fc80dce594690d037f85ba3cef23}
+}]\index{Zwidevertices@{Zwidevertices}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Zwidevertices@{Zwidevertices}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac43263022b474abd3a5c6c600c1d1f07}{}Zwidevertices\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdac43263022b474abd3a5c6c600c1d1f07}
+}]\index{Z\+E\+N\+D@{Z\+E\+N\+D}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Z\+E\+N\+D@{Z\+E\+N\+D}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacc1aeb24e409a582092fe083d9ea1e41}{}Z\+E\+N\+D\label{spatial_2qhull_2src_2stat_8h_a0bb9ced98effdb433e3e2fafd98932fdacc1aeb24e409a582092fe083d9ea1e41}
+}]\end{description}
+\end{Desc}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!ztypes@{ztypes}}
+\index{ztypes@{ztypes}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{ztypes}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf ztypes}}\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{zdoc@{zdoc}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zdoc@{zdoc}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7aecf0c0ea60cc9fbd728459031501f40f}{}zdoc\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7aecf0c0ea60cc9fbd728459031501f40f}
+}]\index{zinc@{zinc}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zinc@{zinc}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a5fa7f3d3f86be303334bb71ea0c16a6b}{}zinc\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a5fa7f3d3f86be303334bb71ea0c16a6b}
+}]\index{zadd@{zadd}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zadd@{zadd}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7afebd794def03ad96e53bbfc7fd2a035b}{}zadd\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7afebd794def03ad96e53bbfc7fd2a035b}
+}]\index{zmax@{zmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zmax@{zmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7acd20ac2e1b2e25e33293516660048674}{}zmax\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7acd20ac2e1b2e25e33293516660048674}
+}]\index{zmin@{zmin}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!zmin@{zmin}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7abaca913d02bce2f4a9b78d5884f9a8f7}{}zmin\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7abaca913d02bce2f4a9b78d5884f9a8f7}
+}]\index{Z\+T\+Y\+P\+Ereal@{Z\+T\+Y\+P\+Ereal}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Z\+T\+Y\+P\+Ereal@{Z\+T\+Y\+P\+Ereal}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7ad1127da9fcb4b5fb30154cfa80fc057d}{}Z\+T\+Y\+P\+Ereal\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7ad1127da9fcb4b5fb30154cfa80fc057d}
+}]\index{wadd@{wadd}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!wadd@{wadd}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a354e1786dcad0acf59a3e1d093d080c0}{}wadd\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a354e1786dcad0acf59a3e1d093d080c0}
+}]\index{wmax@{wmax}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!wmax@{wmax}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a027ecbf50177b8b2a00aa867ad7daab4}{}wmax\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a027ecbf50177b8b2a00aa867ad7daab4}
+}]\index{wmin@{wmin}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!wmin@{wmin}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a8e7bf8666791c0b13ceff240d21e4cb8}{}wmin\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a8e7bf8666791c0b13ceff240d21e4cb8}
+}]\index{Z\+T\+Y\+P\+Eend@{Z\+T\+Y\+P\+Eend}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!Z\+T\+Y\+P\+Eend@{Z\+T\+Y\+P\+Eend}}\item[{\em 
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a0e4e54ca92c802f645e777a8a47f248e}{}Z\+T\+Y\+P\+Eend\label{spatial_2qhull_2src_2stat_8h_a6c58d6d683698a3e7886533dc3241ca7a0e4e54ca92c802f645e777a8a47f248e}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{spatial_2qhull_2src_2stat_8h_aa91acc64e500df58e15e971e5fdd751e}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstat\+A@{qh\+\_\+allstat\+A}}
+\index{qh\+\_\+allstat\+A@{qh\+\_\+allstat\+A}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstat\+A}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+A (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_aa91acc64e500df58e15e971e5fdd751e}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a73e0514790e5eea445b1f47e8e8e6b40}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstat\+B@{qh\+\_\+allstat\+B}}
+\index{qh\+\_\+allstat\+B@{qh\+\_\+allstat\+B}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstat\+B}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+B (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a73e0514790e5eea445b1f47e8e8e6b40}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a0a8d11092a2aab701bb4b2150cdf767c}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstat\+C@{qh\+\_\+allstat\+C}}
+\index{qh\+\_\+allstat\+C@{qh\+\_\+allstat\+C}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstat\+C}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+C (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a0a8d11092a2aab701bb4b2150cdf767c}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ae6f5db825b77e48f138beb54a881e9ee}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstat\+D@{qh\+\_\+allstat\+D}}
+\index{qh\+\_\+allstat\+D@{qh\+\_\+allstat\+D}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstat\+D}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+D (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_ae6f5db825b77e48f138beb54a881e9ee}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a21e4bf74ec7a12cb2ee8998ab517f1eb}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstat\+E@{qh\+\_\+allstat\+E}}
+\index{qh\+\_\+allstat\+E@{qh\+\_\+allstat\+E}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstat\+E}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+E (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a21e4bf74ec7a12cb2ee8998ab517f1eb}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ab42054e3440c14ca78263e51b48b74a7}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstat\+E2@{qh\+\_\+allstat\+E2}}
+\index{qh\+\_\+allstat\+E2@{qh\+\_\+allstat\+E2}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstat\+E2}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+E2 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_ab42054e3440c14ca78263e51b48b74a7}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a326c10bb740823d488dfc96e2f9c87ba}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstat\+F@{qh\+\_\+allstat\+F}}
+\index{qh\+\_\+allstat\+F@{qh\+\_\+allstat\+F}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstat\+F}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+F (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a326c10bb740823d488dfc96e2f9c87ba}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a1a83c440c9b4a9cb5cbc053e39611d9c}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstat\+G@{qh\+\_\+allstat\+G}}
+\index{qh\+\_\+allstat\+G@{qh\+\_\+allstat\+G}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstat\+G}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+G (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a1a83c440c9b4a9cb5cbc053e39611d9c}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ab3b6af869cbd5b6ef56391c6025e6fe6}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstat\+H@{qh\+\_\+allstat\+H}}
+\index{qh\+\_\+allstat\+H@{qh\+\_\+allstat\+H}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstat\+H}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+H (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_ab3b6af869cbd5b6ef56391c6025e6fe6}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a222738bb24ccb5a2a51123697bafa965}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstat\+I@{qh\+\_\+allstat\+I}}
+\index{qh\+\_\+allstat\+I@{qh\+\_\+allstat\+I}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstat\+I}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+I (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a222738bb24ccb5a2a51123697bafa965}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ab14c0f36f890ebe6b60724ebe8c1e339}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+allstatistics@{qh\+\_\+allstatistics}}
+\index{qh\+\_\+allstatistics@{qh\+\_\+allstatistics}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+allstatistics}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstatistics (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_ab14c0f36f890ebe6b60724ebe8c1e339}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a323eaccbfe6576549fbbcc27b1fc0293}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+collectstatistics@{qh\+\_\+collectstatistics}}
+\index{qh\+\_\+collectstatistics@{qh\+\_\+collectstatistics}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+collectstatistics}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+collectstatistics (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a323eaccbfe6576549fbbcc27b1fc0293}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ae87f9d902a259a70dd5db0bd385175b7}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+freestatistics@{qh\+\_\+freestatistics}}
+\index{qh\+\_\+freestatistics@{qh\+\_\+freestatistics}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+freestatistics}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+freestatistics (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_ae87f9d902a259a70dd5db0bd385175b7}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a6d94ef3715de57cfdfe447c09fcffe81}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+initstatistics@{qh\+\_\+initstatistics}}
+\index{qh\+\_\+initstatistics@{qh\+\_\+initstatistics}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+initstatistics}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initstatistics (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a6d94ef3715de57cfdfe447c09fcffe81}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a8052de0b944148fcf86be51df976e467}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+newstats@{qh\+\_\+newstats}}
+\index{qh\+\_\+newstats@{qh\+\_\+newstats}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+newstats}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+newstats (
+\begin{DoxyParamCaption}
+\item[{int}]{idx, }
+\item[{int $\ast$}]{nextindex}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a8052de0b944148fcf86be51df976e467}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a55dd186b05d7b30126b6cdfed892000e}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+nostatistic@{qh\+\_\+nostatistic}}
+\index{qh\+\_\+nostatistic@{qh\+\_\+nostatistic}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+nostatistic}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+nostatistic (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a55dd186b05d7b30126b6cdfed892000e}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ac5705bb4d6269c5c94fa02049c9628c0}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+printallstatistics@{qh\+\_\+printallstatistics}}
+\index{qh\+\_\+printallstatistics@{qh\+\_\+printallstatistics}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+printallstatistics}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printallstatistics (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{const char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_ac5705bb4d6269c5c94fa02049c9628c0}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a3c01830b2f8283b2634932d2d46666b7}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+printstatistics@{qh\+\_\+printstatistics}}
+\index{qh\+\_\+printstatistics@{qh\+\_\+printstatistics}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+printstatistics}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printstatistics (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{const char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_a3c01830b2f8283b2634932d2d46666b7}
+\hypertarget{spatial_2qhull_2src_2stat_8h_ae5b2defa33f7ab5570cfc58b6061032f}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+printstatlevel@{qh\+\_\+printstatlevel}}
+\index{qh\+\_\+printstatlevel@{qh\+\_\+printstatlevel}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+printstatlevel}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printstatlevel (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{int}]{id, }
+\item[{int}]{start}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_ae5b2defa33f7ab5570cfc58b6061032f}
+\hypertarget{spatial_2qhull_2src_2stat_8h_af508cc7e7257750c7a539c31ea647556}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+printstats@{qh\+\_\+printstats}}
+\index{qh\+\_\+printstats@{qh\+\_\+printstats}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+printstats}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printstats (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{int}]{idx, }
+\item[{int $\ast$}]{nextindex}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_af508cc7e7257750c7a539c31ea647556}
+\hypertarget{spatial_2qhull_2src_2stat_8h_af3eabded8ac6cc450637080839b9b293}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+stddev@{qh\+\_\+stddev}}
+\index{qh\+\_\+stddev@{qh\+\_\+stddev}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+stddev}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+stddev (
+\begin{DoxyParamCaption}
+\item[{int}]{num, }
+\item[{{\bf real\+T}}]{tot, }
+\item[{{\bf real\+T}}]{tot2, }
+\item[{{\bf real\+T} $\ast$}]{ave}
+\end{DoxyParamCaption}
+)}\label{spatial_2qhull_2src_2stat_8h_af3eabded8ac6cc450637080839b9b293}
+
+
+\subsection{Variable Documentation}
+\hypertarget{spatial_2qhull_2src_2stat_8h_a5e48037e5b2caeb6713df1a9fa4473ac}{}\index{spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}!qh\+\_\+qhstat@{qh\+\_\+qhstat}}
+\index{qh\+\_\+qhstat@{qh\+\_\+qhstat}!spatial/qhull/src/stat.\+h@{spatial/qhull/src/stat.\+h}}
+\subsubsection[{qh\+\_\+qhstat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf qhstat\+T} qh\+\_\+qhstat}\label{spatial_2qhull_2src_2stat_8h_a5e48037e5b2caeb6713df1a9fa4473ac}

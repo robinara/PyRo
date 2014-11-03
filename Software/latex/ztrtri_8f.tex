@@ -1,0 +1,87 @@
+\hypertarget{ztrtri_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/ztrtri.f File Reference}
+\label{ztrtri_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ztrtri.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ztrtri.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ztrtri_8f_afb9fa26355911581340b5df0f21c966a}{ztrtri} (U\+P\+L\+O, D\+I\+A\+G, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+T\+R\+T\+R\+I} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ztrtri_8f_afb9fa26355911581340b5df0f21c966a}{}\index{ztrtri.\+f@{ztrtri.\+f}!ztrtri@{ztrtri}}
+\index{ztrtri@{ztrtri}!ztrtri.\+f@{ztrtri.\+f}}
+\subsubsection[{ztrtri}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ztrtri (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{D\+I\+A\+G, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{ztrtri_8f_afb9fa26355911581340b5df0f21c966a}
+
+
+{\bfseries Z\+T\+R\+T\+R\+I} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZTRTRI computes the inverse of a complex upper or lower triangular
+ matrix A.
+
+ This is the Level 3 BLAS version of the algorithm.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  A is upper triangular;
+          = 'L':  A is lower triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+A\+G} & \begin{DoxyVerb}          DIAG is CHARACTER*1
+          = 'N':  A is non-unit triangular;
+          = 'U':  A is unit triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the triangular matrix A.  If UPLO = 'U', the
+          leading N-by-N upper triangular part of the array A contains
+          the upper triangular matrix, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = 'L', the
+          leading N-by-N lower triangular part of the array A contains
+          the lower triangular matrix, and the strictly upper
+          triangular part of A is not referenced.  If DIAG = 'U', the
+          diagonal elements of A are also not referenced and are
+          assumed to be 1.
+          On exit, the (triangular) inverse of the original matrix, in
+          the same storage format.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          > 0: if INFO = i, A(i,i) is exactly zero.  The triangular
+               matrix is singular and its inverse can not be computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

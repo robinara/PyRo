@@ -1,0 +1,314 @@
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file}{}\section{scipy.\+io.\+netcdf.\+netcdf\+\_\+file Class Reference}
+\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file}\index{scipy.\+io.\+netcdf.\+netcdf\+\_\+file@{scipy.\+io.\+netcdf.\+netcdf\+\_\+file}}
+Inheritance diagram for scipy.\+io.\+netcdf.\+netcdf\+\_\+file\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1io_1_1netcdf_1_1netcdf__file}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ab163314326e36e86dd999697200e81c0}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_acbdae427e5a55644232a555ac271b7cf}{\+\_\+\+\_\+setattr\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_aa86ba264e8d28b0108ada6a0b06c9a26}{close}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a21e05266d6263eeb6fe40bb37f7cf895}{\+\_\+\+\_\+enter\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_aa7fcaf5f5871ad79e564476bacf5fae3}{\+\_\+\+\_\+exit\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a2c8cbb81ac3f4c3b458fc49a850eea4c}{create\+Dimension}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_afa5e84ef68d02462124965548d29b130}{create\+Variable}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a8cf81ee24b252c20be8f13dbedb707e7}{flush}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ac6246de7714c9e88aa1af053a5e3ddc8}{fp}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a72a09f7b8b72c704397d0b22754d1904}{filename}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ab30b03bd27bc485d38eee32d9957fe49}{use\+\_\+mmap}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ad50eb4214bad62a9bf838037d5dada96}{version\+\_\+byte}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_adcb6d058997c5f643328a771a9c53205}{mode}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_aeb75065359ca8134a53c7c502175fbd7}{dimensions}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a27345ed6ed8853159164b0d00e3369a4}{variables}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a208e2f07e49f9734873a2e52ead72fd1}{sync} = \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a8cf81ee24b252c20be8f13dbedb707e7}{flush}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}A file object for NetCDF data.
+
+A `netcdf_file` object has two standard attributes: `dimensions` and
+`variables`. The values of both are dictionaries, mapping dimension
+names to their associated lengths and variable names to variables,
+respectively. Application programs should never modify these
+dictionaries.
+
+All other attributes correspond to global attributes defined in the
+NetCDF file. Global file attributes are created by assigning to an
+attribute of the `netcdf_file` object.
+
+Parameters
+----------
+filename : string or file-like
+    string -> filename
+mode : {'r', 'w'}, optional
+    read-write mode, default is 'r'
+mmap : None or bool, optional
+    Whether to mmap `filename` when reading.  Default is True
+    when `filename` is a file name, False when `filename` is a
+    file-like object
+version : {1, 2}, optional
+    version of netcdf to read / write, where 1 means *Classic
+    format* and 2 means *64-bit offset format*.  Default is 1.  See
+    `here <http://www.unidata.ucar.edu/software/netcdf/docs/netcdf/Which-Format.html>`_
+    for more info.
+
+Notes
+-----
+The major advantage of this module over other modules is that it doesn't
+require the code to be linked to the NetCDF libraries. This module is
+derived from `pupynere <https://bitbucket.org/robertodealmeida/pupynere/>`_.
+
+NetCDF files are a self-describing binary data format. The file contains
+metadata that describes the dimensions and variables in the file. More
+details about NetCDF files can be found `here
+<http://www.unidata.ucar.edu/software/netcdf/docs/netcdf.html>`_. There
+are three main sections to a NetCDF data structure:
+
+1. Dimensions
+2. Variables
+3. Attributes
+
+The dimensions section records the name and length of each dimension used
+by the variables. The variables would then indicate which dimensions it
+uses and any attributes such as data units, along with containing the data
+values for the variable. It is good practice to include a
+variable that is the same name as a dimension to provide the values for
+that axes. Lastly, the attributes section would contain additional
+information such as the name of the file creator or the instrument used to
+collect the data.
+
+When writing data to a NetCDF file, there is often the need to indicate the
+'record dimension'. A record dimension is the unbounded dimension for a
+variable. For example, a temperature variable may have dimensions of
+latitude, longitude and time. If one wants to add more temperature data to
+the NetCDF file as time progresses, then the temperature variable should
+have the time dimension flagged as the record dimension.
+
+In addition, the NetCDF file header contains the position of the data in
+the file, so access can be done in an efficient manner without loading
+unnecessary data into memory. It uses the ``mmap`` module to create
+Numpy arrays mapped to the data on disk, for the same purpose.
+
+Examples
+--------
+To create a NetCDF file:
+
+    >>> from scipy.io import netcdf
+    >>> f = netcdf.netcdf_file('simple.nc', 'w')
+    >>> f.history = 'Created for a test'
+    >>> f.createDimension('time', 10)
+    >>> time = f.createVariable('time', 'i', ('time',))
+    >>> time[:] = np.arange(10)
+    >>> time.units = 'days since 2008-01-01'
+    >>> f.close()
+
+Note the assignment of ``range(10)`` to ``time[:]``.  Exposing the slice
+of the time variable allows for the data to be set in the object, rather
+than letting ``range(10)`` overwrite the ``time`` variable.
+
+To read the NetCDF file we just created:
+
+    >>> from scipy.io import netcdf
+    >>> f = netcdf.netcdf_file('simple.nc', 'r')
+    >>> print(f.history)
+    Created for a test
+    >>> time = f.variables['time']
+    >>> print(time.units)
+    days since 2008-01-01
+    >>> print(time.shape)
+    (10,)
+    >>> print(time[-1])
+    9
+    >>> f.close()
+
+A NetCDF file can also be used as context manager:
+
+    >>> from scipy.io import netcdf
+    >>> with netcdf.netcdf_file('simple.nc', 'r') as f:
+    >>>     print(f.history)
+    Created for a test
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ab163314326e36e86dd999697200e81c0}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{filename, }
+\item[{}]{mode = {\ttfamily '{\bf r}'}, }
+\item[{}]{mmap = {\ttfamily None}, }
+\item[{}]{version = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ab163314326e36e86dd999697200e81c0}
+\begin{DoxyVerb}Initialize netcdf_file from fileobj (str or file-like).\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a21e05266d6263eeb6fe40bb37f7cf895}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!\+\_\+\+\_\+enter\+\_\+\+\_\+@{\+\_\+\+\_\+enter\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+enter\+\_\+\+\_\+@{\+\_\+\+\_\+enter\+\_\+\+\_\+}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{\+\_\+\+\_\+enter\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+\_\+\+\_\+enter\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a21e05266d6263eeb6fe40bb37f7cf895}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_aa7fcaf5f5871ad79e564476bacf5fae3}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!\+\_\+\+\_\+exit\+\_\+\+\_\+@{\+\_\+\+\_\+exit\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+exit\+\_\+\+\_\+@{\+\_\+\+\_\+exit\+\_\+\+\_\+}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{\+\_\+\+\_\+exit\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+\_\+\+\_\+exit\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{type, }
+\item[{}]{value, }
+\item[{}]{traceback}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_aa7fcaf5f5871ad79e564476bacf5fae3}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_acbdae427e5a55644232a555ac271b7cf}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!\+\_\+\+\_\+setattr\+\_\+\+\_\+@{\+\_\+\+\_\+setattr\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+setattr\+\_\+\+\_\+@{\+\_\+\+\_\+setattr\+\_\+\+\_\+}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{\+\_\+\+\_\+setattr\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+\_\+\+\_\+setattr\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{attr, }
+\item[{}]{value}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_acbdae427e5a55644232a555ac271b7cf}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_aa86ba264e8d28b0108ada6a0b06c9a26}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!close@{close}}
+\index{close@{close}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+close (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_aa86ba264e8d28b0108ada6a0b06c9a26}
+\begin{DoxyVerb}Closes the NetCDF file.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a2c8cbb81ac3f4c3b458fc49a850eea4c}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!create\+Dimension@{create\+Dimension}}
+\index{create\+Dimension@{create\+Dimension}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{create\+Dimension}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+create\+Dimension (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{length}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a2c8cbb81ac3f4c3b458fc49a850eea4c}
+\begin{DoxyVerb}Adds a dimension to the Dimension section of the NetCDF data structure.
+
+Note that this function merely adds a new dimension that the variables can
+reference.  The values for the dimension, if desired, should be added as
+a variable using `createVariable`, referring to this dimension.
+
+Parameters
+----------
+name : str
+    Name of the dimension (Eg, 'lat' or 'time').
+length : int
+    Length of the dimension.
+
+See Also
+--------
+createVariable\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_afa5e84ef68d02462124965548d29b130}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!create\+Variable@{create\+Variable}}
+\index{create\+Variable@{create\+Variable}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{create\+Variable}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+create\+Variable (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{name, }
+\item[{}]{type, }
+\item[{}]{dimensions}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_afa5e84ef68d02462124965548d29b130}
+\begin{DoxyVerb}Create an empty variable for the `netcdf_file` object, specifying its data
+type and the dimensions it uses.
+
+Parameters
+----------
+name : str
+    Name of the new variable.
+type : dtype or str
+    Data type of the variable.
+dimensions : sequence of str
+    List of the dimension names used by the variable, in the desired order.
+
+Returns
+-------
+variable : netcdf_variable
+    The newly created ``netcdf_variable`` object.
+    This object has also been added to the `netcdf_file` object as well.
+
+See Also
+--------
+createDimension
+
+Notes
+-----
+Any dimensions to be used by the variable should already exist in the
+NetCDF data structure or should be created by `createDimension` prior to
+creating the NetCDF variable.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a8cf81ee24b252c20be8f13dbedb707e7}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!flush@{flush}}
+\index{flush@{flush}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{flush}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+flush (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a8cf81ee24b252c20be8f13dbedb707e7}
+\begin{DoxyVerb}Perform a sync-to-disk flush if the `netcdf_file` object is in write mode.
+
+See Also
+--------
+sync : Identical function\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_aeb75065359ca8134a53c7c502175fbd7}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!dimensions@{dimensions}}
+\index{dimensions@{dimensions}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{dimensions}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+dimensions}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_aeb75065359ca8134a53c7c502175fbd7}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a72a09f7b8b72c704397d0b22754d1904}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!filename@{filename}}
+\index{filename@{filename}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{filename}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+filename}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a72a09f7b8b72c704397d0b22754d1904}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ac6246de7714c9e88aa1af053a5e3ddc8}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!fp@{fp}}
+\index{fp@{fp}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{fp}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+fp}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ac6246de7714c9e88aa1af053a5e3ddc8}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_adcb6d058997c5f643328a771a9c53205}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!mode@{mode}}
+\index{mode@{mode}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+mode}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_adcb6d058997c5f643328a771a9c53205}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a208e2f07e49f9734873a2e52ead72fd1}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!sync@{sync}}
+\index{sync@{sync}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{sync}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+sync = {\bf flush}\hspace{0.3cm}{\ttfamily [static]}}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a208e2f07e49f9734873a2e52ead72fd1}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ab30b03bd27bc485d38eee32d9957fe49}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!use\+\_\+mmap@{use\+\_\+mmap}}
+\index{use\+\_\+mmap@{use\+\_\+mmap}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{use\+\_\+mmap}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+use\+\_\+mmap}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ab30b03bd27bc485d38eee32d9957fe49}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a27345ed6ed8853159164b0d00e3369a4}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!variables@{variables}}
+\index{variables@{variables}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{variables}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+variables}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_a27345ed6ed8853159164b0d00e3369a4}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ad50eb4214bad62a9bf838037d5dada96}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}!version\+\_\+byte@{version\+\_\+byte}}
+\index{version\+\_\+byte@{version\+\_\+byte}!scipy\+::io\+::netcdf\+::netcdf\+\_\+file@{scipy\+::io\+::netcdf\+::netcdf\+\_\+file}}
+\subsubsection[{version\+\_\+byte}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+file.\+version\+\_\+byte}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__file_ad50eb4214bad62a9bf838037d5dada96}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/io/\hyperlink{netcdf_8py}{netcdf.\+py}\end{DoxyCompactItemize}

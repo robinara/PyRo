@@ -1,0 +1,121 @@
+\hypertarget{slaed9_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slaed9.f File Reference}
+\label{slaed9_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaed9.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaed9.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slaed9_8f_a33179f298c9a4293e49a398040720fa8}{slaed9} (K, K\+S\+T\+A\+R\+T, K\+S\+T\+O\+P, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, Q, L\+D\+Q, R\+H\+O, D\+L\+A\+M\+D\+A, W, S, L\+D\+S, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+E\+D9} used by sstedc. Finds the roots of the secular equation and updates the eigenvectors. Used when the original matrix is dense. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slaed9_8f_a33179f298c9a4293e49a398040720fa8}{}\index{slaed9.\+f@{slaed9.\+f}!slaed9@{slaed9}}
+\index{slaed9@{slaed9}!slaed9.\+f@{slaed9.\+f}}
+\subsubsection[{slaed9}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slaed9 (
+\begin{DoxyParamCaption}
+\item[{integer}]{K, }
+\item[{integer}]{K\+S\+T\+A\+R\+T, }
+\item[{integer}]{K\+S\+T\+O\+P, }
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{real}]{R\+H\+O, }
+\item[{real, dimension( $\ast$ )}]{D\+L\+A\+M\+D\+A, }
+\item[{real, dimension( $\ast$ )}]{W, }
+\item[{real, dimension( lds, $\ast$ )}]{S, }
+\item[{integer}]{L\+D\+S, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{slaed9_8f_a33179f298c9a4293e49a398040720fa8}
+
+
+{\bfseries S\+L\+A\+E\+D9} used by sstedc. Finds the roots of the secular equation and updates the eigenvectors. Used when the original matrix is dense. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLAED9 finds the roots of the secular equation, as defined by the
+ values in D, Z, and RHO, between KSTART and KSTOP.  It makes the
+ appropriate calls to SLAED4 and then stores the new matrix of
+ eigenvectors for use in calculating the next level of Z vectors.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+          The number of terms in the rational function to be solved by
+          SLAED4.  K >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+S\+T\+A\+R\+T} & \begin{DoxyVerb}          KSTART is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+S\+T\+O\+P} & \begin{DoxyVerb}          KSTOP is INTEGER
+          The updated eigenvalues Lambda(I), KSTART <= I <= KSTOP
+          are to be computed.  1 <= KSTART <= KSTOP <= K.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of rows and columns in the Q matrix.
+          N >= K (delation may result in N > K).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          D(I) contains the updated eigenvalues
+          for KSTART <= I <= KSTOP.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Q} & \begin{DoxyVerb}          Q is REAL array, dimension (LDQ,N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+          The leading dimension of the array Q.  LDQ >= max( 1, N ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+H\+O} & \begin{DoxyVerb}          RHO is REAL
+          The value of the parameter in the rank one update equation.
+          RHO >= 0 required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L\+A\+M\+D\+A} & \begin{DoxyVerb}          DLAMDA is REAL array, dimension (K)
+          The first K elements of this array contain the old roots
+          of the deflated updating problem.  These are the poles
+          of the secular equation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W} & \begin{DoxyVerb}          W is REAL array, dimension (K)
+          The first K elements of this array contain the components
+          of the deflation-adjusted updating vector.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S} & \begin{DoxyVerb}          S is REAL array, dimension (LDS, K)
+          Will contain the eigenvectors of the repaired matrix which
+          will be stored for subsequent Z vector calculation and
+          multiplied by the previously accumulated eigenvectors
+          to update the system.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+S} & \begin{DoxyVerb}          LDS is INTEGER
+          The leading dimension of S.  LDS >= max( 1, K ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if INFO = 1, an eigenvalue did not converge\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Jeff Rutter, Computer Science Division, University of California at Berkeley, U\+S\+A 
+\end{DoxyParagraph}

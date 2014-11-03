@@ -1,0 +1,117 @@
+\hypertarget{sppsv_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/sppsv.f File Reference}
+\label{sppsv_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/sppsv.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/sppsv.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{sppsv_8f_ae935af0f1c150cc089b328caf651fee7}{sppsv} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, A\+P, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  S\+P\+P\+S\+V computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for O\+T\+H\+E\+R matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{sppsv_8f_ae935af0f1c150cc089b328caf651fee7}{}\index{sppsv.\+f@{sppsv.\+f}!sppsv@{sppsv}}
+\index{sppsv@{sppsv}!sppsv.\+f@{sppsv.\+f}}
+\subsubsection[{sppsv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sppsv (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( $\ast$ )}]{A\+P, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{sppsv_8f_ae935af0f1c150cc089b328caf651fee7}
+
+
+{\bfseries  S\+P\+P\+S\+V computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for O\+T\+H\+E\+R matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SPPSV computes the solution to a real system of linear equations
+    A * X = B,
+ where A is an N-by-N symmetric positive definite matrix stored in
+ packed format and X and B are N-by-NRHS matrices.
+
+ The Cholesky decomposition is used to factor A as
+    A = U**T* U,  if UPLO = 'U', or
+    A = L * L**T,  if UPLO = 'L',
+ where U is an upper triangular matrix and L is a lower triangular
+ matrix.  The factored form of A is then used to solve the system of
+ equations A * X = B.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of linear equations, i.e., the order of the
+          matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+P} & \begin{DoxyVerb}          AP is REAL array, dimension (N*(N+1)/2)
+          On entry, the upper or lower triangle of the symmetric matrix
+          A, packed columnwise in a linear array.  The j-th column of A
+          is stored in the array AP as follows:
+          if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
+          if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
+          See below for further details.  
+
+          On exit, if INFO = 0, the factor U or L from the Cholesky
+          factorization A = U**T*U or A = L*L**T, in the same storage
+          format as A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          On entry, the N-by-NRHS right hand side matrix B.
+          On exit, if INFO = 0, the N-by-NRHS solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i, the leading minor of order i of A is not
+                positive definite, so the factorization could not be
+                completed, and the solution has not been computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The packed storage scheme is illustrated by the following example
+  when N = 4, UPLO = 'U':
+
+  Two-dimensional storage of the symmetric matrix A:
+
+     a11 a12 a13 a14
+         a22 a23 a24
+             a33 a34     (aij = conjg(aji))
+                 a44
+
+  Packed storage of the upper triangle of A:
+
+  AP = [ a11, a12, a22, a13, a23, a33, a14, a24, a34, a44 ]\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

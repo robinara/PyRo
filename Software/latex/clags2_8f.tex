@@ -1,0 +1,129 @@
+\hypertarget{clags2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clags2.f File Reference}
+\label{clags2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clags2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clags2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clags2_8f_a37b08fe5439ea8bcbc15c29ce9f9ef47}{clags2} (U\+P\+P\+E\+R, A1, A2, A3, B1, B2, B3, C\+S\+U, S\+N\+U, C\+S\+V, S\+N\+V, C\+S\+Q, S\+N\+Q)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+G\+S2} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clags2_8f_a37b08fe5439ea8bcbc15c29ce9f9ef47}{}\index{clags2.\+f@{clags2.\+f}!clags2@{clags2}}
+\index{clags2@{clags2}!clags2.\+f@{clags2.\+f}}
+\subsubsection[{clags2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clags2 (
+\begin{DoxyParamCaption}
+\item[{{\bf logical}}]{U\+P\+P\+E\+R, }
+\item[{real}]{A1, }
+\item[{{\bf complex}}]{A2, }
+\item[{real}]{A3, }
+\item[{real}]{B1, }
+\item[{{\bf complex}}]{B2, }
+\item[{real}]{B3, }
+\item[{real}]{C\+S\+U, }
+\item[{{\bf complex}}]{S\+N\+U, }
+\item[{real}]{C\+S\+V, }
+\item[{{\bf complex}}]{S\+N\+V, }
+\item[{real}]{C\+S\+Q, }
+\item[{{\bf complex}}]{S\+N\+Q}
+\end{DoxyParamCaption}
+)}\label{clags2_8f_a37b08fe5439ea8bcbc15c29ce9f9ef47}
+
+
+{\bfseries C\+L\+A\+G\+S2} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLAGS2 computes 2-by-2 unitary matrices U, V and Q, such
+ that if ( UPPER ) then
+
+           U**H *A*Q = U**H *( A1 A2 )*Q = ( x  0  )
+                             ( 0  A3 )     ( x  x  )
+ and
+           V**H*B*Q = V**H *( B1 B2 )*Q = ( x  0  )
+                            ( 0  B3 )     ( x  x  )
+
+ or if ( .NOT.UPPER ) then
+
+           U**H *A*Q = U**H *( A1 0  )*Q = ( x  x  )
+                             ( A2 A3 )     ( 0  x  )
+ and
+           V**H *B*Q = V**H *( B1 0  )*Q = ( x  x  )
+                             ( B2 B3 )     ( 0  x  )
+ where
+
+   U = (   CSU    SNU ), V = (  CSV    SNV ),
+       ( -SNU**H  CSU )      ( -SNV**H CSV )
+
+   Q = (   CSQ    SNQ )
+       ( -SNQ**H  CSQ )
+
+ The rows of the transformed A and B are parallel. Moreover, if the
+ input 2-by-2 matrix A is not zero, then the transformed (1,1) entry
+ of A is not zero. If the input matrices A and B are both not zero,
+ then the transformed (2,2) element of B is not zero, except when the
+ first rows of input A and B are parallel and the second rows are
+ zero.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+P\+E\+R} & \begin{DoxyVerb}          UPPER is LOGICAL
+          = .TRUE.: the input matrices A and B are upper triangular.
+          = .FALSE.: the input matrices A and B are lower triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A1} & \begin{DoxyVerb}          A1 is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A2} & \begin{DoxyVerb}          A2 is COMPLEX\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A3} & \begin{DoxyVerb}          A3 is REAL
+          On entry, A1, A2 and A3 are elements of the input 2-by-2
+          upper (lower) triangular matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B1} & \begin{DoxyVerb}          B1 is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B2} & \begin{DoxyVerb}          B2 is COMPLEX\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B3} & \begin{DoxyVerb}          B3 is REAL
+          On entry, B1, B2 and B3 are elements of the input 2-by-2
+          upper (lower) triangular matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C\+S\+U} & \begin{DoxyVerb}          CSU is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+N\+U} & \begin{DoxyVerb}          SNU is COMPLEX
+          The desired unitary matrix U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C\+S\+V} & \begin{DoxyVerb}          CSV is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+N\+V} & \begin{DoxyVerb}          SNV is COMPLEX
+          The desired unitary matrix V.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C\+S\+Q} & \begin{DoxyVerb}          CSQ is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+N\+Q} & \begin{DoxyVerb}          SNQ is COMPLEX
+          The desired unitary matrix Q.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

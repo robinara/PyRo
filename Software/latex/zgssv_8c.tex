@@ -1,0 +1,215 @@
+\hypertarget{zgssv_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zgssv.c File Reference}
+\label{zgssv_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zgssv.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zgssv.\+c}}
+
+
+Solves the system of linear equations A$\ast$\+X=B.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+zdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{zgssv_8c_ab87f9fe7f59ed6d2e53f4d49fa78ad1f}{zgssv} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int $\ast$perm\+\_\+c, int $\ast$perm\+\_\+r, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$B, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat, int $\ast$info)
+\begin{DoxyCompactList}\small\item\em Driver routines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Solves the system of linear equations A$\ast$\+X=B. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{zgssv_8c_ab87f9fe7f59ed6d2e53f4d49fa78ad1f}{}\index{zgssv.\+c@{zgssv.\+c}!zgssv@{zgssv}}
+\index{zgssv@{zgssv}!zgssv.\+c@{zgssv.\+c}}
+\subsubsection[{zgssv}]{\setlength{\rightskip}{0pt plus 5cm}void zgssv (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{zgssv_8c_ab87f9fe7f59ed6d2e53f4d49fa78ad1f}
+
+
+Driver routines. 
+
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}ZGSSV solves the system of linear equations A*X=B, using the
+LU factorization from ZGSTRF. It performs the following steps:\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  1. If \hyperlink{classA}{A} is stored column-wise (A->Stype = SLU\_NC):\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.1. Permute the columns of \hyperlink{classA}{A}, forming A*Pc, where Pc
+          is a permutation matrix. For more details of this step, 
+          see \hyperlink{sp__preorder_8c}{sp\_preorder.c}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.2. Factor \hyperlink{classA}{A} as Pr*A*Pc=L*U with the permutation Pr determined
+          by Gaussian elimination with partial pivoting.
+          L is unit lower triangular with offdiagonal entries
+          bounded by 1 in magnitude, and U is upper triangular.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.3. Solve the system of equations A*X=B using the factored
+          form of \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  2. If \hyperlink{classA}{A} is stored row-wise (A->Stype = SLU\_NR), apply the
+     above algorithm to the transpose of \hyperlink{classA}{A}:\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.1. Permute columns of transpose(A) (rows of \hyperlink{classA}{A}),
+          forming transpose(A)*Pc, where Pc is a permutation matrix. 
+          For more details of this step, see \hyperlink{sp__preorder_8c}{sp\_preorder.c}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.2. Factor \hyperlink{classA}{A} as Pr*transpose(\hyperlink{classA}{A})*Pc=L*U with the permutation Pr
+          determined by Gaussian elimination with partial pivoting.
+          L is unit lower triangular with offdiagonal entries
+          bounded by 1 in magnitude, and U is upper triangular.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.3. Solve the system of equations A*X=B using the factored
+          form of \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}options (input) superlu\_options\_t*
+        The structure defines the input parameters to control
+        how the LU decomposition will be performed and how the
+        system will be solved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}       (input) SuperMatrix*
+        \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} in A*X=B, of dimension (A->nrow, A->ncol). The number
+        of linear equations is A->nrow. Currently, the type of \hyperlink{classA}{A} can be:
+        Stype = SLU\_NC or SLU\_NR; Dtype = SLU\_Z; Mtype = SLU\_GE.
+        In the future, more general \hyperlink{classA}{A} may be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (input/output) int*
+        If A->Stype = SLU\_NC, column permutation vector of size A->ncol
+        which defines the permutation matrix Pc; perm\_c[i] = j means 
+        column i of \hyperlink{classA}{A} is in position j in A*Pc.
+        If A->Stype = SLU\_NR, column permutation vector of size A->nrow
+        which describes permutation of columns of transpose(A) 
+        (rows of \hyperlink{classA}{A}) as described above.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        If options->ColPerm = MY\_PERMC or options->Fact = SamePattern or
+           options->Fact = SamePattern\_SameRowPerm, it is an input argument.
+           On exit, perm\_c may be overwritten by the product of the input
+           perm\_c and a permutation that postorders the elimination tree
+           of Pc'*A'*A*Pc; perm\_c is not changed if the elimination tree
+           is already in postorder.
+        Otherwise, it is an output argument.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_r  (input/output) int*
+        If A->Stype = SLU\_NC, row permutation vector of size A->nrow, 
+        which defines the permutation matrix Pr, and is determined 
+        by partial pivoting.  perm\_r[i] = j means row i of \hyperlink{classA}{A} is in 
+        position j in Pr*A.
+        If A->Stype = SLU\_NR, permutation vector of size A->ncol, which
+        determines permutation of rows of transpose(A)
+        (columns of \hyperlink{classA}{A}) as described above.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        If options->RowPerm = MY\_PERMR or
+           options->Fact = SamePattern\_SameRowPerm, perm\_r is an
+           input argument.
+        otherwise it is an output argument.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L       (output) SuperMatrix*
+        The factor L from the factorization 
+            Pr*A*Pc=L*U              (if A->Stype = SLU\_NC) or
+            Pr*transpose(\hyperlink{classA}{A})*Pc=L*U   (if A->Stype = SLU\_NR).
+        Uses compressed row subscripts storage for supernodes, i.e.,
+        L has types: Stype = SLU\_SC, Dtype = SLU\_Z, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U       (output) SuperMatrix*
+    The factor U from the factorization 
+            Pr*A*Pc=L*U              (if A->Stype = SLU\_NC) or
+            Pr*transpose(\hyperlink{classA}{A})*Pc=L*U   (if A->Stype = SLU\_NR).
+        Uses column-wise storage scheme, i.e., U has types:
+        Stype = SLU\_NC, Dtype = SLU\_Z, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}B       (input/output) SuperMatrix*
+        B has types: Stype = SLU\_DN, Dtype = SLU\_Z, Mtype = SLU\_GE.
+        On entry, the right hand side matrix.
+        On exit, the solution matrix if info = 0;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}stat   (output) SuperLUStat\_t*
+       Record the statistics on runtime and floating-point operation count.
+       See util.h for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}info    (output) int*
+    = 0: successful exit
+        > 0: if info = i, and i is
+            <= A->ncol: U(i,i) is exactly zero. The factorization has
+               been completed, but the factor U is exactly singular,
+               so the solution could not be computed.
+            > A->ncol: number of bytes allocated when memory allocation
+               failure occurred, plus A->ncol.
+\end{DoxyPre}
+ 

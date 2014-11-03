@@ -1,0 +1,91 @@
+\hypertarget{cungr2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/cungr2.f File Reference}
+\label{cungr2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cungr2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cungr2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{cungr2_8f_a2728705ec9f3452eda5381167b8d142e}{cungr2} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, T\+A\+U, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+U\+N\+G\+R2} generates all or part of the unitary matrix Q from an R\+Q factorization determined by cgerqf (unblocked algorithm). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{cungr2_8f_a2728705ec9f3452eda5381167b8d142e}{}\index{cungr2.\+f@{cungr2.\+f}!cungr2@{cungr2}}
+\index{cungr2@{cungr2}!cungr2.\+f@{cungr2.\+f}}
+\subsubsection[{cungr2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cungr2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{T\+A\+U, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{cungr2_8f_a2728705ec9f3452eda5381167b8d142e}
+
+
+{\bfseries C\+U\+N\+G\+R2} generates all or part of the unitary matrix Q from an R\+Q factorization determined by cgerqf (unblocked algorithm). 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CUNGR2 generates an m by n complex matrix Q with orthonormal rows,
+ which is defined as the last m rows of a product of k elementary
+ reflectors of order n
+
+       Q  =  H(1)**H H(2)**H . . . H(k)**H
+
+ as returned by CGERQF.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix Q. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix Q. N >= M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+          The number of elementary reflectors whose product defines the
+          matrix Q. M >= K >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          On entry, the (m-k+i)-th row must contain the vector which
+          defines the elementary reflector H(i), for i = 1,2,...,k, as
+          returned by CGERQF in the last k rows of its array argument
+          A.
+          On exit, the m-by-n matrix Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The first dimension of the array A. LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is COMPLEX array, dimension (K)
+          TAU(i) must contain the scalar factor of the elementary
+          reflector H(i), as returned by CGERQF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (M)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument has an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

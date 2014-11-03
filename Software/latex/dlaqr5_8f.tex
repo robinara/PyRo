@@ -1,0 +1,203 @@
+\hypertarget{dlaqr5_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlaqr5.f File Reference}
+\label{dlaqr5_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaqr5.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaqr5.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlaqr5_8f_a305adfeca0e3bed5530e96cac624434c}{dlaqr5} (W\+A\+N\+T\+T, W\+A\+N\+T\+Z, K\+A\+C\+C22, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+T\+O\+P, K\+B\+O\+T, N\+S\+H\+F\+T\+S, S\+R, S\+I, H, L\+D\+H, I\+L\+O\+Z, I\+H\+I\+Z, Z, L\+D\+Z, V, L\+D\+V, U, L\+D\+U, N\+V, W\+V, L\+D\+W\+V, N\+H, W\+H, L\+D\+W\+H)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+Q\+R5} performs a single small-\/bulge multi-\/shift Q\+R sweep. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlaqr5_8f_a305adfeca0e3bed5530e96cac624434c}{}\index{dlaqr5.\+f@{dlaqr5.\+f}!dlaqr5@{dlaqr5}}
+\index{dlaqr5@{dlaqr5}!dlaqr5.\+f@{dlaqr5.\+f}}
+\subsubsection[{dlaqr5}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlaqr5 (
+\begin{DoxyParamCaption}
+\item[{{\bf logical}}]{W\+A\+N\+T\+T, }
+\item[{{\bf logical}}]{W\+A\+N\+T\+Z, }
+\item[{integer}]{K\+A\+C\+C22, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+T\+O\+P, }
+\item[{integer}]{K\+B\+O\+T, }
+\item[{integer}]{N\+S\+H\+F\+T\+S, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{S\+R, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{S\+I, }
+\item[{double {\bf precision}, dimension( ldh, $\ast$ )}]{H, }
+\item[{integer}]{L\+D\+H, }
+\item[{integer}]{I\+L\+O\+Z, }
+\item[{integer}]{I\+H\+I\+Z, }
+\item[{double {\bf precision}, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{double {\bf precision}, dimension( ldv, $\ast$ )}]{V, }
+\item[{integer}]{L\+D\+V, }
+\item[{double {\bf precision}, dimension( ldu, $\ast$ )}]{U, }
+\item[{integer}]{L\+D\+U, }
+\item[{integer}]{N\+V, }
+\item[{double {\bf precision}, dimension( ldwv, $\ast$ )}]{W\+V, }
+\item[{integer}]{L\+D\+W\+V, }
+\item[{integer}]{N\+H, }
+\item[{double {\bf precision}, dimension( ldwh, $\ast$ )}]{W\+H, }
+\item[{integer}]{L\+D\+W\+H}
+\end{DoxyParamCaption}
+)}\label{dlaqr5_8f_a305adfeca0e3bed5530e96cac624434c}
+
+
+{\bfseries D\+L\+A\+Q\+R5} performs a single small-\/bulge multi-\/shift Q\+R sweep. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    DLAQR5, called by DLAQR0, performs a
+    single small-bulge multi-shift QR sweep.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em W\+A\+N\+T\+T} & \begin{DoxyVerb}          WANTT is logical scalar
+             WANTT = .true. if the quasi-triangular Schur factor
+             is being computed.  WANTT is set to .false. otherwise.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W\+A\+N\+T\+Z} & \begin{DoxyVerb}          WANTZ is logical scalar
+             WANTZ = .true. if the orthogonal Schur factor is being
+             computed.  WANTZ is set to .false. otherwise.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+A\+C\+C22} & \begin{DoxyVerb}          KACC22 is integer with value 0, 1, or 2.
+             Specifies the computation mode of far-from-diagonal
+             orthogonal updates.
+        = 0: DLAQR5 does not accumulate reflections and does not
+             use matrix-matrix multiply to update far-from-diagonal
+             matrix entries.
+        = 1: DLAQR5 accumulates reflections and uses matrix-matrix
+             multiply to update the far-from-diagonal matrix entries.
+        = 2: DLAQR5 accumulates reflections, uses matrix-matrix
+             multiply to update the far-from-diagonal matrix entries,
+             and takes advantage of 2-by-2 block structure during
+             matrix multiplies.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is integer scalar
+             N is the order of the Hessenberg matrix H upon which this
+             subroutine operates.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+T\+O\+P} & \begin{DoxyVerb}          KTOP is integer scalar\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+B\+O\+T} & \begin{DoxyVerb}          KBOT is integer scalar
+             These are the first and last rows and columns of an
+             isolated diagonal block upon which the QR sweep is to be
+             applied. It is assumed without a check that
+                       either KTOP = 1  or   H(KTOP,KTOP-1) = 0
+             and
+                       either KBOT = N  or   H(KBOT+1,KBOT) = 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+S\+H\+F\+T\+S} & \begin{DoxyVerb}          NSHFTS is integer scalar
+             NSHFTS gives the number of simultaneous shifts.  NSHFTS
+             must be positive and even.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em S\+R} & \begin{DoxyVerb}          SR is DOUBLE PRECISION array of size (NSHFTS)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em S\+I} & \begin{DoxyVerb}          SI is DOUBLE PRECISION array of size (NSHFTS)
+             SR contains the real parts and SI contains the imaginary
+             parts of the NSHFTS shifts of origin that define the
+             multi-shift QR sweep.  On output SR and SI may be
+             reordered.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em H} & \begin{DoxyVerb}          H is DOUBLE PRECISION array of size (LDH,N)
+             On input H contains a Hessenberg matrix.  On output a
+             multi-shift QR sweep with shifts SR(J)+i*SI(J) is applied
+             to the isolated diagonal block in rows and columns KTOP
+             through KBOT.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+H} & \begin{DoxyVerb}          LDH is integer scalar
+             LDH is the leading dimension of H just as declared in the
+             calling procedure.  LDH.GE.MAX(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+L\+O\+Z} & \begin{DoxyVerb}          ILOZ is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+H\+I\+Z} & \begin{DoxyVerb}          IHIZ is INTEGER
+             Specify the rows of Z to which transformations must be
+             applied if WANTZ is .TRUE.. 1 .LE. ILOZ .LE. IHIZ .LE. N\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array of size (LDZ,IHI)
+             If WANTZ = .TRUE., then the QR Sweep orthogonal
+             similarity transformation is accumulated into
+             Z(ILOZ:IHIZ,ILO:IHI) from the right.
+             If WANTZ = .FALSE., then Z is unreferenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is integer scalar
+             LDA is the leading dimension of Z just as declared in
+             the calling procedure. LDZ.GE.N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em V} & \begin{DoxyVerb}          V is DOUBLE PRECISION array of size (LDV,NSHFTS/2)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V} & \begin{DoxyVerb}          LDV is integer scalar
+             LDV is the leading dimension of V as declared in the
+             calling procedure.  LDV.GE.3.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em U} & \begin{DoxyVerb}          U is DOUBLE PRECISION array of size
+             (LDU,3*NSHFTS-3)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+U} & \begin{DoxyVerb}          LDU is integer scalar
+             LDU is the leading dimension of U just as declared in the
+             in the calling subroutine.  LDU.GE.3*NSHFTS-3.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+H} & \begin{DoxyVerb}          NH is integer scalar
+             NH is the number of columns in array WH available for
+             workspace. NH.GE.1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+H} & \begin{DoxyVerb}          WH is DOUBLE PRECISION array of size (LDWH,NH)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+W\+H} & \begin{DoxyVerb}          LDWH is integer scalar
+             Leading dimension of WH just as declared in the
+             calling procedure.  LDWH.GE.3*NSHFTS-3.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+V} & \begin{DoxyVerb}          NV is integer scalar
+             NV is the number of rows in WV agailable for workspace.
+             NV.GE.1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+V} & \begin{DoxyVerb}          WV is DOUBLE PRECISION array of size
+             (LDWV,3*NSHFTS-3)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+W\+V} & \begin{DoxyVerb}          LDWV is integer scalar
+             LDWV is the leading dimension of WV as declared in the
+             in the calling subroutine.  LDWV.GE.NV.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Karen Braman and Ralph Byers, Department of Mathematics, University of Kansas, U\+S\+A 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{References\+: }
+K. Braman, R. Byers and R. Mathias, The Multi-\/\+Shift Q\+R Algorithm Part I\+: Maintaining Well Focused Shifts, and Level 3 Performance, S\+I\+A\+M Journal of \hyperlink{classMatrix}{Matrix} Analysis, volume 23, pages 929--947, 2002. 
+\end{DoxyParagraph}

@@ -1,0 +1,102 @@
+\hypertarget{namespacescipy_1_1odr_1_1models}{}\section{scipy.\+odr.\+models Namespace Reference}
+\label{namespacescipy_1_1odr_1_1models}\index{scipy.\+odr.\+models@{scipy.\+odr.\+models}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1odr_1_1models_a0e2d9f5a0a2adbd0671ebe54f6823d6c}{polynomial}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1odr_1_1models_a9b3092b683b47fff822f4e988bc34614}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+tuple \hyperlink{namespacescipy_1_1odr_1_1models_ab3bb86f127a01e131e56a7b0b3cc05c2}{multilinear}
+\item 
+tuple \hyperlink{namespacescipy_1_1odr_1_1models_a296c2923f4ed3c84dffefbdb3bf2787a}{exponential}
+\item 
+tuple \hyperlink{namespacescipy_1_1odr_1_1models_a7edcd45543211ef835925feeab29f05c}{unilinear}
+\item 
+tuple \hyperlink{namespacescipy_1_1odr_1_1models_ad426febf879561a3182b93c590ee81e8}{quadratic}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Collection of Model instances for use with the odrpack fitting package.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1odr_1_1models_a0e2d9f5a0a2adbd0671ebe54f6823d6c}{}\index{scipy\+::odr\+::models@{scipy\+::odr\+::models}!polynomial@{polynomial}}
+\index{polynomial@{polynomial}!scipy\+::odr\+::models@{scipy\+::odr\+::models}}
+\subsubsection[{polynomial}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+odr.\+models.\+polynomial (
+\begin{DoxyParamCaption}
+\item[{}]{order}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1odr_1_1models_a0e2d9f5a0a2adbd0671ebe54f6823d6c}
+\begin{DoxyVerb}Factory function for a general polynomial model.
+
+Parameters
+----------
+order : int or sequence
+    If an integer, it becomes the order of the polynomial to fit. If
+    a sequence of numbers, then these are the explicit powers in the
+    polynomial.
+    A constant term (power 0) is always included, so don't include 0.
+    Thus, polynomial(n) is equivalent to polynomial(range(1, n+1)).
+
+Returns
+-------
+polynomial : Model instance
+    Model instance.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1odr_1_1models_a9b3092b683b47fff822f4e988bc34614}{}\index{scipy\+::odr\+::models@{scipy\+::odr\+::models}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::odr\+::models@{scipy\+::odr\+::models}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+odr.\+models.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1odr_1_1models_a9b3092b683b47fff822f4e988bc34614}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'Model'}, \textcolor{stringliteral}{'exponential'}, \textcolor{stringliteral}{'multilinear'}, \textcolor{stringliteral}{'unilinear'}, \textcolor{stringliteral}{'quadratic'},
+2            \textcolor{stringliteral}{'polynomial'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1odr_1_1models_a296c2923f4ed3c84dffefbdb3bf2787a}{}\index{scipy\+::odr\+::models@{scipy\+::odr\+::models}!exponential@{exponential}}
+\index{exponential@{exponential}!scipy\+::odr\+::models@{scipy\+::odr\+::models}}
+\subsubsection[{exponential}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+odr.\+models.\+exponential}\label{namespacescipy_1_1odr_1_1models_a296c2923f4ed3c84dffefbdb3bf2787a}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Model}{Model}(\_exp\_fcn, fjacd=\_exp\_fjd, fjacb=\_exp\_fjb,
+2                     estimate=\_exp\_est, meta=\{\textcolor{stringliteral}{'name'}:\textcolor{stringliteral}{'Exponential'},
+3                     \textcolor{stringliteral}{'equ'}:\textcolor{stringliteral}{'y= B\_0 + exp(B\_1 * x)'},
+4                     \textcolor{stringliteral}{'TeXequ'}:\textcolor{stringliteral}{'$y=\(\backslash\)\(\backslash\)beta\_0 + e^\{\(\backslash\)\(\backslash\)beta\_1 x\}$'}\})
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1odr_1_1models_ab3bb86f127a01e131e56a7b0b3cc05c2}{}\index{scipy\+::odr\+::models@{scipy\+::odr\+::models}!multilinear@{multilinear}}
+\index{multilinear@{multilinear}!scipy\+::odr\+::models@{scipy\+::odr\+::models}}
+\subsubsection[{multilinear}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+odr.\+models.\+multilinear}\label{namespacescipy_1_1odr_1_1models_ab3bb86f127a01e131e56a7b0b3cc05c2}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Model}{Model}(\_lin\_fcn, fjacb=\_lin\_fjb,
+2                fjacd=\_lin\_fjd, estimate=\_lin\_est,
+3                meta=\{\textcolor{stringliteral}{'name'}: \textcolor{stringliteral}{'Arbitrary-dimensional Linear'},
+4                      \textcolor{stringliteral}{'equ'}:\textcolor{stringliteral}{'y = B\_0 + Sum[i=1..m, B\_i * x\_i]'},
+5                      \textcolor{stringliteral}{'TeXequ'}:\textcolor{stringliteral}{'$y=\(\backslash\)\(\backslash\)beta\_0 + \(\backslash\)sum\_\{i=1\}^m \(\backslash\)\(\backslash\)beta\_i x\_i$'}\})
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1odr_1_1models_ad426febf879561a3182b93c590ee81e8}{}\index{scipy\+::odr\+::models@{scipy\+::odr\+::models}!quadratic@{quadratic}}
+\index{quadratic@{quadratic}!scipy\+::odr\+::models@{scipy\+::odr\+::models}}
+\subsubsection[{quadratic}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+odr.\+models.\+quadratic}\label{namespacescipy_1_1odr_1_1models_ad426febf879561a3182b93c590ee81e8}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Model}{Model}(\_quadratic, fjacd=\_quad\_fjd, fjacb=\_quad\_fjb,
+2                   estimate=\_quad\_est, meta=\{\textcolor{stringliteral}{'name'}: \textcolor{stringliteral}{'Quadratic'},
+3                   \textcolor{stringliteral}{'equ'}: \textcolor{stringliteral}{'y = B\_0*x**2 + B\_1*x + B\_2'},
+4                   \textcolor{stringliteral}{'TeXequ'}: \textcolor{stringliteral}{'$y = \(\backslash\)\(\backslash\)beta\_0 x^2 + \(\backslash\)\(\backslash\)beta\_1 x + \(\backslash\)\(\backslash\)beta\_2'}\})
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1odr_1_1models_a7edcd45543211ef835925feeab29f05c}{}\index{scipy\+::odr\+::models@{scipy\+::odr\+::models}!unilinear@{unilinear}}
+\index{unilinear@{unilinear}!scipy\+::odr\+::models@{scipy\+::odr\+::models}}
+\subsubsection[{unilinear}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+odr.\+models.\+unilinear}\label{namespacescipy_1_1odr_1_1models_a7edcd45543211ef835925feeab29f05c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Model}{Model}(\_unilin, fjacd=\_unilin\_fjd, fjacb=\_unilin\_fjb,
+2                   estimate=\_unilin\_est, meta=\{\textcolor{stringliteral}{'name'}: \textcolor{stringliteral}{'Univariate Linear'},
+3                   \textcolor{stringliteral}{'equ'}: \textcolor{stringliteral}{'y = B\_0 * x + B\_1'},
+4                   \textcolor{stringliteral}{'TeXequ'}: \textcolor{stringliteral}{'$y = \(\backslash\)\(\backslash\)beta\_0 x + \(\backslash\)\(\backslash\)beta\_1$'}\})
+\end{DoxyCode}

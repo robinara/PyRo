@@ -1,0 +1,126 @@
+\hypertarget{ilu__ccopy__to__ucol_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.c File Reference}
+\label{ilu__ccopy__to__ucol_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c}}
+
+
+Copy a computed column of U to the compressed data structure and drop some small entries.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+cdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ilu__ccopy__to__ucol_8c_adb60937f3436da2e6d66dc11af4317e6}{ccopy\+\_\+} (int $\ast$, \hyperlink{structcomplex}{complex}\mbox{[}$\,$\mbox{]}, int $\ast$, \hyperlink{structcomplex}{complex}\mbox{[}$\,$\mbox{]}, int $\ast$)
+\item 
+double \hyperlink{ilu__ccopy__to__ucol_8c_a177ab9599e432642729507475d5cea83}{dlamch\+\_\+} (char $\ast$)
+\item 
+int \hyperlink{ilu__ccopy__to__ucol_8c_a069fdcfba5148dfc923017db03d7eab1}{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol} (int jcol, int nseg, int $\ast$segrep, int $\ast$repfnz, int $\ast$perm\+\_\+r, \hyperlink{structcomplex}{complex} $\ast$dense, int drop\+\_\+rule, \hyperlink{superlu__enum__consts_8h_a0cb73c13a7c2390c3a9a0a8913477ff0}{milu\+\_\+t} milu, double drop\+\_\+tol, int quota, \hyperlink{structcomplex}{complex} $\ast$\hyperlink{vecsum_8cc_a208c561460f0b32ffa279a7ed7b7afa4}{sum}, int $\ast$nnz\+Uj, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, float $\ast$work)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copy a computed column of U to the compressed data structure and drop some small entries. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.1) --
+Lawrence Berkeley National Laboratory
+November, 2010
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{ilu__ccopy__to__ucol_8c_adb60937f3436da2e6d66dc11af4317e6}{}\index{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c}!ccopy\+\_\+@{ccopy\+\_\+}}
+\index{ccopy\+\_\+@{ccopy\+\_\+}!ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c}}
+\subsubsection[{ccopy\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}void ccopy\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{{\bf complex}}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{, }
+\item[{{\bf complex}}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ilu__ccopy__to__ucol_8c_adb60937f3436da2e6d66dc11af4317e6}
+\hypertarget{ilu__ccopy__to__ucol_8c_a177ab9599e432642729507475d5cea83}{}\index{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c}!dlamch\+\_\+@{dlamch\+\_\+}}
+\index{dlamch\+\_\+@{dlamch\+\_\+}!ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c}}
+\subsubsection[{dlamch\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double dlamch\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{cmach}
+\end{DoxyParamCaption}
+)}\label{ilu__ccopy__to__ucol_8c_a177ab9599e432642729507475d5cea83}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    DLAMCH determines double precision machine parameters.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    CMACH   (input) CHARACTER*1   
+            Specifies the value to be returned by DLAMCH:   
+            = 'E' or 'e',   DLAMCH := eps   
+            = 'S' or 's ,   DLAMCH := sfmin   
+            = 'B' or 'b',   DLAMCH := base   
+            = 'P' or 'p',   DLAMCH := eps*base   
+            = 'N' or 'n',   DLAMCH := t   
+            = 'R' or 'r',   DLAMCH := rnd   
+            = 'M' or 'm',   DLAMCH := emin   
+            = 'U' or 'u',   DLAMCH := rmin   
+            = 'L' or 'l',   DLAMCH := emax   
+            = 'O' or 'o',   DLAMCH := rmax\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            where\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            eps   = relative machine precision   
+            sfmin = safe minimum, such that 1/sfmin does not overflow   
+            base  = base of the machine   
+            prec  = eps*base   
+            t     = number of (base) digits in the mantissa   
+            rnd   = 1.0 when rounding occurs in addition, 0.0 otherwise   
+            emin  = minimum exponent before (gradual) underflow   
+            rmin  = underflow threshold - base**(emin-1)   
+            emax  = largest exponent before overflow   
+            rmax  = overflow threshold  - (base**emax)*(1-eps)   
+
+
+
+\end{DoxyPre}
+ \hypertarget{ilu__ccopy__to__ucol_8c_a069fdcfba5148dfc923017db03d7eab1}{}\index{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c}!ilu\+\_\+ccopy\+\_\+to\+\_\+ucol@{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol}}
+\index{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol@{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol}!ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol.\+c}}
+\subsubsection[{ilu\+\_\+ccopy\+\_\+to\+\_\+ucol}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+ccopy\+\_\+to\+\_\+ucol (
+\begin{DoxyParamCaption}
+\item[{int}]{jcol, }
+\item[{int}]{nseg, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf complex} $\ast$}]{dense, }
+\item[{int}]{drop\+\_\+rule, }
+\item[{{\bf milu\+\_\+t}}]{milu, }
+\item[{double}]{drop\+\_\+tol, }
+\item[{int}]{quota, }
+\item[{{\bf complex} $\ast$}]{sum, }
+\item[{int $\ast$}]{nnz\+Uj, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{float $\ast$}]{work}
+\end{DoxyParamCaption}
+)}\label{ilu__ccopy__to__ucol_8c_a069fdcfba5148dfc923017db03d7eab1}

@@ -1,0 +1,228 @@
+\hypertarget{dgsrfs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dgsrfs.c File Reference}
+\label{dgsrfs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dgsrfs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dgsrfs.\+c}}
+
+
+Improves computed solution to a system of inear equations.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dgsrfs_8c_a3641b6d4c21b7a852dbb32c2b693302e}{I\+T\+M\+A\+X}~5
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{dgsrfs_8c_adb43f7a2408ddb763f36fbfcc0482f28}{dgsrfs} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62}{trans\+\_\+t} trans, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, int $\ast$perm\+\_\+c, int $\ast$perm\+\_\+r, char $\ast$equed, double $\ast$R, double $\ast$C, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$B, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$X, double $\ast$ferr, double $\ast$berr, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat, int $\ast$info)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Improves computed solution to a system of inear equations. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Modified from lapack routine DGERFS
+\end{DoxyPre}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dgsrfs_8c_a3641b6d4c21b7a852dbb32c2b693302e}{}\index{dgsrfs.\+c@{dgsrfs.\+c}!I\+T\+M\+A\+X@{I\+T\+M\+A\+X}}
+\index{I\+T\+M\+A\+X@{I\+T\+M\+A\+X}!dgsrfs.\+c@{dgsrfs.\+c}}
+\subsubsection[{I\+T\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+T\+M\+A\+X~5}\label{dgsrfs_8c_a3641b6d4c21b7a852dbb32c2b693302e}
+
+
+\subsection{Function Documentation}
+\hypertarget{dgsrfs_8c_adb43f7a2408ddb763f36fbfcc0482f28}{}\index{dgsrfs.\+c@{dgsrfs.\+c}!dgsrfs@{dgsrfs}}
+\index{dgsrfs@{dgsrfs}!dgsrfs.\+c@{dgsrfs.\+c}}
+\subsubsection[{dgsrfs}]{\setlength{\rightskip}{0pt plus 5cm}void dgsrfs (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\+\_\+t}}]{trans, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{char $\ast$}]{equed, }
+\item[{double $\ast$}]{R, }
+\item[{double $\ast$}]{C, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B, }
+\item[{{\bf Super\+Matrix} $\ast$}]{X, }
+\item[{double $\ast$}]{ferr, }
+\item[{double $\ast$}]{berr, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{dgsrfs_8c_adb43f7a2408ddb763f36fbfcc0482f28}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  DGSRFS improves the computed solution to a system of linear   
+  equations and provides error bounds and backward error estimates for 
+  the solution.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  If equilibration was performed, the system becomes:
+          (diag(R)*A\_original*diag(C)) * X = diag(R)*B\_original.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}trans   (input) trans\_t
+         Specifies the form of the system of equations:
+         = NOTRANS: \hyperlink{classA}{A} * X = B  (No transpose)
+         = TRANS:   \hyperlink{classA}{A}'* X = B  (Transpose)
+         = CONJ:    A**H * X = B  (Conjugate transpose)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A}       (input) SuperMatrix*
+          The original matrix \hyperlink{classA}{A} in the system, or the scaled \hyperlink{classA}{A} if
+          equilibration was done. The type of \hyperlink{classA}{A} can be:
+          Stype = SLU\_NC, Dtype = SLU\_D, Mtype = SLU\_GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  L       (input) SuperMatrix*
+      The factor L from the factorization Pr*A*Pc=L*U. Use
+          compressed row subscripts storage for supernodes, 
+          i.e., L has types: Stype = SLU\_SC, Dtype = SLU\_D, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  U       (input) SuperMatrix*
+          The factor U from the factorization Pr*A*Pc=L*U as computed by
+          \hyperlink{dgstrf_8c_a65a25ed27f2524e9cbc8f6ce8cd22c38}{dgstrf()}. Use column-wise storage scheme, 
+          i.e., U has types: Stype = SLU\_NC, Dtype = SLU\_D, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  perm\_c  (input) int*, dimension (A->ncol)
+      Column permutation vector, which defines the 
+          permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+          in position j in A*Pc.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  perm\_r  (input) int*, dimension (A->nrow)
+          Row permutation vector, which defines the permutation matrix Pr;
+          perm\_r[i] = j means row i of \hyperlink{classA}{A} is in position j in Pr*A.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  equed   (input) Specifies the form of equilibration that was done.
+          = 'N': No equilibration.
+          = 'R': Row equilibration, i.e., \hyperlink{classA}{A} was premultiplied by diag(R).
+          = 'C': Column equilibration, i.e., \hyperlink{classA}{A} was postmultiplied by
+                 diag(C).
+          = 'B': Both row and column equilibration, i.e., \hyperlink{classA}{A} was replaced 
+                 by diag(R)*A*diag(C).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  R       (input) double*, dimension (A->nrow)
+          The row scale factors for \hyperlink{classA}{A}.
+          If equed = 'R' or 'B', \hyperlink{classA}{A} is premultiplied by diag(R).
+          If equed = 'N' or 'C', R is not accessed.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  C       (input) double*, dimension (A->ncol)
+          The column scale factors for \hyperlink{classA}{A}.
+          If equed = 'C' or 'B', \hyperlink{classA}{A} is postmultiplied by diag(C).
+          If equed = 'N' or 'R', C is not accessed.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  B       (input) SuperMatrix*
+          B has types: Stype = SLU\_DN, Dtype = SLU\_D, Mtype = SLU\_GE.
+          The right hand side matrix B.
+          if equed = 'R' or 'B', B is premultiplied by diag(R).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  X       (input/output) SuperMatrix*
+          X has types: Stype = SLU\_DN, Dtype = SLU\_D, Mtype = SLU\_GE.
+          On entry, the solution matrix X, as computed by \hyperlink{dgstrs_8c_a6e3eace519372b7dfcd053e0d3614fc1}{dgstrs()}.
+          On exit, the improved solution matrix X.
+          if *equed = 'C' or 'B', X should be premultiplied by diag(C)
+              in order to obtain the solution to the original system.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  FERR    (output) double*, dimension (B->ncol)   
+          The estimated forward error bound for each solution vector   
+          X(j) (the j-th column of the solution matrix X).   
+          If XTRUE is the true solution corresponding to X(j), FERR(j) 
+          is an estimated upper bound for the magnitude of the largest 
+          element in (X(j) - XTRUE) divided by the magnitude of the   
+          largest element in X(j).  The estimate is as reliable as   
+          the estimate for RCOND, and is almost always a slight   
+          overestimate of the true error.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  BERR    (output) double*, dimension (B->ncol)   
+          The componentwise relative backward error of each solution   
+          vector X(j) (i.e., the smallest relative change in   
+          any element of \hyperlink{classA}{A} or B that makes X(j) an exact solution).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  stat     (output) SuperLUStat\_t*
+           Record the statistics on runtime and floating-point operation count.
+           See util.h for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  info    (output) int*   
+          = 0:  successful exit   
+           < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Internal Parameters   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   ITMAX is the maximum number of steps of iterative refinement.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+ 

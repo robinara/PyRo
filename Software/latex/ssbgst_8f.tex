@@ -1,0 +1,127 @@
+\hypertarget{ssbgst_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/ssbgst.f File Reference}
+\label{ssbgst_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ssbgst.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ssbgst.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ssbgst_8f_aaec597c3c6b4842adf9c440fba04a3b0}{ssbgst} (V\+E\+C\+T, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+A, K\+B, A\+B, L\+D\+A\+B, B\+B, L\+D\+B\+B, X, L\+D\+X, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+S\+B\+G\+S\+T} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ssbgst_8f_aaec597c3c6b4842adf9c440fba04a3b0}{}\index{ssbgst.\+f@{ssbgst.\+f}!ssbgst@{ssbgst}}
+\index{ssbgst@{ssbgst}!ssbgst.\+f@{ssbgst.\+f}}
+\subsubsection[{ssbgst}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ssbgst (
+\begin{DoxyParamCaption}
+\item[{character}]{V\+E\+C\+T, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+A, }
+\item[{integer}]{K\+B, }
+\item[{real, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{real, dimension( ldbb, $\ast$ )}]{B\+B, }
+\item[{integer}]{L\+D\+B\+B, }
+\item[{real, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{ssbgst_8f_aaec597c3c6b4842adf9c440fba04a3b0}
+
+
+{\bfseries S\+S\+B\+G\+S\+T} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SSBGST reduces a real symmetric-definite banded generalized
+ eigenproblem  A*x = lambda*B*x  to standard form  C*y = lambda*y,
+ such that C has the same bandwidth as A.
+
+ B must have been previously factorized as S**T*S by SPBSTF, using a
+ split Cholesky factorization. A is overwritten by C = X**T*A*X, where
+ X = S**(-1)*Q and Q is an orthogonal matrix chosen to preserve the
+ bandwidth of A.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em V\+E\+C\+T} & \begin{DoxyVerb}          VECT is CHARACTER*1
+          = 'N':  do not form the transformation matrix X;
+          = 'V':  form X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrices A and B.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+A} & \begin{DoxyVerb}          KA is INTEGER
+          The number of superdiagonals of the matrix A if UPLO = 'U',
+          or the number of subdiagonals if UPLO = 'L'.  KA >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+B} & \begin{DoxyVerb}          KB is INTEGER
+          The number of superdiagonals of the matrix B if UPLO = 'U',
+          or the number of subdiagonals if UPLO = 'L'.  KA >= KB >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+B} & \begin{DoxyVerb}          AB is REAL array, dimension (LDAB,N)
+          On entry, the upper or lower triangle of the symmetric band
+          matrix A, stored in the first ka+1 rows of the array.  The
+          j-th column of A is stored in the j-th column of the array AB
+          as follows:
+          if UPLO = 'U', AB(ka+1+i-j,j) = A(i,j) for max(1,j-ka)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+ka).
+
+          On exit, the transformed matrix X**T*A*X, stored in the same
+          format as A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KA+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+B} & \begin{DoxyVerb}          BB is REAL array, dimension (LDBB,N)
+          The banded factor S from the split Cholesky factorization of
+          B, as returned by SPBSTF, stored in the first KB+1 rows of
+          the array.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B\+B} & \begin{DoxyVerb}          LDBB is INTEGER
+          The leading dimension of the array BB.  LDBB >= KB+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em X} & \begin{DoxyVerb}          X is REAL array, dimension (LDX,N)
+          If VECT = 'V', the n-by-n matrix X.
+          If VECT = 'N', the array X is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.
+          LDX >= max(1,N) if VECT = 'V'; LDX >= 1 otherwise.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (2*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

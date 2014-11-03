@@ -1,0 +1,148 @@
+\hypertarget{slaed3_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slaed3.f File Reference}
+\label{slaed3_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaed3.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaed3.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slaed3_8f_a561deb773eeacab1d225a20c80dcfbb5}{slaed3} (K, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, N1, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, Q, L\+D\+Q, R\+H\+O, D\+L\+A\+M\+D\+A, Q2, I\+N\+D\+X, C\+T\+O\+T, W, S, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+E\+D3} used by sstedc. Finds the roots of the secular equation and updates the eigenvectors. Used when the original matrix is tridiagonal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slaed3_8f_a561deb773eeacab1d225a20c80dcfbb5}{}\index{slaed3.\+f@{slaed3.\+f}!slaed3@{slaed3}}
+\index{slaed3@{slaed3}!slaed3.\+f@{slaed3.\+f}}
+\subsubsection[{slaed3}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slaed3 (
+\begin{DoxyParamCaption}
+\item[{integer}]{K, }
+\item[{integer}]{N, }
+\item[{integer}]{N1, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{real}]{R\+H\+O, }
+\item[{real, dimension( $\ast$ )}]{D\+L\+A\+M\+D\+A, }
+\item[{real, dimension( $\ast$ )}]{Q2, }
+\item[{integer, dimension( $\ast$ )}]{I\+N\+D\+X, }
+\item[{integer, dimension( $\ast$ )}]{C\+T\+O\+T, }
+\item[{real, dimension( $\ast$ )}]{W, }
+\item[{real, dimension( $\ast$ )}]{S, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{slaed3_8f_a561deb773eeacab1d225a20c80dcfbb5}
+
+
+{\bfseries S\+L\+A\+E\+D3} used by sstedc. Finds the roots of the secular equation and updates the eigenvectors. Used when the original matrix is tridiagonal. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLAED3 finds the roots of the secular equation, as defined by the
+ values in D, W, and RHO, between 1 and K.  It makes the
+ appropriate calls to SLAED4 and then updates the eigenvectors by
+ multiplying the matrix of eigenvectors of the pair of eigensystems
+ being combined by the matrix of eigenvectors of the K-by-K system
+ which is solved here.
+
+ This code makes very mild assumptions about floating point
+ arithmetic. It will work on machines with a guard digit in
+ add/subtract, or on those binary machines without guard digits
+ which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or Cray-2.
+ It could conceivably fail on hexadecimal or decimal machines
+ without guard digits, but we know of none.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+          The number of terms in the rational function to be solved by
+          SLAED4.  K >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of rows and columns in the Q matrix.
+          N >= K (deflation may result in N>K).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N1} & \begin{DoxyVerb}          N1 is INTEGER
+          The location of the last eigenvalue in the leading submatrix.
+          min(1,N) <= N1 <= N/2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          D(I) contains the updated eigenvalues for
+          1 <= I <= K.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Q} & \begin{DoxyVerb}          Q is REAL array, dimension (LDQ,N)
+          Initially the first K columns are used as workspace.
+          On output the columns 1 to K contain
+          the updated eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+          The leading dimension of the array Q.  LDQ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+H\+O} & \begin{DoxyVerb}          RHO is REAL
+          The value of the parameter in the rank one update equation.
+          RHO >= 0 required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+L\+A\+M\+D\+A} & \begin{DoxyVerb}          DLAMDA is REAL array, dimension (K)
+          The first K elements of this array contain the old roots
+          of the deflated updating problem.  These are the poles
+          of the secular equation. May be changed on output by
+          having lowest order bit set to zero on Cray X-MP, Cray Y-MP,
+          Cray-2, or Cray C-90, as described above.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q2} & \begin{DoxyVerb}          Q2 is REAL array, dimension (LDQ2, N)
+          The first K columns of this matrix contain the non-deflated
+          eigenvectors for the split problem.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+D\+X} & \begin{DoxyVerb}          INDX is INTEGER array, dimension (N)
+          The permutation used to arrange the columns of the deflated
+          Q matrix into three groups (see SLAED2).
+          The rows of the eigenvectors found by SLAED4 must be likewise
+          permuted before the matrix multiply can take place.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+T\+O\+T} & \begin{DoxyVerb}          CTOT is INTEGER array, dimension (4)
+          A count of the total number of the various types of columns
+          in Q, as described in INDX.  The fourth column type is any
+          column which has been deflated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em W} & \begin{DoxyVerb}          W is REAL array, dimension (K)
+          The first K elements of this array contain the components
+          of the deflation-adjusted updating vector. Destroyed on
+          output.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S} & \begin{DoxyVerb}          S is REAL array, dimension (N1 + 1)*K
+          Will contain the eigenvectors of the repaired matrix which
+          will be multiplied by the previously accumulated eigenvectors
+          to update the system.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if INFO = 1, an eigenvalue did not converge\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Jeff Rutter, Computer Science Division, University of California at Berkeley, U\+S\+A ~\newline
+ Modified by Francoise Tisseur, University of Tennessee 
+\end{DoxyParagraph}

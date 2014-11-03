@@ -1,0 +1,80 @@
+\hypertarget{zlacpy_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlacpy.f File Reference}
+\label{zlacpy_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlacpy.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlacpy.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlacpy_8f_a519ff79bf915433651747242f22078fb}{zlacpy} (U\+P\+L\+O, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B})
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+C\+P\+Y} copies all or part of one two-\/dimensional array to another. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlacpy_8f_a519ff79bf915433651747242f22078fb}{}\index{zlacpy.\+f@{zlacpy.\+f}!zlacpy@{zlacpy}}
+\index{zlacpy@{zlacpy}!zlacpy.\+f@{zlacpy.\+f}}
+\subsubsection[{zlacpy}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlacpy (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B}
+\end{DoxyParamCaption}
+)}\label{zlacpy_8f_a519ff79bf915433651747242f22078fb}
+
+
+{\bfseries Z\+L\+A\+C\+P\+Y} copies all or part of one two-\/dimensional array to another. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLACPY copies all or part of a two-dimensional matrix A to another
+ matrix B.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies the part of the matrix A to be copied to B.
+          = 'U':      Upper triangular part
+          = 'L':      Lower triangular part
+          Otherwise:  All of the matrix A\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A.  M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          The m by n matrix A.  If UPLO = 'U', only the upper trapezium
+          is accessed; if UPLO = 'L', only the lower trapezium is
+          accessed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX*16 array, dimension (LDB,N)
+          On exit, B = A in the locations specified by UPLO.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,M).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

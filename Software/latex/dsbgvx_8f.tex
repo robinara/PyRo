@@ -1,0 +1,234 @@
+\hypertarget{dsbgvx_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dsbgvx.f File Reference}
+\label{dsbgvx_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dsbgvx.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dsbgvx.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dsbgvx_8f_ac1ea24e07f3e2522ef6e8e9768eea5c5}{dsbgvx} (J\+O\+B\+Z, R\+A\+N\+G\+E, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+A, K\+B, A\+B, L\+D\+A\+B, B\+B, L\+D\+B\+B, Q, L\+D\+Q, V\+L, V\+U, I\+L, I\+U, A\+B\+S\+T\+O\+L, M, W, Z, L\+D\+Z, W\+O\+R\+K, I\+W\+O\+R\+K, I\+F\+A\+I\+L, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+S\+B\+G\+S\+T} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dsbgvx_8f_ac1ea24e07f3e2522ef6e8e9768eea5c5}{}\index{dsbgvx.\+f@{dsbgvx.\+f}!dsbgvx@{dsbgvx}}
+\index{dsbgvx@{dsbgvx}!dsbgvx.\+f@{dsbgvx.\+f}}
+\subsubsection[{dsbgvx}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dsbgvx (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B\+Z, }
+\item[{character}]{R\+A\+N\+G\+E, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+A, }
+\item[{integer}]{K\+B, }
+\item[{double {\bf precision}, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{double {\bf precision}, dimension( ldbb, $\ast$ )}]{B\+B, }
+\item[{integer}]{L\+D\+B\+B, }
+\item[{double {\bf precision}, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{double {\bf precision}}]{V\+L, }
+\item[{double {\bf precision}}]{V\+U, }
+\item[{integer}]{I\+L, }
+\item[{integer}]{I\+U, }
+\item[{double {\bf precision}}]{A\+B\+S\+T\+O\+L, }
+\item[{integer}]{M, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W, }
+\item[{double {\bf precision}, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+F\+A\+I\+L, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dsbgvx_8f_ac1ea24e07f3e2522ef6e8e9768eea5c5}
+
+
+{\bfseries D\+S\+B\+G\+S\+T} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DSBGVX computes selected eigenvalues, and optionally, eigenvectors
+ of a real generalized symmetric-definite banded eigenproblem, of
+ the form A*x=(lambda)*B*x.  Here A and B are assumed to be symmetric
+ and banded, and B is also positive definite.  Eigenvalues and
+ eigenvectors can be selected by specifying either all eigenvalues,
+ a range of values or a range of indices for the desired eigenvalues.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B\+Z} & \begin{DoxyVerb}          JOBZ is CHARACTER*1
+          = 'N':  Compute eigenvalues only;
+          = 'V':  Compute eigenvalues and eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+A\+N\+G\+E} & \begin{DoxyVerb}          RANGE is CHARACTER*1
+          = 'A': all eigenvalues will be found.
+          = 'V': all eigenvalues in the half-open interval (VL,VU]
+                 will be found.
+          = 'I': the IL-th through IU-th eigenvalues will be found.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangles of A and B are stored;
+          = 'L':  Lower triangles of A and B are stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrices A and B.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+A} & \begin{DoxyVerb}          KA is INTEGER
+          The number of superdiagonals of the matrix A if UPLO = 'U',
+          or the number of subdiagonals if UPLO = 'L'.  KA >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+B} & \begin{DoxyVerb}          KB is INTEGER
+          The number of superdiagonals of the matrix B if UPLO = 'U',
+          or the number of subdiagonals if UPLO = 'L'.  KB >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+B} & \begin{DoxyVerb}          AB is DOUBLE PRECISION array, dimension (LDAB, N)
+          On entry, the upper or lower triangle of the symmetric band
+          matrix A, stored in the first ka+1 rows of the array.  The
+          j-th column of A is stored in the j-th column of the array AB
+          as follows:
+          if UPLO = 'U', AB(ka+1+i-j,j) = A(i,j) for max(1,j-ka)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+ka).
+
+          On exit, the contents of AB are destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KA+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B\+B} & \begin{DoxyVerb}          BB is DOUBLE PRECISION array, dimension (LDBB, N)
+          On entry, the upper or lower triangle of the symmetric band
+          matrix B, stored in the first kb+1 rows of the array.  The
+          j-th column of B is stored in the j-th column of the array BB
+          as follows:
+          if UPLO = 'U', BB(ka+1+i-j,j) = B(i,j) for max(1,j-kb)<=i<=j;
+          if UPLO = 'L', BB(1+i-j,j)    = B(i,j) for j<=i<=min(n,j+kb).
+
+          On exit, the factor S from the split Cholesky factorization
+          B = S**T*S, as returned by DPBSTF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B\+B} & \begin{DoxyVerb}          LDBB is INTEGER
+          The leading dimension of the array BB.  LDBB >= KB+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Q} & \begin{DoxyVerb}          Q is DOUBLE PRECISION array, dimension (LDQ, N)
+          If JOBZ = 'V', the n-by-n matrix used in the reduction of
+          A*x = (lambda)*B*x to standard form, i.e. C*x = (lambda)*x,
+          and consequently C to tridiagonal form.
+          If JOBZ = 'N', the array Q is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+          The leading dimension of the array Q.  If JOBZ = 'N',
+          LDQ >= 1. If JOBZ = 'V', LDQ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V\+L} & \begin{DoxyVerb}          VL is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V\+U} & \begin{DoxyVerb}          VU is DOUBLE PRECISION
+
+          If RANGE='V', the lower and upper bounds of the interval to
+          be searched for eigenvalues. VL < VU.
+          Not referenced if RANGE = 'A' or 'I'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+L} & \begin{DoxyVerb}          IL is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+U} & \begin{DoxyVerb}          IU is INTEGER
+
+          If RANGE='I', the indices (in ascending order) of the
+          smallest and largest eigenvalues to be returned.
+          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0.
+          Not referenced if RANGE = 'A' or 'V'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+B\+S\+T\+O\+L} & \begin{DoxyVerb}          ABSTOL is DOUBLE PRECISION
+          The absolute error tolerance for the eigenvalues.
+          An approximate eigenvalue is accepted as converged
+          when it is determined to lie in an interval [a,b]
+          of width less than or equal to
+
+                  ABSTOL + EPS *   max( |a|,|b| ) ,
+
+          where EPS is the machine precision.  If ABSTOL is less than
+          or equal to zero, then  EPS*|T|  will be used in its place,
+          where |T| is the 1-norm of the tridiagonal matrix obtained
+          by reducing A to tridiagonal form.
+
+          Eigenvalues will be computed most accurately when ABSTOL is
+          set to twice the underflow threshold 2*DLAMCH('S'), not zero.
+          If this routine returns with INFO>0, indicating that some
+          eigenvectors did not converge, try setting ABSTOL to
+          2*DLAMCH('S').\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The total number of eigenvalues found.  0 <= M <= N.
+          If RANGE = 'A', M = N, and if RANGE = 'I', M = IU-IL+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W} & \begin{DoxyVerb}          W is DOUBLE PRECISION array, dimension (N)
+          If INFO = 0, the eigenvalues in ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+          If JOBZ = 'V', then if INFO = 0, Z contains the matrix Z of
+          eigenvectors, with the i-th column of Z holding the
+          eigenvector associated with W(i).  The eigenvectors are
+          normalized so Z**T*B*Z = I.
+          If JOBZ = 'N', then Z is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDZ >= 1, and if
+          JOBZ = 'V', LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (7*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (5*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+F\+A\+I\+L} & \begin{DoxyVerb}          IFAIL is INTEGER array, dimension (M)
+          If JOBZ = 'V', then if INFO = 0, the first M elements of
+          IFAIL are zero.  If INFO > 0, then IFAIL contains the
+          indices of the eigenvalues that failed to converge.
+          If JOBZ = 'N', then IFAIL is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0 : successful exit
+          < 0 : if INFO = -i, the i-th argument had an illegal value
+          <= N: if INFO = i, then i eigenvectors failed to converge.
+                  Their indices are stored in IFAIL.
+          > N : DPBSTF returned an error code; i.e.,
+                if INFO = N + i, for 1 <= i <= N, then the leading
+                minor of order i of B is not positive definite.
+                The factorization of B could not be completed and
+                no eigenvalues or eigenvectors were computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Mark Fahey, Department of Mathematics, Univ. of Kentucky, U\+S\+A 
+\end{DoxyParagraph}

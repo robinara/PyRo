@@ -1,0 +1,270 @@
+\hypertarget{dtrsen_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dtrsen.f File Reference}
+\label{dtrsen_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dtrsen.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dtrsen.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dtrsen_8f_afe383d8eb4c3815d8946a5e24ba1899a}{dtrsen} (J\+O\+B, C\+O\+M\+P\+Q, S\+E\+L\+E\+C\+T, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, T, L\+D\+T, Q, L\+D\+Q, W\+R, W\+I, M, S, S\+E\+P, W\+O\+R\+K, L\+W\+O\+R\+K, I\+W\+O\+R\+K, L\+I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+T\+R\+S\+E\+N} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dtrsen_8f_afe383d8eb4c3815d8946a5e24ba1899a}{}\index{dtrsen.\+f@{dtrsen.\+f}!dtrsen@{dtrsen}}
+\index{dtrsen@{dtrsen}!dtrsen.\+f@{dtrsen.\+f}}
+\subsubsection[{dtrsen}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dtrsen (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B, }
+\item[{character}]{C\+O\+M\+P\+Q, }
+\item[{{\bf logical}, dimension( $\ast$ )}]{S\+E\+L\+E\+C\+T, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{double {\bf precision}, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+R, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+I, }
+\item[{integer}]{M, }
+\item[{double {\bf precision}}]{S, }
+\item[{double {\bf precision}}]{S\+E\+P, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{L\+I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dtrsen_8f_afe383d8eb4c3815d8946a5e24ba1899a}
+
+
+{\bfseries D\+T\+R\+S\+E\+N} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DTRSEN reorders the real Schur factorization of a real matrix
+ A = Q*T*Q**T, so that a selected cluster of eigenvalues appears in
+ the leading diagonal blocks of the upper quasi-triangular matrix T,
+ and the leading columns of Q form an orthonormal basis of the
+ corresponding right invariant subspace.
+
+ Optionally the routine computes the reciprocal condition numbers of
+ the cluster of eigenvalues and/or the invariant subspace.
+
+ T must be in Schur canonical form (as returned by DHSEQR), that is,
+ block upper triangular with 1-by-1 and 2-by-2 diagonal blocks; each
+ 2-by-2 diagonal block has its diagonal elements equal and its
+ off-diagonal elements of opposite sign.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B} & \begin{DoxyVerb}          JOB is CHARACTER*1
+          Specifies whether condition numbers are required for the
+          cluster of eigenvalues (S) or the invariant subspace (SEP):
+          = 'N': none;
+          = 'E': for eigenvalues only (S);
+          = 'V': for invariant subspace only (SEP);
+          = 'B': for both eigenvalues and invariant subspace (S and
+                 SEP).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+O\+M\+P\+Q} & \begin{DoxyVerb}          COMPQ is CHARACTER*1
+          = 'V': update the matrix Q of Schur vectors;
+          = 'N': do not update Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+E\+L\+E\+C\+T} & \begin{DoxyVerb}          SELECT is LOGICAL array, dimension (N)
+          SELECT specifies the eigenvalues in the selected cluster. To
+          select a real eigenvalue w(j), SELECT(j) must be set to
+          .TRUE.. To select a complex conjugate pair of eigenvalues
+          w(j) and w(j+1), corresponding to a 2-by-2 diagonal block,
+          either SELECT(j) or SELECT(j+1) or both must be set to
+          .TRUE.; a complex conjugate pair of eigenvalues must be
+          either both included in the cluster or both excluded.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix T. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em T} & \begin{DoxyVerb}          T is DOUBLE PRECISION array, dimension (LDT,N)
+          On entry, the upper quasi-triangular matrix T, in Schur
+          canonical form.
+          On exit, T is overwritten by the reordered matrix T, again in
+          Schur canonical form, with the selected eigenvalues in the
+          leading diagonal blocks.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T. LDT >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q} & \begin{DoxyVerb}          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+          On entry, if COMPQ = 'V', the matrix Q of Schur vectors.
+          On exit, if COMPQ = 'V', Q has been postmultiplied by the
+          orthogonal transformation matrix which reorders T; the
+          leading M columns of Q form an orthonormal basis for the
+          specified invariant subspace.
+          If COMPQ = 'N', Q is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+          The leading dimension of the array Q.
+          LDQ >= 1; and if COMPQ = 'V', LDQ >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+R} & \begin{DoxyVerb}          WR is DOUBLE PRECISION array, dimension (N)\end{DoxyVerb}
+ \\
+\hline
+\mbox{\tt out}  & {\em W\+I} & \begin{DoxyVerb}          WI is DOUBLE PRECISION array, dimension (N)
+
+          The real and imaginary parts, respectively, of the reordered
+          eigenvalues of T. The eigenvalues are stored in the same
+          order as on the diagonal of T, with WR(i) = T(i,i) and, if
+          T(i:i+1,i:i+1) is a 2-by-2 diagonal block, WI(i) > 0 and
+          WI(i+1) = -WI(i). Note that if a complex eigenvalue is
+          sufficiently ill-conditioned, then its value may differ
+          significantly from its value before reordering.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The dimension of the specified invariant subspace.
+          0 < = M <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S} & \begin{DoxyVerb}          S is DOUBLE PRECISION
+          If JOB = 'E' or 'B', S is a lower bound on the reciprocal
+          condition number for the selected cluster of eigenvalues.
+          S cannot underestimate the true reciprocal condition number
+          by more than a factor of sqrt(N). If M = 0 or N, S = 1.
+          If JOB = 'N' or 'V', S is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+E\+P} & \begin{DoxyVerb}          SEP is DOUBLE PRECISION
+          If JOB = 'V' or 'B', SEP is the estimated reciprocal
+          condition number of the specified invariant subspace. If
+          M = 0 or N, SEP = norm(T).
+          If JOB = 'N' or 'E', SEP is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The dimension of the array WORK.
+          If JOB = 'N', LWORK >= max(1,N);
+          if JOB = 'E', LWORK >= max(1,M*(N-M));
+          if JOB = 'V' or 'B', LWORK >= max(1,2*M*(N-M)).
+
+          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal size of the WORK array, returns
+          this value as the first entry of the WORK array, and no error
+          message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (MAX(1,LIWORK))
+          On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+I\+W\+O\+R\+K} & \begin{DoxyVerb}          LIWORK is INTEGER
+          The dimension of the array IWORK.
+          If JOB = 'N' or 'E', LIWORK >= 1;
+          if JOB = 'V' or 'B', LIWORK >= max(1,M*(N-M)).
+
+          If LIWORK = -1, then a workspace query is assumed; the
+          routine only calculates the optimal size of the IWORK array,
+          returns this value as the first entry of the IWORK array, and
+          no error message related to LIWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          = 1: reordering of T failed because some eigenvalues are too
+               close to separate (the problem is very ill-conditioned);
+               T may have been partially reordered, and WR and WI
+               contain the eigenvalues in the same order as in T; S and
+               SEP (if requested) are set to zero.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  DTRSEN first collects the selected eigenvalues by computing an
+  orthogonal transformation Z to move them to the top left corner of T.
+  In other words, the selected eigenvalues are the eigenvalues of T11
+  in:
+
+          Z**T * T * Z = ( T11 T12 ) n1
+                         (  0  T22 ) n2
+                            n1  n2
+
+  where N = n1+n2 and Z**T means the transpose of Z. The first n1 columns
+  of Z span the specified invariant subspace of T.
+
+  If T has been obtained from the real Schur factorization of a matrix
+  A = Q*T*Q**T, then the reordered real Schur factorization of A is given
+  by A = (Q*Z)*(Z**T*T*Z)*(Q*Z)**T, and the first n1 columns of Q*Z span
+  the corresponding invariant subspace of A.
+
+  The reciprocal condition number of the average of the eigenvalues of
+  T11 may be returned in S. S lies between 0 (very badly conditioned)
+  and 1 (very well conditioned). It is computed as follows. First we
+  compute R so that
+
+                         P = ( I  R ) n1
+                             ( 0  0 ) n2
+                               n1 n2
+
+  is the projector on the invariant subspace associated with T11.
+  R is the solution of the Sylvester equation:
+
+                        T11*R - R*T22 = T12.
+
+  Let F-norm(M) denote the Frobenius-norm of M and 2-norm(M) denote
+  the two-norm of M. Then S is computed as the lower bound
+
+                      (1 + F-norm(R)**2)**(-1/2)
+
+  on the reciprocal of 2-norm(P), the true reciprocal condition number.
+  S cannot underestimate 1 / 2-norm(P) by more than a factor of
+  sqrt(N).
+
+  An approximate error bound for the computed average of the
+  eigenvalues of T11 is
+
+                         EPS * norm(T) / S
+
+  where EPS is the machine precision.
+
+  The reciprocal condition number of the right invariant subspace
+  spanned by the first n1 columns of Z (or of Q*Z) is returned in SEP.
+  SEP is defined as the separation of T11 and T22:
+
+                     sep( T11, T22 ) = sigma-min( C )
+
+  where sigma-min(C) is the smallest singular value of the
+  n1*n2-by-n1*n2 matrix
+
+     C  = kprod( I(n2), T11 ) - kprod( transpose(T22), I(n1) )
+
+  I(m) is an m by m identity matrix, and kprod denotes the Kronecker
+  product. We estimate sigma-min(C) by the reciprocal of an estimate of
+  the 1-norm of inverse(C). The true reciprocal 1-norm of inverse(C)
+  cannot differ from sigma-min(C) by more than a factor of sqrt(n1*n2).
+
+  When SEP is small, small changes in T can cause large changes in
+  the invariant subspace. An approximate bound on the maximum angular
+  error in the computed right invariant subspace is
+
+                      EPS * norm(T) / SEP\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

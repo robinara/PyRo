@@ -1,0 +1,67 @@
+\hypertarget{ssterf_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/ssterf.f File Reference}
+\label{ssterf_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ssterf.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/ssterf.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ssterf_8f_a6f005e62dd179b39d847eadbb62dbead}{ssterf} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+S\+T\+E\+R\+F} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ssterf_8f_a6f005e62dd179b39d847eadbb62dbead}{}\index{ssterf.\+f@{ssterf.\+f}!ssterf@{ssterf}}
+\index{ssterf@{ssterf}!ssterf.\+f@{ssterf.\+f}}
+\subsubsection[{ssterf}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ssterf (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{E, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{ssterf_8f_a6f005e62dd179b39d847eadbb62dbead}
+
+
+{\bfseries S\+S\+T\+E\+R\+F} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SSTERF computes all eigenvalues of a symmetric tridiagonal matrix
+ using the Pal-Walker-Kahan variant of the QL or QR algorithm.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          On entry, the n diagonal elements of the tridiagonal matrix.
+          On exit, if INFO = 0, the eigenvalues in ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E} & \begin{DoxyVerb}          E is REAL array, dimension (N-1)
+          On entry, the (n-1) subdiagonal elements of the tridiagonal
+          matrix.
+          On exit, E has been destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  the algorithm failed to find all of the eigenvalues in
+                a total of 30*N iterations; if INFO = i, then i
+                elements of E have not converged to zero.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

@@ -1,0 +1,131 @@
+\hypertarget{i2cbusses_8c}{}\section{packages/i2c-\/tools-\/3.1.1/tools/i2cbusses.c File Reference}
+\label{i2cbusses_8c}\index{packages/i2c-\/tools-\/3.\+1.\+1/tools/i2cbusses.\+c@{packages/i2c-\/tools-\/3.\+1.\+1/tools/i2cbusses.\+c}}
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\+h$>$}\\*
+{\ttfamily \#include $<$sys/param.\+h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$strings.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include $<$dirent.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}i2cbusses.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{i2cbusses_8c_ad3d8a3bd0c0b677acef144f2c2ef6d73}{\+\_\+\+B\+S\+D\+\_\+\+S\+O\+U\+R\+C\+E}~1
+\item 
+\#define \hyperlink{i2cbusses_8c_ac1fdf62789608d50dba0214554b040a6}{B\+U\+N\+C\+H}~8
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494}{adt} \{ \\*
+\hyperlink{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a7e9a067d6e6f6fe542203db88d5a0884}{adt\+\_\+dummy}, 
+\hyperlink{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a0b2c84fd0e16eb11ba1ec238c846e41f}{adt\+\_\+isa}, 
+\hyperlink{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a7772e1fd469412ca3583f77468dba515}{adt\+\_\+i2c}, 
+\hyperlink{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a62419df1af3d93d9451288b2c9426c1d}{adt\+\_\+smbus}, 
+\\*
+\hyperlink{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494af0d0e96949c7f95ec5c80cd9bf707265}{adt\+\_\+unknown}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{i2cbusses_8c_ab380dfabe908464d9d3be6ab19419212}{free\+\_\+adapters} (\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structi2c__adap}{i2c\+\_\+adap} $\ast$adapters)
+\item 
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structi2c__adap}{i2c\+\_\+adap} $\ast$ \hyperlink{i2cbusses_8c_a3eea5874e128d8e459efd7c182a63dd3}{gather\+\_\+i2c\+\_\+busses} (void)
+\item 
+int \hyperlink{i2cbusses_8c_afa69ee0069b3d97d841ce597fb276cf3}{lookup\+\_\+i2c\+\_\+bus} (const char $\ast$i2cbus\+\_\+arg)
+\item 
+int \hyperlink{i2cbusses_8c_a955cdc2a77057030e6dea376a9213c15}{parse\+\_\+i2c\+\_\+address} (const char $\ast$address\+\_\+arg)
+\item 
+int \hyperlink{i2cbusses_8c_acf81e4bea190780e085e690fc11abb22}{open\+\_\+i2c\+\_\+dev} (int i2cbus, char $\ast$filename, size\+\_\+t size, int quiet)
+\item 
+int \hyperlink{i2cbusses_8c_a04782fe78c4b0aee7af4de36bdbf48e0}{set\+\_\+slave\+\_\+addr} (int file, int address, int force)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{i2cbusses_8c_ad3d8a3bd0c0b677acef144f2c2ef6d73}{}\index{i2cbusses.\+c@{i2cbusses.\+c}!\+\_\+\+B\+S\+D\+\_\+\+S\+O\+U\+R\+C\+E@{\+\_\+\+B\+S\+D\+\_\+\+S\+O\+U\+R\+C\+E}}
+\index{\+\_\+\+B\+S\+D\+\_\+\+S\+O\+U\+R\+C\+E@{\+\_\+\+B\+S\+D\+\_\+\+S\+O\+U\+R\+C\+E}!i2cbusses.\+c@{i2cbusses.\+c}}
+\subsubsection[{\+\_\+\+B\+S\+D\+\_\+\+S\+O\+U\+R\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+B\+S\+D\+\_\+\+S\+O\+U\+R\+C\+E~1}\label{i2cbusses_8c_ad3d8a3bd0c0b677acef144f2c2ef6d73}
+\hypertarget{i2cbusses_8c_ac1fdf62789608d50dba0214554b040a6}{}\index{i2cbusses.\+c@{i2cbusses.\+c}!B\+U\+N\+C\+H@{B\+U\+N\+C\+H}}
+\index{B\+U\+N\+C\+H@{B\+U\+N\+C\+H}!i2cbusses.\+c@{i2cbusses.\+c}}
+\subsubsection[{B\+U\+N\+C\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+N\+C\+H~8}\label{i2cbusses_8c_ac1fdf62789608d50dba0214554b040a6}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494}{}\index{i2cbusses.\+c@{i2cbusses.\+c}!adt@{adt}}
+\index{adt@{adt}!i2cbusses.\+c@{i2cbusses.\+c}}
+\subsubsection[{adt}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf adt}}\label{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{adt\+\_\+dummy@{adt\+\_\+dummy}!i2cbusses.\+c@{i2cbusses.\+c}}\index{i2cbusses.\+c@{i2cbusses.\+c}!adt\+\_\+dummy@{adt\+\_\+dummy}}\item[{\em 
+\hypertarget{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a7e9a067d6e6f6fe542203db88d5a0884}{}adt\+\_\+dummy\label{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a7e9a067d6e6f6fe542203db88d5a0884}
+}]\index{adt\+\_\+isa@{adt\+\_\+isa}!i2cbusses.\+c@{i2cbusses.\+c}}\index{i2cbusses.\+c@{i2cbusses.\+c}!adt\+\_\+isa@{adt\+\_\+isa}}\item[{\em 
+\hypertarget{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a0b2c84fd0e16eb11ba1ec238c846e41f}{}adt\+\_\+isa\label{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a0b2c84fd0e16eb11ba1ec238c846e41f}
+}]\index{adt\+\_\+i2c@{adt\+\_\+i2c}!i2cbusses.\+c@{i2cbusses.\+c}}\index{i2cbusses.\+c@{i2cbusses.\+c}!adt\+\_\+i2c@{adt\+\_\+i2c}}\item[{\em 
+\hypertarget{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a7772e1fd469412ca3583f77468dba515}{}adt\+\_\+i2c\label{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a7772e1fd469412ca3583f77468dba515}
+}]\index{adt\+\_\+smbus@{adt\+\_\+smbus}!i2cbusses.\+c@{i2cbusses.\+c}}\index{i2cbusses.\+c@{i2cbusses.\+c}!adt\+\_\+smbus@{adt\+\_\+smbus}}\item[{\em 
+\hypertarget{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a62419df1af3d93d9451288b2c9426c1d}{}adt\+\_\+smbus\label{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494a62419df1af3d93d9451288b2c9426c1d}
+}]\index{adt\+\_\+unknown@{adt\+\_\+unknown}!i2cbusses.\+c@{i2cbusses.\+c}}\index{i2cbusses.\+c@{i2cbusses.\+c}!adt\+\_\+unknown@{adt\+\_\+unknown}}\item[{\em 
+\hypertarget{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494af0d0e96949c7f95ec5c80cd9bf707265}{}adt\+\_\+unknown\label{i2cbusses_8c_a0d262b4093fa28f63acccc2cea597494af0d0e96949c7f95ec5c80cd9bf707265}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{i2cbusses_8c_ab380dfabe908464d9d3be6ab19419212}{}\index{i2cbusses.\+c@{i2cbusses.\+c}!free\+\_\+adapters@{free\+\_\+adapters}}
+\index{free\+\_\+adapters@{free\+\_\+adapters}!i2cbusses.\+c@{i2cbusses.\+c}}
+\subsubsection[{free\+\_\+adapters}]{\setlength{\rightskip}{0pt plus 5cm}void free\+\_\+adapters (
+\begin{DoxyParamCaption}
+\item[{{\bf struct} {\bf i2c\+\_\+adap} $\ast$}]{adapters}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8c_ab380dfabe908464d9d3be6ab19419212}
+\hypertarget{i2cbusses_8c_a3eea5874e128d8e459efd7c182a63dd3}{}\index{i2cbusses.\+c@{i2cbusses.\+c}!gather\+\_\+i2c\+\_\+busses@{gather\+\_\+i2c\+\_\+busses}}
+\index{gather\+\_\+i2c\+\_\+busses@{gather\+\_\+i2c\+\_\+busses}!i2cbusses.\+c@{i2cbusses.\+c}}
+\subsubsection[{gather\+\_\+i2c\+\_\+busses}]{\setlength{\rightskip}{0pt plus 5cm}{\bf struct} {\bf i2c\+\_\+adap}$\ast$ gather\+\_\+i2c\+\_\+busses (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8c_a3eea5874e128d8e459efd7c182a63dd3}
+\hypertarget{i2cbusses_8c_afa69ee0069b3d97d841ce597fb276cf3}{}\index{i2cbusses.\+c@{i2cbusses.\+c}!lookup\+\_\+i2c\+\_\+bus@{lookup\+\_\+i2c\+\_\+bus}}
+\index{lookup\+\_\+i2c\+\_\+bus@{lookup\+\_\+i2c\+\_\+bus}!i2cbusses.\+c@{i2cbusses.\+c}}
+\subsubsection[{lookup\+\_\+i2c\+\_\+bus}]{\setlength{\rightskip}{0pt plus 5cm}int lookup\+\_\+i2c\+\_\+bus (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{i2cbus\+\_\+arg}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8c_afa69ee0069b3d97d841ce597fb276cf3}
+\hypertarget{i2cbusses_8c_acf81e4bea190780e085e690fc11abb22}{}\index{i2cbusses.\+c@{i2cbusses.\+c}!open\+\_\+i2c\+\_\+dev@{open\+\_\+i2c\+\_\+dev}}
+\index{open\+\_\+i2c\+\_\+dev@{open\+\_\+i2c\+\_\+dev}!i2cbusses.\+c@{i2cbusses.\+c}}
+\subsubsection[{open\+\_\+i2c\+\_\+dev}]{\setlength{\rightskip}{0pt plus 5cm}int open\+\_\+i2c\+\_\+dev (
+\begin{DoxyParamCaption}
+\item[{int}]{i2cbus, }
+\item[{char $\ast$}]{filename, }
+\item[{size\+\_\+t}]{size, }
+\item[{int}]{quiet}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8c_acf81e4bea190780e085e690fc11abb22}
+\hypertarget{i2cbusses_8c_a955cdc2a77057030e6dea376a9213c15}{}\index{i2cbusses.\+c@{i2cbusses.\+c}!parse\+\_\+i2c\+\_\+address@{parse\+\_\+i2c\+\_\+address}}
+\index{parse\+\_\+i2c\+\_\+address@{parse\+\_\+i2c\+\_\+address}!i2cbusses.\+c@{i2cbusses.\+c}}
+\subsubsection[{parse\+\_\+i2c\+\_\+address}]{\setlength{\rightskip}{0pt plus 5cm}int parse\+\_\+i2c\+\_\+address (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{address\+\_\+arg}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8c_a955cdc2a77057030e6dea376a9213c15}
+\hypertarget{i2cbusses_8c_a04782fe78c4b0aee7af4de36bdbf48e0}{}\index{i2cbusses.\+c@{i2cbusses.\+c}!set\+\_\+slave\+\_\+addr@{set\+\_\+slave\+\_\+addr}}
+\index{set\+\_\+slave\+\_\+addr@{set\+\_\+slave\+\_\+addr}!i2cbusses.\+c@{i2cbusses.\+c}}
+\subsubsection[{set\+\_\+slave\+\_\+addr}]{\setlength{\rightskip}{0pt plus 5cm}int set\+\_\+slave\+\_\+addr (
+\begin{DoxyParamCaption}
+\item[{int}]{file, }
+\item[{int}]{address, }
+\item[{int}]{force}
+\end{DoxyParamCaption}
+)}\label{i2cbusses_8c_a04782fe78c4b0aee7af4de36bdbf48e0}

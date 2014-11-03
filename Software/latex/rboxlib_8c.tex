@@ -1,0 +1,168 @@
+\hypertarget{rboxlib_8c}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/rboxlib.c File Reference}
+\label{rboxlib_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/rboxlib.\+c@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/rboxlib.\+c}}
+{\ttfamily \#include \char`\"{}random.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}libqhull.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$ctype.\+h$>$}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$setjmp.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{rboxlib_8c_a00e16a6f9c7189622415795699d8ee00}{M\+A\+Xdim}~200
+\item 
+\#define \hyperlink{rboxlib_8c_a598a3330b3c21701223ee0ca14316eca}{P\+I}~3.\+1415926535897932384
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} rbox\+T \hyperlink{rboxlib_8c_a436dc5c71571be704a40e916725bc4a2}{rbox\+T}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{rboxlib_8c_a2fc8694c04a1bdc35b971e54f4ec2802}{roundi} (double \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})
+\item 
+void \hyperlink{rboxlib_8c_ae1306ab01ed8fc3a9ddb27c883ce37cd}{out1} (double \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})
+\item 
+void \hyperlink{rboxlib_8c_a3dcbbb30aced12efa01359b557d85c6c}{out2n} (double \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, double \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})
+\item 
+void \hyperlink{rboxlib_8c_a1786f90709074979e2b85fad62ce4b66}{out3n} (double \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, double \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}, double c)
+\item 
+void \hyperlink{rboxlib_8c_a5e6f4aabaa18f8c0316b1a163dc92f87}{qh\+\_\+fprintf\+\_\+rbox} (F\+I\+L\+E $\ast$fp, int msgcode, const char $\ast$fmt,...)
+\item 
+void \hyperlink{rboxlib_8c_a5b5f2d4219190f044de3f281f4ea4f7c}{qh\+\_\+free} (void $\ast$mem)
+\item 
+void $\ast$ \hyperlink{rboxlib_8c_a1f3385c31ec1ba452f3c4fc9aeec1829}{qh\+\_\+malloc} (size\+\_\+t size)
+\item 
+int \hyperlink{rboxlib_8c_ae9c3da2e7aa44b70657d273e8ca3e832}{qh\+\_\+rand} (void)
+\item 
+void \hyperlink{rboxlib_8c_abb43a4c827cd75dc6dafec8160e25246}{qh\+\_\+srand} (int seed)
+\item 
+int \hyperlink{rboxlib_8c_a1f9cbd7a40bf1755ccc7c938e5b135b8}{qh\+\_\+rboxpoints} (F\+I\+L\+E $\ast$fout, F\+I\+L\+E $\ast$ferr, char $\ast$rbox\+\_\+command)
+\item 
+void \hyperlink{rboxlib_8c_ac7eebc9e171d259176035d00ff6e970e}{qh\+\_\+errexit\+\_\+rbox} (int exitcode)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{rboxlib_8c_a2a872057fe99f62cd08de1a356ec8db8}{rbox\+\_\+inuse} = 0
+\item 
+\hyperlink{rboxlib_8c_a436dc5c71571be704a40e916725bc4a2}{rbox\+T} \hyperlink{rboxlib_8c_a388cd410be34aa82286cb78bcd1aa93b}{rbox}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{rboxlib_8c_a00e16a6f9c7189622415795699d8ee00}{}\index{rboxlib.\+c@{rboxlib.\+c}!M\+A\+Xdim@{M\+A\+Xdim}}
+\index{M\+A\+Xdim@{M\+A\+Xdim}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{M\+A\+Xdim}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+Xdim~200}\label{rboxlib_8c_a00e16a6f9c7189622415795699d8ee00}
+\hypertarget{rboxlib_8c_a598a3330b3c21701223ee0ca14316eca}{}\index{rboxlib.\+c@{rboxlib.\+c}!P\+I@{P\+I}}
+\index{P\+I@{P\+I}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{P\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I~3.\+1415926535897932384}\label{rboxlib_8c_a598a3330b3c21701223ee0ca14316eca}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{rboxlib_8c_a436dc5c71571be704a40e916725bc4a2}{}\index{rboxlib.\+c@{rboxlib.\+c}!rbox\+T@{rbox\+T}}
+\index{rbox\+T@{rbox\+T}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{rbox\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} rbox\+T rbox\+T}\label{rboxlib_8c_a436dc5c71571be704a40e916725bc4a2}
+
+
+\subsection{Function Documentation}
+\hypertarget{rboxlib_8c_ae1306ab01ed8fc3a9ddb27c883ce37cd}{}\index{rboxlib.\+c@{rboxlib.\+c}!out1@{out1}}
+\index{out1@{out1}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{out1}]{\setlength{\rightskip}{0pt plus 5cm}void out1 (
+\begin{DoxyParamCaption}
+\item[{double}]{a}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_ae1306ab01ed8fc3a9ddb27c883ce37cd}
+\hypertarget{rboxlib_8c_a3dcbbb30aced12efa01359b557d85c6c}{}\index{rboxlib.\+c@{rboxlib.\+c}!out2n@{out2n}}
+\index{out2n@{out2n}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{out2n}]{\setlength{\rightskip}{0pt plus 5cm}void out2n (
+\begin{DoxyParamCaption}
+\item[{double}]{a, }
+\item[{double}]{b}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_a3dcbbb30aced12efa01359b557d85c6c}
+\hypertarget{rboxlib_8c_a1786f90709074979e2b85fad62ce4b66}{}\index{rboxlib.\+c@{rboxlib.\+c}!out3n@{out3n}}
+\index{out3n@{out3n}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{out3n}]{\setlength{\rightskip}{0pt plus 5cm}void out3n (
+\begin{DoxyParamCaption}
+\item[{double}]{a, }
+\item[{double}]{b, }
+\item[{double}]{c}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_a1786f90709074979e2b85fad62ce4b66}
+\hypertarget{rboxlib_8c_ac7eebc9e171d259176035d00ff6e970e}{}\index{rboxlib.\+c@{rboxlib.\+c}!qh\+\_\+errexit\+\_\+rbox@{qh\+\_\+errexit\+\_\+rbox}}
+\index{qh\+\_\+errexit\+\_\+rbox@{qh\+\_\+errexit\+\_\+rbox}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{qh\+\_\+errexit\+\_\+rbox}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+errexit\+\_\+rbox (
+\begin{DoxyParamCaption}
+\item[{int}]{exitcode}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_ac7eebc9e171d259176035d00ff6e970e}
+\hypertarget{rboxlib_8c_a5e6f4aabaa18f8c0316b1a163dc92f87}{}\index{rboxlib.\+c@{rboxlib.\+c}!qh\+\_\+fprintf\+\_\+rbox@{qh\+\_\+fprintf\+\_\+rbox}}
+\index{qh\+\_\+fprintf\+\_\+rbox@{qh\+\_\+fprintf\+\_\+rbox}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{qh\+\_\+fprintf\+\_\+rbox}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+fprintf\+\_\+rbox (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{int}]{msgcode, }
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_a5e6f4aabaa18f8c0316b1a163dc92f87}
+\hypertarget{rboxlib_8c_a5b5f2d4219190f044de3f281f4ea4f7c}{}\index{rboxlib.\+c@{rboxlib.\+c}!qh\+\_\+free@{qh\+\_\+free}}
+\index{qh\+\_\+free@{qh\+\_\+free}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{qh\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{mem}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_a5b5f2d4219190f044de3f281f4ea4f7c}
+\hypertarget{rboxlib_8c_a1f3385c31ec1ba452f3c4fc9aeec1829}{}\index{rboxlib.\+c@{rboxlib.\+c}!qh\+\_\+malloc@{qh\+\_\+malloc}}
+\index{qh\+\_\+malloc@{qh\+\_\+malloc}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{qh\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ qh\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_a1f3385c31ec1ba452f3c4fc9aeec1829}
+\hypertarget{rboxlib_8c_ae9c3da2e7aa44b70657d273e8ca3e832}{}\index{rboxlib.\+c@{rboxlib.\+c}!qh\+\_\+rand@{qh\+\_\+rand}}
+\index{qh\+\_\+rand@{qh\+\_\+rand}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{qh\+\_\+rand}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+rand (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_ae9c3da2e7aa44b70657d273e8ca3e832}
+\hypertarget{rboxlib_8c_a1f9cbd7a40bf1755ccc7c938e5b135b8}{}\index{rboxlib.\+c@{rboxlib.\+c}!qh\+\_\+rboxpoints@{qh\+\_\+rboxpoints}}
+\index{qh\+\_\+rboxpoints@{qh\+\_\+rboxpoints}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{qh\+\_\+rboxpoints}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+rboxpoints (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fout, }
+\item[{F\+I\+L\+E $\ast$}]{ferr, }
+\item[{char $\ast$}]{rbox\+\_\+command}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_a1f9cbd7a40bf1755ccc7c938e5b135b8}
+\hypertarget{rboxlib_8c_abb43a4c827cd75dc6dafec8160e25246}{}\index{rboxlib.\+c@{rboxlib.\+c}!qh\+\_\+srand@{qh\+\_\+srand}}
+\index{qh\+\_\+srand@{qh\+\_\+srand}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{qh\+\_\+srand}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+srand (
+\begin{DoxyParamCaption}
+\item[{int}]{seed}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_abb43a4c827cd75dc6dafec8160e25246}
+\hypertarget{rboxlib_8c_a2fc8694c04a1bdc35b971e54f4ec2802}{}\index{rboxlib.\+c@{rboxlib.\+c}!roundi@{roundi}}
+\index{roundi@{roundi}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{roundi}]{\setlength{\rightskip}{0pt plus 5cm}int roundi (
+\begin{DoxyParamCaption}
+\item[{double}]{a}
+\end{DoxyParamCaption}
+)}\label{rboxlib_8c_a2fc8694c04a1bdc35b971e54f4ec2802}
+
+
+\subsection{Variable Documentation}
+\hypertarget{rboxlib_8c_a388cd410be34aa82286cb78bcd1aa93b}{}\index{rboxlib.\+c@{rboxlib.\+c}!rbox@{rbox}}
+\index{rbox@{rbox}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{rbox}]{\setlength{\rightskip}{0pt plus 5cm}{\bf rbox\+T} rbox}\label{rboxlib_8c_a388cd410be34aa82286cb78bcd1aa93b}
+\hypertarget{rboxlib_8c_a2a872057fe99f62cd08de1a356ec8db8}{}\index{rboxlib.\+c@{rboxlib.\+c}!rbox\+\_\+inuse@{rbox\+\_\+inuse}}
+\index{rbox\+\_\+inuse@{rbox\+\_\+inuse}!rboxlib.\+c@{rboxlib.\+c}}
+\subsubsection[{rbox\+\_\+inuse}]{\setlength{\rightskip}{0pt plus 5cm}int rbox\+\_\+inuse = 0}\label{rboxlib_8c_a2a872057fe99f62cd08de1a356ec8db8}

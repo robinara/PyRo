@@ -1,0 +1,263 @@
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve}{}\section{scipy.\+sparse.\+linalg.\+dsolve.\+linsolve Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve}\index{scipy.\+sparse.\+linalg.\+dsolve.\+linsolve@{scipy.\+sparse.\+linalg.\+dsolve.\+linsolve}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_1_1MatrixRankWarning}{Matrix\+Rank\+Warning}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_ab0fbba012966fdf0f6653f809f11eed7}{use\+\_\+solver}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_ab271164072e1d14d41d56c6341602e36}{spsolve}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a621e8951f214ac2ee3d7e209bb99ecf8}{splu}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_aee9ea27aacfc71df807ebb3e3819a1e8}{spilu}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_ad89c412b2f2a0005a3c749e2f52170a4}{factorized}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a3e66e7103a2d574a3154c50c3ba8ea64}{no\+Scikit} = \hyperlink{libqhull_8h_a306ebd41c0cd1303b1372c6153f0caf8}{False}
+\item 
+\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a768b094cdd18f62c85c106b6f27d64d7}{use\+Umfpack} = notno\+Scikit
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a8f106dffa03bf33f853f5ae77a274c2d}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_ad89c412b2f2a0005a3c749e2f52170a4}{}\index{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}!factorized@{factorized}}
+\index{factorized@{factorized}!scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}}
+\subsubsection[{factorized}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+dsolve.\+linsolve.\+factorized (
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_ad89c412b2f2a0005a3c749e2f52170a4}
+\begin{DoxyVerb}Return a fuction for solving a sparse linear system, with A pre-factorized.
+
+Parameters
+----------
+A : (N, N) array_like
+    Input.
+
+Returns
+-------
+solve : callable
+    To solve the linear system of equations given in `A`, the `solve`
+    callable should be passed an ndarray of shape (N,).
+
+Examples
+--------
+>>> A = np.array([[ 3. ,  2. , -1. ],
+                  [ 2. , -2. ,  4. ],
+                  [-1. ,  0.5, -1. ]])
+
+>>> solve = factorized( A ) # Makes LU decomposition.
+
+>>> rhs1 = np.array([1,-2,0])
+>>> x1 = solve( rhs1 ) # Uses the LU factors.
+array([ 1., -2., -2.])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_aee9ea27aacfc71df807ebb3e3819a1e8}{}\index{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}!spilu@{spilu}}
+\index{spilu@{spilu}!scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}}
+\subsubsection[{spilu}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+dsolve.\+linsolve.\+spilu (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{drop\+\_\+tol = {\ttfamily None}, }
+\item[{}]{fill\+\_\+factor = {\ttfamily None}, }
+\item[{}]{drop\+\_\+rule = {\ttfamily None}, }
+\item[{}]{permc\+\_\+spec = {\ttfamily None}, }
+\item[{}]{diag\+\_\+pivot\+\_\+thresh = {\ttfamily None}, }
+\item[{}]{relax = {\ttfamily None}, }
+\item[{}]{panel\+\_\+size = {\ttfamily None}, }
+\item[{}]{options = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_aee9ea27aacfc71df807ebb3e3819a1e8}
+\begin{DoxyVerb}Compute an incomplete LU decomposition for a sparse, square matrix.
+
+The resulting object is an approximation to the inverse of `A`.
+
+Parameters
+----------
+A : (N, N) array_like
+    Sparse matrix to factorize
+drop_tol : float, optional
+    Drop tolerance (0 <= tol <= 1) for an incomplete LU decomposition.
+    (default: 1e-4)
+fill_factor : float, optional
+    Specifies the fill ratio upper bound (>= 1.0) for ILU. (default: 10)
+drop_rule : str, optional
+    Comma-separated string of drop rules to use.
+    Available rules: ``basic``, ``prows``, ``column``, ``area``,
+    ``secondary``, ``dynamic``, ``interp``. (Default: ``basic,area``)
+
+    See SuperLU documentation for details.
+milu : str, optional
+    Which version of modified ILU to use. (Choices: ``silu``,
+    ``smilu_1``, ``smilu_2`` (default), ``smilu_3``.)
+
+Remaining other options
+    Same as for `splu`
+
+Returns
+-------
+invA_approx : scipy.sparse.linalg.SuperLU
+    Object, which has a ``solve`` method.
+
+See also
+--------
+splu : complete LU decomposition
+
+Notes
+-----
+To improve the better approximation to the inverse, you may need to
+increase `fill_factor` AND decrease `drop_tol`.
+
+This function uses the SuperLU library.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a621e8951f214ac2ee3d7e209bb99ecf8}{}\index{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}!splu@{splu}}
+\index{splu@{splu}!scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}}
+\subsubsection[{splu}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+dsolve.\+linsolve.\+splu (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{permc\+\_\+spec = {\ttfamily None}, }
+\item[{}]{diag\+\_\+pivot\+\_\+thresh = {\ttfamily None}, }
+\item[{}]{drop\+\_\+tol = {\ttfamily None}, }
+\item[{}]{relax = {\ttfamily None}, }
+\item[{}]{panel\+\_\+size = {\ttfamily None}, }
+\item[{}]{options = {\ttfamily dict()}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a621e8951f214ac2ee3d7e209bb99ecf8}
+\begin{DoxyVerb}Compute the LU decomposition of a sparse, square matrix.
+
+Parameters
+----------
+A : sparse matrix
+    Sparse matrix to factorize. Should be in CSR or CSC format.
+permc_spec : str, optional
+    How to permute the columns of the matrix for sparsity preservation.
+    (default: 'COLAMD')
+
+    - ``NATURAL``: natural ordering.
+    - ``MMD_ATA``: minimum degree ordering on the structure of A^T A.
+    - ``MMD_AT_PLUS_A``: minimum degree ordering on the structure of A^T+A.
+    - ``COLAMD``: approximate minimum degree column ordering
+
+diag_pivot_thresh : float, optional
+    Threshold used for a diagonal entry to be an acceptable pivot.
+    See SuperLU user's guide for details [SLU]_
+drop_tol : float, optional
+    (deprecated) No effect.
+relax : int, optional
+    Expert option for customizing the degree of relaxing supernodes.
+    See SuperLU user's guide for details [SLU]_
+panel_size : int, optional
+    Expert option for customizing the panel size.
+    See SuperLU user's guide for details [SLU]_
+options : dict, optional
+    Dictionary containing additional expert options to SuperLU.
+    See SuperLU user guide [SLU]_ (section 2.4 on the 'Options' argument)
+    for more details. For example, you can specify
+    ``options=dict(Equil=False, IterRefine='SINGLE'))``
+    to turn equilibration off and perform a single iterative refinement.
+
+Returns
+-------
+invA : scipy.sparse.linalg.SuperLU
+    Object, which has a ``solve`` method.
+
+See also
+--------
+spilu : incomplete LU decomposition
+
+Notes
+-----
+This function uses the SuperLU library.
+
+References
+----------
+.. [SLU] SuperLU http://crd.lbl.gov/~xiaoye/SuperLU/\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_ab271164072e1d14d41d56c6341602e36}{}\index{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}!spsolve@{spsolve}}
+\index{spsolve@{spsolve}!scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}}
+\subsubsection[{spsolve}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+dsolve.\+linsolve.\+spsolve (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{b, }
+\item[{}]{permc\+\_\+spec = {\ttfamily None}, }
+\item[{}]{use\+\_\+umfpack = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_ab271164072e1d14d41d56c6341602e36}
+\begin{DoxyVerb}Solve the sparse linear system Ax=b, where b may be a vector or a matrix.
+
+Parameters
+----------
+A : ndarray or sparse matrix
+    The square matrix A will be converted into CSC or CSR form
+b : ndarray or sparse matrix
+    The matrix or vector representing the right hand side of the equation.
+    If a vector, b.size must
+permc_spec : str, optional
+    How to permute the columns of the matrix for sparsity preservation.
+    (default: 'COLAMD')
+
+    - ``NATURAL``: natural ordering.
+    - ``MMD_ATA``: minimum degree ordering on the structure of A^T A.
+    - ``MMD_AT_PLUS_A``: minimum degree ordering on the structure of A^T+A.
+    - ``COLAMD``: approximate minimum degree column ordering
+use_umfpack : bool (optional)
+    if True (default) then use umfpack for the solution.  This is
+    only referenced if b is a vector.
+
+Returns
+-------
+x : ndarray or sparse matrix
+    the solution of the sparse linear equation.
+    If b is a vector, then x is a vector of size A.shape[1]
+    If b is a matrix, then x is a matrix of size (A.shape[1], b.shape[1])
+
+Notes
+-----
+For solving the matrix expression AX = B, this solver assumes the resulting
+matrix X is sparse, as is often the case for very sparse inputs.  If the
+resulting X is dense, the construction of this sparse result will be
+relatively expensive.  In that case, consider converting A to a dense
+matrix and using scipy.linalg.solve or its variants.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_ab0fbba012966fdf0f6653f809f11eed7}{}\index{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}!use\+\_\+solver@{use\+\_\+solver}}
+\index{use\+\_\+solver@{use\+\_\+solver}!scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}}
+\subsubsection[{use\+\_\+solver}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+dsolve.\+linsolve.\+use\+\_\+solver (
+\begin{DoxyParamCaption}
+\item[{}]{kwargs}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_ab0fbba012966fdf0f6653f809f11eed7}
+\begin{DoxyVerb}Valid keyword arguments with defaults (other ignored)::
+
+  useUmfpack = True
+  assumeSortedIndices = False
+
+The default sparse solver is umfpack when available. This can be changed by
+passing useUmfpack = False, which then causes the always present SuperLU
+based solver to be used.
+
+Umfpack requires a CSR/CSC matrix to have sorted column/row indices. If
+sure that the matrix fulfills this, pass ``assumeSortedIndices=True``
+to gain some speed.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a8f106dffa03bf33f853f5ae77a274c2d}{}\index{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+dsolve.\+linsolve.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a8f106dffa03bf33f853f5ae77a274c2d}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'use\_solver'}, \textcolor{stringliteral}{'spsolve'}, \textcolor{stringliteral}{'splu'}, \textcolor{stringliteral}{'spilu'}, \textcolor{stringliteral}{'factorized'},
+2            \textcolor{stringliteral}{'MatrixRankWarning'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a3e66e7103a2d574a3154c50c3ba8ea64}{}\index{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}!no\+Scikit@{no\+Scikit}}
+\index{no\+Scikit@{no\+Scikit}!scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}}
+\subsubsection[{no\+Scikit}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+linalg.\+dsolve.\+linsolve.\+no\+Scikit = {\bf False}}\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a3e66e7103a2d574a3154c50c3ba8ea64}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a768b094cdd18f62c85c106b6f27d64d7}{}\index{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}!use\+Umfpack@{use\+Umfpack}}
+\index{use\+Umfpack@{use\+Umfpack}!scipy\+::sparse\+::linalg\+::dsolve\+::linsolve@{scipy\+::sparse\+::linalg\+::dsolve\+::linsolve}}
+\subsubsection[{use\+Umfpack}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+linalg.\+dsolve.\+linsolve.\+use\+Umfpack = notno\+Scikit}\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve_a768b094cdd18f62c85c106b6f27d64d7}

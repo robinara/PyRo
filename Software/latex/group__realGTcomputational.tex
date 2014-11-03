@@ -1,0 +1,559 @@
+\hypertarget{group__realGTcomputational}{}\section{real}
+\label{group__realGTcomputational}\index{real@{real}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{group__realGTcomputational_ga9474585c30f5420fc243d0bd0e0e9c12}{sgtcon} (N\+O\+R\+M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+U2, I\+P\+I\+V, A\+N\+O\+R\+M, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+G\+T\+C\+O\+N} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__realGTcomputational_gaa83bbd4b0fcb6e3dffaa4ea7c08b2f08}{sgtrfs} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+L\+F, D\+F, D\+U\+F, D\+U2, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, X, L\+D\+X, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a78fd14d7abebae04095cfbe02928f153}{F\+E\+R\+R}, B\+E\+R\+R, W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+G\+T\+R\+F\+S} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__realGTcomputational_ga0cd464cdbfc79c87c6b3fa3d1e139abf}{sgttrf} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+U2, I\+P\+I\+V, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+G\+T\+T\+R\+F} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__realGTcomputational_ga4c1f4f3382563a295c36917d658befb3}{sgttrs} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+U2, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+G\+T\+T\+R\+S} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__realGTcomputational_ga913327540f64843e724055d28babf247}{sgtts2} (I\+T\+R\+A\+N\+S, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+U2, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B})
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+G\+T\+T\+S2} solves a system of linear equations with a tridiagonal matrix using the L\+U factorization computed by sgttrf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of real computational functions for G\+T matrices 
+
+\subsection{Function Documentation}
+\hypertarget{group__realGTcomputational_ga9474585c30f5420fc243d0bd0e0e9c12}{}\index{real@{real}!sgtcon@{sgtcon}}
+\index{sgtcon@{sgtcon}!real@{real}}
+\subsubsection[{sgtcon}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sgtcon (
+\begin{DoxyParamCaption}
+\item[{character}]{N\+O\+R\+M, }
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D\+L, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{D\+U, }
+\item[{real, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{real}]{A\+N\+O\+R\+M, }
+\item[{real}]{R\+C\+O\+N\+D, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__realGTcomputational_ga9474585c30f5420fc243d0bd0e0e9c12}
+
+
+{\bfseries S\+G\+T\+C\+O\+N} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SGTCON estimates the reciprocal of the condition number of a real
+ tridiagonal matrix A using the LU factorization as computed by
+ SGTTRF.
+
+ An estimate is obtained for norm(inv(A)), and the reciprocal of the
+ condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N\+O\+R\+M} & \begin{DoxyVerb}          NORM is CHARACTER*1
+          Specifies whether the 1-norm condition number or the
+          infinity-norm condition number is required:
+          = '1' or 'O':  1-norm;
+          = 'I':         Infinity-norm.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L} & \begin{DoxyVerb}          DL is REAL array, dimension (N-1)
+          The (n-1) multipliers that define the matrix L from the
+          LU factorization of A as computed by SGTTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The n diagonal elements of the upper triangular matrix U from
+          the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U} & \begin{DoxyVerb}          DU is REAL array, dimension (N-1)
+          The (n-1) elements of the first superdiagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is REAL array, dimension (N-2)
+          The (n-2) elements of the second superdiagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          The pivot indices; for 1 <= i <= n, row i of the matrix was
+          interchanged with row IPIV(i).  IPIV(i) will always be either
+          i or i+1; IPIV(i) = i indicates a row interchange was not
+          required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+N\+O\+R\+M} & \begin{DoxyVerb}          ANORM is REAL
+          If NORM = '1' or 'O', the 1-norm of the original matrix A.
+          If NORM = 'I', the infinity-norm of the original matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is REAL
+          The reciprocal of the condition number of the matrix A,
+          computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+          estimate of the 1-norm of inv(A) computed in this routine.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (2*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__realGTcomputational_gaa83bbd4b0fcb6e3dffaa4ea7c08b2f08}{}\index{real@{real}!sgtrfs@{sgtrfs}}
+\index{sgtrfs@{sgtrfs}!real@{real}}
+\subsubsection[{sgtrfs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sgtrfs (
+\begin{DoxyParamCaption}
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( $\ast$ )}]{D\+L, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{D\+U, }
+\item[{real, dimension( $\ast$ )}]{D\+L\+F, }
+\item[{real, dimension( $\ast$ )}]{D\+F, }
+\item[{real, dimension( $\ast$ )}]{D\+U\+F, }
+\item[{real, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{real, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{real, dimension( $\ast$ )}]{F\+E\+R\+R, }
+\item[{real, dimension( $\ast$ )}]{B\+E\+R\+R, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__realGTcomputational_gaa83bbd4b0fcb6e3dffaa4ea7c08b2f08}
+
+
+{\bfseries S\+G\+T\+R\+F\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SGTRFS improves the computed solution to a system of linear
+ equations when the coefficient matrix is tridiagonal, and provides
+ error bounds and backward error estimates for the solution.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          Specifies the form of the system of equations:
+          = 'N':  A * X = B     (No transpose)
+          = 'T':  A**T * X = B  (Transpose)
+          = 'C':  A**H * X = B  (Conjugate transpose = Transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L} & \begin{DoxyVerb}          DL is REAL array, dimension (N-1)
+          The (n-1) subdiagonal elements of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The diagonal elements of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U} & \begin{DoxyVerb}          DU is REAL array, dimension (N-1)
+          The (n-1) superdiagonal elements of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L\+F} & \begin{DoxyVerb}          DLF is REAL array, dimension (N-1)
+          The (n-1) multipliers that define the matrix L from the
+          LU factorization of A as computed by SGTTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+F} & \begin{DoxyVerb}          DF is REAL array, dimension (N)
+          The n diagonal elements of the upper triangular matrix U from
+          the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U\+F} & \begin{DoxyVerb}          DUF is REAL array, dimension (N-1)
+          The (n-1) elements of the first superdiagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is REAL array, dimension (N-2)
+          The (n-2) elements of the second superdiagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          The pivot indices; for 1 <= i <= n, row i of the matrix was
+          interchanged with row IPIV(i).  IPIV(i) will always be either
+          i or i+1; IPIV(i) = i indicates a row interchange was not
+          required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          The right hand side matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is REAL array, dimension (LDX,NRHS)
+          On entry, the solution matrix X, as computed by SGTTRS.
+          On exit, the improved solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.  LDX >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em F\+E\+R\+R} & \begin{DoxyVerb}          FERR is REAL array, dimension (NRHS)
+          The estimated forward error bound for each solution vector
+          X(j) (the j-th column of the solution matrix X).
+          If XTRUE is the true solution corresponding to X(j), FERR(j)
+          is an estimated upper bound for the magnitude of the largest
+          element in (X(j) - XTRUE) divided by the magnitude of the
+          largest element in X(j).  The estimate is as reliable as
+          the estimate for RCOND, and is almost always a slight
+          overestimate of the true error.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+R\+R} & \begin{DoxyVerb}          BERR is REAL array, dimension (NRHS)
+          The componentwise relative backward error of each solution
+          vector X(j) (i.e., the smallest relative change in
+          any element of A or B that makes X(j) an exact solution).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (3*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  ITMAX is the maximum number of steps of iterative refinement.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__realGTcomputational_ga0cd464cdbfc79c87c6b3fa3d1e139abf}{}\index{real@{real}!sgttrf@{sgttrf}}
+\index{sgttrf@{sgttrf}!real@{real}}
+\subsubsection[{sgttrf}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sgttrf (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D\+L, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{D\+U, }
+\item[{real, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__realGTcomputational_ga0cd464cdbfc79c87c6b3fa3d1e139abf}
+
+
+{\bfseries S\+G\+T\+T\+R\+F} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SGTTRF computes an LU factorization of a real tridiagonal matrix A
+ using elimination with partial pivoting and row interchanges.
+
+ The factorization has the form
+    A = L * U
+ where L is a product of permutation and unit lower bidiagonal
+ matrices and U is upper triangular with nonzeros in only the main
+ diagonal and first two superdiagonals.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+L} & \begin{DoxyVerb}          DL is REAL array, dimension (N-1)
+          On entry, DL must contain the (n-1) sub-diagonal elements of
+          A.
+
+          On exit, DL is overwritten by the (n-1) multipliers that
+          define the matrix L from the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          On entry, D must contain the diagonal elements of A.
+
+          On exit, D is overwritten by the n diagonal elements of the
+          upper triangular matrix U from the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+U} & \begin{DoxyVerb}          DU is REAL array, dimension (N-1)
+          On entry, DU must contain the (n-1) super-diagonal elements
+          of A.
+
+          On exit, DU is overwritten by the (n-1) elements of the first
+          super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is REAL array, dimension (N-2)
+          On exit, DU2 is overwritten by the (n-2) elements of the
+          second super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          The pivot indices; for 1 <= i <= n, row i of the matrix was
+          interchanged with row IPIV(i).  IPIV(i) will always be either
+          i or i+1; IPIV(i) = i indicates a row interchange was not
+          required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -k, the k-th argument had an illegal value
+          > 0:  if INFO = k, U(k,k) is exactly zero. The factorization
+                has been completed, but the factor U is exactly
+                singular, and division by zero will occur if it is used
+                to solve a system of equations.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__realGTcomputational_ga4c1f4f3382563a295c36917d658befb3}{}\index{real@{real}!sgttrs@{sgttrs}}
+\index{sgttrs@{sgttrs}!real@{real}}
+\subsubsection[{sgttrs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sgttrs (
+\begin{DoxyParamCaption}
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( $\ast$ )}]{D\+L, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{D\+U, }
+\item[{real, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__realGTcomputational_ga4c1f4f3382563a295c36917d658befb3}
+
+
+{\bfseries S\+G\+T\+T\+R\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SGTTRS solves one of the systems of equations
+    A*X = B  or  A**T*X = B,
+ with a tridiagonal matrix A using the LU factorization computed
+ by SGTTRF.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          Specifies the form of the system of equations.
+          = 'N':  A * X = B  (No transpose)
+          = 'T':  A**T* X = B  (Transpose)
+          = 'C':  A**T* X = B  (Conjugate transpose = Transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L} & \begin{DoxyVerb}          DL is REAL array, dimension (N-1)
+          The (n-1) multipliers that define the matrix L from the
+          LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The n diagonal elements of the upper triangular matrix U from
+          the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U} & \begin{DoxyVerb}          DU is REAL array, dimension (N-1)
+          The (n-1) elements of the first super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is REAL array, dimension (N-2)
+          The (n-2) elements of the second super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          The pivot indices; for 1 <= i <= n, row i of the matrix was
+          interchanged with row IPIV(i).  IPIV(i) will always be either
+          i or i+1; IPIV(i) = i indicates a row interchange was not
+          required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          On entry, the matrix of right hand side vectors B.
+          On exit, B is overwritten by the solution vectors X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__realGTcomputational_ga913327540f64843e724055d28babf247}{}\index{real@{real}!sgtts2@{sgtts2}}
+\index{sgtts2@{sgtts2}!real@{real}}
+\subsubsection[{sgtts2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sgtts2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I\+T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( $\ast$ )}]{D\+L, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{D\+U, }
+\item[{real, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B}
+\end{DoxyParamCaption}
+)}\label{group__realGTcomputational_ga913327540f64843e724055d28babf247}
+
+
+{\bfseries S\+G\+T\+T\+S2} solves a system of linear equations with a tridiagonal matrix using the L\+U factorization computed by sgttrf. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SGTTS2 solves one of the systems of equations
+    A*X = B  or  A**T*X = B,
+ with a tridiagonal matrix A using the LU factorization computed
+ by SGTTRF.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I\+T\+R\+A\+N\+S} & \begin{DoxyVerb}          ITRANS is INTEGER
+          Specifies the form of the system of equations.
+          = 0:  A * X = B  (No transpose)
+          = 1:  A**T* X = B  (Transpose)
+          = 2:  A**T* X = B  (Conjugate transpose = Transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L} & \begin{DoxyVerb}          DL is REAL array, dimension (N-1)
+          The (n-1) multipliers that define the matrix L from the
+          LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The n diagonal elements of the upper triangular matrix U from
+          the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U} & \begin{DoxyVerb}          DU is REAL array, dimension (N-1)
+          The (n-1) elements of the first super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is REAL array, dimension (N-2)
+          The (n-2) elements of the second super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          The pivot indices; for 1 <= i <= n, row i of the matrix was
+          interchanged with row IPIV(i).  IPIV(i) will always be either
+          i or i+1; IPIV(i) = i indicates a row interchange was not
+          required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          On entry, the matrix of right hand side vectors B.
+          On exit, B is overwritten by the solution vectors X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

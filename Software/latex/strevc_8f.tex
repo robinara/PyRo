@@ -1,0 +1,184 @@
+\hypertarget{strevc_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/strevc.f File Reference}
+\label{strevc_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/strevc.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/strevc.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{strevc_8f_ab7f50c4cf4774ff6d189faec10e61350}{strevc} (S\+I\+D\+E, H\+O\+W\+M\+N\+Y, S\+E\+L\+E\+C\+T, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, T, L\+D\+T, V\+L, L\+D\+V\+L, V\+R, L\+D\+V\+R, M\+M, M, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+T\+R\+E\+V\+C} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{strevc_8f_ab7f50c4cf4774ff6d189faec10e61350}{}\index{strevc.\+f@{strevc.\+f}!strevc@{strevc}}
+\index{strevc@{strevc}!strevc.\+f@{strevc.\+f}}
+\subsubsection[{strevc}]{\setlength{\rightskip}{0pt plus 5cm}subroutine strevc (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{character}]{H\+O\+W\+M\+N\+Y, }
+\item[{{\bf logical}, dimension( $\ast$ )}]{S\+E\+L\+E\+C\+T, }
+\item[{integer}]{N, }
+\item[{real, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{real, dimension( ldvl, $\ast$ )}]{V\+L, }
+\item[{integer}]{L\+D\+V\+L, }
+\item[{real, dimension( ldvr, $\ast$ )}]{V\+R, }
+\item[{integer}]{L\+D\+V\+R, }
+\item[{integer}]{M\+M, }
+\item[{integer}]{M, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{strevc_8f_ab7f50c4cf4774ff6d189faec10e61350}
+
+
+{\bfseries S\+T\+R\+E\+V\+C} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} STREVC computes some or all of the right and/or left eigenvectors of
+ a real upper quasi-triangular matrix T.
+ Matrices of this type are produced by the Schur factorization of
+ a real general matrix:  A = Q*T*Q**T, as computed by SHSEQR.
+ 
+ The right eigenvector x and the left eigenvector y of T corresponding
+ to an eigenvalue w are defined by:
+ 
+    T*x = w*x,     (y**T)*T = w*(y**T)
+ 
+ where y**T denotes the transpose of y.
+ The eigenvalues are not input to this routine, but are read directly
+ from the diagonal blocks of T.
+ 
+ This routine returns the matrices X and/or Y of right and left
+ eigenvectors of T, or the products Q*X and/or Q*Y, where Q is an
+ input matrix.  If Q is the orthogonal factor that reduces a matrix
+ A to Schur form T, then Q*X and Q*Y are the matrices of right and
+ left eigenvectors of A.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+          = 'R':  compute right eigenvectors only;
+          = 'L':  compute left eigenvectors only;
+          = 'B':  compute both right and left eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em H\+O\+W\+M\+N\+Y} & \begin{DoxyVerb}          HOWMNY is CHARACTER*1
+          = 'A':  compute all right and/or left eigenvectors;
+          = 'B':  compute all right and/or left eigenvectors,
+                  backtransformed by the matrices in VR and/or VL;
+          = 'S':  compute selected right and/or left eigenvectors,
+                  as indicated by the logical array SELECT.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em S\+E\+L\+E\+C\+T} & \begin{DoxyVerb}          SELECT is LOGICAL array, dimension (N)
+          If HOWMNY = 'S', SELECT specifies the eigenvectors to be
+          computed.
+          If w(j) is a real eigenvalue, the corresponding real
+          eigenvector is computed if SELECT(j) is .TRUE..
+          If w(j) and w(j+1) are the real and imaginary parts of a
+          complex eigenvalue, the corresponding complex eigenvector is
+          computed if either SELECT(j) or SELECT(j+1) is .TRUE., and
+          on exit SELECT(j) is set to .TRUE. and SELECT(j+1) is set to
+          .FALSE..
+          Not referenced if HOWMNY = 'A' or 'B'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix T. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T} & \begin{DoxyVerb}          T is REAL array, dimension (LDT,N)
+          The upper quasi-triangular matrix T in Schur canonical form.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T. LDT >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V\+L} & \begin{DoxyVerb}          VL is REAL array, dimension (LDVL,MM)
+          On entry, if SIDE = 'L' or 'B' and HOWMNY = 'B', VL must
+          contain an N-by-N matrix Q (usually the orthogonal matrix Q
+          of Schur vectors returned by SHSEQR).
+          On exit, if SIDE = 'L' or 'B', VL contains:
+          if HOWMNY = 'A', the matrix Y of left eigenvectors of T;
+          if HOWMNY = 'B', the matrix Q*Y;
+          if HOWMNY = 'S', the left eigenvectors of T specified by
+                           SELECT, stored consecutively in the columns
+                           of VL, in the same order as their
+                           eigenvalues.
+          A complex eigenvector corresponding to a complex eigenvalue
+          is stored in two consecutive columns, the first holding the
+          real part, and the second the imaginary part.
+          Not referenced if SIDE = 'R'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V\+L} & \begin{DoxyVerb}          LDVL is INTEGER
+          The leading dimension of the array VL.  LDVL >= 1, and if
+          SIDE = 'L' or 'B', LDVL >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V\+R} & \begin{DoxyVerb}          VR is REAL array, dimension (LDVR,MM)
+          On entry, if SIDE = 'R' or 'B' and HOWMNY = 'B', VR must
+          contain an N-by-N matrix Q (usually the orthogonal matrix Q
+          of Schur vectors returned by SHSEQR).
+          On exit, if SIDE = 'R' or 'B', VR contains:
+          if HOWMNY = 'A', the matrix X of right eigenvectors of T;
+          if HOWMNY = 'B', the matrix Q*X;
+          if HOWMNY = 'S', the right eigenvectors of T specified by
+                           SELECT, stored consecutively in the columns
+                           of VR, in the same order as their
+                           eigenvalues.
+          A complex eigenvector corresponding to a complex eigenvalue
+          is stored in two consecutive columns, the first holding the
+          real part and the second the imaginary part.
+          Not referenced if SIDE = 'L'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V\+R} & \begin{DoxyVerb}          LDVR is INTEGER
+          The leading dimension of the array VR.  LDVR >= 1, and if
+          SIDE = 'R' or 'B', LDVR >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M\+M} & \begin{DoxyVerb}          MM is INTEGER
+          The number of columns in the arrays VL and/or VR. MM >= M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of columns in the arrays VL and/or VR actually
+          used to store the eigenvectors.
+          If HOWMNY = 'A' or 'B', M is set to N.
+          Each selected real eigenvector occupies one column and each
+          selected complex eigenvector occupies two columns.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (3*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The algorithm used in this program is basically backward (forward)
+  substitution, with scaling to make the the code robust against
+  possible overflow.
+
+  Each eigenvector is normalized so that the element of largest
+  magnitude has magnitude 1; here the magnitude of a complex number
+  (x,y) is taken to be |x| + |y|.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

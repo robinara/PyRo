@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['dct_5fi',['DCT_I',['../fftw__dct_8c.html#a7aead736a07eaf25623ad7bfa1f0ee2da6b14deec67dfefcbf3d873a7e55f9358',1,'fftw_dct.c']]],
+  ['dct_5fii',['DCT_II',['../fftw__dct_8c.html#a7aead736a07eaf25623ad7bfa1f0ee2daa9d4777883f8c2a1595ded20953287e2',1,'fftw_dct.c']]],
+  ['dct_5fiii',['DCT_III',['../fftw__dct_8c.html#a7aead736a07eaf25623ad7bfa1f0ee2da989cbc292cc725421fac1d88c167f229',1,'fftw_dct.c']]],
+  ['dct_5fiv',['DCT_IV',['../fftw__dct_8c.html#a7aead736a07eaf25623ad7bfa1f0ee2da97a7ebc17e227f75bf8d56e55af24948',1,'fftw_dct.c']]],
+  ['deletedatawhendone',['deleteDataWhenDone',['../memblock_8h.html#ae9323b8f2afbf31c869a1610053247dbac48eb789c04e58438925c438c85039a0',1,'memblock.h']]],
+  ['denorm_5fabsent',['denorm_absent',['../limits-hack_8h.html#a592fe78d9bf66455d12aa075f36313b6ae1126f121e8e78fad4c2ea93b9154f70',1,'limits-hack.h']]],
+  ['denorm_5findeterminate',['denorm_indeterminate',['../limits-hack_8h.html#a592fe78d9bf66455d12aa075f36313b6ae6e5a92659b76e353da685746ec7a715',1,'limits-hack.h']]],
+  ['denorm_5fpresent',['denorm_present',['../limits-hack_8h.html#a592fe78d9bf66455d12aa075f36313b6ace9911a51bfc23dca58b86c67b0adfac',1,'limits-hack.h']]],
+  ['directory',['Directory',['../structRCCFileInfo.html#a1d5fa2cb967921bbc17daec292388e8eab9e1e25b170d9f0a9e2f5f77db037cd0',1,'RCCFileInfo']]],
+  ['dist',['DIST',['../superlu__enum__consts_8h.html#af00a42ecad444bbda75cde1b64bd7e72ac04fbbdf0d80a4ad25e565541deeebd7',1,'superlu_enum_consts.h']]],
+  ['dofact',['DOFACT',['../superlu__enum__consts_8h.html#ac785c8235480e5cfef9848d89c047c0aae0bd0c48044d1267a827ce526249e168',1,'superlu_enum_consts.h']]],
+  ['done',['done',['../classBenchmarkExt.html#a55b7d793a0348db07b3f72500a1cd379afa431ea190fb7c2a26b5170844379962',1,'BenchmarkExt']]],
+  ['dst_5fi',['DST_I',['../fftw__dct_8c.html#a7aead736a07eaf25623ad7bfa1f0ee2daef2c0de34cd8c5582950db643ba88d53',1,'fftw_dct.c']]],
+  ['dst_5fii',['DST_II',['../fftw__dct_8c.html#a7aead736a07eaf25623ad7bfa1f0ee2dafcec5c30992cc858cf2b0c26c13e0187',1,'fftw_dct.c']]],
+  ['dst_5fiii',['DST_III',['../fftw__dct_8c.html#a7aead736a07eaf25623ad7bfa1f0ee2daaa259fb5e895006d5ec8c90e0f8ccf71',1,'fftw_dct.c']]],
+  ['dst_5fiv',['DST_IV',['../fftw__dct_8c.html#a7aead736a07eaf25623ad7bfa1f0ee2da7de2e20deb810aea440bf52b2f8cef91',1,'fftw_dct.c']]],
+  ['duplicatedata',['duplicateData',['../memblock_8h.html#ae9323b8f2afbf31c869a1610053247dba5972eefe046fc8e5108da90580911256',1,'memblock.h']]]
+];

@@ -1,0 +1,166 @@
+\hypertarget{sldperm_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sldperm.c File Reference}
+\label{sldperm_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sldperm.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sldperm.\+c}}
+
+
+Finds a row permutation so that the matrix has large entries on the diagonal.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} \hyperlink{sldperm_8c_a1e6fb0c8dd36aef071ef165136ece781}{mc64id\+\_\+} (\hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} $\ast$)
+\item 
+\hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} \hyperlink{sldperm_8c_a1bf33c16a135cdc671242aed1705e1cd}{mc64ad\+\_\+} (\hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} $\ast$, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} $\ast$, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} $\ast$, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t}\mbox{[}$\,$\mbox{]}, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t}\mbox{[}$\,$\mbox{]}, double\mbox{[}$\,$\mbox{]}, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} $\ast$, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t}\mbox{[}$\,$\mbox{]}, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} $\ast$, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t}\mbox{[}$\,$\mbox{]}, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} $\ast$, double\mbox{[}$\,$\mbox{]}, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t}\mbox{[}$\,$\mbox{]}, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t}\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{sldperm_8c_a6c181d905cb61481e86ddfce701e74a0}{sldperm} (\hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} job, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} nnz, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} colptr\mbox{[}$\,$\mbox{]}, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} adjncy\mbox{[}$\,$\mbox{]}, float nzval\mbox{[}$\,$\mbox{]}, \hyperlink{slu__cdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t} $\ast$perm, float u\mbox{[}$\,$\mbox{]}, float v\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Finds a row permutation so that the matrix has large entries on the diagonal. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.0) --
+Lawrence Berkeley National Laboratory.
+June 30, 2009
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{sldperm_8c_a1bf33c16a135cdc671242aed1705e1cd}{}\index{sldperm.\+c@{sldperm.\+c}!mc64ad\+\_\+@{mc64ad\+\_\+}}
+\index{mc64ad\+\_\+@{mc64ad\+\_\+}!sldperm.\+c@{sldperm.\+c}}
+\subsubsection[{mc64ad\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int\+\_\+t} mc64ad\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{{\bf int\+\_\+t} $\ast$}]{, }
+\item[{{\bf int\+\_\+t} $\ast$}]{, }
+\item[{{\bf int\+\_\+t} $\ast$}]{, }
+\item[{{\bf int\+\_\+t}}]{\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf int\+\_\+t}}]{\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf int\+\_\+t} $\ast$}]{, }
+\item[{{\bf int\+\_\+t}}]{\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf int\+\_\+t} $\ast$}]{, }
+\item[{{\bf int\+\_\+t}}]{\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf int\+\_\+t} $\ast$}]{, }
+\item[{double}]{\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf int\+\_\+t}}]{\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf int\+\_\+t}}]{\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{sldperm_8c_a1bf33c16a135cdc671242aed1705e1cd}
+\hypertarget{sldperm_8c_a1e6fb0c8dd36aef071ef165136ece781}{}\index{sldperm.\+c@{sldperm.\+c}!mc64id\+\_\+@{mc64id\+\_\+}}
+\index{mc64id\+\_\+@{mc64id\+\_\+}!sldperm.\+c@{sldperm.\+c}}
+\subsubsection[{mc64id\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int\+\_\+t} mc64id\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{{\bf int\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{sldperm_8c_a1e6fb0c8dd36aef071ef165136ece781}
+\hypertarget{sldperm_8c_a6c181d905cb61481e86ddfce701e74a0}{}\index{sldperm.\+c@{sldperm.\+c}!sldperm@{sldperm}}
+\index{sldperm@{sldperm}!sldperm.\+c@{sldperm.\+c}}
+\subsubsection[{sldperm}]{\setlength{\rightskip}{0pt plus 5cm}int sldperm (
+\begin{DoxyParamCaption}
+\item[{{\bf int\+\_\+t}}]{job, }
+\item[{{\bf int\+\_\+t}}]{n, }
+\item[{{\bf int\+\_\+t}}]{nnz, }
+\item[{{\bf int\+\_\+t}}]{colptr\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf int\+\_\+t}}]{adjncy\mbox{[}$\,$\mbox{]}, }
+\item[{float}]{nzval\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf int\+\_\+t} $\ast$}]{perm, }
+\item[{float}]{u\mbox{[}$\,$\mbox{]}, }
+\item[{float}]{v\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{sldperm_8c_a6c181d905cb61481e86ddfce701e74a0}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  SLDPERM finds a row permutation so that the matrix has large
+  entries on the diagonal.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}job    (input) int
+       Control the action. Possible values for JOB are:
+       = 1 : Compute a row permutation of the matrix so that the
+             permuted matrix has as many entries on its diagonal as
+             possible. The values on the diagonal are of arbitrary size.
+             HSL subroutine MC21A/AD is used for this.
+       = 2 : Compute a row permutation of the matrix so that the smallest 
+             value on the diagonal of the permuted matrix is maximized.
+       = 3 : Compute a row permutation of the matrix so that the smallest
+             value on the diagonal of the permuted matrix is maximized.
+             The algorithm differs from the one used for JOB = 2 and may
+             have quite a different performance.
+       = 4 : Compute a row permutation of the matrix so that the sum
+             of the diagonal entries of the permuted matrix is maximized.
+       = 5 : Compute a row permutation of the matrix so that the product
+             of the diagonal entries of the permuted matrix is maximized
+             and vectors to scale the matrix so that the nonzero diagonal 
+             entries of the permuted matrix are one in absolute value and 
+             all the off-diagonal entries are less than or equal to one in 
+             absolute value.
+       Restriction: 1 <= JOB <= 5.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}n      (input) int
+       The order of the matrix.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}nnz    (input) int
+       The number of nonzeros in the matrix.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}adjncy (input) int*, of size nnz
+       The adjacency structure of the matrix, which contains the row
+       indices of the nonzeros.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}colptr (input) int*, of size n+1
+       The pointers to the beginning of each column in ADJNCY.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}nzval  (input) float*, of size nnz
+       The nonzero values of the matrix. nzval[k] is the value of
+       the entry corresponding to adjncy[k].
+       It is not used if job = 1.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm   (output) int*, of size n
+       The permutation vector. perm[i] = j means row i in the
+       original matrix is in row j of the permuted matrix.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}u      (output) double*, of size n
+       If job = 5, the natural logarithms of the row scaling factors.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}v      (output) double*, of size n
+       If job = 5, the natural logarithms of the column scaling factors. 
+       The scaled matrix B has entries b\_ij = a\_ij * exp(u\_i + v\_j).
+\end{DoxyPre}
+ 

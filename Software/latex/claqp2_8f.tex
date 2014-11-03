@@ -1,0 +1,108 @@
+\hypertarget{claqp2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/claqp2.f File Reference}
+\label{claqp2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/claqp2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/claqp2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{claqp2_8f_a7f8a4e460d67969566c16fd87c40da7f}{claqp2} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, O\+F\+F\+S\+E\+T, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, J\+P\+V\+T, T\+A\+U, V\+N1, V\+N2, W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+Q\+P2} computes a Q\+R factorization with column pivoting of the matrix block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{claqp2_8f_a7f8a4e460d67969566c16fd87c40da7f}{}\index{claqp2.\+f@{claqp2.\+f}!claqp2@{claqp2}}
+\index{claqp2@{claqp2}!claqp2.\+f@{claqp2.\+f}}
+\subsubsection[{claqp2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine claqp2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{O\+F\+F\+S\+E\+T, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( $\ast$ )}]{J\+P\+V\+T, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{T\+A\+U, }
+\item[{real, dimension( $\ast$ )}]{V\+N1, }
+\item[{real, dimension( $\ast$ )}]{V\+N2, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{claqp2_8f_a7f8a4e460d67969566c16fd87c40da7f}
+
+
+{\bfseries C\+L\+A\+Q\+P2} computes a Q\+R factorization with column pivoting of the matrix block. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLAQP2 computes a QR factorization with column pivoting of
+ the block A(OFFSET+1:M,1:N).
+ The block A(1:OFFSET,1:N) is accordingly pivoted, but not factorized.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em O\+F\+F\+S\+E\+T} & \begin{DoxyVerb}          OFFSET is INTEGER
+          The number of rows of the matrix A that must be pivoted
+          but no factorized. OFFSET >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          On entry, the M-by-N matrix A.
+          On exit, the upper triangle of block A(OFFSET+1:M,1:N) is 
+          the triangular factor obtained; the elements in block
+          A(OFFSET+1:M,1:N) below the diagonal, together with the
+          array TAU, represent the orthogonal matrix Q as a product of
+          elementary reflectors. Block A(1:OFFSET,1:N) has been
+          accordingly pivoted, but no factorized.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A. LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em J\+P\+V\+T} & \begin{DoxyVerb}          JPVT is INTEGER array, dimension (N)
+          On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
+          to the front of A*P (a leading column); if JPVT(i) = 0,
+          the i-th column of A is a free column.
+          On exit, if JPVT(i) = k, then the i-th column of A*P
+          was the k-th column of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is COMPLEX array, dimension (min(M,N))
+          The scalar factors of the elementary reflectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V\+N1} & \begin{DoxyVerb}          VN1 is REAL array, dimension (N)
+          The vector with the partial column norms.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V\+N2} & \begin{DoxyVerb}          VN2 is REAL array, dimension (N)
+          The vector with the exact column norms.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (N)\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+G. Quintana-\/\+Orti, Depto. de Informatica, Universidad Jaime I, Spain X. Sun, Computer Science Dept., Duke University, U\+S\+A ~\newline
+ Partial column norm updating strategy modified on April 2011 Z. Drmac and Z. Bujanovic, Dept. of Mathematics, University of Zagreb, Croatia. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{References\+: }
+L\+A\+P\+A\+C\+K Working Note 176  
+\end{DoxyParagraph}

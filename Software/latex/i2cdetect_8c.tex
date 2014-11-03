@@ -1,0 +1,53 @@
+\hypertarget{i2cdetect_8c}{}\section{packages/i2c-\/tools-\/3.1.1/tools/i2cdetect.c File Reference}
+\label{i2cdetect_8c}\index{packages/i2c-\/tools-\/3.\+1.\+1/tools/i2cdetect.\+c@{packages/i2c-\/tools-\/3.\+1.\+1/tools/i2cdetect.\+c}}
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}i2cbusses.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../version.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{i2cdetect_8c_a218df7e0782356433e03c268670203e3}{M\+O\+D\+E\+\_\+\+A\+U\+T\+O}~0
+\item 
+\#define \hyperlink{i2cdetect_8c_a5432459cb31471cd02cfad19f8bda6f9}{M\+O\+D\+E\+\_\+\+Q\+U\+I\+C\+K}~1
+\item 
+\#define \hyperlink{i2cdetect_8c_ac4d1baf108e9ce6414088db508d7c182}{M\+O\+D\+E\+\_\+\+R\+E\+A\+D}~2
+\item 
+\#define \hyperlink{i2cdetect_8c_ab680e14258a9dee34aa655fdc838c329}{M\+O\+D\+E\+\_\+\+F\+U\+N\+C}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{i2cdetect_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{i2cdetect_8c_a218df7e0782356433e03c268670203e3}{}\index{i2cdetect.\+c@{i2cdetect.\+c}!M\+O\+D\+E\+\_\+\+A\+U\+T\+O@{M\+O\+D\+E\+\_\+\+A\+U\+T\+O}}
+\index{M\+O\+D\+E\+\_\+\+A\+U\+T\+O@{M\+O\+D\+E\+\_\+\+A\+U\+T\+O}!i2cdetect.\+c@{i2cdetect.\+c}}
+\subsubsection[{M\+O\+D\+E\+\_\+\+A\+U\+T\+O}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+O\+D\+E\+\_\+\+A\+U\+T\+O~0}\label{i2cdetect_8c_a218df7e0782356433e03c268670203e3}
+\hypertarget{i2cdetect_8c_ab680e14258a9dee34aa655fdc838c329}{}\index{i2cdetect.\+c@{i2cdetect.\+c}!M\+O\+D\+E\+\_\+\+F\+U\+N\+C@{M\+O\+D\+E\+\_\+\+F\+U\+N\+C}}
+\index{M\+O\+D\+E\+\_\+\+F\+U\+N\+C@{M\+O\+D\+E\+\_\+\+F\+U\+N\+C}!i2cdetect.\+c@{i2cdetect.\+c}}
+\subsubsection[{M\+O\+D\+E\+\_\+\+F\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+O\+D\+E\+\_\+\+F\+U\+N\+C~3}\label{i2cdetect_8c_ab680e14258a9dee34aa655fdc838c329}
+\hypertarget{i2cdetect_8c_a5432459cb31471cd02cfad19f8bda6f9}{}\index{i2cdetect.\+c@{i2cdetect.\+c}!M\+O\+D\+E\+\_\+\+Q\+U\+I\+C\+K@{M\+O\+D\+E\+\_\+\+Q\+U\+I\+C\+K}}
+\index{M\+O\+D\+E\+\_\+\+Q\+U\+I\+C\+K@{M\+O\+D\+E\+\_\+\+Q\+U\+I\+C\+K}!i2cdetect.\+c@{i2cdetect.\+c}}
+\subsubsection[{M\+O\+D\+E\+\_\+\+Q\+U\+I\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+O\+D\+E\+\_\+\+Q\+U\+I\+C\+K~1}\label{i2cdetect_8c_a5432459cb31471cd02cfad19f8bda6f9}
+\hypertarget{i2cdetect_8c_ac4d1baf108e9ce6414088db508d7c182}{}\index{i2cdetect.\+c@{i2cdetect.\+c}!M\+O\+D\+E\+\_\+\+R\+E\+A\+D@{M\+O\+D\+E\+\_\+\+R\+E\+A\+D}}
+\index{M\+O\+D\+E\+\_\+\+R\+E\+A\+D@{M\+O\+D\+E\+\_\+\+R\+E\+A\+D}!i2cdetect.\+c@{i2cdetect.\+c}}
+\subsubsection[{M\+O\+D\+E\+\_\+\+R\+E\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+O\+D\+E\+\_\+\+R\+E\+A\+D~2}\label{i2cdetect_8c_ac4d1baf108e9ce6414088db508d7c182}
+
+
+\subsection{Function Documentation}
+\hypertarget{i2cdetect_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\index{i2cdetect.\+c@{i2cdetect.\+c}!main@{main}}
+\index{main@{main}!i2cdetect.\+c@{i2cdetect.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{i2cdetect_8c_a0ddf1224851353fc92bfbff6f499fa97}

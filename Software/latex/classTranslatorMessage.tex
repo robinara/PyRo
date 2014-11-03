@@ -1,0 +1,351 @@
+\hypertarget{classTranslatorMessage}{}\section{Translator\+Message Class Reference}
+\label{classTranslatorMessage}\index{Translator\+Message@{Translator\+Message}}
+
+
+The \hyperlink{classTranslatorMessage}{Translator\+Message} class contains a translator message and its properties.  
+
+
+
+
+{\ttfamily \#include $<$translator.\+h$>$}
+
+Inheritance diagram for Translator\+Message\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTranslatorMessage}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38c}{Prefix} \{ \\*
+\hyperlink{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca3d11fbec7af01e017bc3930be2d0d174}{No\+Prefix}, 
+\hyperlink{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38caedb018c87665d90e9a83d3e486ee46fa}{Hash}, 
+\hyperlink{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca99e97adab75c4c56d1c3e079a2cbff32}{Hash\+Context}, 
+\hyperlink{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca895ff04dac01248c6ecb772d8566db53}{Hash\+Context\+Source\+Text}, 
+\\*
+\hyperlink{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca67425b32943886b754e9d6e3cc081c39}{Hash\+Context\+Source\+Text\+Comment}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTranslatorMessage_a15601e53edec8b819fb0b7dc2b8e2fa8}{Translator\+Message} ()
+\item 
+\hyperlink{classTranslatorMessage_a771a0a6879105886a9c584f87e6d4fc5}{Translator\+Message} (const char $\ast$\hyperlink{classTranslatorMessage_a6458de49df3e922836b7ca119da62381}{context}, const char $\ast$\hyperlink{classTranslatorMessage_adc41c2ef47b12966ac00d3bcc7d6a6e9}{source\+Text}, const char $\ast$\hyperlink{classTranslatorMessage_afacd6b0ed6fddab4e5c686a6577c50a4}{comment}, const Q\+String \&\hyperlink{classTranslatorMessage_a215130997a8e69215669c319162de60d}{file\+Name}, int \hyperlink{classTranslatorMessage_a321cbc7d11b8d11cbe6d51df73a564b7}{line\+Number}, const Q\+String\+List \&\hyperlink{classTranslatorMessage_ad302db7bc501402af00ae6dedcfead88}{translations}=Q\+String\+List())
+\item 
+\hyperlink{classTranslatorMessage_a480f188e07287ad7e765584681503848}{Translator\+Message} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})
+\item 
+\hyperlink{classTranslatorMessage}{Translator\+Message} \& \hyperlink{classTranslatorMessage_a24327eff907c719a3c849551cc514a96}{operator=} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})
+\item 
+uint \hyperlink{classTranslatorMessage_a16d5f7a1cdbbf137d9b6eb081faf406a}{hash} () const 
+\item 
+const char $\ast$ \hyperlink{classTranslatorMessage_a6458de49df3e922836b7ca119da62381}{context} () const 
+\item 
+const char $\ast$ \hyperlink{classTranslatorMessage_adc41c2ef47b12966ac00d3bcc7d6a6e9}{source\+Text} () const 
+\item 
+const char $\ast$ \hyperlink{classTranslatorMessage_afacd6b0ed6fddab4e5c686a6577c50a4}{comment} () const 
+\item 
+void \hyperlink{classTranslatorMessage_a04d0f0d154eea322c2bfde257f2989fd}{set\+Translations} (const Q\+String\+List \&\hyperlink{classTranslatorMessage_ad302db7bc501402af00ae6dedcfead88}{translations})
+\item 
+Q\+String\+List \hyperlink{classTranslatorMessage_ad302db7bc501402af00ae6dedcfead88}{translations} () const 
+\item 
+void \hyperlink{classTranslatorMessage_a0794a67821e48906be49a86a91c9bdf4}{set\+Translation} (const Q\+String \&\hyperlink{classTranslatorMessage_a362d99cb2382ea779c90188915228d85}{translation})
+\item 
+Q\+String \hyperlink{classTranslatorMessage_a362d99cb2382ea779c90188915228d85}{translation} () const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslatorMessage_adcff62baa6efd9307e44a5269a93f72e}{is\+Translated} () const 
+\item 
+void \hyperlink{classTranslatorMessage_ae51407187437e7c1717bac6aca1aae3a}{write} (Q\+Data\+Stream \&\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s}, \hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{domain_8h_a83bfc85d81b39a69a0a2c7d09a36c7ef}{strip}=\hyperlink{compiler_8h_a65e9886d74aaee76545e83dd09011727}{false}, \hyperlink{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38c}{Prefix} prefix=\hyperlink{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca67425b32943886b754e9d6e3cc081c39}{Hash\+Context\+Source\+Text\+Comment}) const 
+\item 
+\hyperlink{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38c}{Prefix} \hyperlink{classTranslatorMessage_a9c4cfd4e220bd694740927a62e11275e}{common\+Prefix} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslatorMessage_a70f678776633b298680a2a752ef9cb6c}{operator==} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslatorMessage_a1d1542d7695bbadcee36564696386edd}{operator!=} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslatorMessage_ae6b3c91f70faef1405b76d3823712392}{operator$<$} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslatorMessage_a07a75dfdfdba3fc9f1c6fd2d08b13ab0}{operator$<$=} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslatorMessage_a6f7215ff1188c3e4b0e53ba0ce966fcb}{operator$>$} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslatorMessage_ac78db1093a6ea1fed5c866df8691e622}{operator$>$=} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}) const 
+\item 
+Q\+String \hyperlink{classTranslatorMessage_a215130997a8e69215669c319162de60d}{file\+Name} (void) const 
+\item 
+void \hyperlink{classTranslatorMessage_a3a72a0806d9804ba967e55a5692f8f62}{set\+File\+Name} (const Q\+String \&\hyperlink{classTranslatorMessage_a215130997a8e69215669c319162de60d}{file\+Name})
+\item 
+int \hyperlink{classTranslatorMessage_a321cbc7d11b8d11cbe6d51df73a564b7}{line\+Number} (void) const 
+\item 
+void \hyperlink{classTranslatorMessage_acc65257423076b14e2711b2d2e655223}{set\+Line\+Number} (int \hyperlink{classTranslatorMessage_a321cbc7d11b8d11cbe6d51df73a564b7}{line\+Number})
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslatorMessage_a533ecc10ed42c4788b19c75556419346}{is\+Null} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classTranslatorMessage}{Translator\+Message} class contains a translator message and its properties. 
+
+This class is of no interest to most applications. It is useful for translation tools such as \{Qt Linguist Manual\}\{Qt Linguist\}. It is provided simply to make the A\+P\+I complete and regular.
+
+For a \hyperlink{classTranslator}{Translator} object, a lookup key is a triple ({\itshape context}, {\itshape \{source} text\}, {\itshape comment}) that uniquely identifies a message. An extended key is a quadruple ({\itshape hash}, {\itshape context}, {\itshape \{source} text\}, {\itshape comment}), where {\itshape hash} is computed from the source text and the comment. Unless you plan to read and write messages yourself, you need not worry about the hash value.
+
+\hyperlink{classTranslatorMessage}{Translator\+Message} stores this triple or quadruple and the relevant translation if there is any.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslator}{Translator} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38c}{}\index{Translator\+Message@{Translator\+Message}!Prefix@{Prefix}}
+\index{Prefix@{Prefix}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{Prefix}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Translator\+Message\+::\+Prefix}}\label{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38c}
+Let ({\itshape h}, {\itshape c}, {\itshape s}, {\itshape m}) be the extended key. The possible prefixes are
+
+No\+Prefix no prefix  Hash only ({\itshape h})  Hash\+Context only ({\itshape h}, {\itshape c})  Hash\+Context\+Source\+Text only ({\itshape h}, {\itshape c}, {\itshape s})  Hash\+Context\+Source\+Text\+Comment the whole extended key, ({\itshape h}, {\itshape c}, {\itshape s}, {\itshape m})
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslatorMessage_ae51407187437e7c1717bac6aca1aae3a}{write()} \hyperlink{classTranslatorMessage_a9c4cfd4e220bd694740927a62e11275e}{common\+Prefix()} 
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{No\+Prefix@{No\+Prefix}!Translator\+Message@{Translator\+Message}}\index{Translator\+Message@{Translator\+Message}!No\+Prefix@{No\+Prefix}}\item[{\em 
+\hypertarget{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca3d11fbec7af01e017bc3930be2d0d174}{}No\+Prefix\label{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca3d11fbec7af01e017bc3930be2d0d174}
+}]\index{Hash@{Hash}!Translator\+Message@{Translator\+Message}}\index{Translator\+Message@{Translator\+Message}!Hash@{Hash}}\item[{\em 
+\hypertarget{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38caedb018c87665d90e9a83d3e486ee46fa}{}Hash\label{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38caedb018c87665d90e9a83d3e486ee46fa}
+}]\index{Hash\+Context@{Hash\+Context}!Translator\+Message@{Translator\+Message}}\index{Translator\+Message@{Translator\+Message}!Hash\+Context@{Hash\+Context}}\item[{\em 
+\hypertarget{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca99e97adab75c4c56d1c3e079a2cbff32}{}Hash\+Context\label{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca99e97adab75c4c56d1c3e079a2cbff32}
+}]\index{Hash\+Context\+Source\+Text@{Hash\+Context\+Source\+Text}!Translator\+Message@{Translator\+Message}}\index{Translator\+Message@{Translator\+Message}!Hash\+Context\+Source\+Text@{Hash\+Context\+Source\+Text}}\item[{\em 
+\hypertarget{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca895ff04dac01248c6ecb772d8566db53}{}Hash\+Context\+Source\+Text\label{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca895ff04dac01248c6ecb772d8566db53}
+}]\index{Hash\+Context\+Source\+Text\+Comment@{Hash\+Context\+Source\+Text\+Comment}!Translator\+Message@{Translator\+Message}}\index{Translator\+Message@{Translator\+Message}!Hash\+Context\+Source\+Text\+Comment@{Hash\+Context\+Source\+Text\+Comment}}\item[{\em 
+\hypertarget{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca67425b32943886b754e9d6e3cc081c39}{}Hash\+Context\+Source\+Text\+Comment\label{classTranslatorMessage_ad2e3272d30541e7634ce0050c67fc38ca67425b32943886b754e9d6e3cc081c39}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTranslatorMessage_a15601e53edec8b819fb0b7dc2b8e2fa8}{}\index{Translator\+Message@{Translator\+Message}!Translator\+Message@{Translator\+Message}}
+\index{Translator\+Message@{Translator\+Message}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{Translator\+Message}]{\setlength{\rightskip}{0pt plus 5cm}Translator\+Message\+::\+Translator\+Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTranslatorMessage_a15601e53edec8b819fb0b7dc2b8e2fa8}
+Constructs a translator message with the extended key (0, 0, 0, 0) and an empty string as translation. \hypertarget{classTranslatorMessage_a771a0a6879105886a9c584f87e6d4fc5}{}\index{Translator\+Message@{Translator\+Message}!Translator\+Message@{Translator\+Message}}
+\index{Translator\+Message@{Translator\+Message}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{Translator\+Message}]{\setlength{\rightskip}{0pt plus 5cm}Translator\+Message\+::\+Translator\+Message (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{context, }
+\item[{const char $\ast$}]{source\+Text, }
+\item[{const char $\ast$}]{comment, }
+\item[{const Q\+String \&}]{file\+Name, }
+\item[{int}]{line\+Number, }
+\item[{const Q\+String\+List \&}]{translations = {\ttfamily QStringList()}}
+\end{DoxyParamCaption}
+)}\label{classTranslatorMessage_a771a0a6879105886a9c584f87e6d4fc5}
+Constructs an translator message with the extended key ({\itshape h}, {\itshape context}, {\itshape source\+Text}, {\itshape comment}), where {\itshape h} is computed from {\itshape source\+Text} and {\itshape comment}, and possibly with a {\itshape translation}. \hypertarget{classTranslatorMessage_a480f188e07287ad7e765584681503848}{}\index{Translator\+Message@{Translator\+Message}!Translator\+Message@{Translator\+Message}}
+\index{Translator\+Message@{Translator\+Message}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{Translator\+Message}]{\setlength{\rightskip}{0pt plus 5cm}Translator\+Message\+::\+Translator\+Message (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{m}
+\end{DoxyParamCaption}
+)}\label{classTranslatorMessage_a480f188e07287ad7e765584681503848}
+Constructs a copy of translator message {\itshape m}. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classTranslatorMessage_afacd6b0ed6fddab4e5c686a6577c50a4}{}\index{Translator\+Message@{Translator\+Message}!comment@{comment}}
+\index{comment@{comment}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{comment}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ Translator\+Message\+::comment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_afacd6b0ed6fddab4e5c686a6577c50a4}
+Returns the comment for this message (e.\+g. \char`\"{}\+File$\vert$\+Save\char`\"{}). \hypertarget{classTranslatorMessage_a9c4cfd4e220bd694740927a62e11275e}{}\index{Translator\+Message@{Translator\+Message}!common\+Prefix@{common\+Prefix}}
+\index{common\+Prefix@{common\+Prefix}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{common\+Prefix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Translator\+Message\+::\+Prefix} Translator\+Message\+::common\+Prefix (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{m}
+\end{DoxyParamCaption}
+) const}\label{classTranslatorMessage_a9c4cfd4e220bd694740927a62e11275e}
+Returns the widest lookup prefix that is common to this translator message and to message {\itshape m}.
+
+For example, if the extended key is for this message is (71, \char`\"{}\+Print\+Dialog\char`\"{}, \char`\"{}\+Yes\char`\"{}, \char`\"{}\+Print?\char`\"{}) and that for {\itshape m} is (71, \char`\"{}\+Print\+Dialog\char`\"{}, \char`\"{}\+No\char`\"{}, \char`\"{}\+Print?\char`\"{}), this function returns {\ttfamily Hash\+Context}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslatorMessage_ae51407187437e7c1717bac6aca1aae3a}{write()} 
+\end{DoxySeeAlso}
+\hypertarget{classTranslatorMessage_a6458de49df3e922836b7ca119da62381}{}\index{Translator\+Message@{Translator\+Message}!context@{context}}
+\index{context@{context}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{context}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ Translator\+Message\+::context (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a6458de49df3e922836b7ca119da62381}
+Returns the context for this message (e.\+g. \char`\"{}\+My\+Dialog\char`\"{}). \hypertarget{classTranslatorMessage_a215130997a8e69215669c319162de60d}{}\index{Translator\+Message@{Translator\+Message}!file\+Name@{file\+Name}}
+\index{file\+Name@{file\+Name}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{file\+Name}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Translator\+Message\+::file\+Name (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a215130997a8e69215669c319162de60d}
+\hypertarget{classTranslatorMessage_a16d5f7a1cdbbf137d9b6eb081faf406a}{}\index{Translator\+Message@{Translator\+Message}!hash@{hash}}
+\index{hash@{hash}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{hash}]{\setlength{\rightskip}{0pt plus 5cm}uint Translator\+Message\+::hash (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a16d5f7a1cdbbf137d9b6eb081faf406a}
+Returns the hash value used internally to represent the lookup key. This value is zero only if this translator message was constructed from a stream containing invalid data.
+
+The hashing function is unspecified, but it will remain unchanged in future versions of Qt. \hypertarget{classTranslatorMessage_a533ecc10ed42c4788b19c75556419346}{}\index{Translator\+Message@{Translator\+Message}!is\+Null@{is\+Null}}
+\index{is\+Null@{is\+Null}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{is\+Null}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+Message\+::is\+Null (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a533ecc10ed42c4788b19c75556419346}
+\hypertarget{classTranslatorMessage_adcff62baa6efd9307e44a5269a93f72e}{}\index{Translator\+Message@{Translator\+Message}!is\+Translated@{is\+Translated}}
+\index{is\+Translated@{is\+Translated}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{is\+Translated}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+Message\+::is\+Translated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_adcff62baa6efd9307e44a5269a93f72e}
+\hypertarget{classTranslatorMessage_a321cbc7d11b8d11cbe6d51df73a564b7}{}\index{Translator\+Message@{Translator\+Message}!line\+Number@{line\+Number}}
+\index{line\+Number@{line\+Number}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{line\+Number}]{\setlength{\rightskip}{0pt plus 5cm}int Translator\+Message\+::line\+Number (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a321cbc7d11b8d11cbe6d51df73a564b7}
+\hypertarget{classTranslatorMessage_a1d1542d7695bbadcee36564696386edd}{}\index{Translator\+Message@{Translator\+Message}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{operator"!=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+Message\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{m}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a1d1542d7695bbadcee36564696386edd}
+Returns true if the extended key of this object is different from that of {\itshape m}; otherwise returns false. \hypertarget{classTranslatorMessage_ae6b3c91f70faef1405b76d3823712392}{}\index{Translator\+Message@{Translator\+Message}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+Message\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{m}
+\end{DoxyParamCaption}
+) const}\label{classTranslatorMessage_ae6b3c91f70faef1405b76d3823712392}
+Returns true if the extended key of this object is lexicographically before than that of {\itshape m}; otherwise returns false. \hypertarget{classTranslatorMessage_a07a75dfdfdba3fc9f1c6fd2d08b13ab0}{}\index{Translator\+Message@{Translator\+Message}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{operator$<$=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+Message\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{m}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a07a75dfdfdba3fc9f1c6fd2d08b13ab0}
+Returns true if the extended key of this object is lexicographically before that of {\itshape m} or if they are equal; otherwise returns false. \hypertarget{classTranslatorMessage_a24327eff907c719a3c849551cc514a96}{}\index{Translator\+Message@{Translator\+Message}!operator=@{operator=}}
+\index{operator=@{operator=}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Translator\+Message} \& Translator\+Message\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{m}
+\end{DoxyParamCaption}
+)}\label{classTranslatorMessage_a24327eff907c719a3c849551cc514a96}
+Assigns message {\itshape m} to this translator message and returns a reference to this translator message. \hypertarget{classTranslatorMessage_a70f678776633b298680a2a752ef9cb6c}{}\index{Translator\+Message@{Translator\+Message}!operator==@{operator==}}
+\index{operator==@{operator==}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+Message\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{m}
+\end{DoxyParamCaption}
+) const}\label{classTranslatorMessage_a70f678776633b298680a2a752ef9cb6c}
+Returns true if the extended key of this object is equal to that of {\itshape m}; otherwise returns false. \hypertarget{classTranslatorMessage_a6f7215ff1188c3e4b0e53ba0ce966fcb}{}\index{Translator\+Message@{Translator\+Message}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{operator$>$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+Message\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{m}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a6f7215ff1188c3e4b0e53ba0ce966fcb}
+Returns true if the extended key of this object is lexicographically after that of {\itshape m}; otherwise returns false. \hypertarget{classTranslatorMessage_ac78db1093a6ea1fed5c866df8691e622}{}\index{Translator\+Message@{Translator\+Message}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{operator$>$=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+Message\+::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{m}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_ac78db1093a6ea1fed5c866df8691e622}
+Returns true if the extended key of this object is lexicographically after that of {\itshape m} or if they are equal; otherwise returns false. \hypertarget{classTranslatorMessage_a3a72a0806d9804ba967e55a5692f8f62}{}\index{Translator\+Message@{Translator\+Message}!set\+File\+Name@{set\+File\+Name}}
+\index{set\+File\+Name@{set\+File\+Name}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{set\+File\+Name}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+Message\+::set\+File\+Name (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{file\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a3a72a0806d9804ba967e55a5692f8f62}
+\hypertarget{classTranslatorMessage_acc65257423076b14e2711b2d2e655223}{}\index{Translator\+Message@{Translator\+Message}!set\+Line\+Number@{set\+Line\+Number}}
+\index{set\+Line\+Number@{set\+Line\+Number}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{set\+Line\+Number}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+Message\+::set\+Line\+Number (
+\begin{DoxyParamCaption}
+\item[{int}]{line\+Number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_acc65257423076b14e2711b2d2e655223}
+\hypertarget{classTranslatorMessage_a0794a67821e48906be49a86a91c9bdf4}{}\index{Translator\+Message@{Translator\+Message}!set\+Translation@{set\+Translation}}
+\index{set\+Translation@{set\+Translation}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{set\+Translation}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+Message\+::set\+Translation (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{translation}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a0794a67821e48906be49a86a91c9bdf4}
+Sets the translation of the source text to {\itshape translation}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslatorMessage_a362d99cb2382ea779c90188915228d85}{translation()} 
+\end{DoxySeeAlso}
+\hypertarget{classTranslatorMessage_a04d0f0d154eea322c2bfde257f2989fd}{}\index{Translator\+Message@{Translator\+Message}!set\+Translations@{set\+Translations}}
+\index{set\+Translations@{set\+Translations}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{set\+Translations}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+Message\+::set\+Translations (
+\begin{DoxyParamCaption}
+\item[{const Q\+String\+List \&}]{translations}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a04d0f0d154eea322c2bfde257f2989fd}
+\hypertarget{classTranslatorMessage_adc41c2ef47b12966ac00d3bcc7d6a6e9}{}\index{Translator\+Message@{Translator\+Message}!source\+Text@{source\+Text}}
+\index{source\+Text@{source\+Text}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{source\+Text}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ Translator\+Message\+::source\+Text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_adc41c2ef47b12966ac00d3bcc7d6a6e9}
+Returns the source text of this message (e.\+g. \char`\"{}\&\+Save\char`\"{}). \hypertarget{classTranslatorMessage_a362d99cb2382ea779c90188915228d85}{}\index{Translator\+Message@{Translator\+Message}!translation@{translation}}
+\index{translation@{translation}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{translation}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Translator\+Message\+::translation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_a362d99cb2382ea779c90188915228d85}
+Returns the translation of the source text (e.\+g., \char`\"{}\&\+Sauvegarder\char`\"{}).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslatorMessage_a0794a67821e48906be49a86a91c9bdf4}{set\+Translation()} 
+\end{DoxySeeAlso}
+\hypertarget{classTranslatorMessage_ad302db7bc501402af00ae6dedcfead88}{}\index{Translator\+Message@{Translator\+Message}!translations@{translations}}
+\index{translations@{translations}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{translations}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String\+List Translator\+Message\+::translations (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslatorMessage_ad302db7bc501402af00ae6dedcfead88}
+\hypertarget{classTranslatorMessage_ae51407187437e7c1717bac6aca1aae3a}{}\index{Translator\+Message@{Translator\+Message}!write@{write}}
+\index{write@{write}!Translator\+Message@{Translator\+Message}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+Message\+::write (
+\begin{DoxyParamCaption}
+\item[{Q\+Data\+Stream \&}]{stream, }
+\item[{{\bf bool}}]{strip = {\ttfamily {\bf false}}, }
+\item[{{\bf Prefix}}]{prefix = {\ttfamily {\bf Hash\+Context\+Source\+Text\+Comment}}}
+\end{DoxyParamCaption}
+) const}\label{classTranslatorMessage_ae51407187437e7c1717bac6aca1aae3a}
+Writes this translator message to the {\itshape stream}. If {\itshape strip} is false (the default), all the information in the message is written. If {\itshape strip} is true, only the part of the extended key specified by {\itshape prefix} is written with the translation ({\ttfamily Hash\+Context\+Source\+Text\+Comment} by default).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslatorMessage_a9c4cfd4e220bd694740927a62e11275e}{common\+Prefix()} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/pylupdate/\hyperlink{translator_8h}{translator.\+h}\item 
+packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/pylupdate/\hyperlink{translator_8cpp}{translator.\+cpp}\end{DoxyCompactItemize}

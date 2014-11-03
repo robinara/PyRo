@@ -1,0 +1,336 @@
+\hypertarget{stencil_8h}{}\section{packages/scipy-\/0.14.0/scipy/weave/blitz/blitz/array/stencil.h File Reference}
+\label{stencil_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/stencil.\+h@{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/stencil.\+h}}
+{\ttfamily \#include $<$blitz/array/stencilops.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/stencil.\+cc$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classdummy}{dummy$<$ T $>$}
+\item 
+struct \hyperlink{structdummyArray}{dummy\+Array}
+\item 
+class \hyperlink{classdummy}{dummy$<$ T $>$}
+\item 
+class \hyperlink{classstencilExtent}{stencil\+Extent$<$ N\+\_\+rank, P\+\_\+numtype $>$}
+\item 
+struct \hyperlink{structstencilExtent__traits}{stencil\+Extent\+\_\+traits$<$ T $>$}
+\item 
+struct \hyperlink{structstencilExtent__traits_3_01Array_3_01T__numtype_00_01N__rank_01_4_01_4}{stencil\+Extent\+\_\+traits$<$ Array$<$ T\+\_\+numtype, N\+\_\+rank $>$ $>$}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stencil_8h_a1e6484df03b612810874f4e4df4527a0}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L2}(name,  \hyperlink{classA}{A},  B)
+\item 
+\#define \hyperlink{stencil_8h_afc4e1a9c6a54a67d7aa9e4a390472ec9}{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+W\+I\+T\+H\+\_\+\+S\+H\+A\+P\+E}(M\+I\+N\+S,  M\+A\+X\+S)
+\item 
+\#define \hyperlink{stencil_8h_a18cee71fe5611f0cb74f67d8288b694d}{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L}~\} enum \{ has\+Extent = 0 \}; \};
+\item 
+\#define \hyperlink{stencil_8h_ad3d709a670ebedef8ec3f851d9b89efb}{B\+Z\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+E\+N\+D}~\hyperlink{stencils_8h_a18cee71fe5611f0cb74f67d8288b694d}{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L}
+\item 
+\#define \hyperlink{stencil_8h_ad1ba59b2fc7b35768e9b647211858373}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L3}(name,  \hyperlink{classA}{A},  B,  C)
+\item 
+\#define \hyperlink{stencil_8h_aea80ac5c89ce9f62df98d7f60a67a5d5}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L4}(name,  \hyperlink{classA}{A},  B,  C,  \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D})
+\item 
+\#define \hyperlink{stencil_8h_aae257b6ef71a09ab9e066447d1054004}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L5}(name,  \hyperlink{classA}{A},  B,  C,  \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D},  E)
+\item 
+\#define \hyperlink{stencil_8h_a03a3ed1614b135fcf100605babd1e2a3}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L6}(name,  \hyperlink{classA}{A},  B,  C,  \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D},  E,  F)
+\item 
+\#define \hyperlink{stencil_8h_a9698b338d724b0eed8670af78458d808}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L7}(name,  \hyperlink{classA}{A},  B,  C,  \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D},  E,  F,  G)
+\item 
+\#define \hyperlink{stencil_8h_a364020b01b992690e135edcca1ebb771}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L8}(name,  \hyperlink{classA}{A},  B,  C,  \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D},  E,  F,  G,  H)
+\item 
+\#define \hyperlink{stencil_8h_a161d58b69dbc7da6bda3534a3d717e01}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L9}(name,  \hyperlink{classA}{A},  B,  C,  \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D},  E,  F,  G,  H,  I)
+\item 
+\#define \hyperlink{stencil_8h_a7768be59030176e763d095dcef538bfd}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L10}(name,  \hyperlink{classA}{A},  B,  C,  \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D},  E,  F,  G,  H,  I,  J)
+\item 
+\#define \hyperlink{stencil_8h_adf38b8a252db9287b4c0b28b9425aae6}{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L11}(name,  \hyperlink{classA}{A},  B,  C,  \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D},  E,  F,  G,  H,  I,  J,  K)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T\+\_\+shape1 $>$ }\\\+\_\+bz\+\_\+bool \hyperlink{stencil_8h_a8d1e36f02e4a5826be2e04723088352a}{are\+Shapes\+Conformable} (const T\+\_\+shape1 \&, const \hyperlink{structdummyArray}{dummy\+Array} \&)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{blitz_8h_a8b3d2e1b6b9e77b6b6e0689694dfc40b}{\+\_\+bz\+\_\+global} \hyperlink{structdummyArray}{dummy\+Array} \hyperlink{stencil_8h_a81c81278dfd6b2f00a53358e0425b461}{\+\_\+dummy\+Array}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stencil_8h_a7768be59030176e763d095dcef538bfd}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L10@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L10}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L10@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L10}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L10}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L10(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf A}, }
+\item[{}]{B, }
+\item[{}]{C, }
+\item[{}]{{\bf D}, }
+\item[{}]{E, }
+\item[{}]{F, }
+\item[{}]{G, }
+\item[{}]{H, }
+\item[{}]{I, }
+\item[{}]{J}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_a7768be59030176e763d095dcef538bfd}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{ \(\backslash\)
+    template<\textcolor{keyword}{class }T1, class T2, class T3, class T4, \(\backslash\)
+      class T5, class T6, class T7, class T8, class T9, class T10, class T11> \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} void apply(T1& \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}, T2& \hyperlink{namespacetest__mio_a910ca26ceea47bb853d0becb4e1a1c4d}{B}, T3& C, T4& \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, T5& E, T6& \hyperlink{namespacetest__nonlin_a55363661aee023ce470f9180ababaa16}{F}, T7& 
+      \hyperlink{namespacescipy_1_1constants_1_1constants_a41b06e2e1ecf933321d2f9d1d2da9384}{G}, \(\backslash\)
+      T8& H, T9& I, T10& J, T11) \(\backslash\)
+    \{
+\end{DoxyCode}
+\hypertarget{stencil_8h_adf38b8a252db9287b4c0b28b9425aae6}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L11@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L11}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L11@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L11}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L11}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L11(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf A}, }
+\item[{}]{B, }
+\item[{}]{C, }
+\item[{}]{{\bf D}, }
+\item[{}]{E, }
+\item[{}]{F, }
+\item[{}]{G, }
+\item[{}]{H, }
+\item[{}]{I, }
+\item[{}]{J, }
+\item[{}]{K}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_adf38b8a252db9287b4c0b28b9425aae6}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{ \(\backslash\)
+    template<\textcolor{keyword}{class }T1, class T2, class T3, class T4, \(\backslash\)
+      class T5, class T6, class T7, class T8, class T9, class T10, \(\backslash\)
+      class T11> \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} void apply(T1& \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}, T2& \hyperlink{namespacetest__mio_a910ca26ceea47bb853d0becb4e1a1c4d}{B}, T3& C, T4& \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, T5& E, T6& \hyperlink{namespacetest__nonlin_a55363661aee023ce470f9180ababaa16}{F}, T7& 
+      \hyperlink{namespacescipy_1_1constants_1_1constants_a41b06e2e1ecf933321d2f9d1d2da9384}{G}, \(\backslash\)
+      T8& H, T9& I, T10& J, T11& K) \(\backslash\)
+    \{
+\end{DoxyCode}
+\hypertarget{stencil_8h_a1e6484df03b612810874f4e4df4527a0}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L2@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L2}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L2@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L2}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L2}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L2(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf A}, }
+\item[{}]{B}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_a1e6484df03b612810874f4e4df4527a0}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{                          \(\backslash\)
+    template<\textcolor{keyword}{class }T1, class T2, class T3, class T4, class T5, class T6, \(\backslash\)
+        class T7, class T8, class T9, class T10, class T11>         \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} void apply(T1& \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}, T2& \hyperlink{namespacetest__mio_a910ca26ceea47bb853d0becb4e1a1c4d}{B}, T3, T4, T5, T6, T7, T8, T9, T10, T11) \(\backslash\)
+    \{
+\end{DoxyCode}
+\hypertarget{stencil_8h_ad1ba59b2fc7b35768e9b647211858373}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L3@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L3}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L3@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L3}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L3}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L3(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf A}, }
+\item[{}]{B, }
+\item[{}]{C}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_ad1ba59b2fc7b35768e9b647211858373}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{                                 \(\backslash\)
+    template<\textcolor{keyword}{class }T1, class T2, class T3, class T4, class T5, class T6, \(\backslash\)
+        class T7, class T8, class T9, class T10, class T11>      \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} void apply(T1& \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}, T2& \hyperlink{namespacetest__mio_a910ca26ceea47bb853d0becb4e1a1c4d}{B}, T3& C, T4, T5, T6, T7, T8, T9,  \(\backslash\)
+        T10, T11)      \(\backslash\)
+    \{
+\end{DoxyCode}
+\hypertarget{stencil_8h_aea80ac5c89ce9f62df98d7f60a67a5d5}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L4@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L4}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L4@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L4}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L4}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L4(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf A}, }
+\item[{}]{B, }
+\item[{}]{C, }
+\item[{}]{{\bf D}}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_aea80ac5c89ce9f62df98d7f60a67a5d5}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{                                       \(\backslash\)
+    template<\textcolor{keyword}{class }T1, class T2, class T3, class T4, class T5, class T6,  \(\backslash\)
+        class T7, class T8, class T9, class T10, class T11>  \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} void apply(T1& \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}, T2& \hyperlink{namespacetest__mio_a910ca26ceea47bb853d0becb4e1a1c4d}{B}, T3& C, T4& \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, T5, T6, T7, \(\backslash\)
+        T8, T9, T10, T11)     \(\backslash\)
+    \{
+\end{DoxyCode}
+\hypertarget{stencil_8h_aae257b6ef71a09ab9e066447d1054004}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L5@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L5}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L5@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L5}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L5}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L5(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf A}, }
+\item[{}]{B, }
+\item[{}]{C, }
+\item[{}]{{\bf D}, }
+\item[{}]{E}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_aae257b6ef71a09ab9e066447d1054004}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{ \(\backslash\)
+    template<\textcolor{keyword}{class }T1, class T2, class T3, class T4, class T5, class T6, \(\backslash\)
+        class T7, class T8, class T9, class T10, class T11> \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} void apply(T1& \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}, T2& \hyperlink{namespacetest__mio_a910ca26ceea47bb853d0becb4e1a1c4d}{B}, T3& C, T4& \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, T5& E, T6, T7, T8, \(\backslash\)
+        T9, T10, T11) \(\backslash\)
+    \{
+\end{DoxyCode}
+\hypertarget{stencil_8h_a03a3ed1614b135fcf100605babd1e2a3}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L6@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L6}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L6@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L6}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L6}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L6(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf A}, }
+\item[{}]{B, }
+\item[{}]{C, }
+\item[{}]{{\bf D}, }
+\item[{}]{E, }
+\item[{}]{F}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_a03a3ed1614b135fcf100605babd1e2a3}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{ \(\backslash\)
+    template<\textcolor{keyword}{class }T1, class T2, class T3, class T4, class T5, class T6, \(\backslash\)
+        class T7, class T8, class T9, class T10, class T11> \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} void apply(T1& \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}, T2& \hyperlink{namespacetest__mio_a910ca26ceea47bb853d0becb4e1a1c4d}{B}, T3& C, T4& \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, T5& E, T6& \hyperlink{namespacetest__nonlin_a55363661aee023ce470f9180ababaa16}{F}, \(\backslash\)
+        T7, T8, T9, T10, T11) \(\backslash\)
+    \{
+\end{DoxyCode}
+\hypertarget{stencil_8h_a9698b338d724b0eed8670af78458d808}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L7@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L7}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L7@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L7}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L7}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L7(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf A}, }
+\item[{}]{B, }
+\item[{}]{C, }
+\item[{}]{{\bf D}, }
+\item[{}]{E, }
+\item[{}]{F, }
+\item[{}]{G}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_a9698b338d724b0eed8670af78458d808}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{ \(\backslash\)
+    template<\textcolor{keyword}{class }T1, class T2, class T3, class T4, \(\backslash\)
+      class T5, class T6, class T7, class T8, class T9, class T10, class T11> \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} void apply(T1& \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}, T2& \hyperlink{namespacetest__mio_a910ca26ceea47bb853d0becb4e1a1c4d}{B}, T3& C, T4& \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, T5& E, T6& \hyperlink{namespacetest__nonlin_a55363661aee023ce470f9180ababaa16}{F}, T7& 
+      \hyperlink{namespacescipy_1_1constants_1_1constants_a41b06e2e1ecf933321d2f9d1d2da9384}{G}, \(\backslash\)
+        T8, T9, T10, T11) \(\backslash\)
+    \{
+\end{DoxyCode}
+\hypertarget{stencil_8h_a364020b01b992690e135edcca1ebb771}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L8@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L8}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L8@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L8}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L8}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L8(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf A}, }
+\item[{}]{B, }
+\item[{}]{C, }
+\item[{}]{{\bf D}, }
+\item[{}]{E, }
+\item[{}]{F, }
+\item[{}]{G, }
+\item[{}]{H}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_a364020b01b992690e135edcca1ebb771}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{ \(\backslash\)
+    template<\textcolor{keyword}{class }T1, class T2, class T3, class T4, \(\backslash\)
+      class T5, class T6, class T7, class T8, class T9, class T10, class T11> \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} void apply(T1& \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}, T2& \hyperlink{namespacetest__mio_a910ca26ceea47bb853d0becb4e1a1c4d}{B}, T3& C, T4& \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, T5& E, T6& \hyperlink{namespacetest__nonlin_a55363661aee023ce470f9180ababaa16}{F}, T7& 
+      \hyperlink{namespacescipy_1_1constants_1_1constants_a41b06e2e1ecf933321d2f9d1d2da9384}{G}, \(\backslash\)
+      T8& H, T9, T10, T11) \(\backslash\)
+    \{
+\end{DoxyCode}
+\hypertarget{stencil_8h_a161d58b69dbc7da6bda3534a3d717e01}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L9@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L9}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L9@{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L9}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L9}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+E\+N\+C\+I\+L9(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf A}, }
+\item[{}]{B, }
+\item[{}]{C, }
+\item[{}]{{\bf D}, }
+\item[{}]{E, }
+\item[{}]{F, }
+\item[{}]{G, }
+\item[{}]{H, }
+\item[{}]{I}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_a161d58b69dbc7da6bda3534a3d717e01}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{struct }\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{ \(\backslash\)
+    template<\textcolor{keyword}{class }T1, class T2, class T3, class T4, \(\backslash\)
+      class T5, class T6, class T7, class T8, class T9, class T10, \(\backslash\)
+      class T11> \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} void apply(T1& \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}, T2& \hyperlink{namespacetest__mio_a910ca26ceea47bb853d0becb4e1a1c4d}{B}, T3& C, T4& \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, T5& E, T6& \hyperlink{namespacetest__nonlin_a55363661aee023ce470f9180ababaa16}{F}, T7& 
+      \hyperlink{namespacescipy_1_1constants_1_1constants_a41b06e2e1ecf933321d2f9d1d2da9384}{G}, \(\backslash\)
+      T8& H, T9& I, T10, T11) \(\backslash\)
+    \{
+\end{DoxyCode}
+\hypertarget{stencil_8h_a18cee71fe5611f0cb74f67d8288b694d}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L@{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L}}
+\index{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L@{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L~\} enum \{ has\+Extent = 0 \}; \};}\label{stencil_8h_a18cee71fe5611f0cb74f67d8288b694d}
+\hypertarget{stencil_8h_afc4e1a9c6a54a67d7aa9e4a390472ec9}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+W\+I\+T\+H\+\_\+\+S\+H\+A\+P\+E@{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+W\+I\+T\+H\+\_\+\+S\+H\+A\+P\+E}}
+\index{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+W\+I\+T\+H\+\_\+\+S\+H\+A\+P\+E@{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+W\+I\+T\+H\+\_\+\+S\+H\+A\+P\+E}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+W\+I\+T\+H\+\_\+\+S\+H\+A\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+W\+I\+T\+H\+\_\+\+S\+H\+A\+P\+E(
+\begin{DoxyParamCaption}
+\item[{}]{M\+I\+N\+S, }
+\item[{}]{M\+A\+X\+S}
+\end{DoxyParamCaption}
+)}\label{stencil_8h_afc4e1a9c6a54a67d7aa9e4a390472ec9}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\} \(\backslash\)
+    template<int N> \(\backslash\)
+    void getExtent(\hyperlink{classTinyVector}{TinyVector<int,N>}& minb, \hyperlink{classTinyVector}{TinyVector<int,N>}& maxb) \textcolor{keyword}{
+      const} \(\backslash\)
+    \{ \(\backslash\)
+        minb = MINS; \(\backslash\)
+        maxb = MAXS; \(\backslash\)
+    \} \(\backslash\)
+    enum \{ hasExtent = 1 \}; \(\backslash\)
+\};
+\end{DoxyCode}
+\hypertarget{stencil_8h_ad3d709a670ebedef8ec3f851d9b89efb}{}\index{stencil.\+h@{stencil.\+h}!B\+Z\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+E\+N\+D@{B\+Z\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+E\+N\+D}}
+\index{B\+Z\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+E\+N\+D@{B\+Z\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+E\+N\+D}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{B\+Z\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+E\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+E\+N\+D~{\bf B\+Z\+\_\+\+E\+N\+D\+\_\+\+S\+T\+E\+N\+C\+I\+L}}\label{stencil_8h_ad3d709a670ebedef8ec3f851d9b89efb}
+
+
+\subsection{Function Documentation}
+\hypertarget{stencil_8h_a8d1e36f02e4a5826be2e04723088352a}{}\index{stencil.\+h@{stencil.\+h}!are\+Shapes\+Conformable@{are\+Shapes\+Conformable}}
+\index{are\+Shapes\+Conformable@{are\+Shapes\+Conformable}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{are\+Shapes\+Conformable}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T\+\_\+shape1 $>$ \+\_\+bz\+\_\+bool are\+Shapes\+Conformable (
+\begin{DoxyParamCaption}
+\item[{const T\+\_\+shape1 \&}]{, }
+\item[{const {\bf dummy\+Array} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{stencil_8h_a8d1e36f02e4a5826be2e04723088352a}
+
+
+\subsection{Variable Documentation}
+\hypertarget{stencil_8h_a81c81278dfd6b2f00a53358e0425b461}{}\index{stencil.\+h@{stencil.\+h}!\+\_\+dummy\+Array@{\+\_\+dummy\+Array}}
+\index{\+\_\+dummy\+Array@{\+\_\+dummy\+Array}!stencil.\+h@{stencil.\+h}}
+\subsubsection[{\+\_\+dummy\+Array}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+global} {\bf dummy\+Array} \+\_\+dummy\+Array}\label{stencil_8h_a81c81278dfd6b2f00a53358e0425b461}

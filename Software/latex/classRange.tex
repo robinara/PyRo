@@ -1,0 +1,263 @@
+\hypertarget{classRange}{}\section{Range Class Reference}
+\label{classRange}\index{Range@{Range}}
+
+
+{\ttfamily \#include $<$range.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{classRange_a2b1b2460ff7aab2f436e5fea6ca23391a3311c8d65af747a2557d7bcc08ab3f0c}{from\+Start} = I\+N\+T\+\_\+\+M\+I\+N, 
+\hyperlink{classRange_a2b1b2460ff7aab2f436e5fea6ca23391a552a0421135e863c3d93e9896c777f34}{to\+End} = I\+N\+T\+\_\+\+M\+I\+N
+ \}
+\item 
+typedef int \hyperlink{classRange_a7a87483a88a6bc1ae142f15459a6b630}{T\+\_\+numtype}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRange_aa4407a93074fbb726deb613f7a067983}{Range} ()
+\item 
+\hyperlink{classRange_a4b4aa80f521929b48eb4862c8f9a405d}{Range} (int slice\+Position)
+\item 
+\hyperlink{classRange_a5a580d4cec2fa2f9dccf54ae6700c5e8}{Range} (int \hyperlink{classRange_a23f6983e46c5543f3286b730fcaa4e05}{first}, int \hyperlink{classRange_a07e5aa3400f23438fc7c15832dcafab3}{last}, int \hyperlink{classRange_a311708d4f2b18f5492bd2cb9874d52c4}{stride}=1)
+\item 
+int \hyperlink{classRange_a23f6983e46c5543f3286b730fcaa4e05}{first} (int low\+Range=0) const 
+\item 
+int \hyperlink{classRange_a07e5aa3400f23438fc7c15832dcafab3}{last} (int high\+Range=0) const 
+\item 
+unsigned \hyperlink{classRange_a8dab1c96145d27ffcfee84969a8cd02a}{length} (int=0) const 
+\item 
+int \hyperlink{classRange_a311708d4f2b18f5492bd2cb9874d52c4}{stride} () const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classRange_a427cdad0d78c8abfb5969e4e35e2c303}{is\+Ascending\+Contiguous} () const 
+\item 
+void \hyperlink{classRange_af5d1f58f2e05c19747bf9a302edcb6c1}{set\+Range} (int \hyperlink{classRange_a23f6983e46c5543f3286b730fcaa4e05}{first}, int \hyperlink{classRange_a07e5aa3400f23438fc7c15832dcafab3}{last}, int \hyperlink{classRange_a311708d4f2b18f5492bd2cb9874d52c4}{stride}=1)
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classRange_a26216cdac88c42b6e32a6bde28ec8350}{is\+Unit\+Stride} () const 
+\item 
+\hyperlink{classRange}{Range} \hyperlink{classRange_af21628c3bfb7ecedd7f4d8797a34d905}{operator-\/} (int \hyperlink{stencilops_8h_a88153279e7085251440472b9d6606a0e}{shift}) const 
+\item 
+\hyperlink{classRange}{Range} \hyperlink{classRange_a4543287af5ee79dbd78c9b1903c64a44}{operator+} (int \hyperlink{stencilops_8h_a88153279e7085251440472b9d6606a0e}{shift}) const 
+\item 
+int \hyperlink{classRange_a0fe0fdee1e731210f80a0d3bc890767e}{operator\mbox{[}$\,$\mbox{]}} (unsigned \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}) const 
+\item 
+int \hyperlink{classRange_af46bbe42b487e35e050130721dd9052d}{operator()} (unsigned \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classRange_a9e9d6f5a2a8ec76b0794897f91fbe696}{\+\_\+bz\+\_\+has\+Fast\+Access} () const 
+\item 
+\hyperlink{classRange_a7a87483a88a6bc1ae142f15459a6b630}{T\+\_\+numtype} \hyperlink{classRange_a51ee4a9f73e6e341471ca59373ca3cc2}{\+\_\+bz\+\_\+fast\+Access} (unsigned \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}) const 
+\item 
+unsigned \hyperlink{classRange_ae9d0b56c921fc280d31bc935718320af}{\+\_\+bz\+\_\+suggest\+Length} () const 
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{classRange}{Range} $>$ \hyperlink{classRange_a85b8db85a148e364b7782f75ca15e6cc}{\+\_\+bz\+\_\+as\+Vec\+Expr} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classRange}{Range} \hyperlink{classRange_aa071ae3c742560c4fff0c5ae44abd4ba}{all} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classRange_a4a4f7cb18880893a26e8e1bc44b1b66b}{\+\_\+bz\+\_\+static\+Length\+Count} = 0
+\item 
+static const int \hyperlink{classRange_ad0bb30bd4236495d18a0b50fbee6536e}{\+\_\+bz\+\_\+dynamic\+Length\+Count} = 0
+\item 
+static const int \hyperlink{classRange_a9f2976312ae268a1e43f06099da3381e}{\+\_\+bz\+\_\+static\+Length} = 0
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classRange_ab26640a4547c7d20f06f4adff50713a9}{operator$<$$<$} (ostream \&os, const \hyperlink{classRange}{Range} \&\hyperlink{numinquire_8h_a35e47346e37a09731e9c2d704288937d}{range})
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classRange_a7a87483a88a6bc1ae142f15459a6b630}{}\index{Range@{Range}!T\+\_\+numtype@{T\+\_\+numtype}}
+\index{T\+\_\+numtype@{T\+\_\+numtype}!Range@{Range}}
+\subsubsection[{T\+\_\+numtype}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf Range\+::\+T\+\_\+numtype}}\label{classRange_a7a87483a88a6bc1ae142f15459a6b630}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classRange_a2b1b2460ff7aab2f436e5fea6ca23391}{}\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{classRange_a2b1b2460ff7aab2f436e5fea6ca23391}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{from\+Start@{from\+Start}!Range@{Range}}\index{Range@{Range}!from\+Start@{from\+Start}}\item[{\em 
+\hypertarget{classRange_a2b1b2460ff7aab2f436e5fea6ca23391a3311c8d65af747a2557d7bcc08ab3f0c}{}from\+Start\label{classRange_a2b1b2460ff7aab2f436e5fea6ca23391a3311c8d65af747a2557d7bcc08ab3f0c}
+}]\index{to\+End@{to\+End}!Range@{Range}}\index{Range@{Range}!to\+End@{to\+End}}\item[{\em 
+\hypertarget{classRange_a2b1b2460ff7aab2f436e5fea6ca23391a552a0421135e863c3d93e9896c777f34}{}to\+End\label{classRange_a2b1b2460ff7aab2f436e5fea6ca23391a552a0421135e863c3d93e9896c777f34}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRange_aa4407a93074fbb726deb613f7a067983}{}\index{Range@{Range}!Range@{Range}}
+\index{Range@{Range}!Range@{Range}}
+\subsubsection[{Range}]{\setlength{\rightskip}{0pt plus 5cm}Range\+::\+Range (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_aa4407a93074fbb726deb613f7a067983}
+\hypertarget{classRange_a4b4aa80f521929b48eb4862c8f9a405d}{}\index{Range@{Range}!Range@{Range}}
+\index{Range@{Range}!Range@{Range}}
+\subsubsection[{Range}]{\setlength{\rightskip}{0pt plus 5cm}Range\+::\+Range (
+\begin{DoxyParamCaption}
+\item[{int}]{slice\+Position}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\label{classRange_a4b4aa80f521929b48eb4862c8f9a405d}
+\hypertarget{classRange_a5a580d4cec2fa2f9dccf54ae6700c5e8}{}\index{Range@{Range}!Range@{Range}}
+\index{Range@{Range}!Range@{Range}}
+\subsubsection[{Range}]{\setlength{\rightskip}{0pt plus 5cm}Range\+::\+Range (
+\begin{DoxyParamCaption}
+\item[{int}]{first, }
+\item[{int}]{last, }
+\item[{int}]{stride = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a5a580d4cec2fa2f9dccf54ae6700c5e8}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRange_a85b8db85a148e364b7782f75ca15e6cc}{}\index{Range@{Range}!\+\_\+bz\+\_\+as\+Vec\+Expr@{\+\_\+bz\+\_\+as\+Vec\+Expr}}
+\index{\+\_\+bz\+\_\+as\+Vec\+Expr@{\+\_\+bz\+\_\+as\+Vec\+Expr}!Range@{Range}}
+\subsubsection[{\+\_\+bz\+\_\+as\+Vec\+Expr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf Range}$>$ Range\+::\+\_\+bz\+\_\+as\+Vec\+Expr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a85b8db85a148e364b7782f75ca15e6cc}
+\hypertarget{classRange_a51ee4a9f73e6e341471ca59373ca3cc2}{}\index{Range@{Range}!\+\_\+bz\+\_\+fast\+Access@{\+\_\+bz\+\_\+fast\+Access}}
+\index{\+\_\+bz\+\_\+fast\+Access@{\+\_\+bz\+\_\+fast\+Access}!Range@{Range}}
+\subsubsection[{\+\_\+bz\+\_\+fast\+Access}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\+\_\+numtype} Range\+::\+\_\+bz\+\_\+fast\+Access (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a51ee4a9f73e6e341471ca59373ca3cc2}
+\hypertarget{classRange_a9e9d6f5a2a8ec76b0794897f91fbe696}{}\index{Range@{Range}!\+\_\+bz\+\_\+has\+Fast\+Access@{\+\_\+bz\+\_\+has\+Fast\+Access}}
+\index{\+\_\+bz\+\_\+has\+Fast\+Access@{\+\_\+bz\+\_\+has\+Fast\+Access}!Range@{Range}}
+\subsubsection[{\+\_\+bz\+\_\+has\+Fast\+Access}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Range\+::\+\_\+bz\+\_\+has\+Fast\+Access (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a9e9d6f5a2a8ec76b0794897f91fbe696}
+\hypertarget{classRange_ae9d0b56c921fc280d31bc935718320af}{}\index{Range@{Range}!\+\_\+bz\+\_\+suggest\+Length@{\+\_\+bz\+\_\+suggest\+Length}}
+\index{\+\_\+bz\+\_\+suggest\+Length@{\+\_\+bz\+\_\+suggest\+Length}!Range@{Range}}
+\subsubsection[{\+\_\+bz\+\_\+suggest\+Length}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Range\+::\+\_\+bz\+\_\+suggest\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_ae9d0b56c921fc280d31bc935718320af}
+\hypertarget{classRange_aa071ae3c742560c4fff0c5ae44abd4ba}{}\index{Range@{Range}!all@{all}}
+\index{all@{all}!Range@{Range}}
+\subsubsection[{all}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Range} Range\+::all (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classRange_aa071ae3c742560c4fff0c5ae44abd4ba}
+\hypertarget{classRange_a23f6983e46c5543f3286b730fcaa4e05}{}\index{Range@{Range}!first@{first}}
+\index{first@{first}!Range@{Range}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}int Range\+::first (
+\begin{DoxyParamCaption}
+\item[{int}]{low\+Range = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a23f6983e46c5543f3286b730fcaa4e05}
+\hypertarget{classRange_a427cdad0d78c8abfb5969e4e35e2c303}{}\index{Range@{Range}!is\+Ascending\+Contiguous@{is\+Ascending\+Contiguous}}
+\index{is\+Ascending\+Contiguous@{is\+Ascending\+Contiguous}!Range@{Range}}
+\subsubsection[{is\+Ascending\+Contiguous}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Range\+::is\+Ascending\+Contiguous (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a427cdad0d78c8abfb5969e4e35e2c303}
+\hypertarget{classRange_a26216cdac88c42b6e32a6bde28ec8350}{}\index{Range@{Range}!is\+Unit\+Stride@{is\+Unit\+Stride}}
+\index{is\+Unit\+Stride@{is\+Unit\+Stride}!Range@{Range}}
+\subsubsection[{is\+Unit\+Stride}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Range\+::is\+Unit\+Stride (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a26216cdac88c42b6e32a6bde28ec8350}
+\hypertarget{classRange_a07e5aa3400f23438fc7c15832dcafab3}{}\index{Range@{Range}!last@{last}}
+\index{last@{last}!Range@{Range}}
+\subsubsection[{last}]{\setlength{\rightskip}{0pt plus 5cm}int Range\+::last (
+\begin{DoxyParamCaption}
+\item[{int}]{high\+Range = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a07e5aa3400f23438fc7c15832dcafab3}
+\hypertarget{classRange_a8dab1c96145d27ffcfee84969a8cd02a}{}\index{Range@{Range}!length@{length}}
+\index{length@{length}!Range@{Range}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Range\+::length (
+\begin{DoxyParamCaption}
+\item[{int}]{ = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a8dab1c96145d27ffcfee84969a8cd02a}
+\hypertarget{classRange_af46bbe42b487e35e050130721dd9052d}{}\index{Range@{Range}!operator()@{operator()}}
+\index{operator()@{operator()}!Range@{Range}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}int Range\+::operator() (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_af46bbe42b487e35e050130721dd9052d}
+\hypertarget{classRange_a4543287af5ee79dbd78c9b1903c64a44}{}\index{Range@{Range}!operator+@{operator+}}
+\index{operator+@{operator+}!Range@{Range}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Range} Range\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{int}]{shift}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a4543287af5ee79dbd78c9b1903c64a44}
+\hypertarget{classRange_af21628c3bfb7ecedd7f4d8797a34d905}{}\index{Range@{Range}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Range@{Range}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Range} Range\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{int}]{shift}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_af21628c3bfb7ecedd7f4d8797a34d905}
+\hypertarget{classRange_a0fe0fdee1e731210f80a0d3bc890767e}{}\index{Range@{Range}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Range@{Range}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}int Range\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a0fe0fdee1e731210f80a0d3bc890767e}
+\hypertarget{classRange_af5d1f58f2e05c19747bf9a302edcb6c1}{}\index{Range@{Range}!set\+Range@{set\+Range}}
+\index{set\+Range@{set\+Range}!Range@{Range}}
+\subsubsection[{set\+Range}]{\setlength{\rightskip}{0pt plus 5cm}void Range\+::set\+Range (
+\begin{DoxyParamCaption}
+\item[{int}]{first, }
+\item[{int}]{last, }
+\item[{int}]{stride = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_af5d1f58f2e05c19747bf9a302edcb6c1}
+\hypertarget{classRange_a311708d4f2b18f5492bd2cb9874d52c4}{}\index{Range@{Range}!stride@{stride}}
+\index{stride@{stride}!Range@{Range}}
+\subsubsection[{stride}]{\setlength{\rightskip}{0pt plus 5cm}int Range\+::stride (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{classRange_a311708d4f2b18f5492bd2cb9874d52c4}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classRange_ab26640a4547c7d20f06f4adff50713a9}{}\index{Range@{Range}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Range@{Range}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os, }
+\item[{const {\bf Range} \&}]{range}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{classRange_ab26640a4547c7d20f06f4adff50713a9}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classRange_ad0bb30bd4236495d18a0b50fbee6536e}{}\index{Range@{Range}!\+\_\+bz\+\_\+dynamic\+Length\+Count@{\+\_\+bz\+\_\+dynamic\+Length\+Count}}
+\index{\+\_\+bz\+\_\+dynamic\+Length\+Count@{\+\_\+bz\+\_\+dynamic\+Length\+Count}!Range@{Range}}
+\subsubsection[{\+\_\+bz\+\_\+dynamic\+Length\+Count}]{\setlength{\rightskip}{0pt plus 5cm}const int Range\+::\+\_\+bz\+\_\+dynamic\+Length\+Count = 0\hspace{0.3cm}{\ttfamily [static]}}\label{classRange_ad0bb30bd4236495d18a0b50fbee6536e}
+\hypertarget{classRange_a9f2976312ae268a1e43f06099da3381e}{}\index{Range@{Range}!\+\_\+bz\+\_\+static\+Length@{\+\_\+bz\+\_\+static\+Length}}
+\index{\+\_\+bz\+\_\+static\+Length@{\+\_\+bz\+\_\+static\+Length}!Range@{Range}}
+\subsubsection[{\+\_\+bz\+\_\+static\+Length}]{\setlength{\rightskip}{0pt plus 5cm}const int Range\+::\+\_\+bz\+\_\+static\+Length = 0\hspace{0.3cm}{\ttfamily [static]}}\label{classRange_a9f2976312ae268a1e43f06099da3381e}
+\hypertarget{classRange_a4a4f7cb18880893a26e8e1bc44b1b66b}{}\index{Range@{Range}!\+\_\+bz\+\_\+static\+Length\+Count@{\+\_\+bz\+\_\+static\+Length\+Count}}
+\index{\+\_\+bz\+\_\+static\+Length\+Count@{\+\_\+bz\+\_\+static\+Length\+Count}!Range@{Range}}
+\subsubsection[{\+\_\+bz\+\_\+static\+Length\+Count}]{\setlength{\rightskip}{0pt plus 5cm}const int Range\+::\+\_\+bz\+\_\+static\+Length\+Count = 0\hspace{0.3cm}{\ttfamily [static]}}\label{classRange_a4a4f7cb18880893a26e8e1bc44b1b66b}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/\hyperlink{range_8h}{range.\+h}\end{DoxyCompactItemize}

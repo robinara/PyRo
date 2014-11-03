@@ -1,0 +1,64 @@
+\hypertarget{namespacescipy_1_1special_1_1spfun__stats}{}\section{scipy.\+special.\+spfun\+\_\+stats Namespace Reference}
+\label{namespacescipy_1_1special_1_1spfun__stats}\index{scipy.\+special.\+spfun\+\_\+stats@{scipy.\+special.\+spfun\+\_\+stats}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1special_1_1spfun__stats_a2bad573e445ebb4792896f1528c3282d}{multigammaln}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1special_1_1spfun__stats_a3c4572ed0da32e2f635fbe5c10831de7}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1special_1_1spfun__stats_a2bad573e445ebb4792896f1528c3282d}{multigammaln}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1special_1_1spfun__stats_a2bad573e445ebb4792896f1528c3282d}{}\index{scipy\+::special\+::spfun\+\_\+stats@{scipy\+::special\+::spfun\+\_\+stats}!multigammaln@{multigammaln}}
+\index{multigammaln@{multigammaln}!scipy\+::special\+::spfun\+\_\+stats@{scipy\+::special\+::spfun\+\_\+stats}}
+\subsubsection[{multigammaln}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+special.\+spfun\+\_\+stats.\+multigammaln (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{d}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1special_1_1spfun__stats_a2bad573e445ebb4792896f1528c3282d}
+\begin{DoxyVerb}Returns the log of multivariate gamma, also sometimes called the
+generalized gamma.
+
+Parameters
+----------
+a : ndarray
+    The multivariate gamma is computed for each item of `a`.
+d : int
+    The dimension of the space of integration.
+
+Returns
+-------
+res : ndarray
+    The values of the log multivariate gamma at the given points `a`.
+
+Notes
+-----
+The formal definition of the multivariate gamma of dimension d for a real a
+is::
+
+    \Gamma_d(a) = \int_{A>0}{e^{-tr(A)\cdot{|A|}^{a - (m+1)/2}dA}}
+
+with the condition ``a > (d-1)/2``, and ``A > 0`` being the set of all the
+positive definite matrices of dimension s.  Note that a is a scalar: the
+integrand only is multivariate, the argument is not (the function is
+defined over a subset of the real set).
+
+This can be proven to be equal to the much friendlier equation::
+
+    \Gamma_d(a) = \pi^{d(d-1)/4}\prod_{i=1}^{d}{\Gamma(a - (i-1)/2)}.
+
+References
+----------
+R. J. Muirhead, Aspects of multivariate statistical theory (Wiley Series in
+probability and mathematical statistics).\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1special_1_1spfun__stats_a3c4572ed0da32e2f635fbe5c10831de7}{}\index{scipy\+::special\+::spfun\+\_\+stats@{scipy\+::special\+::spfun\+\_\+stats}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::special\+::spfun\+\_\+stats@{scipy\+::special\+::spfun\+\_\+stats}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+special.\+spfun\+\_\+stats.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf multigammaln}'\mbox{]}}\label{namespacescipy_1_1special_1_1spfun__stats_a3c4572ed0da32e2f635fbe5c10831de7}

@@ -1,0 +1,111 @@
+\hypertarget{firfilter_8c}{}\section{packages/scipy-\/0.14.0/scipy/signal/firfilter.c File Reference}
+\label{firfilter_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/signal/firfilter.\+c@{packages/scipy-\/0.\+14.\+0/scipy/signal/firfilter.\+c}}
+{\ttfamily \#include \char`\"{}sigtools.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{firfilter_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}
+\item 
+\#define \hyperlink{firfilter_8c_acf95e48d1c7f95975d722b6df77585e0}{M\+A\+K\+E\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D}(fname,  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})
+\item 
+\#define \hyperlink{firfilter_8c_aacef57e7798608b32f40e2a3d7ec7f19}{M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D}(fname,  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})
+\item 
+\#define \hyperlink{firfilter_8c_ad5441a65fd75fdeb2a5e60bee37d85c2}{M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D2}(fname,  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void( \hyperlink{firfilter_8c_a5a353c36387fd7ed3b2499e60374b780}{One\+Mult\+Add\+Function}) (char $\ast$, char $\ast$, intp, char $\ast$$\ast$, intp)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{firfilter_8c_ac91640b7383edc8eb225111480c1dd7f}{pylab\+\_\+convolve\+\_\+2d} (char $\ast$in, intp $\ast$instr, char $\ast$out, intp $\ast$outstr, char $\ast$hvals, intp $\ast$hstr, intp $\ast$Nwin, intp $\ast$Ns, int flag, char $\ast$fillvalue)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{firfilter_8c_aacef57e7798608b32f40e2a3d7ec7f19}{}\index{firfilter.\+c@{firfilter.\+c}!M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D@{M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D}}
+\index{M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D@{M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D}!firfilter.\+c@{firfilter.\+c}}
+\subsubsection[{M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D(
+\begin{DoxyParamCaption}
+\item[{}]{fname, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)}\label{firfilter_8c_aacef57e7798608b32f40e2a3d7ec7f19}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{namespacetest__streams_a6e7877aaf104ccbc1ab84000e85a746c}{fname} ## \_onemultadd2(\textcolor{keywordtype}{char} *\hyperlink{namespacescipy_1_1ndimage_1_1measurements_a6499745b71815c9e0e2f1944c7751244}{sum}, \textcolor{keywordtype}{char} *term1, \textcolor{keywordtype}{char} *term2) \{ \(\backslash\)
+  ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *) sum)[0] += ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *) term1)[0] * ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *) term2)[0] \(\backslash\)
+    - ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *) term1)[1] * ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *) term2)[1]; \(\backslash\)
+  ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *) sum)[1] += ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *) term1)[0] * ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *) term2)[1] \(\backslash\)
+    + ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *) term1)[1] * ((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} *) term2)[0]; \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{  return}; \}
+\end{DoxyCode}
+\hypertarget{firfilter_8c_ad5441a65fd75fdeb2a5e60bee37d85c2}{}\index{firfilter.\+c@{firfilter.\+c}!M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D2@{M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D2}}
+\index{M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D2@{M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D2}!firfilter.\+c@{firfilter.\+c}}
+\subsubsection[{M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+K\+E\+\_\+\+C\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D2(
+\begin{DoxyParamCaption}
+\item[{}]{fname, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)}\label{firfilter_8c_ad5441a65fd75fdeb2a5e60bee37d85c2}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{namespacetest__streams_a6e7877aaf104ccbc1ab84000e85a746c}{fname} ## \_onemultadd(\textcolor{keywordtype}{char} *\hyperlink{namespacescipy_1_1ndimage_1_1measurements_a6499745b71815c9e0e2f1944c7751244}{sum}, \textcolor{keywordtype}{char} *term1, intp str, \textcolor{keywordtype}{char} **pvals, intp 
+      \hyperlink{zfftnd_8c_a26948bc8ff324639017f84eea844bb34}{n}) \{ \(\backslash\)
+        intp \hyperlink{indexexpr_8h_abb72938a198351550846b37a84588b63}{k}; \(\backslash\)
+        for (k=0; k < \hyperlink{zfftnd_8c_a26948bc8ff324639017f84eea844bb34}{n}; k++) \{ \hyperlink{namespacetest__streams_a6e7877aaf104ccbc1ab84000e85a746c}{\(\backslash\)}
+\hyperlink{namespacetest__streams_a6e7877aaf104ccbc1ab84000e85a746c}{          fname} ## \_onemultadd2(sum, term1 + k * str, pvals[k]); \(\backslash\)
+        \} \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{firfilter_8c_acf95e48d1c7f95975d722b6df77585e0}{}\index{firfilter.\+c@{firfilter.\+c}!M\+A\+K\+E\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D@{M\+A\+K\+E\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D}}
+\index{M\+A\+K\+E\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D@{M\+A\+K\+E\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D}!firfilter.\+c@{firfilter.\+c}}
+\subsubsection[{M\+A\+K\+E\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+K\+E\+\_\+\+O\+N\+E\+M\+U\+L\+T\+A\+D\+D(
+\begin{DoxyParamCaption}
+\item[{}]{fname, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)}\label{firfilter_8c_acf95e48d1c7f95975d722b6df77585e0}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{static} \textcolor{keywordtype}{void} \hyperlink{namespacetest__streams_a6e7877aaf104ccbc1ab84000e85a746c}{fname} ## \_onemultadd(\textcolor{keywordtype}{char} *\hyperlink{namespacescipy_1_1ndimage_1_1measurements_a6499745b71815c9e0e2f1944c7751244}{sum}, \textcolor{keywordtype}{char} *term1, intp str, \textcolor{keywordtype}{char} **pvals, intp 
+      \hyperlink{zfftnd_8c_a26948bc8ff324639017f84eea844bb34}{n}) \{ \(\backslash\)
+        intp \hyperlink{indexexpr_8h_abb72938a198351550846b37a84588b63}{k}; \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{\(\backslash\)}
+\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{        type} dsum = *(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}*)sum; \(\backslash\)
+        for (k=0; k < \hyperlink{zfftnd_8c_a26948bc8ff324639017f84eea844bb34}{n}; k++) \{ \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{\(\backslash\)}
+\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{          type} tmp = *(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}*)(term1 + k * str); \(\backslash\)
+          dsum += tmp * *(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}*)pvals[k]; \(\backslash\)
+        \} \(\backslash\)
+        *(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}*)(sum) = dsum; \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{firfilter_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{}\index{firfilter.\+c@{firfilter.\+c}!N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}}
+\index{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}!firfilter.\+c@{firfilter.\+c}}
+\subsubsection[{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}\label{firfilter_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{firfilter_8c_a5a353c36387fd7ed3b2499e60374b780}{}\index{firfilter.\+c@{firfilter.\+c}!One\+Mult\+Add\+Function@{One\+Mult\+Add\+Function}}
+\index{One\+Mult\+Add\+Function@{One\+Mult\+Add\+Function}!firfilter.\+c@{firfilter.\+c}}
+\subsubsection[{One\+Mult\+Add\+Function}]{\setlength{\rightskip}{0pt plus 5cm}typedef void( One\+Mult\+Add\+Function) (char $\ast$, char $\ast$, intp, char $\ast$$\ast$, intp)}\label{firfilter_8c_a5a353c36387fd7ed3b2499e60374b780}
+
+
+\subsection{Function Documentation}
+\hypertarget{firfilter_8c_ac91640b7383edc8eb225111480c1dd7f}{}\index{firfilter.\+c@{firfilter.\+c}!pylab\+\_\+convolve\+\_\+2d@{pylab\+\_\+convolve\+\_\+2d}}
+\index{pylab\+\_\+convolve\+\_\+2d@{pylab\+\_\+convolve\+\_\+2d}!firfilter.\+c@{firfilter.\+c}}
+\subsubsection[{pylab\+\_\+convolve\+\_\+2d}]{\setlength{\rightskip}{0pt plus 5cm}int pylab\+\_\+convolve\+\_\+2d (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{in, }
+\item[{intp $\ast$}]{instr, }
+\item[{char $\ast$}]{out, }
+\item[{intp $\ast$}]{outstr, }
+\item[{char $\ast$}]{hvals, }
+\item[{intp $\ast$}]{hstr, }
+\item[{intp $\ast$}]{Nwin, }
+\item[{intp $\ast$}]{Ns, }
+\item[{int}]{flag, }
+\item[{char $\ast$}]{fillvalue}
+\end{DoxyParamCaption}
+)}\label{firfilter_8c_ac91640b7383edc8eb225111480c1dd7f}

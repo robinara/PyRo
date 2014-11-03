@@ -1,0 +1,79 @@
+\hypertarget{stencil-et_8h}{}\section{packages/scipy-\/0.14.0/scipy/weave/blitz/blitz/array/stencil-\/et.h File Reference}
+\label{stencil-et_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/stencil-\/et.\+h@{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/stencil-\/et.\+h}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classStencilExpr}{Stencil\+Expr$<$ T\+\_\+\+Array\+Numtype, N\+\_\+rank, T\+\_\+result $>$}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stencil-et_8h_a0b2b395ca6c45ee7b4f6a0799aeb4652}{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L}(name,  result)
+\item 
+\#define \hyperlink{stencil-et_8h_a8ec62d39728d5aa744f66c7466437848}{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+V}(name,  \hyperlink{zfftnd_8c_a6cfd95afd0afebd625b889fb6e58371c}{rank})
+\item 
+\#define \hyperlink{stencil-et_8h_a0e73eca8baf24d9b319a20afa5e03fec}{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+D\+I\+F\+F}(name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stencil-et_8h_a0b2b395ca6c45ee7b4f6a0799aeb4652}{}\index{stencil-\/et.\+h@{stencil-\/et.\+h}!B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L@{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L}}
+\index{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L@{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L}!stencil-\/et.\+h@{stencil-\/et.\+h}}
+\subsubsection[{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{result}
+\end{DoxyParamCaption}
+)}\label{stencil-et_8h_a0b2b395ca6c45ee7b4f6a0799aeb4652}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} P\_numtype, \textcolor{keywordtype}{int} N\_rank> \(\backslash\)
+class \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} ## \_et : \textcolor{keyword}{public} \hyperlink{classStencilExpr}{StencilExpr<P\_numtype,N\_rank,result>}, \(\backslash\)
+  public \hyperlink{classETBase}{ETBase<name ## \_et<P\_numtype,N\_rank>} > \(\backslash\)
+ \{ \(\backslash\)
+private: \(\backslash\)
+    typedef \hyperlink{classStencilExpr}{StencilExpr<P\_numtype,N\_rank,result>} T\_base; \(\backslash\)
+    using T\_base::iter\_; \(\backslash\)
+public: \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{\(\backslash\)}
+\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{    name} ## \_et(\textcolor{keyword}{const} \hyperlink{classArray}{Array<P\_numtype,N\_rank>}& \hyperlink{classA}{A}) \(\backslash\)
+        : \hyperlink{classStencilExpr}{StencilExpr<P\_numtype,N\_rank,result>}(
+      \hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}) \(\backslash\)
+    \{ \} \hyperlink{namespacesetuptools_1_1tests_1_1script-with-bom_aedbbee7b08f71658715a57fda5833f10}{\(\backslash\)}
+\hyperlink{namespacesetuptools_1_1tests_1_1script-with-bom_aedbbee7b08f71658715a57fda5833f10}{    result} \hyperlink{bops_8cc_a040d582383a7a866f9b32d4bc8979f7b}{operator*}() \(\backslash\)
+    \{ \textcolor{keywordflow}{return} \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}(iter\_); \} \hyperlink{namespacesetuptools_1_1tests_1_1script-with-bom_aedbbee7b08f71658715a57fda5833f10}{\(\backslash\)}
+\hyperlink{namespacesetuptools_1_1tests_1_1script-with-bom_aedbbee7b08f71658715a57fda5833f10}{    result} operator()(\textcolor{keyword}{const} \hyperlink{classTinyVector}{TinyVector<int,N\_rank>}& 
+      \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}) \(\backslash\)
+    \{ iter\_.moveTo(\hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}); \textcolor{keywordflow}{return} \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}(iter\_); \} \hyperlink{namespacesetuptools_1_1tests_1_1script-with-bom_aedbbee7b08f71658715a57fda5833f10}{\(\backslash\)}
+\hyperlink{namespacesetuptools_1_1tests_1_1script-with-bom_aedbbee7b08f71658715a57fda5833f10}{    result} fastRead(\textcolor{keywordtype}{int} \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}) \(\backslash\)
+    \{ \(\backslash\)
+      const P\_numtype* tmp = iter\_.data(); \(\backslash\)
+      iter\_.\_bz\_setData(tmp + \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}); \(\backslash\)
+      P\_numtype \hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r} = \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}(iter\_); \(\backslash\)
+      iter\_.\_bz\_setData(tmp); \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{      return} \hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}; \(\backslash\)
+    \} \(\backslash\)
+\}; \(\backslash\)
+template<typename P\_numtype, int N\_rank> \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{\(\backslash\)}
+\hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} \hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr<name ## \_et<P\_numtype, N\_rank>} > 
+      \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{\(\backslash\)}
+\hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name}(\hyperlink{classArray}{Array<P\_numtype,N\_rank>}& \hyperlink{classA}{A}) \(\backslash\)
+\{ \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr<name ## \_et<P\_numtype, N\_rank>}
+       >(\hyperlink{namespacetest__mio_a99ede1cf5167cb65a9c65e0af84b35b6}{A}); \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{stencil-et_8h_a0e73eca8baf24d9b319a20afa5e03fec}{}\index{stencil-\/et.\+h@{stencil-\/et.\+h}!B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+D\+I\+F\+F@{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+D\+I\+F\+F}}
+\index{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+D\+I\+F\+F@{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+D\+I\+F\+F}!stencil-\/et.\+h@{stencil-\/et.\+h}}
+\subsubsection[{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+D\+I\+F\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+\_\+\+D\+I\+F\+F(
+\begin{DoxyParamCaption}
+\item[{}]{name}
+\end{DoxyParamCaption}
+)}\label{stencil-et_8h_a0e73eca8baf24d9b319a20afa5e03fec}
+\hypertarget{stencil-et_8h_a8ec62d39728d5aa744f66c7466437848}{}\index{stencil-\/et.\+h@{stencil-\/et.\+h}!B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+V@{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+V}}
+\index{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+V@{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+V}!stencil-\/et.\+h@{stencil-\/et.\+h}}
+\subsubsection[{B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+V}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+E\+T\+\_\+\+S\+T\+E\+N\+C\+I\+L\+V(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{{\bf rank}}
+\end{DoxyParamCaption}
+)}\label{stencil-et_8h_a8ec62d39728d5aa744f66c7466437848}

@@ -1,0 +1,94 @@
+\hypertarget{dlaqr1_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlaqr1.f File Reference}
+\label{dlaqr1_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaqr1.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaqr1.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlaqr1_8f_a6485b97a0a7b7cd0146722a7d88a2bbc}{dlaqr1} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, H, L\+D\+H, S\+R1, S\+I1, S\+R2, S\+I2, V)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+Q\+R1} sets a scalar multiple of the first column of the product of 2-\/by-\/2 or 3-\/by-\/3 matrix H and specified shifts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlaqr1_8f_a6485b97a0a7b7cd0146722a7d88a2bbc}{}\index{dlaqr1.\+f@{dlaqr1.\+f}!dlaqr1@{dlaqr1}}
+\index{dlaqr1@{dlaqr1}!dlaqr1.\+f@{dlaqr1.\+f}}
+\subsubsection[{dlaqr1}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlaqr1 (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( ldh, $\ast$ )}]{H, }
+\item[{integer}]{L\+D\+H, }
+\item[{double {\bf precision}}]{S\+R1, }
+\item[{double {\bf precision}}]{S\+I1, }
+\item[{double {\bf precision}}]{S\+R2, }
+\item[{double {\bf precision}}]{S\+I2, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{V}
+\end{DoxyParamCaption}
+)}\label{dlaqr1_8f_a6485b97a0a7b7cd0146722a7d88a2bbc}
+
+
+{\bfseries D\+L\+A\+Q\+R1} sets a scalar multiple of the first column of the product of 2-\/by-\/2 or 3-\/by-\/3 matrix H and specified shifts. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}      Given a 2-by-2 or 3-by-3 matrix H, DLAQR1 sets v to a
+      scalar multiple of the first column of the product
+
+      (*)  K = (H - (sr1 + i*si1)*I)*(H - (sr2 + i*si2)*I)
+
+      scaling to avoid overflows and most underflows. It
+      is assumed that either
+
+              1) sr1 = sr2 and si1 = -si2
+          or
+              2) si1 = si2 = 0.
+
+      This is useful for starting double implicit shift bulges
+      in the QR algorithm.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is integer
+              Order of the matrix H. N must be either 2 or 3.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em H} & \begin{DoxyVerb}          H is DOUBLE PRECISION array of dimension (LDH,N)
+              The 2-by-2 or 3-by-3 matrix H in (*).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+H} & \begin{DoxyVerb}          LDH is integer
+              The leading dimension of H as declared in
+              the calling procedure.  LDH.GE.N\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+R1} & \begin{DoxyVerb}          SR1 is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+I1} & \begin{DoxyVerb}          SI1 is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+R2} & \begin{DoxyVerb}          SR2 is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+I2} & \begin{DoxyVerb}          SI2 is DOUBLE PRECISION
+              The shifts in (*).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em V} & \begin{DoxyVerb}          V is DOUBLE PRECISION array of dimension N
+              A scalar multiple of the first column of the
+              matrix K in (*).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Karen Braman and Ralph Byers, Department of Mathematics, University of Kansas, U\+S\+A 
+\end{DoxyParagraph}

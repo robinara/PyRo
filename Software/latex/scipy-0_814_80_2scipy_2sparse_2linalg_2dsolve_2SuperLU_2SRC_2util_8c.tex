@@ -1,0 +1,382 @@
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.c File Reference}
+\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a70f31d2c4d8d0802751120e07028bd3a}{N\+B\+U\+C\+K\+S}~10
+\begin{DoxyCompactList}\small\item\em Get the statistics of the supernodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a060bded38730c2e58fa7f7e19c43ba08}{superlu\+\_\+abort\+\_\+and\+\_\+exit} (char $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Global statistics variale. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a4792687285a879f7955029421ba99795}{set\+\_\+default\+\_\+options} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Set the default values for the options argument. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_afce6cba2b855a4b046f6521d5dd1beb4}{ilu\+\_\+set\+\_\+default\+\_\+options} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Set the default values for the options argument for I\+L\+U. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a3a041511849362ed44688698c86a9039}{print\+\_\+options} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Print the options setting. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_af68d6594a77880eedb6c7b35aef237ac}{print\+\_\+ilu\+\_\+options} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Print the options setting. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_ac16a0aea75cf99b4d38ec4ede6f13eb4}{Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\begin{DoxyCompactList}\small\item\em Deallocate the structure pointing to the actual storage of the matrix. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a27491a8171a480d6c98e6d1e535e1973}{Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a6292e6a8f2b75101294f2e99927b5d2a}{Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aea724a390aed4ef00a4b8ed783c60014}{Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a7285ca16a0b84b4333d71efeb65c0126}{Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\begin{DoxyCompactList}\small\item\em \hyperlink{classA}{A} is of type Stype==N\+C\+P. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a301f89dc9483e5bcdc47fc96e8645cf7}{Destroy\+\_\+\+Dense\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\begin{DoxyCompactList}\small\item\em \hyperlink{classA}{A} is of type Stype==D\+N. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a67bce8b2142b3be41583de4fbea02cb0}{resetrep\+\_\+col} (const int nseg, const int $\ast$segrep, int $\ast$repfnz)
+\begin{DoxyCompactList}\small\item\em Reset repfnz\mbox{[}\mbox{]} for the current column. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_acac794ae60517b94cb755975b51b9538}{countnz} (const int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int $\ast$xprune, int $\ast$nnz\+L, int $\ast$nnz\+U, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Count the total number of nonzeros in factors L and U, and in the symmetrically reduced L. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a45274d2d42e1a1305101bbe11e47ed65}{ilu\+\_\+countnz} (const int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int $\ast$nnz\+L, int $\ast$nnz\+U, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Count the total number of nonzeros in factors L and U. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a4b97838714471334eba3f4de948d6e7a}{fixup\+L} (const int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, const int $\ast$perm\+\_\+r, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Fix up the data storage lsub for L-\/subscripts. It removes the subscript sets for structural pruning, and applies permuation to the remaining subscripts. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a9e2ebe03503cdfc4ab20306d028ca312}{print\+\_\+panel\+\_\+seg} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int w, int jcol, int nseg, int $\ast$segrep, int $\ast$repfnz)
+\begin{DoxyCompactList}\small\item\em Diagnostic print of segment info after panel\+\_\+dfs(). \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a9b8745daf1fd22070364570977fe1ccc}{Stat\+Init} (\hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aef88fef229bf26ba82b50d99c20ad915}{Stat\+Print} (\hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a7d50e009f6f1f4ba8a63cdd912a0d31d}{Stat\+Free} (\hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\item 
+\hyperlink{slu__util_8h_aaae6020bb33e780ff6edbd4e45ce08ac}{flops\+\_\+t} \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a60256c1cabadcd15f555ed6e9d7eedef}{L\+U\+Fact\+Flops} (\hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\item 
+\hyperlink{slu__util_8h_aaae6020bb33e780ff6edbd4e45ce08ac}{flops\+\_\+t} \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_afdfc4cfea288d5639fb7321929550b8a}{L\+U\+Solve\+Flops} (\hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_ae289773c377a566a2f77c88b21d7f4ae}{ifill} (int $\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, int alen, int ival)
+\begin{DoxyCompactList}\small\item\em Fills an integer array with a given value. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a1040b7d1545dbf58b7af05d48621ed0a}{super\+\_\+stats} (int nsuper, int $\ast$xsup)
+\item 
+float \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a5789a3d7549a127e955680283ecfe44e}{Spa\+Size} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int np, float sum\+\_\+npw)
+\item 
+float \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a9daf07581bce8c0f5c879c5899ce419c}{Dense\+Size} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, float sum\+\_\+nw)
+\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_af27aecac055064fa7581c854848f7e7b}{check\+\_\+repfnz} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int w, int jcol, int $\ast$repfnz)
+\begin{DoxyCompactList}\small\item\em Check whether repfnz\mbox{[}\mbox{]} == E\+M\+P\+T\+Y after reset. \end{DoxyCompactList}\item 
+void \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aa88c72f09a077ee18043edff386f4a2c}{Print\+Summ} (char $\ast$\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}, int nfail, int nrun, int nerrs)
+\begin{DoxyCompactList}\small\item\em Print a summary of the testing results. \end{DoxyCompactList}\item 
+int \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aac67c35b47f2aa92a3202769d3eebdeb}{print\+\_\+int\+\_\+vec} (char $\ast$what, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int $\ast$vec)
+\item 
+int \hyperlink{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a52adbcf3d0b17d26fa9fc133c911993d}{slu\+\_\+\+Print\+Int10} (char $\ast$name, int len, int $\ast$\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a70f31d2c4d8d0802751120e07028bd3a}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!N\+B\+U\+C\+K\+S@{N\+B\+U\+C\+K\+S}}
+\index{N\+B\+U\+C\+K\+S@{N\+B\+U\+C\+K\+S}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{N\+B\+U\+C\+K\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+B\+U\+C\+K\+S~10}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a70f31d2c4d8d0802751120e07028bd3a}
+
+
+Get the statistics of the supernodes. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_af27aecac055064fa7581c854848f7e7b}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!check\+\_\+repfnz@{check\+\_\+repfnz}}
+\index{check\+\_\+repfnz@{check\+\_\+repfnz}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{check\+\_\+repfnz}]{\setlength{\rightskip}{0pt plus 5cm}void check\+\_\+repfnz (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{w, }
+\item[{int}]{jcol, }
+\item[{int $\ast$}]{repfnz}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_af27aecac055064fa7581c854848f7e7b}
+
+
+Check whether repfnz\mbox{[}\mbox{]} == E\+M\+P\+T\+Y after reset. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_acac794ae60517b94cb755975b51b9538}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!countnz@{countnz}}
+\index{countnz@{countnz}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{countnz}]{\setlength{\rightskip}{0pt plus 5cm}void countnz (
+\begin{DoxyParamCaption}
+\item[{const int}]{n, }
+\item[{int $\ast$}]{xprune, }
+\item[{int $\ast$}]{nnz\+L, }
+\item[{int $\ast$}]{nnz\+U, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_acac794ae60517b94cb755975b51b9538}
+
+
+Count the total number of nonzeros in factors L and U, and in the symmetrically reduced L. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a9daf07581bce8c0f5c879c5899ce419c}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Dense\+Size@{Dense\+Size}}
+\index{Dense\+Size@{Dense\+Size}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Dense\+Size}]{\setlength{\rightskip}{0pt plus 5cm}float Dense\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{float}]{sum\+\_\+nw}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a9daf07581bce8c0f5c879c5899ce419c}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a27491a8171a480d6c98e6d1e535e1973}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix@{Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix}}
+\index{Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix@{Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a27491a8171a480d6c98e6d1e535e1973}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a7285ca16a0b84b4333d71efeb65c0126}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted@{Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted}}
+\index{Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted@{Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a7285ca16a0b84b4333d71efeb65c0126}
+
+
+\hyperlink{classA}{A} is of type Stype==N\+C\+P. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a6292e6a8f2b75101294f2e99927b5d2a}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix@{Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix}}
+\index{Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix@{Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a6292e6a8f2b75101294f2e99927b5d2a}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a301f89dc9483e5bcdc47fc96e8645cf7}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Destroy\+\_\+\+Dense\+\_\+\+Matrix@{Destroy\+\_\+\+Dense\+\_\+\+Matrix}}
+\index{Destroy\+\_\+\+Dense\+\_\+\+Matrix@{Destroy\+\_\+\+Dense\+\_\+\+Matrix}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Destroy\+\_\+\+Dense\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Dense\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a301f89dc9483e5bcdc47fc96e8645cf7}
+
+
+\hyperlink{classA}{A} is of type Stype==D\+N. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_ac16a0aea75cf99b4d38ec4ede6f13eb4}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store@{Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store}}
+\index{Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store@{Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_ac16a0aea75cf99b4d38ec4ede6f13eb4}
+
+
+Deallocate the structure pointing to the actual storage of the matrix. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aea724a390aed4ef00a4b8ed783c60014}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix@{Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix}}
+\index{Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix@{Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aea724a390aed4ef00a4b8ed783c60014}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a4b97838714471334eba3f4de948d6e7a}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!fixup\+L@{fixup\+L}}
+\index{fixup\+L@{fixup\+L}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{fixup\+L}]{\setlength{\rightskip}{0pt plus 5cm}void fixup\+L (
+\begin{DoxyParamCaption}
+\item[{const int}]{n, }
+\item[{const int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a4b97838714471334eba3f4de948d6e7a}
+
+
+Fix up the data storage lsub for L-\/subscripts. It removes the subscript sets for structural pruning, and applies permuation to the remaining subscripts. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_ae289773c377a566a2f77c88b21d7f4ae}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!ifill@{ifill}}
+\index{ifill@{ifill}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{ifill}]{\setlength{\rightskip}{0pt plus 5cm}void ifill (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{a, }
+\item[{int}]{alen, }
+\item[{int}]{ival}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_ae289773c377a566a2f77c88b21d7f4ae}
+
+
+Fills an integer array with a given value. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a45274d2d42e1a1305101bbe11e47ed65}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!ilu\+\_\+countnz@{ilu\+\_\+countnz}}
+\index{ilu\+\_\+countnz@{ilu\+\_\+countnz}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{ilu\+\_\+countnz}]{\setlength{\rightskip}{0pt plus 5cm}void ilu\+\_\+countnz (
+\begin{DoxyParamCaption}
+\item[{const int}]{n, }
+\item[{int $\ast$}]{nnz\+L, }
+\item[{int $\ast$}]{nnz\+U, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a45274d2d42e1a1305101bbe11e47ed65}
+
+
+Count the total number of nonzeros in factors L and U. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_afce6cba2b855a4b046f6521d5dd1beb4}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!ilu\+\_\+set\+\_\+default\+\_\+options@{ilu\+\_\+set\+\_\+default\+\_\+options}}
+\index{ilu\+\_\+set\+\_\+default\+\_\+options@{ilu\+\_\+set\+\_\+default\+\_\+options}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{ilu\+\_\+set\+\_\+default\+\_\+options}]{\setlength{\rightskip}{0pt plus 5cm}void ilu\+\_\+set\+\_\+default\+\_\+options (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_afce6cba2b855a4b046f6521d5dd1beb4}
+
+
+Set the default values for the options argument for I\+L\+U. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a60256c1cabadcd15f555ed6e9d7eedef}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!L\+U\+Fact\+Flops@{L\+U\+Fact\+Flops}}
+\index{L\+U\+Fact\+Flops@{L\+U\+Fact\+Flops}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{L\+U\+Fact\+Flops}]{\setlength{\rightskip}{0pt plus 5cm}{\bf flops\+\_\+t} L\+U\+Fact\+Flops (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a60256c1cabadcd15f555ed6e9d7eedef}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_afdfc4cfea288d5639fb7321929550b8a}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!L\+U\+Solve\+Flops@{L\+U\+Solve\+Flops}}
+\index{L\+U\+Solve\+Flops@{L\+U\+Solve\+Flops}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{L\+U\+Solve\+Flops}]{\setlength{\rightskip}{0pt plus 5cm}{\bf flops\+\_\+t} L\+U\+Solve\+Flops (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_afdfc4cfea288d5639fb7321929550b8a}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_af68d6594a77880eedb6c7b35aef237ac}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!print\+\_\+ilu\+\_\+options@{print\+\_\+ilu\+\_\+options}}
+\index{print\+\_\+ilu\+\_\+options@{print\+\_\+ilu\+\_\+options}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{print\+\_\+ilu\+\_\+options}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+ilu\+\_\+options (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_af68d6594a77880eedb6c7b35aef237ac}
+
+
+Print the options setting. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aac67c35b47f2aa92a3202769d3eebdeb}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!print\+\_\+int\+\_\+vec@{print\+\_\+int\+\_\+vec}}
+\index{print\+\_\+int\+\_\+vec@{print\+\_\+int\+\_\+vec}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{print\+\_\+int\+\_\+vec}]{\setlength{\rightskip}{0pt plus 5cm}int print\+\_\+int\+\_\+vec (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{what, }
+\item[{int}]{n, }
+\item[{int $\ast$}]{vec}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aac67c35b47f2aa92a3202769d3eebdeb}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a3a041511849362ed44688698c86a9039}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!print\+\_\+options@{print\+\_\+options}}
+\index{print\+\_\+options@{print\+\_\+options}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{print\+\_\+options}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+options (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a3a041511849362ed44688698c86a9039}
+
+
+Print the options setting. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a9e2ebe03503cdfc4ab20306d028ca312}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!print\+\_\+panel\+\_\+seg@{print\+\_\+panel\+\_\+seg}}
+\index{print\+\_\+panel\+\_\+seg@{print\+\_\+panel\+\_\+seg}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{print\+\_\+panel\+\_\+seg}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+panel\+\_\+seg (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{w, }
+\item[{int}]{jcol, }
+\item[{int}]{nseg, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a9e2ebe03503cdfc4ab20306d028ca312}
+
+
+Diagnostic print of segment info after panel\+\_\+dfs(). 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aa88c72f09a077ee18043edff386f4a2c}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Print\+Summ@{Print\+Summ}}
+\index{Print\+Summ@{Print\+Summ}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Print\+Summ}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Summ (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{type, }
+\item[{int}]{nfail, }
+\item[{int}]{nrun, }
+\item[{int}]{nerrs}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aa88c72f09a077ee18043edff386f4a2c}
+
+
+Print a summary of the testing results. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a67bce8b2142b3be41583de4fbea02cb0}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!resetrep\+\_\+col@{resetrep\+\_\+col}}
+\index{resetrep\+\_\+col@{resetrep\+\_\+col}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{resetrep\+\_\+col}]{\setlength{\rightskip}{0pt plus 5cm}void resetrep\+\_\+col (
+\begin{DoxyParamCaption}
+\item[{const int}]{nseg, }
+\item[{const int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a67bce8b2142b3be41583de4fbea02cb0}
+
+
+Reset repfnz\mbox{[}\mbox{]} for the current column. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a4792687285a879f7955029421ba99795}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!set\+\_\+default\+\_\+options@{set\+\_\+default\+\_\+options}}
+\index{set\+\_\+default\+\_\+options@{set\+\_\+default\+\_\+options}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{set\+\_\+default\+\_\+options}]{\setlength{\rightskip}{0pt plus 5cm}void set\+\_\+default\+\_\+options (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a4792687285a879f7955029421ba99795}
+
+
+Set the default values for the options argument. 
+
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a52adbcf3d0b17d26fa9fc133c911993d}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!slu\+\_\+\+Print\+Int10@{slu\+\_\+\+Print\+Int10}}
+\index{slu\+\_\+\+Print\+Int10@{slu\+\_\+\+Print\+Int10}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{slu\+\_\+\+Print\+Int10}]{\setlength{\rightskip}{0pt plus 5cm}int slu\+\_\+\+Print\+Int10 (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{name, }
+\item[{int}]{len, }
+\item[{int $\ast$}]{x}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a52adbcf3d0b17d26fa9fc133c911993d}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a5789a3d7549a127e955680283ecfe44e}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Spa\+Size@{Spa\+Size}}
+\index{Spa\+Size@{Spa\+Size}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Spa\+Size}]{\setlength{\rightskip}{0pt plus 5cm}float Spa\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{np, }
+\item[{float}]{sum\+\_\+npw}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a5789a3d7549a127e955680283ecfe44e}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a7d50e009f6f1f4ba8a63cdd912a0d31d}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Stat\+Free@{Stat\+Free}}
+\index{Stat\+Free@{Stat\+Free}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Stat\+Free}]{\setlength{\rightskip}{0pt plus 5cm}void Stat\+Free (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a7d50e009f6f1f4ba8a63cdd912a0d31d}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a9b8745daf1fd22070364570977fe1ccc}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Stat\+Init@{Stat\+Init}}
+\index{Stat\+Init@{Stat\+Init}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Stat\+Init}]{\setlength{\rightskip}{0pt plus 5cm}void Stat\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a9b8745daf1fd22070364570977fe1ccc}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aef88fef229bf26ba82b50d99c20ad915}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!Stat\+Print@{Stat\+Print}}
+\index{Stat\+Print@{Stat\+Print}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{Stat\+Print}]{\setlength{\rightskip}{0pt plus 5cm}void Stat\+Print (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_aef88fef229bf26ba82b50d99c20ad915}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a1040b7d1545dbf58b7af05d48621ed0a}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!super\+\_\+stats@{super\+\_\+stats}}
+\index{super\+\_\+stats@{super\+\_\+stats}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{super\+\_\+stats}]{\setlength{\rightskip}{0pt plus 5cm}void super\+\_\+stats (
+\begin{DoxyParamCaption}
+\item[{int}]{nsuper, }
+\item[{int $\ast$}]{xsup}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a1040b7d1545dbf58b7af05d48621ed0a}
+\hypertarget{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a060bded38730c2e58fa7f7e19c43ba08}{}\index{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}!superlu\+\_\+abort\+\_\+and\+\_\+exit@{superlu\+\_\+abort\+\_\+and\+\_\+exit}}
+\index{superlu\+\_\+abort\+\_\+and\+\_\+exit@{superlu\+\_\+abort\+\_\+and\+\_\+exit}!scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c@{scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/util.\+c}}
+\subsubsection[{superlu\+\_\+abort\+\_\+and\+\_\+exit}]{\setlength{\rightskip}{0pt plus 5cm}void superlu\+\_\+abort\+\_\+and\+\_\+exit (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}\label{scipy-0_814_80_2scipy_2sparse_2linalg_2dsolve_2SuperLU_2SRC_2util_8c_a060bded38730c2e58fa7f7e19c43ba08}
+
+
+Global statistics variale. 
+

@@ -1,0 +1,88 @@
+\hypertarget{dlasq1_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlasq1.f File Reference}
+\label{dlasq1_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlasq1.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlasq1.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlasq1_8f_ab333230afcb0c2897f759d74e6f5c8d9}{dlasq1} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+S\+Q1} computes the singular values of a real square bidiagonal matrix. Used by sbdsqr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlasq1_8f_ab333230afcb0c2897f759d74e6f5c8d9}{}\index{dlasq1.\+f@{dlasq1.\+f}!dlasq1@{dlasq1}}
+\index{dlasq1@{dlasq1}!dlasq1.\+f@{dlasq1.\+f}}
+\subsubsection[{dlasq1}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlasq1 (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{E, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dlasq1_8f_ab333230afcb0c2897f759d74e6f5c8d9}
+
+
+{\bfseries D\+L\+A\+S\+Q1} computes the singular values of a real square bidiagonal matrix. Used by sbdsqr. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLASQ1 computes the singular values of a real N-by-N bidiagonal
+ matrix with diagonal D and off-diagonal E. The singular values
+ are computed to high relative accuracy, in the absence of
+ denormalization, underflow and overflow. The algorithm was first
+ presented in
+
+ "Accurate singular values and differential qd algorithms" by K. V.
+ Fernando and B. N. Parlett, Numer. Math., Vol-67, No. 2, pp. 191-230,
+ 1994,
+
+ and the present implementation is described in "An implementation of
+ the dqds Algorithm (Positive Case)", LAPACK Working Note.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+        The number of rows and columns in the matrix. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+        On entry, D contains the diagonal elements of the
+        bidiagonal matrix whose SVD is desired. On normal exit,
+        D contains the singular values in decreasing order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E} & \begin{DoxyVerb}          E is DOUBLE PRECISION array, dimension (N)
+        On entry, elements E(1:N-1) contain the off-diagonal elements
+        of the bidiagonal matrix whose SVD is desired.
+        On exit, E is overwritten.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (4*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+        = 0: successful exit
+        < 0: if INFO = -i, the i-th argument had an illegal value
+        > 0: the algorithm failed
+             = 1, a split was marked by a positive value in E
+             = 2, current block of Z not diagonalized after 100*N
+                  iterations (in inner while loop)  On exit D and E
+                  represent a matrix with the same singular values
+                  which the calling subroutine could use to finish the
+                  computation, or even feed back into DLASQ1
+             = 3, termination criterion of outer while loop not met 
+                  (program created more than N unreduced blocks)\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

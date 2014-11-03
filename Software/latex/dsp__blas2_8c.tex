@@ -1,0 +1,271 @@
+\hypertarget{dsp__blas2_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dsp\+\_\+blas2.c File Reference}
+\label{dsp__blas2_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dsp\+\_\+blas2.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dsp\+\_\+blas2.\+c}}
+
+
+Sparse B\+L\+A\+S 2, using some dense B\+L\+A\+S 2 operations.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{dsp__blas2_8c_aca18e78d81448d99eec840b19de76efd}{dusolve} (int, int, double $\ast$, double $\ast$)
+\item 
+void \hyperlink{dsp__blas2_8c_a56d27043eac0282b0d0e4106acedb083}{dlsolve} (int, int, double $\ast$, double $\ast$)
+\item 
+void \hyperlink{dsp__blas2_8c_a65523602382b3d96c9852545ae24815d}{dmatvec} (int, int, int, double $\ast$, double $\ast$, double $\ast$)
+\item 
+int \hyperlink{dsp__blas2_8c_aaa92ff654356fe62f70ebef5815627e4}{sp\+\_\+dtrsv} (char $\ast$uplo, char $\ast$trans, char $\ast$diag, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, double $\ast$\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat, int $\ast$info)
+\begin{DoxyCompactList}\small\item\em Solves one of the systems of equations A$\ast$x = b, or \hyperlink{classA}{A}'$\ast$x = b. \end{DoxyCompactList}\item 
+int \hyperlink{dsp__blas2_8c_a221dfb4c5cbc550095a989c61fec4993}{sp\+\_\+dgemv} (char $\ast$trans, double alpha, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, double $\ast$\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, int incx, double \hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, double $\ast$y, int incy)
+\begin{DoxyCompactList}\small\item\em Performs one of the matrix-\/vector operations y \+:= alpha$\ast$\+A$\ast$x + beta$\ast$y, or y \+:= alpha$\ast$\+A'$\ast$x + beta$\ast$y,. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sparse B\+L\+A\+S 2, using some dense B\+L\+A\+S 2 operations. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{dsp__blas2_8c_a56d27043eac0282b0d0e4106acedb083}{}\index{dsp\+\_\+blas2.\+c@{dsp\+\_\+blas2.\+c}!dlsolve@{dlsolve}}
+\index{dlsolve@{dlsolve}!dsp\+\_\+blas2.\+c@{dsp\+\_\+blas2.\+c}}
+\subsubsection[{dlsolve}]{\setlength{\rightskip}{0pt plus 5cm}void dlsolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{dsp__blas2_8c_a56d27043eac0282b0d0e4106acedb083}
+\hypertarget{dsp__blas2_8c_a65523602382b3d96c9852545ae24815d}{}\index{dsp\+\_\+blas2.\+c@{dsp\+\_\+blas2.\+c}!dmatvec@{dmatvec}}
+\index{dmatvec@{dmatvec}!dsp\+\_\+blas2.\+c@{dsp\+\_\+blas2.\+c}}
+\subsubsection[{dmatvec}]{\setlength{\rightskip}{0pt plus 5cm}void dmatvec (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{dsp__blas2_8c_a65523602382b3d96c9852545ae24815d}
+\hypertarget{dsp__blas2_8c_aca18e78d81448d99eec840b19de76efd}{}\index{dsp\+\_\+blas2.\+c@{dsp\+\_\+blas2.\+c}!dusolve@{dusolve}}
+\index{dusolve@{dusolve}!dsp\+\_\+blas2.\+c@{dsp\+\_\+blas2.\+c}}
+\subsubsection[{dusolve}]{\setlength{\rightskip}{0pt plus 5cm}void dusolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{dsp__blas2_8c_aca18e78d81448d99eec840b19de76efd}
+\hypertarget{dsp__blas2_8c_a221dfb4c5cbc550095a989c61fec4993}{}\index{dsp\+\_\+blas2.\+c@{dsp\+\_\+blas2.\+c}!sp\+\_\+dgemv@{sp\+\_\+dgemv}}
+\index{sp\+\_\+dgemv@{sp\+\_\+dgemv}!dsp\+\_\+blas2.\+c@{dsp\+\_\+blas2.\+c}}
+\subsubsection[{sp\+\_\+dgemv}]{\setlength{\rightskip}{0pt plus 5cm}int sp\+\_\+dgemv (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{trans, }
+\item[{double}]{alpha, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{double $\ast$}]{x, }
+\item[{int}]{incx, }
+\item[{double}]{beta, }
+\item[{double $\ast$}]{y, }
+\item[{int}]{incy}
+\end{DoxyParamCaption}
+)}\label{dsp__blas2_8c_a221dfb4c5cbc550095a989c61fec4993}
+
+
+Performs one of the matrix-\/vector operations y \+:= alpha$\ast$\+A$\ast$x + beta$\ast$y, or y \+:= alpha$\ast$\+A'$\ast$x + beta$\ast$y,. 
+
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{dsp__blas2_8c_a221dfb4c5cbc550095a989c61fec4993}{sp\_dgemv()}  performs one of the matrix-vector operations   
+     y := alpha*A*x + beta*y,   or   y := alpha*A'*x + beta*y,   
+  where alpha and beta are scalars, x and y are vectors and \hyperlink{classA}{A} is a
+  sparse A->nrow by A->ncol matrix.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Parameters   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  TRANS  - (input) char*
+           On entry, TRANS specifies the operation to be performed as   
+           follows:   
+              TRANS = 'N' or 'n'   y := alpha*A*x + beta*y.   
+              TRANS = 'T' or 't'   y := alpha*A'*x + beta*y.   
+              TRANS = 'C' or 'c'   y := alpha*A'*x + beta*y.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ALPHA  - (input) double
+           On entry, ALPHA specifies the scalar alpha.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A}      - (input) SuperMatrix*
+           \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} with a sparse format, of dimension (A->nrow, A->ncol).
+           Currently, the type of \hyperlink{classA}{A} can be:
+               Stype = NC or NCP; Dtype = SLU\_D; Mtype = GE. 
+           In the future, more general \hyperlink{classA}{A} can be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  X      - (input) double*, array of DIMENSION at least   
+           ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'   
+           and at least   
+           ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.   
+           Before entry, the incremented array X must contain the   
+           vector x.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  INCX   - (input) int
+           On entry, INCX specifies the increment for the elements of   
+           X. INCX must not be zero.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  BETA   - (input) double
+           On entry, BETA specifies the scalar beta. When BETA is   
+           supplied as zero then Y need not be set on input.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Y      - (output) double*,  array of DIMENSION at least   
+           ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'   
+           and at least   
+           ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.   
+           Before entry with BETA non-zero, the incremented array Y   
+           must contain the vector y. On exit, Y is overwritten by the 
+           updated vector y.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  INCY   - (input) int
+           On entry, INCY specifies the increment for the elements of   
+           Y. INCY must not be zero.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ==== Sparse Level 2 Blas routine.   
+\end{DoxyPre}
+ \hypertarget{dsp__blas2_8c_aaa92ff654356fe62f70ebef5815627e4}{}\index{dsp\+\_\+blas2.\+c@{dsp\+\_\+blas2.\+c}!sp\+\_\+dtrsv@{sp\+\_\+dtrsv}}
+\index{sp\+\_\+dtrsv@{sp\+\_\+dtrsv}!dsp\+\_\+blas2.\+c@{dsp\+\_\+blas2.\+c}}
+\subsubsection[{sp\+\_\+dtrsv}]{\setlength{\rightskip}{0pt plus 5cm}int sp\+\_\+dtrsv (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{uplo, }
+\item[{char $\ast$}]{trans, }
+\item[{char $\ast$}]{diag, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{double $\ast$}]{x, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{dsp__blas2_8c_aaa92ff654356fe62f70ebef5815627e4}
+
+
+Solves one of the systems of equations A$\ast$x = b, or \hyperlink{classA}{A}'$\ast$x = b. 
+
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{dsp__blas2_8c_aaa92ff654356fe62f70ebef5815627e4}{sp\_dtrsv()} solves one of the systems of equations   
+      A*x = b,   or   \hyperlink{classA}{A}'*x = b,
+  where b and x are n element vectors and \hyperlink{classA}{A} is a sparse unit , or   
+  non-unit, upper or lower triangular matrix.   
+  No test for singularity or near-singularity is included in this   
+  routine. Such tests must be performed before calling this routine.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Parameters   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  uplo   - (input) char*
+           On entry, uplo specifies whether the matrix is an upper or   
+            lower triangular matrix as follows:   
+               uplo = 'U' or 'u'   \hyperlink{classA}{A} is an upper triangular matrix.   
+               uplo = 'L' or 'l'   \hyperlink{classA}{A} is a lower triangular matrix.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  trans  - (input) char*
+            On entry, trans specifies the equations to be solved as   
+            follows:   
+               trans = 'N' or 'n'   A*x = b.   
+               trans = 'T' or 't'   \hyperlink{classA}{A}'*x = b.
+               trans = 'C' or 'c'   \hyperlink{classA}{A}'*x = b.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  diag   - (input) char*
+            On entry, diag specifies whether or not \hyperlink{classA}{A} is unit   
+            triangular as follows:   
+               diag = 'U' or 'u'   \hyperlink{classA}{A} is assumed to be unit triangular.   
+               diag = 'N' or 'n'   \hyperlink{classA}{A} is not assumed to be unit   
+                                   triangular.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  L       - (input) SuperMatrix*
+        The factor L from the factorization Pr*A*Pc=L*U. Use
+            compressed row subscripts storage for supernodes,
+            i.e., L has types: Stype = SC, Dtype = SLU\_D, Mtype = TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  U       - (input) SuperMatrix*
+         The factor U from the factorization Pr*A*Pc=L*U.
+         U has types: Stype = NC, Dtype = SLU\_D, Mtype = TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  x       - (input/output) double*
+            Before entry, the incremented array X must contain the n   
+            element right-hand side vector b. On exit, X is overwritten 
+            with the solution vector x.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  info    - (output) int*
+            If *info = -i, the i-th argument had an illegal value.
+\end{DoxyPre}
+ 

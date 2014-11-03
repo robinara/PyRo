@@ -1,0 +1,195 @@
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix}{}\section{scipy.\+sparse.\+dia.\+dia\+\_\+matrix Class Reference}
+\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix}\index{scipy.\+sparse.\+dia.\+dia\+\_\+matrix@{scipy.\+sparse.\+dia.\+dia\+\_\+matrix}}
+Inheritance diagram for scipy.\+sparse.\+dia.\+dia\+\_\+matrix\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1sparse_1_1dia_1_1dia__matrix}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a2fe326fc8bd85401679265eb23e75c6a}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a2ad65edbb8045cc7badcb4fba2d1d62d}{\+\_\+\+\_\+repr\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_ac9cba8a915448a44a34e5b799063fae2}{getnnz}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_abeb06bcaf4e6c46ca052c8fde5e37eba}{setdiag}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_af98283eb18ef2a2ec07f10ca6aa03a93}{todia}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a60335b71c7529b208bac8dd8f4ff710c}{tocsr}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_acabc88080deb49bfdf3d62bfb06ff51d}{tocsc}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a02f72da9d7fa9466b89316a6ce8ea63c}{tocoo}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a78d05cb0f3fe0e1acbf214ec07d92ac7}{data}
+\item 
+\hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a8bfe11d2198fb7c967dadc0a024dde84}{offsets}
+\item 
+\hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a2a137f150710a5084f2e997ecb043d14}{shape}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a8fb306755f0c1bc24ce875367322be31}{nnz} = property(fget=\hyperlink{classscipy_1_1sparse_1_1dia_1_1dia__matrix_ac9cba8a915448a44a34e5b799063fae2}{getnnz})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Sparse matrix with DIAgonal storage
+
+This can be instantiated in several ways:
+    dia_matrix(D)
+        with a dense matrix
+
+    dia_matrix(S)
+        with another sparse matrix S (equivalent to S.todia())
+
+    dia_matrix((M, N), [dtype])
+        to construct an empty matrix with shape (M, N),
+        dtype is optional, defaulting to dtype='d'.
+
+    dia_matrix((data, offsets), shape=(M, N))
+        where the ``data[k,:]`` stores the diagonal entries for
+        diagonal ``offsets[k]`` (See example below)
+
+Attributes
+----------
+dtype : dtype
+    Data type of the matrix
+shape : 2-tuple
+    Shape of the matrix
+ndim : int
+    Number of dimensions (this is always 2)
+nnz
+    Number of nonzero elements
+data
+    DIA format data array of the matrix
+offsets
+    DIA format offset array of the matrix
+
+Notes
+-----
+
+Sparse matrices can be used in arithmetic operations: they support
+addition, subtraction, multiplication, division, and matrix power.
+
+Examples
+--------
+
+>>> from scipy.sparse import *
+>>> from scipy import *
+>>> dia_matrix( (3,4), dtype=int8).todense()
+matrix([[0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]], dtype=int8)
+
+>>> data = array([[1,2,3,4]]).repeat(3,axis=0)
+>>> offsets = array([0,-1,2])
+>>> dia_matrix( (data,offsets), shape=(4,4)).todense()
+matrix([[1, 0, 3, 0],
+        [1, 2, 0, 4],
+        [0, 2, 3, 0],
+        [0, 0, 3, 4]])\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a2fe326fc8bd85401679265eb23e75c6a}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{arg1, }
+\item[{}]{shape = {\ttfamily None}, }
+\item[{}]{dtype = {\ttfamily None}, }
+\item[{}]{copy = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a2fe326fc8bd85401679265eb23e75c6a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a2ad65edbb8045cc7badcb4fba2d1d62d}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!\+\_\+\+\_\+repr\+\_\+\+\_\+@{\+\_\+\+\_\+repr\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+repr\+\_\+\+\_\+@{\+\_\+\+\_\+repr\+\_\+\+\_\+}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{\+\_\+\+\_\+repr\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+\_\+\+\_\+repr\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a2ad65edbb8045cc7badcb4fba2d1d62d}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_ac9cba8a915448a44a34e5b799063fae2}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!getnnz@{getnnz}}
+\index{getnnz@{getnnz}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{getnnz}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+getnnz (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_ac9cba8a915448a44a34e5b799063fae2}
+\begin{DoxyVerb}number of nonzero values
+
+explicit zero values are included in this number
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_abeb06bcaf4e6c46ca052c8fde5e37eba}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!setdiag@{setdiag}}
+\index{setdiag@{setdiag}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{setdiag}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+setdiag (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{values, }
+\item[{}]{k = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_abeb06bcaf4e6c46ca052c8fde5e37eba}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a02f72da9d7fa9466b89316a6ce8ea63c}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!tocoo@{tocoo}}
+\index{tocoo@{tocoo}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{tocoo}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+tocoo (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a02f72da9d7fa9466b89316a6ce8ea63c}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_acabc88080deb49bfdf3d62bfb06ff51d}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!tocsc@{tocsc}}
+\index{tocsc@{tocsc}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{tocsc}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+tocsc (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_acabc88080deb49bfdf3d62bfb06ff51d}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a60335b71c7529b208bac8dd8f4ff710c}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!tocsr@{tocsr}}
+\index{tocsr@{tocsr}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{tocsr}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+tocsr (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a60335b71c7529b208bac8dd8f4ff710c}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_af98283eb18ef2a2ec07f10ca6aa03a93}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!todia@{todia}}
+\index{todia@{todia}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{todia}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+todia (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{copy = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_af98283eb18ef2a2ec07f10ca6aa03a93}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a78d05cb0f3fe0e1acbf214ec07d92ac7}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!data@{data}}
+\index{data@{data}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+data}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a78d05cb0f3fe0e1acbf214ec07d92ac7}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a8bfe11d2198fb7c967dadc0a024dde84}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!offsets@{offsets}}
+\index{offsets@{offsets}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{offsets}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+offsets}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a8bfe11d2198fb7c967dadc0a024dde84}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a2a137f150710a5084f2e997ecb043d14}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!shape@{shape}}
+\index{shape@{shape}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{shape}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+shape}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a2a137f150710a5084f2e997ecb043d14}
+
+
+\subsection{Property Documentation}
+\hypertarget{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a8fb306755f0c1bc24ce875367322be31}{}\index{scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}!nnz@{nnz}}
+\index{nnz@{nnz}!scipy\+::sparse\+::dia\+::dia\+\_\+matrix@{scipy\+::sparse\+::dia\+::dia\+\_\+matrix}}
+\subsubsection[{nnz}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+dia.\+dia\+\_\+matrix.\+nnz = property(fget={\bf getnnz})\hspace{0.3cm}{\ttfamily [static]}}\label{classscipy_1_1sparse_1_1dia_1_1dia__matrix_a8fb306755f0c1bc24ce875367322be31}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/sparse/\hyperlink{dia_8py}{dia.\+py}\end{DoxyCompactItemize}

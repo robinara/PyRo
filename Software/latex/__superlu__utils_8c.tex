@@ -1,0 +1,102 @@
+\hypertarget{__superlu__utils_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+\_\+superlu\+\_\+utils.c File Reference}
+\label{__superlu__utils_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+\_\+superlu\+\_\+utils.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+\_\+superlu\+\_\+utils.\+c}}
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}\+\_\+superluobject.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}numpy/npy\+\_\+3kcompat.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$setjmp.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{__superlu__utils_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}
+\item 
+\#define \hyperlink{__superlu__utils_8c_a7d399fcbebb74300921248d831d6ab6f}{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}~\+\_\+scipy\+\_\+sparse\+\_\+superlu\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+P\+I
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{__superlu__utils_8c_a41a0f4ca1914a0162493203398278e8f}{superlu\+\_\+python\+\_\+module\+\_\+abort} (char $\ast$msg)
+\item 
+void $\ast$ \hyperlink{__superlu__utils_8c_a04c143d70c4c621f3d16427556e65042}{superlu\+\_\+python\+\_\+module\+\_\+malloc} (size\+\_\+t size)
+\item 
+void \hyperlink{__superlu__utils_8c_ae559ff52f6988d919f6131e2ac3c2088}{superlu\+\_\+python\+\_\+module\+\_\+free} (void $\ast$\hyperlink{zfftnd_8c_a176b6f11ba11cfee9ae8d20c83e1266b}{ptr})
+\item 
+void \hyperlink{__superlu__utils_8c_a1da8dcfec67cb5f6dd316f6419d72a85}{mc64id\+\_\+} (int $\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})
+\item 
+void \hyperlink{__superlu__utils_8c_a0961771c4894d92f2ed039cec6da9078}{mc64ad\+\_\+} (int $\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, int $\ast$\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}, int $\ast$c, int d\mbox{[}$\,$\mbox{]}, int e\mbox{[}$\,$\mbox{]}, double f\mbox{[}$\,$\mbox{]}, int $\ast$g, int h\mbox{[}$\,$\mbox{]}, int $\ast$\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}, int \hyperlink{indexexpr_8h_aa1f3325d66516548e69238097857fa98}{j}\mbox{[}$\,$\mbox{]}, int $\ast$\hyperlink{indexexpr_8h_abb72938a198351550846b37a84588b63}{k}, double \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}\mbox{[}$\,$\mbox{]}, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}\mbox{[}$\,$\mbox{]}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+jmp\+\_\+buf \hyperlink{__superlu__utils_8c_a474df5043990c511e994dd3839c99acf}{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}
+\item 
+Py\+Object $\ast$ \hyperlink{__superlu__utils_8c_a154dc8dace4167732139341e2ee0992e}{\+\_\+superlumodule\+\_\+memory\+\_\+dict} = N\+U\+L\+L
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{__superlu__utils_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{}\index{\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}!N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}}
+\index{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}!\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}}
+\subsubsection[{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}\label{__superlu__utils_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}
+\hypertarget{__superlu__utils_8c_a7d399fcbebb74300921248d831d6ab6f}{}\index{\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}!P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L@{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}}
+\index{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L@{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}!\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}}
+\subsubsection[{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L~\+\_\+scipy\+\_\+sparse\+\_\+superlu\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+P\+I}\label{__superlu__utils_8c_a7d399fcbebb74300921248d831d6ab6f}
+
+
+\subsection{Function Documentation}
+\hypertarget{__superlu__utils_8c_a0961771c4894d92f2ed039cec6da9078}{}\index{\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}!mc64ad\+\_\+@{mc64ad\+\_\+}}
+\index{mc64ad\+\_\+@{mc64ad\+\_\+}!\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}}
+\subsubsection[{mc64ad\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}void mc64ad\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{a, }
+\item[{int $\ast$}]{b, }
+\item[{int $\ast$}]{c, }
+\item[{int}]{d\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{e\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{f\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{g, }
+\item[{int}]{h\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{i, }
+\item[{int}]{j\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{k, }
+\item[{double}]{l\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{m\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{n\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{__superlu__utils_8c_a0961771c4894d92f2ed039cec6da9078}
+\hypertarget{__superlu__utils_8c_a1da8dcfec67cb5f6dd316f6419d72a85}{}\index{\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}!mc64id\+\_\+@{mc64id\+\_\+}}
+\index{mc64id\+\_\+@{mc64id\+\_\+}!\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}}
+\subsubsection[{mc64id\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}void mc64id\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{a}
+\end{DoxyParamCaption}
+)}\label{__superlu__utils_8c_a1da8dcfec67cb5f6dd316f6419d72a85}
+\hypertarget{__superlu__utils_8c_a41a0f4ca1914a0162493203398278e8f}{}\index{\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}!superlu\+\_\+python\+\_\+module\+\_\+abort@{superlu\+\_\+python\+\_\+module\+\_\+abort}}
+\index{superlu\+\_\+python\+\_\+module\+\_\+abort@{superlu\+\_\+python\+\_\+module\+\_\+abort}!\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}}
+\subsubsection[{superlu\+\_\+python\+\_\+module\+\_\+abort}]{\setlength{\rightskip}{0pt plus 5cm}void superlu\+\_\+python\+\_\+module\+\_\+abort (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}\label{__superlu__utils_8c_a41a0f4ca1914a0162493203398278e8f}
+\hypertarget{__superlu__utils_8c_ae559ff52f6988d919f6131e2ac3c2088}{}\index{\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}!superlu\+\_\+python\+\_\+module\+\_\+free@{superlu\+\_\+python\+\_\+module\+\_\+free}}
+\index{superlu\+\_\+python\+\_\+module\+\_\+free@{superlu\+\_\+python\+\_\+module\+\_\+free}!\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}}
+\subsubsection[{superlu\+\_\+python\+\_\+module\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}void superlu\+\_\+python\+\_\+module\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\label{__superlu__utils_8c_ae559ff52f6988d919f6131e2ac3c2088}
+\hypertarget{__superlu__utils_8c_a04c143d70c4c621f3d16427556e65042}{}\index{\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}!superlu\+\_\+python\+\_\+module\+\_\+malloc@{superlu\+\_\+python\+\_\+module\+\_\+malloc}}
+\index{superlu\+\_\+python\+\_\+module\+\_\+malloc@{superlu\+\_\+python\+\_\+module\+\_\+malloc}!\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}}
+\subsubsection[{superlu\+\_\+python\+\_\+module\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ superlu\+\_\+python\+\_\+module\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{__superlu__utils_8c_a04c143d70c4c621f3d16427556e65042}
+
+
+\subsection{Variable Documentation}
+\hypertarget{__superlu__utils_8c_a474df5043990c511e994dd3839c99acf}{}\index{\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}!\+\_\+superlu\+\_\+py\+\_\+jmpbuf@{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}}
+\index{\+\_\+superlu\+\_\+py\+\_\+jmpbuf@{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}!\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}}
+\subsubsection[{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}]{\setlength{\rightskip}{0pt plus 5cm}jmp\+\_\+buf \+\_\+superlu\+\_\+py\+\_\+jmpbuf}\label{__superlu__utils_8c_a474df5043990c511e994dd3839c99acf}
+\hypertarget{__superlu__utils_8c_a154dc8dace4167732139341e2ee0992e}{}\index{\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}!\+\_\+superlumodule\+\_\+memory\+\_\+dict@{\+\_\+superlumodule\+\_\+memory\+\_\+dict}}
+\index{\+\_\+superlumodule\+\_\+memory\+\_\+dict@{\+\_\+superlumodule\+\_\+memory\+\_\+dict}!\+\_\+superlu\+\_\+utils.\+c@{\+\_\+superlu\+\_\+utils.\+c}}
+\subsubsection[{\+\_\+superlumodule\+\_\+memory\+\_\+dict}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ \+\_\+superlumodule\+\_\+memory\+\_\+dict = N\+U\+L\+L}\label{__superlu__utils_8c_a154dc8dace4167732139341e2ee0992e}

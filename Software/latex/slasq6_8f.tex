@@ -1,0 +1,91 @@
+\hypertarget{slasq6_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slasq6.f File Reference}
+\label{slasq6_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slasq6.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slasq6.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slasq6_8f_a847ecd4284d546b78ff81b4f89603ad6}{slasq6} (I0, N0, Z, P\+P, \hyperlink{zeros_8h_af9a0a96e48b21c87d05acd4ed5117ba0}{D\+M\+I\+N}, D\+M\+I\+N1, D\+M\+I\+N2, D\+N, D\+N\+M1, D\+N\+M2)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+S\+Q6} computes one dqd transform in ping-\/pong form. Used by sbdsqr and sstegr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slasq6_8f_a847ecd4284d546b78ff81b4f89603ad6}{}\index{slasq6.\+f@{slasq6.\+f}!slasq6@{slasq6}}
+\index{slasq6@{slasq6}!slasq6.\+f@{slasq6.\+f}}
+\subsubsection[{slasq6}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slasq6 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I0, }
+\item[{integer}]{N0, }
+\item[{real, dimension( $\ast$ )}]{Z, }
+\item[{integer}]{P\+P, }
+\item[{real}]{D\+M\+I\+N, }
+\item[{real}]{D\+M\+I\+N1, }
+\item[{real}]{D\+M\+I\+N2, }
+\item[{real}]{D\+N, }
+\item[{real}]{D\+N\+M1, }
+\item[{real}]{D\+N\+M2}
+\end{DoxyParamCaption}
+)}\label{slasq6_8f_a847ecd4284d546b78ff81b4f89603ad6}
+
+
+{\bfseries S\+L\+A\+S\+Q6} computes one dqd transform in ping-\/pong form. Used by sbdsqr and sstegr. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLASQ6 computes one dqd (shift equal to zero) transform in
+ ping-pong form, with protection against underflow and overflow.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I0} & \begin{DoxyVerb}          I0 is INTEGER
+        First index.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N0} & \begin{DoxyVerb}          N0 is INTEGER
+        Last index.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Z} & \begin{DoxyVerb}          Z is REAL array, dimension ( 4*N )
+        Z holds the qd array. EMIN is stored in Z(4*N0) to avoid
+        an extra argument.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+P} & \begin{DoxyVerb}          PP is INTEGER
+        PP=0 for ping, PP=1 for pong.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+M\+I\+N} & \begin{DoxyVerb}          DMIN is REAL
+        Minimum value of d.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+M\+I\+N1} & \begin{DoxyVerb}          DMIN1 is REAL
+        Minimum value of d, excluding D( N0 ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+M\+I\+N2} & \begin{DoxyVerb}          DMIN2 is REAL
+        Minimum value of d, excluding D( N0 ) and D( N0-1 ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+N} & \begin{DoxyVerb}          DN is REAL
+        d(N0), the last value of d.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+N\+M1} & \begin{DoxyVerb}          DNM1 is REAL
+        d(N0-1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+N\+M2} & \begin{DoxyVerb}          DNM2 is REAL
+        d(N0-2).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

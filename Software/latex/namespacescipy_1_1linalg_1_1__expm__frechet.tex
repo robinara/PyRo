@@ -1,0 +1,269 @@
+\hypertarget{namespacescipy_1_1linalg_1_1__expm__frechet}{}\section{scipy.\+linalg.\+\_\+expm\+\_\+frechet Namespace Reference}
+\label{namespacescipy_1_1linalg_1_1__expm__frechet}\index{scipy.\+linalg.\+\_\+expm\+\_\+frechet@{scipy.\+linalg.\+\_\+expm\+\_\+frechet}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet_ab633291fdace0b29c882d7fa0d3a11f9}{expm\+\_\+frechet}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet_ad2cef451f8d886852528c817f6821988}{expm\+\_\+frechet\+\_\+block\+\_\+enlarge}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet_ad55eaf8fe8d5bc6873d6d14b2bd15894}{expm\+\_\+frechet\+\_\+algo\+\_\+64}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet_a7cead70458b4523e3976d4bfaeb551cd}{vec}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet_ad4270262678edf4c1adbe19bc012dd44}{expm\+\_\+frechet\+\_\+kronform}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet_a8f1234b0cca9c06537a31c9617466d35}{expm\+\_\+cond}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet_ad3291740dbebb68237cef47cb64523d4}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet_ab633291fdace0b29c882d7fa0d3a11f9}{expm\+\_\+frechet}', '\hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet_a8f1234b0cca9c06537a31c9617466d35}{expm\+\_\+cond}'\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet_abd59cd447a91a9c851001c0d511783b9}{ell\+\_\+table\+\_\+61}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Frechet derivative of the matrix exponential.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1__expm__frechet_a8f1234b0cca9c06537a31c9617466d35}{}\index{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}!expm\+\_\+cond@{expm\+\_\+cond}}
+\index{expm\+\_\+cond@{expm\+\_\+cond}!scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}}
+\subsubsection[{expm\+\_\+cond}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+expm\+\_\+frechet.\+expm\+\_\+cond (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__expm__frechet_a8f1234b0cca9c06537a31c9617466d35}
+\begin{DoxyVerb}Relative condition number of the matrix exponential in the Frobenius norm.
+
+.. versionadded:: 0.14.0
+
+Parameters
+----------
+A : 2d array-like
+    Square input matrix with shape (N, N).
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+kappa : float
+    The relative condition number of the matrix exponential
+    in the Frobenius norm
+
+Notes
+-----
+A faster estimate for the condition number in the 1-norm
+has been published but is not yet implemented in scipy.
+
+See also
+--------
+expm : Compute the exponential of a matrix.
+expm_frechet : Compute the Frechet derivative of the matrix exponential.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1__expm__frechet_ab633291fdace0b29c882d7fa0d3a11f9}{}\index{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}!expm\+\_\+frechet@{expm\+\_\+frechet}}
+\index{expm\+\_\+frechet@{expm\+\_\+frechet}!scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}}
+\subsubsection[{expm\+\_\+frechet}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+expm\+\_\+frechet.\+expm\+\_\+frechet (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{E, }
+\item[{}]{method = {\ttfamily None}, }
+\item[{}]{compute\+\_\+expm = {\ttfamily {\bf True}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__expm__frechet_ab633291fdace0b29c882d7fa0d3a11f9}
+\begin{DoxyVerb}Frechet derivative of the matrix exponential of A in the direction E.
+
+.. versionadded:: 0.13.0
+
+Parameters
+----------
+A : (N, N) array_like
+    Matrix of which to take the matrix exponential.
+E : (N, N) array_like
+    Matrix direction in which to take the Frechet derivative.
+method : str, optional
+    Choice of algorithm.  Should be one of
+
+    - `SPS` (default)
+    - `blockEnlarge`
+
+compute_expm : bool, optional
+    Whether to compute also `expm_A` in addition to `expm_frechet_AE`.
+    Default is True.
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+expm_A : ndarray
+    Matrix exponential of A.
+expm_frechet_AE : ndarray
+    Frechet derivative of the matrix exponential of A in the direction E.
+
+For ``compute_expm = False``, only `expm_frechet_AE` is returned.
+
+See also
+--------
+expm : Compute the exponential of a matrix.
+
+Notes
+-----
+This section describes the available implementations that can be selected
+by the `method` parameter. The default method is *SPS*.
+
+Method *blockEnlarge* is a naive algorithm.
+
+Method *SPS* is Scaling-Pade-Squaring [1]_.
+It is a sophisticated implementation which should take
+only about 3/8 as much time as the naive implementation.
+The asymptotics are the same.
+
+References
+----------
+.. [1] Awad H. Al-Mohy and Nicholas J. Higham (2009)
+       Computing the Frechet Derivative of the Matrix Exponential,
+       with an application to Condition Number Estimation.
+       SIAM Journal On Matrix Analysis and Applications.,
+       30 (4). pp. 1639-1657. ISSN 1095-7162
+
+Examples
+--------
+>>> import scipy.linalg
+>>> A = np.random.randn(3, 3)
+>>> E = np.random.randn(3, 3)
+>>> expm_A, expm_frechet_AE = scipy.linalg.expm_frechet(A, E)
+>>> expm_A.shape, expm_frechet_AE.shape
+((3, 3), (3, 3))
+
+>>> import scipy.linalg
+>>> A = np.random.randn(3, 3)
+>>> E = np.random.randn(3, 3)
+>>> expm_A, expm_frechet_AE = scipy.linalg.expm_frechet(A, E)
+>>> M = np.zeros((6, 6))
+>>> M[:3, :3] = A; M[:3, 3:] = E; M[3:, 3:] = A
+>>> expm_M = scipy.linalg.expm(M)
+>>> np.allclose(expm_A, expm_M[:3, :3])
+True
+>>> np.allclose(expm_frechet_AE, expm_M[:3, 3:])
+True\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1__expm__frechet_ad55eaf8fe8d5bc6873d6d14b2bd15894}{}\index{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}!expm\+\_\+frechet\+\_\+algo\+\_\+64@{expm\+\_\+frechet\+\_\+algo\+\_\+64}}
+\index{expm\+\_\+frechet\+\_\+algo\+\_\+64@{expm\+\_\+frechet\+\_\+algo\+\_\+64}!scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}}
+\subsubsection[{expm\+\_\+frechet\+\_\+algo\+\_\+64}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+expm\+\_\+frechet.\+expm\+\_\+frechet\+\_\+algo\+\_\+64 (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{E}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__expm__frechet_ad55eaf8fe8d5bc6873d6d14b2bd15894}
+\hypertarget{namespacescipy_1_1linalg_1_1__expm__frechet_ad2cef451f8d886852528c817f6821988}{}\index{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}!expm\+\_\+frechet\+\_\+block\+\_\+enlarge@{expm\+\_\+frechet\+\_\+block\+\_\+enlarge}}
+\index{expm\+\_\+frechet\+\_\+block\+\_\+enlarge@{expm\+\_\+frechet\+\_\+block\+\_\+enlarge}!scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}}
+\subsubsection[{expm\+\_\+frechet\+\_\+block\+\_\+enlarge}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+expm\+\_\+frechet.\+expm\+\_\+frechet\+\_\+block\+\_\+enlarge (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{E}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__expm__frechet_ad2cef451f8d886852528c817f6821988}
+\begin{DoxyVerb}This is a helper function, mostly for testing and profiling.
+Return expm(A), frechet(A, E)
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1__expm__frechet_ad4270262678edf4c1adbe19bc012dd44}{}\index{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}!expm\+\_\+frechet\+\_\+kronform@{expm\+\_\+frechet\+\_\+kronform}}
+\index{expm\+\_\+frechet\+\_\+kronform@{expm\+\_\+frechet\+\_\+kronform}!scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}}
+\subsubsection[{expm\+\_\+frechet\+\_\+kronform}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+expm\+\_\+frechet.\+expm\+\_\+frechet\+\_\+kronform (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{method = {\ttfamily None}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__expm__frechet_ad4270262678edf4c1adbe19bc012dd44}
+\begin{DoxyVerb}Construct the Kronecker form of the Frechet derivative of expm.
+
+Parameters
+----------
+A : array-like with shape (N, N)
+    Matrix to be expm'd.
+method : str, optional
+    Extra keyword to be passed to expm_frechet.
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+K : 2d ndarray with shape (N*N, N*N)
+    Kronecker form of the Frechet derivative of the matrix exponential.
+
+Notes
+-----
+This function is used to help compute the condition number
+of the matrix exponential.
+
+See also
+--------
+expm : Compute a matrix exponential.
+expm_frechet : Compute the Frechet derivative of the matrix exponential.
+expm_cond : Compute the relative condition number of the matrix exponential
+            in the Frobenius norm.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1__expm__frechet_a7cead70458b4523e3976d4bfaeb551cd}{}\index{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}!vec@{vec}}
+\index{vec@{vec}!scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}}
+\subsubsection[{vec}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+\_\+expm\+\_\+frechet.\+vec (
+\begin{DoxyParamCaption}
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1__expm__frechet_a7cead70458b4523e3976d4bfaeb551cd}
+\begin{DoxyVerb}Stack columns of M to construct a single vector.
+
+This is somewhat standard notation in linear algebra.
+
+Parameters
+----------
+M : 2d array-like
+    Input matrix
+
+Returns
+-------
+v : 1d ndarray
+    Output vector\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1__expm__frechet_ad3291740dbebb68237cef47cb64523d4}{}\index{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+linalg.\+\_\+expm\+\_\+frechet.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf expm\+\_\+frechet}', '{\bf expm\+\_\+cond}'\mbox{]}}\label{namespacescipy_1_1linalg_1_1__expm__frechet_ad3291740dbebb68237cef47cb64523d4}
+\hypertarget{namespacescipy_1_1linalg_1_1__expm__frechet_abd59cd447a91a9c851001c0d511783b9}{}\index{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}!ell\+\_\+table\+\_\+61@{ell\+\_\+table\+\_\+61}}
+\index{ell\+\_\+table\+\_\+61@{ell\+\_\+table\+\_\+61}!scipy\+::linalg\+::\+\_\+expm\+\_\+frechet@{scipy\+::linalg\+::\+\_\+expm\+\_\+frechet}}
+\subsubsection[{ell\+\_\+table\+\_\+61}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+linalg.\+\_\+expm\+\_\+frechet.\+ell\+\_\+table\+\_\+61}\label{namespacescipy_1_1linalg_1_1__expm__frechet_abd59cd447a91a9c851001c0d511783b9}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = (
+2         \textcolor{keywordtype}{None},
+3         \textcolor{comment}{# 1}
+4         2.11e-8,
+5         3.56e-4,
+6         1.08e-2,
+7         6.49e-2,
+8         2.00e-1,
+9         4.37e-1,
+10         7.83e-1,
+11         1.23e0,
+12         1.78e0,
+13         2.42e0,
+14         \textcolor{comment}{# 11}
+15         3.13e0,
+16         3.90e0,
+17         4.74e0,
+18         5.63e0,
+19         6.56e0,
+20         7.52e0,
+21         8.53e0,
+22         9.56e0,
+23         1.06e1,
+24         1.17e1,
+25         )
+\end{DoxyCode}

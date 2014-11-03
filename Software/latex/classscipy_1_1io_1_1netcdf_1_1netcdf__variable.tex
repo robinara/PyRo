@@ -1,0 +1,248 @@
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable}{}\section{scipy.\+io.\+netcdf.\+netcdf\+\_\+variable Class Reference}
+\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable}\index{scipy.\+io.\+netcdf.\+netcdf\+\_\+variable@{scipy.\+io.\+netcdf.\+netcdf\+\_\+variable}}
+Inheritance diagram for scipy.\+io.\+netcdf.\+netcdf\+\_\+variable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1io_1_1netcdf_1_1netcdf__variable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a604e1e2f3b6dccc7ef97bbd55afc63fc}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_ae2839de88e2d1a1f433aa6c22f0a56eb}{\+\_\+\+\_\+setattr\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a3b36b098ec8253bedbd82810198cb253}{isrec}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_aca210ea4bfbe89ca4c0e45e4950ea463}{shape}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a741b07aa02c5e8c084219b27f7e59bc3}{get\+Value}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a198a1a4714cfbe3e16e11c2eee8cddd3}{assign\+Value}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a19104e4ac250b0d63e580f73a6442094}{typecode}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a6e514b6be6e5282bacc76bfbf0f1e581}{itemsize}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a921e551b1e2fdb4cfb3421edcc813193}{\+\_\+\+\_\+getitem\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_abd36d0f04fafdf0bcd9005dbecc9c12a}{\+\_\+\+\_\+setitem\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_af2732419bf02d00fc56de0296af8100e}{data}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a98ecf2e25172a515f13f3e8cdb9d1f55}{dimensions}
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_aeff5d12ab64549605fbd15bd22489e2d}{isrec} = property(isrec)
+\item 
+\hyperlink{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_ada88b70101cf92620e9653eea8b0fa34}{shape} = property(shape)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}A data object for the `netcdf` module.
+
+`netcdf_variable` objects are constructed by calling the method
+`netcdf_file.createVariable` on the `netcdf_file` object. `netcdf_variable`
+objects behave much like array objects defined in numpy, except that their
+data resides in a file. Data is read by indexing and written by assigning
+to an indexed subset; the entire array can be accessed by the index ``[:]``
+or (for scalars) by using the methods `getValue` and `assignValue`.
+`netcdf_variable` objects also have attribute `shape` with the same meaning
+as for arrays, but the shape cannot be modified. There is another read-only
+attribute `dimensions`, whose value is the tuple of dimension names.
+
+All other attributes correspond to variable attributes defined in
+the NetCDF file. Variable attributes are created by assigning to an
+attribute of the `netcdf_variable` object.
+
+Parameters
+----------
+data : array_like
+    The data array that holds the values for the variable.
+    Typically, this is initialized as empty, but with the proper shape.
+typecode : dtype character code
+    Desired data-type for the data array.
+size : int
+    Desired element size for the data array.
+shape : sequence of ints
+    The shape of the array.  This should match the lengths of the
+    variable's dimensions.
+dimensions : sequence of strings
+    The names of the dimensions used by the variable.  Must be in the
+    same order of the dimension lengths given by `shape`.
+attributes : dict, optional
+    Attribute values (any type) keyed by string names.  These attributes
+    become attributes for the netcdf_variable object.
+
+
+Attributes
+----------
+dimensions : list of str
+    List of names of dimensions used by the variable object.
+isrec, shape
+    Properties
+
+See also
+--------
+isrec, shape\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a604e1e2f3b6dccc7ef97bbd55afc63fc}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{data, }
+\item[{}]{typecode, }
+\item[{}]{size, }
+\item[{}]{shape, }
+\item[{}]{dimensions, }
+\item[{}]{attributes = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a604e1e2f3b6dccc7ef97bbd55afc63fc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a921e551b1e2fdb4cfb3421edcc813193}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!\+\_\+\+\_\+getitem\+\_\+\+\_\+@{\+\_\+\+\_\+getitem\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+getitem\+\_\+\+\_\+@{\+\_\+\+\_\+getitem\+\_\+\+\_\+}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{\+\_\+\+\_\+getitem\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+\_\+\+\_\+getitem\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{index}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a921e551b1e2fdb4cfb3421edcc813193}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_ae2839de88e2d1a1f433aa6c22f0a56eb}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!\+\_\+\+\_\+setattr\+\_\+\+\_\+@{\+\_\+\+\_\+setattr\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+setattr\+\_\+\+\_\+@{\+\_\+\+\_\+setattr\+\_\+\+\_\+}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{\+\_\+\+\_\+setattr\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+\_\+\+\_\+setattr\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{attr, }
+\item[{}]{value}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_ae2839de88e2d1a1f433aa6c22f0a56eb}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_abd36d0f04fafdf0bcd9005dbecc9c12a}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!\+\_\+\+\_\+setitem\+\_\+\+\_\+@{\+\_\+\+\_\+setitem\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+setitem\+\_\+\+\_\+@{\+\_\+\+\_\+setitem\+\_\+\+\_\+}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{\+\_\+\+\_\+setitem\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+\_\+\+\_\+setitem\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{index, }
+\item[{}]{data}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_abd36d0f04fafdf0bcd9005dbecc9c12a}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a198a1a4714cfbe3e16e11c2eee8cddd3}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!assign\+Value@{assign\+Value}}
+\index{assign\+Value@{assign\+Value}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{assign\+Value}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+assign\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{value}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a198a1a4714cfbe3e16e11c2eee8cddd3}
+\begin{DoxyVerb}Assign a scalar value to a `netcdf_variable` of length one.
+
+Parameters
+----------
+value : scalar
+    Scalar value (of compatible type) to assign to a length-one netcdf
+    variable. This value will be written to file.
+
+Raises
+------
+ValueError
+    If the input is not a scalar, or if the destination is not a length-one
+    netcdf variable.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a741b07aa02c5e8c084219b27f7e59bc3}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{get\+Value}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+get\+Value (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a741b07aa02c5e8c084219b27f7e59bc3}
+\begin{DoxyVerb}Retrieve a scalar value from a `netcdf_variable` of length one.
+
+Raises
+------
+ValueError
+    If the netcdf variable is an array of length greater than one,
+    this exception will be raised.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a3b36b098ec8253bedbd82810198cb253}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!isrec@{isrec}}
+\index{isrec@{isrec}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{isrec}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+isrec (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a3b36b098ec8253bedbd82810198cb253}
+\begin{DoxyVerb}Returns whether the variable has a record dimension or not.
+
+A record dimension is a dimension along which additional data could be
+easily appended in the netcdf data structure without much rewriting of
+the data file. This attribute is a read-only property of the
+`netcdf_variable`.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a6e514b6be6e5282bacc76bfbf0f1e581}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!itemsize@{itemsize}}
+\index{itemsize@{itemsize}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{itemsize}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+itemsize (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a6e514b6be6e5282bacc76bfbf0f1e581}
+\begin{DoxyVerb}Return the itemsize of the variable.
+
+Returns
+-------
+itemsize : int
+    The element size of the variable (eg, 8 for float64).\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_aca210ea4bfbe89ca4c0e45e4950ea463}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!shape@{shape}}
+\index{shape@{shape}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{shape}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+shape (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_aca210ea4bfbe89ca4c0e45e4950ea463}
+\begin{DoxyVerb}Returns the shape tuple of the data variable.
+
+This is a read-only attribute and can not be modified in the
+same manner of other numpy arrays.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a19104e4ac250b0d63e580f73a6442094}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!typecode@{typecode}}
+\index{typecode@{typecode}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{typecode}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+typecode (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a19104e4ac250b0d63e580f73a6442094}
+\begin{DoxyVerb}Return the typecode of the variable.
+
+Returns
+-------
+typecode : char
+    The character typecode of the variable (eg, 'i' for int).\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_af2732419bf02d00fc56de0296af8100e}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!data@{data}}
+\index{data@{data}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+data}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_af2732419bf02d00fc56de0296af8100e}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a98ecf2e25172a515f13f3e8cdb9d1f55}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!dimensions@{dimensions}}
+\index{dimensions@{dimensions}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{dimensions}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+dimensions}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_a98ecf2e25172a515f13f3e8cdb9d1f55}
+
+
+\subsection{Property Documentation}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_aeff5d12ab64549605fbd15bd22489e2d}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!isrec@{isrec}}
+\index{isrec@{isrec}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{isrec}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+isrec = property(isrec)\hspace{0.3cm}{\ttfamily [static]}}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_aeff5d12ab64549605fbd15bd22489e2d}
+\hypertarget{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_ada88b70101cf92620e9653eea8b0fa34}{}\index{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}!shape@{shape}}
+\index{shape@{shape}!scipy\+::io\+::netcdf\+::netcdf\+\_\+variable@{scipy\+::io\+::netcdf\+::netcdf\+\_\+variable}}
+\subsubsection[{shape}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+netcdf.\+netcdf\+\_\+variable.\+shape = property(shape)\hspace{0.3cm}{\ttfamily [static]}}\label{classscipy_1_1io_1_1netcdf_1_1netcdf__variable_ada88b70101cf92620e9653eea8b0fa34}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/io/\hyperlink{netcdf_8py}{netcdf.\+py}\end{DoxyCompactItemize}

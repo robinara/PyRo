@@ -1,0 +1,83 @@
+\hypertarget{VARIANTS_2lu_2LL_2cgetrf_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/\+V\+A\+R\+I\+A\+N\+T\+S/lu/\+L\+L/cgetrf.f File Reference}
+\label{VARIANTS_2lu_2LL_2cgetrf_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/\+V\+A\+R\+I\+A\+N\+T\+S/lu/\+L\+L/cgetrf.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/\+V\+A\+R\+I\+A\+N\+T\+S/lu/\+L\+L/cgetrf.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{VARIANTS_2lu_2LL_2cgetrf_8f_aed8e85049ecfb314d259bfdb3908a60d}{cgetrf} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+P\+I\+V, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+G\+E\+T\+R\+F} V\+A\+R\+I\+A\+N\+T\+: left-\/looking Level 3 B\+L\+A\+S version of the algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{VARIANTS_2lu_2LL_2cgetrf_8f_aed8e85049ecfb314d259bfdb3908a60d}{}\index{V\+A\+R\+I\+A\+N\+T\+S/lu/\+L\+L/cgetrf.\+f@{V\+A\+R\+I\+A\+N\+T\+S/lu/\+L\+L/cgetrf.\+f}!cgetrf@{cgetrf}}
+\index{cgetrf@{cgetrf}!V\+A\+R\+I\+A\+N\+T\+S/lu/\+L\+L/cgetrf.\+f@{V\+A\+R\+I\+A\+N\+T\+S/lu/\+L\+L/cgetrf.\+f}}
+\subsubsection[{cgetrf}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cgetrf (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{VARIANTS_2lu_2LL_2cgetrf_8f_aed8e85049ecfb314d259bfdb3908a60d}
+
+
+{\bfseries C\+G\+E\+T\+R\+F} V\+A\+R\+I\+A\+N\+T\+: left-\/looking Level 3 B\+L\+A\+S version of the algorithm. 
+
+{\bfseries Purpose\+:} \begin{DoxyVerb} CGETRF computes an LU factorization of a general M-by-N matrix A
+ using partial pivoting with row interchanges.
+
+ The factorization has the form
+    A = P * L * U
+ where P is a permutation matrix, L is lower triangular with unit
+ diagonal elements (lower trapezoidal if m > n), and U is upper
+ triangular (upper trapezoidal if m < n).
+
+ This is the left-looking Level 3 BLAS version of the algorithm.\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A.  M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          On entry, the M-by-N matrix to be factored.
+          On exit, the factors L and U from the factorization
+          A = P*L*U; the unit diagonal elements of L are not stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (min(M,N))
+          The pivot indices; for 1 <= i <= min(M,N), row i of the
+          matrix was interchanged with row IPIV(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i, U(i,i) is exactly zero. The factorization
+                has been completed, but the factor U is exactly
+                singular, and division by zero will occur if it is used
+                to solve a system of equations.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

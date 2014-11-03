@@ -1,0 +1,116 @@
+\hypertarget{namespacescipy_1_1io_1_1mmio}{}\section{scipy.\+io.\+mmio Namespace Reference}
+\label{namespacescipy_1_1io_1_1mmio}\index{scipy.\+io.\+mmio@{scipy.\+io.\+mmio}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1io_1_1mmio_1_1MMFile}{M\+M\+File}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1io_1_1mmio_afa0d5d7e918a5f53d284fc172ada6e8b}{mminfo}
+\item 
+def \hyperlink{namespacescipy_1_1io_1_1mmio_a02a409773ea82c94dc360024b6ac6f4a}{mmread}
+\item 
+def \hyperlink{namespacescipy_1_1io_1_1mmio_a18cd344ea8fa15889cf854af92ac4fbc}{mmwrite}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1io_1_1mmio_a04d5a5aaa4b830185be9b855e4a40090}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1io_1_1mmio_afa0d5d7e918a5f53d284fc172ada6e8b}{mminfo}','\hyperlink{namespacescipy_1_1io_1_1mmio_a02a409773ea82c94dc360024b6ac6f4a}{mmread}','\hyperlink{namespacescipy_1_1io_1_1mmio_a18cd344ea8fa15889cf854af92ac4fbc}{mmwrite}', '\hyperlink{classscipy_1_1io_1_1mmio_1_1MMFile}{M\+M\+File}'\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1io_1_1mmio_a0580a316597da83a0ecbaf3025a0414e}{t} = time.\+time()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}  Matrix Market I/O in Python.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1io_1_1mmio_afa0d5d7e918a5f53d284fc172ada6e8b}{}\index{scipy\+::io\+::mmio@{scipy\+::io\+::mmio}!mminfo@{mminfo}}
+\index{mminfo@{mminfo}!scipy\+::io\+::mmio@{scipy\+::io\+::mmio}}
+\subsubsection[{mminfo}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+mmio.\+mminfo (
+\begin{DoxyParamCaption}
+\item[{}]{source}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1io_1_1mmio_afa0d5d7e918a5f53d284fc172ada6e8b}
+\begin{DoxyVerb}Queries the contents of the Matrix Market file 'filename' to
+extract size and storage information.
+
+Parameters
+----------
+
+source : file
+    Matrix Market filename (extension .mtx) or open file object
+
+Returns
+-------
+
+rows,cols : int
+   Number of matrix rows and columns
+entries : int
+    Number of non-zero entries of a sparse matrix
+    or rows*cols for a dense matrix
+format : str
+    Either 'coordinate' or 'array'.
+field : str
+    Either 'real', 'complex', 'pattern', or 'integer'.
+symm : str
+    Either 'general', 'symmetric', 'skew-symmetric', or 'hermitian'.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1io_1_1mmio_a02a409773ea82c94dc360024b6ac6f4a}{}\index{scipy\+::io\+::mmio@{scipy\+::io\+::mmio}!mmread@{mmread}}
+\index{mmread@{mmread}!scipy\+::io\+::mmio@{scipy\+::io\+::mmio}}
+\subsubsection[{mmread}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+mmio.\+mmread (
+\begin{DoxyParamCaption}
+\item[{}]{source}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1io_1_1mmio_a02a409773ea82c94dc360024b6ac6f4a}
+\begin{DoxyVerb}Reads the contents of a Matrix Market file 'filename' into a matrix.
+
+Parameters
+----------
+
+source : file
+    Matrix Market filename (extensions .mtx, .mtz.gz)
+    or open file object.
+
+Returns
+-------
+a:
+    Sparse or full matrix\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1io_1_1mmio_a18cd344ea8fa15889cf854af92ac4fbc}{}\index{scipy\+::io\+::mmio@{scipy\+::io\+::mmio}!mmwrite@{mmwrite}}
+\index{mmwrite@{mmwrite}!scipy\+::io\+::mmio@{scipy\+::io\+::mmio}}
+\subsubsection[{mmwrite}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+mmio.\+mmwrite (
+\begin{DoxyParamCaption}
+\item[{}]{target, }
+\item[{}]{a, }
+\item[{}]{comment = {\ttfamily ''}, }
+\item[{}]{field = {\ttfamily None}, }
+\item[{}]{precision = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1io_1_1mmio_a18cd344ea8fa15889cf854af92ac4fbc}
+\begin{DoxyVerb}Writes the sparse or dense array `a` to a Matrix Market formatted file.
+
+Parameters
+----------
+target : file
+    Matrix Market filename (extension .mtx) or open file object
+a : array like
+    Sparse or dense 2D array
+comment : str, optional
+    comments to be prepended to the Matrix Market file
+field : None or str, optional
+    Either 'real', 'complex', 'pattern', or 'integer'.
+precision : None or int, optional
+    Number of digits to display for real or complex values.
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1io_1_1mmio_a04d5a5aaa4b830185be9b855e4a40090}{}\index{scipy\+::io\+::mmio@{scipy\+::io\+::mmio}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::io\+::mmio@{scipy\+::io\+::mmio}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+io.\+mmio.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf mminfo}','{\bf mmread}','{\bf mmwrite}', '{\bf M\+M\+File}'\mbox{]}}\label{namespacescipy_1_1io_1_1mmio_a04d5a5aaa4b830185be9b855e4a40090}
+\hypertarget{namespacescipy_1_1io_1_1mmio_a0580a316597da83a0ecbaf3025a0414e}{}\index{scipy\+::io\+::mmio@{scipy\+::io\+::mmio}!t@{t}}
+\index{t@{t}!scipy\+::io\+::mmio@{scipy\+::io\+::mmio}}
+\subsubsection[{t}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+io.\+mmio.\+t = time.\+time()}\label{namespacescipy_1_1io_1_1mmio_a0580a316597da83a0ecbaf3025a0414e}

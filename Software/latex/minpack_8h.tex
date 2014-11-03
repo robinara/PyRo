@@ -1,0 +1,190 @@
+\hypertarget{minpack_8h}{}\section{packages/scipy-\/0.14.0/scipy/optimize/minpack.h File Reference}
+\label{minpack_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/optimize/minpack.\+h@{packages/scipy-\/0.\+14.\+0/scipy/optimize/minpack.\+h}}
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}numpy/arrayobject.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{minpack_8h_a718693babfa893da17b1d586aa77c4a8}{P\+Y\+E\+R\+R}(errobj,  message)~\{Py\+Err\+\_\+\+Set\+String(errobj,message); goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail};\}
+\item 
+\#define \hyperlink{minpack_8h_aefd5acc2a1fab9899a820e1a9bc2bb2a}{P\+Y\+E\+R\+R2}(errobj,  message)~\{Py\+Err\+\_\+\+Print(); Py\+Err\+\_\+\+Set\+String(errobj, message); goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail};\}
+\item 
+\#define \hyperlink{minpack_8h_a31ddc3bae85ae4bfc4e7b4557fb9744e}{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})~((\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})-\/$>$flags \& N\+P\+Y\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S)
+\item 
+\#define \hyperlink{minpack_8h_a415512318d39ce403010a76819a5cd8a}{S\+T\+O\+R\+E\+\_\+\+V\+A\+R\+S}()~Py\+Object $\ast$store\+\_\+multipack\+\_\+globals\mbox{[}4\mbox{]}; int store\+\_\+multipack\+\_\+globals3;
+\item 
+\#define \hyperlink{minpack_8h_a936ac7880ff498a22471db53377adbe1}{I\+N\+I\+T\+\_\+\+F\+U\+N\+C}(fun,  arg,  errobj)
+\item 
+\#define \hyperlink{minpack_8h_a8e35f40e389bfddc3b7d8d8e5c0aa344}{I\+N\+I\+T\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C}(fun,  Dfun,  arg,  col\+\_\+deriv,  errobj)
+\item 
+\#define \hyperlink{minpack_8h_a091122cf1ad8839de6ee094c4f56e615}{R\+E\+S\+T\+O\+R\+E\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C}()
+\item 
+\#define \hyperlink{minpack_8h_a4b4cb591ce86e6a2887664b86b4a4e0c}{R\+E\+S\+T\+O\+R\+E\+\_\+\+F\+U\+N\+C}()
+\item 
+\#define \hyperlink{minpack_8h_a53bd8ee0b4e9dca33a0cc0888872ff4a}{S\+E\+T\+\_\+\+D\+I\+A\+G}(ap\+\_\+diag,  o\+\_\+diag,  mode)
+\item 
+\#define \hyperlink{minpack_8h_aacd70608dcccaba2f2ab40c26426f02a}{M\+A\+T\+R\+I\+X\+C2\+F}(jac,  data,  \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m},  \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{minpack_8h_a936ac7880ff498a22471db53377adbe1}{}\index{minpack.\+h@{minpack.\+h}!I\+N\+I\+T\+\_\+\+F\+U\+N\+C@{I\+N\+I\+T\+\_\+\+F\+U\+N\+C}}
+\index{I\+N\+I\+T\+\_\+\+F\+U\+N\+C@{I\+N\+I\+T\+\_\+\+F\+U\+N\+C}!minpack.\+h@{minpack.\+h}}
+\subsubsection[{I\+N\+I\+T\+\_\+\+F\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+I\+T\+\_\+\+F\+U\+N\+C(
+\begin{DoxyParamCaption}
+\item[{}]{fun, }
+\item[{}]{arg, }
+\item[{}]{errobj}
+\end{DoxyParamCaption}
+)}\label{minpack_8h_a936ac7880ff498a22471db53377adbe1}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{ \textcolor{comment}{/* Get extra arguments or set to zero length tuple */} \(\backslash\)
+  store\_multipack\_globals[0] = multipack\_python\_function; \(\backslash\)
+  store\_multipack\_globals[1] = multipack\_extra\_arguments; \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{  if} (arg == NULL) \{ \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} ((arg = PyTuple\_New(0)) == NULL) goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail}; \(\backslash\)
+  \} \(\backslash\)
+  \hyperlink{scores_8php_a0544c3fe466e421738dae463968b70ba}{else} \(\backslash\)
+    Py\_INCREF(arg);   \textcolor{comment}{/* We decrement on exit. */} \(\backslash\)
+  \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{if} (!PyTuple\_Check(arg))  \(\backslash\)
+    \hyperlink{minpack_8h_a718693babfa893da17b1d586aa77c4a8}{PYERR}(errobj,"Extra Arguments must be in \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a} tuple"); \(\backslash\)
+  \textcolor{comment}{/* Set up callback functions */} \(\backslash\)
+  \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{if} (!PyCallable\_Check(\hyperlink{namespacetest__functions_a91e1d6e5b527a34f6c6622f37a542408}{fun})) \(\backslash\)
+    \hyperlink{minpack_8h_a718693babfa893da17b1d586aa77c4a8}{PYERR}(errobj,"First argument must be \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a} \hyperlink{namespacescipy_1_1lib_1_1six_a34f8491a2018193d0312c430025511cf}{callable} \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function}."); \(\backslash\)
+  multipack\_python\_function = \hyperlink{namespacetest__functions_a91e1d6e5b527a34f6c6622f37a542408}{fun}; \(\backslash\)
+  multipack\_extra\_arguments = arg; \}
+\end{DoxyCode}
+\hypertarget{minpack_8h_a8e35f40e389bfddc3b7d8d8e5c0aa344}{}\index{minpack.\+h@{minpack.\+h}!I\+N\+I\+T\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C@{I\+N\+I\+T\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C}}
+\index{I\+N\+I\+T\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C@{I\+N\+I\+T\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C}!minpack.\+h@{minpack.\+h}}
+\subsubsection[{I\+N\+I\+T\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+I\+T\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C(
+\begin{DoxyParamCaption}
+\item[{}]{fun, }
+\item[{}]{Dfun, }
+\item[{}]{arg, }
+\item[{}]{col\+\_\+deriv, }
+\item[{}]{errobj}
+\end{DoxyParamCaption}
+)}\label{minpack_8h_a8e35f40e389bfddc3b7d8d8e5c0aa344}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{ \(\backslash\)
+  store\_multipack\_globals[0] = multipack\_python\_function; \(\backslash\)
+  store\_multipack\_globals[1] = multipack\_extra\_arguments; \(\backslash\)
+  store\_multipack\_globals[2] = multipack\_python\_jacobian; \(\backslash\)
+  store\_multipack\_globals3 = multipack\_jac\_transpose; \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{  if} (arg == NULL) \{ \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} ((arg = PyTuple\_New(0)) == NULL) goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail}; \(\backslash\)
+  \} \(\backslash\)
+  \hyperlink{scores_8php_a0544c3fe466e421738dae463968b70ba}{else} \(\backslash\)
+    Py\_INCREF(arg);   \textcolor{comment}{/* We decrement on exit. */} \(\backslash\)
+  \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{if} (!PyTuple\_Check(arg))  \(\backslash\)
+    \hyperlink{minpack_8h_a718693babfa893da17b1d586aa77c4a8}{PYERR}(errobj,"Extra Arguments must be in \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a} tuple"); \(\backslash\)
+  \textcolor{comment}{/* Set up callback functions */} \(\backslash\)
+  \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{if} (!PyCallable\_Check(\hyperlink{namespacetest__functions_a91e1d6e5b527a34f6c6622f37a542408}{fun}) || (Dfun != Py\_None && !PyCallable\_Check(Dfun))) \(\backslash\)
+    \hyperlink{minpack_8h_a718693babfa893da17b1d586aa77c4a8}{PYERR}(errobj,"The \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} and its Jacobian must be \hyperlink{namespacescipy_1_1lib_1_1six_a34f8491a2018193d0312c430025511cf}{callable} 
+      \hyperlink{namespacescipy_1_1optimize_1_1__tstutils_aa538ac08b578db63df31a1cb775ba16e}{functions}."); \(\backslash\)
+  multipack\_python\_function = \hyperlink{namespacetest__functions_a91e1d6e5b527a34f6c6622f37a542408}{fun}; \(\backslash\)
+  multipack\_extra\_arguments = arg; \(\backslash\)
+  multipack\_python\_jacobian = Dfun; \(\backslash\)
+  multipack\_jac\_transpose = !(col\_deriv);\}
+\end{DoxyCode}
+\hypertarget{minpack_8h_a31ddc3bae85ae4bfc4e7b4557fb9744e}{}\index{minpack.\+h@{minpack.\+h}!I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}}
+\index{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}!minpack.\+h@{minpack.\+h}}
+\subsubsection[{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf m}}
+\end{DoxyParamCaption}
+)~(({\bf m})-\/$>$flags \& N\+P\+Y\+\_\+\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S)}\label{minpack_8h_a31ddc3bae85ae4bfc4e7b4557fb9744e}
+\hypertarget{minpack_8h_aacd70608dcccaba2f2ab40c26426f02a}{}\index{minpack.\+h@{minpack.\+h}!M\+A\+T\+R\+I\+X\+C2\+F@{M\+A\+T\+R\+I\+X\+C2\+F}}
+\index{M\+A\+T\+R\+I\+X\+C2\+F@{M\+A\+T\+R\+I\+X\+C2\+F}!minpack.\+h@{minpack.\+h}}
+\subsubsection[{M\+A\+T\+R\+I\+X\+C2\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+T\+R\+I\+X\+C2\+F(
+\begin{DoxyParamCaption}
+\item[{}]{jac, }
+\item[{}]{data, }
+\item[{}]{{\bf m}, }
+\item[{}]{{\bf n}}
+\end{DoxyParamCaption}
+)}\label{minpack_8h_aacd70608dcccaba2f2ab40c26426f02a}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{\textcolor{keywordtype}{double} *\hyperlink{namespaceappchooser_a0666ded3ab0286b6d03073e3a3c8c578}{p1}=(\textcolor{keywordtype}{double} *)(\hyperlink{namespacetest__integrate_a866e640746c2e764bed2216f4b0cab19}{jac}), *\hyperlink{namespaceappchooser_a64961f0ddcc5bc14c7ae51cc891f6d05}{p2}, *\hyperlink{namespaceappchooser_a5b229def25670d69ce74fb6b77c1ca4e}{p3}=(\textcolor{keywordtype}{double} *)(\hyperlink{namespacerecvTCP_a0e0f0e6192ae60f55f3d0ae1dc030b34}{data});\(\backslash\)
+int \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i},\hyperlink{indexexpr_8h_aa1f3325d66516548e69238097857fa98}{j};\(\backslash\)
+for (j=0;j<(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m});p3++,j++) \(\backslash\)
+  \textcolor{keywordflow}{for} (\hyperlink{namespaceappchooser_a64961f0ddcc5bc14c7ae51cc891f6d05}{p2}=p3,i=0;i<(\hyperlink{zfftnd_8c_a26948bc8ff324639017f84eea844bb34}{n});\hyperlink{namespaceappchooser_a64961f0ddcc5bc14c7ae51cc891f6d05}{p2}+=(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}),i++,p1++) \(\backslash\)
+    *p1 = *\hyperlink{namespaceappchooser_a64961f0ddcc5bc14c7ae51cc891f6d05}{p2}; \}
+\end{DoxyCode}
+\hypertarget{minpack_8h_a718693babfa893da17b1d586aa77c4a8}{}\index{minpack.\+h@{minpack.\+h}!P\+Y\+E\+R\+R@{P\+Y\+E\+R\+R}}
+\index{P\+Y\+E\+R\+R@{P\+Y\+E\+R\+R}!minpack.\+h@{minpack.\+h}}
+\subsubsection[{P\+Y\+E\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+E\+R\+R(
+\begin{DoxyParamCaption}
+\item[{}]{errobj, }
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~\{Py\+Err\+\_\+\+Set\+String(errobj,message); goto {\bf fail};\}}\label{minpack_8h_a718693babfa893da17b1d586aa77c4a8}
+\hypertarget{minpack_8h_aefd5acc2a1fab9899a820e1a9bc2bb2a}{}\index{minpack.\+h@{minpack.\+h}!P\+Y\+E\+R\+R2@{P\+Y\+E\+R\+R2}}
+\index{P\+Y\+E\+R\+R2@{P\+Y\+E\+R\+R2}!minpack.\+h@{minpack.\+h}}
+\subsubsection[{P\+Y\+E\+R\+R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+E\+R\+R2(
+\begin{DoxyParamCaption}
+\item[{}]{errobj, }
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~\{Py\+Err\+\_\+\+Print(); Py\+Err\+\_\+\+Set\+String(errobj, message); goto {\bf fail};\}}\label{minpack_8h_aefd5acc2a1fab9899a820e1a9bc2bb2a}
+\hypertarget{minpack_8h_a4b4cb591ce86e6a2887664b86b4a4e0c}{}\index{minpack.\+h@{minpack.\+h}!R\+E\+S\+T\+O\+R\+E\+\_\+\+F\+U\+N\+C@{R\+E\+S\+T\+O\+R\+E\+\_\+\+F\+U\+N\+C}}
+\index{R\+E\+S\+T\+O\+R\+E\+\_\+\+F\+U\+N\+C@{R\+E\+S\+T\+O\+R\+E\+\_\+\+F\+U\+N\+C}!minpack.\+h@{minpack.\+h}}
+\subsubsection[{R\+E\+S\+T\+O\+R\+E\+\_\+\+F\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+S\+T\+O\+R\+E\+\_\+\+F\+U\+N\+C(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{minpack_8h_a4b4cb591ce86e6a2887664b86b4a4e0c}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+multipack\_python\_function = store\_multipack\_globals[0]; \(\backslash\)
+  multipack\_extra\_arguments = store\_multipack\_globals[1];
+\end{DoxyCode}
+\hypertarget{minpack_8h_a091122cf1ad8839de6ee094c4f56e615}{}\index{minpack.\+h@{minpack.\+h}!R\+E\+S\+T\+O\+R\+E\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C@{R\+E\+S\+T\+O\+R\+E\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C}}
+\index{R\+E\+S\+T\+O\+R\+E\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C@{R\+E\+S\+T\+O\+R\+E\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C}!minpack.\+h@{minpack.\+h}}
+\subsubsection[{R\+E\+S\+T\+O\+R\+E\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+S\+T\+O\+R\+E\+\_\+\+J\+A\+C\+\_\+\+F\+U\+N\+C(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{minpack_8h_a091122cf1ad8839de6ee094c4f56e615}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+multipack\_python\_function = store\_multipack\_globals[0]; \(\backslash\)
+  multipack\_extra\_arguments = store\_multipack\_globals[1]; \(\backslash\)
+  multipack\_python\_jacobian = store\_multipack\_globals[2]; \(\backslash\)
+  multipack\_jac\_transpose = store\_multipack\_globals3;
+\end{DoxyCode}
+\hypertarget{minpack_8h_a53bd8ee0b4e9dca33a0cc0888872ff4a}{}\index{minpack.\+h@{minpack.\+h}!S\+E\+T\+\_\+\+D\+I\+A\+G@{S\+E\+T\+\_\+\+D\+I\+A\+G}}
+\index{S\+E\+T\+\_\+\+D\+I\+A\+G@{S\+E\+T\+\_\+\+D\+I\+A\+G}!minpack.\+h@{minpack.\+h}}
+\subsubsection[{S\+E\+T\+\_\+\+D\+I\+A\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+T\+\_\+\+D\+I\+A\+G(
+\begin{DoxyParamCaption}
+\item[{}]{ap\+\_\+diag, }
+\item[{}]{o\+\_\+diag, }
+\item[{}]{mode}
+\end{DoxyParamCaption}
+)}\label{minpack_8h_a53bd8ee0b4e9dca33a0cc0888872ff4a}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{ \textcolor{comment}{/* Set the diag vector from input */} \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{  if} (o\_diag == NULL || o\_diag == Py\_None) \{ \(\backslash\)
+    ap\_diag = (PyArrayObject *)PyArray\_SimpleNew(1,&\hyperlink{zfftnd_8c_a26948bc8ff324639017f84eea844bb34}{n},NPY\_DOUBLE); \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} (ap\_diag == NULL) goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail}; \(\backslash\)
+    diag = (\textcolor{keywordtype}{double} *)ap\_diag -> \hyperlink{namespacerecvTCP_a0e0f0e6192ae60f55f3d0ae1dc030b34}{data}; \(\backslash\)
+    \hyperlink{namespacescipy_1_1stats_1_1mstats__basic_a5da6ab6d6a72889a86658849b207b4e3}{mode} = 1; \(\backslash\)
+  \} \(\backslash\)
+  \hyperlink{scores_8php_a0544c3fe466e421738dae463968b70ba}{else} \{ \(\backslash\)
+    ap\_diag = (PyArrayObject *)PyArray\_ContiguousFromObject(o\_diag, NPY\_DOUBLE, 1, 1); 
+      \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} (ap\_diag == NULL) goto fail; \(\backslash\)
+    diag = (\textcolor{keywordtype}{double} *)ap\_diag -> data; \(\backslash\)
+    \hyperlink{namespacescipy_1_1stats_1_1mstats__basic_a5da6ab6d6a72889a86658849b207b4e3}{mode} = 2; \} \}
+\end{DoxyCode}
+\hypertarget{minpack_8h_a415512318d39ce403010a76819a5cd8a}{}\index{minpack.\+h@{minpack.\+h}!S\+T\+O\+R\+E\+\_\+\+V\+A\+R\+S@{S\+T\+O\+R\+E\+\_\+\+V\+A\+R\+S}}
+\index{S\+T\+O\+R\+E\+\_\+\+V\+A\+R\+S@{S\+T\+O\+R\+E\+\_\+\+V\+A\+R\+S}!minpack.\+h@{minpack.\+h}}
+\subsubsection[{S\+T\+O\+R\+E\+\_\+\+V\+A\+R\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+O\+R\+E\+\_\+\+V\+A\+R\+S(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~Py\+Object $\ast$store\+\_\+multipack\+\_\+globals\mbox{[}4\mbox{]}; int store\+\_\+multipack\+\_\+globals3;}\label{minpack_8h_a415512318d39ce403010a76819a5cd8a}

@@ -1,0 +1,278 @@
+\hypertarget{sgstrf_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sgstrf.c File Reference}
+\label{sgstrf_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sgstrf.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sgstrf.\+c}}
+
+
+Computes an L\+U factorization of a general sparse matrix.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int relax, int panel\+\_\+size, int $\ast$etree, void $\ast$work, int lwork, int $\ast$perm\+\_\+c, int $\ast$perm\+\_\+r, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat, int $\ast$info)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Computes an L\+U factorization of a general sparse matrix. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Permission is hereby granted to use or copy this program for any
+purpose, provided the above notices are retained on all copies.
+Permission to modify the code and to distribute modified code is
+granted, provided the above notices are retained, and a notice that
+the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{}\index{sgstrf.\+c@{sgstrf.\+c}!sgstrf@{sgstrf}}
+\index{sgstrf@{sgstrf}!sgstrf.\+c@{sgstrf.\+c}}
+\subsubsection[{sgstrf}]{\setlength{\rightskip}{0pt plus 5cm}void sgstrf (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int}]{relax, }
+\item[{int}]{panel\+\_\+size, }
+\item[{int $\ast$}]{etree, }
+\item[{void $\ast$}]{work, }
+\item[{int}]{lwork, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}SGSTRF computes an LU factorization of a general sparse m-by-n
+matrix \hyperlink{classA}{A} using partial pivoting with row interchanges.
+The factorization has the form
+    Pr * \hyperlink{classA}{A} = L * U
+where Pr is a row permutation matrix, L is lower triangular with unit
+diagonal elements (lower trapezoidal if A->nrow > A->ncol), and U is upper 
+triangular (upper trapezoidal if A->nrow < A->ncol).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}options (input) superlu\_options\_t*
+        The structure defines the input parameters to control
+        how the LU decomposition will be performed.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}        (input) SuperMatrix*
+     Original matrix \hyperlink{classA}{A}, permuted by columns, of dimension
+         (A->nrow, A->ncol). The type of \hyperlink{classA}{A} can be:
+         Stype = SLU\_NCP; Dtype = SLU\_S; Mtype = SLU\_GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}relax    (input) int
+         To control degree of relaxing supernodes. If the number
+         of nodes (columns) in a subtree of the elimination tree is less
+         than relax, this subtree is considered as one supernode,
+         regardless of the row structures of those columns.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}panel\_size (input) int
+         \hyperlink{classA}{A} panel consists of at most panel\_size consecutive columns.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}etree    (input) int*, dimension (A->ncol)
+         Elimination tree of \hyperlink{classA}{A}'*A.
+         Note: etree is a vector of parent pointers for a forest whose
+         vertices are the integers 0 to A->ncol-1; etree[root]==A->ncol.
+         On input, the columns of \hyperlink{classA}{A} should be permuted so that the
+         etree is in a certain postorder.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}work     (input/output) void*, size (lwork) (in bytes)
+         User-supplied work space and space for the output data structures.
+         Not referenced if lwork = 0;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}lwork   (input) int
+        Specifies the size of work array in bytes.
+        = 0:  allocate space internally by system malloc;
+        > 0:  use user-supplied work array of length lwork in bytes,
+              returns error if space runs out.
+        = -1: the routine guesses the amount of space needed without
+              performing the factorization, and returns it in
+              *info; no other side effects.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c   (input) int*, dimension (A->ncol)
+     Column permutation vector, which defines the 
+         permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+         in position j in A*Pc.
+         When searching for diagonal, perm\_c[*] is applied to the
+         row subscripts of \hyperlink{classA}{A}, so that diagonal threshold pivoting
+         can find the diagonal of \hyperlink{classA}{A}, rather than that of A*Pc.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_r   (input/output) int*, dimension (A->nrow)
+         Row permutation vector which defines the permutation matrix Pr,
+         perm\_r[i] = j means row i of \hyperlink{classA}{A} is in position j in Pr*A.
+         If options->Fact = SamePattern\_SameRowPerm, the pivoting routine
+            will try to use the input perm\_r, unless a certain threshold
+            criterion is violated. In that case, perm\_r is overwritten by
+            a new permutation determined by partial pivoting or diagonal
+            threshold pivoting.
+         Otherwise, perm\_r is output argument;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L        (output) SuperMatrix*
+         The factor L from the factorization Pr*A=L*U; use compressed row 
+         subscripts storage for supernodes, i.e., L has type: 
+         Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U        (output) SuperMatrix*
+     The factor U from the factorization Pr*A*Pc=L*U. Use column-wise
+         storage scheme, i.e., U has types: Stype = SLU\_NC, 
+         Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}stat     (output) SuperLUStat\_t*
+         Record the statistics on runtime and floating-point operation count.
+         See \hyperlink{slu__util_8h}{slu\_util.h} for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}info     (output) int*
+         = 0: successful exit
+         < 0: if info = -i, the i-th argument had an illegal value
+         > 0: if info = i, and i is
+            <= A->ncol: U(i,i) is exactly zero. The factorization has
+               been completed, but the factor U is exactly singular,
+               and division by zero will occur if it is used to solve a
+               system of equations.
+            > A->ncol: number of bytes allocated when memory allocation
+               failure occurred, plus A->ncol. If lwork = -1, it is
+               the estimated amount of space needed, plus A->ncol.
+
+
+\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Local Working Arrays: 
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  m = number of rows in the matrix
+  n = number of columns in the matrix\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  xprune[0:n-1]: xprune[*] points to locations in subscript 
+ vector lsub[*]. For column i, xprune[i] denotes the point where 
+ structural pruning begins. I.e. only xlsub[i],..,xprune[i]-1 need 
+ to be traversed for symbolic factorization.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  marker[0:3*m-1]: marker[i] = j means that node i has been 
+ reached when working on column j.
+ Storage: relative to original row subscripts
+ NOTE: There are 3 of them: marker/marker1 are used for panel dfs, 
+       see \hyperlink{spanel__dfs_8c}{spanel\_dfs.c}; marker2 is used for inner-factorization,
+           see \hyperlink{scolumn__dfs_8c}{scolumn\_dfs.c}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  parent[0:m-1]: parent vector used during dfs
+     Storage: relative to new row subscripts\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  xplore[0:m-1]: xplore[i] gives the location of the next (dfs) 
+ unexplored neighbor of i in lsub[*]\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  segrep[0:nseg-1]: contains the list of supernodal representatives
+ in topological order of the dfs. \hyperlink{classA}{A} supernode representative is the 
+ last column of a supernode.
+     The maximum size of segrep[] is n.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  repfnz[0:W*m-1]: for a nonzero segment U[*,j] that ends at a 
+ supernodal representative r, repfnz[r] is the location of the first 
+ nonzero in this segment.  It is also used during the dfs: repfnz[r]>0
+ indicates the supernode r has been explored.
+ NOTE: There are W of them, each used for one column of a panel.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  panel\_lsub[0:W*m-1]: temporary for the nonzeros row indices below 
+     the panel diagonal. These are filled in during \hyperlink{slu__sdefs_8h_a77baf210393e04fa71d4e73b5e60e556}{spanel\_dfs()}, and are
+     used later in the inner LU factorization within the panel.
+ panel\_lsub[]/dense[] pair forms the SPA data structure.
+ NOTE: There are W of them.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  dense[0:W*m-1]: sparse accumulating (SPA) vector for intermediate values;
+           NOTE: there are W of them.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  tempv[0:*]: real temporary used for dense numeric kernels;
+ The size of this array is defined by \hyperlink{slu__util_8h_a06193b28f40a4779ae7737711642eb45}{NUM\_TEMPV()} in \hyperlink{slu__sdefs_8h}{slu\_sdefs.h}.
+\end{DoxyPre}
+ 

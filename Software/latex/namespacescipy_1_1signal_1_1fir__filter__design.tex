@@ -1,0 +1,445 @@
+\hypertarget{namespacescipy_1_1signal_1_1fir__filter__design}{}\section{scipy.\+signal.\+fir\+\_\+filter\+\_\+design Namespace Reference}
+\label{namespacescipy_1_1signal_1_1fir__filter__design}\index{scipy.\+signal.\+fir\+\_\+filter\+\_\+design@{scipy.\+signal.\+fir\+\_\+filter\+\_\+design}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1fir__filter__design_ab00e8b8371ea973c81dc0fdb9000a50e}{kaiser\+\_\+beta}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1fir__filter__design_a82a81e6f5d1b0c6ca6b1eebc0f111cc5}{kaiser\+\_\+atten}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1fir__filter__design_af50bd63536ece8693c21f9239d715316}{kaiserord}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1fir__filter__design_a1444c163418142db9f645741dcde167f}{firwin}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1fir__filter__design_a67d5b6a50166dbbe76e6de81f63cb44e}{firwin2}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1fir__filter__design_a3cfe72c6ac896c0454f11177ecb81f7c}{remez}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1signal_1_1fir__filter__design_a10ccff89a03f313f32d8c4b5c0184a45}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Functions for FIR filter design.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1fir__filter__design_a1444c163418142db9f645741dcde167f}{}\index{scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}!firwin@{firwin}}
+\index{firwin@{firwin}!scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}}
+\subsubsection[{firwin}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+fir\+\_\+filter\+\_\+design.\+firwin (
+\begin{DoxyParamCaption}
+\item[{}]{numtaps, }
+\item[{}]{cutoff, }
+\item[{}]{width = {\ttfamily None}, }
+\item[{}]{window = {\ttfamily 'hamming'}, }
+\item[{}]{pass\+\_\+zero = {\ttfamily {\bf True}}, }
+\item[{}]{scale = {\ttfamily {\bf True}}, }
+\item[{}]{nyq = {\ttfamily 1.0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1fir__filter__design_a1444c163418142db9f645741dcde167f}
+\begin{DoxyVerb}FIR filter design using the window method.
+
+This function computes the coefficients of a finite impulse response
+filter.  The filter will have linear phase; it will be Type I if
+`numtaps` is odd and Type II if `numtaps` is even.
+
+Type II filters always have zero response at the Nyquist rate, so a
+ValueError exception is raised if firwin is called with `numtaps` even and
+having a passband whose right end is at the Nyquist rate.
+
+Parameters
+----------
+numtaps : int
+    Length of the filter (number of coefficients, i.e. the filter
+    order + 1).  `numtaps` must be even if a passband includes the
+    Nyquist frequency.
+cutoff : float or 1D array_like
+    Cutoff frequency of filter (expressed in the same units as `nyq`)
+    OR an array of cutoff frequencies (that is, band edges). In the
+    latter case, the frequencies in `cutoff` should be positive and
+    monotonically increasing between 0 and `nyq`.  The values 0 and
+    `nyq` must not be included in `cutoff`.
+width : float or None
+    If `width` is not None, then assume it is the approximate width
+    of the transition region (expressed in the same units as `nyq`)
+    for use in Kaiser FIR filter design.  In this case, the `window`
+    argument is ignored.
+window : string or tuple of string and parameter values
+    Desired window to use. See `scipy.signal.get_window` for a list
+    of windows and required parameters.
+pass_zero : bool
+    If True, the gain at the frequency 0 (i.e. the "DC gain") is 1.
+    Otherwise the DC gain is 0.
+scale : bool
+    Set to True to scale the coefficients so that the frequency
+    response is exactly unity at a certain frequency.
+    That frequency is either:
+
+    - 0 (DC) if the first passband starts at 0 (i.e. pass_zero
+      is True)
+    - `nyq` (the Nyquist rate) if the first passband ends at
+      `nyq` (i.e the filter is a single band highpass filter);
+      center of first passband otherwise
+
+nyq : float
+    Nyquist frequency.  Each frequency in `cutoff` must be between 0
+    and `nyq`.
+
+Returns
+-------
+h : (numtaps,) ndarray
+    Coefficients of length `numtaps` FIR filter.
+
+Raises
+------
+ValueError
+    If any value in `cutoff` is less than or equal to 0 or greater
+    than or equal to `nyq`, if the values in `cutoff` are not strictly
+    monotonically increasing, or if `numtaps` is even but a passband
+    includes the Nyquist frequency.
+
+See also
+--------
+scipy.signal.firwin2
+
+Examples
+--------
+Low-pass from 0 to f::
+
+>>> from scipy import signal
+>>> signal.firwin(numtaps, f)
+
+Use a specific window function::
+
+>>> signal.firwin(numtaps, f, window='nuttall')
+
+High-pass ('stop' from 0 to f)::
+
+>>> signal.firwin(numtaps, f, pass_zero=False)
+
+Band-pass::
+
+>>> signal.firwin(numtaps, [f1, f2], pass_zero=False)
+
+Band-stop::
+
+>>> signal.firwin(numtaps, [f1, f2])
+
+Multi-band (passbands are [0, f1], [f2, f3] and [f4, 1])::
+
+>>> signal.firwin(numtaps, [f1, f2, f3, f4])
+
+Multi-band (passbands are [f1, f2] and [f3,f4])::
+
+>>> signal.firwin(numtaps, [f1, f2, f3, f4], pass_zero=False)\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1fir__filter__design_a67d5b6a50166dbbe76e6de81f63cb44e}{}\index{scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}!firwin2@{firwin2}}
+\index{firwin2@{firwin2}!scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}}
+\subsubsection[{firwin2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+fir\+\_\+filter\+\_\+design.\+firwin2 (
+\begin{DoxyParamCaption}
+\item[{}]{numtaps, }
+\item[{}]{freq, }
+\item[{}]{gain, }
+\item[{}]{nfreqs = {\ttfamily None}, }
+\item[{}]{window = {\ttfamily 'hamming'}, }
+\item[{}]{nyq = {\ttfamily 1.0}, }
+\item[{}]{antisymmetric = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1fir__filter__design_a67d5b6a50166dbbe76e6de81f63cb44e}
+\begin{DoxyVerb}FIR filter design using the window method.
+
+From the given frequencies `freq` and corresponding gains `gain`,
+this function constructs an FIR filter with linear phase and
+(approximately) the given frequency response.
+
+Parameters
+----------
+numtaps : int
+    The number of taps in the FIR filter.  `numtaps` must be less than
+    `nfreqs`.
+freq : array_like, 1D
+    The frequency sampling points. Typically 0.0 to 1.0 with 1.0 being
+    Nyquist.  The Nyquist frequency can be redefined with the argument
+    `nyq`.
+    The values in `freq` must be nondecreasing.  A value can be repeated
+    once to implement a discontinuity.  The first value in `freq` must
+    be 0, and the last value must be `nyq`.
+gain : array_like
+    The filter gains at the frequency sampling points. Certain
+    constraints to gain values, depending on the filter type, are applied,
+    see Notes for details.
+nfreqs : int, optional
+    The size of the interpolation mesh used to construct the filter.
+    For most efficient behavior, this should be a power of 2 plus 1
+    (e.g, 129, 257, etc).  The default is one more than the smallest
+    power of 2 that is not less than `numtaps`.  `nfreqs` must be greater
+    than `numtaps`.
+window : string or (string, float) or float, or None, optional
+    Window function to use. Default is "hamming".  See
+    `scipy.signal.get_window` for the complete list of possible values.
+    If None, no window function is applied.
+nyq : float
+    Nyquist frequency.  Each frequency in `freq` must be between 0 and
+    `nyq` (inclusive).
+antisymmetric : bool
+    Whether resulting impulse response is symmetric/antisymmetric.
+    See Notes for more details.
+
+Returns
+-------
+taps : ndarray
+    The filter coefficients of the FIR filter, as a 1-D array of length
+    `numtaps`.
+
+See also
+--------
+scipy.signal.firwin
+
+Notes
+-----
+From the given set of frequencies and gains, the desired response is
+constructed in the frequency domain.  The inverse FFT is applied to the
+desired response to create the associated convolution kernel, and the
+first `numtaps` coefficients of this kernel, scaled by `window`, are
+returned.
+
+The FIR filter will have linear phase. The type of filter is determined by
+the value of 'numtaps` and `antisymmetric` flag.
+There are four possible combinations:
+
+   - odd  `numtaps`, `antisymmetric` is False, type I filter is produced
+   - even `numtaps`, `antisymmetric` is False, type II filter is produced
+   - odd  `numtaps`, `antisymmetric` is True, type III filter is produced
+   - even `numtaps`, `antisymmetric` is True, type IV filter is produced
+
+Magnitude response of all but type I filters are subjects to following
+constraints:
+
+   - type II  -- zero at the Nyquist frequency
+   - type III -- zero at zero and Nyquist frequencies
+   - type IV  -- zero at zero frequency
+
+.. versionadded:: 0.9.0
+
+References
+----------
+.. [1] Oppenheim, A. V. and Schafer, R. W., "Discrete-Time Signal
+   Processing", Prentice-Hall, Englewood Cliffs, New Jersey (1989).
+   (See, for example, Section 7.4.)
+
+.. [2] Smith, Steven W., "The Scientist and Engineer's Guide to Digital
+   Signal Processing", Ch. 17. http://www.dspguide.com/ch17/1.htm
+
+Examples
+--------
+A lowpass FIR filter with a response that is 1 on [0.0, 0.5], and
+that decreases linearly on [0.5, 1.0] from 1 to 0:
+
+>>> from scipy import signal
+>>> taps = signal.firwin2(150, [0.0, 0.5, 1.0], [1.0, 1.0, 0.0])
+>>> print(taps[72:78])
+[-0.02286961 -0.06362756  0.57310236  0.57310236 -0.06362756 -0.02286961]\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1fir__filter__design_a82a81e6f5d1b0c6ca6b1eebc0f111cc5}{}\index{scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}!kaiser\+\_\+atten@{kaiser\+\_\+atten}}
+\index{kaiser\+\_\+atten@{kaiser\+\_\+atten}!scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}}
+\subsubsection[{kaiser\+\_\+atten}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+fir\+\_\+filter\+\_\+design.\+kaiser\+\_\+atten (
+\begin{DoxyParamCaption}
+\item[{}]{numtaps, }
+\item[{}]{width}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1fir__filter__design_a82a81e6f5d1b0c6ca6b1eebc0f111cc5}
+\begin{DoxyVerb}Compute the attenuation of a Kaiser FIR filter.
+
+Given the number of taps `N` and the transition width `width`, compute the
+attenuation `a` in dB, given by Kaiser's formula:
+
+    a = 2.285 * (N - 1) * pi * width + 7.95
+
+Parameters
+----------
+N : int
+    The number of taps in the FIR filter.
+width : float
+    The desired width of the transition region between passband and
+    stopband (or, in general, at any discontinuity) for the filter.
+
+Returns
+-------
+a : float
+    The attenuation of the ripple, in dB.
+
+See Also
+--------
+kaiserord, kaiser_beta
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1fir__filter__design_ab00e8b8371ea973c81dc0fdb9000a50e}{}\index{scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}!kaiser\+\_\+beta@{kaiser\+\_\+beta}}
+\index{kaiser\+\_\+beta@{kaiser\+\_\+beta}!scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}}
+\subsubsection[{kaiser\+\_\+beta}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+fir\+\_\+filter\+\_\+design.\+kaiser\+\_\+beta (
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1fir__filter__design_ab00e8b8371ea973c81dc0fdb9000a50e}
+\begin{DoxyVerb}Compute the Kaiser parameter `beta`, given the attenuation `a`.
+
+Parameters
+----------
+a : float
+    The desired attenuation in the stopband and maximum ripple in
+    the passband, in dB.  This should be a *positive* number.
+
+Returns
+-------
+beta : float
+    The `beta` parameter to be used in the formula for a Kaiser window.
+
+References
+----------
+Oppenheim, Schafer, "Discrete-Time Signal Processing", p.475-476.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1fir__filter__design_af50bd63536ece8693c21f9239d715316}{}\index{scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}!kaiserord@{kaiserord}}
+\index{kaiserord@{kaiserord}!scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}}
+\subsubsection[{kaiserord}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+fir\+\_\+filter\+\_\+design.\+kaiserord (
+\begin{DoxyParamCaption}
+\item[{}]{ripple, }
+\item[{}]{width}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1fir__filter__design_af50bd63536ece8693c21f9239d715316}
+\begin{DoxyVerb}Design a Kaiser window to limit ripple and width of transition region.
+
+Parameters
+----------
+ripple : float
+    Positive number specifying maximum ripple in passband (dB) and minimum
+    ripple in stopband.
+width : float
+    Width of transition region (normalized so that 1 corresponds to pi
+    radians / sample).
+
+Returns
+-------
+numtaps : int
+    The length of the kaiser window.
+beta : float
+    The beta parameter for the kaiser window.
+
+See Also
+--------
+kaiser_beta, kaiser_atten
+
+Notes
+-----
+There are several ways to obtain the Kaiser window:
+
+- ``signal.kaiser(numtaps, beta, sym=0)``
+- ``signal.get_window(beta, numtaps)``
+- ``signal.get_window(('kaiser', beta), numtaps)``
+
+The empirical equations discovered by Kaiser are used.
+
+References
+----------
+Oppenheim, Schafer, "Discrete-Time Signal Processing", p.475-476.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1fir__filter__design_a3cfe72c6ac896c0454f11177ecb81f7c}{}\index{scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}!remez@{remez}}
+\index{remez@{remez}!scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}}
+\subsubsection[{remez}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+fir\+\_\+filter\+\_\+design.\+remez (
+\begin{DoxyParamCaption}
+\item[{}]{numtaps, }
+\item[{}]{bands, }
+\item[{}]{desired, }
+\item[{}]{weight = {\ttfamily None}, }
+\item[{}]{Hz = {\ttfamily 1}, }
+\item[{}]{type = {\ttfamily 'bandpass'}, }
+\item[{}]{maxiter = {\ttfamily 25}, }
+\item[{}]{grid\+\_\+density = {\ttfamily 16}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1fir__filter__design_a3cfe72c6ac896c0454f11177ecb81f7c}
+\begin{DoxyVerb}Calculate the minimax optimal filter using the Remez exchange algorithm.
+
+Calculate the filter-coefficients for the finite impulse response
+(FIR) filter whose transfer function minimizes the maximum error
+between the desired gain and the realized gain in the specified
+frequency bands using the Remez exchange algorithm.
+
+Parameters
+----------
+numtaps : int
+    The desired number of taps in the filter. The number of taps is
+    the number of terms in the filter, or the filter order plus one.
+bands : array_like
+    A monotonic sequence containing the band edges in Hz.
+    All elements must be non-negative and less than half the sampling
+    frequency as given by `Hz`.
+desired : array_like
+    A sequence half the size of bands containing the desired gain
+    in each of the specified bands.
+weight : array_like, optional
+    A relative weighting to give to each band region. The length of
+    `weight` has to be half the length of `bands`.
+Hz : scalar, optional
+    The sampling frequency in Hz. Default is 1.
+type : {'bandpass', 'differentiator', 'hilbert'}, optional
+    The type of filter:
+
+      'bandpass' : flat response in bands. This is the default.
+
+      'differentiator' : frequency proportional response in bands.
+
+      'hilbert' : filter with odd symmetry, that is, type III
+                  (for even order) or type IV (for odd order)
+                  linear phase filters.
+
+maxiter : int, optional
+    Maximum number of iterations of the algorithm. Default is 25.
+grid_density : int, optional
+    Grid density. The dense grid used in `remez` is of size
+    ``(numtaps + 1) * grid_density``. Default is 16.
+
+Returns
+-------
+out : ndarray
+    A rank-1 array containing the coefficients of the optimal
+    (in a minimax sense) filter.
+
+See Also
+--------
+freqz : Compute the frequency response of a digital filter.
+
+References
+----------
+.. [1] J. H. McClellan and T. W. Parks, "A unified approach to the
+       design of optimum FIR linear phase digital filters",
+       IEEE Trans. Circuit Theory, vol. CT-20, pp. 697-701, 1973.
+.. [2] J. H. McClellan, T. W. Parks and L. R. Rabiner, "A Computer
+       Program for Designing Optimum FIR Linear Phase Digital
+       Filters", IEEE Trans. Audio Electroacoust., vol. AU-21,
+       pp. 506-525, 1973.
+
+Examples
+--------
+We want to construct a filter with a passband at 0.2-0.4 Hz, and
+stop bands at 0-0.1 Hz and 0.45-0.5 Hz. Note that this means that the
+behavior in the frequency ranges between those bands is unspecified and
+may overshoot.
+
+>>> from scipy import signal
+>>> bpass = signal.remez(72, [0, 0.1, 0.2, 0.4, 0.45, 0.5], [0, 1, 0])
+>>> freq, response = signal.freqz(bpass)
+>>> ampl = np.abs(response)
+
+>>> import matplotlib.pyplot as plt
+>>> fig = plt.figure()
+>>> ax1 = fig.add_subplot(111)
+>>> ax1.semilogy(freq/(2*np.pi), ampl, 'b-')  # freq in Hz
+>>> plt.show()\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1fir__filter__design_a10ccff89a03f313f32d8c4b5c0184a45}{}\index{scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::signal\+::fir\+\_\+filter\+\_\+design@{scipy\+::signal\+::fir\+\_\+filter\+\_\+design}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+signal.\+fir\+\_\+filter\+\_\+design.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1signal_1_1fir__filter__design_a10ccff89a03f313f32d8c4b5c0184a45}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'kaiser\_beta'}, \textcolor{stringliteral}{'kaiser\_atten'}, \textcolor{stringliteral}{'kaiserord'},
+2            \textcolor{stringliteral}{'firwin'}, \textcolor{stringliteral}{'firwin2'}, \textcolor{stringliteral}{'remez'}]
+\end{DoxyCode}

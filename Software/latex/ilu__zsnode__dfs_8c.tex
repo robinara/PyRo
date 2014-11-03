@@ -1,0 +1,65 @@
+\hypertarget{ilu__zsnode__dfs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+zsnode\+\_\+dfs.c File Reference}
+\label{ilu__zsnode__dfs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+zsnode\+\_\+dfs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+zsnode\+\_\+dfs.\+c}}
+
+
+Determines the union of row structures of columns within the relaxed node.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+zdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ilu__zsnode__dfs_8c_a6fa78a3059d75e11a66434992dddafab}{ilu\+\_\+zsnode\+\_\+dfs} (const int jcol, const int kcol, const int $\ast$asub, const int $\ast$xa\+\_\+begin, const int $\ast$xa\+\_\+end, int $\ast$marker, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Determines the union of row structures of columns within the relaxed node. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.0) --
+Lawrence Berkeley National Laboratory
+June 30, 2009
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{ilu__zsnode__dfs_8c_a6fa78a3059d75e11a66434992dddafab}{}\index{ilu\+\_\+zsnode\+\_\+dfs.\+c@{ilu\+\_\+zsnode\+\_\+dfs.\+c}!ilu\+\_\+zsnode\+\_\+dfs@{ilu\+\_\+zsnode\+\_\+dfs}}
+\index{ilu\+\_\+zsnode\+\_\+dfs@{ilu\+\_\+zsnode\+\_\+dfs}!ilu\+\_\+zsnode\+\_\+dfs.\+c@{ilu\+\_\+zsnode\+\_\+dfs.\+c}}
+\subsubsection[{ilu\+\_\+zsnode\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+zsnode\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const int}]{kcol, }
+\item[{const int $\ast$}]{asub, }
+\item[{const int $\ast$}]{xa\+\_\+begin, }
+\item[{const int $\ast$}]{xa\+\_\+end, }
+\item[{int $\ast$}]{marker, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{ilu__zsnode__dfs_8c_a6fa78a3059d75e11a66434992dddafab}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+   \hyperlink{ilu__zsnode__dfs_8c_a6fa78a3059d75e11a66434992dddafab}{ilu\_zsnode\_dfs()} - Determine the union of the row structures of those
+   columns within the relaxed snode.
+   Note: The relaxed snodes are leaves of the supernodal etree, therefore,
+   the portion outside the rectangular supernode must be zero.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Return value
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+    0   success;
+   >0   number of bytes allocated when run out of memory.
+\end{DoxyPre}
+ 

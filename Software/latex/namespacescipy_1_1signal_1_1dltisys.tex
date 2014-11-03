@@ -1,0 +1,170 @@
+\hypertarget{namespacescipy_1_1signal_1_1dltisys}{}\section{scipy.\+signal.\+dltisys Namespace Reference}
+\label{namespacescipy_1_1signal_1_1dltisys}\index{scipy.\+signal.\+dltisys@{scipy.\+signal.\+dltisys}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1dltisys_a7ec6c434ab1ddd8dc46d5f23c2ccb86e}{dlsim}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1dltisys_aaebde1dfe31a291a9775fef5bd0cb59c}{dimpulse}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1dltisys_a9739d458ecd56f2bfe9e16fc781ff7bb}{dstep}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1signal_1_1dltisys_a1b54a342c8a5a451dafb8f1bd61488ec}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1signal_1_1dltisys_a7ec6c434ab1ddd8dc46d5f23c2ccb86e}{dlsim}', '\hyperlink{namespacescipy_1_1signal_1_1dltisys_a9739d458ecd56f2bfe9e16fc781ff7bb}{dstep}', '\hyperlink{namespacescipy_1_1signal_1_1dltisys_aaebde1dfe31a291a9775fef5bd0cb59c}{dimpulse}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}dltisys - Code related to discrete linear time-invariant systems
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1dltisys_aaebde1dfe31a291a9775fef5bd0cb59c}{}\index{scipy\+::signal\+::dltisys@{scipy\+::signal\+::dltisys}!dimpulse@{dimpulse}}
+\index{dimpulse@{dimpulse}!scipy\+::signal\+::dltisys@{scipy\+::signal\+::dltisys}}
+\subsubsection[{dimpulse}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+dltisys.\+dimpulse (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{x0 = {\ttfamily None}, }
+\item[{}]{t = {\ttfamily None}, }
+\item[{}]{n = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1dltisys_aaebde1dfe31a291a9775fef5bd0cb59c}
+\begin{DoxyVerb}Impulse response of discrete-time system.
+
+Parameters
+----------
+system : tuple
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+      * 3: (num, den, dt)
+      * 4: (zeros, poles, gain, dt)
+      * 5: (A, B, C, D, dt)
+
+x0 : array_like, optional
+    Initial state-vector.  Defaults to zero.
+t : array_like, optional
+    Time points.  Computed if not given.
+n : int, optional
+    The number of time points to compute (if `t` is not given).
+
+Returns
+-------
+t : ndarray
+    A 1-D array of time points.
+yout : tuple of array_like
+    Impulse response of system.  Each element of the tuple represents
+    the output of the system based on an impulse in each input.
+
+See Also
+--------
+impulse, dstep, dlsim, cont2discrete\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1dltisys_a7ec6c434ab1ddd8dc46d5f23c2ccb86e}{}\index{scipy\+::signal\+::dltisys@{scipy\+::signal\+::dltisys}!dlsim@{dlsim}}
+\index{dlsim@{dlsim}!scipy\+::signal\+::dltisys@{scipy\+::signal\+::dltisys}}
+\subsubsection[{dlsim}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+dltisys.\+dlsim (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{u, }
+\item[{}]{t = {\ttfamily None}, }
+\item[{}]{x0 = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1dltisys_a7ec6c434ab1ddd8dc46d5f23c2ccb86e}
+\begin{DoxyVerb}Simulate output of a discrete-time linear system.
+
+Parameters
+----------
+system : class instance or tuple
+    An instance of the LTI class, or a tuple describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+      - 3: (num, den, dt)
+      - 4: (zeros, poles, gain, dt)
+      - 5: (A, B, C, D, dt)
+
+u : array_like
+    An input array describing the input at each time `t` (interpolation is
+    assumed between given times).  If there are multiple inputs, then each
+    column of the rank-2 array represents an input.
+t : array_like, optional
+    The time steps at which the input is defined.  If `t` is given, the
+    final value in `t` determines the number of steps returned in the
+    output.
+x0 : arry_like, optional
+    The initial conditions on the state vector (zero by default).
+
+Returns
+-------
+tout : ndarray
+    Time values for the output, as a 1-D array.
+yout : ndarray
+    System response, as a 1-D array.
+xout : ndarray, optional
+    Time-evolution of the state-vector.  Only generated if the input is a
+    state-space systems.
+
+See Also
+--------
+lsim, dstep, dimpulse, cont2discrete
+
+Examples
+--------
+A simple integrator transfer function with a discrete time step of 1.0
+could be implemented as:
+
+>>> from scipy import signal
+>>> tf = ([1.0,], [1.0, -1.0], 1.0)
+>>> t_in = [0.0, 1.0, 2.0, 3.0]
+>>> u = np.asarray([0.0, 0.0, 1.0, 1.0])
+>>> t_out, y = signal.dlsim(tf, u, t=t_in)
+>>> y
+array([ 0.,  0.,  0.,  1.])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1dltisys_a9739d458ecd56f2bfe9e16fc781ff7bb}{}\index{scipy\+::signal\+::dltisys@{scipy\+::signal\+::dltisys}!dstep@{dstep}}
+\index{dstep@{dstep}!scipy\+::signal\+::dltisys@{scipy\+::signal\+::dltisys}}
+\subsubsection[{dstep}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+dltisys.\+dstep (
+\begin{DoxyParamCaption}
+\item[{}]{system, }
+\item[{}]{x0 = {\ttfamily None}, }
+\item[{}]{t = {\ttfamily None}, }
+\item[{}]{n = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1dltisys_a9739d458ecd56f2bfe9e16fc781ff7bb}
+\begin{DoxyVerb}Step response of discrete-time system.
+
+Parameters
+----------
+system : a tuple describing the system.
+    The following gives the number of elements in the tuple and
+    the interpretation:
+
+      * 3: (num, den, dt)
+      * 4: (zeros, poles, gain, dt)
+      * 5: (A, B, C, D, dt)
+
+x0 : array_like, optional
+    Initial state-vector (default is zero).
+t : array_like, optional
+    Time points (computed if not given).
+n : int, optional
+    Number of time points to compute if `t` is not given.
+
+Returns
+-------
+t : ndarray
+    Output time points, as a 1-D array.
+yout : tuple of array_like
+    Step response of system.  Each element of the tuple represents
+    the output of the system based on a step response to each input.
+
+See Also
+--------
+step, dimpulse, dlsim, cont2discrete\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1dltisys_a1b54a342c8a5a451dafb8f1bd61488ec}{}\index{scipy\+::signal\+::dltisys@{scipy\+::signal\+::dltisys}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::signal\+::dltisys@{scipy\+::signal\+::dltisys}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+signal.\+dltisys.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf dlsim}', '{\bf dstep}', '{\bf dimpulse}'\mbox{]}}\label{namespacescipy_1_1signal_1_1dltisys_a1b54a342c8a5a451dafb8f1bd61488ec}

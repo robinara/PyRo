@@ -1,0 +1,63 @@
+\hypertarget{idzr__rsvd_8f}{}\section{packages/scipy-\/0.14.0/scipy/linalg/src/id\+\_\+dist/src/idzr\+\_\+rsvd.f File Reference}
+\label{idzr__rsvd_8f}\index{packages/scipy-\/0.\+14.\+0/scipy/linalg/src/id\+\_\+dist/src/idzr\+\_\+rsvd.\+f@{packages/scipy-\/0.\+14.\+0/scipy/linalg/src/id\+\_\+dist/src/idzr\+\_\+rsvd.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{idzr__rsvd_8f_addac2acb29958664c12d50a801873da5}{idzr\+\_\+rsvd} (\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, matveca, p1t, p2t, p3t, p4t, matvec, p1, p2, p3, p4, krank, u, v, \hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s}, ier, w)
+\item 
+subroutine \hyperlink{idzr__rsvd_8f_af497cb6d9d172369fccdc0f64638e297}{idzr\+\_\+rsvd0} (\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, matveca, p1t, p2t, p3t, p4t, matvec, p1, p2, p3, p4, krank, u, v, \hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s}, ier, list, proj, col, work)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{idzr__rsvd_8f_addac2acb29958664c12d50a801873da5}{}\index{idzr\+\_\+rsvd.\+f@{idzr\+\_\+rsvd.\+f}!idzr\+\_\+rsvd@{idzr\+\_\+rsvd}}
+\index{idzr\+\_\+rsvd@{idzr\+\_\+rsvd}!idzr\+\_\+rsvd.\+f@{idzr\+\_\+rsvd.\+f}}
+\subsubsection[{idzr\+\_\+rsvd}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idzr\+\_\+rsvd (
+\begin{DoxyParamCaption}
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{external}]{matveca, }
+\item[{{\bf complex}$\ast$16}]{p1t, }
+\item[{{\bf complex}$\ast$16}]{p2t, }
+\item[{{\bf complex}$\ast$16}]{p3t, }
+\item[{{\bf complex}$\ast$16}]{p4t, }
+\item[{external}]{matvec, }
+\item[{{\bf complex}$\ast$16}]{p1, }
+\item[{{\bf complex}$\ast$16}]{p2, }
+\item[{{\bf complex}$\ast$16}]{p3, }
+\item[{{\bf complex}$\ast$16}]{p4, }
+\item[{integer}]{krank, }
+\item[{{\bf complex}$\ast$16, dimension({\bf m},krank)}]{u, }
+\item[{{\bf complex}$\ast$16, dimension({\bf n},krank)}]{v, }
+\item[{real$\ast$8, dimension(krank)}]{s, }
+\item[{integer}]{ier, }
+\item[{{\bf complex}$\ast$16, dimension((krank+1)$\ast$(2$\ast${\bf m}+4$\ast${\bf n}+10)+8$\ast$krank$\ast$$\ast$2)}]{w}
+\end{DoxyParamCaption}
+)}\label{idzr__rsvd_8f_addac2acb29958664c12d50a801873da5}
+\hypertarget{idzr__rsvd_8f_af497cb6d9d172369fccdc0f64638e297}{}\index{idzr\+\_\+rsvd.\+f@{idzr\+\_\+rsvd.\+f}!idzr\+\_\+rsvd0@{idzr\+\_\+rsvd0}}
+\index{idzr\+\_\+rsvd0@{idzr\+\_\+rsvd0}!idzr\+\_\+rsvd.\+f@{idzr\+\_\+rsvd.\+f}}
+\subsubsection[{idzr\+\_\+rsvd0}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idzr\+\_\+rsvd0 (
+\begin{DoxyParamCaption}
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{external}]{matveca, }
+\item[{{\bf complex}$\ast$16}]{p1t, }
+\item[{{\bf complex}$\ast$16}]{p2t, }
+\item[{{\bf complex}$\ast$16}]{p3t, }
+\item[{{\bf complex}$\ast$16}]{p4t, }
+\item[{external}]{matvec, }
+\item[{{\bf complex}$\ast$16}]{p1, }
+\item[{{\bf complex}$\ast$16}]{p2, }
+\item[{{\bf complex}$\ast$16}]{p3, }
+\item[{{\bf complex}$\ast$16}]{p4, }
+\item[{integer}]{krank, }
+\item[{{\bf complex}$\ast$16, dimension({\bf m},krank)}]{u, }
+\item[{{\bf complex}$\ast$16, dimension({\bf n},krank)}]{v, }
+\item[{real$\ast$8, dimension(krank)}]{s, }
+\item[{integer}]{ier, }
+\item[{integer, dimension({\bf n})}]{list, }
+\item[{{\bf complex}$\ast$16, dimension(krank$\ast$({\bf n}-\/krank))}]{proj, }
+\item[{{\bf complex}$\ast$16, dimension({\bf m}$\ast$krank)}]{col, }
+\item[{{\bf complex}$\ast$16, dimension((krank+1)$\ast$({\bf m}+3$\ast${\bf n}+10)+9$\ast$krank$\ast$$\ast$2)}]{work}
+\end{DoxyParamCaption}
+)}\label{idzr__rsvd_8f_af497cb6d9d172369fccdc0f64638e297}

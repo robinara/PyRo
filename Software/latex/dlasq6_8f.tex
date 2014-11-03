@@ -1,0 +1,91 @@
+\hypertarget{dlasq6_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlasq6.f File Reference}
+\label{dlasq6_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlasq6.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlasq6.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlasq6_8f_a5b8d724babb26c081b057fa28f05b16e}{dlasq6} (I0, N0, Z, P\+P, \hyperlink{zeros_8h_af9a0a96e48b21c87d05acd4ed5117ba0}{D\+M\+I\+N}, D\+M\+I\+N1, D\+M\+I\+N2, D\+N, D\+N\+M1, D\+N\+M2)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+S\+Q6} computes one dqd transform in ping-\/pong form. Used by sbdsqr and sstegr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlasq6_8f_a5b8d724babb26c081b057fa28f05b16e}{}\index{dlasq6.\+f@{dlasq6.\+f}!dlasq6@{dlasq6}}
+\index{dlasq6@{dlasq6}!dlasq6.\+f@{dlasq6.\+f}}
+\subsubsection[{dlasq6}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlasq6 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I0, }
+\item[{integer}]{N0, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{Z, }
+\item[{integer}]{P\+P, }
+\item[{double {\bf precision}}]{D\+M\+I\+N, }
+\item[{double {\bf precision}}]{D\+M\+I\+N1, }
+\item[{double {\bf precision}}]{D\+M\+I\+N2, }
+\item[{double {\bf precision}}]{D\+N, }
+\item[{double {\bf precision}}]{D\+N\+M1, }
+\item[{double {\bf precision}}]{D\+N\+M2}
+\end{DoxyParamCaption}
+)}\label{dlasq6_8f_a5b8d724babb26c081b057fa28f05b16e}
+
+
+{\bfseries D\+L\+A\+S\+Q6} computes one dqd transform in ping-\/pong form. Used by sbdsqr and sstegr. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLASQ6 computes one dqd (shift equal to zero) transform in
+ ping-pong form, with protection against underflow and overflow.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I0} & \begin{DoxyVerb}          I0 is INTEGER
+        First index.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N0} & \begin{DoxyVerb}          N0 is INTEGER
+        Last index.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array, dimension ( 4*N )
+        Z holds the qd array. EMIN is stored in Z(4*N0) to avoid
+        an extra argument.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+P} & \begin{DoxyVerb}          PP is INTEGER
+        PP=0 for ping, PP=1 for pong.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+M\+I\+N} & \begin{DoxyVerb}          DMIN is DOUBLE PRECISION
+        Minimum value of d.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+M\+I\+N1} & \begin{DoxyVerb}          DMIN1 is DOUBLE PRECISION
+        Minimum value of d, excluding D( N0 ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+M\+I\+N2} & \begin{DoxyVerb}          DMIN2 is DOUBLE PRECISION
+        Minimum value of d, excluding D( N0 ) and D( N0-1 ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+N} & \begin{DoxyVerb}          DN is DOUBLE PRECISION
+        d(N0), the last value of d.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+N\+M1} & \begin{DoxyVerb}          DNM1 is DOUBLE PRECISION
+        d(N0-1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+N\+M2} & \begin{DoxyVerb}          DNM2 is DOUBLE PRECISION
+        d(N0-2).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

@@ -1,0 +1,256 @@
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__cholesky}{}\section{scipy.\+linalg.\+decomp\+\_\+cholesky Namespace Reference}
+\label{namespacescipy_1_1linalg_1_1decomp__cholesky}\index{scipy.\+linalg.\+decomp\+\_\+cholesky@{scipy.\+linalg.\+decomp\+\_\+cholesky}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__cholesky_a42c033ccdcc839c1fc2d6155fad28964}{cholesky}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__cholesky_ad8c8e4e6d92073854ca8762ee850469e}{cho\+\_\+factor}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__cholesky_a218ccb379e88decdd8d792e31c4f6c0c}{cho\+\_\+solve}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__cholesky_a2fe29bd84489a95e75c101d8cf2f3642}{cholesky\+\_\+banded}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__cholesky_a4eb74808b81096382d17676dd722b34a}{cho\+\_\+solve\+\_\+banded}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1linalg_1_1decomp__cholesky_aefa0f31ab2cb61c54454425821b04ff9}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Cholesky decomposition functions.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__cholesky_ad8c8e4e6d92073854ca8762ee850469e}{}\index{scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}!cho\+\_\+factor@{cho\+\_\+factor}}
+\index{cho\+\_\+factor@{cho\+\_\+factor}!scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}}
+\subsubsection[{cho\+\_\+factor}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+cholesky.\+cho\+\_\+factor (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{lower = {\ttfamily {\bf False}}, }
+\item[{}]{overwrite\+\_\+a = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__cholesky_ad8c8e4e6d92073854ca8762ee850469e}
+\begin{DoxyVerb}Compute the Cholesky decomposition of a matrix, to use in cho_solve
+
+Returns a matrix containing the Cholesky decomposition,
+``A = L L*`` or ``A = U* U`` of a Hermitian positive-definite matrix `a`.
+The return value can be directly used as the first parameter to cho_solve.
+
+.. warning::
+    The returned matrix also contains random data in the entries not
+    used by the Cholesky decomposition. If you need to zero these
+    entries, use the function `cholesky` instead.
+
+Parameters
+----------
+a : (M, M) array_like
+    Matrix to be decomposed
+lower : boolean
+    Whether to compute the upper or lower triangular Cholesky factorization
+    (Default: upper-triangular)
+overwrite_a : boolean
+    Whether to overwrite data in a (may improve performance)
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+c : (M, M) ndarray
+    Matrix whose upper or lower triangle contains the Cholesky factor
+    of `a`. Other parts of the matrix contain random data.
+lower : boolean
+    Flag indicating whether the factor is in the lower or upper triangle
+
+Raises
+------
+LinAlgError
+    Raised if decomposition fails.
+
+See also
+--------
+cho_solve : Solve a linear set equations using the Cholesky factorization
+            of a matrix.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__cholesky_a218ccb379e88decdd8d792e31c4f6c0c}{}\index{scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}!cho\+\_\+solve@{cho\+\_\+solve}}
+\index{cho\+\_\+solve@{cho\+\_\+solve}!scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}}
+\subsubsection[{cho\+\_\+solve}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+cholesky.\+cho\+\_\+solve (
+\begin{DoxyParamCaption}
+\item[{}]{c\+\_\+and\+\_\+lower, }
+\item[{}]{b, }
+\item[{}]{overwrite\+\_\+b = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__cholesky_a218ccb379e88decdd8d792e31c4f6c0c}
+\begin{DoxyVerb}Solve the linear equations A x = b, given the Cholesky factorization of A.
+
+Parameters
+----------
+(c, lower) : tuple, (array, bool)
+    Cholesky factorization of a, as given by cho_factor
+b : array
+    Right-hand side
+check_finite : boolean, optional
+    Whether to check that the input matrices contain only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+x : array
+    The solution to the system A x = b
+
+See also
+--------
+cho_factor : Cholesky factorization of a matrix\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__cholesky_a4eb74808b81096382d17676dd722b34a}{}\index{scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}!cho\+\_\+solve\+\_\+banded@{cho\+\_\+solve\+\_\+banded}}
+\index{cho\+\_\+solve\+\_\+banded@{cho\+\_\+solve\+\_\+banded}!scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}}
+\subsubsection[{cho\+\_\+solve\+\_\+banded}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+cholesky.\+cho\+\_\+solve\+\_\+banded (
+\begin{DoxyParamCaption}
+\item[{}]{cb\+\_\+and\+\_\+lower, }
+\item[{}]{b, }
+\item[{}]{overwrite\+\_\+b = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__cholesky_a4eb74808b81096382d17676dd722b34a}
+\begin{DoxyVerb}Solve the linear equations A x = b, given the Cholesky factorization of A.
+
+Parameters
+----------
+(cb, lower) : tuple, (array, bool)
+    `cb` is the Cholesky factorization of A, as given by cholesky_banded.
+    `lower` must be the same value that was given to cholesky_banded.
+b : array
+    Right-hand side
+overwrite_b : bool
+    If True, the function will overwrite the values in `b`.
+check_finite : boolean, optional
+    Whether to check that the input matrices contain only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+x : array
+    The solution to the system A x = b
+
+See also
+--------
+cholesky_banded : Cholesky factorization of a banded matrix
+
+Notes
+-----
+
+.. versionadded:: 0.8.0\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__cholesky_a42c033ccdcc839c1fc2d6155fad28964}{}\index{scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}!cholesky@{cholesky}}
+\index{cholesky@{cholesky}!scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}}
+\subsubsection[{cholesky}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+cholesky.\+cholesky (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{lower = {\ttfamily {\bf False}}, }
+\item[{}]{overwrite\+\_\+a = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__cholesky_a42c033ccdcc839c1fc2d6155fad28964}
+\begin{DoxyVerb}Compute the Cholesky decomposition of a matrix.
+
+Returns the Cholesky decomposition, :math:`A = L L^*` or
+:math:`A = U^* U` of a Hermitian positive-definite matrix A.
+
+Parameters
+----------
+a : (M, M) array_like
+    Matrix to be decomposed
+lower : bool
+    Whether to compute the upper or lower triangular Cholesky
+    factorization.  Default is upper-triangular.
+overwrite_a : bool
+    Whether to overwrite data in `a` (may improve performance).
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+c : (M, M) ndarray
+    Upper- or lower-triangular Cholesky factor of `a`.
+
+Raises
+------
+LinAlgError : if decomposition fails.
+
+Examples
+--------
+>>> from scipy import array, linalg, dot
+>>> a = array([[1,-2j],[2j,5]])
+>>> L = linalg.cholesky(a, lower=True)
+>>> L
+array([[ 1.+0.j,  0.+0.j],
+       [ 0.+2.j,  1.+0.j]])
+>>> dot(L, L.T.conj())
+array([[ 1.+0.j,  0.-2.j],
+       [ 0.+2.j,  5.+0.j]])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__cholesky_a2fe29bd84489a95e75c101d8cf2f3642}{}\index{scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}!cholesky\+\_\+banded@{cholesky\+\_\+banded}}
+\index{cholesky\+\_\+banded@{cholesky\+\_\+banded}!scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}}
+\subsubsection[{cholesky\+\_\+banded}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+cholesky.\+cholesky\+\_\+banded (
+\begin{DoxyParamCaption}
+\item[{}]{ab, }
+\item[{}]{overwrite\+\_\+ab = {\ttfamily {\bf False}}, }
+\item[{}]{lower = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__cholesky_a2fe29bd84489a95e75c101d8cf2f3642}
+\begin{DoxyVerb}Cholesky decompose a banded Hermitian positive-definite matrix
+
+The matrix a is stored in ab either in lower diagonal or upper
+diagonal ordered form:
+
+    ab[u + i - j, j] == a[i,j]        (if upper form; i <= j)
+    ab[    i - j, j] == a[i,j]        (if lower form; i >= j)
+
+Example of ab (shape of a is (6,6), u=2)::
+
+    upper form:
+    *   *   a02 a13 a24 a35
+    *   a01 a12 a23 a34 a45
+    a00 a11 a22 a33 a44 a55
+
+    lower form:
+    a00 a11 a22 a33 a44 a55
+    a10 a21 a32 a43 a54 *
+    a20 a31 a42 a53 *   *
+
+Parameters
+----------
+ab : (u + 1, M) array_like
+    Banded matrix
+overwrite_ab : boolean
+    Discard data in ab (may enhance performance)
+lower : boolean
+    Is the matrix in the lower form. (Default is upper form)
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+c : (u + 1, M) ndarray
+    Cholesky factorization of a, in the same banded format as ab\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__cholesky_aefa0f31ab2cb61c54454425821b04ff9}{}\index{scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::linalg\+::decomp\+\_\+cholesky@{scipy\+::linalg\+::decomp\+\_\+cholesky}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+linalg.\+decomp\+\_\+cholesky.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1linalg_1_1decomp__cholesky_aefa0f31ab2cb61c54454425821b04ff9}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'cholesky'}, \textcolor{stringliteral}{'cho\_factor'}, \textcolor{stringliteral}{'cho\_solve'}, \textcolor{stringliteral}{'cholesky\_banded'},
+2             \textcolor{stringliteral}{'cho\_solve\_banded'}]
+\end{DoxyCode}

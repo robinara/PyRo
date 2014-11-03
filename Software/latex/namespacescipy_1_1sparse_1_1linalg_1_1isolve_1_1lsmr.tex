@@ -1,0 +1,151 @@
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lsmr}{}\section{scipy.\+sparse.\+linalg.\+isolve.\+lsmr Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lsmr}\index{scipy.\+sparse.\+linalg.\+isolve.\+lsmr@{scipy.\+sparse.\+linalg.\+isolve.\+lsmr}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lsmr_a57daf539f1633d89f4f9671f859bf5a8}{lsmr}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lsmr_acfd14ff3ed99383cee3b3455837a4ad4}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lsmr_a57daf539f1633d89f4f9671f859bf5a8}{lsmr}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Copyright (C) 2010 David Fong and Michael Saunders
+
+LSMR uses an iterative method.
+
+07 Jun 2010: Documentation updated
+03 Jun 2010: First release version in Python
+
+David Chin-lung Fong            clfong@stanford.edu
+Institute for Computational and Mathematical Engineering
+Stanford University
+
+Michael Saunders                saunders@stanford.edu
+Systems Optimization Laboratory
+Dept of MS&E, Stanford University.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lsmr_a57daf539f1633d89f4f9671f859bf5a8}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::lsmr@{scipy\+::sparse\+::linalg\+::isolve\+::lsmr}!lsmr@{lsmr}}
+\index{lsmr@{lsmr}!scipy\+::sparse\+::linalg\+::isolve\+::lsmr@{scipy\+::sparse\+::linalg\+::isolve\+::lsmr}}
+\subsubsection[{lsmr}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+isolve.\+lsmr.\+lsmr (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{b, }
+\item[{}]{damp = {\ttfamily 0.0}, }
+\item[{}]{atol = {\ttfamily 1e-\/6}, }
+\item[{}]{btol = {\ttfamily 1e-\/6}, }
+\item[{}]{conlim = {\ttfamily 1e8}, }
+\item[{}]{maxiter = {\ttfamily None}, }
+\item[{}]{show = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lsmr_a57daf539f1633d89f4f9671f859bf5a8}
+\begin{DoxyVerb}Iterative solver for least-squares problems.
+
+lsmr solves the system of linear equations ``Ax = b``. If the system
+is inconsistent, it solves the least-squares problem ``min ||b - Ax||_2``.
+A is a rectangular matrix of dimension m-by-n, where all cases are
+allowed: m = n, m > n, or m < n. B is a vector of length m.
+The matrix A may be dense or sparse (usually sparse).
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+A : {matrix, sparse matrix, ndarray, LinearOperator}
+    Matrix A in the linear system.
+b : (m,) ndarray
+    Vector b in the linear system.
+damp : float
+    Damping factor for regularized least-squares. `lsmr` solves
+    the regularized least-squares problem::
+
+     min ||(b) - (  A   )x||
+         ||(0)   (damp*I) ||_2
+
+    where damp is a scalar.  If damp is None or 0, the system
+    is solved without regularization.
+atol, btol : float
+    Stopping tolerances. `lsmr` continues iterations until a
+    certain backward error estimate is smaller than some quantity
+    depending on atol and btol.  Let ``r = b - Ax`` be the
+    residual vector for the current approximate solution ``x``.
+    If ``Ax = b`` seems to be consistent, ``lsmr`` terminates
+    when ``norm(r) <= atol * norm(A) * norm(x) + btol * norm(b)``.
+    Otherwise, lsmr terminates when ``norm(A^{T} r) <=
+    atol * norm(A) * norm(r)``.  If both tolerances are 1.0e-6 (say),
+    the final ``norm(r)`` should be accurate to about 6
+    digits. (The final x will usually have fewer correct digits,
+    depending on ``cond(A)`` and the size of LAMBDA.)  If `atol`
+    or `btol` is None, a default value of 1.0e-6 will be used.
+    Ideally, they should be estimates of the relative error in the
+    entries of A and B respectively.  For example, if the entries
+    of `A` have 7 correct digits, set atol = 1e-7. This prevents
+    the algorithm from doing unnecessary work beyond the
+    uncertainty of the input data.
+conlim : float
+    `lsmr` terminates if an estimate of ``cond(A)`` exceeds
+    `conlim`.  For compatible systems ``Ax = b``, conlim could be
+    as large as 1.0e+12 (say).  For least-squares problems,
+    `conlim` should be less than 1.0e+8. If `conlim` is None, the
+    default value is 1e+8.  Maximum precision can be obtained by
+    setting ``atol = btol = conlim = 0``, but the number of
+    iterations may then be excessive.
+maxiter : int
+    `lsmr` terminates if the number of iterations reaches
+    `maxiter`.  The default is ``maxiter = min(m, n)``.  For
+    ill-conditioned systems, a larger value of `maxiter` may be
+    needed.
+show : bool
+    Print iterations logs if ``show=True``.
+
+Returns
+-------
+x : ndarray of float
+    Least-square solution returned.
+istop : int
+    istop gives the reason for stopping::
+
+      istop   = 0 means x=0 is a solution.
+              = 1 means x is an approximate solution to A*x = B,
+                  according to atol and btol.
+              = 2 means x approximately solves the least-squares problem
+                  according to atol.
+              = 3 means COND(A) seems to be greater than CONLIM.
+              = 4 is the same as 1 with atol = btol = eps (machine
+                  precision)
+              = 5 is the same as 2 with atol = eps.
+              = 6 is the same as 3 with CONLIM = 1/eps.
+              = 7 means ITN reached maxiter before the other stopping
+                  conditions were satisfied.
+
+itn : int
+    Number of iterations used.
+normr : float
+    ``norm(b-Ax)``
+normar : float
+    ``norm(A^T (b - Ax))``
+norma : float
+    ``norm(A)``
+conda : float
+    Condition number of A.
+normx : float
+    ``norm(x)``
+
+References
+----------
+.. [1] D. C.-L. Fong and M. A. Saunders,
+       "LSMR: An iterative algorithm for sparse least-squares problems",
+       SIAM J. Sci. Comput., vol. 33, pp. 2950-2971, 2011.
+       http://arxiv.org/abs/1006.0758
+.. [2] LSMR Software, http://www.stanford.edu/~clfong/lsmr.html\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lsmr_acfd14ff3ed99383cee3b3455837a4ad4}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::lsmr@{scipy\+::sparse\+::linalg\+::isolve\+::lsmr}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::linalg\+::isolve\+::lsmr@{scipy\+::sparse\+::linalg\+::isolve\+::lsmr}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+isolve.\+lsmr.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf lsmr}'\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lsmr_acfd14ff3ed99383cee3b3455837a4ad4}

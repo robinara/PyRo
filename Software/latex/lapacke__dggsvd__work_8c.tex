@@ -1,0 +1,40 @@
+\hypertarget{lapacke__dggsvd__work_8c}{}\section{packages/lapack-\/3.5.0/lapacke/src/lapacke\+\_\+dggsvd\+\_\+work.c File Reference}
+\label{lapacke__dggsvd__work_8c}\index{packages/lapack-\/3.\+5.\+0/lapacke/src/lapacke\+\_\+dggsvd\+\_\+work.\+c@{packages/lapack-\/3.\+5.\+0/lapacke/src/lapacke\+\_\+dggsvd\+\_\+work.\+c}}
+{\ttfamily \#include \char`\"{}lapacke\+\_\+utils.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} \hyperlink{lapacke__dggsvd__work_8c_ab12c7c182a63bf7353bf9f849bbf4e2f}{L\+A\+P\+A\+C\+K\+E\+\_\+dggsvd\+\_\+work} (int matrix\+\_\+order, char jobu, char jobv, char jobq, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} \hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} $\ast$\hyperlink{indexexpr_8h_abb72938a198351550846b37a84588b63}{k}, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} $\ast$\hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, double $\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} lda, double $\ast$\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} ldb, double $\ast$alpha, double $\ast$\hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, double $\ast$u, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} ldu, double $\ast$v, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} ldv, double $\ast$\hyperlink{indexexpr_8h_ac886c3584e464b5533390d7440c9dd98}{q}, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} ldq, double $\ast$work, \hyperlink{lapacke__config_8h_a6a77be44f67ecce372380a594623086a}{lapack\+\_\+int} $\ast$iwork)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{lapacke__dggsvd__work_8c_ab12c7c182a63bf7353bf9f849bbf4e2f}{}\index{lapacke\+\_\+dggsvd\+\_\+work.\+c@{lapacke\+\_\+dggsvd\+\_\+work.\+c}!L\+A\+P\+A\+C\+K\+E\+\_\+dggsvd\+\_\+work@{L\+A\+P\+A\+C\+K\+E\+\_\+dggsvd\+\_\+work}}
+\index{L\+A\+P\+A\+C\+K\+E\+\_\+dggsvd\+\_\+work@{L\+A\+P\+A\+C\+K\+E\+\_\+dggsvd\+\_\+work}!lapacke\+\_\+dggsvd\+\_\+work.\+c@{lapacke\+\_\+dggsvd\+\_\+work.\+c}}
+\subsubsection[{L\+A\+P\+A\+C\+K\+E\+\_\+dggsvd\+\_\+work}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lapack\+\_\+int} L\+A\+P\+A\+C\+K\+E\+\_\+dggsvd\+\_\+work (
+\begin{DoxyParamCaption}
+\item[{int}]{matrix\+\_\+order, }
+\item[{char}]{jobu, }
+\item[{char}]{jobv, }
+\item[{char}]{jobq, }
+\item[{{\bf lapack\+\_\+int}}]{m, }
+\item[{{\bf lapack\+\_\+int}}]{n, }
+\item[{{\bf lapack\+\_\+int}}]{p, }
+\item[{{\bf lapack\+\_\+int} $\ast$}]{k, }
+\item[{{\bf lapack\+\_\+int} $\ast$}]{l, }
+\item[{double $\ast$}]{a, }
+\item[{{\bf lapack\+\_\+int}}]{lda, }
+\item[{double $\ast$}]{b, }
+\item[{{\bf lapack\+\_\+int}}]{ldb, }
+\item[{double $\ast$}]{alpha, }
+\item[{double $\ast$}]{beta, }
+\item[{double $\ast$}]{u, }
+\item[{{\bf lapack\+\_\+int}}]{ldu, }
+\item[{double $\ast$}]{v, }
+\item[{{\bf lapack\+\_\+int}}]{ldv, }
+\item[{double $\ast$}]{q, }
+\item[{{\bf lapack\+\_\+int}}]{ldq, }
+\item[{double $\ast$}]{work, }
+\item[{{\bf lapack\+\_\+int} $\ast$}]{iwork}
+\end{DoxyParamCaption}
+)}\label{lapacke__dggsvd__work_8c_ab12c7c182a63bf7353bf9f849bbf4e2f}

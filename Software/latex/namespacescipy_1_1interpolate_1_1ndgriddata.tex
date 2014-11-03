@@ -1,0 +1,142 @@
+\hypertarget{namespacescipy_1_1interpolate_1_1ndgriddata}{}\section{scipy.\+interpolate.\+ndgriddata Namespace Reference}
+\label{namespacescipy_1_1interpolate_1_1ndgriddata}\index{scipy.\+interpolate.\+ndgriddata@{scipy.\+interpolate.\+ndgriddata}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator}{Nearest\+N\+D\+Interpolator}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1ndgriddata_a54e71d1a8228c0b20907945cbe3ea304}{griddata}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1interpolate_1_1ndgriddata_a5936f26badb01747d761062cf6f2a369}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Convenience interface to N-D interpolation
+
+.. versionadded:: 0.9\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1ndgriddata_a54e71d1a8228c0b20907945cbe3ea304}{}\index{scipy\+::interpolate\+::ndgriddata@{scipy\+::interpolate\+::ndgriddata}!griddata@{griddata}}
+\index{griddata@{griddata}!scipy\+::interpolate\+::ndgriddata@{scipy\+::interpolate\+::ndgriddata}}
+\subsubsection[{griddata}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+ndgriddata.\+griddata (
+\begin{DoxyParamCaption}
+\item[{}]{points, }
+\item[{}]{values, }
+\item[{}]{xi, }
+\item[{}]{method = {\ttfamily '{\bf linear}'}, }
+\item[{}]{fill\+\_\+value = {\ttfamily np.nan}, }
+\item[{}]{rescale = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1ndgriddata_a54e71d1a8228c0b20907945cbe3ea304}
+\begin{DoxyVerb}Interpolate unstructured D-dimensional data.
+
+.. versionadded:: 0.9
+
+Parameters
+----------
+points : ndarray of floats, shape (n, D)
+    Data point coordinates. Can either be an array of
+    shape (n, D), or a tuple of `ndim` arrays.
+values : ndarray of float or complex, shape (n,)
+    Data values.
+xi : ndarray of float, shape (M, D)
+    Points at which to interpolate data.
+method : {'linear', 'nearest', 'cubic'}, optional
+    Method of interpolation. One of
+
+    ``nearest``
+      return the value at the data point closest to
+      the point of interpolation.  See `NearestNDInterpolator` for
+      more details.
+
+    ``linear``
+      tesselate the input point set to n-dimensional
+      simplices, and interpolate linearly on each simplex.  See
+      `LinearNDInterpolator` for more details.
+
+    ``cubic`` (1-D)
+      return the value determined from a cubic
+      spline.
+
+    ``cubic`` (2-D)
+      return the value determined from a
+      piecewise cubic, continuously differentiable (C1), and
+      approximately curvature-minimizing polynomial surface. See
+      `CloughTocher2DInterpolator` for more details.
+fill_value : float, optional
+    Value used to fill in for requested points outside of the
+    convex hull of the input points.  If not provided, then the
+    default is ``nan``. This option has no effect for the
+    'nearest' method.
+rescale : boolean, optional
+    Rescale points to unit cube before performing interpolation.
+    This is useful if some of the input dimensions have
+    incommensurable units and differ by many orders of magnitude.
+
+    .. versionadded:: 0.14.0
+
+
+Examples
+--------
+
+Suppose we want to interpolate the 2-D function
+
+>>> def func(x, y):
+>>>     return x*(1-x)*np.cos(4*np.pi*x) * np.sin(4*np.pi*y**2)**2
+
+on a grid in [0, 1]x[0, 1]
+
+>>> grid_x, grid_y = np.mgrid[0:1:100j, 0:1:200j]
+
+but we only know its values at 1000 data points:
+
+>>> points = np.random.rand(1000, 2)
+>>> values = func(points[:,0], points[:,1])
+
+This can be done with `griddata` -- below we try out all of the
+interpolation methods:
+
+>>> from scipy.interpolate import griddata
+>>> grid_z0 = griddata(points, values, (grid_x, grid_y), method='nearest')
+>>> grid_z1 = griddata(points, values, (grid_x, grid_y), method='linear')
+>>> grid_z2 = griddata(points, values, (grid_x, grid_y), method='cubic')
+
+One can see that the exact result is reproduced by all of the
+methods to some degree, but for this smooth function the piecewise
+cubic interpolant gives the best results:
+
+>>> import matplotlib.pyplot as plt
+>>> plt.subplot(221)
+>>> plt.imshow(func(grid_x, grid_y).T, extent=(0,1,0,1), origin='lower')
+>>> plt.plot(points[:,0], points[:,1], 'k.', ms=1)
+>>> plt.title('Original')
+>>> plt.subplot(222)
+>>> plt.imshow(grid_z0.T, extent=(0,1,0,1), origin='lower')
+>>> plt.title('Nearest')
+>>> plt.subplot(223)
+>>> plt.imshow(grid_z1.T, extent=(0,1,0,1), origin='lower')
+>>> plt.title('Linear')
+>>> plt.subplot(224)
+>>> plt.imshow(grid_z2.T, extent=(0,1,0,1), origin='lower')
+>>> plt.title('Cubic')
+>>> plt.gcf().set_size_inches(6, 6)
+>>> plt.show()\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1ndgriddata_a5936f26badb01747d761062cf6f2a369}{}\index{scipy\+::interpolate\+::ndgriddata@{scipy\+::interpolate\+::ndgriddata}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::interpolate\+::ndgriddata@{scipy\+::interpolate\+::ndgriddata}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+interpolate.\+ndgriddata.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1interpolate_1_1ndgriddata_a5936f26badb01747d761062cf6f2a369}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'griddata'}, \textcolor{stringliteral}{'NearestNDInterpolator'}, \textcolor{stringliteral}{'LinearNDInterpolator'},
+2            \textcolor{stringliteral}{'CloughTocher2DInterpolator'}]
+\end{DoxyCode}

@@ -1,0 +1,346 @@
+\hypertarget{namespacescipy_1_1misc_1_1pilutil}{}\section{scipy.\+misc.\+pilutil Namespace Reference}
+\label{namespacescipy_1_1misc_1_1pilutil}\index{scipy.\+misc.\+pilutil@{scipy.\+misc.\+pilutil}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1pilutil_a72e0567166cb354ede5017d329e30c2c}{bytescale}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1pilutil_acd63381b4f3cc9ab2072777718d4c7fe}{imread}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1pilutil_a60021f62692689e9a725284571b97e2b}{imsave}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1pilutil_aa483bc6bacde6fd31611c8f8eb1942e7}{fromimage}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1pilutil_a1d7efcbe99e45eb1612b0047047f228a}{toimage}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1pilutil_af899d1a4ff633c17f0c2dfe472e5029c}{imrotate}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1pilutil_abadc50d497e260e9cb16672ef750603c}{imshow}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1pilutil_a597556283c373fe0968c5829397ea9d2}{imresize}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1pilutil_a05a50a90e28eaac2565989a53eb2d604}{imfilter}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1misc_1_1pilutil_a5023f2f629ba6f93e9c3c5e0a8f17816}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+string \hyperlink{namespacescipy_1_1misc_1_1pilutil_a269c47cd994f4df599a608942d524fc5}{\+\_\+errstr} = \char`\"{}Mode is unknown or incompatible with \hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input} array shape.\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}A collection of image utilities using the Python Imaging Library (PIL).
+
+Note that PIL is not a dependency of SciPy and this module is not
+available on systems that don't have PIL installed.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1misc_1_1pilutil_a72e0567166cb354ede5017d329e30c2c}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!bytescale@{bytescale}}
+\index{bytescale@{bytescale}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{bytescale}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+pilutil.\+bytescale (
+\begin{DoxyParamCaption}
+\item[{}]{data, }
+\item[{}]{cmin = {\ttfamily None}, }
+\item[{}]{cmax = {\ttfamily None}, }
+\item[{}]{high = {\ttfamily 255}, }
+\item[{}]{low = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1pilutil_a72e0567166cb354ede5017d329e30c2c}
+\begin{DoxyVerb}Byte scales an array (image).
+
+Byte scaling means converting the input image to uint8 dtype and scaling
+the range to ``(low, high)`` (default 0-255).
+If the input image already has dtype uint8, no scaling is done.
+
+Parameters
+----------
+data : ndarray
+    PIL image data array.
+cmin : scalar, optional
+    Bias scaling of small values. Default is ``data.min()``.
+cmax : scalar, optional
+    Bias scaling of large values. Default is ``data.max()``.
+high : scalar, optional
+    Scale max value to `high`.  Default is 255.
+low : scalar, optional
+    Scale min value to `low`.  Default is 0.
+
+Returns
+-------
+img_array : uint8 ndarray
+    The byte-scaled array.
+
+Examples
+--------
+>>> img = array([[ 91.06794177,   3.39058326,  84.4221549 ],
+                 [ 73.88003259,  80.91433048,   4.88878881],
+                 [ 51.53875334,  34.45808177,  27.5873488 ]])
+>>> bytescale(img)
+array([[255,   0, 236],
+       [205, 225,   4],
+       [140,  90,  70]], dtype=uint8)
+>>> bytescale(img, high=200, low=100)
+array([[200, 100, 192],
+       [180, 188, 102],
+       [155, 135, 128]], dtype=uint8)
+>>> bytescale(img, cmin=0, cmax=255)
+array([[91,  3, 84],
+       [74, 81,  5],
+       [52, 34, 28]], dtype=uint8)\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1pilutil_aa483bc6bacde6fd31611c8f8eb1942e7}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!fromimage@{fromimage}}
+\index{fromimage@{fromimage}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{fromimage}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+pilutil.\+fromimage (
+\begin{DoxyParamCaption}
+\item[{}]{im, }
+\item[{}]{flatten = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1pilutil_aa483bc6bacde6fd31611c8f8eb1942e7}
+\begin{DoxyVerb}Return a copy of a PIL image as a numpy array.
+
+Parameters
+----------
+im : PIL image
+    Input image.
+flatten : bool
+    If true, convert the output to grey-scale.
+
+Returns
+-------
+fromimage : ndarray
+    The different colour bands/channels are stored in the
+    third dimension, such that a grey-image is MxN, an
+    RGB-image MxNx3 and an RGBA-image MxNx4.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1pilutil_a05a50a90e28eaac2565989a53eb2d604}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!imfilter@{imfilter}}
+\index{imfilter@{imfilter}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{imfilter}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+pilutil.\+imfilter (
+\begin{DoxyParamCaption}
+\item[{}]{arr, }
+\item[{}]{ftype}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1pilutil_a05a50a90e28eaac2565989a53eb2d604}
+\begin{DoxyVerb}Simple filtering of an image.
+
+Parameters
+----------
+arr : ndarray
+    The array of Image in which the filter is to be applied.
+ftype : str
+    The filter that has to be applied. Legal values are:
+    'blur', 'contour', 'detail', 'edge_enhance', 'edge_enhance_more',
+    'emboss', 'find_edges', 'smooth', 'smooth_more', 'sharpen'.
+
+Returns
+-------
+imfilter : ndarray
+    The array with filter applied.
+
+Raises
+------
+ValueError
+    *Unknown filter type.*  If the filter you are trying
+    to apply is unsupported.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1pilutil_acd63381b4f3cc9ab2072777718d4c7fe}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!imread@{imread}}
+\index{imread@{imread}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{imread}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+pilutil.\+imread (
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{flatten = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1pilutil_acd63381b4f3cc9ab2072777718d4c7fe}
+\begin{DoxyVerb}Read an image from a file as an array.
+
+Parameters
+----------
+name : str or file object
+    The file name or file object to be read.
+flatten : bool, optional
+    If True, flattens the color layers into a single gray-scale layer.
+
+Returns
+-------
+imread : ndarray
+    The array obtained by reading image from file `imfile`.
+
+Notes
+-----
+The image is flattened by calling convert('F') on
+the resulting image object.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1pilutil_a597556283c373fe0968c5829397ea9d2}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!imresize@{imresize}}
+\index{imresize@{imresize}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{imresize}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+pilutil.\+imresize (
+\begin{DoxyParamCaption}
+\item[{}]{arr, }
+\item[{}]{size, }
+\item[{}]{interp = {\ttfamily 'bilinear'}, }
+\item[{}]{mode = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1pilutil_a597556283c373fe0968c5829397ea9d2}
+\begin{DoxyVerb}Resize an image.
+
+Parameters
+----------
+arr : ndarray
+    The array of image to be resized.
+
+size : int, float or tuple
+    * int   - Percentage of current size.
+    * float - Fraction of current size.
+    * tuple - Size of the output image.
+
+interp : str
+    Interpolation to use for re-sizing ('nearest', 'bilinear', 'bicubic'
+    or 'cubic').
+
+mode : str
+    The PIL image mode ('P', 'L', etc.).
+
+Returns
+-------
+imresize : ndarray
+    The resized array of image.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1pilutil_af899d1a4ff633c17f0c2dfe472e5029c}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!imrotate@{imrotate}}
+\index{imrotate@{imrotate}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{imrotate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+pilutil.\+imrotate (
+\begin{DoxyParamCaption}
+\item[{}]{arr, }
+\item[{}]{angle, }
+\item[{}]{interp = {\ttfamily 'bilinear'}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1pilutil_af899d1a4ff633c17f0c2dfe472e5029c}
+\begin{DoxyVerb}Rotate an image counter-clockwise by angle degrees.
+
+Parameters
+----------
+arr : ndarray
+    Input array of image to be rotated.
+angle : float
+    The angle of rotation.
+interp : str, optional
+    Interpolation
+
+    - 'nearest' :  for nearest neighbor
+    - 'bilinear' : for bilinear
+    - 'cubic' : cubic
+    - 'bicubic' : for bicubic
+
+Returns
+-------
+imrotate : ndarray
+    The rotated array of image.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1pilutil_a60021f62692689e9a725284571b97e2b}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!imsave@{imsave}}
+\index{imsave@{imsave}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{imsave}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+pilutil.\+imsave (
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{arr, }
+\item[{}]{format = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1pilutil_a60021f62692689e9a725284571b97e2b}
+\begin{DoxyVerb}Save an array as an image.
+
+Parameters
+----------
+name : str or file object
+    Output file name or file object.
+arr : ndarray, MxN or MxNx3 or MxNx4
+    Array containing image values.  If the shape is ``MxN``, the array
+    represents a grey-level image.  Shape ``MxNx3`` stores the red, green
+    and blue bands along the last dimension.  An alpha layer may be
+    included, specified as the last colour band of an ``MxNx4`` array.
+format : str
+    Image format. If omitted, the format to use is determined from the 
+    file name extension. If a file object was used instead of a file name,
+    this parameter should always be used.
+
+Examples
+--------
+Construct an array of gradient intensity values and save to file:
+
+>>> x = np.zeros((255, 255))
+>>> x = np.zeros((255, 255), dtype=np.uint8)
+>>> x[:] = np.arange(255)
+>>> imsave('/tmp/gradient.png', x)
+
+Construct an array with three colour bands (R, G, B) and store to file:
+
+>>> rgb = np.zeros((255, 255, 3), dtype=np.uint8)
+>>> rgb[..., 0] = np.arange(255)
+>>> rgb[..., 1] = 55
+>>> rgb[..., 2] = 1 - np.arange(255)
+>>> imsave('/tmp/rgb_gradient.png', rgb)\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1pilutil_abadc50d497e260e9cb16672ef750603c}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!imshow@{imshow}}
+\index{imshow@{imshow}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{imshow}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+pilutil.\+imshow (
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1pilutil_abadc50d497e260e9cb16672ef750603c}
+\begin{DoxyVerb}Simple showing of an image through an external viewer.
+
+Uses the image viewer specified by the environment variable
+SCIPY_PIL_IMAGE_VIEWER, or if that is not defined then `see`,
+to view a temporary file generated from array data.
+
+Parameters
+----------
+arr : ndarray
+    Array of image data to show.
+
+Returns
+-------
+None
+
+Examples
+--------
+>>> a = np.tile(np.arange(255), (255,1))
+>>> from scipy import misc
+>>> misc.pilutil.imshow(a)\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1pilutil_a1d7efcbe99e45eb1612b0047047f228a}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!toimage@{toimage}}
+\index{toimage@{toimage}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{toimage}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+pilutil.\+toimage (
+\begin{DoxyParamCaption}
+\item[{}]{arr, }
+\item[{}]{high = {\ttfamily 255}, }
+\item[{}]{low = {\ttfamily 0}, }
+\item[{}]{cmin = {\ttfamily None}, }
+\item[{}]{cmax = {\ttfamily None}, }
+\item[{}]{pal = {\ttfamily None}, }
+\item[{}]{mode = {\ttfamily None}, }
+\item[{}]{channel\+\_\+axis = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1pilutil_a1d7efcbe99e45eb1612b0047047f228a}
+\begin{DoxyVerb}Takes a numpy array and returns a PIL image.
+
+The mode of the PIL image depends on the array shape and the `pal` and
+`mode` keywords.
+
+For 2-D arrays, if `pal` is a valid (N,3) byte-array giving the RGB values
+(from 0 to 255) then ``mode='P'``, otherwise ``mode='L'``, unless mode
+is given as 'F' or 'I' in which case a float and/or integer array is made.
+
+Notes
+-----
+For 3-D arrays, the `channel_axis` argument tells which dimension of the
+array holds the channel data.
+
+For 3-D arrays if one of the dimensions is 3, the mode is 'RGB'
+by default or 'YCbCr' if selected.
+
+The numpy array must be either 2 dimensional or 3 dimensional.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1misc_1_1pilutil_a5023f2f629ba6f93e9c3c5e0a8f17816}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+misc.\+pilutil.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1misc_1_1pilutil_a5023f2f629ba6f93e9c3c5e0a8f17816}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'fromimage'},\textcolor{stringliteral}{'toimage'},\textcolor{stringliteral}{'imsave'},\textcolor{stringliteral}{'imread'},\textcolor{stringliteral}{'bytescale'},
+2            \textcolor{stringliteral}{'imrotate'},\textcolor{stringliteral}{'imresize'},\textcolor{stringliteral}{'imshow'},\textcolor{stringliteral}{'imfilter'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1misc_1_1pilutil_a269c47cd994f4df599a608942d524fc5}{}\index{scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}!\+\_\+errstr@{\+\_\+errstr}}
+\index{\+\_\+errstr@{\+\_\+errstr}!scipy\+::misc\+::pilutil@{scipy\+::misc\+::pilutil}}
+\subsubsection[{\+\_\+errstr}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+misc.\+pilutil.\+\_\+errstr = \char`\"{}Mode is unknown or incompatible with {\bf input} array shape.\char`\"{}}\label{namespacescipy_1_1misc_1_1pilutil_a269c47cd994f4df599a608942d524fc5}

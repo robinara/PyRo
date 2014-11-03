@@ -1,0 +1,183 @@
+\hypertarget{zlaed8_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlaed8.f File Reference}
+\label{zlaed8_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaed8.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaed8.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlaed8_8f_a9eb796d0fcb8d082409178b20686d971}{zlaed8} (K, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, Q\+S\+I\+Z, Q, L\+D\+Q, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, R\+H\+O, C\+U\+T\+P\+N\+T, Z, D\+L\+A\+M\+D\+A, Q2, L\+D\+Q2, W, I\+N\+D\+X\+P, I\+N\+D\+X, I\+N\+D\+X\+Q, P\+E\+R\+M, G\+I\+V\+P\+T\+R, G\+I\+V\+C\+O\+L, G\+I\+V\+N\+U\+M, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+E\+D8} used by sstedc. Merges eigenvalues and deflates secular equation. Used when the original matrix is dense. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlaed8_8f_a9eb796d0fcb8d082409178b20686d971}{}\index{zlaed8.\+f@{zlaed8.\+f}!zlaed8@{zlaed8}}
+\index{zlaed8@{zlaed8}!zlaed8.\+f@{zlaed8.\+f}}
+\subsubsection[{zlaed8}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlaed8 (
+\begin{DoxyParamCaption}
+\item[{integer}]{K, }
+\item[{integer}]{N, }
+\item[{integer}]{Q\+S\+I\+Z, }
+\item[{{\bf complex}$\ast$16, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{double {\bf precision}}]{R\+H\+O, }
+\item[{integer}]{C\+U\+T\+P\+N\+T, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{Z, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+L\+A\+M\+D\+A, }
+\item[{{\bf complex}$\ast$16, dimension( ldq2, $\ast$ )}]{Q2, }
+\item[{integer}]{L\+D\+Q2, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W, }
+\item[{integer, dimension( $\ast$ )}]{I\+N\+D\+X\+P, }
+\item[{integer, dimension( $\ast$ )}]{I\+N\+D\+X, }
+\item[{integer, dimension( $\ast$ )}]{I\+N\+D\+X\+Q, }
+\item[{integer, dimension( $\ast$ )}]{P\+E\+R\+M, }
+\item[{integer}]{G\+I\+V\+P\+T\+R, }
+\item[{integer, dimension( 2, $\ast$ )}]{G\+I\+V\+C\+O\+L, }
+\item[{double {\bf precision}, dimension( 2, $\ast$ )}]{G\+I\+V\+N\+U\+M, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zlaed8_8f_a9eb796d0fcb8d082409178b20686d971}
+
+
+{\bfseries Z\+L\+A\+E\+D8} used by sstedc. Merges eigenvalues and deflates secular equation. Used when the original matrix is dense. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLAED8 merges the two sets of eigenvalues together into a single
+ sorted set.  Then it tries to deflate the size of the problem.
+ There are two ways in which deflation can occur:  when two or more
+ eigenvalues are close together or if there is a tiny element in the
+ Z vector.  For each such occurrence the order of the related secular
+ equation problem is reduced by one.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+         Contains the number of non-deflated eigenvalues.
+         This is the order of the related secular equation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+         The dimension of the symmetric tridiagonal matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q\+S\+I\+Z} & \begin{DoxyVerb}          QSIZ is INTEGER
+         The dimension of the unitary matrix used to reduce
+         the dense or band matrix to tridiagonal form.
+         QSIZ >= N if ICOMPQ = 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q} & \begin{DoxyVerb}          Q is COMPLEX*16 array, dimension (LDQ,N)
+         On entry, Q contains the eigenvectors of the partially solved
+         system which has been previously updated in matrix
+         multiplies with other partially solved eigensystems.
+         On exit, Q contains the trailing (N-K) updated eigenvectors
+         (those which were deflated) in its last N-K columns.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+         The leading dimension of the array Q.  LDQ >= max( 1, N ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+         On entry, D contains the eigenvalues of the two submatrices to
+         be combined.  On exit, D contains the trailing (N-K) updated
+         eigenvalues (those which were deflated) sorted into increasing
+         order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em R\+H\+O} & \begin{DoxyVerb}          RHO is DOUBLE PRECISION
+         Contains the off diagonal element associated with the rank-1
+         cut which originally split the two submatrices which are now
+         being recombined. RHO is modified during the computation to
+         the value required by DLAED3.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+U\+T\+P\+N\+T} & \begin{DoxyVerb}          CUTPNT is INTEGER
+         Contains the location of the last eigenvalue in the leading
+         sub-matrix.  MIN(1,N) <= CUTPNT <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array, dimension (N)
+         On input this vector contains the updating vector (the last
+         row of the first sub-eigenvector matrix and the first row of
+         the second sub-eigenvector matrix).  The contents of Z are
+         destroyed during the updating process.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+L\+A\+M\+D\+A} & \begin{DoxyVerb}          DLAMDA is DOUBLE PRECISION array, dimension (N)
+         Contains a copy of the first K eigenvalues which will be used
+         by DLAED3 to form the secular equation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Q2} & \begin{DoxyVerb}          Q2 is COMPLEX*16 array, dimension (LDQ2,N)
+         If ICOMPQ = 0, Q2 is not referenced.  Otherwise,
+         Contains a copy of the first K eigenvectors which will be used
+         by DLAED7 in a matrix multiply (DGEMM) to update the new
+         eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q2} & \begin{DoxyVerb}          LDQ2 is INTEGER
+         The leading dimension of the array Q2.  LDQ2 >= max( 1, N ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W} & \begin{DoxyVerb}          W is DOUBLE PRECISION array, dimension (N)
+         This will hold the first k values of the final
+         deflation-altered z-vector and will be passed to DLAED3.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+D\+X\+P} & \begin{DoxyVerb}          INDXP is INTEGER array, dimension (N)
+         This will contain the permutation used to place deflated
+         values of D at the end of the array. On output INDXP(1:K)
+         points to the nondeflated D-values and INDXP(K+1:N)
+         points to the deflated eigenvalues.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+D\+X} & \begin{DoxyVerb}          INDX is INTEGER array, dimension (N)
+         This will contain the permutation used to sort the contents of
+         D into ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+D\+X\+Q} & \begin{DoxyVerb}          INDXQ is INTEGER array, dimension (N)
+         This contains the permutation which separately sorts the two
+         sub-problems in D into ascending order.  Note that elements in
+         the second half of this permutation must first have CUTPNT
+         added to their values in order to be accurate.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em P\+E\+R\+M} & \begin{DoxyVerb}          PERM is INTEGER array, dimension (N)
+         Contains the permutations (from deflation and sorting) to be
+         applied to each eigenblock.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em G\+I\+V\+P\+T\+R} & \begin{DoxyVerb}          GIVPTR is INTEGER
+         Contains the number of Givens rotations which took place in
+         this subproblem.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em G\+I\+V\+C\+O\+L} & \begin{DoxyVerb}          GIVCOL is INTEGER array, dimension (2, N)
+         Each pair of numbers indicates a pair of columns to take place
+         in a Givens rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em G\+I\+V\+N\+U\+M} & \begin{DoxyVerb}          GIVNUM is DOUBLE PRECISION array, dimension (2, N)
+         Each number indicates the S value to be used in the
+         corresponding Givens rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

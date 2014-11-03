@@ -1,0 +1,236 @@
+\hypertarget{namespacescipy_1_1sparse_1_1sputils}{}\section{scipy.\+sparse.\+sputils Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1sputils}\index{scipy.\+sparse.\+sputils@{scipy.\+sparse.\+sputils}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1sparse_1_1sputils_1_1IndexMixin}{Index\+Mixin}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_a6f3d146d9f8b3e30e8bb0de9c681de12}{upcast}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_a172398573f946dd1c8339f016ebd892e}{upcast\+\_\+char}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_a038b2effce7e72c22558420bcdfcc558}{upcast\+\_\+scalar}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_a4f34586633741867705dd8ff22c12b87}{downcast\+\_\+intp\+\_\+index}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_a97894ef37a7ab2d8610344311fdabbf9}{to\+\_\+native}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_af9a10e9aa10d92ac425f925515138573}{getdtype}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_add693b57e97d82b8b99f3768d3ca6f14}{get\+\_\+index\+\_\+dtype}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_a6b22f49f8e7a7bf5da4a812299982019}{isscalarlike}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_ac628823524df63b157a69e45749440b6}{isintlike}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_ab32dc16eba987427330cc5af006596a4}{isshape}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_a0671251b90287419626e8e3333663d72}{issequence}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_a3f55e4398e1483c8498ef2dc89bf7316}{ismatrix}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1sputils_a2146f226e784d77069a37edabaf99400}{isdense}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1sputils_af59470dd533839315869f43b2ddda0c7}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1sputils_a00aac4a974e29d45ad6f4410fccc9bb5}{supported\+\_\+dtypes}
+\item 
+dictionary \hyperlink{namespacescipy_1_1sparse_1_1sputils_a8204ccd13c7a8a22846cfe288dbb74ac}{\+\_\+upcast\+\_\+memo} = \{\}
+\item 
+\hyperlink{namespacescipy_1_1sparse_1_1sputils_acc5295c194462ea655cd863d33ccc4f1}{\+\_\+compat\+\_\+unique} = np.\+unique
+\item 
+\hyperlink{namespacescipy_1_1sparse_1_1sputils_a4d4ea57fab0eedd54414ade01ccbd25c}{\+\_\+compat\+\_\+bincount} = np.\+bincount
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Utility functions for sparse matrix module
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1sputils_a4f34586633741867705dd8ff22c12b87}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!downcast\+\_\+intp\+\_\+index@{downcast\+\_\+intp\+\_\+index}}
+\index{downcast\+\_\+intp\+\_\+index@{downcast\+\_\+intp\+\_\+index}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{downcast\+\_\+intp\+\_\+index}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+downcast\+\_\+intp\+\_\+index (
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_a4f34586633741867705dd8ff22c12b87}
+\begin{DoxyVerb}Down-cast index array to np.intp dtype if it is of a larger dtype.
+
+Raise an error if the array contains a value that is too large for
+intp.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1sputils_add693b57e97d82b8b99f3768d3ca6f14}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!get\+\_\+index\+\_\+dtype@{get\+\_\+index\+\_\+dtype}}
+\index{get\+\_\+index\+\_\+dtype@{get\+\_\+index\+\_\+dtype}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{get\+\_\+index\+\_\+dtype}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+get\+\_\+index\+\_\+dtype (
+\begin{DoxyParamCaption}
+\item[{}]{arrays = {\ttfamily ()}, }
+\item[{}]{maxval = {\ttfamily None}, }
+\item[{}]{check\+\_\+contents = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_add693b57e97d82b8b99f3768d3ca6f14}
+\begin{DoxyVerb}Based on input (integer) arrays `a`, determine a suitable index data
+type that can hold the data in the arrays.
+
+Parameters
+----------
+arrays : tuple of array_like
+    Input arrays whose types/contents to check
+maxval : float, optional
+    Maximum value needed
+check_contents : bool, optional
+    Whether to check the values in the arrays and not just their types.
+    Default: False (check only the types)
+
+Returns
+-------
+dtype : dtype
+    Suitable index data type (int32 or int64)\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1sputils_af9a10e9aa10d92ac425f925515138573}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!getdtype@{getdtype}}
+\index{getdtype@{getdtype}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{getdtype}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+getdtype (
+\begin{DoxyParamCaption}
+\item[{}]{dtype, }
+\item[{}]{a = {\ttfamily None}, }
+\item[{}]{default = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_af9a10e9aa10d92ac425f925515138573}
+\begin{DoxyVerb}Function used to simplify argument processing.  If 'dtype' is not
+specified (is None), returns a.dtype; otherwise returns a np.dtype
+object created from the specified dtype argument.  If 'dtype' and 'a'
+are both None, construct a data type out of the 'default' parameter.
+Furthermore, 'dtype' must be in 'allowed' set.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1sputils_a2146f226e784d77069a37edabaf99400}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!isdense@{isdense}}
+\index{isdense@{isdense}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{isdense}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+isdense (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_a2146f226e784d77069a37edabaf99400}
+\hypertarget{namespacescipy_1_1sparse_1_1sputils_ac628823524df63b157a69e45749440b6}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!isintlike@{isintlike}}
+\index{isintlike@{isintlike}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{isintlike}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+isintlike (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_ac628823524df63b157a69e45749440b6}
+\begin{DoxyVerb}Is x appropriate as an index into a sparse matrix? Returns True
+if it can be cast safely to a machine int.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1sputils_a3f55e4398e1483c8498ef2dc89bf7316}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!ismatrix@{ismatrix}}
+\index{ismatrix@{ismatrix}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{ismatrix}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+ismatrix (
+\begin{DoxyParamCaption}
+\item[{}]{t}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_a3f55e4398e1483c8498ef2dc89bf7316}
+\hypertarget{namespacescipy_1_1sparse_1_1sputils_a6b22f49f8e7a7bf5da4a812299982019}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!isscalarlike@{isscalarlike}}
+\index{isscalarlike@{isscalarlike}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{isscalarlike}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+isscalarlike (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_a6b22f49f8e7a7bf5da4a812299982019}
+\begin{DoxyVerb}Is x either a scalar, an array scalar, or a 0-dim array?\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1sputils_a0671251b90287419626e8e3333663d72}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!issequence@{issequence}}
+\index{issequence@{issequence}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{issequence}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+issequence (
+\begin{DoxyParamCaption}
+\item[{}]{t}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_a0671251b90287419626e8e3333663d72}
+\hypertarget{namespacescipy_1_1sparse_1_1sputils_ab32dc16eba987427330cc5af006596a4}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!isshape@{isshape}}
+\index{isshape@{isshape}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{isshape}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+isshape (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_ab32dc16eba987427330cc5af006596a4}
+\begin{DoxyVerb}Is x a valid 2-tuple of dimensions?
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1sputils_a97894ef37a7ab2d8610344311fdabbf9}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!to\+\_\+native@{to\+\_\+native}}
+\index{to\+\_\+native@{to\+\_\+native}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{to\+\_\+native}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+to\+\_\+native (
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_a97894ef37a7ab2d8610344311fdabbf9}
+\hypertarget{namespacescipy_1_1sparse_1_1sputils_a6f3d146d9f8b3e30e8bb0de9c681de12}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!upcast@{upcast}}
+\index{upcast@{upcast}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{upcast}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+upcast (
+\begin{DoxyParamCaption}
+\item[{}]{args}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_a6f3d146d9f8b3e30e8bb0de9c681de12}
+\begin{DoxyVerb}Returns the nearest supported sparse dtype for the
+combination of one or more types.
+
+upcast(t0, t1, ..., tn) -> T  where T is a supported dtype
+
+Examples
+--------
+
+>>> upcast('int32')
+<type 'numpy.int32'>
+>>> upcast('bool')
+<type 'numpy.bool_'>
+>>> upcast('int32','float32')
+<type 'numpy.float64'>
+>>> upcast('bool',complex,float)
+<type 'numpy.complex128'>\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1sputils_a172398573f946dd1c8339f016ebd892e}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!upcast\+\_\+char@{upcast\+\_\+char}}
+\index{upcast\+\_\+char@{upcast\+\_\+char}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{upcast\+\_\+char}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+upcast\+\_\+char (
+\begin{DoxyParamCaption}
+\item[{}]{args}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_a172398573f946dd1c8339f016ebd892e}
+\begin{DoxyVerb}Same as `upcast` but taking dtype.char as input (faster).\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1sputils_a038b2effce7e72c22558420bcdfcc558}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!upcast\+\_\+scalar@{upcast\+\_\+scalar}}
+\index{upcast\+\_\+scalar@{upcast\+\_\+scalar}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{upcast\+\_\+scalar}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+sputils.\+upcast\+\_\+scalar (
+\begin{DoxyParamCaption}
+\item[{}]{dtype, }
+\item[{}]{scalar}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1sputils_a038b2effce7e72c22558420bcdfcc558}
+\begin{DoxyVerb}Determine data type for binary operation between an array of
+type `dtype` and a scalar.
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1sputils_af59470dd533839315869f43b2ddda0c7}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+sputils.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1sparse_1_1sputils_af59470dd533839315869f43b2ddda0c7}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'upcast'},\textcolor{stringliteral}{'getdtype'},\textcolor{stringliteral}{'isscalarlike'},\textcolor{stringliteral}{'isintlike'},
+2             \textcolor{stringliteral}{'isshape'},\textcolor{stringliteral}{'issequence'},\textcolor{stringliteral}{'isdense'},\textcolor{stringliteral}{'ismatrix'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1sputils_a4d4ea57fab0eedd54414ade01ccbd25c}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!\+\_\+compat\+\_\+bincount@{\+\_\+compat\+\_\+bincount}}
+\index{\+\_\+compat\+\_\+bincount@{\+\_\+compat\+\_\+bincount}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{\+\_\+compat\+\_\+bincount}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+sputils.\+\_\+compat\+\_\+bincount = np.\+bincount}\label{namespacescipy_1_1sparse_1_1sputils_a4d4ea57fab0eedd54414ade01ccbd25c}
+\hypertarget{namespacescipy_1_1sparse_1_1sputils_acc5295c194462ea655cd863d33ccc4f1}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!\+\_\+compat\+\_\+unique@{\+\_\+compat\+\_\+unique}}
+\index{\+\_\+compat\+\_\+unique@{\+\_\+compat\+\_\+unique}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{\+\_\+compat\+\_\+unique}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+sputils.\+\_\+compat\+\_\+unique = np.\+unique}\label{namespacescipy_1_1sparse_1_1sputils_acc5295c194462ea655cd863d33ccc4f1}
+\hypertarget{namespacescipy_1_1sparse_1_1sputils_a8204ccd13c7a8a22846cfe288dbb74ac}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!\+\_\+upcast\+\_\+memo@{\+\_\+upcast\+\_\+memo}}
+\index{\+\_\+upcast\+\_\+memo@{\+\_\+upcast\+\_\+memo}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{\+\_\+upcast\+\_\+memo}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+sparse.\+sputils.\+\_\+upcast\+\_\+memo = \{\}}\label{namespacescipy_1_1sparse_1_1sputils_a8204ccd13c7a8a22846cfe288dbb74ac}
+\hypertarget{namespacescipy_1_1sparse_1_1sputils_a00aac4a974e29d45ad6f4410fccc9bb5}{}\index{scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}!supported\+\_\+dtypes@{supported\+\_\+dtypes}}
+\index{supported\+\_\+dtypes@{supported\+\_\+dtypes}!scipy\+::sparse\+::sputils@{scipy\+::sparse\+::sputils}}
+\subsubsection[{supported\+\_\+dtypes}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+sputils.\+supported\+\_\+dtypes}\label{namespacescipy_1_1sparse_1_1sputils_a00aac4a974e29d45ad6f4410fccc9bb5}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'bool'}, \textcolor{stringliteral}{'int8'},\textcolor{stringliteral}{'uint8'},\textcolor{stringliteral}{'short'},\textcolor{stringliteral}{'ushort'},\textcolor{stringliteral}{'intc'},\textcolor{stringliteral}{'uintc'},
+2         \textcolor{stringliteral}{'longlong'},\textcolor{stringliteral}{'ulonglong'},\textcolor{stringliteral}{'single'},\textcolor{stringliteral}{'double'},\textcolor{stringliteral}{'longdouble'},
+3         \textcolor{stringliteral}{'csingle'},\textcolor{stringliteral}{'cdouble'},\textcolor{stringliteral}{'clongdouble'}]
+\end{DoxyCode}

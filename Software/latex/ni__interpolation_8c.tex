@@ -1,0 +1,177 @@
+\hypertarget{ni__interpolation_8c}{}\section{packages/scipy-\/0.14.0/scipy/ndimage/src/ni\+\_\+interpolation.c File Reference}
+\label{ni__interpolation_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+interpolation.\+c@{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+interpolation.\+c}}
+{\ttfamily \#include \char`\"{}ni\+\_\+support.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ni\+\_\+interpolation.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ni__interpolation_8c_a6b20d41d6252e9871430c242cb1a56e7}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}~256000
+\item 
+\#define \hyperlink{ni__interpolation_8c_a30c17564229ec2e37dfea9c6c9ad643e}{T\+O\+L\+E\+R\+A\+N\+C\+E}~1e-\/15
+\item 
+\#define \hyperlink{ni__interpolation_8c_a5d8936e9ddf91357c026d90cc2883b08}{C\+A\+S\+E\+\_\+\+M\+A\+P\+\_\+\+C\+O\+O\+R\+D\+I\+N\+A\+T\+E\+S}(\+\_\+p,  \+\_\+coor,  \+\_\+rank,  \+\_\+stride,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__interpolation_8c_a940c723525eac561c05891a8351f816f}{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+C\+O\+E\+F\+F}(\+\_\+coeff,  \+\_\+pi,  \+\_\+idx,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__interpolation_8c_aa5855731388b32a29cccd6a6cd6803ab}{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T}(\+\_\+po,  \+\_\+t,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__interpolation_8c_af5582198c7e74e7ab6dfc1258e556b66}{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+U\+I\+N\+T}(\+\_\+po,  \+\_\+t,  \+\_\+type,  type\+\_\+min,  type\+\_\+max)
+\item 
+\#define \hyperlink{ni__interpolation_8c_a92dd73da2e77e95eaf9178468df42e97}{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+I\+N\+T}(\+\_\+po,  \+\_\+t,  \+\_\+type,  type\+\_\+min,  type\+\_\+max)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ni__interpolation_8c_a2685d7953d6345dc535bf77859fd5f4b}{N\+I\+\_\+\+Spline\+Filter1\+D} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, int order, int axis, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output})
+\item 
+int \hyperlink{ni__interpolation_8c_a70f8d1833d5ce7ce1958f3e4332c0081}{N\+I\+\_\+\+Geometric\+Transform} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, int($\ast$map)(npy\+\_\+intp $\ast$, double $\ast$, int, int, void $\ast$), void $\ast$map\+\_\+data, Py\+Array\+Object $\ast$matrix\+\_\+ar, Py\+Array\+Object $\ast$shift\+\_\+ar, Py\+Array\+Object $\ast$coordinates, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, int order, int mode, double cval)
+\item 
+int \hyperlink{ni__interpolation_8c_a829047ff9ba5c782ff0c0541ffd0782d}{N\+I\+\_\+\+Zoom\+Shift} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$zoom\+\_\+ar, Py\+Array\+Object $\ast$shift\+\_\+ar, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, int order, int mode, double cval)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ni__interpolation_8c_a6b20d41d6252e9871430c242cb1a56e7}{}\index{ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}!B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}}
+\index{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}!ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}}
+\subsubsection[{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E~256000}\label{ni__interpolation_8c_a6b20d41d6252e9871430c242cb1a56e7}
+\hypertarget{ni__interpolation_8c_a940c723525eac561c05891a8351f816f}{}\index{ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}!C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+C\+O\+E\+F\+F@{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+C\+O\+E\+F\+F}}
+\index{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+C\+O\+E\+F\+F@{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+C\+O\+E\+F\+F}!ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+C\+O\+E\+F\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+C\+O\+E\+F\+F(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+coeff, }
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+idx, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__interpolation_8c_a940c723525eac561c05891a8351f816f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                    \(\backslash\)
+    \_coeff = *(\_type*)(\_pi + \_idx);                   \(\backslash\)
+    break;
+\end{DoxyCode}
+\hypertarget{ni__interpolation_8c_aa5855731388b32a29cccd6a6cd6803ab}{}\index{ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}!C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T@{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T}}
+\index{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T@{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T}!ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+po, }
+\item[{}]{\+\_\+t, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__interpolation_8c_aa5855731388b32a29cccd6a6cd6803ab}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                        \(\backslash\)
+    *(\_type*)\_po = (\_type)\_t;             \(\backslash\)
+    break;
+\end{DoxyCode}
+\hypertarget{ni__interpolation_8c_a92dd73da2e77e95eaf9178468df42e97}{}\index{ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}!C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+I\+N\+T@{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+I\+N\+T}}
+\index{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+I\+N\+T@{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+I\+N\+T}!ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+I\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+po, }
+\item[{}]{\+\_\+t, }
+\item[{}]{\+\_\+type, }
+\item[{}]{type\+\_\+min, }
+\item[{}]{type\+\_\+max}
+\end{DoxyParamCaption}
+)}\label{ni__interpolation_8c_a92dd73da2e77e95eaf9178468df42e97}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                            \(\backslash\)
+    \_t = \_t > 0 ? \_t + 0.5 : \_t - 0.5;        \(\backslash\)
+    \_t = \_t > type\_max ? type\_max : \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t};        \(\backslash\)
+    \_t = \_t < type\_min ? type\_min : \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t};        \(\backslash\)
+    *(\_type*)\_po = (\_type)\_t;                 \(\backslash\)
+    break;
+\end{DoxyCode}
+\hypertarget{ni__interpolation_8c_af5582198c7e74e7ab6dfc1258e556b66}{}\index{ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}!C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+U\+I\+N\+T@{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+U\+I\+N\+T}}
+\index{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+U\+I\+N\+T@{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+U\+I\+N\+T}!ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+U\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+I\+N\+T\+E\+R\+P\+\_\+\+O\+U\+T\+\_\+\+U\+I\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+po, }
+\item[{}]{\+\_\+t, }
+\item[{}]{\+\_\+type, }
+\item[{}]{type\+\_\+min, }
+\item[{}]{type\+\_\+max}
+\end{DoxyParamCaption}
+)}\label{ni__interpolation_8c_af5582198c7e74e7ab6dfc1258e556b66}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                             \(\backslash\)
+    \_t = \_t > 0 ? \_t + 0.5 : 0;                \(\backslash\)
+    \_t = \_t > type\_max ? type\_max : \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t};         \(\backslash\)
+    \_t = \_t < type\_min ? type\_min : \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t};         \(\backslash\)
+    *(\_type*)\_po = (\_type)\_t;                  \(\backslash\)
+    break;
+\end{DoxyCode}
+\hypertarget{ni__interpolation_8c_a5d8936e9ddf91357c026d90cc2883b08}{}\index{ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}!C\+A\+S\+E\+\_\+\+M\+A\+P\+\_\+\+C\+O\+O\+R\+D\+I\+N\+A\+T\+E\+S@{C\+A\+S\+E\+\_\+\+M\+A\+P\+\_\+\+C\+O\+O\+R\+D\+I\+N\+A\+T\+E\+S}}
+\index{C\+A\+S\+E\+\_\+\+M\+A\+P\+\_\+\+C\+O\+O\+R\+D\+I\+N\+A\+T\+E\+S@{C\+A\+S\+E\+\_\+\+M\+A\+P\+\_\+\+C\+O\+O\+R\+D\+I\+N\+A\+T\+E\+S}!ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+M\+A\+P\+\_\+\+C\+O\+O\+R\+D\+I\+N\+A\+T\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+M\+A\+P\+\_\+\+C\+O\+O\+R\+D\+I\+N\+A\+T\+E\+S(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+p, }
+\item[{}]{\+\_\+coor, }
+\item[{}]{\+\_\+rank, }
+\item[{}]{\+\_\+stride, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__interpolation_8c_a5d8936e9ddf91357c026d90cc2883b08}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                    \(\backslash\)
+\{                                                              \(\backslash\)
+    npy\_intp \_hh;                                               \(\backslash\)
+    for(\_hh = 0; \_hh < \_rank; \_hh++) \{                           \(\backslash\)
+        \_coor[\_hh] = *(\_type*)\_p;                                  \(\backslash\)
+        \_p += \_stride;                                             \(\backslash\)
+    \}                                                            \(\backslash\)
+\}                                                              \(\backslash\)
+break;
+\end{DoxyCode}
+\hypertarget{ni__interpolation_8c_a30c17564229ec2e37dfea9c6c9ad643e}{}\index{ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}!T\+O\+L\+E\+R\+A\+N\+C\+E@{T\+O\+L\+E\+R\+A\+N\+C\+E}}
+\index{T\+O\+L\+E\+R\+A\+N\+C\+E@{T\+O\+L\+E\+R\+A\+N\+C\+E}!ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}}
+\subsubsection[{T\+O\+L\+E\+R\+A\+N\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+O\+L\+E\+R\+A\+N\+C\+E~1e-\/15}\label{ni__interpolation_8c_a30c17564229ec2e37dfea9c6c9ad643e}
+
+
+\subsection{Function Documentation}
+\hypertarget{ni__interpolation_8c_a70f8d1833d5ce7ce1958f3e4332c0081}{}\index{ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}!N\+I\+\_\+\+Geometric\+Transform@{N\+I\+\_\+\+Geometric\+Transform}}
+\index{N\+I\+\_\+\+Geometric\+Transform@{N\+I\+\_\+\+Geometric\+Transform}!ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}}
+\subsubsection[{N\+I\+\_\+\+Geometric\+Transform}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Geometric\+Transform (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{int($\ast$)(npy\+\_\+intp $\ast$, double $\ast$, int, int, void $\ast$)}]{map, }
+\item[{void $\ast$}]{map\+\_\+data, }
+\item[{Py\+Array\+Object $\ast$}]{matrix\+\_\+ar, }
+\item[{Py\+Array\+Object $\ast$}]{shift\+\_\+ar, }
+\item[{Py\+Array\+Object $\ast$}]{coordinates, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{int}]{order, }
+\item[{int}]{mode, }
+\item[{double}]{cval}
+\end{DoxyParamCaption}
+)}\label{ni__interpolation_8c_a70f8d1833d5ce7ce1958f3e4332c0081}
+\hypertarget{ni__interpolation_8c_a2685d7953d6345dc535bf77859fd5f4b}{}\index{ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}!N\+I\+\_\+\+Spline\+Filter1\+D@{N\+I\+\_\+\+Spline\+Filter1\+D}}
+\index{N\+I\+\_\+\+Spline\+Filter1\+D@{N\+I\+\_\+\+Spline\+Filter1\+D}!ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}}
+\subsubsection[{N\+I\+\_\+\+Spline\+Filter1\+D}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Spline\+Filter1\+D (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{int}]{order, }
+\item[{int}]{axis, }
+\item[{Py\+Array\+Object $\ast$}]{output}
+\end{DoxyParamCaption}
+)}\label{ni__interpolation_8c_a2685d7953d6345dc535bf77859fd5f4b}
+\hypertarget{ni__interpolation_8c_a829047ff9ba5c782ff0c0541ffd0782d}{}\index{ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}!N\+I\+\_\+\+Zoom\+Shift@{N\+I\+\_\+\+Zoom\+Shift}}
+\index{N\+I\+\_\+\+Zoom\+Shift@{N\+I\+\_\+\+Zoom\+Shift}!ni\+\_\+interpolation.\+c@{ni\+\_\+interpolation.\+c}}
+\subsubsection[{N\+I\+\_\+\+Zoom\+Shift}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Zoom\+Shift (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{zoom\+\_\+ar, }
+\item[{Py\+Array\+Object $\ast$}]{shift\+\_\+ar, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{int}]{order, }
+\item[{int}]{mode, }
+\item[{double}]{cval}
+\end{DoxyParamCaption}
+)}\label{ni__interpolation_8c_a829047ff9ba5c782ff0c0541ffd0782d}

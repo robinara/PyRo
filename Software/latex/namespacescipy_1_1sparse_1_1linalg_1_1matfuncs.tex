@@ -1,0 +1,99 @@
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs}{}\section{scipy.\+sparse.\+linalg.\+matfuncs Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs}\index{scipy.\+sparse.\+linalg.\+matfuncs@{scipy.\+sparse.\+linalg.\+matfuncs}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1sparse_1_1linalg_1_1matfuncs_1_1__ExpmPadeHelper}{\+\_\+\+Expm\+Pade\+Helper}
+\item 
+class \hyperlink{classscipy_1_1sparse_1_1linalg_1_1matfuncs_1_1MatrixPowerOperator}{Matrix\+Power\+Operator}
+\item 
+class \hyperlink{classscipy_1_1sparse_1_1linalg_1_1matfuncs_1_1ProductOperator}{Product\+Operator}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_a552f836210c209101b7363f0ddb6c027}{inv}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_ad64374dc8eda23f15ce0d4397e4d31a0}{expm}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_add152720710230158e8541f4cee5e321}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_ad64374dc8eda23f15ce0d4397e4d31a0}{expm}', '\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_a552f836210c209101b7363f0ddb6c027}{inv}'\mbox{]}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_a146f13e82ea133f0acd513a8b6e66fb3}{U\+P\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+U\+L\+A\+R} = 'upper\+\_\+triangular'
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Sparse matrix functions
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_ad64374dc8eda23f15ce0d4397e4d31a0}{}\index{scipy\+::sparse\+::linalg\+::matfuncs@{scipy\+::sparse\+::linalg\+::matfuncs}!expm@{expm}}
+\index{expm@{expm}!scipy\+::sparse\+::linalg\+::matfuncs@{scipy\+::sparse\+::linalg\+::matfuncs}}
+\subsubsection[{expm}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+matfuncs.\+expm (
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_ad64374dc8eda23f15ce0d4397e4d31a0}
+\begin{DoxyVerb}Compute the matrix exponential using Pade approximation.
+
+.. versionadded:: 0.12.0
+
+Parameters
+----------
+A : (M,M) array_like or sparse matrix
+    2D Array or Matrix (sparse or dense) to be exponentiated
+
+Returns
+-------
+expA : (M,M) ndarray
+    Matrix exponential of `A`
+
+Notes
+-----
+This is algorithm (6.1) which is a simplification of algorithm (5.1).
+
+References
+----------
+.. [1] Awad H. Al-Mohy and Nicholas J. Higham (2009)
+       "A New Scaling and Squaring Algorithm for the Matrix Exponential."
+       SIAM Journal on Matrix Analysis and Applications.
+       31 (3). pp. 970-989. ISSN 1095-7162\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_a552f836210c209101b7363f0ddb6c027}{}\index{scipy\+::sparse\+::linalg\+::matfuncs@{scipy\+::sparse\+::linalg\+::matfuncs}!inv@{inv}}
+\index{inv@{inv}!scipy\+::sparse\+::linalg\+::matfuncs@{scipy\+::sparse\+::linalg\+::matfuncs}}
+\subsubsection[{inv}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+matfuncs.\+inv (
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_a552f836210c209101b7363f0ddb6c027}
+\begin{DoxyVerb}Compute the inverse of a sparse matrix
+
+.. versionadded:: 0.12.0
+
+Parameters
+----------
+A : (M,M) ndarray or sparse matrix
+    square matrix to be inverted
+
+Returns
+-------
+Ainv : (M,M) ndarray or sparse matrix
+    inverse of `A`
+
+Notes
+-----
+This computes the sparse inverse of `A`.  If the inverse of `A` is expected
+to be non-sparse, it will likely be faster to convert `A` to dense and use
+scipy.linalg.inv.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_add152720710230158e8541f4cee5e321}{}\index{scipy\+::sparse\+::linalg\+::matfuncs@{scipy\+::sparse\+::linalg\+::matfuncs}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::linalg\+::matfuncs@{scipy\+::sparse\+::linalg\+::matfuncs}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+matfuncs.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf expm}', '{\bf inv}'\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_add152720710230158e8541f4cee5e321}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_a146f13e82ea133f0acd513a8b6e66fb3}{}\index{scipy\+::sparse\+::linalg\+::matfuncs@{scipy\+::sparse\+::linalg\+::matfuncs}!U\+P\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+U\+L\+A\+R@{U\+P\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+U\+L\+A\+R}}
+\index{U\+P\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+U\+L\+A\+R@{U\+P\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+U\+L\+A\+R}!scipy\+::sparse\+::linalg\+::matfuncs@{scipy\+::sparse\+::linalg\+::matfuncs}}
+\subsubsection[{U\+P\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+U\+L\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+linalg.\+matfuncs.\+U\+P\+P\+E\+R\+\_\+\+T\+R\+I\+A\+N\+G\+U\+L\+A\+R = 'upper\+\_\+triangular'}\label{namespacescipy_1_1sparse_1_1linalg_1_1matfuncs_a146f13e82ea133f0acd513a8b6e66fb3}

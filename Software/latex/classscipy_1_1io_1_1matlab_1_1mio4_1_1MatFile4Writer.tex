@@ -1,0 +1,80 @@
+\hypertarget{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer}{}\section{scipy.\+io.\+matlab.\+mio4.\+Mat\+File4\+Writer Class Reference}
+\label{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer}\index{scipy.\+io.\+matlab.\+mio4.\+Mat\+File4\+Writer@{scipy.\+io.\+matlab.\+mio4.\+Mat\+File4\+Writer}}
+Inheritance diagram for scipy.\+io.\+matlab.\+mio4.\+Mat\+File4\+Writer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a74e884c70bd653144ebbb44d7ad2859a}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a9d30f062bae71d7eebb40b4ce020f97c}{put\+\_\+variables}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a0bcc6a785ce86718c740c0fc19cb59d4}{file\+\_\+stream}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a106059d84228c76e91366d4580f1a44c}{oned\+\_\+as}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Class for writing matlab 4 format files \end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a74e884c70bd653144ebbb44d7ad2859a}{}\index{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer@{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer@{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+mio4.\+Mat\+File4\+Writer.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{file\+\_\+stream, }
+\item[{}]{oned\+\_\+as = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a74e884c70bd653144ebbb44d7ad2859a}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a9d30f062bae71d7eebb40b4ce020f97c}{}\index{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer@{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer}!put\+\_\+variables@{put\+\_\+variables}}
+\index{put\+\_\+variables@{put\+\_\+variables}!scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer@{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer}}
+\subsubsection[{put\+\_\+variables}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+mio4.\+Mat\+File4\+Writer.\+put\+\_\+variables (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{mdict, }
+\item[{}]{write\+\_\+header = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a9d30f062bae71d7eebb40b4ce020f97c}
+\begin{DoxyVerb}Write variables in `mdict` to stream
+
+Parameters
+----------
+mdict : mapping
+   mapping with method ``items`` return name, contents pairs
+   where ``name`` which will appeak in the matlab workspace in
+   file load, and ``contents`` is something writeable to a
+   matlab file, such as a numpy array.
+write_header : {None, True, False}
+   If True, then write the matlab file header before writing the
+   variables.  If None (the default) then write the file header
+   if we are at position 0 in the stream.  By setting False
+   here, and setting the stream position to the end of the file,
+   you can append variables to a matlab file
+\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a0bcc6a785ce86718c740c0fc19cb59d4}{}\index{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer@{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer}!file\+\_\+stream@{file\+\_\+stream}}
+\index{file\+\_\+stream@{file\+\_\+stream}!scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer@{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer}}
+\subsubsection[{file\+\_\+stream}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+mio4.\+Mat\+File4\+Writer.\+file\+\_\+stream}\label{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a0bcc6a785ce86718c740c0fc19cb59d4}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a106059d84228c76e91366d4580f1a44c}{}\index{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer@{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer}!oned\+\_\+as@{oned\+\_\+as}}
+\index{oned\+\_\+as@{oned\+\_\+as}!scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer@{scipy\+::io\+::matlab\+::mio4\+::\+Mat\+File4\+Writer}}
+\subsubsection[{oned\+\_\+as}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+mio4.\+Mat\+File4\+Writer.\+oned\+\_\+as}\label{classscipy_1_1io_1_1matlab_1_1mio4_1_1MatFile4Writer_a106059d84228c76e91366d4580f1a44c}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/io/matlab/\hyperlink{mio4_8py}{mio4.\+py}\end{DoxyCompactItemize}

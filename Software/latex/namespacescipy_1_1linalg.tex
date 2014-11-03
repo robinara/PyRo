@@ -1,0 +1,235 @@
+\hypertarget{namespacescipy_1_1linalg}{}\section{scipy.\+linalg Namespace Reference}
+\label{namespacescipy_1_1linalg}\index{scipy.\+linalg@{scipy.\+linalg}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1__decomp__polar}{\+\_\+decomp\+\_\+polar}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1__decomp__qz}{\+\_\+decomp\+\_\+qz}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1__expm__frechet}{\+\_\+expm\+\_\+frechet}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1__interpolative__backend}{\+\_\+interpolative\+\_\+backend}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1__matfuncs__inv__ssq}{\+\_\+matfuncs\+\_\+inv\+\_\+ssq}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1__matfuncs__sqrtm}{\+\_\+matfuncs\+\_\+sqrtm}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1__solvers}{\+\_\+solvers}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1__testutils}{\+\_\+testutils}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1basic}{basic}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1blas}{blas}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1cblas}{cblas}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1clapack}{clapack}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1decomp}{decomp}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1decomp__cholesky}{decomp\+\_\+cholesky}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1decomp__lu}{decomp\+\_\+lu}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1decomp__qr}{decomp\+\_\+qr}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1decomp__schur}{decomp\+\_\+schur}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1decomp__svd}{decomp\+\_\+svd}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1fblas}{fblas}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1flapack}{flapack}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1flinalg}{flinalg}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1interpolative}{interpolative}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1lapack}{lapack}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1linalg__version}{linalg\+\_\+version}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1matfuncs}{matfuncs}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1misc}{misc}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1setup}{setup}
+\item 
+ \hyperlink{namespacescipy_1_1linalg_1_1special__matrices}{special\+\_\+matrices}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1linalg_a63158add5d39fe2377cbc06247a194b7}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} for \hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} in dir() \hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} not s.\+startswith('\+\_\+')\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1linalg_a2ae3d22ab02369253ff16df0bf6d00e2}{test} = Tester()
+\item 
+tuple \hyperlink{namespacescipy_1_1linalg_a092ee30669cf7e85b1818062aac0a437}{bench} = Tester()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}====================================
+Linear algebra (:mod:`scipy.linalg`)
+====================================
+
+.. currentmodule:: scipy.linalg
+
+Linear algebra functions.
+
+.. seealso::
+
+   `numpy.linalg` for more linear algebra functions.  Note that
+   although `scipy.linalg` imports most of them, identically named
+   functions from `scipy.linalg` may offer more or slightly differing
+   functionality.
+
+
+Basics
+======
+
+.. autosummary::
+   :toctree: generated/
+
+   inv - Find the inverse of a square matrix
+   solve - Solve a linear system of equations
+   solve_banded - Solve a banded linear system
+   solveh_banded - Solve a Hermitian or symmetric banded system
+   solve_triangular - Solve a triangular matrix
+   det - Find the determinant of a square matrix
+   norm - Matrix and vector norm
+   lstsq - Solve a linear least-squares problem
+   pinv - Pseudo-inverse (Moore-Penrose) using lstsq
+   pinv2 - Pseudo-inverse using svd
+   pinvh - Pseudo-inverse of hermitian matrix
+   kron - Kronecker product of two arrays
+   tril - Construct a lower-triangular matrix from a given matrix
+   triu - Construct an upper-triangular matrix from a given matrix
+
+Eigenvalue Problems
+===================
+
+.. autosummary::
+   :toctree: generated/
+
+   eig - Find the eigenvalues and eigenvectors of a square matrix
+   eigvals - Find just the eigenvalues of a square matrix
+   eigh - Find the e-vals and e-vectors of a Hermitian or symmetric matrix
+   eigvalsh - Find just the eigenvalues of a Hermitian or symmetric matrix
+   eig_banded - Find the eigenvalues and eigenvectors of a banded matrix
+   eigvals_banded - Find just the eigenvalues of a banded matrix
+
+Decompositions
+==============
+
+.. autosummary::
+   :toctree: generated/
+
+   lu - LU decomposition of a matrix
+   lu_factor - LU decomposition returning unordered matrix and pivots
+   lu_solve - Solve Ax=b using back substitution with output of lu_factor
+   svd - Singular value decomposition of a matrix
+   svdvals - Singular values of a matrix
+   diagsvd - Construct matrix of singular values from output of svd
+   orth - Construct orthonormal basis for the range of A using svd
+   cholesky - Cholesky decomposition of a matrix
+   cholesky_banded - Cholesky decomp. of a sym. or Hermitian banded matrix
+   cho_factor - Cholesky decomposition for use in solving a linear system
+   cho_solve - Solve previously factored linear system
+   cho_solve_banded - Solve previously factored banded linear system
+   polar - Compute the polar decomposition.
+   qr - QR decomposition of a matrix
+   qr_multiply - QR decomposition and multiplication by Q
+   qz - QZ decomposition of a pair of matrices
+   schur - Schur decomposition of a matrix
+   rsf2csf - Real to complex Schur form
+   hessenberg - Hessenberg form of a matrix
+
+.. seealso::
+
+   `scipy.linalg.interpolative` -- Interpolative matrix decompositions
+
+
+Matrix Functions
+================
+
+.. autosummary::
+   :toctree: generated/
+
+   expm - Matrix exponential
+   logm - Matrix logarithm
+   cosm - Matrix cosine
+   sinm - Matrix sine
+   tanm - Matrix tangent
+   coshm - Matrix hyperbolic cosine
+   sinhm - Matrix hyperbolic sine
+   tanhm - Matrix hyperbolic tangent
+   signm - Matrix sign
+   sqrtm - Matrix square root
+   funm - Evaluating an arbitrary matrix function
+   expm_frechet - Frechet derivative of the matrix exponential
+   expm_cond - Relative condition number of expm in the Frobenius norm
+   fractional_matrix_power - Fractional matrix power
+
+
+Matrix Equation Solvers
+=======================
+
+.. autosummary::
+   :toctree: generated/
+
+   solve_sylvester - Solve the Sylvester matrix equation
+   solve_continuous_are - Solve the continuous-time algebraic Riccati equation
+   solve_discrete_are - Solve the discrete-time algebraic Riccati equation
+   solve_discrete_lyapunov - Solve the discrete-time Lyapunov equation
+   solve_lyapunov - Solve the (continous-time) Lyapunov equation
+
+
+Special Matrices
+================
+
+.. autosummary::
+   :toctree: generated/
+
+   block_diag - Construct a block diagonal matrix from submatrices
+   circulant - Circulant matrix
+   companion - Companion matrix
+   dft - Discrete Fourier transform matrix
+   hadamard - Hadamard matrix of order 2**n
+   hankel - Hankel matrix
+   hilbert - Hilbert matrix
+   invhilbert - Inverse Hilbert matrix
+   leslie - Leslie matrix
+   pascal - Pascal matrix
+   toeplitz - Toeplitz matrix
+   tri - Construct a matrix filled with ones at and below a given diagonal
+
+Low-level routines
+==================
+
+.. autosummary::
+   :toctree: generated/
+
+   get_blas_funcs
+   get_lapack_funcs
+   find_best_blas_type
+
+.. seealso::
+
+   `scipy.linalg.blas` -- Low-level BLAS functions
+
+   `scipy.linalg.lapack` -- Low-level LAPACK functions\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1linalg_a63158add5d39fe2377cbc06247a194b7}{}\index{scipy\+::linalg@{scipy\+::linalg}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::linalg@{scipy\+::linalg}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+linalg.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}{\bf s} for {\bf s} in dir() {\bf if} not s.\+startswith('\+\_\+')\mbox{]}}\label{namespacescipy_1_1linalg_a63158add5d39fe2377cbc06247a194b7}
+\hypertarget{namespacescipy_1_1linalg_a092ee30669cf7e85b1818062aac0a437}{}\index{scipy\+::linalg@{scipy\+::linalg}!bench@{bench}}
+\index{bench@{bench}!scipy\+::linalg@{scipy\+::linalg}}
+\subsubsection[{bench}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+linalg.\+bench = Tester()}\label{namespacescipy_1_1linalg_a092ee30669cf7e85b1818062aac0a437}
+\hypertarget{namespacescipy_1_1linalg_a2ae3d22ab02369253ff16df0bf6d00e2}{}\index{scipy\+::linalg@{scipy\+::linalg}!test@{test}}
+\index{test@{test}!scipy\+::linalg@{scipy\+::linalg}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+linalg.\+test = Tester()}\label{namespacescipy_1_1linalg_a2ae3d22ab02369253ff16df0bf6d00e2}

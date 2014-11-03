@@ -1,0 +1,89 @@
+\hypertarget{clarcm_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clarcm.f File Reference}
+\label{clarcm_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarcm.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarcm.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clarcm_8f_a0222bc627db542784a4675b557889d98}{clarcm} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, C, L\+D\+C, R\+W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+R\+C\+M} copies all or part of a real two-\/dimensional array to a complex array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clarcm_8f_a0222bc627db542784a4675b557889d98}{}\index{clarcm.\+f@{clarcm.\+f}!clarcm@{clarcm}}
+\index{clarcm@{clarcm}!clarcm.\+f@{clarcm.\+f}}
+\subsubsection[{clarcm}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clarcm (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{real, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{{\bf complex}, dimension( ldc, $\ast$ )}]{C, }
+\item[{integer}]{L\+D\+C, }
+\item[{real, dimension( $\ast$ )}]{R\+W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{clarcm_8f_a0222bc627db542784a4675b557889d98}
+
+
+{\bfseries C\+L\+A\+R\+C\+M} copies all or part of a real two-\/dimensional array to a complex array. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLARCM performs a very simple matrix-matrix multiplication:
+          C := A * B,
+ where A is M by M and real; B is M by N and complex;
+ C is M by N and complex.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A and of the matrix C.
+          M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns and rows of the matrix B and
+          the number of columns of the matrix C.
+          N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is REAL array, dimension (LDA, M)
+          A contains the M by M matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A. LDA >=max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB, N)
+          B contains the M by N matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B. LDB >=max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is COMPLEX array, dimension (LDC, N)
+          C contains the M by N matrix C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+          The leading dimension of the array C. LDC >=max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is REAL array, dimension (2*M*N)\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

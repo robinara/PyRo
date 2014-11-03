@@ -1,0 +1,163 @@
+\hypertarget{zeros_8h}{}\section{packages/scipy-\/0.14.0/scipy/optimize/\+Zeros/zeros.h File Reference}
+\label{zeros_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/optimize/\+Zeros/zeros.\+h@{packages/scipy-\/0.\+14.\+0/scipy/optimize/\+Zeros/zeros.\+h}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structdefault__parameters}{default\+\_\+parameters}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{zeros_8h_a0715eb099e41a5176a38e663aa316a74}{Z\+E\+R\+O\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+H\+E\+A\+D}~int funcalls; int iterations; int error\+\_\+num
+\item 
+\#define \hyperlink{zeros_8h_af9a0a96e48b21c87d05acd4ed5117ba0}{D\+M\+I\+N}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})
+\item 
+\#define \hyperlink{zeros_8h_a8c4a9e5e4622948245de4ec0b5d38329}{S\+I\+G\+N}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})~((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) $>$ 0.\+0 ? 1.\+0 \+: -\/1.\+0)
+\item 
+\#define \hyperlink{zeros_8h_a7e7d9c7d645a60f5fe44dc246198e5a7}{E\+R\+R\+O\+R}(params,  num,  val)~(params)-\/$>$error\+\_\+num=(num); \hyperlink{stencilops_8h_afee67e5c8680c1bb9a8cb7bef7bfcc55}{return} (val)
+\item 
+\#define \hyperlink{zeros_8h_aeb564e2e9d8da0c5fe596abec7af89be}{S\+I\+G\+N\+E\+R\+R}~-\/1
+\item 
+\#define \hyperlink{zeros_8h_ac4d37614855265447218f5748295e140}{C\+O\+N\+V\+E\+R\+R}~-\/2
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef double($\ast$ \hyperlink{zeros_8h_a24222bdc7f219a5498448196fe1ff0a3}{callback\+\_\+type}) (double, void $\ast$)
+\item 
+typedef double($\ast$ \hyperlink{zeros_8h_aa9c9806c00e5ab7106d2040dbb32f89c}{solver\+\_\+type}) (\hyperlink{zeros_8h_a24222bdc7f219a5498448196fe1ff0a3}{callback\+\_\+type}, double, double, double, double, int, \hyperlink{structdefault__parameters}{default\+\_\+parameters} $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{zeros_8h_a1f552613149d51281c48e6288dd370ab}{bisect} (\hyperlink{zeros_8h_a24222bdc7f219a5498448196fe1ff0a3}{callback\+\_\+type} f, double xa, double xb, double xtol, double rtol, int iter, \hyperlink{structdefault__parameters}{default\+\_\+parameters} $\ast$params)
+\item 
+double \hyperlink{zeros_8h_a765f3f2c0e6e2db75ab3ce7f816ef8e7}{ridder} (\hyperlink{zeros_8h_a24222bdc7f219a5498448196fe1ff0a3}{callback\+\_\+type} f, double xa, double xb, double xtol, double rtol, int iter, \hyperlink{structdefault__parameters}{default\+\_\+parameters} $\ast$params)
+\item 
+double \hyperlink{zeros_8h_a1894fcb9c4ac8b189d9233e2a64cb5e3}{brenth} (\hyperlink{zeros_8h_a24222bdc7f219a5498448196fe1ff0a3}{callback\+\_\+type} f, double xa, double xb, double xtol, double rtol, int iter, \hyperlink{structdefault__parameters}{default\+\_\+parameters} $\ast$params)
+\item 
+double \hyperlink{zeros_8h_a11511562108aa8aec250d67a0df6469f}{brentq} (\hyperlink{zeros_8h_a24222bdc7f219a5498448196fe1ff0a3}{callback\+\_\+type} f, double xa, double xb, double xtol, double rtol, int iter, \hyperlink{structdefault__parameters}{default\+\_\+parameters} $\ast$params)
+\item 
+double \hyperlink{zeros_8h_a1354b6667fe971c1d7bf28dcef770265}{fabs} (double)
+\item 
+double \hyperlink{zeros_8h_acdb55c1010a6c379a49db0201bf55d89}{sqrt} (double)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{zeros_8h_ac4d37614855265447218f5748295e140}{}\index{zeros.\+h@{zeros.\+h}!C\+O\+N\+V\+E\+R\+R@{C\+O\+N\+V\+E\+R\+R}}
+\index{C\+O\+N\+V\+E\+R\+R@{C\+O\+N\+V\+E\+R\+R}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{C\+O\+N\+V\+E\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+N\+V\+E\+R\+R~-\/2}\label{zeros_8h_ac4d37614855265447218f5748295e140}
+\hypertarget{zeros_8h_af9a0a96e48b21c87d05acd4ed5117ba0}{}\index{zeros.\+h@{zeros.\+h}!D\+M\+I\+N@{D\+M\+I\+N}}
+\index{D\+M\+I\+N@{D\+M\+I\+N}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{D\+M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+M\+I\+N(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)}\label{zeros_8h_af9a0a96e48b21c87d05acd4ed5117ba0}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(dminarg1=(\hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}),dminarg2=(\hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}),(dminarg1) < (dminarg2) ?\(\backslash\)
+        (dminarg1) : (dminarg2))
+\end{DoxyCode}
+\hypertarget{zeros_8h_a7e7d9c7d645a60f5fe44dc246198e5a7}{}\index{zeros.\+h@{zeros.\+h}!E\+R\+R\+O\+R@{E\+R\+R\+O\+R}}
+\index{E\+R\+R\+O\+R@{E\+R\+R\+O\+R}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+R\+R\+O\+R(
+\begin{DoxyParamCaption}
+\item[{}]{params, }
+\item[{}]{num, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~(params)-\/$>$error\+\_\+num=(num); {\bf return} (val)}\label{zeros_8h_a7e7d9c7d645a60f5fe44dc246198e5a7}
+\hypertarget{zeros_8h_a8c4a9e5e4622948245de4ec0b5d38329}{}\index{zeros.\+h@{zeros.\+h}!S\+I\+G\+N@{S\+I\+G\+N}}
+\index{S\+I\+G\+N@{S\+I\+G\+N}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{S\+I\+G\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+I\+G\+N(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)~(({\bf a}) $>$ 0.\+0 ? 1.\+0 \+: -\/1.\+0)}\label{zeros_8h_a8c4a9e5e4622948245de4ec0b5d38329}
+\hypertarget{zeros_8h_aeb564e2e9d8da0c5fe596abec7af89be}{}\index{zeros.\+h@{zeros.\+h}!S\+I\+G\+N\+E\+R\+R@{S\+I\+G\+N\+E\+R\+R}}
+\index{S\+I\+G\+N\+E\+R\+R@{S\+I\+G\+N\+E\+R\+R}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{S\+I\+G\+N\+E\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+I\+G\+N\+E\+R\+R~-\/1}\label{zeros_8h_aeb564e2e9d8da0c5fe596abec7af89be}
+\hypertarget{zeros_8h_a0715eb099e41a5176a38e663aa316a74}{}\index{zeros.\+h@{zeros.\+h}!Z\+E\+R\+O\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+H\+E\+A\+D@{Z\+E\+R\+O\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+H\+E\+A\+D}}
+\index{Z\+E\+R\+O\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+H\+E\+A\+D@{Z\+E\+R\+O\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+H\+E\+A\+D}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{Z\+E\+R\+O\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+H\+E\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z\+E\+R\+O\+S\+\_\+\+P\+A\+R\+A\+M\+\_\+\+H\+E\+A\+D~int funcalls; int iterations; int error\+\_\+num}\label{zeros_8h_a0715eb099e41a5176a38e663aa316a74}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{zeros_8h_a24222bdc7f219a5498448196fe1ff0a3}{}\index{zeros.\+h@{zeros.\+h}!callback\+\_\+type@{callback\+\_\+type}}
+\index{callback\+\_\+type@{callback\+\_\+type}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{callback\+\_\+type}]{\setlength{\rightskip}{0pt plus 5cm}typedef double($\ast$ callback\+\_\+type) (double, void $\ast$)}\label{zeros_8h_a24222bdc7f219a5498448196fe1ff0a3}
+\hypertarget{zeros_8h_aa9c9806c00e5ab7106d2040dbb32f89c}{}\index{zeros.\+h@{zeros.\+h}!solver\+\_\+type@{solver\+\_\+type}}
+\index{solver\+\_\+type@{solver\+\_\+type}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{solver\+\_\+type}]{\setlength{\rightskip}{0pt plus 5cm}typedef double($\ast$ solver\+\_\+type) ({\bf callback\+\_\+type}, double, double, double, double, int, {\bf default\+\_\+parameters} $\ast$)}\label{zeros_8h_aa9c9806c00e5ab7106d2040dbb32f89c}
+
+
+\subsection{Function Documentation}
+\hypertarget{zeros_8h_a1f552613149d51281c48e6288dd370ab}{}\index{zeros.\+h@{zeros.\+h}!bisect@{bisect}}
+\index{bisect@{bisect}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{bisect}]{\setlength{\rightskip}{0pt plus 5cm}double bisect (
+\begin{DoxyParamCaption}
+\item[{{\bf callback\+\_\+type}}]{f, }
+\item[{double}]{xa, }
+\item[{double}]{xb, }
+\item[{double}]{xtol, }
+\item[{double}]{rtol, }
+\item[{int}]{iter, }
+\item[{{\bf default\+\_\+parameters} $\ast$}]{params}
+\end{DoxyParamCaption}
+)}\label{zeros_8h_a1f552613149d51281c48e6288dd370ab}
+\hypertarget{zeros_8h_a1894fcb9c4ac8b189d9233e2a64cb5e3}{}\index{zeros.\+h@{zeros.\+h}!brenth@{brenth}}
+\index{brenth@{brenth}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{brenth}]{\setlength{\rightskip}{0pt plus 5cm}double brenth (
+\begin{DoxyParamCaption}
+\item[{{\bf callback\+\_\+type}}]{f, }
+\item[{double}]{xa, }
+\item[{double}]{xb, }
+\item[{double}]{xtol, }
+\item[{double}]{rtol, }
+\item[{int}]{iter, }
+\item[{{\bf default\+\_\+parameters} $\ast$}]{params}
+\end{DoxyParamCaption}
+)}\label{zeros_8h_a1894fcb9c4ac8b189d9233e2a64cb5e3}
+\hypertarget{zeros_8h_a11511562108aa8aec250d67a0df6469f}{}\index{zeros.\+h@{zeros.\+h}!brentq@{brentq}}
+\index{brentq@{brentq}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{brentq}]{\setlength{\rightskip}{0pt plus 5cm}double brentq (
+\begin{DoxyParamCaption}
+\item[{{\bf callback\+\_\+type}}]{f, }
+\item[{double}]{xa, }
+\item[{double}]{xb, }
+\item[{double}]{xtol, }
+\item[{double}]{rtol, }
+\item[{int}]{iter, }
+\item[{{\bf default\+\_\+parameters} $\ast$}]{params}
+\end{DoxyParamCaption}
+)}\label{zeros_8h_a11511562108aa8aec250d67a0df6469f}
+\hypertarget{zeros_8h_a1354b6667fe971c1d7bf28dcef770265}{}\index{zeros.\+h@{zeros.\+h}!fabs@{fabs}}
+\index{fabs@{fabs}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{fabs}]{\setlength{\rightskip}{0pt plus 5cm}double fabs (
+\begin{DoxyParamCaption}
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}\label{zeros_8h_a1354b6667fe971c1d7bf28dcef770265}
+\hypertarget{zeros_8h_a765f3f2c0e6e2db75ab3ce7f816ef8e7}{}\index{zeros.\+h@{zeros.\+h}!ridder@{ridder}}
+\index{ridder@{ridder}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{ridder}]{\setlength{\rightskip}{0pt plus 5cm}double ridder (
+\begin{DoxyParamCaption}
+\item[{{\bf callback\+\_\+type}}]{f, }
+\item[{double}]{xa, }
+\item[{double}]{xb, }
+\item[{double}]{xtol, }
+\item[{double}]{rtol, }
+\item[{int}]{iter, }
+\item[{{\bf default\+\_\+parameters} $\ast$}]{params}
+\end{DoxyParamCaption}
+)}\label{zeros_8h_a765f3f2c0e6e2db75ab3ce7f816ef8e7}
+\hypertarget{zeros_8h_acdb55c1010a6c379a49db0201bf55d89}{}\index{zeros.\+h@{zeros.\+h}!sqrt@{sqrt}}
+\index{sqrt@{sqrt}!zeros.\+h@{zeros.\+h}}
+\subsubsection[{sqrt}]{\setlength{\rightskip}{0pt plus 5cm}double sqrt (
+\begin{DoxyParamCaption}
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}\label{zeros_8h_acdb55c1010a6c379a49db0201bf55d89}

@@ -1,0 +1,156 @@
+\hypertarget{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator}{}\section{scipy.\+interpolate.\+\_\+monotone.\+Pchip\+Interpolator Class Reference}
+\label{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator}\index{scipy.\+interpolate.\+\_\+monotone.\+Pchip\+Interpolator@{scipy.\+interpolate.\+\_\+monotone.\+Pchip\+Interpolator}}
+Inheritance diagram for scipy.\+interpolate.\+\_\+monotone.\+Pchip\+Interpolator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_a6b4721e0d8d26176ef866745f25f5b7c}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_aef8748cbd4304ae2054e21211c262a0d}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_a2556919bbf5812229c53509a0a5be622}{derivative}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_a4bed913b52261a714e63323a385d294b}{roots}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_af730ab388cf28121cdb63abe9d6d90f2}{axis}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}PCHIP 1-d monotonic cubic interpolation
+
+x and y are arrays of values used to approximate some function f,
+with ``y = f(x)``.  The interpolant uses monotonic cubic splines
+to find the value of new points. (PCHIP stands for Piecewise Cubic
+Hermite Interpolating Polynomial).
+
+Parameters
+----------
+x : ndarray
+    A 1-D array of monotonically increasing real values.  `x` cannot
+    include duplicate values (otherwise f is overspecified)
+y : ndarray
+    A 1-D array of real values.  `y`'s length along the interpolation
+    axis must be equal to the length of `x`. If N-D array, use axis 
+    parameter to select correct axis.
+axis : int, optional
+    Axis in the y array corresponding to the x-coordinate values.
+extrapolate : bool, optional
+    Whether to extrapolate to ouf-of-bounds points based on first
+    and last intervals, or to return NaNs.
+
+Methods
+-------
+__call__
+derivative
+
+Notes
+-----
+The first derivatives are guaranteed to be continuous, but the second
+derivatives may jump at x_k. 
+
+Preserves monotonicity in the interpolation data and does not overshoot
+if the data is not smooth.
+
+Determines the derivatives at the points x_k, d_k, by using PCHIP algorithm:
+  
+Let m_k be the slope of the kth segment (between k and k+1)
+If m_k=0 or m_{k-1}=0 or sgn(m_k) != sgn(m_{k-1}) then d_k == 0
+else use weighted harmonic mean:
+
+   w_1 = 2h_k + h_{k-1}, w_2 = h_k + 2h_{k-1}
+   1/d_k = 1/(w_1 + w_2)*(w_1 / m_k + w_2 / m_{k-1})
+
+where h_k is the spacing between x_k and x_{k+1}.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_a6b4721e0d8d26176ef866745f25f5b7c}{}\index{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator@{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator@{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+\_\+monotone.\+Pchip\+Interpolator.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{axis = {\ttfamily 0}, }
+\item[{}]{extrapolate = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_a6b4721e0d8d26176ef866745f25f5b7c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_aef8748cbd4304ae2054e21211c262a0d}{}\index{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator@{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator@{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+\_\+monotone.\+Pchip\+Interpolator.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{der = {\ttfamily 0}, }
+\item[{}]{extrapolate = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_aef8748cbd4304ae2054e21211c262a0d}
+\begin{DoxyVerb}Evaluate the PCHIP interpolant or its derivative.
+
+Parameters
+----------
+x : array-like
+    Points to evaluate the interpolant at.
+der : int, optional
+    Order of derivative to evaluate. Must be non-negative.
+extrapolate : bool, optional
+    Whether to extrapolate to ouf-of-bounds points based on first
+    and last intervals, or to return NaNs.
+
+Returns
+-------
+y : array-like
+    Interpolated values. Shape is determined by replacing
+    the interpolation axis in the original array with the shape of x.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_a2556919bbf5812229c53509a0a5be622}{}\index{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator@{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator}!derivative@{derivative}}
+\index{derivative@{derivative}!scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator@{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator}}
+\subsubsection[{derivative}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+\_\+monotone.\+Pchip\+Interpolator.\+derivative (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{der = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_a2556919bbf5812229c53509a0a5be622}
+\begin{DoxyVerb}Construct a piecewise polynomial representing the derivative.
+
+Parameters
+----------
+der : int, optional
+    Order of derivative to evaluate. (Default: 1)
+    If negative, the antiderivative is returned.
+
+Returns
+------- 
+Piecewise polynomial of order k2 = k - der representing the derivative
+of this polynomial.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_a4bed913b52261a714e63323a385d294b}{}\index{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator@{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator}!roots@{roots}}
+\index{roots@{roots}!scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator@{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator}}
+\subsubsection[{roots}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+\_\+monotone.\+Pchip\+Interpolator.\+roots (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_a4bed913b52261a714e63323a385d294b}
+\begin{DoxyVerb}Return the roots of the interpolated function.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_af730ab388cf28121cdb63abe9d6d90f2}{}\index{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator@{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator}!axis@{axis}}
+\index{axis@{axis}!scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator@{scipy\+::interpolate\+::\+\_\+monotone\+::\+Pchip\+Interpolator}}
+\subsubsection[{axis}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+\_\+monotone.\+Pchip\+Interpolator.\+axis}\label{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator_af730ab388cf28121cdb63abe9d6d90f2}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{__monotone_8py}{\+\_\+monotone.\+py}\end{DoxyCompactItemize}

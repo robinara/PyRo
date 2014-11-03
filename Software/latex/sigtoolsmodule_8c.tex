@@ -1,0 +1,287 @@
+\hypertarget{sigtoolsmodule_8c}{}\section{packages/scipy-\/0.14.0/scipy/signal/sigtoolsmodule.c File Reference}
+\label{sigtoolsmodule_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/signal/sigtoolsmodule.\+c@{packages/scipy-\/0.\+14.\+0/scipy/signal/sigtoolsmodule.\+c}}
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include $<$numpy/noprefix.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}sigtools.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$setjmp.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a7d399fcbebb74300921248d831d6ab6f}{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}~\+\_\+scipy\+\_\+signal\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+P\+I
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a084b4c1417382017b3d08415c1147093}{P\+Y\+E\+R\+R}(message)~\{Py\+Err\+\_\+\+Set\+String(Py\+Exc\+\_\+\+Value\+Error, message); goto \hyperlink{launcher_8c_a083c3a3a41b002f48d21b08f950c18c2}{fail};\}
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a6258adccdbb804960032cdf6594ebeb3}{D\+A\+T\+A}(arr)~((arr)-\/$>$data)
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a1bc510f5238213a03b56f712b3244edd}{D\+I\+M\+S}(arr)~((arr)-\/$>$dimensions)
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a01b4f65b397b9f7be6080ff948dfd253}{S\+T\+R\+I\+D\+E\+S}(arr)~((arr)-\/$>$strides)
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a105e4a9b41e53c79c7c776e26d706ca9}{E\+L\+S\+I\+Z\+E}(arr)~((arr)-\/$>$descr-\/$>$elsize)
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a0dd0aec606d272c66612a657ebdcfe94}{O\+B\+J\+E\+C\+T\+T\+Y\+P\+E}(arr)~((arr)-\/$>$descr-\/$>$type\+\_\+num)
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a9be7f8d4180cbe3d70af31779ff03bbb}{B\+A\+S\+E\+O\+B\+J}(arr)~((Py\+Array\+Object $\ast$)((arr)-\/$>$base))
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a3a88bcc63386de30443dacede2e01847}{R\+A\+N\+K}(arr)~((arr)-\/$>$nd)
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a31ddc3bae85ae4bfc4e7b4557fb9744e}{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})~((\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m})-\/$>$flags \& C\+O\+N\+T\+I\+G\+U\+O\+U\+S)
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a3ebfa4d7e384f53e6a37ff0d0d98627d}{B\+A\+N\+D\+P\+A\+S\+S}~1
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a677e6c6816bcf472eaf8875cc8fe729d}{D\+I\+F\+F\+E\+R\+E\+N\+T\+I\+A\+T\+O\+R}~2
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_aff6936b3d5de51dd8968ce8a44c0176d}{H\+I\+L\+B\+E\+R\+T}~3
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a8714c49162836b250c42d8c46be8d577}{G\+O\+B\+A\+C\+K}~goto
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a60ecd7e9de27b2ff1e90e7e9ce822388}{D\+Oloop}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  from,  to)~for ( (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) = (from); (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) $<$= (to); ++(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}))
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a598a3330b3c21701223ee0ca14316eca}{P\+I}~3.\+14159265358979323846
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a4912c64aec0c943b7985db6cb61ff83a}{T\+W\+O\+P\+I}~(\hyperlink{const_8c_a4e36555c8609254715858261f34dfd94}{P\+I}+\hyperlink{const_8c_a4e36555c8609254715858261f34dfd94}{P\+I})
+\item 
+\#define \hyperlink{sigtoolsmodule_8c_a10a2d3704815309c6bf988266f758f40}{C\+O\+M\+P\+A\+R\+E}(fname,  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})~int fname(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} $\ast$ip1, \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} $\ast$ip2) \{ \hyperlink{stencilops_8h_afee67e5c8680c1bb9a8cb7bef7bfcc55}{return} $\ast$ip1 $<$ $\ast$ip2 ? -\/1 \+: $\ast$ip1 == $\ast$ip2 ? 0 \+: 1; \}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int($\ast$ \hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{Compare\+Function}) (const void $\ast$, const void $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{sigtoolsmodule_8c_a68ddc3673df35a7cc33d0d27f73ff8ae}{check\+\_\+malloc} (int)
+\item 
+int \hyperlink{sigtoolsmodule_8c_ad995a2d9c533eadfcedc6863187b87b0}{O\+B\+J\+E\+C\+T\+\_\+compare} (Py\+Object $\ast$$\ast$ip1, Py\+Object $\ast$$\ast$ip2)
+\item 
+Py\+Object $\ast$ \hyperlink{sigtoolsmodule_8c_a28977c7a1b479b06e1ab9e9aa0add381}{Py\+Array\+\_\+\+Order\+Filter\+N\+D} (Py\+Object $\ast$op1, Py\+Object $\ast$op2, int order)
+\item 
+int \hyperlink{sigtoolsmodule_8c_a7c5963506edde1c44a9664527088d70d}{pylab\+\_\+convolve\+\_\+2d} (char $\ast$, intp $\ast$, char $\ast$, intp $\ast$, char $\ast$, intp $\ast$, intp $\ast$, intp $\ast$, int, char $\ast$)
+\item 
+void \hyperlink{sigtoolsmodule_8c_a79b3358697432e22bb63e69a6ce1fb7a}{f\+\_\+medfilt2} (float $\ast$, float $\ast$, intp $\ast$, intp $\ast$)
+\item 
+void \hyperlink{sigtoolsmodule_8c_adabfc65e12ceddc7615cdfadd757c21b}{d\+\_\+medfilt2} (double $\ast$, double $\ast$, intp $\ast$, intp $\ast$)
+\item 
+void \hyperlink{sigtoolsmodule_8c_a051c59b8295a3c8c3b953e97dade0b63}{b\+\_\+medfilt2} (unsigned char $\ast$, unsigned char $\ast$, intp $\ast$, intp $\ast$)
+\item 
+\hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} \hyperlink{sigtoolsmodule_8c_a3435e96e7e3b27bb0bd2050e70d153e6}{initsigtools} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+jmp\+\_\+buf \hyperlink{sigtoolsmodule_8c_a3b83aa0ea363eb7a720f7a3ecf9c6f39}{M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L}
+\item 
+\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{Compare\+Function} \hyperlink{sigtoolsmodule_8c_ae3c5da8d35a2edd4c9c9d451fad58ceb}{compare\+\_\+functions} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{sigtoolsmodule_8c_a3ebfa4d7e384f53e6a37ff0d0d98627d}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!B\+A\+N\+D\+P\+A\+S\+S@{B\+A\+N\+D\+P\+A\+S\+S}}
+\index{B\+A\+N\+D\+P\+A\+S\+S@{B\+A\+N\+D\+P\+A\+S\+S}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{B\+A\+N\+D\+P\+A\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+A\+N\+D\+P\+A\+S\+S~1}\label{sigtoolsmodule_8c_a3ebfa4d7e384f53e6a37ff0d0d98627d}
+\hypertarget{sigtoolsmodule_8c_a9be7f8d4180cbe3d70af31779ff03bbb}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!B\+A\+S\+E\+O\+B\+J@{B\+A\+S\+E\+O\+B\+J}}
+\index{B\+A\+S\+E\+O\+B\+J@{B\+A\+S\+E\+O\+B\+J}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{B\+A\+S\+E\+O\+B\+J}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+A\+S\+E\+O\+B\+J(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((Py\+Array\+Object $\ast$)((arr)-\/$>$base))}\label{sigtoolsmodule_8c_a9be7f8d4180cbe3d70af31779ff03bbb}
+\hypertarget{sigtoolsmodule_8c_a10a2d3704815309c6bf988266f758f40}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!C\+O\+M\+P\+A\+R\+E@{C\+O\+M\+P\+A\+R\+E}}
+\index{C\+O\+M\+P\+A\+R\+E@{C\+O\+M\+P\+A\+R\+E}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{C\+O\+M\+P\+A\+R\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+M\+P\+A\+R\+E(
+\begin{DoxyParamCaption}
+\item[{}]{fname, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)~int fname({\bf type} $\ast$ip1, {\bf type} $\ast$ip2) \{ {\bf return} $\ast$ip1 $<$ $\ast$ip2 ? -\/1 \+: $\ast$ip1 == $\ast$ip2 ? 0 \+: 1; \}}\label{sigtoolsmodule_8c_a10a2d3704815309c6bf988266f758f40}
+\hypertarget{sigtoolsmodule_8c_a6258adccdbb804960032cdf6594ebeb3}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!D\+A\+T\+A@{D\+A\+T\+A}}
+\index{D\+A\+T\+A@{D\+A\+T\+A}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{D\+A\+T\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+A\+T\+A(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$data)}\label{sigtoolsmodule_8c_a6258adccdbb804960032cdf6594ebeb3}
+\hypertarget{sigtoolsmodule_8c_a677e6c6816bcf472eaf8875cc8fe729d}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!D\+I\+F\+F\+E\+R\+E\+N\+T\+I\+A\+T\+O\+R@{D\+I\+F\+F\+E\+R\+E\+N\+T\+I\+A\+T\+O\+R}}
+\index{D\+I\+F\+F\+E\+R\+E\+N\+T\+I\+A\+T\+O\+R@{D\+I\+F\+F\+E\+R\+E\+N\+T\+I\+A\+T\+O\+R}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{D\+I\+F\+F\+E\+R\+E\+N\+T\+I\+A\+T\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+I\+F\+F\+E\+R\+E\+N\+T\+I\+A\+T\+O\+R~2}\label{sigtoolsmodule_8c_a677e6c6816bcf472eaf8875cc8fe729d}
+\hypertarget{sigtoolsmodule_8c_a1bc510f5238213a03b56f712b3244edd}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!D\+I\+M\+S@{D\+I\+M\+S}}
+\index{D\+I\+M\+S@{D\+I\+M\+S}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{D\+I\+M\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+I\+M\+S(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$dimensions)}\label{sigtoolsmodule_8c_a1bc510f5238213a03b56f712b3244edd}
+\hypertarget{sigtoolsmodule_8c_a60ecd7e9de27b2ff1e90e7e9ce822388}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!D\+Oloop@{D\+Oloop}}
+\index{D\+Oloop@{D\+Oloop}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{D\+Oloop}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+Oloop(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{from, }
+\item[{}]{to}
+\end{DoxyParamCaption}
+)~for ( ({\bf a}) = (from); ({\bf a}) $<$= (to); ++({\bf a}))}\label{sigtoolsmodule_8c_a60ecd7e9de27b2ff1e90e7e9ce822388}
+\hypertarget{sigtoolsmodule_8c_a105e4a9b41e53c79c7c776e26d706ca9}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!E\+L\+S\+I\+Z\+E@{E\+L\+S\+I\+Z\+E}}
+\index{E\+L\+S\+I\+Z\+E@{E\+L\+S\+I\+Z\+E}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{E\+L\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+L\+S\+I\+Z\+E(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$descr-\/$>$elsize)}\label{sigtoolsmodule_8c_a105e4a9b41e53c79c7c776e26d706ca9}
+\hypertarget{sigtoolsmodule_8c_a8714c49162836b250c42d8c46be8d577}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!G\+O\+B\+A\+C\+K@{G\+O\+B\+A\+C\+K}}
+\index{G\+O\+B\+A\+C\+K@{G\+O\+B\+A\+C\+K}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{G\+O\+B\+A\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+O\+B\+A\+C\+K~goto}\label{sigtoolsmodule_8c_a8714c49162836b250c42d8c46be8d577}
+\hypertarget{sigtoolsmodule_8c_aff6936b3d5de51dd8968ce8a44c0176d}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!H\+I\+L\+B\+E\+R\+T@{H\+I\+L\+B\+E\+R\+T}}
+\index{H\+I\+L\+B\+E\+R\+T@{H\+I\+L\+B\+E\+R\+T}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{H\+I\+L\+B\+E\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+I\+L\+B\+E\+R\+T~3}\label{sigtoolsmodule_8c_aff6936b3d5de51dd8968ce8a44c0176d}
+\hypertarget{sigtoolsmodule_8c_a31ddc3bae85ae4bfc4e7b4557fb9744e}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}}
+\index{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S@{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+S\+C\+O\+N\+T\+I\+G\+U\+O\+U\+S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf m}}
+\end{DoxyParamCaption}
+)~(({\bf m})-\/$>$flags \& C\+O\+N\+T\+I\+G\+U\+O\+U\+S)}\label{sigtoolsmodule_8c_a31ddc3bae85ae4bfc4e7b4557fb9744e}
+\hypertarget{sigtoolsmodule_8c_a0dd0aec606d272c66612a657ebdcfe94}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!O\+B\+J\+E\+C\+T\+T\+Y\+P\+E@{O\+B\+J\+E\+C\+T\+T\+Y\+P\+E}}
+\index{O\+B\+J\+E\+C\+T\+T\+Y\+P\+E@{O\+B\+J\+E\+C\+T\+T\+Y\+P\+E}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{O\+B\+J\+E\+C\+T\+T\+Y\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+B\+J\+E\+C\+T\+T\+Y\+P\+E(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$descr-\/$>$type\+\_\+num)}\label{sigtoolsmodule_8c_a0dd0aec606d272c66612a657ebdcfe94}
+\hypertarget{sigtoolsmodule_8c_a598a3330b3c21701223ee0ca14316eca}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!P\+I@{P\+I}}
+\index{P\+I@{P\+I}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{P\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+I~3.\+14159265358979323846}\label{sigtoolsmodule_8c_a598a3330b3c21701223ee0ca14316eca}
+\hypertarget{sigtoolsmodule_8c_a7d399fcbebb74300921248d831d6ab6f}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L@{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}}
+\index{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L@{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L~\+\_\+scipy\+\_\+signal\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+P\+I}\label{sigtoolsmodule_8c_a7d399fcbebb74300921248d831d6ab6f}
+\hypertarget{sigtoolsmodule_8c_a084b4c1417382017b3d08415c1147093}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!P\+Y\+E\+R\+R@{P\+Y\+E\+R\+R}}
+\index{P\+Y\+E\+R\+R@{P\+Y\+E\+R\+R}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{P\+Y\+E\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+E\+R\+R(
+\begin{DoxyParamCaption}
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~\{Py\+Err\+\_\+\+Set\+String(Py\+Exc\+\_\+\+Value\+Error, message); goto {\bf fail};\}}\label{sigtoolsmodule_8c_a084b4c1417382017b3d08415c1147093}
+\hypertarget{sigtoolsmodule_8c_a3a88bcc63386de30443dacede2e01847}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!R\+A\+N\+K@{R\+A\+N\+K}}
+\index{R\+A\+N\+K@{R\+A\+N\+K}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{R\+A\+N\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+N\+K(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$nd)}\label{sigtoolsmodule_8c_a3a88bcc63386de30443dacede2e01847}
+\hypertarget{sigtoolsmodule_8c_a01b4f65b397b9f7be6080ff948dfd253}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!S\+T\+R\+I\+D\+E\+S@{S\+T\+R\+I\+D\+E\+S}}
+\index{S\+T\+R\+I\+D\+E\+S@{S\+T\+R\+I\+D\+E\+S}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{S\+T\+R\+I\+D\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+R\+I\+D\+E\+S(
+\begin{DoxyParamCaption}
+\item[{}]{arr}
+\end{DoxyParamCaption}
+)~((arr)-\/$>$strides)}\label{sigtoolsmodule_8c_a01b4f65b397b9f7be6080ff948dfd253}
+\hypertarget{sigtoolsmodule_8c_a4912c64aec0c943b7985db6cb61ff83a}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!T\+W\+O\+P\+I@{T\+W\+O\+P\+I}}
+\index{T\+W\+O\+P\+I@{T\+W\+O\+P\+I}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{T\+W\+O\+P\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+W\+O\+P\+I~({\bf P\+I}+{\bf P\+I})}\label{sigtoolsmodule_8c_a4912c64aec0c943b7985db6cb61ff83a}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!Compare\+Function@{Compare\+Function}}
+\index{Compare\+Function@{Compare\+Function}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{Compare\+Function}]{\setlength{\rightskip}{0pt plus 5cm}typedef int($\ast$ Compare\+Function) (const void $\ast$, const void $\ast$)}\label{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}
+
+
+\subsection{Function Documentation}
+\hypertarget{sigtoolsmodule_8c_a051c59b8295a3c8c3b953e97dade0b63}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!b\+\_\+medfilt2@{b\+\_\+medfilt2}}
+\index{b\+\_\+medfilt2@{b\+\_\+medfilt2}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{b\+\_\+medfilt2}]{\setlength{\rightskip}{0pt plus 5cm}void b\+\_\+medfilt2 (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{, }
+\item[{unsigned char $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{intp $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{sigtoolsmodule_8c_a051c59b8295a3c8c3b953e97dade0b63}
+\hypertarget{sigtoolsmodule_8c_a68ddc3673df35a7cc33d0d27f73ff8ae}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!check\+\_\+malloc@{check\+\_\+malloc}}
+\index{check\+\_\+malloc@{check\+\_\+malloc}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{check\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ check\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\label{sigtoolsmodule_8c_a68ddc3673df35a7cc33d0d27f73ff8ae}
+\hypertarget{sigtoolsmodule_8c_adabfc65e12ceddc7615cdfadd757c21b}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!d\+\_\+medfilt2@{d\+\_\+medfilt2}}
+\index{d\+\_\+medfilt2@{d\+\_\+medfilt2}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{d\+\_\+medfilt2}]{\setlength{\rightskip}{0pt plus 5cm}void d\+\_\+medfilt2 (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{intp $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{sigtoolsmodule_8c_adabfc65e12ceddc7615cdfadd757c21b}
+\hypertarget{sigtoolsmodule_8c_a79b3358697432e22bb63e69a6ce1fb7a}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!f\+\_\+medfilt2@{f\+\_\+medfilt2}}
+\index{f\+\_\+medfilt2@{f\+\_\+medfilt2}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{f\+\_\+medfilt2}]{\setlength{\rightskip}{0pt plus 5cm}void f\+\_\+medfilt2 (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{intp $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{sigtoolsmodule_8c_a79b3358697432e22bb63e69a6ce1fb7a}
+\hypertarget{sigtoolsmodule_8c_a3435e96e7e3b27bb0bd2050e70d153e6}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!initsigtools@{initsigtools}}
+\index{initsigtools@{initsigtools}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{initsigtools}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} initsigtools (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{sigtoolsmodule_8c_a3435e96e7e3b27bb0bd2050e70d153e6}
+\hypertarget{sigtoolsmodule_8c_ad995a2d9c533eadfcedc6863187b87b0}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!O\+B\+J\+E\+C\+T\+\_\+compare@{O\+B\+J\+E\+C\+T\+\_\+compare}}
+\index{O\+B\+J\+E\+C\+T\+\_\+compare@{O\+B\+J\+E\+C\+T\+\_\+compare}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{O\+B\+J\+E\+C\+T\+\_\+compare}]{\setlength{\rightskip}{0pt plus 5cm}int O\+B\+J\+E\+C\+T\+\_\+compare (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$$\ast$}]{ip1, }
+\item[{Py\+Object $\ast$$\ast$}]{ip2}
+\end{DoxyParamCaption}
+)}\label{sigtoolsmodule_8c_ad995a2d9c533eadfcedc6863187b87b0}
+\hypertarget{sigtoolsmodule_8c_a28977c7a1b479b06e1ab9e9aa0add381}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!Py\+Array\+\_\+\+Order\+Filter\+N\+D@{Py\+Array\+\_\+\+Order\+Filter\+N\+D}}
+\index{Py\+Array\+\_\+\+Order\+Filter\+N\+D@{Py\+Array\+\_\+\+Order\+Filter\+N\+D}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{Py\+Array\+\_\+\+Order\+Filter\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Object$\ast$ Py\+Array\+\_\+\+Order\+Filter\+N\+D (
+\begin{DoxyParamCaption}
+\item[{Py\+Object $\ast$}]{op1, }
+\item[{Py\+Object $\ast$}]{op2, }
+\item[{int}]{order}
+\end{DoxyParamCaption}
+)}\label{sigtoolsmodule_8c_a28977c7a1b479b06e1ab9e9aa0add381}
+\hypertarget{sigtoolsmodule_8c_a7c5963506edde1c44a9664527088d70d}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!pylab\+\_\+convolve\+\_\+2d@{pylab\+\_\+convolve\+\_\+2d}}
+\index{pylab\+\_\+convolve\+\_\+2d@{pylab\+\_\+convolve\+\_\+2d}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{pylab\+\_\+convolve\+\_\+2d}]{\setlength{\rightskip}{0pt plus 5cm}int pylab\+\_\+convolve\+\_\+2d (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{char $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{char $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{intp $\ast$}]{, }
+\item[{int}]{, }
+\item[{char $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{sigtoolsmodule_8c_a7c5963506edde1c44a9664527088d70d}
+
+
+\subsection{Variable Documentation}
+\hypertarget{sigtoolsmodule_8c_ae3c5da8d35a2edd4c9c9d451fad58ceb}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!compare\+\_\+functions@{compare\+\_\+functions}}
+\index{compare\+\_\+functions@{compare\+\_\+functions}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{compare\+\_\+functions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Compare\+Function} compare\+\_\+functions\mbox{[}$\,$\mbox{]}}\label{sigtoolsmodule_8c_ae3c5da8d35a2edd4c9c9d451fad58ceb}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= 
+    \{NULL, (\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})BYTE\_compare,(\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})UBYTE\_compare,
+     (\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})SHORT\_compare,(\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})USHORT\_compare, 
+     (\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})INT\_compare,(\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})UINT\_compare, 
+     (\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})LONG\_compare,(\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})ULONG\_compare, 
+     (\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})LONGLONG\_compare,(\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})ULONGLONG\_compare,
+     (\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})FLOAT\_compare,(\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})DOUBLE\_compare,
+     (\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})LONGDOUBLE\_compare, NULL, NULL, NULL,
+     (\hyperlink{sigtoolsmodule_8c_ad1bfe9086f9788691bd3f7f6f2532029}{CompareFunction})\hyperlink{sigtoolsmodule_8c_ad995a2d9c533eadfcedc6863187b87b0}{OBJECT\_compare}, NULL, NULL, NULL\}
+\end{DoxyCode}
+\hypertarget{sigtoolsmodule_8c_a3b83aa0ea363eb7a720f7a3ecf9c6f39}{}\index{sigtoolsmodule.\+c@{sigtoolsmodule.\+c}!M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L@{M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L}}
+\index{M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L@{M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L}!sigtoolsmodule.\+c@{sigtoolsmodule.\+c}}
+\subsubsection[{M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L}]{\setlength{\rightskip}{0pt plus 5cm}jmp\+\_\+buf M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L}\label{sigtoolsmodule_8c_a3b83aa0ea363eb7a720f7a3ecf9c6f39}

@@ -1,0 +1,428 @@
+\hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog}{}\section{scipy.\+weave.\+catalog.\+catalog Class Reference}
+\label{classscipy_1_1weave_1_1catalog_1_1catalog}\index{scipy.\+weave.\+catalog.\+catalog@{scipy.\+weave.\+catalog.\+catalog}}
+Inheritance diagram for scipy.\+weave.\+catalog.\+catalog\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1weave_1_1catalog_1_1catalog}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a7e6eaac72a04fee02e0267c0b34e47f8}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a462454a658cf8538454299ae9fe2cd46}{set\+\_\+module\+\_\+directory}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_ab04dc178df552c6184bcfa8f6d995bc9}{get\+\_\+module\+\_\+directory}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_af1b3e01d15b0f559511ff2be796bc739}{clear\+\_\+module\+\_\+directory}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_ac9a2b4f2af953637c9098b862d073eb9}{get\+\_\+environ\+\_\+path}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a95dac22efc5779533299308fc1732d8d}{build\+\_\+search\+\_\+order}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_ad4d8b11abb17d6c24fee0ce128533390}{get\+\_\+catalog\+\_\+files}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a41704f1857a3225c5659611a78153384}{get\+\_\+existing\+\_\+files}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_aa1b99eff8b1e45f58ed940e334ed9c06}{get\+\_\+writable\+\_\+file}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_acab130b8eba04c505736416d85545a6f}{get\+\_\+writable\+\_\+dir}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_aee5408f03bb505b9778ad2c9d3bf4b69}{unique\+\_\+module\+\_\+name}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a9575f495349f70602b6e8a61bef2265c}{path\+\_\+key}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a704165141edfcd4d5fb8e900fbf04941}{configure\+\_\+path}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a41efa0adb0ddf31de23b7163f31d0f7a}{unconfigure\+\_\+path}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a8547ba847c74fc7059d15a50a3b0eeb8}{get\+\_\+cataloged\+\_\+functions}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_aba25b7d8e0a9106c49257e4975ee8b2b}{repair\+\_\+catalog}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a2a4bd67fb11c178d9210ac99a52f5089}{get\+\_\+functions\+\_\+fast}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a162cf734d0970e68aa728f589f914c07}{get\+\_\+functions}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a64c2beb4f9cb3b16b71d89d1f10c865a}{add\+\_\+function}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_acdbb83b794c4bd2be516fd26bb81d67c}{add\+\_\+function\+\_\+persistent}
+\item 
+def \hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a111a224265a05f7244d6d731293bcf01}{fast\+\_\+cache}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_a7e9ccbad5ee7f3c748f5c947dbea5609}{user\+\_\+path\+\_\+list}
+\item 
+\hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_ab6f5ba4976797745e4153d8a516524ee}{cache}
+\item 
+\hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_abc0bb846e68d9afb765eeb178a2ddfd2}{module\+\_\+dir}
+\item 
+\hyperlink{classscipy_1_1weave_1_1catalog_1_1catalog_ab15f313507364c4523f25895e53f52e6}{paths\+\_\+added}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Stores information about compiled functions both in cache and on disk.
+
+    catalog stores (code, list_of_function) pairs so that all the functions
+    that have been compiled for code are available for calling (usually in
+    inline or blitz).
+
+    catalog keeps a dictionary of previously accessed code values cached
+    for quick access.  It also handles the looking up of functions compiled
+    in previously called Python sessions on disk in function catalogs.
+    catalog searches the directories in the PYTHONCOMPILED environment
+    variable in order loading functions that correspond to the given code
+    fragment.  A default directory is also searched for catalog functions.
+    On unix, the default directory is usually '~/.pythonxx_compiled' where
+    xx is the version of Python used. On windows, it is the directory
+    returned by temfile.gettempdir().  Functions closer to the front are of
+    the variable list are guaranteed to be closer to the front of the
+    function list so that they will be called first.  See
+    get_cataloged_functions() for more info on how the search order is
+    traversed.
+
+    Catalog also handles storing information about compiled functions to
+    a catalog.  When writing this information, the first writable catalog
+    file in PYTHONCOMPILED path is used.  If a writable catalog is not
+    found, it is written to the catalog in the default directory.  This
+    directory should always be writable.
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a7e6eaac72a04fee02e0267c0b34e47f8}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{user\+\_\+path\+\_\+list = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a7e6eaac72a04fee02e0267c0b34e47f8}
+\begin{DoxyVerb}Create a catalog for storing/searching for compiled functions.
+
+    user_path_list contains directories that should be searched
+    first for function catalogs.  They will come before the path
+    entries in the PYTHONCOMPILED environment varilable.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a64c2beb4f9cb3b16b71d89d1f10c865a}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!add\+\_\+function@{add\+\_\+function}}
+\index{add\+\_\+function@{add\+\_\+function}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{add\+\_\+function}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+add\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{code, }
+\item[{}]{function, }
+\item[{}]{module\+\_\+dir = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a64c2beb4f9cb3b16b71d89d1f10c865a}
+\begin{DoxyVerb}Adds a function to the catalog.
+
+    The function is added to the cache as well as the first
+    writable file catalog found in the search path.  If no
+    code entry exists in the cache, the on disk catalogs
+    are loaded into the cache and function is added to the
+    beginning of the function list.
+
+    The path specified by module_dir will replace the 'MODULE'
+    place holder in the catalog search path. See build_search_order()
+    for more info on the search path.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_acdbb83b794c4bd2be516fd26bb81d67c}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!add\+\_\+function\+\_\+persistent@{add\+\_\+function\+\_\+persistent}}
+\index{add\+\_\+function\+\_\+persistent@{add\+\_\+function\+\_\+persistent}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{add\+\_\+function\+\_\+persistent}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+add\+\_\+function\+\_\+persistent (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{code, }
+\item[{}]{function}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_acdbb83b794c4bd2be516fd26bb81d67c}
+\begin{DoxyVerb}Store the code->function relationship to disk.
+
+    Two pieces of information are needed for loading functions
+    from disk -- the function pickle (which conveniently stores
+    the module name, etc.) and the path to its module's directory.
+    The latter is needed so that the function can be loaded no
+    matter what the user's Python path is.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a95dac22efc5779533299308fc1732d8d}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!build\+\_\+search\+\_\+order@{build\+\_\+search\+\_\+order}}
+\index{build\+\_\+search\+\_\+order@{build\+\_\+search\+\_\+order}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{build\+\_\+search\+\_\+order}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+build\+\_\+search\+\_\+order (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a95dac22efc5779533299308fc1732d8d}
+\begin{DoxyVerb}Returns a list of paths that are searched for catalogs.
+
+    Values specified in the catalog constructor are searched first,
+    then values found in the PYTHONCOMPILED environment variable.
+    The directory returned by default_dir() is always returned at
+    the end of the list.
+
+    There is a 'magic' path name called 'MODULE' that is replaced
+    by the directory defined by set_module_directory().  If the
+    module directory hasn't been set, 'MODULE' is ignored.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_af1b3e01d15b0f559511ff2be796bc739}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!clear\+\_\+module\+\_\+directory@{clear\+\_\+module\+\_\+directory}}
+\index{clear\+\_\+module\+\_\+directory@{clear\+\_\+module\+\_\+directory}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{clear\+\_\+module\+\_\+directory}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+clear\+\_\+module\+\_\+directory (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_af1b3e01d15b0f559511ff2be796bc739}
+\begin{DoxyVerb}Reset 'MODULE' path to None so that it is ignored in searches.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a704165141edfcd4d5fb8e900fbf04941}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!configure\+\_\+path@{configure\+\_\+path}}
+\index{configure\+\_\+path@{configure\+\_\+path}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{configure\+\_\+path}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+configure\+\_\+path (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{cat, }
+\item[{}]{code}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a704165141edfcd4d5fb8e900fbf04941}
+\begin{DoxyVerb}Add the python path for the given code to the sys.path
+
+    unconfigure_path() should be called as soon as possible after
+    imports associated with code are finished so that sys.path
+    is restored to normal.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a111a224265a05f7244d6d731293bcf01}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!fast\+\_\+cache@{fast\+\_\+cache}}
+\index{fast\+\_\+cache@{fast\+\_\+cache}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{fast\+\_\+cache}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+fast\+\_\+cache (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{code, }
+\item[{}]{function}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a111a224265a05f7244d6d731293bcf01}
+\begin{DoxyVerb}Move function to the front of the cache entry for code
+
+    If future calls to the function have the same type signature,
+    this will speed up access significantly because the first
+    function call is correct.
+
+    Note:  The cache added to the inline_tools module is significantly
+   faster than always calling get_functions, so this isn't
+   as necessary as it used to be.  Still, it's probably worth
+   doing.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_ad4d8b11abb17d6c24fee0ce128533390}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!get\+\_\+catalog\+\_\+files@{get\+\_\+catalog\+\_\+files}}
+\index{get\+\_\+catalog\+\_\+files@{get\+\_\+catalog\+\_\+files}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{get\+\_\+catalog\+\_\+files}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+get\+\_\+catalog\+\_\+files (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_ad4d8b11abb17d6c24fee0ce128533390}
+\begin{DoxyVerb}Returns catalog file list in correct search order.
+
+    Some of the catalog files may not currently exists.
+    However, all will be valid locations for a catalog
+    to be created (if you have write permission).
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a8547ba847c74fc7059d15a50a3b0eeb8}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!get\+\_\+cataloged\+\_\+functions@{get\+\_\+cataloged\+\_\+functions}}
+\index{get\+\_\+cataloged\+\_\+functions@{get\+\_\+cataloged\+\_\+functions}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{get\+\_\+cataloged\+\_\+functions}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+get\+\_\+cataloged\+\_\+functions (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{code}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a8547ba847c74fc7059d15a50a3b0eeb8}
+\begin{DoxyVerb}Load all functions associated with code from catalog search path.
+
+    Sometimes there can be trouble loading a function listed in a
+    catalog file because the actual module that holds the function
+    has been moved or deleted.  When this happens, that catalog file
+    is "repaired", meaning the entire entry for this function is
+    removed from the file.  This only affects the catalog file that
+    has problems -- not the others in the search path.
+
+    The "repair" behavior may not be needed, but I'll keep it for now.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_ac9a2b4f2af953637c9098b862d073eb9}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!get\+\_\+environ\+\_\+path@{get\+\_\+environ\+\_\+path}}
+\index{get\+\_\+environ\+\_\+path@{get\+\_\+environ\+\_\+path}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{get\+\_\+environ\+\_\+path}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+get\+\_\+environ\+\_\+path (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_ac9a2b4f2af953637c9098b862d073eb9}
+\begin{DoxyVerb}Return list of paths from 'PYTHONCOMPILED' environment variable.
+
+    On Unix the path in PYTHONCOMPILED is a ':' separated list of
+    directories.  On Windows, a ';' separated list is used.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a41704f1857a3225c5659611a78153384}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!get\+\_\+existing\+\_\+files@{get\+\_\+existing\+\_\+files}}
+\index{get\+\_\+existing\+\_\+files@{get\+\_\+existing\+\_\+files}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{get\+\_\+existing\+\_\+files}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+get\+\_\+existing\+\_\+files (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a41704f1857a3225c5659611a78153384}
+\begin{DoxyVerb}Returns all existing catalog file list in correct search order.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a162cf734d0970e68aa728f589f914c07}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!get\+\_\+functions@{get\+\_\+functions}}
+\index{get\+\_\+functions@{get\+\_\+functions}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{get\+\_\+functions}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+get\+\_\+functions (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{code, }
+\item[{}]{module\+\_\+dir = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a162cf734d0970e68aa728f589f914c07}
+\begin{DoxyVerb}Return the list of functions associated with this code fragment.
+
+    The cache is first searched for the function.  If an entry
+    in the cache is not found, then catalog files on disk are
+    searched for the entry.  This is slooooow, but only happens
+    once per code object.  All the functions found in catalog files
+    on a cache miss are loaded into the cache to speed up future calls.
+    The search order is as follows:
+
+1. user specified path (from catalog initialization)
+2. directories from the PYTHONCOMPILED environment variable
+3. The temporary directory on your platform.
+
+    The path specified by module_dir will replace the 'MODULE'
+    place holder in the catalog search path. See build_search_order()
+    for more info on the search path.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a2a4bd67fb11c178d9210ac99a52f5089}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!get\+\_\+functions\+\_\+fast@{get\+\_\+functions\+\_\+fast}}
+\index{get\+\_\+functions\+\_\+fast@{get\+\_\+functions\+\_\+fast}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{get\+\_\+functions\+\_\+fast}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+get\+\_\+functions\+\_\+fast (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{code}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a2a4bd67fb11c178d9210ac99a52f5089}
+\begin{DoxyVerb}Return list of functions for code from the cache.
+
+    Return an empty list if the code entry is not found.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_ab04dc178df552c6184bcfa8f6d995bc9}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!get\+\_\+module\+\_\+directory@{get\+\_\+module\+\_\+directory}}
+\index{get\+\_\+module\+\_\+directory@{get\+\_\+module\+\_\+directory}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{get\+\_\+module\+\_\+directory}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+get\+\_\+module\+\_\+directory (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_ab04dc178df552c6184bcfa8f6d995bc9}
+\begin{DoxyVerb}Return the path used to replace the 'MODULE' in searches.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_acab130b8eba04c505736416d85545a6f}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!get\+\_\+writable\+\_\+dir@{get\+\_\+writable\+\_\+dir}}
+\index{get\+\_\+writable\+\_\+dir@{get\+\_\+writable\+\_\+dir}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{get\+\_\+writable\+\_\+dir}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+get\+\_\+writable\+\_\+dir (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_acab130b8eba04c505736416d85545a6f}
+\begin{DoxyVerb}Return the parent directory of first writable catalog file.
+
+    The returned directory has write access.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_aa1b99eff8b1e45f58ed940e334ed9c06}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!get\+\_\+writable\+\_\+file@{get\+\_\+writable\+\_\+file}}
+\index{get\+\_\+writable\+\_\+file@{get\+\_\+writable\+\_\+file}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{get\+\_\+writable\+\_\+file}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+get\+\_\+writable\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{existing\+\_\+only = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_aa1b99eff8b1e45f58ed940e334ed9c06}
+\begin{DoxyVerb}Return the name of the first writable catalog file.
+
+    Its parent directory must also be writable.  This is so that
+    compiled modules can be written to the same directory.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a9575f495349f70602b6e8a61bef2265c}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!path\+\_\+key@{path\+\_\+key}}
+\index{path\+\_\+key@{path\+\_\+key}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{path\+\_\+key}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+path\+\_\+key (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{code}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a9575f495349f70602b6e8a61bef2265c}
+\begin{DoxyVerb}Return key for path information for functions associated with code.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_aba25b7d8e0a9106c49257e4975ee8b2b}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!repair\+\_\+catalog@{repair\+\_\+catalog}}
+\index{repair\+\_\+catalog@{repair\+\_\+catalog}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{repair\+\_\+catalog}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+repair\+\_\+catalog (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{catalog\+\_\+path, }
+\item[{}]{code}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_aba25b7d8e0a9106c49257e4975ee8b2b}
+\begin{DoxyVerb}Remove entry for code from catalog_path
+
+    Occasionally catalog entries could get corrupted. An example
+    would be when a module that had functions in the catalog was
+    deleted or moved on the disk.  The best current repair method is
+    just to trash the entire catalog entry for this piece of code.
+    This may loose function entries that are valid, but thats life.
+
+    catalog_path must be writable for repair.  If it isn't, the
+    function exists with a warning.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a462454a658cf8538454299ae9fe2cd46}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!set\+\_\+module\+\_\+directory@{set\+\_\+module\+\_\+directory}}
+\index{set\+\_\+module\+\_\+directory@{set\+\_\+module\+\_\+directory}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{set\+\_\+module\+\_\+directory}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+set\+\_\+module\+\_\+directory (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{module\+\_\+dir}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a462454a658cf8538454299ae9fe2cd46}
+\begin{DoxyVerb}Set the path that will replace 'MODULE' in catalog searches.
+
+    You should call clear_module_directory() when your finished
+    working with it.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a41efa0adb0ddf31de23b7163f31d0f7a}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!unconfigure\+\_\+path@{unconfigure\+\_\+path}}
+\index{unconfigure\+\_\+path@{unconfigure\+\_\+path}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{unconfigure\+\_\+path}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+unconfigure\+\_\+path (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a41efa0adb0ddf31de23b7163f31d0f7a}
+\begin{DoxyVerb}Restores sys.path to normal after calls to configure_path()
+
+    Remove the previously added paths from sys.path
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_aee5408f03bb505b9778ad2c9d3bf4b69}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!unique\+\_\+module\+\_\+name@{unique\+\_\+module\+\_\+name}}
+\index{unique\+\_\+module\+\_\+name@{unique\+\_\+module\+\_\+name}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{unique\+\_\+module\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+catalog.\+catalog.\+unique\+\_\+module\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{code, }
+\item[{}]{module\+\_\+dir = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1weave_1_1catalog_1_1catalog_aee5408f03bb505b9778ad2c9d3bf4b69}
+\begin{DoxyVerb}Return full path to unique file name that in writable location.
+
+    The directory for the file is the first writable directory in
+    the catalog search path.  The unique file name is derived from
+    the code fragment.  If, module_dir is specified, it is used
+    to replace 'MODULE' in the search path.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_ab6f5ba4976797745e4153d8a516524ee}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!cache@{cache}}
+\index{cache@{cache}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{cache}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+weave.\+catalog.\+catalog.\+cache}\label{classscipy_1_1weave_1_1catalog_1_1catalog_ab6f5ba4976797745e4153d8a516524ee}
+\hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_abc0bb846e68d9afb765eeb178a2ddfd2}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!module\+\_\+dir@{module\+\_\+dir}}
+\index{module\+\_\+dir@{module\+\_\+dir}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{module\+\_\+dir}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+weave.\+catalog.\+catalog.\+module\+\_\+dir}\label{classscipy_1_1weave_1_1catalog_1_1catalog_abc0bb846e68d9afb765eeb178a2ddfd2}
+\hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_ab15f313507364c4523f25895e53f52e6}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!paths\+\_\+added@{paths\+\_\+added}}
+\index{paths\+\_\+added@{paths\+\_\+added}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{paths\+\_\+added}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+weave.\+catalog.\+catalog.\+paths\+\_\+added}\label{classscipy_1_1weave_1_1catalog_1_1catalog_ab15f313507364c4523f25895e53f52e6}
+\hypertarget{classscipy_1_1weave_1_1catalog_1_1catalog_a7e9ccbad5ee7f3c748f5c947dbea5609}{}\index{scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}!user\+\_\+path\+\_\+list@{user\+\_\+path\+\_\+list}}
+\index{user\+\_\+path\+\_\+list@{user\+\_\+path\+\_\+list}!scipy\+::weave\+::catalog\+::catalog@{scipy\+::weave\+::catalog\+::catalog}}
+\subsubsection[{user\+\_\+path\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+weave.\+catalog.\+catalog.\+user\+\_\+path\+\_\+list}\label{classscipy_1_1weave_1_1catalog_1_1catalog_a7e9ccbad5ee7f3c748f5c947dbea5609}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/weave/\hyperlink{catalog_8py}{catalog.\+py}\end{DoxyCompactItemize}

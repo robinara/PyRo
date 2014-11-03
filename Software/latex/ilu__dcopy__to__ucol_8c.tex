@@ -1,0 +1,60 @@
+\hypertarget{ilu__dcopy__to__ucol_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.c File Reference}
+\label{ilu__dcopy__to__ucol_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.\+c}}
+
+
+Copy a computed column of U to the compressed data structure and drop some small entries.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ilu__dcopy__to__ucol_8c_a24a0d368c78074384922e9d10b43f820}{dcopy\+\_\+} (int $\ast$, double\mbox{[}$\,$\mbox{]}, int $\ast$, double\mbox{[}$\,$\mbox{]}, int $\ast$)
+\item 
+int \hyperlink{ilu__dcopy__to__ucol_8c_ab1802613180b46ffdb7b058a42c38716}{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol} (int jcol, int nseg, int $\ast$segrep, int $\ast$repfnz, int $\ast$perm\+\_\+r, double $\ast$dense, int drop\+\_\+rule, \hyperlink{superlu__enum__consts_8h_a0cb73c13a7c2390c3a9a0a8913477ff0}{milu\+\_\+t} milu, double drop\+\_\+tol, int quota, double $\ast$\hyperlink{vecsum_8cc_a208c561460f0b32ffa279a7ed7b7afa4}{sum}, int $\ast$nnz\+Uj, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, double $\ast$work)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copy a computed column of U to the compressed data structure and drop some small entries. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.1) --
+Lawrence Berkeley National Laboratory
+November, 2010
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{ilu__dcopy__to__ucol_8c_a24a0d368c78074384922e9d10b43f820}{}\index{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.\+c}!dcopy\+\_\+@{dcopy\+\_\+}}
+\index{dcopy\+\_\+@{dcopy\+\_\+}!ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.\+c}}
+\subsubsection[{dcopy\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}void dcopy\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{double}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{, }
+\item[{double}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ilu__dcopy__to__ucol_8c_a24a0d368c78074384922e9d10b43f820}
+\hypertarget{ilu__dcopy__to__ucol_8c_ab1802613180b46ffdb7b058a42c38716}{}\index{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.\+c}!ilu\+\_\+dcopy\+\_\+to\+\_\+ucol@{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol}}
+\index{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol@{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol}!ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol.\+c}}
+\subsubsection[{ilu\+\_\+dcopy\+\_\+to\+\_\+ucol}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+dcopy\+\_\+to\+\_\+ucol (
+\begin{DoxyParamCaption}
+\item[{int}]{jcol, }
+\item[{int}]{nseg, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{double $\ast$}]{dense, }
+\item[{int}]{drop\+\_\+rule, }
+\item[{{\bf milu\+\_\+t}}]{milu, }
+\item[{double}]{drop\+\_\+tol, }
+\item[{int}]{quota, }
+\item[{double $\ast$}]{sum, }
+\item[{int $\ast$}]{nnz\+Uj, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{double $\ast$}]{work}
+\end{DoxyParamCaption}
+)}\label{ilu__dcopy__to__ucol_8c_ab1802613180b46ffdb7b058a42c38716}

@@ -1,0 +1,111 @@
+\hypertarget{dlasq5_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlasq5.f File Reference}
+\label{dlasq5_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlasq5.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlasq5.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlasq5_8f_a77ac31104dbfb9331604678f3ba05156}{dlasq5} (I0, N0, Z, P\+P, T\+A\+U, S\+I\+G\+M\+A, \hyperlink{zeros_8h_af9a0a96e48b21c87d05acd4ed5117ba0}{D\+M\+I\+N}, D\+M\+I\+N1, D\+M\+I\+N2, D\+N, D\+N\+M1, D\+N\+M2, I\+E\+E\+E, \hyperlink{tukey_8c_a6ebf6899d6c1c8b7b9d09be872c05aae}{E\+P\+S})
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+S\+Q5} computes one dqds transform in ping-\/pong form. Used by sbdsqr and sstegr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlasq5_8f_a77ac31104dbfb9331604678f3ba05156}{}\index{dlasq5.\+f@{dlasq5.\+f}!dlasq5@{dlasq5}}
+\index{dlasq5@{dlasq5}!dlasq5.\+f@{dlasq5.\+f}}
+\subsubsection[{dlasq5}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlasq5 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I0, }
+\item[{integer}]{N0, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{Z, }
+\item[{integer}]{P\+P, }
+\item[{double {\bf precision}}]{T\+A\+U, }
+\item[{double {\bf precision}}]{S\+I\+G\+M\+A, }
+\item[{double {\bf precision}}]{D\+M\+I\+N, }
+\item[{double {\bf precision}}]{D\+M\+I\+N1, }
+\item[{double {\bf precision}}]{D\+M\+I\+N2, }
+\item[{double {\bf precision}}]{D\+N, }
+\item[{double {\bf precision}}]{D\+N\+M1, }
+\item[{double {\bf precision}}]{D\+N\+M2, }
+\item[{{\bf logical}}]{I\+E\+E\+E, }
+\item[{double {\bf precision}}]{E\+P\+S}
+\end{DoxyParamCaption}
+)}\label{dlasq5_8f_a77ac31104dbfb9331604678f3ba05156}
+
+
+{\bfseries D\+L\+A\+S\+Q5} computes one dqds transform in ping-\/pong form. Used by sbdsqr and sstegr. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLASQ5 computes one dqds transform in ping-pong form, one
+ version for IEEE machines another for non IEEE machines.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I0} & \begin{DoxyVerb}          I0 is INTEGER
+        First index.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N0} & \begin{DoxyVerb}          N0 is INTEGER
+        Last index.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array, dimension ( 4*N )
+        Z holds the qd array. EMIN is stored in Z(4*N0) to avoid
+        an extra argument.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+P} & \begin{DoxyVerb}          PP is INTEGER
+        PP=0 for ping, PP=1 for pong.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is DOUBLE PRECISION
+        This is the shift.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+I\+G\+M\+A} & \begin{DoxyVerb}          SIGMA is DOUBLE PRECISION
+        This is the accumulated shift up to this step.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+M\+I\+N} & \begin{DoxyVerb}          DMIN is DOUBLE PRECISION
+        Minimum value of d.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+M\+I\+N1} & \begin{DoxyVerb}          DMIN1 is DOUBLE PRECISION
+        Minimum value of d, excluding D( N0 ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+M\+I\+N2} & \begin{DoxyVerb}          DMIN2 is DOUBLE PRECISION
+        Minimum value of d, excluding D( N0 ) and D( N0-1 ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+N} & \begin{DoxyVerb}          DN is DOUBLE PRECISION
+        d(N0), the last value of d.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+N\+M1} & \begin{DoxyVerb}          DNM1 is DOUBLE PRECISION
+        d(N0-1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+N\+M2} & \begin{DoxyVerb}          DNM2 is DOUBLE PRECISION
+        d(N0-2).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+E\+E\+E} & \begin{DoxyVerb}          IEEE is LOGICAL
+        Flag for IEEE or non IEEE arithmetic.\end{DoxyVerb}
+ \\
+\hline
+\mbox{\tt in}  & {\em E\+P\+S} & \begin{DoxyVerb}          EPS is DOUBLE PRECISION
+        This is the value of epsilon used.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

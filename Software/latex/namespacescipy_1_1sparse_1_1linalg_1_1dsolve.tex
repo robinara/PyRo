@@ -1,0 +1,79 @@
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve}{}\section{scipy.\+sparse.\+linalg.\+dsolve Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve}\index{scipy.\+sparse.\+linalg.\+dsolve@{scipy.\+sparse.\+linalg.\+dsolve}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1__add__newdocs}{\+\_\+add\+\_\+newdocs}
+\item 
+ \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1linsolve}{linsolve}
+\item 
+ \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_1_1setup}{setup}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_ac7dd37dd0830e4f58008ecb5f4eac711}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} for \hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} in dir() \hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} not s.\+startswith('\+\_\+')\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_a475f1f29c3c7fabbfd47640fe5db8e08}{test} = Tester()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Linear Solvers
+==============
+
+The default solver is SuperLU (included in the scipy distribution),
+which can solve real or complex linear systems in both single and
+double precisions.  It is automatically replaced by UMFPACK, if
+available.  Note that UMFPACK works in double precision only, so
+switch it off by::
+
+    >>> use_solver(useUmfpack=False)
+
+to solve in the single precision. See also use_solver documentation.
+
+Example session::
+
+    >>> from scipy.sparse import csc_matrix, spdiags
+    >>> from numpy import array
+    >>> from scipy.sparse.linalg import spsolve, use_solver
+    >>>
+    >>> print "Inverting a sparse linear system:"
+    >>> print "The sparse matrix (constructed from diagonals):"
+    >>> a = spdiags([[1, 2, 3, 4, 5], [6, 5, 8, 9, 10]], [0, 1], 5, 5)
+    >>> b = array([1, 2, 3, 4, 5])
+    >>> print "Solve: single precision complex:"
+    >>> use_solver( useUmfpack = False )
+    >>> a = a.astype('F')
+    >>> x = spsolve(a, b)
+    >>> print x
+    >>> print "Error: ", a*x-b
+    >>>
+    >>> print "Solve: double precision complex:"
+    >>> use_solver( useUmfpack = True )
+    >>> a = a.astype('D')
+    >>> x = spsolve(a, b)
+    >>> print x
+    >>> print "Error: ", a*x-b
+    >>>
+    >>> print "Solve: double precision:"
+    >>> a = a.astype('d')
+    >>> x = spsolve(a, b)
+    >>> print x
+    >>> print "Error: ", a*x-b
+    >>>
+    >>> print "Solve: single precision:"
+    >>> use_solver( useUmfpack = False )
+    >>> a = a.astype('f')
+    >>> x = spsolve(a, b.astype('f'))
+    >>> print x
+    >>> print "Error: ", a*x-b\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_ac7dd37dd0830e4f58008ecb5f4eac711}{}\index{scipy\+::sparse\+::linalg\+::dsolve@{scipy\+::sparse\+::linalg\+::dsolve}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::linalg\+::dsolve@{scipy\+::sparse\+::linalg\+::dsolve}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+dsolve.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}{\bf s} for {\bf s} in dir() {\bf if} not s.\+startswith('\+\_\+')\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_ac7dd37dd0830e4f58008ecb5f4eac711}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_a475f1f29c3c7fabbfd47640fe5db8e08}{}\index{scipy\+::sparse\+::linalg\+::dsolve@{scipy\+::sparse\+::linalg\+::dsolve}!test@{test}}
+\index{test@{test}!scipy\+::sparse\+::linalg\+::dsolve@{scipy\+::sparse\+::linalg\+::dsolve}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+dsolve.\+test = Tester()}\label{namespacescipy_1_1sparse_1_1linalg_1_1dsolve_a475f1f29c3c7fabbfd47640fe5db8e08}

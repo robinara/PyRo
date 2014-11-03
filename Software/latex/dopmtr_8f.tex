@@ -1,0 +1,121 @@
+\hypertarget{dopmtr_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dopmtr.f File Reference}
+\label{dopmtr_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dopmtr.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dopmtr.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dopmtr_8f_ad60984bb4ef9b640e9c61ecf8159c9a1}{dopmtr} (S\+I\+D\+E, U\+P\+L\+O, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, A\+P, T\+A\+U, C, L\+D\+C, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+O\+P\+M\+T\+R} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dopmtr_8f_ad60984bb4ef9b640e9c61ecf8159c9a1}{}\index{dopmtr.\+f@{dopmtr.\+f}!dopmtr@{dopmtr}}
+\index{dopmtr@{dopmtr}!dopmtr.\+f@{dopmtr.\+f}}
+\subsubsection[{dopmtr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dopmtr (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{A\+P, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{T\+A\+U, }
+\item[{double {\bf precision}, dimension( ldc, $\ast$ )}]{C, }
+\item[{integer}]{L\+D\+C, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dopmtr_8f_ad60984bb4ef9b640e9c61ecf8159c9a1}
+
+
+{\bfseries D\+O\+P\+M\+T\+R} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DOPMTR overwrites the general real M-by-N matrix C with
+
+                 SIDE = 'L'     SIDE = 'R'
+ TRANS = 'N':      Q * C          C * Q
+ TRANS = 'T':      Q**T * C       C * Q**T
+
+ where Q is a real orthogonal matrix of order nq, with nq = m if
+ SIDE = 'L' and nq = n if SIDE = 'R'. Q is defined as the product of
+ nq-1 elementary reflectors, as returned by DSPTRD using packed
+ storage:
+
+ if UPLO = 'U', Q = H(nq-1) . . . H(2) H(1);
+
+ if UPLO = 'L', Q = H(1) H(2) . . . H(nq-1).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+          = 'L': apply Q or Q**T from the Left;
+          = 'R': apply Q or Q**T from the Right.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U': Upper triangular packed storage used in previous
+                 call to DSPTRD;
+          = 'L': Lower triangular packed storage used in previous
+                 call to DSPTRD.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          = 'N':  No transpose, apply Q;
+          = 'T':  Transpose, apply Q**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix C. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix C. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+P} & \begin{DoxyVerb}          AP is DOUBLE PRECISION array, dimension
+                               (M*(M+1)/2) if SIDE = 'L'
+                               (N*(N+1)/2) if SIDE = 'R'
+          The vectors which define the elementary reflectors, as
+          returned by DSPTRD.  AP is modified by the routine but
+          restored on exit.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is DOUBLE PRECISION array, dimension (M-1) if SIDE = 'L'
+                                     or (N-1) if SIDE = 'R'
+          TAU(i) must contain the scalar factor of the elementary
+          reflector H(i), as returned by DSPTRD.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array, dimension (LDC,N)
+          On entry, the M-by-N matrix C.
+          On exit, C is overwritten by Q*C or Q**T*C or C*Q**T or C*Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+          The leading dimension of the array C. LDC >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension
+                                   (N) if SIDE = 'L'
+                                   (M) if SIDE = 'R'\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

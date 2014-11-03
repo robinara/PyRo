@@ -1,0 +1,555 @@
+\hypertarget{group__complexGTcomputational}{}\section{complex}
+\label{group__complexGTcomputational}\index{complex@{complex}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{group__complexGTcomputational_ga8f80227b32b600dc75a5e982005ec1c2}{cgtcon} (N\+O\+R\+M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+U2, I\+P\+I\+V, A\+N\+O\+R\+M, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+G\+T\+C\+O\+N} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complexGTcomputational_ga92eec53c6ac6c6285a10e7d05d9c00d5}{cgtrfs} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+L\+F, D\+F, D\+U\+F, D\+U2, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, X, L\+D\+X, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a78fd14d7abebae04095cfbe02928f153}{F\+E\+R\+R}, B\+E\+R\+R, W\+O\+R\+K, R\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+G\+T\+R\+F\+S} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complexGTcomputational_ga74d1d5397dae5f211149667ea29c36b9}{cgttrf} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+U2, I\+P\+I\+V, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+G\+T\+T\+R\+F} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complexGTcomputational_gafe8bdadc6f4da5aa5df3fe22dbe6b05b}{cgttrs} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+U2, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+G\+T\+T\+R\+S} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complexGTcomputational_gab3cb48a1dae8355cc937e9c97ac5ded0}{cgtts2} (I\+T\+R\+A\+N\+S, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, D\+L, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, D\+U, D\+U2, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B})
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+G\+T\+T\+S2} solves a system of linear equations with a tridiagonal matrix using the L\+U factorization computed by sgttrf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of complex computational functions for G\+T matrices 
+
+\subsection{Function Documentation}
+\hypertarget{group__complexGTcomputational_ga8f80227b32b600dc75a5e982005ec1c2}{}\index{complex@{complex}!cgtcon@{cgtcon}}
+\index{cgtcon@{cgtcon}!complex@{complex}}
+\subsubsection[{cgtcon}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cgtcon (
+\begin{DoxyParamCaption}
+\item[{character}]{N\+O\+R\+M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+L, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{real}]{A\+N\+O\+R\+M, }
+\item[{real}]{R\+C\+O\+N\+D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complexGTcomputational_ga8f80227b32b600dc75a5e982005ec1c2}
+
+
+{\bfseries C\+G\+T\+C\+O\+N} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CGTCON estimates the reciprocal of the condition number of a complex
+ tridiagonal matrix A using the LU factorization as computed by
+ CGTTRF.
+
+ An estimate is obtained for norm(inv(A)), and the reciprocal of the
+ condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N\+O\+R\+M} & \begin{DoxyVerb}          NORM is CHARACTER*1
+          Specifies whether the 1-norm condition number or the
+          infinity-norm condition number is required:
+          = '1' or 'O':  1-norm;
+          = 'I':         Infinity-norm.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L} & \begin{DoxyVerb}          DL is COMPLEX array, dimension (N-1)
+          The (n-1) multipliers that define the matrix L from the
+          LU factorization of A as computed by CGTTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is COMPLEX array, dimension (N)
+          The n diagonal elements of the upper triangular matrix U from
+          the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U} & \begin{DoxyVerb}          DU is COMPLEX array, dimension (N-1)
+          The (n-1) elements of the first superdiagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is COMPLEX array, dimension (N-2)
+          The (n-2) elements of the second superdiagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          The pivot indices; for 1 <= i <= n, row i of the matrix was
+          interchanged with row IPIV(i).  IPIV(i) will always be either
+          i or i+1; IPIV(i) = i indicates a row interchange was not
+          required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+N\+O\+R\+M} & \begin{DoxyVerb}          ANORM is REAL
+          If NORM = '1' or 'O', the 1-norm of the original matrix A.
+          If NORM = 'I', the infinity-norm of the original matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is REAL
+          The reciprocal of the condition number of the matrix A,
+          computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+          estimate of the 1-norm of inv(A) computed in this routine.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (2*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complexGTcomputational_ga92eec53c6ac6c6285a10e7d05d9c00d5}{}\index{complex@{complex}!cgtrfs@{cgtrfs}}
+\index{cgtrfs@{cgtrfs}!complex@{complex}}
+\subsubsection[{cgtrfs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cgtrfs (
+\begin{DoxyParamCaption}
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+L, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+L\+F, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+F, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U\+F, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{{\bf complex}, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{real, dimension( $\ast$ )}]{F\+E\+R\+R, }
+\item[{real, dimension( $\ast$ )}]{B\+E\+R\+R, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{real, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complexGTcomputational_ga92eec53c6ac6c6285a10e7d05d9c00d5}
+
+
+{\bfseries C\+G\+T\+R\+F\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CGTRFS improves the computed solution to a system of linear
+ equations when the coefficient matrix is tridiagonal, and provides
+ error bounds and backward error estimates for the solution.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          Specifies the form of the system of equations:
+          = 'N':  A * X = B     (No transpose)
+          = 'T':  A**T * X = B  (Transpose)
+          = 'C':  A**H * X = B  (Conjugate transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L} & \begin{DoxyVerb}          DL is COMPLEX array, dimension (N-1)
+          The (n-1) subdiagonal elements of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is COMPLEX array, dimension (N)
+          The diagonal elements of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U} & \begin{DoxyVerb}          DU is COMPLEX array, dimension (N-1)
+          The (n-1) superdiagonal elements of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L\+F} & \begin{DoxyVerb}          DLF is COMPLEX array, dimension (N-1)
+          The (n-1) multipliers that define the matrix L from the
+          LU factorization of A as computed by CGTTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+F} & \begin{DoxyVerb}          DF is COMPLEX array, dimension (N)
+          The n diagonal elements of the upper triangular matrix U from
+          the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U\+F} & \begin{DoxyVerb}          DUF is COMPLEX array, dimension (N-1)
+          The (n-1) elements of the first superdiagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is COMPLEX array, dimension (N-2)
+          The (n-2) elements of the second superdiagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          The pivot indices; for 1 <= i <= n, row i of the matrix was
+          interchanged with row IPIV(i).  IPIV(i) will always be either
+          i or i+1; IPIV(i) = i indicates a row interchange was not
+          required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX array, dimension (LDB,NRHS)
+          The right hand side matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX array, dimension (LDX,NRHS)
+          On entry, the solution matrix X, as computed by CGTTRS.
+          On exit, the improved solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.  LDX >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em F\+E\+R\+R} & \begin{DoxyVerb}          FERR is REAL array, dimension (NRHS)
+          The estimated forward error bound for each solution vector
+          X(j) (the j-th column of the solution matrix X).
+          If XTRUE is the true solution corresponding to X(j), FERR(j)
+          is an estimated upper bound for the magnitude of the largest
+          element in (X(j) - XTRUE) divided by the magnitude of the
+          largest element in X(j).  The estimate is as reliable as
+          the estimate for RCOND, and is almost always a slight
+          overestimate of the true error.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+R\+R} & \begin{DoxyVerb}          BERR is REAL array, dimension (NRHS)
+          The componentwise relative backward error of each solution
+          vector X(j) (i.e., the smallest relative change in
+          any element of A or B that makes X(j) an exact solution).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (2*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is REAL array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  ITMAX is the maximum number of steps of iterative refinement.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complexGTcomputational_ga74d1d5397dae5f211149667ea29c36b9}{}\index{complex@{complex}!cgttrf@{cgttrf}}
+\index{cgttrf@{cgttrf}!complex@{complex}}
+\subsubsection[{cgttrf}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cgttrf (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+L, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complexGTcomputational_ga74d1d5397dae5f211149667ea29c36b9}
+
+
+{\bfseries C\+G\+T\+T\+R\+F} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CGTTRF computes an LU factorization of a complex tridiagonal matrix A
+ using elimination with partial pivoting and row interchanges.
+
+ The factorization has the form
+    A = L * U
+ where L is a product of permutation and unit lower bidiagonal
+ matrices and U is upper triangular with nonzeros in only the main
+ diagonal and first two superdiagonals.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+L} & \begin{DoxyVerb}          DL is COMPLEX array, dimension (N-1)
+          On entry, DL must contain the (n-1) sub-diagonal elements of
+          A.
+
+          On exit, DL is overwritten by the (n-1) multipliers that
+          define the matrix L from the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is COMPLEX array, dimension (N)
+          On entry, D must contain the diagonal elements of A.
+
+          On exit, D is overwritten by the n diagonal elements of the
+          upper triangular matrix U from the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+U} & \begin{DoxyVerb}          DU is COMPLEX array, dimension (N-1)
+          On entry, DU must contain the (n-1) super-diagonal elements
+          of A.
+
+          On exit, DU is overwritten by the (n-1) elements of the first
+          super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is COMPLEX array, dimension (N-2)
+          On exit, DU2 is overwritten by the (n-2) elements of the
+          second super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          The pivot indices; for 1 <= i <= n, row i of the matrix was
+          interchanged with row IPIV(i).  IPIV(i) will always be either
+          i or i+1; IPIV(i) = i indicates a row interchange was not
+          required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -k, the k-th argument had an illegal value
+          > 0:  if INFO = k, U(k,k) is exactly zero. The factorization
+                has been completed, but the factor U is exactly
+                singular, and division by zero will occur if it is used
+                to solve a system of equations.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complexGTcomputational_gafe8bdadc6f4da5aa5df3fe22dbe6b05b}{}\index{complex@{complex}!cgttrs@{cgttrs}}
+\index{cgttrs@{cgttrs}!complex@{complex}}
+\subsubsection[{cgttrs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cgttrs (
+\begin{DoxyParamCaption}
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+L, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complexGTcomputational_gafe8bdadc6f4da5aa5df3fe22dbe6b05b}
+
+
+{\bfseries C\+G\+T\+T\+R\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CGTTRS solves one of the systems of equations
+    A * X = B,  A**T * X = B,  or  A**H * X = B,
+ with a tridiagonal matrix A using the LU factorization computed
+ by CGTTRF.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          Specifies the form of the system of equations.
+          = 'N':  A * X = B     (No transpose)
+          = 'T':  A**T * X = B  (Transpose)
+          = 'C':  A**H * X = B  (Conjugate transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L} & \begin{DoxyVerb}          DL is COMPLEX array, dimension (N-1)
+          The (n-1) multipliers that define the matrix L from the
+          LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is COMPLEX array, dimension (N)
+          The n diagonal elements of the upper triangular matrix U from
+          the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U} & \begin{DoxyVerb}          DU is COMPLEX array, dimension (N-1)
+          The (n-1) elements of the first super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is COMPLEX array, dimension (N-2)
+          The (n-2) elements of the second super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          The pivot indices; for 1 <= i <= n, row i of the matrix was
+          interchanged with row IPIV(i).  IPIV(i) will always be either
+          i or i+1; IPIV(i) = i indicates a row interchange was not
+          required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX array, dimension (LDB,NRHS)
+          On entry, the matrix of right hand side vectors B.
+          On exit, B is overwritten by the solution vectors X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -k, the k-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complexGTcomputational_gab3cb48a1dae8355cc937e9c97ac5ded0}{}\index{complex@{complex}!cgtts2@{cgtts2}}
+\index{cgtts2@{cgtts2}!complex@{complex}}
+\subsubsection[{cgtts2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cgtts2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I\+T\+R\+A\+N\+S, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+L, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D\+U2, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B}
+\end{DoxyParamCaption}
+)}\label{group__complexGTcomputational_gab3cb48a1dae8355cc937e9c97ac5ded0}
+
+
+{\bfseries C\+G\+T\+T\+S2} solves a system of linear equations with a tridiagonal matrix using the L\+U factorization computed by sgttrf. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CGTTS2 solves one of the systems of equations
+    A * X = B,  A**T * X = B,  or  A**H * X = B,
+ with a tridiagonal matrix A using the LU factorization computed
+ by CGTTRF.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I\+T\+R\+A\+N\+S} & \begin{DoxyVerb}          ITRANS is INTEGER
+          Specifies the form of the system of equations.
+          = 0:  A * X = B     (No transpose)
+          = 1:  A**T * X = B  (Transpose)
+          = 2:  A**H * X = B  (Conjugate transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+L} & \begin{DoxyVerb}          DL is COMPLEX array, dimension (N-1)
+          The (n-1) multipliers that define the matrix L from the
+          LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is COMPLEX array, dimension (N)
+          The n diagonal elements of the upper triangular matrix U from
+          the LU factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U} & \begin{DoxyVerb}          DU is COMPLEX array, dimension (N-1)
+          The (n-1) elements of the first super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+U2} & \begin{DoxyVerb}          DU2 is COMPLEX array, dimension (N-2)
+          The (n-2) elements of the second super-diagonal of U.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          The pivot indices; for 1 <= i <= n, row i of the matrix was
+          interchanged with row IPIV(i).  IPIV(i) will always be either
+          i or i+1; IPIV(i) = i indicates a row interchange was not
+          required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX array, dimension (LDB,NRHS)
+          On entry, the matrix of right hand side vectors B.
+          On exit, B is overwritten by the solution vectors X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

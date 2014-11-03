@@ -1,0 +1,86 @@
+\hypertarget{zhptri_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zhptri.f File Reference}
+\label{zhptri_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhptri.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhptri.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zhptri_8f_ac5f8ef471838c3cf63b429709bd19178}{zhptri} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, A\+P, I\+P\+I\+V, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+H\+P\+T\+R\+I} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zhptri_8f_ac5f8ef471838c3cf63b429709bd19178}{}\index{zhptri.\+f@{zhptri.\+f}!zhptri@{zhptri}}
+\index{zhptri@{zhptri}!zhptri.\+f@{zhptri.\+f}}
+\subsubsection[{zhptri}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zhptri (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{A\+P, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zhptri_8f_ac5f8ef471838c3cf63b429709bd19178}
+
+
+{\bfseries Z\+H\+P\+T\+R\+I} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZHPTRI computes the inverse of a complex Hermitian indefinite matrix
+ A in packed storage using the factorization A = U*D*U**H or
+ A = L*D*L**H computed by ZHPTRF.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the details of the factorization are stored
+          as an upper or lower triangular matrix.
+          = 'U':  Upper triangular, form is A = U*D*U**H;
+          = 'L':  Lower triangular, form is A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+P} & \begin{DoxyVerb}          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+          On entry, the block diagonal matrix D and the multipliers
+          used to obtain the factor U or L as computed by ZHPTRF,
+          stored as a packed triangular matrix.
+
+          On exit, if INFO = 0, the (Hermitian) inverse of the original
+          matrix, stored as a packed triangular matrix. The j-th column
+          of inv(A) is stored in the array AP as follows:
+          if UPLO = 'U', AP(i + (j-1)*j/2) = inv(A)(i,j) for 1<=i<=j;
+          if UPLO = 'L',
+             AP(i + (j-1)*(2n-j)/2) = inv(A)(i,j) for j<=i<=n.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          Details of the interchanges and the block structure of D
+          as determined by ZHPTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          > 0: if INFO = i, D(i,i) = 0; the matrix is singular and its
+               inverse could not be computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

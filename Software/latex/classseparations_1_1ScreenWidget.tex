@@ -1,0 +1,176 @@
+\hypertarget{classseparations_1_1ScreenWidget}{}\section{separations.\+Screen\+Widget Class Reference}
+\label{classseparations_1_1ScreenWidget}\index{separations.\+Screen\+Widget@{separations.\+Screen\+Widget}}
+Inheritance diagram for separations.\+Screen\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseparations_1_1ScreenWidget}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classseparations_1_1ScreenWidget_a58e8a47508966565f38605fa4cb1742c}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classseparations_1_1ScreenWidget_a055cd08285bb530d7dfd62c0612b8f53}{create\+Image}
+\item 
+def \hyperlink{classseparations_1_1ScreenWidget_ade184ab0487747ad82e6909a6ab12fe7}{image}
+\item 
+def \hyperlink{classseparations_1_1ScreenWidget_a15a38e7cc4867cd6f0e50e6546418c72}{invert\+Image}
+\item 
+def \hyperlink{classseparations_1_1ScreenWidget_ad2ba2aa2500af7f35df3f22bcffd6616}{set\+Color}
+\item 
+def \hyperlink{classseparations_1_1ScreenWidget_a36945a641fabfc4fb1b80c38ff180b8d}{set\+Image}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classseparations_1_1ScreenWidget_a1d5128a2c4c37cf87807ad899088954a}{original\+Image}
+\item 
+\hyperlink{classseparations_1_1ScreenWidget_adbeedd88b7bdd627271363540da0acdd}{new\+Image}
+\item 
+\hyperlink{classseparations_1_1ScreenWidget_a5cea299824b874d0175e4e1e3df619c8}{paint\+Color}
+\item 
+\hyperlink{classseparations_1_1ScreenWidget_a9432bb589b03c2af34c73a8ff7984d43}{mask\+Color}
+\item 
+\hyperlink{classseparations_1_1ScreenWidget_a973256ca6bb42df88e517ba565d8a0a3}{inverted}
+\item 
+\hyperlink{classseparations_1_1ScreenWidget_a25842ae4f6b5fc370cfb60d689939f5c}{image\+Label}
+\item 
+\hyperlink{classseparations_1_1ScreenWidget_ac1e7db1832c291af9fedf7247092de8d}{name\+Label}
+\item 
+\hyperlink{classseparations_1_1ScreenWidget_a9b7b8ed5c8ba7bdb2b68dede043baef4}{color\+Button}
+\item 
+\hyperlink{classseparations_1_1ScreenWidget_a349d992df97cb09056dfe43d61b642f8}{invert\+Button}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \hyperlink{classseparations_1_1ScreenWidget_a0acd8e0742bc8fb7c9c0b7de059aaf6b}{convert\+Map}
+\item 
+tuple \hyperlink{classseparations_1_1ScreenWidget_a1827a062a78667fd0a58ca0a7f3bedb0}{image\+Changed} = Qt\+Core.\+pyqt\+Signal()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classseparations_1_1ScreenWidget_a58e8a47508966565f38605fa4cb1742c}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def separations.\+Screen\+Widget.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{parent, }
+\item[{}]{initial\+Color, }
+\item[{}]{name, }
+\item[{}]{mask, }
+\item[{}]{label\+Size}
+\end{DoxyParamCaption}
+)}\label{classseparations_1_1ScreenWidget_a58e8a47508966565f38605fa4cb1742c}
+\begin{DoxyVerb}Initializes the paint color, the mask color (cyan, magenta,
+    or yellow), connects the color selector and invert checkbox to functions,
+    and creates a two-by-two grid layout.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classseparations_1_1ScreenWidget_a055cd08285bb530d7dfd62c0612b8f53}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!create\+Image@{create\+Image}}
+\index{create\+Image@{create\+Image}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{create\+Image}]{\setlength{\rightskip}{0pt plus 5cm}def separations.\+Screen\+Widget.\+create\+Image (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classseparations_1_1ScreenWidget_a055cd08285bb530d7dfd62c0612b8f53}
+\begin{DoxyVerb}Creates a new image by separating out the cyan, magenta, or yellow
+    component, depending on the mask color specified in the constructor.
+    The amount of the component found in each pixel of the image is used
+    to determine how much of a user-selected ink is used for each pixel
+    in the new image for the label widget.
+\end{DoxyVerb}
+ \hypertarget{classseparations_1_1ScreenWidget_ade184ab0487747ad82e6909a6ab12fe7}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!image@{image}}
+\index{image@{image}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{image}]{\setlength{\rightskip}{0pt plus 5cm}def separations.\+Screen\+Widget.\+image (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classseparations_1_1ScreenWidget_ade184ab0487747ad82e6909a6ab12fe7}
+\begin{DoxyVerb}Returns a reference to the modified image. \end{DoxyVerb}
+ \hypertarget{classseparations_1_1ScreenWidget_a15a38e7cc4867cd6f0e50e6546418c72}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!invert\+Image@{invert\+Image}}
+\index{invert\+Image@{invert\+Image}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{invert\+Image}]{\setlength{\rightskip}{0pt plus 5cm}def separations.\+Screen\+Widget.\+invert\+Image (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classseparations_1_1ScreenWidget_a15a38e7cc4867cd6f0e50e6546418c72}
+\begin{DoxyVerb}Sets whether the amount of ink applied to the canvas is to be
+    inverted (subtracted from the maximum value) before the ink is
+    applied.
+\end{DoxyVerb}
+ \hypertarget{classseparations_1_1ScreenWidget_ad2ba2aa2500af7f35df3f22bcffd6616}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!set\+Color@{set\+Color}}
+\index{set\+Color@{set\+Color}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{set\+Color}]{\setlength{\rightskip}{0pt plus 5cm}def separations.\+Screen\+Widget.\+set\+Color (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classseparations_1_1ScreenWidget_ad2ba2aa2500af7f35df3f22bcffd6616}
+\begin{DoxyVerb}Separate the current image into cyan, magenta, and yellow
+    components.  Create a representation of how each component might
+    appear when applied to a blank white piece of paper.
+\end{DoxyVerb}
+ \hypertarget{classseparations_1_1ScreenWidget_a36945a641fabfc4fb1b80c38ff180b8d}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!set\+Image@{set\+Image}}
+\index{set\+Image@{set\+Image}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{set\+Image}]{\setlength{\rightskip}{0pt plus 5cm}def separations.\+Screen\+Widget.\+set\+Image (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{image}
+\end{DoxyParamCaption}
+)}\label{classseparations_1_1ScreenWidget_a36945a641fabfc4fb1b80c38ff180b8d}
+\begin{DoxyVerb}Records the original image selected by the user, creates a color
+    separation, and enables the invert image checkbox.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classseparations_1_1ScreenWidget_a9b7b8ed5c8ba7bdb2b68dede043baef4}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!color\+Button@{color\+Button}}
+\index{color\+Button@{color\+Button}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{color\+Button}]{\setlength{\rightskip}{0pt plus 5cm}separations.\+Screen\+Widget.\+color\+Button}\label{classseparations_1_1ScreenWidget_a9b7b8ed5c8ba7bdb2b68dede043baef4}
+\hypertarget{classseparations_1_1ScreenWidget_a0acd8e0742bc8fb7c9c0b7de059aaf6b}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!convert\+Map@{convert\+Map}}
+\index{convert\+Map@{convert\+Map}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{convert\+Map}]{\setlength{\rightskip}{0pt plus 5cm}dictionary separations.\+Screen\+Widget.\+convert\+Map\hspace{0.3cm}{\ttfamily [static]}}\label{classseparations_1_1ScreenWidget_a0acd8e0742bc8fb7c9c0b7de059aaf6b}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{
+2         Cyan: QtGui.qRed,
+3         Magenta: QtGui.qGreen,
+4         Yellow: QtGui.qBlue,
+5     \}
+\end{DoxyCode}
+\hypertarget{classseparations_1_1ScreenWidget_a1827a062a78667fd0a58ca0a7f3bedb0}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!image\+Changed@{image\+Changed}}
+\index{image\+Changed@{image\+Changed}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{image\+Changed}]{\setlength{\rightskip}{0pt plus 5cm}tuple separations.\+Screen\+Widget.\+image\+Changed = Qt\+Core.\+pyqt\+Signal()\hspace{0.3cm}{\ttfamily [static]}}\label{classseparations_1_1ScreenWidget_a1827a062a78667fd0a58ca0a7f3bedb0}
+\hypertarget{classseparations_1_1ScreenWidget_a25842ae4f6b5fc370cfb60d689939f5c}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!image\+Label@{image\+Label}}
+\index{image\+Label@{image\+Label}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{image\+Label}]{\setlength{\rightskip}{0pt plus 5cm}separations.\+Screen\+Widget.\+image\+Label}\label{classseparations_1_1ScreenWidget_a25842ae4f6b5fc370cfb60d689939f5c}
+\hypertarget{classseparations_1_1ScreenWidget_a349d992df97cb09056dfe43d61b642f8}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!invert\+Button@{invert\+Button}}
+\index{invert\+Button@{invert\+Button}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{invert\+Button}]{\setlength{\rightskip}{0pt plus 5cm}separations.\+Screen\+Widget.\+invert\+Button}\label{classseparations_1_1ScreenWidget_a349d992df97cb09056dfe43d61b642f8}
+\hypertarget{classseparations_1_1ScreenWidget_a973256ca6bb42df88e517ba565d8a0a3}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!inverted@{inverted}}
+\index{inverted@{inverted}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{inverted}]{\setlength{\rightskip}{0pt plus 5cm}separations.\+Screen\+Widget.\+inverted}\label{classseparations_1_1ScreenWidget_a973256ca6bb42df88e517ba565d8a0a3}
+\hypertarget{classseparations_1_1ScreenWidget_a9432bb589b03c2af34c73a8ff7984d43}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!mask\+Color@{mask\+Color}}
+\index{mask\+Color@{mask\+Color}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{mask\+Color}]{\setlength{\rightskip}{0pt plus 5cm}separations.\+Screen\+Widget.\+mask\+Color}\label{classseparations_1_1ScreenWidget_a9432bb589b03c2af34c73a8ff7984d43}
+\hypertarget{classseparations_1_1ScreenWidget_ac1e7db1832c291af9fedf7247092de8d}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!name\+Label@{name\+Label}}
+\index{name\+Label@{name\+Label}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{name\+Label}]{\setlength{\rightskip}{0pt plus 5cm}separations.\+Screen\+Widget.\+name\+Label}\label{classseparations_1_1ScreenWidget_ac1e7db1832c291af9fedf7247092de8d}
+\hypertarget{classseparations_1_1ScreenWidget_adbeedd88b7bdd627271363540da0acdd}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!new\+Image@{new\+Image}}
+\index{new\+Image@{new\+Image}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{new\+Image}]{\setlength{\rightskip}{0pt plus 5cm}separations.\+Screen\+Widget.\+new\+Image}\label{classseparations_1_1ScreenWidget_adbeedd88b7bdd627271363540da0acdd}
+\hypertarget{classseparations_1_1ScreenWidget_a1d5128a2c4c37cf87807ad899088954a}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!original\+Image@{original\+Image}}
+\index{original\+Image@{original\+Image}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{original\+Image}]{\setlength{\rightskip}{0pt plus 5cm}separations.\+Screen\+Widget.\+original\+Image}\label{classseparations_1_1ScreenWidget_a1d5128a2c4c37cf87807ad899088954a}
+\hypertarget{classseparations_1_1ScreenWidget_a5cea299824b874d0175e4e1e3df619c8}{}\index{separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}!paint\+Color@{paint\+Color}}
+\index{paint\+Color@{paint\+Color}!separations\+::\+Screen\+Widget@{separations\+::\+Screen\+Widget}}
+\subsubsection[{paint\+Color}]{\setlength{\rightskip}{0pt plus 5cm}separations.\+Screen\+Widget.\+paint\+Color}\label{classseparations_1_1ScreenWidget_a5cea299824b874d0175e4e1e3df619c8}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/examples/mainwindows/\hyperlink{separations_8py}{separations.\+py}\end{DoxyCompactItemize}

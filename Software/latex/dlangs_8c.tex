@@ -1,0 +1,106 @@
+\hypertarget{dlangs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlangs.c File Reference}
+\label{dlangs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlangs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlangs.\+c}}
+
+
+Returns the value of the one norm.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{dlangs_8c_a75a53f4464b95c63adad9e1f63f44d1c}{dlangs} (char $\ast$\hyperlink{vecnorm_8cc_a57c51d3f8cc26dd32ade0c9cd6b4997e}{norm}, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Returns the value of the one norm. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Modified from lapack routine DLANGE 
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{dlangs_8c_a75a53f4464b95c63adad9e1f63f44d1c}{}\index{dlangs.\+c@{dlangs.\+c}!dlangs@{dlangs}}
+\index{dlangs@{dlangs}!dlangs.\+c@{dlangs.\+c}}
+\subsubsection[{dlangs}]{\setlength{\rightskip}{0pt plus 5cm}double dlangs (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{norm, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{dlangs_8c_a75a53f4464b95c63adad9e1f63f44d1c}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  DLANGS returns the value of the one norm, or the Frobenius norm, or 
+  the infinity norm, or the element of largest absolute value of a 
+  real matrix \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Description   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  DLANGE returns the value\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     DLANGE = ( max(\hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A(i,j))}), NORM = 'M' or 'm'   
+              (   
+              ( norm1(A),         NORM = '1', 'O' or 'o'   
+              (   
+              ( normI(A),         NORM = 'I' or 'i'   
+              (   
+              ( normF(A),         NORM = 'F', 'f', 'E' or 'e'\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  where  norm1  denotes the  one norm of a matrix (maximum column sum), 
+  normI  denotes the  infinity norm  of a matrix  (maximum row sum) and 
+  normF  denotes the  Frobenius norm of a matrix (square root of sum of 
+  squares).  Note that  max(\hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A(i,j))})  is not a  matrix norm.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  NORM    (input) CHARACTER*1   
+          Specifies the value to be returned in DLANGE as described above.   
+  \hyperlink{classA}{A}       (input) SuperMatrix*
+          The M by N sparse matrix \hyperlink{classA}{A}. 
+
+
+
+\end{DoxyPre}
+ 

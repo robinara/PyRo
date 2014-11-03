@@ -1,0 +1,49 @@
+\hypertarget{py__pwm_8c}{}\section{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/py\+\_\+pwm.c File Reference}
+\label{py__pwm_8c}\index{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/py\+\_\+pwm.\+c@{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/py\+\_\+pwm.\+c}}
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}constants.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}c\+\_\+pwm.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} \hyperlink{py__pwm_8c_a1cf037d6c79ca2f0e15eca4aa3bfad69}{init\+P\+W\+M} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Py\+Method\+Def \hyperlink{py__pwm_8c_ac49759916e4ab6383ead1fc44b9eaf13}{pwm\+\_\+methods} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{py__pwm_8c_a1cf037d6c79ca2f0e15eca4aa3bfad69}{}\index{py\+\_\+pwm.\+c@{py\+\_\+pwm.\+c}!init\+P\+W\+M@{init\+P\+W\+M}}
+\index{init\+P\+W\+M@{init\+P\+W\+M}!py\+\_\+pwm.\+c@{py\+\_\+pwm.\+c}}
+\subsubsection[{init\+P\+W\+M}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} init\+P\+W\+M (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{py__pwm_8c_a1cf037d6c79ca2f0e15eca4aa3bfad69}
+
+
+\subsection{Variable Documentation}
+\hypertarget{py__pwm_8c_ac49759916e4ab6383ead1fc44b9eaf13}{}\index{py\+\_\+pwm.\+c@{py\+\_\+pwm.\+c}!pwm\+\_\+methods@{pwm\+\_\+methods}}
+\index{pwm\+\_\+methods@{pwm\+\_\+methods}!py\+\_\+pwm.\+c@{py\+\_\+pwm.\+c}}
+\subsubsection[{pwm\+\_\+methods}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Method\+Def pwm\+\_\+methods\mbox{[}$\,$\mbox{]}}\label{py__pwm_8c_ac49759916e4ab6383ead1fc44b9eaf13}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \{\textcolor{stringliteral}{"start"}, (PyCFunction)py\_start\_channel, METH\_VARARGS | METH\_KEYWORDS, \textcolor{stringliteral}{"Set up and start the PWM
+       channel.  channel can be in the form of 'P8\_10', or 'EHRPWM2A'"}\},
+    \{\textcolor{stringliteral}{"stop"}, (PyCFunction)py\_stop\_channel, METH\_VARARGS | METH\_KEYWORDS, \textcolor{stringliteral}{"Stop the PWM channel.  channel
+       can be in the form of 'P8\_10', or 'EHRPWM2A'"}\},
+    \{ \textcolor{stringliteral}{"set\_duty\_cycle"}, (PyCFunction)py\_set\_duty\_cycle, METH\_VARARGS, \textcolor{stringliteral}{"Change the duty cycle\(\backslash\)ndutycycle -
+       between 0.0 and 100.0"} \},
+    \{ \textcolor{stringliteral}{"set\_frequency"}, (PyCFunction)py\_set\_frequency, METH\_VARARGS, \textcolor{stringliteral}{"Change the frequency\(\backslash\)nfrequency -
+       frequency in Hz (freq > 0.0)"} \},
+    \{\textcolor{stringliteral}{"cleanup"}, py\_cleanup, METH\_VARARGS, \textcolor{stringliteral}{"Clean up by resetting all GPIO channels that have been used by
+       this program to INPUT with no pullup/pulldown and no event detection"}\},
+    
+    \{NULL, NULL, 0, NULL\}
+\}
+\end{DoxyCode}

@@ -1,0 +1,115 @@
+\hypertarget{claed0_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/claed0.f File Reference}
+\label{claed0_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/claed0.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/claed0.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{claed0_8f_a14da86d2b6e2dbc0cb6d4b45ed3e823d}{claed0} (Q\+S\+I\+Z, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, Q, L\+D\+Q, Q\+S\+T\+O\+R\+E, L\+D\+Q\+S, R\+W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+E\+D0} used by sstedc. Computes all eigenvalues and corresponding eigenvectors of an unreduced symmetric tridiagonal matrix using the divide and conquer method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{claed0_8f_a14da86d2b6e2dbc0cb6d4b45ed3e823d}{}\index{claed0.\+f@{claed0.\+f}!claed0@{claed0}}
+\index{claed0@{claed0}!claed0.\+f@{claed0.\+f}}
+\subsubsection[{claed0}]{\setlength{\rightskip}{0pt plus 5cm}subroutine claed0 (
+\begin{DoxyParamCaption}
+\item[{integer}]{Q\+S\+I\+Z, }
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{E, }
+\item[{{\bf complex}, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{{\bf complex}, dimension( ldqs, $\ast$ )}]{Q\+S\+T\+O\+R\+E, }
+\item[{integer}]{L\+D\+Q\+S, }
+\item[{real, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{claed0_8f_a14da86d2b6e2dbc0cb6d4b45ed3e823d}
+
+
+{\bfseries C\+L\+A\+E\+D0} used by sstedc. Computes all eigenvalues and corresponding eigenvectors of an unreduced symmetric tridiagonal matrix using the divide and conquer method. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} Using the divide and conquer method, CLAED0 computes all eigenvalues
+ of a symmetric tridiagonal matrix which is one diagonal block of
+ those from reducing a dense or band Hermitian matrix and
+ corresponding eigenvectors of the dense or band matrix.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Q\+S\+I\+Z} & \begin{DoxyVerb}          QSIZ is INTEGER
+         The dimension of the unitary matrix used to reduce
+         the full matrix to tridiagonal form.  QSIZ >= N if ICOMPQ = 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+         The dimension of the symmetric tridiagonal matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+         On entry, the diagonal elements of the tridiagonal matrix.
+         On exit, the eigenvalues in ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E} & \begin{DoxyVerb}          E is REAL array, dimension (N-1)
+         On entry, the off-diagonal elements of the tridiagonal matrix.
+         On exit, E has been destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q} & \begin{DoxyVerb}          Q is COMPLEX array, dimension (LDQ,N)
+         On entry, Q must contain an QSIZ x N matrix whose columns
+         unitarily orthonormal. It is a part of the unitary matrix
+         that reduces the full dense Hermitian matrix to a
+         (reducible) symmetric tridiagonal matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+         The leading dimension of the array Q.  LDQ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array,
+         the dimension of IWORK must be at least
+                      6 + 6*N + 5*N*lg N
+                      ( lg( N ) = smallest integer k
+                                  such that 2^k >= N )\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is REAL array,
+                               dimension (1 + 3*N + 2*N*lg N + 3*N**2)
+                        ( lg( N ) = smallest integer k
+                                    such that 2^k >= N )\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Q\+S\+T\+O\+R\+E} & \begin{DoxyVerb}          QSTORE is COMPLEX array, dimension (LDQS, N)
+         Used to store parts of
+         the eigenvector matrix when the updating matrix multiplies
+         take place.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q\+S} & \begin{DoxyVerb}          LDQS is INTEGER
+         The leading dimension of the array QSTORE.
+         LDQS >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  The algorithm failed to compute an eigenvalue while
+                working on the submatrix lying in rows and columns
+                INFO/(N+1) through mod(INFO,N+1).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

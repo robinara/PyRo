@@ -1,0 +1,176 @@
+\hypertarget{stpmqrt_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/stpmqrt.f File Reference}
+\label{stpmqrt_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/stpmqrt.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/stpmqrt.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{stpmqrt_8f_a47352c862183c6b03b47598070678a04}{stpmqrt} (S\+I\+D\+E, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, L, N\+B, V, L\+D\+V, T, L\+D\+T, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+T\+P\+M\+Q\+R\+T} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{stpmqrt_8f_a47352c862183c6b03b47598070678a04}{}\index{stpmqrt.\+f@{stpmqrt.\+f}!stpmqrt@{stpmqrt}}
+\index{stpmqrt@{stpmqrt}!stpmqrt.\+f@{stpmqrt.\+f}}
+\subsubsection[{stpmqrt}]{\setlength{\rightskip}{0pt plus 5cm}subroutine stpmqrt (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{integer}]{L, }
+\item[{integer}]{N\+B, }
+\item[{real, dimension( ldv, $\ast$ )}]{V, }
+\item[{integer}]{L\+D\+V, }
+\item[{real, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{real, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{stpmqrt_8f_a47352c862183c6b03b47598070678a04}
+
+
+{\bfseries S\+T\+P\+M\+Q\+R\+T} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} STPMQRT applies a real orthogonal matrix Q obtained from a 
+ "triangular-pentagonal" real block reflector H to a general
+ real matrix C, which consists of two blocks A and B.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+          = 'L': apply Q or Q^H from the Left;
+          = 'R': apply Q or Q^H from the Right.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          = 'N':  No transpose, apply Q;
+          = 'C':  Transpose, apply Q^H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix B. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix B. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+          The number of elementary reflectors whose product defines
+          the matrix Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L} & \begin{DoxyVerb}          L is INTEGER
+          The order of the trapezoidal part of V.  
+          K >= L >= 0.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+B} & \begin{DoxyVerb}          NB is INTEGER
+          The block size used for the storage of T.  K >= NB >= 1.
+          This must be the same value of NB used to generate T
+          in CTPQRT.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V} & \begin{DoxyVerb}          V is REAL array, dimension (LDA,K)
+          The i-th column must contain the vector which defines the
+          elementary reflector H(i), for i = 1,2,...,k, as returned by
+          CTPQRT in B.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V} & \begin{DoxyVerb}          LDV is INTEGER
+          The leading dimension of the array V.
+          If SIDE = 'L', LDV >= max(1,M);
+          if SIDE = 'R', LDV >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T} & \begin{DoxyVerb}          T is REAL array, dimension (LDT,K)
+          The upper triangular factors of the block reflectors
+          as returned by CTPQRT, stored as a NB-by-K matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T.  LDT >= NB.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is REAL array, dimension
+          (LDA,N) if SIDE = 'L' or 
+          (LDA,K) if SIDE = 'R'
+          On entry, the K-by-N or M-by-K matrix A.
+          On exit, A is overwritten by the corresponding block of 
+          Q*C or Q^H*C or C*Q or C*Q^H.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A. 
+          If SIDE = 'L', LDC >= max(1,K);
+          If SIDE = 'R', LDC >= max(1,M). \end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,N)
+          On entry, the M-by-N matrix B.
+          On exit, B is overwritten by the corresponding block of
+          Q*C or Q^H*C or C*Q or C*Q^H.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B. 
+          LDB >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array. The dimension of WORK is
+           N*NB if SIDE = 'L', or  M*NB if SIDE = 'R'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2013 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The columns of the pentagonal matrix V contain the elementary reflectors
+  H(1), H(2), ..., H(K); V is composed of a rectangular block V1 and a 
+  trapezoidal block V2:
+
+        V = [V1]
+            [V2].
+
+  The size of the trapezoidal block V2 is determined by the parameter L, 
+  where 0 <= L <= K; V2 is upper trapezoidal, consisting of the first L
+  rows of a K-by-K upper triangular matrix.  If L=K, V2 is upper triangular;
+  if L=0, there is no trapezoidal block, hence V = V1 is rectangular.
+
+  If SIDE = 'L':  C = [A]  where A is K-by-N,  B is M-by-N and V is M-by-K. 
+                      [B]   
+  
+  If SIDE = 'R':  C = [A B]  where A is M-by-K, B is M-by-N and V is N-by-K.
+
+  The real orthogonal matrix Q is formed from V and T.
+
+  If TRANS='N' and SIDE='L', C is on exit replaced with Q * C.
+
+  If TRANS='C' and SIDE='L', C is on exit replaced with Q^H * C.
+
+  If TRANS='N' and SIDE='R', C is on exit replaced with C * Q.
+
+  If TRANS='C' and SIDE='R', C is on exit replaced with C * Q^H.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

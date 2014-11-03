@@ -1,0 +1,164 @@
+\hypertarget{namespacescipy_1_1signal_1_1__arraytools}{}\section{scipy.\+signal.\+\_\+arraytools Namespace Reference}
+\label{namespacescipy_1_1signal_1_1__arraytools}\index{scipy.\+signal.\+\_\+arraytools@{scipy.\+signal.\+\_\+arraytools}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1__arraytools_abebf110231c60eddb9125c655176aaab}{axis\+\_\+slice}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1__arraytools_afdd406f1baba45fd2e9acb0371dd4e51}{axis\+\_\+reverse}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1__arraytools_ab1835a0fd9d85f9a1c4a19a4da40d684}{odd\+\_\+ext}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1__arraytools_a2a1f3d1c40b0b17f2591ff127d4a326f}{even\+\_\+ext}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1__arraytools_a62dcdfeb3b901949972283f5e6f0622f}{const\+\_\+ext}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Functions for acting on a axis of an array.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1__arraytools_afdd406f1baba45fd2e9acb0371dd4e51}{}\index{scipy\+::signal\+::\+\_\+arraytools@{scipy\+::signal\+::\+\_\+arraytools}!axis\+\_\+reverse@{axis\+\_\+reverse}}
+\index{axis\+\_\+reverse@{axis\+\_\+reverse}!scipy\+::signal\+::\+\_\+arraytools@{scipy\+::signal\+::\+\_\+arraytools}}
+\subsubsection[{axis\+\_\+reverse}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+\_\+arraytools.\+axis\+\_\+reverse (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{axis = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1__arraytools_afdd406f1baba45fd2e9acb0371dd4e51}
+\begin{DoxyVerb}Reverse the 1-d slices of `a` along axis `axis`.
+
+Returns axis_slice(a, step=-1, axis=axis).
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1__arraytools_abebf110231c60eddb9125c655176aaab}{}\index{scipy\+::signal\+::\+\_\+arraytools@{scipy\+::signal\+::\+\_\+arraytools}!axis\+\_\+slice@{axis\+\_\+slice}}
+\index{axis\+\_\+slice@{axis\+\_\+slice}!scipy\+::signal\+::\+\_\+arraytools@{scipy\+::signal\+::\+\_\+arraytools}}
+\subsubsection[{axis\+\_\+slice}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+\_\+arraytools.\+axis\+\_\+slice (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{start = {\ttfamily None}, }
+\item[{}]{stop = {\ttfamily None}, }
+\item[{}]{step = {\ttfamily None}, }
+\item[{}]{axis = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1__arraytools_abebf110231c60eddb9125c655176aaab}
+\begin{DoxyVerb}Take a slice along axis 'axis' from 'a'.
+
+Parameters
+----------
+a : numpy.ndarray
+    The array to be sliced.
+start, stop, step : int or None
+    The slice parameters.
+axis : int
+    The axis of `a` to be sliced.
+
+Examples
+--------
+>>> a = array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+>>> axis_slice(a, start=0, stop=1, axis=1)
+array([[1],
+       [4],
+       [7]])
+>>> axis_slice(a, start=1, axis=0)
+array([[4, 5, 6],
+       [7, 8, 9]])
+
+Notes
+-----
+The keyword arguments start, stop and step are used by calling
+slice(start, stop, step).  This implies axis_slice() does not
+handle its arguments the exacty the same as indexing.  To select
+a single index k, for example, use
+    axis_slice(a, start=k, stop=k+1)
+In this case, the length of the axis 'axis' in the result will
+be 1; the trivial dimension is not removed. (Use numpy.squeeze()
+to remove trivial axes.)
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1__arraytools_a62dcdfeb3b901949972283f5e6f0622f}{}\index{scipy\+::signal\+::\+\_\+arraytools@{scipy\+::signal\+::\+\_\+arraytools}!const\+\_\+ext@{const\+\_\+ext}}
+\index{const\+\_\+ext@{const\+\_\+ext}!scipy\+::signal\+::\+\_\+arraytools@{scipy\+::signal\+::\+\_\+arraytools}}
+\subsubsection[{const\+\_\+ext}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+\_\+arraytools.\+const\+\_\+ext (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{n, }
+\item[{}]{axis = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1__arraytools_a62dcdfeb3b901949972283f5e6f0622f}
+\begin{DoxyVerb}Create an ndarray that is a constant extension of x along an axis.
+
+The extension repeats the values at the first and last element of
+the axis.
+
+Parameters
+----------
+x : ndarray
+    The array to be extended.
+n : int
+    The number of elements by which to extend x at each end of the axis.
+axis : int
+    The axis along which to extend x.  Default is -1.
+
+Examples
+--------
+>>> a = array([[1.0,2.0,3.0,4.0,5.0], [0.0, 1.0, 4.0, 9.0, 16.0]])
+>>> _const_ext(a, 2)
+array([[  1.,   1.,   1.,   2.,   3.,   4.,   5.,   5.,   5.],
+       [  0.,   0.,   0.,   1.,   4.,   9.,  16.,  16.,  16.]])
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1__arraytools_a2a1f3d1c40b0b17f2591ff127d4a326f}{}\index{scipy\+::signal\+::\+\_\+arraytools@{scipy\+::signal\+::\+\_\+arraytools}!even\+\_\+ext@{even\+\_\+ext}}
+\index{even\+\_\+ext@{even\+\_\+ext}!scipy\+::signal\+::\+\_\+arraytools@{scipy\+::signal\+::\+\_\+arraytools}}
+\subsubsection[{even\+\_\+ext}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+\_\+arraytools.\+even\+\_\+ext (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{n, }
+\item[{}]{axis = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1__arraytools_a2a1f3d1c40b0b17f2591ff127d4a326f}
+\begin{DoxyVerb}Create an ndarray that is an even extension of x along an axis.
+
+Parameters
+----------
+x : ndarray
+    The array to be extended.
+n : int
+    The number of elements by which to extend x at each end of the axis.
+axis : int
+    The axis along which to extend x.  Default is -1.
+
+Examples
+--------
+>>> a = array([[1.0,2.0,3.0,4.0,5.0], [0.0, 1.0, 4.0, 9.0, 16.0]])
+>>> _even_ext(a, 2)
+array([[  3.,   2.,   1.,   2.,   3.,   4.,   5.,   4.,   3.],
+       [  4.,   1.,   0.,   1.,   4.,   9.,  16.,   9.,   4.]])
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1__arraytools_ab1835a0fd9d85f9a1c4a19a4da40d684}{}\index{scipy\+::signal\+::\+\_\+arraytools@{scipy\+::signal\+::\+\_\+arraytools}!odd\+\_\+ext@{odd\+\_\+ext}}
+\index{odd\+\_\+ext@{odd\+\_\+ext}!scipy\+::signal\+::\+\_\+arraytools@{scipy\+::signal\+::\+\_\+arraytools}}
+\subsubsection[{odd\+\_\+ext}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+\_\+arraytools.\+odd\+\_\+ext (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{n, }
+\item[{}]{axis = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1__arraytools_ab1835a0fd9d85f9a1c4a19a4da40d684}
+\begin{DoxyVerb}Generate a new ndarray by making an odd extension of x along an axis.
+
+Parameters
+----------
+x : ndarray
+    The array to be extended.
+n : int
+    The number of elements by which to extend x at each end of the axis.
+axis : int
+    The axis along which to extend x.  Default is -1.
+
+Examples
+--------
+>>> a = array([[1.0,2.0,3.0,4.0,5.0], [0.0, 1.0, 4.0, 9.0, 16.0]])
+>>> _odd_ext(a, 2)
+array([[-1.,  0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.],
+       [-4., -1,   0.,  1.,  4.,  9., 16., 23., 28.]])
+\end{DoxyVerb}
+ 

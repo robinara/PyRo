@@ -1,0 +1,104 @@
+\hypertarget{fftpack_8h}{}\section{packages/scipy-\/0.14.0/scipy/fftpack/src/fftpack.h File Reference}
+\label{fftpack_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/fftpack/src/fftpack.\+h@{packages/scipy-\/0.\+14.\+0/scipy/fftpack/src/fftpack.\+h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcomplex__double}{complex\+\_\+double}
+\item 
+struct \hyperlink{structcomplex__float}{complex\+\_\+float}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{fftpack_8h_a8e6e29f9da22093a2a5e8af4fd1e3181}{F\+\_\+\+F\+U\+N\+C}(f,  F)~f\#\#\+\_\+
+\item 
+\#define \hyperlink{fftpack_8h_a55e84da56773173a649738874b1b5be4}{G\+E\+N\+\_\+\+C\+A\+C\+H\+E}(name,  C\+A\+C\+H\+E\+A\+R\+G,  C\+A\+C\+H\+E\+T\+Y\+P\+E,  C\+H\+E\+C\+K,  M\+A\+L\+L\+O\+C,  F\+R\+E\+E,  C\+A\+C\+H\+E\+S\+I\+Z\+E)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{fftpack_8h_a8298b090ec8b180e0dc1249a8a27dce6}{init\+\_\+convolution\+\_\+kernel} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, double $\ast$omega, int d, double($\ast$kernel\+\_\+func)(int), int zero\+\_\+nyquist)
+\item 
+void \hyperlink{fftpack_8h_a0db27a0c5997561d68f78a3e4fb43998}{convolve} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, double $\ast$inout, double $\ast$omega, int swap\+\_\+real\+\_\+imag)
+\item 
+void \hyperlink{fftpack_8h_ae3145b6adb725464dc3eec6d55e9e00e}{convolve\+\_\+z} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, double $\ast$inout, double $\ast$omega\+\_\+real, double $\ast$omega\+\_\+imag)
+\item 
+int \hyperlink{fftpack_8h_a0444c424347b388a31f734aaf40e3b63}{ispow2le2e30} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+int \hyperlink{fftpack_8h_a9d6c692607505e95799354f2e9945e37}{ispow2le2e13} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{fftpack_8h_a8e6e29f9da22093a2a5e8af4fd1e3181}{}\index{fftpack.\+h@{fftpack.\+h}!F\+\_\+\+F\+U\+N\+C@{F\+\_\+\+F\+U\+N\+C}}
+\index{F\+\_\+\+F\+U\+N\+C@{F\+\_\+\+F\+U\+N\+C}!fftpack.\+h@{fftpack.\+h}}
+\subsubsection[{F\+\_\+\+F\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+\_\+\+F\+U\+N\+C(
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{F}
+\end{DoxyParamCaption}
+)~f\#\#\+\_\+}\label{fftpack_8h_a8e6e29f9da22093a2a5e8af4fd1e3181}
+\hypertarget{fftpack_8h_a55e84da56773173a649738874b1b5be4}{}\index{fftpack.\+h@{fftpack.\+h}!G\+E\+N\+\_\+\+C\+A\+C\+H\+E@{G\+E\+N\+\_\+\+C\+A\+C\+H\+E}}
+\index{G\+E\+N\+\_\+\+C\+A\+C\+H\+E@{G\+E\+N\+\_\+\+C\+A\+C\+H\+E}!fftpack.\+h@{fftpack.\+h}}
+\subsubsection[{G\+E\+N\+\_\+\+C\+A\+C\+H\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+E\+N\+\_\+\+C\+A\+C\+H\+E(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{C\+A\+C\+H\+E\+A\+R\+G, }
+\item[{}]{C\+A\+C\+H\+E\+T\+Y\+P\+E, }
+\item[{}]{C\+H\+E\+C\+K, }
+\item[{}]{M\+A\+L\+L\+O\+C, }
+\item[{}]{F\+R\+E\+E, }
+\item[{}]{C\+A\+C\+H\+E\+S\+I\+Z\+E}
+\end{DoxyParamCaption}
+)}\label{fftpack_8h_a55e84da56773173a649738874b1b5be4}
+
+
+\subsection{Function Documentation}
+\hypertarget{fftpack_8h_a0db27a0c5997561d68f78a3e4fb43998}{}\index{fftpack.\+h@{fftpack.\+h}!convolve@{convolve}}
+\index{convolve@{convolve}!fftpack.\+h@{fftpack.\+h}}
+\subsubsection[{convolve}]{\setlength{\rightskip}{0pt plus 5cm}void convolve (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{double $\ast$}]{inout, }
+\item[{double $\ast$}]{omega, }
+\item[{int}]{swap\+\_\+real\+\_\+imag}
+\end{DoxyParamCaption}
+)}\label{fftpack_8h_a0db27a0c5997561d68f78a3e4fb43998}
+\hypertarget{fftpack_8h_ae3145b6adb725464dc3eec6d55e9e00e}{}\index{fftpack.\+h@{fftpack.\+h}!convolve\+\_\+z@{convolve\+\_\+z}}
+\index{convolve\+\_\+z@{convolve\+\_\+z}!fftpack.\+h@{fftpack.\+h}}
+\subsubsection[{convolve\+\_\+z}]{\setlength{\rightskip}{0pt plus 5cm}void convolve\+\_\+z (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{double $\ast$}]{inout, }
+\item[{double $\ast$}]{omega\+\_\+real, }
+\item[{double $\ast$}]{omega\+\_\+imag}
+\end{DoxyParamCaption}
+)}\label{fftpack_8h_ae3145b6adb725464dc3eec6d55e9e00e}
+\hypertarget{fftpack_8h_a8298b090ec8b180e0dc1249a8a27dce6}{}\index{fftpack.\+h@{fftpack.\+h}!init\+\_\+convolution\+\_\+kernel@{init\+\_\+convolution\+\_\+kernel}}
+\index{init\+\_\+convolution\+\_\+kernel@{init\+\_\+convolution\+\_\+kernel}!fftpack.\+h@{fftpack.\+h}}
+\subsubsection[{init\+\_\+convolution\+\_\+kernel}]{\setlength{\rightskip}{0pt plus 5cm}void init\+\_\+convolution\+\_\+kernel (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{double $\ast$}]{omega, }
+\item[{int}]{d, }
+\item[{double($\ast$)(int)}]{kernel\+\_\+func, }
+\item[{int}]{zero\+\_\+nyquist}
+\end{DoxyParamCaption}
+)}\label{fftpack_8h_a8298b090ec8b180e0dc1249a8a27dce6}
+\hypertarget{fftpack_8h_a9d6c692607505e95799354f2e9945e37}{}\index{fftpack.\+h@{fftpack.\+h}!ispow2le2e13@{ispow2le2e13}}
+\index{ispow2le2e13@{ispow2le2e13}!fftpack.\+h@{fftpack.\+h}}
+\subsubsection[{ispow2le2e13}]{\setlength{\rightskip}{0pt plus 5cm}int ispow2le2e13 (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{fftpack_8h_a9d6c692607505e95799354f2e9945e37}
+\hypertarget{fftpack_8h_a0444c424347b388a31f734aaf40e3b63}{}\index{fftpack.\+h@{fftpack.\+h}!ispow2le2e30@{ispow2le2e30}}
+\index{ispow2le2e30@{ispow2le2e30}!fftpack.\+h@{fftpack.\+h}}
+\subsubsection[{ispow2le2e30}]{\setlength{\rightskip}{0pt plus 5cm}int ispow2le2e30 (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{fftpack_8h_a0444c424347b388a31f734aaf40e3b63}

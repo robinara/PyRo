@@ -1,0 +1,456 @@
+\hypertarget{namespacescipy_1_1fftpack_1_1basic}{}\section{scipy.\+fftpack.\+basic Namespace Reference}
+\label{namespacescipy_1_1fftpack_1_1basic}\index{scipy.\+fftpack.\+basic@{scipy.\+fftpack.\+basic}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1basic_a1e237440ce40ffe04b3ffc38d0374a88}{istype}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1basic_a0704a50682c6c9f52c152065f12b31fa}{fft}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1basic_a93a2c3f77a381cd9b05f4c1509c5442f}{ifft}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1basic_a27f5005c13c9fc999df38bebf5ec2984}{rfft}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1basic_ae29dc38c90167dd7babe19dc3477037c}{irfft}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1basic_a394990bf7329cb63cdd153b8f981dbee}{fftn}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1basic_a70746499c6f8faa3ee1f54ea19a936b2}{ifftn}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1basic_a32222d4394999076d2af80514b0c7579}{fft2}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1basic_a678527f52a57a95915b62d0b6ccae272}{ifft2}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1fftpack_1_1basic_ac5fa46b8b54ce6d6dcae3ec8f993ce80}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+dictionary \hyperlink{namespacescipy_1_1fftpack_1_1basic_a5db7b7feacab3f4adef70fda5f2b329d}{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T}
+\item 
+dictionary \hyperlink{namespacescipy_1_1fftpack_1_1basic_a9c405479e51eb69603548966d7985cb6}{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+R\+F\+F\+T}
+\item 
+dictionary \hyperlink{namespacescipy_1_1fftpack_1_1basic_a22c987ab3659bd6992f8c4211cd9a56d}{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T\+N}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Discrete Fourier Transforms - basic.py
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1fftpack_1_1basic_a0704a50682c6c9f52c152065f12b31fa}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!fft@{fft}}
+\index{fft@{fft}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{fft}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+basic.\+fft (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{n = {\ttfamily None}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{overwrite\+\_\+x = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1basic_a0704a50682c6c9f52c152065f12b31fa}
+\begin{DoxyVerb}Return discrete Fourier transform of real or complex sequence.
+
+The returned complex array contains ``y(0), y(1),..., y(n-1)`` where
+
+``y(j) = (x * exp(-2*pi*sqrt(-1)*j*np.arange(n)/n)).sum()``.
+
+Parameters
+----------
+x : array_like
+    Array to Fourier transform.
+n : int, optional
+    Length of the Fourier transform.  If ``n < x.shape[axis]``, `x` is
+    truncated.  If ``n > x.shape[axis]``, `x` is zero-padded. The
+    default results in ``n = x.shape[axis]``.
+axis : int, optional
+    Axis along which the fft's are computed; the default is over the
+    last axis (i.e., ``axis=-1``).
+overwrite_x : bool, optional
+    If True, the contents of `x` can be destroyed; the default is False.
+
+Returns
+-------
+z : complex ndarray
+    with the elements::
+
+        [y(0),y(1),..,y(n/2),y(1-n/2),...,y(-1)]        if n is even
+        [y(0),y(1),..,y((n-1)/2),y(-(n-1)/2),...,y(-1)]  if n is odd
+
+    where::
+
+        y(j) = sum[k=0..n-1] x[k] * exp(-sqrt(-1)*j*k* 2*pi/n), j = 0..n-1
+
+    Note that ``y(-j) = y(n-j).conjugate()``.
+
+See Also
+--------
+ifft : Inverse FFT
+rfft : FFT of a real sequence
+
+Notes
+-----
+The packing of the result is "standard": If ``A = fft(a, n)``, then
+``A[0]`` contains the zero-frequency term, ``A[1:n/2]`` contains the
+positive-frequency terms, and ``A[n/2:]`` contains the negative-frequency
+terms, in order of decreasingly negative frequency. So for an 8-point
+transform, the frequencies of the result are [0, 1, 2, 3, -4, -3, -2, -1].
+To rearrange the fft output so that the zero-frequency component is
+centered, like [-4, -3, -2, -1,  0,  1,  2,  3], use `fftshift`.
+
+For `n` even, ``A[n/2]`` contains the sum of the positive and
+negative-frequency terms.  For `n` even and `x` real, ``A[n/2]`` will
+always be real.
+
+This function is most efficient when `n` is a power of two, and least
+efficient when `n` is prime.
+
+If the data type of `x` is real, a "real FFT" algorithm is automatically
+used, which roughly halves the computation time.  To increase efficiency
+a little further, use `rfft`, which does the same calculation, but only
+outputs half of the symmetrical spectrum.  If the data is both real and
+symmetrical, the `dct` can again double the efficiency, by generating
+half of the spectrum from half of the signal.
+
+Examples
+--------
+>>> from scipy.fftpack import fft, ifft
+>>> x = np.arange(5)
+>>> np.allclose(fft(ifft(x)), x, atol=1e-15)  # within numerical accuracy.
+True\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1basic_a32222d4394999076d2af80514b0c7579}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!fft2@{fft2}}
+\index{fft2@{fft2}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{fft2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+basic.\+fft2 (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{shape = {\ttfamily None}, }
+\item[{}]{axes = {\ttfamily (-\/2,-\/1}, }
+\item[{}]{overwrite\+\_\+x = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1basic_a32222d4394999076d2af80514b0c7579}
+\begin{DoxyVerb}2-D discrete Fourier transform.
+
+Return the two-dimensional discrete Fourier transform of the 2-D argument
+`x`.
+
+See Also
+--------
+fftn : for detailed information.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1basic_a394990bf7329cb63cdd153b8f981dbee}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!fftn@{fftn}}
+\index{fftn@{fftn}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{fftn}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+basic.\+fftn (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{shape = {\ttfamily None}, }
+\item[{}]{axes = {\ttfamily None}, }
+\item[{}]{overwrite\+\_\+x = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1basic_a394990bf7329cb63cdd153b8f981dbee}
+\begin{DoxyVerb}Return multidimensional discrete Fourier transform.
+
+The returned array contains::
+
+  y[j_1,..,j_d] = sum[k_1=0..n_1-1, ..., k_d=0..n_d-1]
+     x[k_1,..,k_d] * prod[i=1..d] exp(-sqrt(-1)*2*pi/n_i * j_i * k_i)
+
+where d = len(x.shape) and n = x.shape.
+Note that ``y[..., -j_i, ...] = y[..., n_i-j_i, ...].conjugate()``.
+
+Parameters
+----------
+x : array_like
+    The (n-dimensional) array to transform.
+shape : tuple of ints, optional
+    The shape of the result.  If both `shape` and `axes` (see below) are
+    None, `shape` is ``x.shape``; if `shape` is None but `axes` is
+    not None, then `shape` is ``scipy.take(x.shape, axes, axis=0)``.
+    If ``shape[i] > x.shape[i]``, the i-th dimension is padded with zeros.
+    If ``shape[i] < x.shape[i]``, the i-th dimension is truncated to
+    length ``shape[i]``.
+axes : array_like of ints, optional
+    The axes of `x` (`y` if `shape` is not None) along which the
+    transform is applied.
+overwrite_x : bool, optional
+    If True, the contents of `x` can be destroyed.  Default is False.
+
+Returns
+-------
+y : complex-valued n-dimensional numpy array
+    The (n-dimensional) DFT of the input array.
+
+See Also
+--------
+ifftn
+
+Examples
+--------
+>>> y = (-np.arange(16), 8 - np.arange(16), np.arange(16))
+>>> np.allclose(y, fftn(ifftn(y)))
+True\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1basic_a93a2c3f77a381cd9b05f4c1509c5442f}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!ifft@{ifft}}
+\index{ifft@{ifft}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{ifft}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+basic.\+ifft (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{n = {\ttfamily None}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{overwrite\+\_\+x = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1basic_a93a2c3f77a381cd9b05f4c1509c5442f}
+\begin{DoxyVerb}Return discrete inverse Fourier transform of real or complex sequence.
+
+The returned complex array contains ``y(0), y(1),..., y(n-1)`` where
+
+``y(j) = (x * exp(2*pi*sqrt(-1)*j*np.arange(n)/n)).mean()``.
+
+Parameters
+----------
+x : array_like
+    Transformed data to invert.
+n : int, optional
+    Length of the inverse Fourier transform.  If ``n < x.shape[axis]``,
+    `x` is truncated.  If ``n > x.shape[axis]``, `x` is zero-padded.
+    The default results in ``n = x.shape[axis]``.
+axis : int, optional
+    Axis along which the ifft's are computed; the default is over the
+    last axis (i.e., ``axis=-1``).
+overwrite_x : bool, optional
+    If True, the contents of `x` can be destroyed; the default is False.
+
+Returns
+-------
+ifft : ndarray of floats
+    The inverse discrete Fourier transform.
+
+See Also
+--------
+fft : Forward FFT
+
+Notes
+-----
+This function is most efficient when `n` is a power of two, and least
+efficient when `n` is prime.
+
+If the data type of `x` is real, a "real IFFT" algorithm is automatically
+used, which roughly halves the computation time.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1basic_a678527f52a57a95915b62d0b6ccae272}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!ifft2@{ifft2}}
+\index{ifft2@{ifft2}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{ifft2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+basic.\+ifft2 (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{shape = {\ttfamily None}, }
+\item[{}]{axes = {\ttfamily (-\/2,-\/1}, }
+\item[{}]{overwrite\+\_\+x = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1basic_a678527f52a57a95915b62d0b6ccae272}
+\begin{DoxyVerb}2-D discrete inverse Fourier transform of real or complex sequence.
+
+Return inverse two-dimensional discrete Fourier transform of
+arbitrary type sequence x.
+
+See `ifft` for more information.
+
+See also
+--------
+fft2, ifft\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1basic_a70746499c6f8faa3ee1f54ea19a936b2}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!ifftn@{ifftn}}
+\index{ifftn@{ifftn}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{ifftn}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+basic.\+ifftn (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{shape = {\ttfamily None}, }
+\item[{}]{axes = {\ttfamily None}, }
+\item[{}]{overwrite\+\_\+x = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1basic_a70746499c6f8faa3ee1f54ea19a936b2}
+\begin{DoxyVerb}Return inverse multi-dimensional discrete Fourier transform of
+arbitrary type sequence x.
+
+The returned array contains::
+
+  y[j_1,..,j_d] = 1/p * sum[k_1=0..n_1-1, ..., k_d=0..n_d-1]
+     x[k_1,..,k_d] * prod[i=1..d] exp(sqrt(-1)*2*pi/n_i * j_i * k_i)
+
+where ``d = len(x.shape)``, ``n = x.shape``, and ``p = prod[i=1..d] n_i``.
+
+For description of parameters see `fftn`.
+
+See Also
+--------
+fftn : for detailed information.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1basic_ae29dc38c90167dd7babe19dc3477037c}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!irfft@{irfft}}
+\index{irfft@{irfft}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{irfft}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+basic.\+irfft (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{n = {\ttfamily None}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{overwrite\+\_\+x = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1basic_ae29dc38c90167dd7babe19dc3477037c}
+\begin{DoxyVerb}Return inverse discrete Fourier transform of real sequence x.
+
+The contents of `x` are interpreted as the output of the `rfft`
+function.
+
+Parameters
+----------
+x : array_like
+    Transformed data to invert.
+n : int, optional
+    Length of the inverse Fourier transform.
+    If n < x.shape[axis], x is truncated.
+    If n > x.shape[axis], x is zero-padded.
+    The default results in n = x.shape[axis].
+axis : int, optional
+    Axis along which the ifft's are computed; the default is over
+    the last axis (i.e., axis=-1).
+overwrite_x : bool, optional
+    If True, the contents of `x` can be destroyed; the default is False.
+
+Returns
+-------
+irfft : ndarray of floats
+    The inverse discrete Fourier transform.
+
+See Also
+--------
+rfft, ifft
+
+Notes
+-----
+The returned real array contains::
+
+    [y(0),y(1),...,y(n-1)]
+
+where for n is even::
+
+    y(j) = 1/n (sum[k=1..n/2-1] (x[2*k-1]+sqrt(-1)*x[2*k])
+                                 * exp(sqrt(-1)*j*k* 2*pi/n)
+                + c.c. + x[0] + (-1)**(j) x[n-1])
+
+and for n is odd::
+
+    y(j) = 1/n (sum[k=1..(n-1)/2] (x[2*k-1]+sqrt(-1)*x[2*k])
+                                 * exp(sqrt(-1)*j*k* 2*pi/n)
+                + c.c. + x[0])
+
+c.c. denotes complex conjugate of preceding expression.
+
+For details on input parameters, see `rfft`.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1basic_a1e237440ce40ffe04b3ffc38d0374a88}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!istype@{istype}}
+\index{istype@{istype}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{istype}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+basic.\+istype (
+\begin{DoxyParamCaption}
+\item[{}]{arr, }
+\item[{}]{typeclass}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1basic_a1e237440ce40ffe04b3ffc38d0374a88}
+\hypertarget{namespacescipy_1_1fftpack_1_1basic_a27f5005c13c9fc999df38bebf5ec2984}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!rfft@{rfft}}
+\index{rfft@{rfft}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{rfft}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+basic.\+rfft (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{n = {\ttfamily None}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{overwrite\+\_\+x = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1basic_a27f5005c13c9fc999df38bebf5ec2984}
+\begin{DoxyVerb}Discrete Fourier transform of a real sequence.
+
+Parameters
+----------
+x : array_like, real-valued
+    The data to transform.
+n : int, optional
+    Defines the length of the Fourier transform.  If `n` is not specified
+    (the default) then ``n = x.shape[axis]``.  If ``n < x.shape[axis]``,
+    `x` is truncated, if ``n > x.shape[axis]``, `x` is zero-padded.
+axis : int, optional
+    The axis along which the transform is applied.  The default is the
+    last axis.
+overwrite_x : bool, optional
+    If set to true, the contents of `x` can be overwritten. Default is
+    False.
+
+Returns
+-------
+z : real ndarray
+    The returned real array contains::
+
+      [y(0),Re(y(1)),Im(y(1)),...,Re(y(n/2))]              if n is even
+      [y(0),Re(y(1)),Im(y(1)),...,Re(y(n/2)),Im(y(n/2))]   if n is odd
+
+    where::
+
+      y(j) = sum[k=0..n-1] x[k] * exp(-sqrt(-1)*j*k*2*pi/n)
+      j = 0..n-1
+
+    Note that ``y(-j) == y(n-j).conjugate()``.
+
+See Also
+--------
+fft, irfft, scipy.fftpack.basic
+
+Notes
+-----
+Within numerical accuracy, ``y == rfft(irfft(y))``.
+
+Examples
+--------
+>>> a = [9, -9, 1, 3]
+>>> fft(a)
+array([  4. +0.j,   8.+12.j,  16. +0.j,   8.-12.j])
+>>> rfft(a)
+array([  4.,   8.,  12.,  16.])\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1fftpack_1_1basic_ac5fa46b8b54ce6d6dcae3ec8f993ce80}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+fftpack.\+basic.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1fftpack_1_1basic_ac5fa46b8b54ce6d6dcae3ec8f993ce80}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'fft'},\textcolor{stringliteral}{'ifft'},\textcolor{stringliteral}{'fftn'},\textcolor{stringliteral}{'ifftn'},\textcolor{stringliteral}{'rfft'},\textcolor{stringliteral}{'irfft'},
+2            \textcolor{stringliteral}{'fft2'},\textcolor{stringliteral}{'ifft2'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1fftpack_1_1basic_a5db7b7feacab3f4adef70fda5f2b329d}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T@{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T}}
+\index{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T@{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+fftpack.\+basic.\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T}\label{namespacescipy_1_1fftpack_1_1basic_a5db7b7feacab3f4adef70fda5f2b329d}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{
+2 \textcolor{comment}{#        numpy.dtype(numpy.float32): \_fftpack.crfft,}
+3         numpy.dtype(numpy.float32): \_fake\_crfft,
+4         numpy.dtype(numpy.float64): \_fftpack.zrfft,
+5 \textcolor{comment}{#        numpy.dtype(numpy.complex64): \_fftpack.cfft,}
+6         numpy.dtype(numpy.complex64): \_fake\_cfft,
+7         numpy.dtype(numpy.complex128): \_fftpack.zfft,
+8 \}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1fftpack_1_1basic_a22c987ab3659bd6992f8c4211cd9a56d}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T\+N@{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T\+N}}
+\index{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T\+N@{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T\+N}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T\+N}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+fftpack.\+basic.\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+F\+F\+T\+N}\label{namespacescipy_1_1fftpack_1_1basic_a22c987ab3659bd6992f8c4211cd9a56d}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{
+2 \textcolor{comment}{#        numpy.dtype(numpy.complex64): \_fftpack.cfftnd,}
+3         numpy.dtype(numpy.complex64): \_fake\_cfftnd,
+4         numpy.dtype(numpy.complex128): \_fftpack.zfftnd,
+5 \textcolor{comment}{#        numpy.dtype(numpy.float32): \_fftpack.cfftnd,}
+6         numpy.dtype(numpy.float32): \_fake\_cfftnd,
+7         numpy.dtype(numpy.float64): \_fftpack.zfftnd,
+8 \}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1fftpack_1_1basic_a9c405479e51eb69603548966d7985cb6}{}\index{scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}!\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+R\+F\+F\+T@{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+R\+F\+F\+T}}
+\index{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+R\+F\+F\+T@{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+R\+F\+F\+T}!scipy\+::fftpack\+::basic@{scipy\+::fftpack\+::basic}}
+\subsubsection[{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+R\+F\+F\+T}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+fftpack.\+basic.\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+T\+O\+\_\+\+R\+F\+F\+T}\label{namespacescipy_1_1fftpack_1_1basic_a9c405479e51eb69603548966d7985cb6}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{
+2 \textcolor{comment}{#        numpy.dtype(numpy.float32): \_fftpack.rfft,}
+3         numpy.dtype(numpy.float32): \_fake\_rfft,
+4         numpy.dtype(numpy.float64): \_fftpack.drfft,
+5 \}
+\end{DoxyCode}

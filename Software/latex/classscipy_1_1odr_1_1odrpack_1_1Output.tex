@@ -1,0 +1,116 @@
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Output}{}\section{scipy.\+odr.\+odrpack.\+Output Class Reference}
+\label{classscipy_1_1odr_1_1odrpack_1_1Output}\index{scipy.\+odr.\+odrpack.\+Output@{scipy.\+odr.\+odrpack.\+Output}}
+Inheritance diagram for scipy.\+odr.\+odrpack.\+Output\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1odr_1_1odrpack_1_1Output}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Output_a53c0523717831646ae8a20cbc7645968}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Output_a3602a73c46a59608ed18fb960aebcdce}{pprint}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1Output_a29f88ece56b24b13583cc199c13988ac}{beta}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1Output_ac15599251123ceb0c17a229cb643e68b}{sd\+\_\+beta}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1Output_a2450b71e7350d5eed557a7fa28253749}{cov\+\_\+beta}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1Output_a5bd5f021366b91b22c62f76f307dc495}{stopreason}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}The Output class stores the output of an ODR run.
+
+Attributes
+----------
+beta : ndarray
+    Estimated parameter values, of shape (q,).
+sd_beta : ndarray
+    Standard errors of the estimated parameters, of shape (p,).
+cov_beta : ndarray
+    Covariance matrix of the estimated parameters, of shape (p,p).
+delta : ndarray, optional
+    Array of estimated errors in input variables, of same shape as `x`.
+eps : ndarray, optional
+    Array of estimated errors in response variables, of same shape as `y`.
+xplus : ndarray, optional
+    Array of ``x + delta``.
+y : ndarray, optional
+    Array ``y = fcn(x + delta)``.
+res_var : float, optional
+    Residual variance.
+sum_sqare : float, optional
+    Sum of squares error.
+sum_square_delta : float, optional
+    Sum of squares of delta error.
+sum_square_eps : float, optional
+    Sum of squares of eps error.
+inv_condnum : float, optional
+    Inverse condition number (cf. ODRPACK UG p. 77).
+rel_error : float, optional
+    Relative error in function values computed within fcn.
+work : ndarray, optional
+    Final work array.
+work_ind : dict, optional
+    Indices into work for drawing out values (cf. ODRPACK UG p. 83).
+info : int, optional
+    Reason for returning, as output by ODRPACK (cf. ODRPACK UG p. 38).
+stopreason : list of str, optional
+    `info` interpreted into English.
+
+Notes
+-----
+Takes one argument for initialization, the return value from the
+function `odr`. The attributes listed as "optional" above are only
+present if `odr` was run with ``full_output=1``.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Output_a53c0523717831646ae8a20cbc7645968}{}\index{scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+odr.\+odrpack.\+Output.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{output}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1odr_1_1odrpack_1_1Output_a53c0523717831646ae8a20cbc7645968}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Output_a3602a73c46a59608ed18fb960aebcdce}{}\index{scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}!pprint@{pprint}}
+\index{pprint@{pprint}!scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}}
+\subsubsection[{pprint}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+odr.\+odrpack.\+Output.\+pprint (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1odr_1_1odrpack_1_1Output_a3602a73c46a59608ed18fb960aebcdce}
+\begin{DoxyVerb}Pretty-print important results.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Output_a29f88ece56b24b13583cc199c13988ac}{}\index{scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}!beta@{beta}}
+\index{beta@{beta}!scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}}
+\subsubsection[{beta}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Output.\+beta}\label{classscipy_1_1odr_1_1odrpack_1_1Output_a29f88ece56b24b13583cc199c13988ac}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Output_a2450b71e7350d5eed557a7fa28253749}{}\index{scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}!cov\+\_\+beta@{cov\+\_\+beta}}
+\index{cov\+\_\+beta@{cov\+\_\+beta}!scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}}
+\subsubsection[{cov\+\_\+beta}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Output.\+cov\+\_\+beta}\label{classscipy_1_1odr_1_1odrpack_1_1Output_a2450b71e7350d5eed557a7fa28253749}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Output_ac15599251123ceb0c17a229cb643e68b}{}\index{scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}!sd\+\_\+beta@{sd\+\_\+beta}}
+\index{sd\+\_\+beta@{sd\+\_\+beta}!scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}}
+\subsubsection[{sd\+\_\+beta}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Output.\+sd\+\_\+beta}\label{classscipy_1_1odr_1_1odrpack_1_1Output_ac15599251123ceb0c17a229cb643e68b}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Output_a5bd5f021366b91b22c62f76f307dc495}{}\index{scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}!stopreason@{stopreason}}
+\index{stopreason@{stopreason}!scipy\+::odr\+::odrpack\+::\+Output@{scipy\+::odr\+::odrpack\+::\+Output}}
+\subsubsection[{stopreason}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Output.\+stopreason}\label{classscipy_1_1odr_1_1odrpack_1_1Output_a5bd5f021366b91b22c62f76f307dc495}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/odr/\hyperlink{odrpack_8py}{odrpack.\+py}\end{DoxyCompactItemize}

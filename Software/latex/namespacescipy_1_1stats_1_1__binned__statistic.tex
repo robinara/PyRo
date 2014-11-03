@@ -1,0 +1,252 @@
+\hypertarget{namespacescipy_1_1stats_1_1__binned__statistic}{}\section{scipy.\+stats.\+\_\+binned\+\_\+statistic Namespace Reference}
+\label{namespacescipy_1_1stats_1_1__binned__statistic}\index{scipy.\+stats.\+\_\+binned\+\_\+statistic@{scipy.\+stats.\+\_\+binned\+\_\+statistic}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1stats_1_1__binned__statistic_aea05b3c6669a95e82ca5d9b72ab7b882}{binned\+\_\+statistic}
+\item 
+def \hyperlink{namespacescipy_1_1stats_1_1__binned__statistic_aa6e4a8ca8657a2ca112d234343e53e41}{binned\+\_\+statistic\+\_\+2d}
+\item 
+def \hyperlink{namespacescipy_1_1stats_1_1__binned__statistic_a941daaf9b5418382b138514fd49ca732}{binned\+\_\+statistic\+\_\+dd}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1stats_1_1__binned__statistic_aea05b3c6669a95e82ca5d9b72ab7b882}{}\index{scipy\+::stats\+::\+\_\+binned\+\_\+statistic@{scipy\+::stats\+::\+\_\+binned\+\_\+statistic}!binned\+\_\+statistic@{binned\+\_\+statistic}}
+\index{binned\+\_\+statistic@{binned\+\_\+statistic}!scipy\+::stats\+::\+\_\+binned\+\_\+statistic@{scipy\+::stats\+::\+\_\+binned\+\_\+statistic}}
+\subsubsection[{binned\+\_\+statistic}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+\_\+binned\+\_\+statistic.\+binned\+\_\+statistic (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{values, }
+\item[{}]{statistic = {\ttfamily '{\bf mean}'}, }
+\item[{}]{bins = {\ttfamily 10}, }
+\item[{}]{range = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1stats_1_1__binned__statistic_aea05b3c6669a95e82ca5d9b72ab7b882}
+\begin{DoxyVerb}Compute a binned statistic for a set of data.
+
+This is a generalization of a histogram function.  A histogram divides
+the space into bins, and returns the count of the number of points in
+each bin.  This function allows the computation of the sum, mean, median,
+or other statistic of the values within each bin.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+x : array_like
+    A sequence of values to be binned.
+values : array_like
+    The values on which the statistic will be computed.  This must be
+    the same shape as `x`.
+statistic : string or callable, optional
+    The statistic to compute (default is 'mean').
+    The following statistics are available:
+
+      * 'mean' : compute the mean of values for points within each bin.
+        Empty bins will be represented by NaN.
+      * 'median' : compute the median of values for points within each
+        bin. Empty bins will be represented by NaN.
+      * 'count' : compute the count of points within each bin.  This is
+        identical to an unweighted histogram.  `values` array is not
+        referenced.
+      * 'sum' : compute the sum of values for points within each bin.
+        This is identical to a weighted histogram.
+      * function : a user-defined function which takes a 1D array of
+        values, and outputs a single numerical statistic. This function
+        will be called on the values in each bin.  Empty bins will be
+        represented by function([]), or NaN if this returns an error.
+
+bins : int or sequence of scalars, optional
+    If `bins` is an int, it defines the number of equal-width
+    bins in the given range (10, by default). If `bins` is a sequence,
+    it defines the bin edges, including the rightmost edge, allowing
+    for non-uniform bin widths.
+range : (float, float) or [(float, float)], optional
+    The lower and upper range of the bins.  If not provided, range
+    is simply ``(x.min(), x.max())``.  Values outside the range are
+    ignored.
+
+Returns
+-------
+statistic : array
+    The values of the selected statistic in each bin.
+bin_edges : array of dtype float
+    Return the bin edges ``(length(statistic)+1)``.
+binnumber : 1-D ndarray of ints
+    This assigns to each observation an integer that represents the bin
+    in which this observation falls. Array has the same length as values.
+
+See Also
+--------
+numpy.histogram, binned_statistic_2d, binned_statistic_dd
+
+Notes
+-----
+All but the last (righthand-most) bin is half-open.  In other words, if
+`bins` is::
+
+  [1, 2, 3, 4]
+
+then the first bin is ``[1, 2)`` (including 1, but excluding 2) and the
+second ``[2, 3)``.  The last bin, however, is ``[3, 4]``, which *includes*
+4.
+
+Examples
+--------
+>>> stats.binned_statistic([1, 2, 1, 2, 4], np.arange(5), statistic='mean',
+... bins=3)
+(array([ 1.,  2.,  4.]), array([ 1.,  2.,  3.,  4.]), array([1, 2, 1, 2, 3]))
+
+>>> stats.binned_statistic([1, 2, 1, 2, 4], np.arange(5), statistic='mean', bins=3)
+(array([ 1.,  2.,  4.]), array([ 1.,  2.,  3.,  4.]), array([1, 2, 1, 2, 3]))\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1stats_1_1__binned__statistic_aa6e4a8ca8657a2ca112d234343e53e41}{}\index{scipy\+::stats\+::\+\_\+binned\+\_\+statistic@{scipy\+::stats\+::\+\_\+binned\+\_\+statistic}!binned\+\_\+statistic\+\_\+2d@{binned\+\_\+statistic\+\_\+2d}}
+\index{binned\+\_\+statistic\+\_\+2d@{binned\+\_\+statistic\+\_\+2d}!scipy\+::stats\+::\+\_\+binned\+\_\+statistic@{scipy\+::stats\+::\+\_\+binned\+\_\+statistic}}
+\subsubsection[{binned\+\_\+statistic\+\_\+2d}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+\_\+binned\+\_\+statistic.\+binned\+\_\+statistic\+\_\+2d (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{values, }
+\item[{}]{statistic = {\ttfamily '{\bf mean}'}, }
+\item[{}]{bins = {\ttfamily 10}, }
+\item[{}]{range = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1stats_1_1__binned__statistic_aa6e4a8ca8657a2ca112d234343e53e41}
+\begin{DoxyVerb}Compute a bidimensional binned statistic for a set of data.
+
+This is a generalization of a histogram2d function.  A histogram divides
+the space into bins, and returns the count of the number of points in
+each bin.  This function allows the computation of the sum, mean, median,
+or other statistic of the values within each bin.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+x : (N,) array_like
+    A sequence of values to be binned along the first dimension.
+y : (M,) array_like
+    A sequence of values to be binned along the second dimension.
+values : (N,) array_like
+    The values on which the statistic will be computed.  This must be
+    the same shape as `x`.
+statistic : string or callable, optional
+    The statistic to compute (default is 'mean').
+    The following statistics are available:
+
+      * 'mean' : compute the mean of values for points within each bin.
+        Empty bins will be represented by NaN.
+      * 'median' : compute the median of values for points within each
+        bin. Empty bins will be represented by NaN.
+      * 'count' : compute the count of points within each bin.  This is
+        identical to an unweighted histogram.  `values` array is not
+        referenced.
+      * 'sum' : compute the sum of values for points within each bin.
+        This is identical to a weighted histogram.
+      * function : a user-defined function which takes a 1D array of
+        values, and outputs a single numerical statistic. This function
+        will be called on the values in each bin.  Empty bins will be
+        represented by function([]), or NaN if this returns an error.
+
+bins : int or [int, int] or array-like or [array, array], optional
+    The bin specification:
+
+      * the number of bins for the two dimensions (nx=ny=bins),
+      * the number of bins in each dimension (nx, ny = bins),
+      * the bin edges for the two dimensions (x_edges = y_edges = bins),
+      * the bin edges in each dimension (x_edges, y_edges = bins).
+
+range : (2,2) array_like, optional
+    The leftmost and rightmost edges of the bins along each dimension
+    (if not specified explicitly in the `bins` parameters):
+    [[xmin, xmax], [ymin, ymax]]. All values outside of this range will be
+    considered outliers and not tallied in the histogram.
+
+Returns
+-------
+statistic : (nx, ny) ndarray
+    The values of the selected statistic in each two-dimensional bin
+xedges : (nx + 1) ndarray
+    The bin edges along the first dimension.
+yedges : (ny + 1) ndarray
+    The bin edges along the second dimension.
+binnumber : 1-D ndarray of ints
+    This assigns to each observation an integer that represents the bin
+    in which this observation falls. Array has the same length as `values`.
+
+See Also
+--------
+numpy.histogram2d, binned_statistic, binned_statistic_dd\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1stats_1_1__binned__statistic_a941daaf9b5418382b138514fd49ca732}{}\index{scipy\+::stats\+::\+\_\+binned\+\_\+statistic@{scipy\+::stats\+::\+\_\+binned\+\_\+statistic}!binned\+\_\+statistic\+\_\+dd@{binned\+\_\+statistic\+\_\+dd}}
+\index{binned\+\_\+statistic\+\_\+dd@{binned\+\_\+statistic\+\_\+dd}!scipy\+::stats\+::\+\_\+binned\+\_\+statistic@{scipy\+::stats\+::\+\_\+binned\+\_\+statistic}}
+\subsubsection[{binned\+\_\+statistic\+\_\+dd}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+stats.\+\_\+binned\+\_\+statistic.\+binned\+\_\+statistic\+\_\+dd (
+\begin{DoxyParamCaption}
+\item[{}]{sample, }
+\item[{}]{values, }
+\item[{}]{statistic = {\ttfamily '{\bf mean}'}, }
+\item[{}]{bins = {\ttfamily 10}, }
+\item[{}]{range = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1stats_1_1__binned__statistic_a941daaf9b5418382b138514fd49ca732}
+\begin{DoxyVerb}Compute a multidimensional binned statistic for a set of data.
+
+This is a generalization of a histogramdd function.  A histogram divides
+the space into bins, and returns the count of the number of points in
+each bin.  This function allows the computation of the sum, mean, median,
+or other statistic of the values within each bin.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+sample : array_like
+    Data to histogram passed as a sequence of D arrays of length N, or
+    as an (N,D) array.
+values : array_like
+    The values on which the statistic will be computed.  This must be
+    the same shape as x.
+statistic : string or callable, optional
+    The statistic to compute (default is 'mean').
+    The following statistics are available:
+
+      * 'mean' : compute the mean of values for points within each bin.
+        Empty bins will be represented by NaN.
+      * 'median' : compute the median of values for points within each
+        bin. Empty bins will be represented by NaN.
+      * 'count' : compute the count of points within each bin.  This is
+        identical to an unweighted histogram.  `values` array is not
+        referenced.
+      * 'sum' : compute the sum of values for points within each bin.
+        This is identical to a weighted histogram.
+      * function : a user-defined function which takes a 1D array of
+        values, and outputs a single numerical statistic. This function
+        will be called on the values in each bin.  Empty bins will be
+        represented by function([]), or NaN if this returns an error.
+
+bins : sequence or int, optional
+    The bin specification:
+
+      * A sequence of arrays describing the bin edges along each dimension.
+      * The number of bins for each dimension (nx, ny, ... =bins)
+      * The number of bins for all dimensions (nx=ny=...=bins).
+
+range : sequence, optional
+    A sequence of lower and upper bin edges to be used if the edges are
+    not given explicitely in `bins`. Defaults to the minimum and maximum
+    values along each dimension.
+
+Returns
+-------
+statistic : ndarray, shape(nx1, nx2, nx3,...)
+    The values of the selected statistic in each two-dimensional bin
+edges : list of ndarrays
+    A list of D arrays describing the (nxi + 1) bin edges for each
+    dimension
+binnumber : 1-D ndarray of ints
+    This assigns to each observation an integer that represents the bin
+    in which this observation falls. Array has the same length as values.
+
+See Also
+--------
+np.histogramdd, binned_statistic, binned_statistic_2d\end{DoxyVerb}
+ 

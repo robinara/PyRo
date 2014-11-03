@@ -1,0 +1,106 @@
+\hypertarget{zlangs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zlangs.c File Reference}
+\label{zlangs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zlangs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zlangs.\+c}}
+
+
+Returns the value of the one norm.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+zdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{zlangs_8c_a37d1ec3ddab88e8c46872c5795ea5ada}{zlangs} (char $\ast$\hyperlink{vecnorm_8cc_a57c51d3f8cc26dd32ade0c9cd6b4997e}{norm}, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Returns the value of the one norm. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Modified from lapack routine ZLANGE 
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{zlangs_8c_a37d1ec3ddab88e8c46872c5795ea5ada}{}\index{zlangs.\+c@{zlangs.\+c}!zlangs@{zlangs}}
+\index{zlangs@{zlangs}!zlangs.\+c@{zlangs.\+c}}
+\subsubsection[{zlangs}]{\setlength{\rightskip}{0pt plus 5cm}double zlangs (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{norm, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{zlangs_8c_a37d1ec3ddab88e8c46872c5795ea5ada}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ZLANGS returns the value of the one norm, or the Frobenius norm, or 
+  the infinity norm, or the element of largest absolute value of a 
+  real matrix \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Description   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ZLANGE returns the value\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     ZLANGE = ( max(\hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A(i,j))}), NORM = 'M' or 'm'   
+              (   
+              ( norm1(A),         NORM = '1', 'O' or 'o'   
+              (   
+              ( normI(A),         NORM = 'I' or 'i'   
+              (   
+              ( normF(A),         NORM = 'F', 'f', 'E' or 'e'\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  where  norm1  denotes the  one norm of a matrix (maximum column sum), 
+  normI  denotes the  infinity norm  of a matrix  (maximum row sum) and 
+  normF  denotes the  Frobenius norm of a matrix (square root of sum of 
+  squares).  Note that  max(\hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A(i,j))})  is not a  matrix norm.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  NORM    (input) CHARACTER*1   
+          Specifies the value to be returned in ZLANGE as described above.   
+  \hyperlink{classA}{A}       (input) SuperMatrix*
+          The M by N sparse matrix \hyperlink{classA}{A}. 
+
+
+
+\end{DoxyPre}
+ 

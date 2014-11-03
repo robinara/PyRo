@@ -1,0 +1,64 @@
+\hypertarget{zdrscl_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zdrscl.f File Reference}
+\label{zdrscl_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zdrscl.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zdrscl.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zdrscl_8f_ad73ec38e29df0385ee6fda7d832fd205}{zdrscl} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, S\+A, S\+X, I\+N\+C\+X)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+D\+R\+S\+C\+L} multiplies a vector by the reciprocal of a real scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zdrscl_8f_ad73ec38e29df0385ee6fda7d832fd205}{}\index{zdrscl.\+f@{zdrscl.\+f}!zdrscl@{zdrscl}}
+\index{zdrscl@{zdrscl}!zdrscl.\+f@{zdrscl.\+f}}
+\subsubsection[{zdrscl}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zdrscl (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{double {\bf precision}}]{S\+A, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{S\+X, }
+\item[{integer}]{I\+N\+C\+X}
+\end{DoxyParamCaption}
+)}\label{zdrscl_8f_ad73ec38e29df0385ee6fda7d832fd205}
+
+
+{\bfseries Z\+D\+R\+S\+C\+L} multiplies a vector by the reciprocal of a real scalar. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZDRSCL multiplies an n-element complex vector x by the real scalar
+ 1/a.  This is done without overflow or underflow as long as
+ the final result x/a does not overflow or underflow.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of components of the vector x.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+A} & \begin{DoxyVerb}          SA is DOUBLE PRECISION
+          The scalar a which is used to divide each component of x.
+          SA must be >= 0, or the subroutine will divide by zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em S\+X} & \begin{DoxyVerb}          SX is COMPLEX*16 array, dimension
+                         (1+(N-1)*abs(INCX))
+          The n-element vector x.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between successive values of the vector SX.
+          > 0:  SX(1) = X(1) and SX(1+(i-1)*INCX) = x(i),     1< i<= n\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
