@@ -1,0 +1,129 @@
+\hypertarget{spimodule_8c}{}\section{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/spimodule.c File Reference}
+\label{spimodule_8c}\index{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/spimodule.\+c@{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/spimodule.\+c}}
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}structmember.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$linux/spi/spidev.\+h$>$}\\*
+{\ttfamily \#include $<$linux/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{spimodule_8c_a2d1edde91ea515b363277f4bbdc3244d}{M\+A\+X\+P\+A\+T\+H}~16
+\item 
+\#define \hyperlink{spimodule_8c_a62f8983000c30ccb79eed915c62bec92}{M\+A\+X\+M\+S\+G\+L\+E\+N}~1024
+\item 
+\#define \hyperlink{spimodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C}~void
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spimodule_8c_ab0d2355b737883a0855eb81f8e363a15}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+P\+I\+\_\+module\+\_\+doc,\char`\"{}This module defines an object \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} that allows S\+P\+I \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transactions\textbackslash{}n}\char`\"{}\char`\"{}on hosts running the Linux kernel. The host kernel must have \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{S\+P\+I\textbackslash{}n}\char`\"{}\char`\"{}support and S\+P\+I device interface \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{support.\textbackslash{}n}\char`\"{}\char`\"{}All of these can be either built-\/in to the kernel, or loaded \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{from\textbackslash{}n}\char`\"{}\char`\"{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{modules.\textbackslash{}n}\char`\"{}\char`\"{}\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}\char`\"{}\char`\"{}Because the S\+P\+I device interface is opened R/W, users of \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{this\textbackslash{}n}\char`\"{}\char`\"{}module usually must have root \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{permissions.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{spimodule_8c_a7f8a33fa32458487cd5810793f403990}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+P\+I\+\_\+close\+\_\+doc,\char`\"{}close()\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Disconnects the object from the \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{interface.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{spimodule_8c_a0c048e36e1a489618e5eef38ca97b1fe}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+P\+I\+\_\+write\+\_\+doc,\char`\"{}write(\mbox{[}values\mbox{]}) -\/$>$ \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{None\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Write bytes to S\+P\+I \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{device.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{spimodule_8c_a16aff766a04df4f61ff37cbb172669bb}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+P\+I\+\_\+read\+\_\+doc,\char`\"{}read(len) -\/$>$ \mbox{[}values\mbox{]}\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Read len bytes from S\+P\+I \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{device.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{spimodule_8c_ac5e4ab604a1ce49bbb160594f84ad841}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+P\+I\+\_\+xfer\+\_\+doc,\char`\"{}xfer(\mbox{[}values\mbox{]}) -\/$>$ \mbox{[}values\mbox{]}\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+P\+I \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{}\char`\"{}C\+S will be released and reactivated between \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{blocks.\textbackslash{}n}\char`\"{}\char`\"{}delay specifies delay in usec between \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{blocks.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{spimodule_8c_adcaa94f096751b0e49b90dd8904c693e}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+P\+I\+\_\+xfer2\+\_\+doc,\char`\"{}xfer2(\mbox{[}values\mbox{]}) -\/$>$ \mbox{[}values\mbox{]}\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+P\+I \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{transaction.\textbackslash{}n}\char`\"{}\char`\"{}C\+S will be held \hyperlink{lbfgsb_8f_aabce91f1253de53e2bae52ad9b94fcbb}{active} between \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{blocks.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{spimodule_8c_a39debfc3fc9c735d44ab18c3c05f3081}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+P\+I\+\_\+open\+\_\+doc,\char`\"{}open(bus, device)\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n\textbackslash{}n}\char`\"{}\char`\"{}Connects the object to the specified S\+P\+I \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{device.\textbackslash{}n}\char`\"{}\char`\"{}open(X,Y) will open /dev/spidev-\/\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{X.\+Y\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{spimodule_8c_a90f6f493f287b3f854cba24cfefafea9}{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R} (S\+P\+I\+\_\+type\+\_\+doc,\char`\"{}S\+P\+I(\mbox{[}bus\mbox{]},\mbox{[}client\mbox{]}) -\/$>$ \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{S\+P\+I\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Return \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} new S\+P\+I object that is (optionally) connected to \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{the\textbackslash{}n}\char`\"{}\char`\"{}specified S\+P\+I device \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{interface.\textbackslash{}n}\char`\"{})
+\item 
+\hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} \hyperlink{spimodule_8c_abacff3b3bc71ce4c0dacf6d4ad350d16}{init\+S\+P\+I} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{spimodule_8c_a62f8983000c30ccb79eed915c62bec92}{}\index{spimodule.\+c@{spimodule.\+c}!M\+A\+X\+M\+S\+G\+L\+E\+N@{M\+A\+X\+M\+S\+G\+L\+E\+N}}
+\index{M\+A\+X\+M\+S\+G\+L\+E\+N@{M\+A\+X\+M\+S\+G\+L\+E\+N}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{M\+A\+X\+M\+S\+G\+L\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+M\+S\+G\+L\+E\+N~1024}\label{spimodule_8c_a62f8983000c30ccb79eed915c62bec92}
+\hypertarget{spimodule_8c_a2d1edde91ea515b363277f4bbdc3244d}{}\index{spimodule.\+c@{spimodule.\+c}!M\+A\+X\+P\+A\+T\+H@{M\+A\+X\+P\+A\+T\+H}}
+\index{M\+A\+X\+P\+A\+T\+H@{M\+A\+X\+P\+A\+T\+H}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{M\+A\+X\+P\+A\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+P\+A\+T\+H~16}\label{spimodule_8c_a2d1edde91ea515b363277f4bbdc3244d}
+\hypertarget{spimodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{}\index{spimodule.\+c@{spimodule.\+c}!Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C@{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C}}
+\index{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C@{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C~void}\label{spimodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}
+
+
+\subsection{Function Documentation}
+\hypertarget{spimodule_8c_abacff3b3bc71ce4c0dacf6d4ad350d16}{}\index{spimodule.\+c@{spimodule.\+c}!init\+S\+P\+I@{init\+S\+P\+I}}
+\index{init\+S\+P\+I@{init\+S\+P\+I}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{init\+S\+P\+I}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} init\+S\+P\+I (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{spimodule_8c_abacff3b3bc71ce4c0dacf6d4ad350d16}
+\hypertarget{spimodule_8c_ab0d2355b737883a0855eb81f8e363a15}{}\index{spimodule.\+c@{spimodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+P\+I\+\_\+module\+\_\+doc}]{, }
+\item[{\char`\"{}This module defines an object {\bf type} that allows S\+P\+I {\bf transactions\textbackslash{}n}\char`\"{}\char`\"{}on hosts running the Linux kernel. The host kernel must have {\bf S\+P\+I\textbackslash{}n}\char`\"{}\char`\"{}support and S\+P\+I device interface {\bf support.\textbackslash{}n}\char`\"{}\char`\"{}All of these can be either built-\/in to the}]{kernel, }
+\item[{or loaded {\bf from\textbackslash{}n}\char`\"{}\char`\"{}{\bf modules.\textbackslash{}n}\char`\"{}\char`\"{}\textbackslash{}{\bf n}\char`\"{}\char`\"{}Because the S\+P\+I device interface is opened R/}]{W, }
+\item[{users of {\bf this\textbackslash{}n}\char`\"{}\char`\"{}module usually must have root {\bf permissions.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{spimodule_8c_ab0d2355b737883a0855eb81f8e363a15}
+\hypertarget{spimodule_8c_a7f8a33fa32458487cd5810793f403990}{}\index{spimodule.\+c@{spimodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+P\+I\+\_\+close\+\_\+doc}]{, }
+\item[{\char`\"{}close()\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Disconnects the object from the {\bf interface.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{spimodule_8c_a7f8a33fa32458487cd5810793f403990}
+\hypertarget{spimodule_8c_a0c048e36e1a489618e5eef38ca97b1fe}{}\index{spimodule.\+c@{spimodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+P\+I\+\_\+write\+\_\+doc}]{, }
+\item[{\char`\"{}write(\mbox{[}values\mbox{]}) -\/$>$ {\bf None\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Write bytes to S\+P\+I {\bf device.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{spimodule_8c_a0c048e36e1a489618e5eef38ca97b1fe}
+\hypertarget{spimodule_8c_a16aff766a04df4f61ff37cbb172669bb}{}\index{spimodule.\+c@{spimodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+P\+I\+\_\+read\+\_\+doc}]{, }
+\item[{\char`\"{}read(len) -\/$>$ \textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Read len bytes from S\+P\+I {\bf device.\textbackslash{}n}\char`\"{}}]{\mbox{[}values\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{spimodule_8c_a16aff766a04df4f61ff37cbb172669bb}
+\hypertarget{spimodule_8c_ac5e4ab604a1ce49bbb160594f84ad841}{}\index{spimodule.\+c@{spimodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+P\+I\+\_\+xfer\+\_\+doc}]{, }
+\item[{\char`\"{}xfer(\mbox{[}values\mbox{]}) -\/$>$ \textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+P\+I {\bf transaction.\textbackslash{}n}\char`\"{}\char`\"{}C\+S will be released and reactivated between {\bf blocks.\textbackslash{}n}\char`\"{}\char`\"{}delay specifies delay in usec between {\bf blocks.\textbackslash{}n}\char`\"{}}]{\mbox{[}values\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{spimodule_8c_ac5e4ab604a1ce49bbb160594f84ad841}
+\hypertarget{spimodule_8c_adcaa94f096751b0e49b90dd8904c693e}{}\index{spimodule.\+c@{spimodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+P\+I\+\_\+xfer2\+\_\+doc}]{, }
+\item[{\char`\"{}xfer2(\mbox{[}values\mbox{]}) -\/$>$ \textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Perform S\+P\+I {\bf transaction.\textbackslash{}n}\char`\"{}\char`\"{}C\+S will be held {\bf active} between {\bf blocks.\textbackslash{}n}\char`\"{}}]{\mbox{[}values\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{spimodule_8c_adcaa94f096751b0e49b90dd8904c693e}
+\hypertarget{spimodule_8c_a39debfc3fc9c735d44ab18c3c05f3081}{}\index{spimodule.\+c@{spimodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+P\+I\+\_\+open\+\_\+doc}]{, }
+\item[{\char`\"{}open(bus, device)\textbackslash{}{\bf n\textbackslash{}n}\char`\"{}\char`\"{}Connects the object to the specified S\+P\+I {\bf device.\textbackslash{}n}\char`\"{}\char`\"{}open(X,Y) will open /dev/spidev-\/{\bf X.\+Y\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{spimodule_8c_a39debfc3fc9c735d44ab18c3c05f3081}
+\hypertarget{spimodule_8c_a90f6f493f287b3f854cba24cfefafea9}{}\index{spimodule.\+c@{spimodule.\+c}!Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}}
+\index{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R@{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}!spimodule.\+c@{spimodule.\+c}}
+\subsubsection[{Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Doc\+\_\+\+S\+T\+R\+V\+A\+R (
+\begin{DoxyParamCaption}
+\item[{S\+P\+I\+\_\+type\+\_\+doc}]{, }
+\item[{\char`\"{}S\+P\+I(\mbox{[}bus\mbox{]},\mbox{[}client\mbox{]}) -\/$>$ {\bf S\+P\+I\textbackslash{}n\textbackslash{}n}\char`\"{}\char`\"{}Return {\bf a} new S\+P\+I object that is (optionally) connected to {\bf the\textbackslash{}n}\char`\"{}\char`\"{}specified S\+P\+I device {\bf interface.\textbackslash{}n}\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\label{spimodule_8c_a90f6f493f287b3f854cba24cfefafea9}

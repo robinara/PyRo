@@ -1,0 +1,122 @@
+\hypertarget{sp__preorder_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sp\+\_\+preorder.c File Reference}
+\label{sp__preorder_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sp\+\_\+preorder.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sp\+\_\+preorder.\+c}}
+
+
+Permute and performs functions on columns of orginal matrix.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sp__preorder_8c_ad3a9a45f02456022c7eba79e17e215bc}{sp\+\_\+preorder} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int $\ast$perm\+\_\+c, int $\ast$etree, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$A\+C)
+\item 
+int \hyperlink{sp__preorder_8c_ac79059104ae6abf212c41986820d358c}{check\+\_\+perm} (char $\ast$what, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int $\ast$perm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Permute and performs functions on columns of orginal matrix. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{sp__preorder_8c_ac79059104ae6abf212c41986820d358c}{}\index{sp\+\_\+preorder.\+c@{sp\+\_\+preorder.\+c}!check\+\_\+perm@{check\+\_\+perm}}
+\index{check\+\_\+perm@{check\+\_\+perm}!sp\+\_\+preorder.\+c@{sp\+\_\+preorder.\+c}}
+\subsubsection[{check\+\_\+perm}]{\setlength{\rightskip}{0pt plus 5cm}int check\+\_\+perm (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{what, }
+\item[{int}]{n, }
+\item[{int $\ast$}]{perm}
+\end{DoxyParamCaption}
+)}\label{sp__preorder_8c_ac79059104ae6abf212c41986820d358c}
+\hypertarget{sp__preorder_8c_ad3a9a45f02456022c7eba79e17e215bc}{}\index{sp\+\_\+preorder.\+c@{sp\+\_\+preorder.\+c}!sp\+\_\+preorder@{sp\+\_\+preorder}}
+\index{sp\+\_\+preorder@{sp\+\_\+preorder}!sp\+\_\+preorder.\+c@{sp\+\_\+preorder.\+c}}
+\subsubsection[{sp\+\_\+preorder}]{\setlength{\rightskip}{0pt plus 5cm}void sp\+\_\+preorder (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{etree, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A\+C}
+\end{DoxyParamCaption}
+)}\label{sp__preorder_8c_ad3a9a45f02456022c7eba79e17e215bc}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{sp__preorder_8c_ad3a9a45f02456022c7eba79e17e215bc}{sp\_preorder()} permutes the columns of the original matrix. It performs
+the following steps:\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   1. Apply column permutation perm\_c[] to \hyperlink{classA}{A}'s column pointers to form AC;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   2. If options->Fact = DOFACT, then
+      (1) Compute column elimination tree etree[] of AC'AC;
+      (2) Post order etree[] to get a postordered elimination tree etree[],
+          and a postorder permutation post[];
+      (3) Apply post[] permutation to columns of AC;
+      (4) Overwrite perm\_c[] with the product perm\_c * post.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}options (input) superlu\_options\_t*
+        Specifies whether or not the elimination tree will be re-used.
+        If options->Fact == DOFACT, this means first time factor \hyperlink{classA}{A}, 
+        etree is computed, postered, and output.
+        Otherwise, re-factor \hyperlink{classA}{A}, etree is input, unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}       (input) SuperMatrix*
+        \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} in A*X=B, of dimension (A->nrow, A->ncol). The number
+        of the linear equations is A->nrow. Currently, the type of \hyperlink{classA}{A} can be:
+        Stype = NC or SLU\_NCP; Mtype = SLU\_GE.
+        In the future, more general \hyperlink{classA}{A} may be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (input/output) int*
+    Column permutation vector of size A->ncol, which defines the 
+        permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+        in position j in A*Pc.
+        If options->Fact == DOFACT, perm\_c is both input and output.
+        On output, it is changed according to a postorder of etree.
+        Otherwise, perm\_c is input.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}etree   (input/output) int*
+        Elimination tree of Pc'*A'*A*Pc, dimension A->ncol.
+        If options->Fact == DOFACT, etree is an output argument,
+        otherwise it is an input argument.
+        Note: etree is a vector of parent pointers for a forest whose
+        vertices are the integers 0 to A->ncol-1; etree[root]==A->ncol.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}AC      (output) SuperMatrix*
+        The resulting matrix after applied the column permutation
+        perm\_c[] to matrix \hyperlink{classA}{A}. The type of AC can be:
+        Stype = SLU\_NCP; Dtype = A->Dtype; Mtype = SLU\_GE.
+\end{DoxyPre}
+ 

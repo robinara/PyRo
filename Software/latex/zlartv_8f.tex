@@ -1,0 +1,83 @@
+\hypertarget{zlartv_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlartv.f File Reference}
+\label{zlartv_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlartv.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlartv.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlartv_8f_ad18aaf44025b48cae92a8685e3349475}{zlartv} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, X, I\+N\+C\+X, Y, I\+N\+C\+Y, C, S, I\+N\+C\+C)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+R\+T\+V} applies a vector of plane rotations with real cosines and complex sines to the elements of a pair of vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlartv_8f_ad18aaf44025b48cae92a8685e3349475}{}\index{zlartv.\+f@{zlartv.\+f}!zlartv@{zlartv}}
+\index{zlartv@{zlartv}!zlartv.\+f@{zlartv.\+f}}
+\subsubsection[{zlartv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlartv (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{Y, }
+\item[{integer}]{I\+N\+C\+Y, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{C, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{S, }
+\item[{integer}]{I\+N\+C\+C}
+\end{DoxyParamCaption}
+)}\label{zlartv_8f_ad18aaf44025b48cae92a8685e3349475}
+
+
+{\bfseries Z\+L\+A\+R\+T\+V} applies a vector of plane rotations with real cosines and complex sines to the elements of a pair of vectors. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLARTV applies a vector of complex plane rotations with real cosines
+ to elements of the complex vectors x and y. For i = 1,2,...,n
+
+    ( x(i) ) := (        c(i)   s(i) ) ( x(i) )
+    ( y(i) )    ( -conjg(s(i))  c(i) ) ( y(i) )\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of plane rotations to be applied.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX*16 array, dimension (1+(N-1)*INCX)
+          The vector x.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between elements of X. INCX > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Y} & \begin{DoxyVerb}          Y is COMPLEX*16 array, dimension (1+(N-1)*INCY)
+          The vector y.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+Y} & \begin{DoxyVerb}          INCY is INTEGER
+          The increment between elements of Y. INCY > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC)
+          The cosines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is COMPLEX*16 array, dimension (1+(N-1)*INCC)
+          The sines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+C} & \begin{DoxyVerb}          INCC is INTEGER
+          The increment between elements of C and S. INCC > 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

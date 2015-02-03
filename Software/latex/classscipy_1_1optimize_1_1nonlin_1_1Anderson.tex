@@ -1,0 +1,120 @@
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson}{}\section{scipy.\+optimize.\+nonlin.\+Anderson Class Reference}
+\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson}\index{scipy.\+optimize.\+nonlin.\+Anderson@{scipy.\+optimize.\+nonlin.\+Anderson}}
+Inheritance diagram for scipy.\+optimize.\+nonlin.\+Anderson\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classscipy_1_1optimize_1_1nonlin_1_1Anderson}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a2dc5729c6f05f66826c648816e9d3d24}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Anderson_ad27c30380b7816ed7fe930268a5d2e23}{solve}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Anderson_aefd4705d66b85077aa1a056fc7df7e7e}{matvec}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Anderson_add45a5f8b60d85198f6e18e7695c742a}{alpha}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Anderson_aae98fea4449ce682b8b82c599c479410}{M}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Anderson_ab8ac98163a6abd460da9b477e660d743}{dx}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a4968d29a1ed2a0e3e4b436a24fdc28c4}{df}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a845b11b413d803e06c18a72d85d1c040}{gamma}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Anderson_ad4494abfd0d519f4551d625021a9f1ba}{w0}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a3e23fb24b2dc67e1d1729809c6ef935a}{a}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Find a root of a function, using (extended) Anderson mixing.
+
+The Jacobian is formed by for a 'best' solution in the space
+spanned by last `M` vectors. As a result, only a MxM matrix
+inversions and MxN multiplications are required. [Ey]_
+
+Parameters
+----------
+%(params_basic)s
+alpha : float, optional
+    Initial guess for the Jacobian is (-1/alpha).
+M : float, optional
+    Number of previous vectors to retain. Defaults to 5.
+w0 : float, optional
+    Regularization parameter for numerical stability.
+    Compared to unity, good values of the order of 0.01.
+%(params_extra)s
+
+References
+----------
+.. [Ey] V. Eyert, J. Comp. Phys., 124, 271 (1996).\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a2dc5729c6f05f66826c648816e9d3d24}{}\index{scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+nonlin.\+Anderson.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{alpha = {\ttfamily None}, }
+\item[{}]{w0 = {\ttfamily 0.01}, }
+\item[{}]{M = {\ttfamily 5}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a2dc5729c6f05f66826c648816e9d3d24}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson_aefd4705d66b85077aa1a056fc7df7e7e}{}\index{scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}!matvec@{matvec}}
+\index{matvec@{matvec}!scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}}
+\subsubsection[{matvec}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+nonlin.\+Anderson.\+matvec (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{f}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson_aefd4705d66b85077aa1a056fc7df7e7e}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson_ad27c30380b7816ed7fe930268a5d2e23}{}\index{scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}!solve@{solve}}
+\index{solve@{solve}!scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}}
+\subsubsection[{solve}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+nonlin.\+Anderson.\+solve (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{f, }
+\item[{}]{tol = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson_ad27c30380b7816ed7fe930268a5d2e23}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a3e23fb24b2dc67e1d1729809c6ef935a}{}\index{scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}!a@{a}}
+\index{a@{a}!scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}}
+\subsubsection[{a}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+nonlin.\+Anderson.\+a}\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a3e23fb24b2dc67e1d1729809c6ef935a}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson_add45a5f8b60d85198f6e18e7695c742a}{}\index{scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}!alpha@{alpha}}
+\index{alpha@{alpha}!scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}}
+\subsubsection[{alpha}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+nonlin.\+Anderson.\+alpha}\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson_add45a5f8b60d85198f6e18e7695c742a}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a4968d29a1ed2a0e3e4b436a24fdc28c4}{}\index{scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}!df@{df}}
+\index{df@{df}!scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}}
+\subsubsection[{df}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+nonlin.\+Anderson.\+df}\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a4968d29a1ed2a0e3e4b436a24fdc28c4}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson_ab8ac98163a6abd460da9b477e660d743}{}\index{scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}!dx@{dx}}
+\index{dx@{dx}!scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}}
+\subsubsection[{dx}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+nonlin.\+Anderson.\+dx}\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson_ab8ac98163a6abd460da9b477e660d743}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a845b11b413d803e06c18a72d85d1c040}{}\index{scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}!gamma@{gamma}}
+\index{gamma@{gamma}!scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}}
+\subsubsection[{gamma}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+nonlin.\+Anderson.\+gamma}\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson_a845b11b413d803e06c18a72d85d1c040}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson_aae98fea4449ce682b8b82c599c479410}{}\index{scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}!M@{M}}
+\index{M@{M}!scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}}
+\subsubsection[{M}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+nonlin.\+Anderson.\+M}\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson_aae98fea4449ce682b8b82c599c479410}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Anderson_ad4494abfd0d519f4551d625021a9f1ba}{}\index{scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}!w0@{w0}}
+\index{w0@{w0}!scipy\+::optimize\+::nonlin\+::\+Anderson@{scipy\+::optimize\+::nonlin\+::\+Anderson}}
+\subsubsection[{w0}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+nonlin.\+Anderson.\+w0}\label{classscipy_1_1optimize_1_1nonlin_1_1Anderson_ad4494abfd0d519f4551d625021a9f1ba}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/optimize/\hyperlink{nonlin_8py}{nonlin.\+py}\end{DoxyCompactItemize}

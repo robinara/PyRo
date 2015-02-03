@@ -1,0 +1,89 @@
+\hypertarget{__superlumodule_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+\_\+superlumodule.c File Reference}
+\label{__superlumodule_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+\_\+superlumodule.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+\_\+superlumodule.\+c}}
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include $<$setjmp.\+h$>$}\\*
+{\ttfamily \#include $<$numpy/arrayobject.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}\+\_\+superluobject.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}numpy/npy\+\_\+3kcompat.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{__superlumodule_8c_a7d399fcbebb74300921248d831d6ab6f}{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}~\+\_\+scipy\+\_\+sparse\+\_\+superlu\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+P\+I
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{__superlumodule_8c_aab5e0733fbab19ef0ba47dddaabee80d}{X\+Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\item 
+void \hyperlink{__superlumodule_8c_a1292ea96178b003d68948fb408cdd590}{X\+Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\item 
+void \hyperlink{__superlumodule_8c_a03354b7f2d0e9a9b8c1fc276deafc5a6}{X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\item 
+void \hyperlink{__superlumodule_8c_a4a29df82d0d7b5f7d00a778240d723f4}{X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\item 
+void \hyperlink{__superlumodule_8c_afab88cb4f5970623e5562cd2004c5b7c}{X\+Stat\+Free} (\hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\item 
+\hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} \hyperlink{__superlumodule_8c_a462bcb957bf05411502ad239683051b3}{init\+\_\+superlu} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+jmp\+\_\+buf \hyperlink{__superlumodule_8c_a474df5043990c511e994dd3839c99acf}{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{__superlumodule_8c_a7d399fcbebb74300921248d831d6ab6f}{}\index{\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}!P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L@{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}}
+\index{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L@{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}!\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}}
+\subsubsection[{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L~\+\_\+scipy\+\_\+sparse\+\_\+superlu\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+P\+I}\label{__superlumodule_8c_a7d399fcbebb74300921248d831d6ab6f}
+
+
+\subsection{Function Documentation}
+\hypertarget{__superlumodule_8c_a462bcb957bf05411502ad239683051b3}{}\index{\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}!init\+\_\+superlu@{init\+\_\+superlu}}
+\index{init\+\_\+superlu@{init\+\_\+superlu}!\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}}
+\subsubsection[{init\+\_\+superlu}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} init\+\_\+superlu (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{__superlumodule_8c_a462bcb957bf05411502ad239683051b3}
+\hypertarget{__superlumodule_8c_a03354b7f2d0e9a9b8c1fc276deafc5a6}{}\index{\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}!X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix@{X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix}}
+\index{X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix@{X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix}!\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}}
+\subsubsection[{X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{__superlumodule_8c_a03354b7f2d0e9a9b8c1fc276deafc5a6}
+\hypertarget{__superlumodule_8c_a4a29df82d0d7b5f7d00a778240d723f4}{}\index{\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}!X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted@{X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted}}
+\index{X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted@{X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted}!\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}}
+\subsubsection[{X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted}]{\setlength{\rightskip}{0pt plus 5cm}void X\+Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{__superlumodule_8c_a4a29df82d0d7b5f7d00a778240d723f4}
+\hypertarget{__superlumodule_8c_aab5e0733fbab19ef0ba47dddaabee80d}{}\index{\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}!X\+Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store@{X\+Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store}}
+\index{X\+Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store@{X\+Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store}!\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}}
+\subsubsection[{X\+Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store}]{\setlength{\rightskip}{0pt plus 5cm}void X\+Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{__superlumodule_8c_aab5e0733fbab19ef0ba47dddaabee80d}
+\hypertarget{__superlumodule_8c_a1292ea96178b003d68948fb408cdd590}{}\index{\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}!X\+Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix@{X\+Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix}}
+\index{X\+Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix@{X\+Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix}!\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}}
+\subsubsection[{X\+Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void X\+Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{__superlumodule_8c_a1292ea96178b003d68948fb408cdd590}
+\hypertarget{__superlumodule_8c_afab88cb4f5970623e5562cd2004c5b7c}{}\index{\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}!X\+Stat\+Free@{X\+Stat\+Free}}
+\index{X\+Stat\+Free@{X\+Stat\+Free}!\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}}
+\subsubsection[{X\+Stat\+Free}]{\setlength{\rightskip}{0pt plus 5cm}void X\+Stat\+Free (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{__superlumodule_8c_afab88cb4f5970623e5562cd2004c5b7c}
+
+
+\subsection{Variable Documentation}
+\hypertarget{__superlumodule_8c_a474df5043990c511e994dd3839c99acf}{}\index{\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}!\+\_\+superlu\+\_\+py\+\_\+jmpbuf@{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}}
+\index{\+\_\+superlu\+\_\+py\+\_\+jmpbuf@{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}!\+\_\+superlumodule.\+c@{\+\_\+superlumodule.\+c}}
+\subsubsection[{\+\_\+superlu\+\_\+py\+\_\+jmpbuf}]{\setlength{\rightskip}{0pt plus 5cm}jmp\+\_\+buf \+\_\+superlu\+\_\+py\+\_\+jmpbuf}\label{__superlumodule_8c_a474df5043990c511e994dd3839c99acf}

@@ -1,0 +1,142 @@
+\hypertarget{classbench__optimizers_1_1__BenchOptimizers}{}\section{bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers Class Reference}
+\label{classbench__optimizers_1_1__BenchOptimizers}\index{bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers}}
+Inheritance diagram for bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbench__optimizers_1_1__BenchOptimizers}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbench__optimizers_1_1__BenchOptimizers_a0741b148516ba806effabfe4e407b179}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classbench__optimizers_1_1__BenchOptimizers_a414c608ec5a23601cc181b00508daf67}{reset}
+\item 
+def \hyperlink{classbench__optimizers_1_1__BenchOptimizers_af8664f9651000004fd871a561df27a6b}{add\+\_\+result}
+\item 
+def \hyperlink{classbench__optimizers_1_1__BenchOptimizers_ac75caed00bf31de5472bb794b454f56a}{print\+\_\+results}
+\item 
+def \hyperlink{classbench__optimizers_1_1__BenchOptimizers_a606cc1245ad7bbfb52ea36e5a4cd2800}{average\+\_\+results}
+\item 
+def \hyperlink{classbench__optimizers_1_1__BenchOptimizers_aa2aae214890f73cf0ba6e61f16144dbb}{bench\+\_\+run}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbench__optimizers_1_1__BenchOptimizers_ad9dab38557b2158ea2e21293271e385e}{function\+\_\+name}
+\item 
+\hyperlink{classbench__optimizers_1_1__BenchOptimizers_af8a715948d979dfc5618356fe04b2cf1}{fun}
+\item 
+\hyperlink{classbench__optimizers_1_1__BenchOptimizers_a106f4acfad30abe085c0b7ceca2a85f3}{der}
+\item 
+\hyperlink{classbench__optimizers_1_1__BenchOptimizers_a72d3ff07ec2b9adad2967ec13d3239b4}{hess}
+\item 
+\hyperlink{classbench__optimizers_1_1__BenchOptimizers_a01ab07cf0f468957aae6c722c81f646b}{minimizer\+\_\+kwargs}
+\item 
+\hyperlink{classbench__optimizers_1_1__BenchOptimizers_a2091e381f35bb5b7a8d88049369b5167}{results}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}a framework for benchmarking the optimizer
+
+Parameters
+----------
+function_name : string
+fun : callable
+der : callable
+    function that returns the derivative (jacobian, gradient) of fun
+hess : callable
+    function that returns the hessian of fun
+minimizer_kwargs : kwargs
+    additional keywords passed to the minimizer.  e.g. tol, maxiter
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbench__optimizers_1_1__BenchOptimizers_a0741b148516ba806effabfe4e407b179}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{function\+\_\+name, }
+\item[{}]{fun, }
+\item[{}]{der = {\ttfamily None}, }
+\item[{}]{hess = {\ttfamily None}, }
+\item[{}]{minimizer\+\_\+kwargs}
+\end{DoxyParamCaption}
+)}\label{classbench__optimizers_1_1__BenchOptimizers_a0741b148516ba806effabfe4e407b179}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbench__optimizers_1_1__BenchOptimizers_af8664f9651000004fd871a561df27a6b}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!add\+\_\+result@{add\+\_\+result}}
+\index{add\+\_\+result@{add\+\_\+result}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{add\+\_\+result}]{\setlength{\rightskip}{0pt plus 5cm}def bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+add\+\_\+result (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{result, }
+\item[{}]{t, }
+\item[{}]{name}
+\end{DoxyParamCaption}
+)}\label{classbench__optimizers_1_1__BenchOptimizers_af8664f9651000004fd871a561df27a6b}
+\begin{DoxyVerb}add a result to the list\end{DoxyVerb}
+ \hypertarget{classbench__optimizers_1_1__BenchOptimizers_a606cc1245ad7bbfb52ea36e5a4cd2800}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!average\+\_\+results@{average\+\_\+results}}
+\index{average\+\_\+results@{average\+\_\+results}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{average\+\_\+results}]{\setlength{\rightskip}{0pt plus 5cm}def bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+average\+\_\+results (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classbench__optimizers_1_1__BenchOptimizers_a606cc1245ad7bbfb52ea36e5a4cd2800}
+\begin{DoxyVerb}group the results by minimizer and average over the runs\end{DoxyVerb}
+ \hypertarget{classbench__optimizers_1_1__BenchOptimizers_aa2aae214890f73cf0ba6e61f16144dbb}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!bench\+\_\+run@{bench\+\_\+run}}
+\index{bench\+\_\+run@{bench\+\_\+run}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{bench\+\_\+run}]{\setlength{\rightskip}{0pt plus 5cm}def bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+bench\+\_\+run (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x0, }
+\item[{}]{minimizer\+\_\+kwargs}
+\end{DoxyParamCaption}
+)}\label{classbench__optimizers_1_1__BenchOptimizers_aa2aae214890f73cf0ba6e61f16144dbb}
+\begin{DoxyVerb}do an optimization test starting at x0 for all the optimizers\end{DoxyVerb}
+ \hypertarget{classbench__optimizers_1_1__BenchOptimizers_ac75caed00bf31de5472bb794b454f56a}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!print\+\_\+results@{print\+\_\+results}}
+\index{print\+\_\+results@{print\+\_\+results}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{print\+\_\+results}]{\setlength{\rightskip}{0pt plus 5cm}def bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+print\+\_\+results (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classbench__optimizers_1_1__BenchOptimizers_ac75caed00bf31de5472bb794b454f56a}
+\begin{DoxyVerb}print the current list of results\end{DoxyVerb}
+ \hypertarget{classbench__optimizers_1_1__BenchOptimizers_a414c608ec5a23601cc181b00508daf67}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!reset@{reset}}
+\index{reset@{reset}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}def bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+reset (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classbench__optimizers_1_1__BenchOptimizers_a414c608ec5a23601cc181b00508daf67}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbench__optimizers_1_1__BenchOptimizers_a106f4acfad30abe085c0b7ceca2a85f3}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!der@{der}}
+\index{der@{der}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{der}]{\setlength{\rightskip}{0pt plus 5cm}bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+der}\label{classbench__optimizers_1_1__BenchOptimizers_a106f4acfad30abe085c0b7ceca2a85f3}
+\hypertarget{classbench__optimizers_1_1__BenchOptimizers_af8a715948d979dfc5618356fe04b2cf1}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!fun@{fun}}
+\index{fun@{fun}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{fun}]{\setlength{\rightskip}{0pt plus 5cm}bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+fun}\label{classbench__optimizers_1_1__BenchOptimizers_af8a715948d979dfc5618356fe04b2cf1}
+\hypertarget{classbench__optimizers_1_1__BenchOptimizers_ad9dab38557b2158ea2e21293271e385e}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!function\+\_\+name@{function\+\_\+name}}
+\index{function\+\_\+name@{function\+\_\+name}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{function\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+function\+\_\+name}\label{classbench__optimizers_1_1__BenchOptimizers_ad9dab38557b2158ea2e21293271e385e}
+\hypertarget{classbench__optimizers_1_1__BenchOptimizers_a72d3ff07ec2b9adad2967ec13d3239b4}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!hess@{hess}}
+\index{hess@{hess}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{hess}]{\setlength{\rightskip}{0pt plus 5cm}bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+hess}\label{classbench__optimizers_1_1__BenchOptimizers_a72d3ff07ec2b9adad2967ec13d3239b4}
+\hypertarget{classbench__optimizers_1_1__BenchOptimizers_a01ab07cf0f468957aae6c722c81f646b}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!minimizer\+\_\+kwargs@{minimizer\+\_\+kwargs}}
+\index{minimizer\+\_\+kwargs@{minimizer\+\_\+kwargs}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{minimizer\+\_\+kwargs}]{\setlength{\rightskip}{0pt plus 5cm}bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+minimizer\+\_\+kwargs}\label{classbench__optimizers_1_1__BenchOptimizers_a01ab07cf0f468957aae6c722c81f646b}
+\hypertarget{classbench__optimizers_1_1__BenchOptimizers_a2091e381f35bb5b7a8d88049369b5167}{}\index{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}!results@{results}}
+\index{results@{results}!bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers@{bench\+\_\+optimizers\+::\+\_\+\+Bench\+Optimizers}}
+\subsubsection[{results}]{\setlength{\rightskip}{0pt plus 5cm}bench\+\_\+optimizers.\+\_\+\+Bench\+Optimizers.\+results}\label{classbench__optimizers_1_1__BenchOptimizers_a2091e381f35bb5b7a8d88049369b5167}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/optimize/benchmarks/\hyperlink{bench__optimizers_8py}{bench\+\_\+optimizers.\+py}\end{DoxyCompactItemize}

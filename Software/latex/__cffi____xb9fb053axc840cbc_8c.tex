@@ -1,0 +1,300 @@
+\hypertarget{__cffi____xb9fb053axc840cbc_8c}{}\section{packages/smbus-\/cffi-\/0.3.2/smbus/\+\_\+\+\_\+pycache\+\_\+\+\_\+/\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.c File Reference}
+\label{__cffi____xb9fb053axc840cbc_8c}\index{packages/smbus-\/cffi-\/0.\+3.\+2/smbus/\+\_\+\+\_\+pycache\+\_\+\+\_\+/\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{packages/smbus-\/cffi-\/0.\+3.\+2/smbus/\+\_\+\+\_\+pycache\+\_\+\+\_\+/\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include $<$stddef.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_af794c4accf184f886ed8c7d28e2ed769}{Py\+Capsule\+\_\+\+Check\+Exact}(capsule)~(Py\+C\+Object\+\_\+\+Check(capsule))
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a0050ecfd379a57970d98917f57e5bce8}{Py\+Capsule\+\_\+\+Get\+Pointer}(capsule,  name)~(Py\+C\+Object\+\_\+\+As\+Void\+Ptr(capsule))
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_af2c5c139aa91a6a4b0cbd3ce3738e717}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+double}~Py\+Float\+\_\+\+From\+Double
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_ac4178be8e779a4ca6af96e774237a5d3}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+float}~Py\+Float\+\_\+\+From\+Double
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a7387afb40c143ee30362ce833ca0cc82}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+long}~Py\+Int\+\_\+\+From\+Long
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a55230724e6933170fbfb393ddc79c0a3}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulong}~Py\+Long\+\_\+\+From\+Unsigned\+Long
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_ae382f27be7626e3bcaa5337e05cdbbbd}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+longlong}~Py\+Long\+\_\+\+From\+Long\+Long
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a662b53aef0b166b5773e6312b6574644}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulonglong}~Py\+Long\+\_\+\+From\+Unsigned\+Long\+Long
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a5a653d52395fd1e7fdd113b4cd2ab0d9}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+double}~Py\+Float\+\_\+\+As\+Double
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a2a526741afe2829367409d4d29172b1f}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+float}~Py\+Float\+\_\+\+As\+Double
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a138abb14db9bd7e0fb7762f2ca19c796}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int\+\_\+const}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_ae7968a91437caf667d3a4b6a04f9dc87}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x},  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_aeffa3e56aeb99b734b001334256a88fe}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+int}(\hyperlink{indexexpr_8h_ae4770fe31e4de70bda45529bf7f7eab0}{o},  \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a4eeca9887f180215f6f8d368ae85969c}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i8}~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}1\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a0d0f41988a532cb7a9f34e1bb0c4b56f}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u8}~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}2\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a0f003ea9fdf0b1f2fa1ce099a4a85f80}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i16}~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}3\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a0b01ef5b939cfa07083070bc2c2f55b0}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u16}~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}4\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_aa64907c0f10683933fa44562dad8e5a2}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i32}~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}5\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a9611e7576ff9b0a8e9cde56d14e10b98}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u32}~((unsigned int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}6\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a3474b49d00eea332475255376e467cad}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i64}~((long long($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}7\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a621a938c0d9f2bb83404e37d8121d0a0}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u64}~((unsigned long long($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}8\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a787b12db861233ff1874f2ea61203dfc}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+char}~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}9\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_ab04e26d0665e2f923b05bd344924db25}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+pointer}~((Py\+Object $\ast$($\ast$)(char $\ast$, \hyperlink{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}{C\+Type\+Descr\+Object} $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}10\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_ad6b2cc739a5d1373f03d962c8da286af}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+pointer}~((char $\ast$($\ast$)(Py\+Object $\ast$, \hyperlink{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}{C\+Type\+Descr\+Object} $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}11\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a0358c67fb3c30574fcf2947811d72f02}{\+\_\+cffi\+\_\+get\+\_\+struct\+\_\+layout}~((Py\+Object $\ast$($\ast$)(Py\+\_\+ssize\+\_\+t\mbox{[}$\,$\mbox{]}))\+\_\+cffi\+\_\+exports\mbox{[}12\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a886c4bc2f56b8375ef76bf2fa00b09f9}{\+\_\+cffi\+\_\+restore\+\_\+errno}~((void($\ast$)(void))\+\_\+cffi\+\_\+exports\mbox{[}13\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_aaf72e8147ee455b5b024070562665e39}{\+\_\+cffi\+\_\+save\+\_\+errno}~((void($\ast$)(void))\+\_\+cffi\+\_\+exports\mbox{[}14\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a2a9ebd57a067fa11e782c542a45f3a9c}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+char}~((Py\+Object $\ast$($\ast$)(char))\+\_\+cffi\+\_\+exports\mbox{[}15\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_ada72ed2e2031e6b513bd327ed7904889}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+deref}~((Py\+Object $\ast$($\ast$)(char $\ast$, \hyperlink{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}{C\+Type\+Descr\+Object} $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}16\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a94cf8ae03007b9e279c2c2517634f6cd}{\+\_\+cffi\+\_\+to\+\_\+c}~((int($\ast$)(char $\ast$, \hyperlink{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}{C\+Type\+Descr\+Object} $\ast$, Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}17\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a6b859a2186fcf8fec6b2af95a9620c1b}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+struct}~((Py\+Object $\ast$($\ast$)(char $\ast$, \hyperlink{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}{C\+Type\+Descr\+Object} $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}18\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_af7256fe44bc2e92d0de70b58b856d18c}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+wchar\+\_\+t}~((wchar\+\_\+t($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}19\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a16e68fb70b0b852c11784c0a6f7f89f2}{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+wchar\+\_\+t}~((Py\+Object $\ast$($\ast$)(wchar\+\_\+t))\+\_\+cffi\+\_\+exports\mbox{[}20\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_ad0d988d4d91fea6cb2496fbd75ea2381}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+long\+\_\+double}~((long double($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}21\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a3d38f7bb45d9f85a6796c4bf3fd91bf9}{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+\+\_\+\+Bool}~((\+\_\+\+Bool($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}22\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a5a04586745b692e32ff1a5fc6b1216b8}{\+\_\+cffi\+\_\+prepare\+\_\+pointer\+\_\+call\+\_\+argument}~((Py\+\_\+ssize\+\_\+t($\ast$)(\hyperlink{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}{C\+Type\+Descr\+Object} $\ast$, Py\+Object $\ast$, char $\ast$$\ast$))\+\_\+cffi\+\_\+exports\mbox{[}23\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a24872c4a54182e8e2e4dfccbdacfdd50}{\+\_\+cffi\+\_\+convert\+\_\+array\+\_\+from\+\_\+object}~((int($\ast$)(char $\ast$, \hyperlink{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}{C\+Type\+Descr\+Object} $\ast$, Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}24\mbox{]})
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a935d3dc9487973e04d97d645d5886efa}{\+\_\+\+C\+F\+F\+I\+\_\+\+N\+U\+M\+\_\+\+E\+X\+P\+O\+R\+T\+S}~25
+\item 
+\#define \hyperlink{__cffi____xb9fb053axc840cbc_8c_a19743946d1bfd88cb0f52cbc3eb34530}{\+\_\+cffi\+\_\+type}(num)~((\hyperlink{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}{C\+Type\+Descr\+Object} $\ast$)Py\+List\+\_\+\+G\+E\+T\+\_\+\+I\+T\+E\+M(\+\_\+cffi\+\_\+types, num))
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \+\_\+ctypedescr \hyperlink{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}{C\+Type\+Descr\+Object}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} \hyperlink{__cffi____xb9fb053axc840cbc_8c_adca7c54ff8bda1194349a74b3d5bde72}{init\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a24872c4a54182e8e2e4dfccbdacfdd50}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+convert\+\_\+array\+\_\+from\+\_\+object@{\+\_\+cffi\+\_\+convert\+\_\+array\+\_\+from\+\_\+object}}
+\index{\+\_\+cffi\+\_\+convert\+\_\+array\+\_\+from\+\_\+object@{\+\_\+cffi\+\_\+convert\+\_\+array\+\_\+from\+\_\+object}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+convert\+\_\+array\+\_\+from\+\_\+object}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+convert\+\_\+array\+\_\+from\+\_\+object~((int($\ast$)(char $\ast$, {\bf C\+Type\+Descr\+Object} $\ast$, Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}24\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a24872c4a54182e8e2e4dfccbdacfdd50}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a2a9ebd57a067fa11e782c542a45f3a9c}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+char@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+char}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+char@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+char}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+char}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+char~((Py\+Object $\ast$($\ast$)(char))\+\_\+cffi\+\_\+exports\mbox{[}15\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a2a9ebd57a067fa11e782c542a45f3a9c}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_ada72ed2e2031e6b513bd327ed7904889}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+deref@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+deref}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+deref@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+deref}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+deref}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+deref~((Py\+Object $\ast$($\ast$)(char $\ast$, {\bf C\+Type\+Descr\+Object} $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}16\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_ada72ed2e2031e6b513bd327ed7904889}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_af2c5c139aa91a6a4b0cbd3ce3738e717}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+double@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+double}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+double@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+double}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+double}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+double~Py\+Float\+\_\+\+From\+Double}\label{__cffi____xb9fb053axc840cbc_8c_af2c5c139aa91a6a4b0cbd3ce3738e717}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_ac4178be8e779a4ca6af96e774237a5d3}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+float@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+float}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+float@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+float}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+float}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+float~Py\+Float\+\_\+\+From\+Double}\label{__cffi____xb9fb053axc840cbc_8c_ac4178be8e779a4ca6af96e774237a5d3}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_ae7968a91437caf667d3a4b6a04f9dc87}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+int(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)}\label{__cffi____xb9fb053axc840cbc_8c_ae7968a91437caf667d3a4b6a04f9dc87}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})-1) > 0 ?   \textcolor{comment}{/* unsigned */}                                   \(\backslash\)
+        (\textcolor{keyword}{sizeof}(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}) < \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{long}) ? PyInt\_FromLong(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}) :               \(\backslash\)
+         sizeof(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}) == sizeof(long) ? PyLong\_FromUnsignedLong(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}) :     \(\backslash\)
+                                        PyLong\_FromUnsignedLongLong(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}))  \(\backslash\)
+      : (sizeof(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}) <= sizeof(long) ? PyInt\_FromLong(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}) :              \(\backslash\)
+                                        PyLong\_FromLongLong(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x})))
+\end{DoxyCode}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a138abb14db9bd7e0fb7762f2ca19c796}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int\+\_\+const@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int\+\_\+const}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int\+\_\+const@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int\+\_\+const}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+int\+\_\+const}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+int\+\_\+const(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)}\label{__cffi____xb9fb053axc840cbc_8c_a138abb14db9bd7e0fb7762f2ca19c796}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(((\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}) > 0) ?                                                         \(\backslash\)
+        ((\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} long)(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}) <= (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} long)LONG\_MAX) ?      \(\backslash\)
+            PyInt\_FromLong((\textcolor{keywordtype}{long})(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x})) :                                  \(\backslash\)
+            PyLong\_FromUnsignedLongLong((unsigned long long)(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x})) :       \(\backslash\)
+        ((long long)(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x}) >= (long long)LONG\_MIN) ?                        \(\backslash\)
+            PyInt\_FromLong((long)(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x})) :                                  \(\backslash\)
+            PyLong\_FromLongLong((long long)(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x})))
+\end{DoxyCode}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a7387afb40c143ee30362ce833ca0cc82}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+long@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+long}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+long@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+long}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+long}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+long~Py\+Int\+\_\+\+From\+Long}\label{__cffi____xb9fb053axc840cbc_8c_a7387afb40c143ee30362ce833ca0cc82}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_ae382f27be7626e3bcaa5337e05cdbbbd}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+longlong@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+longlong}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+longlong@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+longlong}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+longlong}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+longlong~Py\+Long\+\_\+\+From\+Long\+Long}\label{__cffi____xb9fb053axc840cbc_8c_ae382f27be7626e3bcaa5337e05cdbbbd}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_ab04e26d0665e2f923b05bd344924db25}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+pointer@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+pointer}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+pointer@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+pointer}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+pointer}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+pointer~((Py\+Object $\ast$($\ast$)(char $\ast$, {\bf C\+Type\+Descr\+Object} $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}10\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_ab04e26d0665e2f923b05bd344924db25}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a6b859a2186fcf8fec6b2af95a9620c1b}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+struct@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+struct}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+struct@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+struct}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+struct}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+struct~((Py\+Object $\ast$($\ast$)(char $\ast$, {\bf C\+Type\+Descr\+Object} $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}18\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a6b859a2186fcf8fec6b2af95a9620c1b}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a55230724e6933170fbfb393ddc79c0a3}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulong@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulong}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulong@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulong}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulong}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulong~Py\+Long\+\_\+\+From\+Unsigned\+Long}\label{__cffi____xb9fb053axc840cbc_8c_a55230724e6933170fbfb393ddc79c0a3}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a662b53aef0b166b5773e6312b6574644}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulonglong@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulonglong}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulonglong@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulonglong}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulonglong}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+ulonglong~Py\+Long\+\_\+\+From\+Unsigned\+Long\+Long}\label{__cffi____xb9fb053axc840cbc_8c_a662b53aef0b166b5773e6312b6574644}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a16e68fb70b0b852c11784c0a6f7f89f2}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+from\+\_\+c\+\_\+wchar\+\_\+t@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+wchar\+\_\+t}}
+\index{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+wchar\+\_\+t@{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+wchar\+\_\+t}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+from\+\_\+c\+\_\+wchar\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+from\+\_\+c\+\_\+wchar\+\_\+t~((Py\+Object $\ast$($\ast$)(wchar\+\_\+t))\+\_\+cffi\+\_\+exports\mbox{[}20\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a16e68fb70b0b852c11784c0a6f7f89f2}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a0358c67fb3c30574fcf2947811d72f02}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+get\+\_\+struct\+\_\+layout@{\+\_\+cffi\+\_\+get\+\_\+struct\+\_\+layout}}
+\index{\+\_\+cffi\+\_\+get\+\_\+struct\+\_\+layout@{\+\_\+cffi\+\_\+get\+\_\+struct\+\_\+layout}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+get\+\_\+struct\+\_\+layout}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+get\+\_\+struct\+\_\+layout~((Py\+Object $\ast$($\ast$)(Py\+\_\+ssize\+\_\+t\mbox{[}$\,$\mbox{]}))\+\_\+cffi\+\_\+exports\mbox{[}12\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a0358c67fb3c30574fcf2947811d72f02}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a935d3dc9487973e04d97d645d5886efa}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+\+C\+F\+F\+I\+\_\+\+N\+U\+M\+\_\+\+E\+X\+P\+O\+R\+T\+S@{\+\_\+\+C\+F\+F\+I\+\_\+\+N\+U\+M\+\_\+\+E\+X\+P\+O\+R\+T\+S}}
+\index{\+\_\+\+C\+F\+F\+I\+\_\+\+N\+U\+M\+\_\+\+E\+X\+P\+O\+R\+T\+S@{\+\_\+\+C\+F\+F\+I\+\_\+\+N\+U\+M\+\_\+\+E\+X\+P\+O\+R\+T\+S}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+\+C\+F\+F\+I\+\_\+\+N\+U\+M\+\_\+\+E\+X\+P\+O\+R\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+C\+F\+F\+I\+\_\+\+N\+U\+M\+\_\+\+E\+X\+P\+O\+R\+T\+S~25}\label{__cffi____xb9fb053axc840cbc_8c_a935d3dc9487973e04d97d645d5886efa}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a5a04586745b692e32ff1a5fc6b1216b8}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+prepare\+\_\+pointer\+\_\+call\+\_\+argument@{\+\_\+cffi\+\_\+prepare\+\_\+pointer\+\_\+call\+\_\+argument}}
+\index{\+\_\+cffi\+\_\+prepare\+\_\+pointer\+\_\+call\+\_\+argument@{\+\_\+cffi\+\_\+prepare\+\_\+pointer\+\_\+call\+\_\+argument}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+prepare\+\_\+pointer\+\_\+call\+\_\+argument}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+prepare\+\_\+pointer\+\_\+call\+\_\+argument~((Py\+\_\+ssize\+\_\+t($\ast$)({\bf C\+Type\+Descr\+Object} $\ast$, Py\+Object $\ast$, char $\ast$$\ast$))\+\_\+cffi\+\_\+exports\mbox{[}23\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a5a04586745b692e32ff1a5fc6b1216b8}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a886c4bc2f56b8375ef76bf2fa00b09f9}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+restore\+\_\+errno@{\+\_\+cffi\+\_\+restore\+\_\+errno}}
+\index{\+\_\+cffi\+\_\+restore\+\_\+errno@{\+\_\+cffi\+\_\+restore\+\_\+errno}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+restore\+\_\+errno}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+restore\+\_\+errno~((void($\ast$)(void))\+\_\+cffi\+\_\+exports\mbox{[}13\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a886c4bc2f56b8375ef76bf2fa00b09f9}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_aaf72e8147ee455b5b024070562665e39}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+save\+\_\+errno@{\+\_\+cffi\+\_\+save\+\_\+errno}}
+\index{\+\_\+cffi\+\_\+save\+\_\+errno@{\+\_\+cffi\+\_\+save\+\_\+errno}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+save\+\_\+errno}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+save\+\_\+errno~((void($\ast$)(void))\+\_\+cffi\+\_\+exports\mbox{[}14\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_aaf72e8147ee455b5b024070562665e39}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a94cf8ae03007b9e279c2c2517634f6cd}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c@{\+\_\+cffi\+\_\+to\+\_\+c}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c@{\+\_\+cffi\+\_\+to\+\_\+c}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c~((int($\ast$)(char $\ast$, {\bf C\+Type\+Descr\+Object} $\ast$, Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}17\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a94cf8ae03007b9e279c2c2517634f6cd}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a3d38f7bb45d9f85a6796c4bf3fd91bf9}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+\+\_\+\+Bool@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+\+\_\+\+Bool}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+\+\_\+\+Bool@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+\+\_\+\+Bool}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+\+\_\+\+Bool}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+\+\_\+\+Bool~((\+\_\+\+Bool($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}22\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a3d38f7bb45d9f85a6796c4bf3fd91bf9}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a787b12db861233ff1874f2ea61203dfc}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+char@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+char}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+char@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+char}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+char}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+char~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}9\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a787b12db861233ff1874f2ea61203dfc}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a5a653d52395fd1e7fdd113b4cd2ab0d9}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+double@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+double}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+double@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+double}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+double}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+double~Py\+Float\+\_\+\+As\+Double}\label{__cffi____xb9fb053axc840cbc_8c_a5a653d52395fd1e7fdd113b4cd2ab0d9}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a2a526741afe2829367409d4d29172b1f}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+float@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+float}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+float@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+float}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+float}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+float~Py\+Float\+\_\+\+As\+Double}\label{__cffi____xb9fb053axc840cbc_8c_a2a526741afe2829367409d4d29172b1f}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a0f003ea9fdf0b1f2fa1ce099a4a85f80}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i16@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i16}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i16@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i16}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i16}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+i16~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}3\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a0f003ea9fdf0b1f2fa1ce099a4a85f80}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_aa64907c0f10683933fa44562dad8e5a2}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i32@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i32}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i32@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i32}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i32}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+i32~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}5\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_aa64907c0f10683933fa44562dad8e5a2}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a3474b49d00eea332475255376e467cad}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i64@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i64}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i64@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i64}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+i64~((long long($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}7\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a3474b49d00eea332475255376e467cad}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a4eeca9887f180215f6f8d368ae85969c}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i8@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i8}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i8@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i8}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+i8}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+i8~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}1\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a4eeca9887f180215f6f8d368ae85969c}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_aeffa3e56aeb99b734b001334256a88fe}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+int@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+int}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+int@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+int}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+int(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf o}, }
+\item[{}]{{\bf type}}
+\end{DoxyParamCaption}
+)}\label{__cffi____xb9fb053axc840cbc_8c_aeffa3e56aeb99b734b001334256a88fe}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(\textcolor{keyword}{sizeof}(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}) == 1 ? (((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})-1) > 0 ? (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})\hyperlink{__cffi____xb9fb053axc840cbc_8c_a0d0f41988a532cb7a9f34e1bb0c4b56f}{\_cffi\_to\_c\_u8}(
+      \hyperlink{indexexpr_8h_ae4770fe31e4de70bda45529bf7f7eab0}{o})        \(\backslash\)
+                                         : (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})\hyperlink{__cffi____xb9fb053axc840cbc_8c_a4eeca9887f180215f6f8d368ae85969c}{\_cffi\_to\_c\_i8}(
+      \hyperlink{indexexpr_8h_ae4770fe31e4de70bda45529bf7f7eab0}{o})) :     \(\backslash\)
+     \textcolor{keyword}{sizeof}(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}) == 2 ? (((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})-1) > 0 ? (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})\hyperlink{__cffi____xb9fb053axc840cbc_8c_a0b01ef5b939cfa07083070bc2c2f55b0}{\_cffi\_to\_c\_u16}(
+      \hyperlink{indexexpr_8h_ae4770fe31e4de70bda45529bf7f7eab0}{o})       \(\backslash\)
+                                         : (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})\hyperlink{__cffi____xb9fb053axc840cbc_8c_a0f003ea9fdf0b1f2fa1ce099a4a85f80}{\_cffi\_to\_c\_i16}(
+      \hyperlink{indexexpr_8h_ae4770fe31e4de70bda45529bf7f7eab0}{o})) :    \(\backslash\)
+     \textcolor{keyword}{sizeof}(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}) == 4 ? (((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})-1) > 0 ? (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})\hyperlink{__cffi____xb9fb053axc840cbc_8c_a9611e7576ff9b0a8e9cde56d14e10b98}{\_cffi\_to\_c\_u32}(
+      \hyperlink{indexexpr_8h_ae4770fe31e4de70bda45529bf7f7eab0}{o})       \(\backslash\)
+                                         : (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})\hyperlink{__cffi____xb9fb053axc840cbc_8c_aa64907c0f10683933fa44562dad8e5a2}{\_cffi\_to\_c\_i32}(
+      \hyperlink{indexexpr_8h_ae4770fe31e4de70bda45529bf7f7eab0}{o})) :    \(\backslash\)
+     \textcolor{keyword}{sizeof}(\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}) == 8 ? (((\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})-1) > 0 ? (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})\hyperlink{__cffi____xb9fb053axc840cbc_8c_a621a938c0d9f2bb83404e37d8121d0a0}{\_cffi\_to\_c\_u64}(
+      \hyperlink{indexexpr_8h_ae4770fe31e4de70bda45529bf7f7eab0}{o})       \(\backslash\)
+                                         : (\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})\hyperlink{__cffi____xb9fb053axc840cbc_8c_a3474b49d00eea332475255376e467cad}{\_cffi\_to\_c\_i64}(
+      \hyperlink{indexexpr_8h_ae4770fe31e4de70bda45529bf7f7eab0}{o})) :    \(\backslash\)
+     (Py\_FatalError(\textcolor{stringliteral}{"unsupported size for type "} #\hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}), 0))
+\end{DoxyCode}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_ad0d988d4d91fea6cb2496fbd75ea2381}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+long\+\_\+double@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+long\+\_\+double}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+long\+\_\+double@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+long\+\_\+double}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+long\+\_\+double}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+long\+\_\+double~((long double($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}21\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_ad0d988d4d91fea6cb2496fbd75ea2381}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_ad6b2cc739a5d1373f03d962c8da286af}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+pointer@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+pointer}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+pointer@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+pointer}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+pointer}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+pointer~((char $\ast$($\ast$)(Py\+Object $\ast$, {\bf C\+Type\+Descr\+Object} $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}11\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_ad6b2cc739a5d1373f03d962c8da286af}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a0b01ef5b939cfa07083070bc2c2f55b0}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u16@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u16}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u16@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u16}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u16}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+u16~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}4\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a0b01ef5b939cfa07083070bc2c2f55b0}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a9611e7576ff9b0a8e9cde56d14e10b98}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u32@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u32}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u32@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u32}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u32}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+u32~((unsigned int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}6\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a9611e7576ff9b0a8e9cde56d14e10b98}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a621a938c0d9f2bb83404e37d8121d0a0}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u64@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u64}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u64@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u64}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+u64~((unsigned long long($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}8\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a621a938c0d9f2bb83404e37d8121d0a0}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a0d0f41988a532cb7a9f34e1bb0c4b56f}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u8@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u8}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u8@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u8}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+u8}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+u8~((int($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}2\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_a0d0f41988a532cb7a9f34e1bb0c4b56f}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_af7256fe44bc2e92d0de70b58b856d18c}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+to\+\_\+c\+\_\+wchar\+\_\+t@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+wchar\+\_\+t}}
+\index{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+wchar\+\_\+t@{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+wchar\+\_\+t}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+to\+\_\+c\+\_\+wchar\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+to\+\_\+c\+\_\+wchar\+\_\+t~((wchar\+\_\+t($\ast$)(Py\+Object $\ast$))\+\_\+cffi\+\_\+exports\mbox{[}19\mbox{]})}\label{__cffi____xb9fb053axc840cbc_8c_af7256fe44bc2e92d0de70b58b856d18c}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a19743946d1bfd88cb0f52cbc3eb34530}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!\+\_\+cffi\+\_\+type@{\+\_\+cffi\+\_\+type}}
+\index{\+\_\+cffi\+\_\+type@{\+\_\+cffi\+\_\+type}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{\+\_\+cffi\+\_\+type}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+cffi\+\_\+type(
+\begin{DoxyParamCaption}
+\item[{}]{num}
+\end{DoxyParamCaption}
+)~(({\bf C\+Type\+Descr\+Object} $\ast$)Py\+List\+\_\+\+G\+E\+T\+\_\+\+I\+T\+E\+M(\+\_\+cffi\+\_\+types, num))}\label{__cffi____xb9fb053axc840cbc_8c_a19743946d1bfd88cb0f52cbc3eb34530}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_af794c4accf184f886ed8c7d28e2ed769}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!Py\+Capsule\+\_\+\+Check\+Exact@{Py\+Capsule\+\_\+\+Check\+Exact}}
+\index{Py\+Capsule\+\_\+\+Check\+Exact@{Py\+Capsule\+\_\+\+Check\+Exact}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{Py\+Capsule\+\_\+\+Check\+Exact}]{\setlength{\rightskip}{0pt plus 5cm}\#define Py\+Capsule\+\_\+\+Check\+Exact(
+\begin{DoxyParamCaption}
+\item[{}]{capsule}
+\end{DoxyParamCaption}
+)~(Py\+C\+Object\+\_\+\+Check(capsule))}\label{__cffi____xb9fb053axc840cbc_8c_af794c4accf184f886ed8c7d28e2ed769}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a0050ecfd379a57970d98917f57e5bce8}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!Py\+Capsule\+\_\+\+Get\+Pointer@{Py\+Capsule\+\_\+\+Get\+Pointer}}
+\index{Py\+Capsule\+\_\+\+Get\+Pointer@{Py\+Capsule\+\_\+\+Get\+Pointer}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{Py\+Capsule\+\_\+\+Get\+Pointer}]{\setlength{\rightskip}{0pt plus 5cm}\#define Py\+Capsule\+\_\+\+Get\+Pointer(
+\begin{DoxyParamCaption}
+\item[{}]{capsule, }
+\item[{}]{name}
+\end{DoxyParamCaption}
+)~(Py\+C\+Object\+\_\+\+As\+Void\+Ptr(capsule))}\label{__cffi____xb9fb053axc840cbc_8c_a0050ecfd379a57970d98917f57e5bce8}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!C\+Type\+Descr\+Object@{C\+Type\+Descr\+Object}}
+\index{C\+Type\+Descr\+Object@{C\+Type\+Descr\+Object}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{C\+Type\+Descr\+Object}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} \+\_\+ctypedescr {\bf C\+Type\+Descr\+Object}}\label{__cffi____xb9fb053axc840cbc_8c_a2700f184ca4afd593f4a9c50decca2c8}
+
+
+\subsection{Function Documentation}
+\hypertarget{__cffi____xb9fb053axc840cbc_8c_adca7c54ff8bda1194349a74b3d5bde72}{}\index{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}!init\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc@{init\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc}}
+\index{init\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc@{init\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc}!\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c@{\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc.\+c}}
+\subsubsection[{init\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} init\+\_\+cffi\+\_\+\+\_\+xb9fb053axc840cbc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{__cffi____xb9fb053axc840cbc_8c_adca7c54ff8bda1194349a74b3d5bde72}

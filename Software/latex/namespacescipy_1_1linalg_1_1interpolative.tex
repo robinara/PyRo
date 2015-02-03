@@ -1,0 +1,477 @@
+\hypertarget{namespacescipy_1_1linalg_1_1interpolative}{}\section{scipy.\+linalg.\+interpolative Namespace Reference}
+\label{namespacescipy_1_1linalg_1_1interpolative}\index{scipy.\+linalg.\+interpolative@{scipy.\+linalg.\+interpolative}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_aca9c667218677ace50bc00224f2e42ca}{seed}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_ad89ebf29a1d595592b6495fbf642a372}{rand}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_a7e0d99cb8e077e6ed3463c1cef8af58c}{interp\+\_\+decomp}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_a31e4297d91e2ce258ff27956302490b7}{reconstruct\+\_\+matrix\+\_\+from\+\_\+id}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_a3db48f192ba388b6d5cacafdd3d06129}{reconstruct\+\_\+interp\+\_\+matrix}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_a98c420fe02504293ddad029bc23eebe9}{reconstruct\+\_\+skel\+\_\+matrix}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_a0f6e062a7faa2169d3dc54e20ac0ea1b}{id\+\_\+to\+\_\+svd}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_a722ea469f4b2d7c48a18da2dde6e14a5}{estimate\+\_\+spectral\+\_\+norm}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_a5eb388ccc6d3622c26aa7e99c7526c8a}{estimate\+\_\+spectral\+\_\+norm\+\_\+diff}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_a61ede274e125088f8db231b613a47320}{svd}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1interpolative_a8fbeca3cfa57ca575a66f35299dbe07d}{estimate\+\_\+rank}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tuple \hyperlink{namespacescipy_1_1linalg_1_1interpolative_a2c56643bfab3d408976b53dc4ba6857f}{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R} = Value\+Error(\char`\"{}invalid \hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input} dtype (\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input} must be float64 or complex128)\char`\"{})
+\item 
+tuple \hyperlink{namespacescipy_1_1linalg_1_1interpolative_ad59bb08f7183a0e5957d8d528116ce16}{\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R} = Type\+Error(\char`\"{}invalid \hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input} \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type} (must be array or Linear\+Operator)\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1interpolative_a8fbeca3cfa57ca575a66f35299dbe07d}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!estimate\+\_\+rank@{estimate\+\_\+rank}}
+\index{estimate\+\_\+rank@{estimate\+\_\+rank}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{estimate\+\_\+rank}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+estimate\+\_\+rank (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{eps}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_a8fbeca3cfa57ca575a66f35299dbe07d}
+\begin{DoxyVerb}Estimate matrix rank to a specified relative precision using randomized
+methods.
+
+The matrix `A` can be given as either a :class:`numpy.ndarray` or a
+:class:`scipy.sparse.linalg.LinearOperator`, with different algorithms used
+for each case. If `A` is of type :class:`numpy.ndarray`, then the output
+rank is typically about 8 higher than the actual numerical rank.
+
+..  This function automatically detects the form of the input parameters and
+    passes them to the appropriate backend. For details,
+    see :func:`backend.idd_estrank`, :func:`backend.idd_findrank`,
+    :func:`backend.idz_estrank`, and :func:`backend.idz_findrank`.
+
+Parameters
+----------
+A : :class:`numpy.ndarray` or :class:`scipy.sparse.linalg.LinearOperator`
+    Matrix whose rank is to be estimated, given as either a
+    :class:`numpy.ndarray` or a :class:`scipy.sparse.linalg.LinearOperator`
+    with the `rmatvec` method (to apply the matrix adjoint).
+eps : float
+    Relative error for numerical rank definition.
+
+Returns
+-------
+int
+    Estimated matrix rank.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1interpolative_a722ea469f4b2d7c48a18da2dde6e14a5}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!estimate\+\_\+spectral\+\_\+norm@{estimate\+\_\+spectral\+\_\+norm}}
+\index{estimate\+\_\+spectral\+\_\+norm@{estimate\+\_\+spectral\+\_\+norm}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{estimate\+\_\+spectral\+\_\+norm}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+estimate\+\_\+spectral\+\_\+norm (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{its = {\ttfamily 20}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_a722ea469f4b2d7c48a18da2dde6e14a5}
+\begin{DoxyVerb}Estimate spectral norm of a matrix by the randomized power method.
+
+..  This function automatically detects the matrix data type and calls the
+    appropriate backend. For details, see :func:`backend.idd_snorm` and
+    :func:`backend.idz_snorm`.
+
+Parameters
+----------
+A : :class:`scipy.sparse.linalg.LinearOperator`
+    Matrix given as a :class:`scipy.sparse.linalg.LinearOperator` with the
+    `matvec` and `rmatvec` methods (to apply the matrix and its adjoint).
+its : int
+    Number of power method iterations.
+
+Returns
+-------
+float
+    Spectral norm estimate.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1interpolative_a5eb388ccc6d3622c26aa7e99c7526c8a}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!estimate\+\_\+spectral\+\_\+norm\+\_\+diff@{estimate\+\_\+spectral\+\_\+norm\+\_\+diff}}
+\index{estimate\+\_\+spectral\+\_\+norm\+\_\+diff@{estimate\+\_\+spectral\+\_\+norm\+\_\+diff}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{estimate\+\_\+spectral\+\_\+norm\+\_\+diff}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+estimate\+\_\+spectral\+\_\+norm\+\_\+diff (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{B, }
+\item[{}]{its = {\ttfamily 20}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_a5eb388ccc6d3622c26aa7e99c7526c8a}
+\begin{DoxyVerb}Estimate spectral norm of the difference of two matrices by the randomized
+power method.
+
+..  This function automatically detects the matrix data type and calls the
+    appropriate backend. For details, see :func:`backend.idd_diffsnorm` and
+    :func:`backend.idz_diffsnorm`.
+
+Parameters
+----------
+A : :class:`scipy.sparse.linalg.LinearOperator`
+    First matrix given as a :class:`scipy.sparse.linalg.LinearOperator` with the
+    `matvec` and `rmatvec` methods (to apply the matrix and its adjoint).
+B : :class:`scipy.sparse.linalg.LinearOperator`
+    Second matrix given as a :class:`scipy.sparse.linalg.LinearOperator` with
+    the `matvec` and `rmatvec` methods (to apply the matrix and its adjoint).
+its : int
+    Number of power method iterations.
+
+Returns
+-------
+float
+    Spectral norm estimate of matrix difference.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1interpolative_a0f6e062a7faa2169d3dc54e20ac0ea1b}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!id\+\_\+to\+\_\+svd@{id\+\_\+to\+\_\+svd}}
+\index{id\+\_\+to\+\_\+svd@{id\+\_\+to\+\_\+svd}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{id\+\_\+to\+\_\+svd}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+id\+\_\+to\+\_\+svd (
+\begin{DoxyParamCaption}
+\item[{}]{B, }
+\item[{}]{idx, }
+\item[{}]{proj}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_a0f6e062a7faa2169d3dc54e20ac0ea1b}
+\begin{DoxyVerb}Convert ID to SVD.
+
+The SVD reconstruction of a matrix with skeleton matrix `B` and ID indices and
+coefficients `idx` and `proj`, respectively, is::
+
+    U, S, V = id_to_svd(B, idx, proj)
+    A = numpy.dot(U, numpy.dot(numpy.diag(S), V.conj().T))
+
+See also :func:`svd`.
+
+..  This function automatically detects the matrix data type and calls the
+    appropriate backend. For details, see :func:`backend.idd_id2svd` and
+    :func:`backend.idz_id2svd`.
+
+Parameters
+----------
+B : :class:`numpy.ndarray`
+    Skeleton matrix.
+idx : :class:`numpy.ndarray`
+    Column index array.
+proj : :class:`numpy.ndarray`
+    Interpolation coefficients.
+
+Returns
+-------
+U : :class:`numpy.ndarray`
+    Left singular vectors.
+S : :class:`numpy.ndarray`
+    Singular values.
+V : :class:`numpy.ndarray`
+    Right singular vectors.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1interpolative_a7e0d99cb8e077e6ed3463c1cef8af58c}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!interp\+\_\+decomp@{interp\+\_\+decomp}}
+\index{interp\+\_\+decomp@{interp\+\_\+decomp}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{interp\+\_\+decomp}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+interp\+\_\+decomp (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{eps\+\_\+or\+\_\+k, }
+\item[{}]{rand = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_a7e0d99cb8e077e6ed3463c1cef8af58c}
+\begin{DoxyVerb}Compute ID of a matrix.
+
+An ID of a matrix `A` is a factorization defined by a rank `k`, a column
+index array `idx`, and interpolation coefficients `proj` such that::
+
+    numpy.dot(A[:,idx[:k]], proj) = A[:,idx[k:]]
+
+The original matrix can then be reconstructed as::
+
+    numpy.hstack([A[:,idx[:k]],
+                                numpy.dot(A[:,idx[:k]], proj)]
+                            )[:,numpy.argsort(idx)]
+
+or via the routine :func:`reconstruct_matrix_from_id`. This can
+equivalently be written as::
+
+    numpy.dot(A[:,idx[:k]],
+                        numpy.hstack([numpy.eye(k), proj])
+                      )[:,np.argsort(idx)]
+
+in terms of the skeleton and interpolation matrices::
+
+    B = A[:,idx[:k]]
+
+and::
+
+    P = numpy.hstack([numpy.eye(k), proj])[:,np.argsort(idx)]
+
+respectively. See also :func:`reconstruct_interp_matrix` and
+:func:`reconstruct_skel_matrix`.
+
+The ID can be computed to any relative precision or rank (depending on the
+value of `eps_or_k`). If a precision is specified (`eps_or_k < 1`), then
+this function has the output signature::
+
+    k, idx, proj = interp_decomp(A, eps_or_k)
+
+Otherwise, if a rank is specified (`eps_or_k >= 1`), then the output
+signature is::
+
+    idx, proj = interp_decomp(A, eps_or_k)
+
+..  This function automatically detects the form of the input parameters
+    and passes them to the appropriate backend. For details, see
+    :func:`backend.iddp_id`, :func:`backend.iddp_aid`,
+    :func:`backend.iddp_rid`, :func:`backend.iddr_id`,
+    :func:`backend.iddr_aid`, :func:`backend.iddr_rid`,
+    :func:`backend.idzp_id`, :func:`backend.idzp_aid`,
+    :func:`backend.idzp_rid`, :func:`backend.idzr_id`,
+    :func:`backend.idzr_aid`, and :func:`backend.idzr_rid`.
+
+Parameters
+----------
+A : :class:`numpy.ndarray` or :class:`scipy.sparse.linalg.LinearOperator` with `rmatvec`
+    Matrix to be factored
+eps_or_k : float or int
+    Relative error (if `eps_or_k < 1`) or rank (if `eps_or_k >= 1`) of
+    approximation.
+rand : bool, optional
+    Whether to use random sampling if `A` is of type :class:`numpy.ndarray`
+    (randomized algorithms are always used if `A` is of type
+    :class:`scipy.sparse.linalg.LinearOperator`).
+
+Returns
+-------
+k : int
+    Rank required to achieve specified relative precision if
+    `eps_or_k < 1`.
+idx : :class:`numpy.ndarray`
+    Column index array.
+proj : :class:`numpy.ndarray`
+    Interpolation coefficients.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1interpolative_ad89ebf29a1d595592b6495fbf642a372}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!rand@{rand}}
+\index{rand@{rand}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{rand}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+rand (
+\begin{DoxyParamCaption}
+\item[{}]{shape}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_ad89ebf29a1d595592b6495fbf642a372}
+\begin{DoxyVerb}Generate standard uniform pseudorandom numbers via a very efficient lagged
+Fibonacci method.
+
+This routine is used for all random number generation in this package and
+can affect ID and SVD results.
+
+Parameters
+----------
+shape
+    Shape of output array\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1interpolative_a3db48f192ba388b6d5cacafdd3d06129}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!reconstruct\+\_\+interp\+\_\+matrix@{reconstruct\+\_\+interp\+\_\+matrix}}
+\index{reconstruct\+\_\+interp\+\_\+matrix@{reconstruct\+\_\+interp\+\_\+matrix}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{reconstruct\+\_\+interp\+\_\+matrix}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+reconstruct\+\_\+interp\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{}]{idx, }
+\item[{}]{proj}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_a3db48f192ba388b6d5cacafdd3d06129}
+\begin{DoxyVerb}Reconstruct interpolation matrix from ID.
+
+The interpolation matrix can be reconstructed from the ID indices and
+coefficients `idx` and `proj`, respectively, as::
+
+    P = numpy.hstack([numpy.eye(proj.shape[0]), proj])[:,numpy.argsort(idx)]
+
+The original matrix can then be reconstructed from its skeleton matrix `B`
+via::
+
+    numpy.dot(B, P)
+
+See also :func:`reconstruct_matrix_from_id` and
+:func:`reconstruct_skel_matrix`.
+
+..  This function automatically detects the matrix data type and calls the
+    appropriate backend. For details, see :func:`backend.idd_reconint` and
+    :func:`backend.idz_reconint`.
+
+Parameters
+----------
+idx : :class:`numpy.ndarray`
+    Column index array.
+proj : :class:`numpy.ndarray`
+    Interpolation coefficients.
+
+Returns
+-------
+:class:`numpy.ndarray`
+    Interpolation matrix.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1interpolative_a31e4297d91e2ce258ff27956302490b7}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!reconstruct\+\_\+matrix\+\_\+from\+\_\+id@{reconstruct\+\_\+matrix\+\_\+from\+\_\+id}}
+\index{reconstruct\+\_\+matrix\+\_\+from\+\_\+id@{reconstruct\+\_\+matrix\+\_\+from\+\_\+id}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{reconstruct\+\_\+matrix\+\_\+from\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+reconstruct\+\_\+matrix\+\_\+from\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{}]{B, }
+\item[{}]{idx, }
+\item[{}]{proj}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_a31e4297d91e2ce258ff27956302490b7}
+\begin{DoxyVerb}Reconstruct matrix from its ID.
+
+A matrix `A` with skeleton matrix `B` and ID indices and coefficients `idx`
+and `proj`, respectively, can be reconstructed as::
+
+    numpy.hstack([B, numpy.dot(B, proj)])[:,numpy.argsort(idx)]
+
+See also :func:`reconstruct_interp_matrix` and
+:func:`reconstruct_skel_matrix`.
+
+..  This function automatically detects the matrix data type and calls the
+    appropriate backend. For details, see :func:`backend.idd_reconid` and
+    :func:`backend.idz_reconid`.
+
+Parameters
+----------
+B : :class:`numpy.ndarray`
+    Skeleton matrix.
+idx : :class:`numpy.ndarray`
+    Column index array.
+proj : :class:`numpy.ndarray`
+    Interpolation coefficients.
+
+Returns
+-------
+:class:`numpy.ndarray`
+    Reconstructed matrix.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1interpolative_a98c420fe02504293ddad029bc23eebe9}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!reconstruct\+\_\+skel\+\_\+matrix@{reconstruct\+\_\+skel\+\_\+matrix}}
+\index{reconstruct\+\_\+skel\+\_\+matrix@{reconstruct\+\_\+skel\+\_\+matrix}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{reconstruct\+\_\+skel\+\_\+matrix}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+reconstruct\+\_\+skel\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{k, }
+\item[{}]{idx}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_a98c420fe02504293ddad029bc23eebe9}
+\begin{DoxyVerb}Reconstruct skeleton matrix from ID.
+
+The skeleton matrix can be reconstructed from the original matrix `A` and its
+ID rank and indices `k` and `idx`, respectively, as::
+
+    B = A[:,idx[:k]]
+
+The original matrix can then be reconstructed via::
+
+    numpy.hstack([B, numpy.dot(B, proj)])[:,numpy.argsort(idx)]
+
+See also :func:`reconstruct_matrix_from_id` and
+:func:`reconstruct_interp_matrix`.
+
+..  This function automatically detects the matrix data type and calls the
+    appropriate backend. For details, see :func:`backend.idd_copycols` and
+    :func:`backend.idz_copycols`.
+
+Parameters
+----------
+A : :class:`numpy.ndarray`
+    Original matrix.
+k : int
+    Rank of ID.
+idx : :class:`numpy.ndarray`
+    Column index array.
+
+Returns
+-------
+:class:`numpy.ndarray`
+    Skeleton matrix.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1interpolative_aca9c667218677ace50bc00224f2e42ca}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!seed@{seed}}
+\index{seed@{seed}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{seed}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+seed (
+\begin{DoxyParamCaption}
+\item[{}]{seed = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_aca9c667218677ace50bc00224f2e42ca}
+\begin{DoxyVerb}Seed the internal random number generator used in this ID package.
+
+The generator is a lagged Fibonacci method with 55-element internal state.
+
+Parameters
+----------
+seed : int, sequence, 'default', optional
+    If 'default', the random seed is reset to a default value.
+
+    If `seed` is a sequence containing 55 floating-point numbers
+    in range [0,1], these are used to set the internal state of
+    the generator.
+
+    If the value is an integer, the internal state is obtained
+    from `numpy.random.RandomState` (MT19937) with the integer
+    used as the initial seed.
+
+    If `seed` is omitted (None), `numpy.random` is used to
+    initialize the generator.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1interpolative_a61ede274e125088f8db231b613a47320}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!svd@{svd}}
+\index{svd@{svd}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{svd}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+interpolative.\+svd (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{eps\+\_\+or\+\_\+k, }
+\item[{}]{rand = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1interpolative_a61ede274e125088f8db231b613a47320}
+\begin{DoxyVerb}Compute SVD of a matrix via an ID.
+
+An SVD of a matrix `A` is a factorization::
+
+    A = numpy.dot(U, numpy.dot(numpy.diag(S), V.conj().T))
+
+where `U` and `V` have orthonormal columns and `S` is nonnegative.
+
+The SVD can be computed to any relative precision or rank (depending on the
+value of `eps_or_k`).
+
+See also :func:`interp_decomp` and :func:`id_to_svd`.
+
+..  This function automatically detects the form of the input parameters and
+    passes them to the appropriate backend. For details, see
+    :func:`backend.iddp_svd`, :func:`backend.iddp_asvd`,
+    :func:`backend.iddp_rsvd`, :func:`backend.iddr_svd`,
+    :func:`backend.iddr_asvd`, :func:`backend.iddr_rsvd`,
+    :func:`backend.idzp_svd`, :func:`backend.idzp_asvd`,
+    :func:`backend.idzp_rsvd`, :func:`backend.idzr_svd`,
+    :func:`backend.idzr_asvd`, and :func:`backend.idzr_rsvd`.
+
+Parameters
+----------
+A : :class:`numpy.ndarray` or :class:`scipy.sparse.linalg.LinearOperator`
+    Matrix to be factored, given as either a :class:`numpy.ndarray` or a
+    :class:`scipy.sparse.linalg.LinearOperator` with the `matvec` and
+    `rmatvec` methods (to apply the matrix and its adjoint).
+eps_or_k : float or int
+    Relative error (if `eps_or_k < 1`) or rank (if `eps_or_k >= 1`) of
+    approximation.
+rand : bool, optional
+    Whether to use random sampling if `A` is of type :class:`numpy.ndarray`
+    (randomized algorithms are always used if `A` is of type
+    :class:`scipy.sparse.linalg.LinearOperator`).
+
+Returns
+-------
+U : :class:`numpy.ndarray`
+    Left singular vectors.
+S : :class:`numpy.ndarray`
+    Singular values.
+V : :class:`numpy.ndarray`
+    Right singular vectors.
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1interpolative_a2c56643bfab3d408976b53dc4ba6857f}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R@{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R}}
+\index{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R@{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+linalg.\+interpolative.\+\_\+\+D\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R = Value\+Error(\char`\"{}invalid {\bf input} dtype ({\bf input} must be float64 or complex128)\char`\"{})}\label{namespacescipy_1_1linalg_1_1interpolative_a2c56643bfab3d408976b53dc4ba6857f}
+\hypertarget{namespacescipy_1_1linalg_1_1interpolative_ad59bb08f7183a0e5957d8d528116ce16}{}\index{scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}!\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R@{\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R}}
+\index{\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R@{\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R}!scipy\+::linalg\+::interpolative@{scipy\+::linalg\+::interpolative}}
+\subsubsection[{\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+linalg.\+interpolative.\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+R\+O\+R = Type\+Error(\char`\"{}invalid {\bf input} {\bf type} (must be array or Linear\+Operator)\char`\"{})}\label{namespacescipy_1_1linalg_1_1interpolative_ad59bb08f7183a0e5957d8d528116ce16}

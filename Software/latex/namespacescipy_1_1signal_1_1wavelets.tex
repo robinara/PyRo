@@ -1,0 +1,254 @@
+\hypertarget{namespacescipy_1_1signal_1_1wavelets}{}\section{scipy.\+signal.\+wavelets Namespace Reference}
+\label{namespacescipy_1_1signal_1_1wavelets}\index{scipy.\+signal.\+wavelets@{scipy.\+signal.\+wavelets}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1wavelets_a05cf41f6148c2ddaaade87f5827183c3}{daub}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1wavelets_aa31d919743a7beac5ef0726b4953c884}{qmf}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1wavelets_af0ab4a818f84ee35cc2569aeffa825cb}{wavedec}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1wavelets_a9890c1838250738ea99cf371bf3b8b46}{cascade}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1wavelets_adbc01283b069f009d11a3ff978da8868}{morlet}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1wavelets_a714bd12602ed95b5dbcae2f3c02294e3}{ricker}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1wavelets_a3f22d14053a780fac0c7ad142dea0ba2}{cwt}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1signal_1_1wavelets_a65471d3ba656ddad4df13a8113c5d0d9}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1signal_1_1wavelets_a05cf41f6148c2ddaaade87f5827183c3}{daub}', '\hyperlink{namespacescipy_1_1signal_1_1wavelets_aa31d919743a7beac5ef0726b4953c884}{qmf}', '\hyperlink{namespacescipy_1_1signal_1_1wavelets_a9890c1838250738ea99cf371bf3b8b46}{cascade}', '\hyperlink{namespacescipy_1_1signal_1_1wavelets_adbc01283b069f009d11a3ff978da8868}{morlet}', '\hyperlink{namespacescipy_1_1signal_1_1wavelets_a714bd12602ed95b5dbcae2f3c02294e3}{ricker}', '\hyperlink{namespacescipy_1_1signal_1_1wavelets_a3f22d14053a780fac0c7ad142dea0ba2}{cwt}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1wavelets_a9890c1838250738ea99cf371bf3b8b46}{}\index{scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}!cascade@{cascade}}
+\index{cascade@{cascade}!scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}}
+\subsubsection[{cascade}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+wavelets.\+cascade (
+\begin{DoxyParamCaption}
+\item[{}]{hk, }
+\item[{}]{J = {\ttfamily 7}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1wavelets_a9890c1838250738ea99cf371bf3b8b46}
+\begin{DoxyVerb}Return (x, phi, psi) at dyadic points ``K/2**J`` from filter coefficients.
+
+Parameters
+----------
+hk : array_like
+    Coefficients of low-pass filter.
+J : int, optional
+    Values will be computed at grid points ``K/2**J``. Default is 7.
+
+Returns
+-------
+x : ndarray
+    The dyadic points ``K/2**J`` for ``K=0...N * (2**J)-1`` where
+    ``len(hk) = len(gk) = N+1``.
+phi : ndarray
+    The scaling function ``phi(x)`` at `x`:
+    ``phi(x) = sum(hk * phi(2x-k))``, where k is from 0 to N.
+psi : ndarray, optional
+    The wavelet function ``psi(x)`` at `x`:
+    ``phi(x) = sum(gk * phi(2x-k))``, where k is from 0 to N.
+    `psi` is only returned if `gk` is not None.
+
+Notes
+-----
+The algorithm uses the vector cascade algorithm described by Strang and
+Nguyen in "Wavelets and Filter Banks".  It builds a dictionary of values
+and slices for quick reuse.  Then inserts vectors into final vector at the
+end.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1wavelets_a3f22d14053a780fac0c7ad142dea0ba2}{}\index{scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}!cwt@{cwt}}
+\index{cwt@{cwt}!scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}}
+\subsubsection[{cwt}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+wavelets.\+cwt (
+\begin{DoxyParamCaption}
+\item[{}]{data, }
+\item[{}]{wavelet, }
+\item[{}]{widths}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1wavelets_a3f22d14053a780fac0c7ad142dea0ba2}
+\begin{DoxyVerb}Continuous wavelet transform.
+
+Performs a continuous wavelet transform on `data`,
+using the `wavelet` function. A CWT performs a convolution
+with `data` using the `wavelet` function, which is characterized
+by a width parameter and length parameter.
+
+Parameters
+----------
+data : (N,) ndarray
+    data on which to perform the transform.
+wavelet : function
+    Wavelet function, which should take 2 arguments.
+    The first argument is the number of points that the returned vector
+    will have (len(wavelet(width,length)) == length).
+    The second is a width parameter, defining the size of the wavelet
+    (e.g. standard deviation of a gaussian). See `ricker`, which
+    satisfies these requirements.
+widths : (M,) sequence
+    Widths to use for transform.
+
+Returns
+-------
+cwt: (M, N) ndarray
+    Will have shape of (len(data), len(widths)).
+
+Notes
+-----
+>>> length = min(10 * width[ii], len(data))
+>>> cwt[ii,:] = scipy.signal.convolve(data, wavelet(length,
+...                                       width[ii]), mode='same')
+
+Examples
+--------
+>>> from scipy import signal
+>>> sig = np.random.rand(20) - 0.5
+>>> wavelet = signal.ricker
+>>> widths = np.arange(1, 11)
+>>> cwtmatr = signal.cwt(sig, wavelet, widths)\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1wavelets_a05cf41f6148c2ddaaade87f5827183c3}{}\index{scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}!daub@{daub}}
+\index{daub@{daub}!scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}}
+\subsubsection[{daub}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+wavelets.\+daub (
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1wavelets_a05cf41f6148c2ddaaade87f5827183c3}
+\begin{DoxyVerb}The coefficients for the FIR low-pass filter producing Daubechies wavelets.
+
+p>=1 gives the order of the zero at f=1/2.
+There are 2p filter coefficients.
+
+Parameters
+----------
+p : int
+    Order of the zero at f=1/2, can have values from 1 to 34.
+
+Returns
+-------
+daub : ndarray
+    Return\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1wavelets_adbc01283b069f009d11a3ff978da8868}{}\index{scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}!morlet@{morlet}}
+\index{morlet@{morlet}!scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}}
+\subsubsection[{morlet}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+wavelets.\+morlet (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{w = {\ttfamily 5.0}, }
+\item[{}]{s = {\ttfamily 1.0}, }
+\item[{}]{complete = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1wavelets_adbc01283b069f009d11a3ff978da8868}
+\begin{DoxyVerb}Complex Morlet wavelet.
+
+Parameters
+----------
+M : int
+    Length of the wavelet.
+w : float
+    Omega0. Default is 5
+s : float
+    Scaling factor, windowed from ``-s*2*pi`` to ``+s*2*pi``. Default is 1.
+complete : bool
+    Whether to use the complete or the standard version.
+
+Returns
+-------
+morlet : (M,) ndarray
+
+See Also
+--------
+scipy.signal.gausspulse
+
+Notes
+-----
+The standard version::
+
+    pi**-0.25 * exp(1j*w*x) * exp(-0.5*(x**2))
+
+This commonly used wavelet is often referred to simply as the
+Morlet wavelet.  Note that this simplified version can cause
+admissibility problems at low values of w.
+
+The complete version::
+
+    pi**-0.25 * (exp(1j*w*x) - exp(-0.5*(w**2))) * exp(-0.5*(x**2))
+
+The complete version of the Morlet wavelet, with a correction
+term to improve admissibility. For w greater than 5, the
+correction term is negligible.
+
+Note that the energy of the return wavelet is not normalised
+according to s.
+
+The fundamental frequency of this wavelet in Hz is given
+by ``f = 2*s*w*r / M`` where r is the sampling rate.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1wavelets_aa31d919743a7beac5ef0726b4953c884}{}\index{scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}!qmf@{qmf}}
+\index{qmf@{qmf}!scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}}
+\subsubsection[{qmf}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+wavelets.\+qmf (
+\begin{DoxyParamCaption}
+\item[{}]{hk}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1wavelets_aa31d919743a7beac5ef0726b4953c884}
+\begin{DoxyVerb}Return high-pass qmf filter from low-pass
+
+Parameters
+----------
+hk : array_like
+    Coefficients of high-pass filter.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1wavelets_a714bd12602ed95b5dbcae2f3c02294e3}{}\index{scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}!ricker@{ricker}}
+\index{ricker@{ricker}!scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}}
+\subsubsection[{ricker}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+wavelets.\+ricker (
+\begin{DoxyParamCaption}
+\item[{}]{points, }
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1wavelets_a714bd12602ed95b5dbcae2f3c02294e3}
+\begin{DoxyVerb}Return a Ricker wavelet, also known as the "Mexican hat wavelet".
+
+It models the function:
+
+    ``A (1 - x^2/a^2) exp(-x^2/2 a^2)``,
+
+where ``A = 2/sqrt(3a)pi^1/4``.
+
+Parameters
+----------
+points : int
+    Number of points in `vector`.
+    Will be centered around 0.
+a : scalar
+    Width parameter of the wavelet.
+
+Returns
+-------
+vector : (N,) ndarray
+    Array of length `points` in shape of ricker curve.
+
+Examples
+--------
+>>> from scipy import signal
+>>> import matplotlib.pyplot as plt
+
+>>> points = 100
+>>> a = 4.0
+>>> vec2 = signal.ricker(points, a)
+>>> print(len(vec2))
+100
+>>> plt.plot(vec2)
+>>> plt.show()\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1wavelets_af0ab4a818f84ee35cc2569aeffa825cb}{}\index{scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}!wavedec@{wavedec}}
+\index{wavedec@{wavedec}!scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}}
+\subsubsection[{wavedec}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+wavelets.\+wavedec (
+\begin{DoxyParamCaption}
+\item[{}]{amn, }
+\item[{}]{hk}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1wavelets_af0ab4a818f84ee35cc2569aeffa825cb}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1wavelets_a65471d3ba656ddad4df13a8113c5d0d9}{}\index{scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::signal\+::wavelets@{scipy\+::signal\+::wavelets}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+signal.\+wavelets.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf daub}', '{\bf qmf}', '{\bf cascade}', '{\bf morlet}', '{\bf ricker}', '{\bf cwt}'\mbox{]}}\label{namespacescipy_1_1signal_1_1wavelets_a65471d3ba656ddad4df13a8113c5d0d9}

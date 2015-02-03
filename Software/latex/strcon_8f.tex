@@ -1,0 +1,107 @@
+\hypertarget{strcon_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/strcon.f File Reference}
+\label{strcon_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/strcon.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/strcon.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{strcon_8f_a6594f86b19438099aa276e89a9891ccc}{strcon} (N\+O\+R\+M, U\+P\+L\+O, D\+I\+A\+G, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+T\+R\+C\+O\+N} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{strcon_8f_a6594f86b19438099aa276e89a9891ccc}{}\index{strcon.\+f@{strcon.\+f}!strcon@{strcon}}
+\index{strcon@{strcon}!strcon.\+f@{strcon.\+f}}
+\subsubsection[{strcon}]{\setlength{\rightskip}{0pt plus 5cm}subroutine strcon (
+\begin{DoxyParamCaption}
+\item[{character}]{N\+O\+R\+M, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{D\+I\+A\+G, }
+\item[{integer}]{N, }
+\item[{real, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{real}]{R\+C\+O\+N\+D, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{strcon_8f_a6594f86b19438099aa276e89a9891ccc}
+
+
+{\bfseries S\+T\+R\+C\+O\+N} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} STRCON estimates the reciprocal of the condition number of a
+ triangular matrix A, in either the 1-norm or the infinity-norm.
+
+ The norm of A is computed and an estimate is obtained for
+ norm(inv(A)), then the reciprocal of the condition number is
+ computed as
+    RCOND = 1 / ( norm(A) * norm(inv(A)) ).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N\+O\+R\+M} & \begin{DoxyVerb}          NORM is CHARACTER*1
+          Specifies whether the 1-norm condition number or the
+          infinity-norm condition number is required:
+          = '1' or 'O':  1-norm;
+          = 'I':         Infinity-norm.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  A is upper triangular;
+          = 'L':  A is lower triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+A\+G} & \begin{DoxyVerb}          DIAG is CHARACTER*1
+          = 'N':  A is non-unit triangular;
+          = 'U':  A is unit triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is REAL array, dimension (LDA,N)
+          The triangular matrix A.  If UPLO = 'U', the leading N-by-N
+          upper triangular part of the array A contains the upper
+          triangular matrix, and the strictly lower triangular part of
+          A is not referenced.  If UPLO = 'L', the leading N-by-N lower
+          triangular part of the array A contains the lower triangular
+          matrix, and the strictly upper triangular part of A is not
+          referenced.  If DIAG = 'U', the diagonal elements of A are
+          also not referenced and are assumed to be 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is REAL
+          The reciprocal of the condition number of the matrix A,
+          computed as RCOND = 1/(norm(A) * norm(inv(A))).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (3*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

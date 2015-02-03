@@ -1,0 +1,121 @@
+\hypertarget{zhbev_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zhbev.f File Reference}
+\label{zhbev_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhbev.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhbev.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zhbev_8f_a72184c03c8976891c11e42f3463c2d38}{zhbev} (J\+O\+B\+Z, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+D, A\+B, L\+D\+A\+B, W, Z, L\+D\+Z, W\+O\+R\+K, R\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  Z\+H\+B\+E\+V computes the eigenvalues and, optionally, the left and/or right eigenvectors for O\+T\+H\+E\+R matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zhbev_8f_a72184c03c8976891c11e42f3463c2d38}{}\index{zhbev.\+f@{zhbev.\+f}!zhbev@{zhbev}}
+\index{zhbev@{zhbev}!zhbev.\+f@{zhbev.\+f}}
+\subsubsection[{zhbev}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zhbev (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B\+Z, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+D, }
+\item[{{\bf complex}$\ast$16, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W, }
+\item[{{\bf complex}$\ast$16, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zhbev_8f_a72184c03c8976891c11e42f3463c2d38}
+
+
+{\bfseries  Z\+H\+B\+E\+V computes the eigenvalues and, optionally, the left and/or right eigenvectors for O\+T\+H\+E\+R matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZHBEV computes all the eigenvalues and, optionally, eigenvectors of
+ a complex Hermitian band matrix A.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B\+Z} & \begin{DoxyVerb}          JOBZ is CHARACTER*1
+          = 'N':  Compute eigenvalues only;
+          = 'V':  Compute eigenvalues and eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+D} & \begin{DoxyVerb}          KD is INTEGER
+          The number of superdiagonals of the matrix A if UPLO = 'U',
+          or the number of subdiagonals if UPLO = 'L'.  KD >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+B} & \begin{DoxyVerb}          AB is COMPLEX*16 array, dimension (LDAB, N)
+          On entry, the upper or lower triangle of the Hermitian band
+          matrix A, stored in the first KD+1 rows of the array.  The
+          j-th column of A is stored in the j-th column of the array AB
+          as follows:
+          if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).
+
+          On exit, AB is overwritten by values generated during the
+          reduction to tridiagonal form.  If UPLO = 'U', the first
+          superdiagonal and the diagonal of the tridiagonal matrix T
+          are returned in rows KD and KD+1 of AB, and if UPLO = 'L',
+          the diagonal and first subdiagonal of T are returned in the
+          first two rows of AB.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KD + 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W} & \begin{DoxyVerb}          W is DOUBLE PRECISION array, dimension (N)
+          If INFO = 0, the eigenvalues in ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Z} & \begin{DoxyVerb}          Z is COMPLEX*16 array, dimension (LDZ, N)
+          If JOBZ = 'V', then if INFO = 0, Z contains the orthonormal
+          eigenvectors of the matrix A, with the i-th column of Z
+          holding the eigenvector associated with W(i).
+          If JOBZ = 'N', then Z is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDZ >= 1, and if
+          JOBZ = 'V', LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is DOUBLE PRECISION array, dimension (max(1,3*N-2))\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if INFO = i, the algorithm failed to converge; i
+                off-diagonal elements of an intermediate tridiagonal
+                form did not converge to zero.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

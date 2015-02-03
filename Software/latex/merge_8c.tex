@@ -1,0 +1,589 @@
+\hypertarget{merge_8c}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/merge.c File Reference}
+\label{merge_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/merge.\+c@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/merge.\+c}}
+{\ttfamily \#include \char`\"{}qhull\+\_\+a.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{merge_8c_adfe6e6b730087e300a0d99c5e479ff40}{qh\+\_\+premerge} (\hyperlink{structvertexT}{vertex\+T} $\ast$apex, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} maxcentrum, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} maxangle)
+\item 
+void \hyperlink{merge_8c_a996503311966d59514bc379ff3449a14}{qh\+\_\+postmerge} (const char $\ast$reason, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} maxcentrum, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} maxangle, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} vneighbors)
+\item 
+void \hyperlink{merge_8c_a9f8eea0003c8a8f2cf16db2ef92f53ce}{qh\+\_\+all\+\_\+merges} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} othermerge, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} vneighbors)
+\item 
+void \hyperlink{merge_8c_acaa94f1dfcdd721723e849f9227173b2}{qh\+\_\+appendmergeset} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structfacetT}{facet\+T} $\ast$neighbor, \hyperlink{merge_8h_ae83efaeb28f034bb4337119452c19495}{merge\+Type} mergetype, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$angle)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{merge_8c_a7466fcb977d9b95c553a6026fbd78599}{qh\+\_\+basevertices} (\hyperlink{structfacetT}{facet\+T} $\ast$samecycle)
+\item 
+void \hyperlink{merge_8c_ad3fa693133c30a3acb63578b0cdb8c9b}{qh\+\_\+checkconnect} (void)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{merge_8c_a769c0c95ff2d52a95ce8cd82410872b1}{qh\+\_\+checkzero} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} testall)
+\item 
+int \hyperlink{merge_8c_a0d6106d7a3956c8f0f60661cefab2146}{qh\+\_\+compareangle} (const void $\ast$p1, const void $\ast$p2)
+\item 
+int \hyperlink{merge_8c_a4d2211576e976795901eaad3d4caf484}{qh\+\_\+comparemerge} (const void $\ast$p1, const void $\ast$p2)
+\item 
+int \hyperlink{merge_8c_a050f1c199d428968d50e21a3711f8d1a}{qh\+\_\+comparevisit} (const void $\ast$p1, const void $\ast$p2)
+\item 
+void \hyperlink{merge_8c_a788d986c24618a50b423f2fdf3de7e82}{qh\+\_\+copynonconvex} (\hyperlink{structridgeT}{ridge\+T} $\ast$atridge)
+\item 
+void \hyperlink{merge_8c_a41c6109aaf642c2298794900a40d3cb7}{qh\+\_\+degen\+\_\+redundant\+\_\+facet} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{merge_8c_ad9a21e907d1b6664048d2bbb80c0b68f}{qh\+\_\+degen\+\_\+redundant\+\_\+neighbors} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structfacetT}{facet\+T} $\ast$delfacet)
+\item 
+\hyperlink{structvertexT}{vertex\+T} $\ast$ \hyperlink{merge_8c_a7edc415095a1b8b7efdc4b54e0233dca}{qh\+\_\+find\+\_\+newvertex} (\hyperlink{structvertexT}{vertex\+T} $\ast$oldvertex, \hyperlink{structsetT}{set\+T} $\ast$vertices, \hyperlink{structsetT}{set\+T} $\ast$ridges)
+\item 
+void \hyperlink{merge_8c_a258a9330a0588066f1180b39ef3780ea}{qh\+\_\+findbest\+\_\+test} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} testcentrum, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structfacetT}{facet\+T} $\ast$neighbor, \hyperlink{structfacetT}{facet\+T} $\ast$$\ast$bestfacet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$distp, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$mindistp, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$maxdistp)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{merge_8c_ac074ebf52f061919b7561422e8cd57f5}{qh\+\_\+findbestneighbor} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$distp, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$mindistp, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$maxdistp)
+\item 
+void \hyperlink{merge_8c_acd15e94474029517098b2e4b9e22b6c9}{qh\+\_\+flippedmerges} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$wasmerge)
+\item 
+void \hyperlink{merge_8c_a5cdfaa0fab85f16f6b3036b9117164f0}{qh\+\_\+forcedmerges} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$wasmerge)
+\item 
+void \hyperlink{merge_8c_a4d80553eda0c76eccc4fa2644aeab903}{qh\+\_\+getmergeset} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist)
+\item 
+void \hyperlink{merge_8c_abba52a305fdf60de1b509903d73a52ea}{qh\+\_\+getmergeset\+\_\+initial} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist)
+\item 
+void \hyperlink{merge_8c_a1672515b7e50c60d176348e18080141d}{qh\+\_\+hashridge} (\hyperlink{structsetT}{set\+T} $\ast$hashtable, int hashsize, \hyperlink{structridgeT}{ridge\+T} $\ast$ridge, \hyperlink{structvertexT}{vertex\+T} $\ast$oldvertex)
+\item 
+\hyperlink{structridgeT}{ridge\+T} $\ast$ \hyperlink{merge_8c_a137cce3afda70f49c1ee57ccdc2f255d}{qh\+\_\+hashridge\+\_\+find} (\hyperlink{structsetT}{set\+T} $\ast$hashtable, int hashsize, \hyperlink{structridgeT}{ridge\+T} $\ast$ridge, \hyperlink{structvertexT}{vertex\+T} $\ast$vertex, \hyperlink{structvertexT}{vertex\+T} $\ast$oldvertex, int $\ast$hashslot)
+\item 
+void \hyperlink{merge_8c_a5095bc8f1f346735ff4187a2e31b5b7f}{qh\+\_\+makeridges} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{merge_8c_a64ad961c432cf1a54f95d105f0458325}{qh\+\_\+mark\+\_\+dupridges} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist)
+\item 
+void \hyperlink{merge_8c_a9b39e90d169ba736054f6d7fd7c48039}{qh\+\_\+maydropneighbor} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+int \hyperlink{merge_8c_a84fe684b5ce48374de889b7d9120ca53}{qh\+\_\+merge\+\_\+degenredundant} (void)
+\item 
+void \hyperlink{merge_8c_a478cb14f649dfa361551bb70fde08466}{qh\+\_\+merge\+\_\+nonconvex} (\hyperlink{structfacetT}{facet\+T} $\ast$facet1, \hyperlink{structfacetT}{facet\+T} $\ast$facet2, \hyperlink{merge_8h_ae83efaeb28f034bb4337119452c19495}{merge\+Type} mergetype)
+\item 
+void \hyperlink{merge_8c_a18d5dcb3506615a05a2d97f97dc90856}{qh\+\_\+mergecycle} (\hyperlink{structfacetT}{facet\+T} $\ast$samecycle, \hyperlink{structfacetT}{facet\+T} $\ast$newfacet)
+\item 
+void \hyperlink{merge_8c_aede356f76e25d8ee52bf4295238fd6ed}{qh\+\_\+mergecycle\+\_\+all} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$wasmerge)
+\item 
+void \hyperlink{merge_8c_a25484a8a5ed167c12f6667308fe61f4b}{qh\+\_\+mergecycle\+\_\+facets} (\hyperlink{structfacetT}{facet\+T} $\ast$samecycle, \hyperlink{structfacetT}{facet\+T} $\ast$newfacet)
+\item 
+void \hyperlink{merge_8c_a592fb95c65ec61f1626e310fab55be59}{qh\+\_\+mergecycle\+\_\+neighbors} (\hyperlink{structfacetT}{facet\+T} $\ast$samecycle, \hyperlink{structfacetT}{facet\+T} $\ast$newfacet)
+\item 
+void \hyperlink{merge_8c_ada2d36cd3fa84891fdf526c76da28742}{qh\+\_\+mergecycle\+\_\+ridges} (\hyperlink{structfacetT}{facet\+T} $\ast$samecycle, \hyperlink{structfacetT}{facet\+T} $\ast$newfacet)
+\item 
+void \hyperlink{merge_8c_a48e56eb9fcef4dbd69fd4dd9308ecf8b}{qh\+\_\+mergecycle\+\_\+vneighbors} (\hyperlink{structfacetT}{facet\+T} $\ast$samecycle, \hyperlink{structfacetT}{facet\+T} $\ast$newfacet)
+\item 
+void \hyperlink{merge_8c_abd656f0f3804b35a0624581604a443f6}{qh\+\_\+mergefacet} (\hyperlink{structfacetT}{facet\+T} $\ast$facet1, \hyperlink{structfacetT}{facet\+T} $\ast$facet2, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$mindist, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$maxdist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} mergeapex)
+\item 
+void \hyperlink{merge_8c_a1b33200580d62daa88bfb70821099940}{qh\+\_\+mergefacet2d} (\hyperlink{structfacetT}{facet\+T} $\ast$facet1, \hyperlink{structfacetT}{facet\+T} $\ast$facet2)
+\item 
+void \hyperlink{merge_8c_aa1b10f601164d807871604b283418a75}{qh\+\_\+mergeneighbors} (\hyperlink{structfacetT}{facet\+T} $\ast$facet1, \hyperlink{structfacetT}{facet\+T} $\ast$facet2)
+\item 
+void \hyperlink{merge_8c_aa73df4d342d2b795f21317bd98063509}{qh\+\_\+mergeridges} (\hyperlink{structfacetT}{facet\+T} $\ast$facet1, \hyperlink{structfacetT}{facet\+T} $\ast$facet2)
+\item 
+void \hyperlink{merge_8c_a2fe52b3ed211c1a1342dfe1f9a03f37d}{qh\+\_\+mergesimplex} (\hyperlink{structfacetT}{facet\+T} $\ast$facet1, \hyperlink{structfacetT}{facet\+T} $\ast$facet2, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} mergeapex)
+\item 
+void \hyperlink{merge_8c_a72401bd7249ffdc448797f9a776dba02}{qh\+\_\+mergevertex\+\_\+del} (\hyperlink{structvertexT}{vertex\+T} $\ast$vertex, \hyperlink{structfacetT}{facet\+T} $\ast$facet1, \hyperlink{structfacetT}{facet\+T} $\ast$facet2)
+\item 
+void \hyperlink{merge_8c_a34b3607f0a367c5fbb7dc2dafedca84f}{qh\+\_\+mergevertex\+\_\+neighbors} (\hyperlink{structfacetT}{facet\+T} $\ast$facet1, \hyperlink{structfacetT}{facet\+T} $\ast$facet2)
+\item 
+void \hyperlink{merge_8c_a15b72203dcb35f69c50e49b73ec67e07}{qh\+\_\+mergevertices} (\hyperlink{structsetT}{set\+T} $\ast$vertices1, \hyperlink{structsetT}{set\+T} $\ast$$\ast$vertices2)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{merge_8c_ae2829acd9c34039462b510cd10d7475c}{qh\+\_\+neighbor\+\_\+intersections} (\hyperlink{structvertexT}{vertex\+T} $\ast$vertex)
+\item 
+void \hyperlink{merge_8c_a3bdb112f840c713b8c7cdc764aaa3401}{qh\+\_\+newvertices} (\hyperlink{structsetT}{set\+T} $\ast$vertices)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{merge_8c_ac40425a64c50d0e0b2637c63d61822a9}{qh\+\_\+reducevertices} (void)
+\item 
+\hyperlink{structvertexT}{vertex\+T} $\ast$ \hyperlink{merge_8c_aa70d672554a824360f208918e91ac25a}{qh\+\_\+redundant\+\_\+vertex} (\hyperlink{structvertexT}{vertex\+T} $\ast$vertex)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{merge_8c_aa47fbb139536b940f34f1531f550f8bb}{qh\+\_\+remove\+\_\+extravertices} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+\hyperlink{structvertexT}{vertex\+T} $\ast$ \hyperlink{merge_8c_af185fac33e4c5dc5d1302e1eef66d5f0}{qh\+\_\+rename\+\_\+sharedvertex} (\hyperlink{structvertexT}{vertex\+T} $\ast$vertex, \hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{merge_8c_a1ef7a2036aab0bffbc7562034931cb7d}{qh\+\_\+renameridgevertex} (\hyperlink{structridgeT}{ridge\+T} $\ast$ridge, \hyperlink{structvertexT}{vertex\+T} $\ast$oldvertex, \hyperlink{structvertexT}{vertex\+T} $\ast$newvertex)
+\item 
+void \hyperlink{merge_8c_ae6d64f6f23dbae95b6d8e4d2a53ae3b6}{qh\+\_\+renamevertex} (\hyperlink{structvertexT}{vertex\+T} $\ast$oldvertex, \hyperlink{structvertexT}{vertex\+T} $\ast$newvertex, \hyperlink{structsetT}{set\+T} $\ast$ridges, \hyperlink{structfacetT}{facet\+T} $\ast$oldfacet, \hyperlink{structfacetT}{facet\+T} $\ast$neighbor\+A)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{merge_8c_ac14fdfc72eca27b4d29f8ee7d5e103d5}{qh\+\_\+test\+\_\+appendmerge} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structfacetT}{facet\+T} $\ast$neighbor)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{merge_8c_a618362885e9e753c0bbe5a9e9bbaff02}{qh\+\_\+test\+\_\+vneighbors} (void)
+\item 
+void \hyperlink{merge_8c_a844c40269aa95b5b24a3fb42afb9497d}{qh\+\_\+tracemerge} (\hyperlink{structfacetT}{facet\+T} $\ast$facet1, \hyperlink{structfacetT}{facet\+T} $\ast$facet2)
+\item 
+void \hyperlink{merge_8c_a10e019ff4b338f8c3475123f212448d4}{qh\+\_\+tracemerging} (void)
+\item 
+void \hyperlink{merge_8c_a2536699abc55b25e9db706c5539a4ec6}{qh\+\_\+updatetested} (\hyperlink{structfacetT}{facet\+T} $\ast$facet1, \hyperlink{structfacetT}{facet\+T} $\ast$facet2)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{merge_8c_a0504b57a1fa01deb044db95ffe71c2df}{qh\+\_\+vertexridges} (\hyperlink{structvertexT}{vertex\+T} $\ast$vertex)
+\item 
+void \hyperlink{merge_8c_a26a2f47ec746bdb699a811c123c128e3}{qh\+\_\+vertexridges\+\_\+facet} (\hyperlink{structvertexT}{vertex\+T} $\ast$vertex, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structsetT}{set\+T} $\ast$$\ast$ridges)
+\item 
+void \hyperlink{merge_8c_a49edd74c54f86c200a059138f51232d4}{qh\+\_\+willdelete} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structfacetT}{facet\+T} $\ast$replace)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{merge_8c_a9f8eea0003c8a8f2cf16db2ef92f53ce}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+all\+\_\+merges@{qh\+\_\+all\+\_\+merges}}
+\index{qh\+\_\+all\+\_\+merges@{qh\+\_\+all\+\_\+merges}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+all\+\_\+merges}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+all\+\_\+merges (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T}}]{othermerge, }
+\item[{{\bf bool\+T}}]{vneighbors}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a9f8eea0003c8a8f2cf16db2ef92f53ce}
+\hypertarget{merge_8c_acaa94f1dfcdd721723e849f9227173b2}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+appendmergeset@{qh\+\_\+appendmergeset}}
+\index{qh\+\_\+appendmergeset@{qh\+\_\+appendmergeset}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+appendmergeset}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+appendmergeset (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf facet\+T} $\ast$}]{neighbor, }
+\item[{{\bf merge\+Type}}]{mergetype, }
+\item[{{\bf real\+T} $\ast$}]{angle}
+\end{DoxyParamCaption}
+)}\label{merge_8c_acaa94f1dfcdd721723e849f9227173b2}
+\hypertarget{merge_8c_a7466fcb977d9b95c553a6026fbd78599}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+basevertices@{qh\+\_\+basevertices}}
+\index{qh\+\_\+basevertices@{qh\+\_\+basevertices}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+basevertices}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+basevertices (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{samecycle}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a7466fcb977d9b95c553a6026fbd78599}
+\hypertarget{merge_8c_ad3fa693133c30a3acb63578b0cdb8c9b}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+checkconnect@{qh\+\_\+checkconnect}}
+\index{qh\+\_\+checkconnect@{qh\+\_\+checkconnect}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+checkconnect}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+checkconnect (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{merge_8c_ad3fa693133c30a3acb63578b0cdb8c9b}
+\hypertarget{merge_8c_a769c0c95ff2d52a95ce8cd82410872b1}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+checkzero@{qh\+\_\+checkzero}}
+\index{qh\+\_\+checkzero@{qh\+\_\+checkzero}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+checkzero}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+checkzero (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T}}]{testall}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a769c0c95ff2d52a95ce8cd82410872b1}
+\hypertarget{merge_8c_a0d6106d7a3956c8f0f60661cefab2146}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+compareangle@{qh\+\_\+compareangle}}
+\index{qh\+\_\+compareangle@{qh\+\_\+compareangle}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+compareangle}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+compareangle (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{p1, }
+\item[{const void $\ast$}]{p2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a0d6106d7a3956c8f0f60661cefab2146}
+\hypertarget{merge_8c_a4d2211576e976795901eaad3d4caf484}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+comparemerge@{qh\+\_\+comparemerge}}
+\index{qh\+\_\+comparemerge@{qh\+\_\+comparemerge}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+comparemerge}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+comparemerge (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{p1, }
+\item[{const void $\ast$}]{p2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a4d2211576e976795901eaad3d4caf484}
+\hypertarget{merge_8c_a050f1c199d428968d50e21a3711f8d1a}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+comparevisit@{qh\+\_\+comparevisit}}
+\index{qh\+\_\+comparevisit@{qh\+\_\+comparevisit}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+comparevisit}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+comparevisit (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{p1, }
+\item[{const void $\ast$}]{p2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a050f1c199d428968d50e21a3711f8d1a}
+\hypertarget{merge_8c_a788d986c24618a50b423f2fdf3de7e82}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+copynonconvex@{qh\+\_\+copynonconvex}}
+\index{qh\+\_\+copynonconvex@{qh\+\_\+copynonconvex}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+copynonconvex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+copynonconvex (
+\begin{DoxyParamCaption}
+\item[{{\bf ridge\+T} $\ast$}]{atridge}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a788d986c24618a50b423f2fdf3de7e82}
+\hypertarget{merge_8c_a41c6109aaf642c2298794900a40d3cb7}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+degen\+\_\+redundant\+\_\+facet@{qh\+\_\+degen\+\_\+redundant\+\_\+facet}}
+\index{qh\+\_\+degen\+\_\+redundant\+\_\+facet@{qh\+\_\+degen\+\_\+redundant\+\_\+facet}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+degen\+\_\+redundant\+\_\+facet}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+degen\+\_\+redundant\+\_\+facet (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a41c6109aaf642c2298794900a40d3cb7}
+\hypertarget{merge_8c_ad9a21e907d1b6664048d2bbb80c0b68f}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+degen\+\_\+redundant\+\_\+neighbors@{qh\+\_\+degen\+\_\+redundant\+\_\+neighbors}}
+\index{qh\+\_\+degen\+\_\+redundant\+\_\+neighbors@{qh\+\_\+degen\+\_\+redundant\+\_\+neighbors}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+degen\+\_\+redundant\+\_\+neighbors}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+degen\+\_\+redundant\+\_\+neighbors (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf facet\+T} $\ast$}]{delfacet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_ad9a21e907d1b6664048d2bbb80c0b68f}
+\hypertarget{merge_8c_a7edc415095a1b8b7efdc4b54e0233dca}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+find\+\_\+newvertex@{qh\+\_\+find\+\_\+newvertex}}
+\index{qh\+\_\+find\+\_\+newvertex@{qh\+\_\+find\+\_\+newvertex}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+find\+\_\+newvertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vertex\+T}$\ast$ qh\+\_\+find\+\_\+newvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{oldvertex, }
+\item[{{\bf set\+T} $\ast$}]{vertices, }
+\item[{{\bf set\+T} $\ast$}]{ridges}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a7edc415095a1b8b7efdc4b54e0233dca}
+\hypertarget{merge_8c_a258a9330a0588066f1180b39ef3780ea}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+findbest\+\_\+test@{qh\+\_\+findbest\+\_\+test}}
+\index{qh\+\_\+findbest\+\_\+test@{qh\+\_\+findbest\+\_\+test}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+findbest\+\_\+test}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+findbest\+\_\+test (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T}}]{testcentrum, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf facet\+T} $\ast$}]{neighbor, }
+\item[{{\bf facet\+T} $\ast$$\ast$}]{bestfacet, }
+\item[{{\bf real\+T} $\ast$}]{distp, }
+\item[{{\bf real\+T} $\ast$}]{mindistp, }
+\item[{{\bf real\+T} $\ast$}]{maxdistp}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a258a9330a0588066f1180b39ef3780ea}
+\hypertarget{merge_8c_ac074ebf52f061919b7561422e8cd57f5}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+findbestneighbor@{qh\+\_\+findbestneighbor}}
+\index{qh\+\_\+findbestneighbor@{qh\+\_\+findbestneighbor}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+findbestneighbor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findbestneighbor (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf real\+T} $\ast$}]{distp, }
+\item[{{\bf real\+T} $\ast$}]{mindistp, }
+\item[{{\bf real\+T} $\ast$}]{maxdistp}
+\end{DoxyParamCaption}
+)}\label{merge_8c_ac074ebf52f061919b7561422e8cd57f5}
+\hypertarget{merge_8c_acd15e94474029517098b2e4b9e22b6c9}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+flippedmerges@{qh\+\_\+flippedmerges}}
+\index{qh\+\_\+flippedmerges@{qh\+\_\+flippedmerges}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+flippedmerges}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+flippedmerges (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist, }
+\item[{{\bf bool\+T} $\ast$}]{wasmerge}
+\end{DoxyParamCaption}
+)}\label{merge_8c_acd15e94474029517098b2e4b9e22b6c9}
+\hypertarget{merge_8c_a5cdfaa0fab85f16f6b3036b9117164f0}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+forcedmerges@{qh\+\_\+forcedmerges}}
+\index{qh\+\_\+forcedmerges@{qh\+\_\+forcedmerges}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+forcedmerges}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+forcedmerges (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T} $\ast$}]{wasmerge}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a5cdfaa0fab85f16f6b3036b9117164f0}
+\hypertarget{merge_8c_a4d80553eda0c76eccc4fa2644aeab903}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+getmergeset@{qh\+\_\+getmergeset}}
+\index{qh\+\_\+getmergeset@{qh\+\_\+getmergeset}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+getmergeset}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+getmergeset (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a4d80553eda0c76eccc4fa2644aeab903}
+\hypertarget{merge_8c_abba52a305fdf60de1b509903d73a52ea}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+getmergeset\+\_\+initial@{qh\+\_\+getmergeset\+\_\+initial}}
+\index{qh\+\_\+getmergeset\+\_\+initial@{qh\+\_\+getmergeset\+\_\+initial}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+getmergeset\+\_\+initial}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+getmergeset\+\_\+initial (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist}
+\end{DoxyParamCaption}
+)}\label{merge_8c_abba52a305fdf60de1b509903d73a52ea}
+\hypertarget{merge_8c_a1672515b7e50c60d176348e18080141d}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+hashridge@{qh\+\_\+hashridge}}
+\index{qh\+\_\+hashridge@{qh\+\_\+hashridge}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+hashridge}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+hashridge (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{hashtable, }
+\item[{int}]{hashsize, }
+\item[{{\bf ridge\+T} $\ast$}]{ridge, }
+\item[{{\bf vertex\+T} $\ast$}]{oldvertex}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a1672515b7e50c60d176348e18080141d}
+\hypertarget{merge_8c_a137cce3afda70f49c1ee57ccdc2f255d}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+hashridge\+\_\+find@{qh\+\_\+hashridge\+\_\+find}}
+\index{qh\+\_\+hashridge\+\_\+find@{qh\+\_\+hashridge\+\_\+find}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+hashridge\+\_\+find}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ridge\+T}$\ast$ qh\+\_\+hashridge\+\_\+find (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{hashtable, }
+\item[{int}]{hashsize, }
+\item[{{\bf ridge\+T} $\ast$}]{ridge, }
+\item[{{\bf vertex\+T} $\ast$}]{vertex, }
+\item[{{\bf vertex\+T} $\ast$}]{oldvertex, }
+\item[{int $\ast$}]{hashslot}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a137cce3afda70f49c1ee57ccdc2f255d}
+\hypertarget{merge_8c_a5095bc8f1f346735ff4187a2e31b5b7f}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+makeridges@{qh\+\_\+makeridges}}
+\index{qh\+\_\+makeridges@{qh\+\_\+makeridges}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+makeridges}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+makeridges (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a5095bc8f1f346735ff4187a2e31b5b7f}
+\hypertarget{merge_8c_a64ad961c432cf1a54f95d105f0458325}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mark\+\_\+dupridges@{qh\+\_\+mark\+\_\+dupridges}}
+\index{qh\+\_\+mark\+\_\+dupridges@{qh\+\_\+mark\+\_\+dupridges}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mark\+\_\+dupridges}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mark\+\_\+dupridges (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a64ad961c432cf1a54f95d105f0458325}
+\hypertarget{merge_8c_a9b39e90d169ba736054f6d7fd7c48039}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+maydropneighbor@{qh\+\_\+maydropneighbor}}
+\index{qh\+\_\+maydropneighbor@{qh\+\_\+maydropneighbor}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+maydropneighbor}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+maydropneighbor (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a9b39e90d169ba736054f6d7fd7c48039}
+\hypertarget{merge_8c_a84fe684b5ce48374de889b7d9120ca53}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+merge\+\_\+degenredundant@{qh\+\_\+merge\+\_\+degenredundant}}
+\index{qh\+\_\+merge\+\_\+degenredundant@{qh\+\_\+merge\+\_\+degenredundant}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+merge\+\_\+degenredundant}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+merge\+\_\+degenredundant (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a84fe684b5ce48374de889b7d9120ca53}
+\hypertarget{merge_8c_a478cb14f649dfa361551bb70fde08466}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+merge\+\_\+nonconvex@{qh\+\_\+merge\+\_\+nonconvex}}
+\index{qh\+\_\+merge\+\_\+nonconvex@{qh\+\_\+merge\+\_\+nonconvex}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+merge\+\_\+nonconvex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+merge\+\_\+nonconvex (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet1, }
+\item[{{\bf facet\+T} $\ast$}]{facet2, }
+\item[{{\bf merge\+Type}}]{mergetype}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a478cb14f649dfa361551bb70fde08466}
+\hypertarget{merge_8c_a18d5dcb3506615a05a2d97f97dc90856}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergecycle@{qh\+\_\+mergecycle}}
+\index{qh\+\_\+mergecycle@{qh\+\_\+mergecycle}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergecycle}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergecycle (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{samecycle, }
+\item[{{\bf facet\+T} $\ast$}]{newfacet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a18d5dcb3506615a05a2d97f97dc90856}
+\hypertarget{merge_8c_aede356f76e25d8ee52bf4295238fd6ed}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergecycle\+\_\+all@{qh\+\_\+mergecycle\+\_\+all}}
+\index{qh\+\_\+mergecycle\+\_\+all@{qh\+\_\+mergecycle\+\_\+all}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergecycle\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergecycle\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist, }
+\item[{{\bf bool\+T} $\ast$}]{wasmerge}
+\end{DoxyParamCaption}
+)}\label{merge_8c_aede356f76e25d8ee52bf4295238fd6ed}
+\hypertarget{merge_8c_a25484a8a5ed167c12f6667308fe61f4b}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergecycle\+\_\+facets@{qh\+\_\+mergecycle\+\_\+facets}}
+\index{qh\+\_\+mergecycle\+\_\+facets@{qh\+\_\+mergecycle\+\_\+facets}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergecycle\+\_\+facets}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergecycle\+\_\+facets (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{samecycle, }
+\item[{{\bf facet\+T} $\ast$}]{newfacet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a25484a8a5ed167c12f6667308fe61f4b}
+\hypertarget{merge_8c_a592fb95c65ec61f1626e310fab55be59}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergecycle\+\_\+neighbors@{qh\+\_\+mergecycle\+\_\+neighbors}}
+\index{qh\+\_\+mergecycle\+\_\+neighbors@{qh\+\_\+mergecycle\+\_\+neighbors}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergecycle\+\_\+neighbors}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergecycle\+\_\+neighbors (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{samecycle, }
+\item[{{\bf facet\+T} $\ast$}]{newfacet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a592fb95c65ec61f1626e310fab55be59}
+\hypertarget{merge_8c_ada2d36cd3fa84891fdf526c76da28742}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergecycle\+\_\+ridges@{qh\+\_\+mergecycle\+\_\+ridges}}
+\index{qh\+\_\+mergecycle\+\_\+ridges@{qh\+\_\+mergecycle\+\_\+ridges}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergecycle\+\_\+ridges}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergecycle\+\_\+ridges (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{samecycle, }
+\item[{{\bf facet\+T} $\ast$}]{newfacet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_ada2d36cd3fa84891fdf526c76da28742}
+\hypertarget{merge_8c_a48e56eb9fcef4dbd69fd4dd9308ecf8b}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergecycle\+\_\+vneighbors@{qh\+\_\+mergecycle\+\_\+vneighbors}}
+\index{qh\+\_\+mergecycle\+\_\+vneighbors@{qh\+\_\+mergecycle\+\_\+vneighbors}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergecycle\+\_\+vneighbors}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergecycle\+\_\+vneighbors (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{samecycle, }
+\item[{{\bf facet\+T} $\ast$}]{newfacet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a48e56eb9fcef4dbd69fd4dd9308ecf8b}
+\hypertarget{merge_8c_abd656f0f3804b35a0624581604a443f6}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergefacet@{qh\+\_\+mergefacet}}
+\index{qh\+\_\+mergefacet@{qh\+\_\+mergefacet}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergefacet}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergefacet (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet1, }
+\item[{{\bf facet\+T} $\ast$}]{facet2, }
+\item[{{\bf real\+T} $\ast$}]{mindist, }
+\item[{{\bf real\+T} $\ast$}]{maxdist, }
+\item[{{\bf bool\+T}}]{mergeapex}
+\end{DoxyParamCaption}
+)}\label{merge_8c_abd656f0f3804b35a0624581604a443f6}
+\hypertarget{merge_8c_a1b33200580d62daa88bfb70821099940}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergefacet2d@{qh\+\_\+mergefacet2d}}
+\index{qh\+\_\+mergefacet2d@{qh\+\_\+mergefacet2d}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergefacet2d}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergefacet2d (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet1, }
+\item[{{\bf facet\+T} $\ast$}]{facet2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a1b33200580d62daa88bfb70821099940}
+\hypertarget{merge_8c_aa1b10f601164d807871604b283418a75}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergeneighbors@{qh\+\_\+mergeneighbors}}
+\index{qh\+\_\+mergeneighbors@{qh\+\_\+mergeneighbors}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergeneighbors}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergeneighbors (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet1, }
+\item[{{\bf facet\+T} $\ast$}]{facet2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_aa1b10f601164d807871604b283418a75}
+\hypertarget{merge_8c_aa73df4d342d2b795f21317bd98063509}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergeridges@{qh\+\_\+mergeridges}}
+\index{qh\+\_\+mergeridges@{qh\+\_\+mergeridges}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergeridges}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergeridges (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet1, }
+\item[{{\bf facet\+T} $\ast$}]{facet2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_aa73df4d342d2b795f21317bd98063509}
+\hypertarget{merge_8c_a2fe52b3ed211c1a1342dfe1f9a03f37d}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergesimplex@{qh\+\_\+mergesimplex}}
+\index{qh\+\_\+mergesimplex@{qh\+\_\+mergesimplex}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergesimplex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergesimplex (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet1, }
+\item[{{\bf facet\+T} $\ast$}]{facet2, }
+\item[{{\bf bool\+T}}]{mergeapex}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a2fe52b3ed211c1a1342dfe1f9a03f37d}
+\hypertarget{merge_8c_a72401bd7249ffdc448797f9a776dba02}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergevertex\+\_\+del@{qh\+\_\+mergevertex\+\_\+del}}
+\index{qh\+\_\+mergevertex\+\_\+del@{qh\+\_\+mergevertex\+\_\+del}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergevertex\+\_\+del}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergevertex\+\_\+del (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{vertex, }
+\item[{{\bf facet\+T} $\ast$}]{facet1, }
+\item[{{\bf facet\+T} $\ast$}]{facet2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a72401bd7249ffdc448797f9a776dba02}
+\hypertarget{merge_8c_a34b3607f0a367c5fbb7dc2dafedca84f}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergevertex\+\_\+neighbors@{qh\+\_\+mergevertex\+\_\+neighbors}}
+\index{qh\+\_\+mergevertex\+\_\+neighbors@{qh\+\_\+mergevertex\+\_\+neighbors}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergevertex\+\_\+neighbors}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergevertex\+\_\+neighbors (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet1, }
+\item[{{\bf facet\+T} $\ast$}]{facet2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a34b3607f0a367c5fbb7dc2dafedca84f}
+\hypertarget{merge_8c_a15b72203dcb35f69c50e49b73ec67e07}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+mergevertices@{qh\+\_\+mergevertices}}
+\index{qh\+\_\+mergevertices@{qh\+\_\+mergevertices}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+mergevertices}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+mergevertices (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertices1, }
+\item[{{\bf set\+T} $\ast$$\ast$}]{vertices2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a15b72203dcb35f69c50e49b73ec67e07}
+\hypertarget{merge_8c_ae2829acd9c34039462b510cd10d7475c}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+neighbor\+\_\+intersections@{qh\+\_\+neighbor\+\_\+intersections}}
+\index{qh\+\_\+neighbor\+\_\+intersections@{qh\+\_\+neighbor\+\_\+intersections}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+neighbor\+\_\+intersections}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+neighbor\+\_\+intersections (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\label{merge_8c_ae2829acd9c34039462b510cd10d7475c}
+\hypertarget{merge_8c_a3bdb112f840c713b8c7cdc764aaa3401}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+newvertices@{qh\+\_\+newvertices}}
+\index{qh\+\_\+newvertices@{qh\+\_\+newvertices}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+newvertices}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+newvertices (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertices}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a3bdb112f840c713b8c7cdc764aaa3401}
+\hypertarget{merge_8c_a996503311966d59514bc379ff3449a14}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+postmerge@{qh\+\_\+postmerge}}
+\index{qh\+\_\+postmerge@{qh\+\_\+postmerge}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+postmerge}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+postmerge (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{reason, }
+\item[{{\bf real\+T}}]{maxcentrum, }
+\item[{{\bf real\+T}}]{maxangle, }
+\item[{{\bf bool\+T}}]{vneighbors}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a996503311966d59514bc379ff3449a14}
+\hypertarget{merge_8c_adfe6e6b730087e300a0d99c5e479ff40}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+premerge@{qh\+\_\+premerge}}
+\index{qh\+\_\+premerge@{qh\+\_\+premerge}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+premerge}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+premerge (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{apex, }
+\item[{{\bf real\+T}}]{maxcentrum, }
+\item[{{\bf real\+T}}]{maxangle}
+\end{DoxyParamCaption}
+)}\label{merge_8c_adfe6e6b730087e300a0d99c5e479ff40}
+\hypertarget{merge_8c_ac40425a64c50d0e0b2637c63d61822a9}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+reducevertices@{qh\+\_\+reducevertices}}
+\index{qh\+\_\+reducevertices@{qh\+\_\+reducevertices}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+reducevertices}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+reducevertices (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{merge_8c_ac40425a64c50d0e0b2637c63d61822a9}
+\hypertarget{merge_8c_aa70d672554a824360f208918e91ac25a}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+redundant\+\_\+vertex@{qh\+\_\+redundant\+\_\+vertex}}
+\index{qh\+\_\+redundant\+\_\+vertex@{qh\+\_\+redundant\+\_\+vertex}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+redundant\+\_\+vertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vertex\+T}$\ast$ qh\+\_\+redundant\+\_\+vertex (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\label{merge_8c_aa70d672554a824360f208918e91ac25a}
+\hypertarget{merge_8c_aa47fbb139536b940f34f1531f550f8bb}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+remove\+\_\+extravertices@{qh\+\_\+remove\+\_\+extravertices}}
+\index{qh\+\_\+remove\+\_\+extravertices@{qh\+\_\+remove\+\_\+extravertices}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+remove\+\_\+extravertices}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+remove\+\_\+extravertices (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_aa47fbb139536b940f34f1531f550f8bb}
+\hypertarget{merge_8c_af185fac33e4c5dc5d1302e1eef66d5f0}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+rename\+\_\+sharedvertex@{qh\+\_\+rename\+\_\+sharedvertex}}
+\index{qh\+\_\+rename\+\_\+sharedvertex@{qh\+\_\+rename\+\_\+sharedvertex}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+rename\+\_\+sharedvertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vertex\+T}$\ast$ qh\+\_\+rename\+\_\+sharedvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{vertex, }
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{merge_8c_af185fac33e4c5dc5d1302e1eef66d5f0}
+\hypertarget{merge_8c_a1ef7a2036aab0bffbc7562034931cb7d}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+renameridgevertex@{qh\+\_\+renameridgevertex}}
+\index{qh\+\_\+renameridgevertex@{qh\+\_\+renameridgevertex}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+renameridgevertex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+renameridgevertex (
+\begin{DoxyParamCaption}
+\item[{{\bf ridge\+T} $\ast$}]{ridge, }
+\item[{{\bf vertex\+T} $\ast$}]{oldvertex, }
+\item[{{\bf vertex\+T} $\ast$}]{newvertex}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a1ef7a2036aab0bffbc7562034931cb7d}
+\hypertarget{merge_8c_ae6d64f6f23dbae95b6d8e4d2a53ae3b6}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+renamevertex@{qh\+\_\+renamevertex}}
+\index{qh\+\_\+renamevertex@{qh\+\_\+renamevertex}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+renamevertex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+renamevertex (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{oldvertex, }
+\item[{{\bf vertex\+T} $\ast$}]{newvertex, }
+\item[{{\bf set\+T} $\ast$}]{ridges, }
+\item[{{\bf facet\+T} $\ast$}]{oldfacet, }
+\item[{{\bf facet\+T} $\ast$}]{neighbor\+A}
+\end{DoxyParamCaption}
+)}\label{merge_8c_ae6d64f6f23dbae95b6d8e4d2a53ae3b6}
+\hypertarget{merge_8c_ac14fdfc72eca27b4d29f8ee7d5e103d5}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+test\+\_\+appendmerge@{qh\+\_\+test\+\_\+appendmerge}}
+\index{qh\+\_\+test\+\_\+appendmerge@{qh\+\_\+test\+\_\+appendmerge}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+test\+\_\+appendmerge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+test\+\_\+appendmerge (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf facet\+T} $\ast$}]{neighbor}
+\end{DoxyParamCaption}
+)}\label{merge_8c_ac14fdfc72eca27b4d29f8ee7d5e103d5}
+\hypertarget{merge_8c_a618362885e9e753c0bbe5a9e9bbaff02}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+test\+\_\+vneighbors@{qh\+\_\+test\+\_\+vneighbors}}
+\index{qh\+\_\+test\+\_\+vneighbors@{qh\+\_\+test\+\_\+vneighbors}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+test\+\_\+vneighbors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+test\+\_\+vneighbors (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a618362885e9e753c0bbe5a9e9bbaff02}
+\hypertarget{merge_8c_a844c40269aa95b5b24a3fb42afb9497d}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+tracemerge@{qh\+\_\+tracemerge}}
+\index{qh\+\_\+tracemerge@{qh\+\_\+tracemerge}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+tracemerge}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+tracemerge (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet1, }
+\item[{{\bf facet\+T} $\ast$}]{facet2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a844c40269aa95b5b24a3fb42afb9497d}
+\hypertarget{merge_8c_a10e019ff4b338f8c3475123f212448d4}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+tracemerging@{qh\+\_\+tracemerging}}
+\index{qh\+\_\+tracemerging@{qh\+\_\+tracemerging}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+tracemerging}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+tracemerging (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a10e019ff4b338f8c3475123f212448d4}
+\hypertarget{merge_8c_a2536699abc55b25e9db706c5539a4ec6}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+updatetested@{qh\+\_\+updatetested}}
+\index{qh\+\_\+updatetested@{qh\+\_\+updatetested}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+updatetested}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+updatetested (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet1, }
+\item[{{\bf facet\+T} $\ast$}]{facet2}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a2536699abc55b25e9db706c5539a4ec6}
+\hypertarget{merge_8c_a0504b57a1fa01deb044db95ffe71c2df}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+vertexridges@{qh\+\_\+vertexridges}}
+\index{qh\+\_\+vertexridges@{qh\+\_\+vertexridges}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+vertexridges}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+vertexridges (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a0504b57a1fa01deb044db95ffe71c2df}
+\hypertarget{merge_8c_a26a2f47ec746bdb699a811c123c128e3}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+vertexridges\+\_\+facet@{qh\+\_\+vertexridges\+\_\+facet}}
+\index{qh\+\_\+vertexridges\+\_\+facet@{qh\+\_\+vertexridges\+\_\+facet}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+vertexridges\+\_\+facet}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+vertexridges\+\_\+facet (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{vertex, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf set\+T} $\ast$$\ast$}]{ridges}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a26a2f47ec746bdb699a811c123c128e3}
+\hypertarget{merge_8c_a49edd74c54f86c200a059138f51232d4}{}\index{merge.\+c@{merge.\+c}!qh\+\_\+willdelete@{qh\+\_\+willdelete}}
+\index{qh\+\_\+willdelete@{qh\+\_\+willdelete}!merge.\+c@{merge.\+c}}
+\subsubsection[{qh\+\_\+willdelete}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+willdelete (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf facet\+T} $\ast$}]{replace}
+\end{DoxyParamCaption}
+)}\label{merge_8c_a49edd74c54f86c200a059138f51232d4}

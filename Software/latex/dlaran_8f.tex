@@ -1,0 +1,60 @@
+\hypertarget{dlaran_8f}{}\section{packages/lapack-\/3.5.0/\+T\+E\+S\+T\+I\+N\+G/\+M\+A\+T\+G\+E\+N/dlaran.f File Reference}
+\label{dlaran_8f}\index{packages/lapack-\/3.\+5.\+0/\+T\+E\+S\+T\+I\+N\+G/\+M\+A\+T\+G\+E\+N/dlaran.\+f@{packages/lapack-\/3.\+5.\+0/\+T\+E\+S\+T\+I\+N\+G/\+M\+A\+T\+G\+E\+N/dlaran.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{numinquire_8h_a2c8e616467665d0b2814d4c1589ba74e}{precision} \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{dlaran_8f_a9890a3a41d07fe1f5656031eb668f806}{dlaran} (I\+S\+E\+E\+D)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+R\+A\+N} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlaran_8f_a9890a3a41d07fe1f5656031eb668f806}{}\index{dlaran.\+f@{dlaran.\+f}!dlaran@{dlaran}}
+\index{dlaran@{dlaran}!dlaran.\+f@{dlaran.\+f}}
+\subsubsection[{dlaran}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf precision} {\bf function} dlaran (
+\begin{DoxyParamCaption}
+\item[{integer, dimension( 4 )}]{I\+S\+E\+E\+D}
+\end{DoxyParamCaption}
+)}\label{dlaran_8f_a9890a3a41d07fe1f5656031eb668f806}
+
+
+{\bfseries D\+L\+A\+R\+A\+N} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLARAN returns a random real number from a uniform (0,1)
+ distribution.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em I\+S\+E\+E\+D} & \begin{DoxyVerb}          ISEED is INTEGER array, dimension (4)
+          On entry, the seed of the random number generator; the array
+          elements must be between 0 and 4095, and ISEED(4) must be
+          odd.
+          On exit, the seed is updated.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  This routine uses a multiplicative congruential method with modulus
+  2**48 and multiplier 33952834046453 (see G.S.Fishman,
+  'Multiplicative congruential random number generators with modulus
+  2**b: an exhaustive analysis for b = 32 and a partial analysis for
+  b = 48', Math. Comp. 189, pp 331-344, 1990).
+
+  48-bit integers are stored in 4 integer array elements with 12 bits
+  per element. Hence the routine is portable across machines with
+  integers of 32 bits or more.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

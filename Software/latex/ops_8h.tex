@@ -1,0 +1,135 @@
+\hypertarget{ops_8h}{}\section{packages/scipy-\/0.14.0/scipy/weave/blitz/blitz/ops.h File Reference}
+\label{ops_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/ops.\+h@{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/ops.\+h}}
+{\ttfamily \#include $<$blitz/blitz.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/promote.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/prettyprint.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ops_8h_a1c068a58b52163e1ab8e9c68d40753f2}{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P}(name,  op)
+\item 
+\#define \hyperlink{ops_8h_a5eabd37a47ae9b401f489204dd247fa4}{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T}(name,  op,  ret)
+\item 
+\#define \hyperlink{ops_8h_acffd9d354c53c7f9c9d6c5b58fcec75a}{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P}(name,  op)
+\item 
+\#define \hyperlink{ops_8h_ad23bf6adf1ab809d98276fb8fadebd51}{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T}(name,  op,  ret)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ops_8h_acffd9d354c53c7f9c9d6c5b58fcec75a}{}\index{ops.\+h@{ops.\+h}!B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P@{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P}}
+\index{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P@{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P}!ops.\+h@{ops.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{op}
+\end{DoxyParamCaption}
+)}\label{ops_8h_acffd9d354c53c7f9c9d6c5b58fcec75a}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T\_numtype1, \textcolor{keyword}{typename} T\_numtype2>                \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{\(\backslash\)}
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{                                                     \(\backslash\)
+    typedef \hyperlink{promote_8h_a813f728955ad9d274d053e4f267f3c08}{BZ\_PROMOTE}(T\_numtype1, T\_numtype2) T\_numtype;         \(\backslash\)
+                                                                  \(\backslash\)
+    static \hyperlink{namespacescipy_1_1weave_1_1inline__tools_aaada6afeb5b2214ee7f2d1fa668485cf}{inline} T\_numtype                                       \(\backslash\)
+    apply(T\_numtype1 \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}, T\_numtype2 \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b})                             \(\backslash\)
+    \{ \textcolor{keywordflow}{return} a op \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}; \}                                            \(\backslash\)
+                                      \(\backslash\)
+    template<typename T1, typename T2>                            \(\backslash\)
+    static \textcolor{keyword}{inline} \textcolor{keywordtype}{void} prettyPrint(\hyperlink{numinquire_8h_a2b24ffc3b4ef9803956bc7715c6c7b83}{BZ\_STD\_SCOPE}(\textcolor{keywordtype}{string}) &str,     \(\backslash\)
+        \hyperlink{classprettyPrintFormat}{prettyPrintFormat}& \hyperlink{namespacePyQt-x11-gpl-4_811_82_1_1configure-ng_ad7c14d59520ae295e8f00d1e7c1a93f9}{format}, \textcolor{keyword}{const} T1& \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{t1},                  \(\backslash\)
+        \textcolor{keyword}{const} T2& \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_a856c446f66cf9106cfe195e2d8ea1c05}{t2})                                             \(\backslash\)
+    \{                                                             \(\backslash\)
+        str += \textcolor{stringliteral}{"("};                                               \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{\(\backslash\)}
+\hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{        t1}.prettyPrint(str, \hyperlink{namespacePyQt-x11-gpl-4_811_82_1_1configure-ng_ad7c14d59520ae295e8f00d1e7c1a93f9}{format});                              \(\backslash\)
+        str += #op;                                               \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_a856c446f66cf9106cfe195e2d8ea1c05}{\(\backslash\)}
+\hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_a856c446f66cf9106cfe195e2d8ea1c05}{        t2}.prettyPrint(str, \hyperlink{namespacePyQt-x11-gpl-4_811_82_1_1configure-ng_ad7c14d59520ae295e8f00d1e7c1a93f9}{format});                              \(\backslash\)
+        str += \textcolor{stringliteral}{")"};                                               \(\backslash\)
+    \}                                                             \(\backslash\)
+\};
+\end{DoxyCode}
+\hypertarget{ops_8h_ad23bf6adf1ab809d98276fb8fadebd51}{}\index{ops.\+h@{ops.\+h}!B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T}}
+\index{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T}!ops.\+h@{ops.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+B\+I\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{op, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{ops_8h_ad23bf6adf1ab809d98276fb8fadebd51}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T\_numtype1, \textcolor{keyword}{typename} T\_numtype2>                \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{\(\backslash\)}
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{                                                     \(\backslash\)
+    typedef \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{ret} T\_numtype;                                        \(\backslash\)
+    static \textcolor{keyword}{inline} T\_numtype                                       \(\backslash\)
+    apply(T\_numtype1 \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}, T\_numtype2 \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b})                             \(\backslash\)
+    \{ \textcolor{keywordflow}{return} \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a} op \hyperlink{namespaceanchorlayout_ab4f1761324bb6d566a781389d2414d5f}{b}; \}                                            \(\backslash\)
+                                                                  \(\backslash\)
+    template<typename T1, typename T2>                            \(\backslash\)
+    static \textcolor{keyword}{inline} \textcolor{keywordtype}{void} prettyPrint(\hyperlink{numinquire_8h_a2b24ffc3b4ef9803956bc7715c6c7b83}{BZ\_STD\_SCOPE}(\textcolor{keywordtype}{string}) &str,     \(\backslash\)
+        \hyperlink{classprettyPrintFormat}{prettyPrintFormat}& \hyperlink{namespacePyQt-x11-gpl-4_811_82_1_1configure-ng_ad7c14d59520ae295e8f00d1e7c1a93f9}{format}, \textcolor{keyword}{const} T1& \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{t1},                  \(\backslash\)
+        \textcolor{keyword}{const} T2& \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_a856c446f66cf9106cfe195e2d8ea1c05}{t2})                                             \(\backslash\)
+    \{                                                             \(\backslash\)
+        str += \textcolor{stringliteral}{"("};                                               \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{\(\backslash\)}
+\hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{        t1}.prettyPrint(str, \hyperlink{namespacePyQt-x11-gpl-4_811_82_1_1configure-ng_ad7c14d59520ae295e8f00d1e7c1a93f9}{format});                              \(\backslash\)
+        str += #op;                                               \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_a856c446f66cf9106cfe195e2d8ea1c05}{\(\backslash\)}
+\hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_a856c446f66cf9106cfe195e2d8ea1c05}{        t2}.prettyPrint(str, \hyperlink{namespacePyQt-x11-gpl-4_811_82_1_1configure-ng_ad7c14d59520ae295e8f00d1e7c1a93f9}{format});                              \(\backslash\)
+        str += \textcolor{stringliteral}{")"};                                               \(\backslash\)
+    \}                                                             \(\backslash\)
+\};
+\end{DoxyCode}
+\hypertarget{ops_8h_a1c068a58b52163e1ab8e9c68d40753f2}{}\index{ops.\+h@{ops.\+h}!B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P@{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P}}
+\index{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P@{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P}!ops.\+h@{ops.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{op}
+\end{DoxyParamCaption}
+)}\label{ops_8h_a1c068a58b52163e1ab8e9c68d40753f2}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T\_numtype1>                                  \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{\(\backslash\)}
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{                                                  \(\backslash\)
+    typedef T\_numtype1 T\_numtype;                              \(\backslash\)
+                                                               \(\backslash\)
+    static \textcolor{keyword}{inline} T\_numtype                                    \(\backslash\)
+    apply(T\_numtype1 \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a})                                        \(\backslash\)
+    \{ \textcolor{keywordflow}{return} op \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}; \}                                           \(\backslash\)
+                                   \(\backslash\)
+    template<typename T1>                                      \(\backslash\)
+    static \textcolor{keyword}{inline} \textcolor{keywordtype}{void} prettyPrint(\hyperlink{numinquire_8h_a2b24ffc3b4ef9803956bc7715c6c7b83}{BZ\_STD\_SCOPE}(\textcolor{keywordtype}{string}) &str,  \(\backslash\)
+        \hyperlink{classprettyPrintFormat}{prettyPrintFormat}& \hyperlink{namespacePyQt-x11-gpl-4_811_82_1_1configure-ng_ad7c14d59520ae295e8f00d1e7c1a93f9}{format}, \textcolor{keyword}{const} T1& \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{t1})               \(\backslash\)
+    \{                                                          \(\backslash\)
+        str += #op;                                            \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{\(\backslash\)}
+\hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{        t1}.prettyPrint(str, \hyperlink{namespacePyQt-x11-gpl-4_811_82_1_1configure-ng_ad7c14d59520ae295e8f00d1e7c1a93f9}{format});                           \(\backslash\)
+    \}                                                          \(\backslash\)
+\};
+\end{DoxyCode}
+\hypertarget{ops_8h_a5eabd37a47ae9b401f489204dd247fa4}{}\index{ops.\+h@{ops.\+h}!B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T}}
+\index{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T@{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T}!ops.\+h@{ops.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+O\+P\+\_\+\+R\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{op, }
+\item[{}]{ret}
+\end{DoxyParamCaption}
+)}\label{ops_8h_a5eabd37a47ae9b401f489204dd247fa4}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T\_numtype1>                                  \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{\(\backslash\)}
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{namespacelapack__testing_ad7e315e0bd725f8cac7659735bb3e7f0}{name} \{                                                  \(\backslash\)
+    typedef \hyperlink{namespacescipy_1_1optimize_1_1__basinhopping_aa266e39b61ee46db97b8c3949e6fff22}{ret} T\_numtype;                                     \(\backslash\)
+    static \textcolor{keyword}{inline} T\_numtype                                    \(\backslash\)
+    apply(T\_numtype1 \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a})                                        \(\backslash\)
+    \{ \textcolor{keywordflow}{return} op \hyperlink{namespacewebbrowser_a8fd4131959171403366d96e7f1bf9a59}{a}; \}                                           \(\backslash\)
+                                                               \(\backslash\)
+    template<typename T1>                                      \(\backslash\)
+    static \textcolor{keyword}{inline} \textcolor{keywordtype}{void} prettyPrint(\hyperlink{numinquire_8h_a2b24ffc3b4ef9803956bc7715c6c7b83}{BZ\_STD\_SCOPE}(\textcolor{keywordtype}{string}) &str,  \(\backslash\)
+        \hyperlink{classprettyPrintFormat}{prettyPrintFormat}& \hyperlink{namespacePyQt-x11-gpl-4_811_82_1_1configure-ng_ad7c14d59520ae295e8f00d1e7c1a93f9}{format}, \textcolor{keyword}{const} T1& \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{t1})               \(\backslash\)
+    \{                                                          \(\backslash\)
+        str += #op;                                            \hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{\(\backslash\)}
+\hyperlink{sparse_2linalg_2eigen_2arpack_2ARPACK_2SRC_2stat_8h_af377a4e2b03dbeb6590856bdfca3df30}{        t1}.prettyPrint(str, \hyperlink{namespacePyQt-x11-gpl-4_811_82_1_1configure-ng_ad7c14d59520ae295e8f00d1e7c1a93f9}{format});                           \(\backslash\)
+    \}                                                          \(\backslash\)
+\};
+\end{DoxyCode}

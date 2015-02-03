@@ -1,0 +1,112 @@
+\hypertarget{clascl_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clascl.f File Reference}
+\label{clascl_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clascl.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clascl.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clascl_8f_a873d465a5f824b01b7b8eb0156842c19}{clascl} (T\+Y\+P\+E, K\+L, K\+U, C\+F\+R\+O\+M, C\+T\+O, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+S\+C\+L} multiplies a general rectangular matrix by a real scalar defined as cto/cfrom. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clascl_8f_a873d465a5f824b01b7b8eb0156842c19}{}\index{clascl.\+f@{clascl.\+f}!clascl@{clascl}}
+\index{clascl@{clascl}!clascl.\+f@{clascl.\+f}}
+\subsubsection[{clascl}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clascl (
+\begin{DoxyParamCaption}
+\item[{character}]{T\+Y\+P\+E, }
+\item[{integer}]{K\+L, }
+\item[{integer}]{K\+U, }
+\item[{real}]{C\+F\+R\+O\+M, }
+\item[{real}]{C\+T\+O, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{clascl_8f_a873d465a5f824b01b7b8eb0156842c19}
+
+
+{\bfseries C\+L\+A\+S\+C\+L} multiplies a general rectangular matrix by a real scalar defined as cto/cfrom. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLASCL multiplies the M by N complex matrix A by the real scalar
+ CTO/CFROM.  This is done without over/underflow as long as the final
+ result CTO*A(I,J)/CFROM does not over/underflow. TYPE specifies that
+ A may be full, upper triangular, lower triangular, upper Hessenberg,
+ or banded.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em T\+Y\+P\+E} & \begin{DoxyVerb}          TYPE is CHARACTER*1
+          TYPE indices the storage type of the input matrix.
+          = 'G':  A is a full matrix.
+          = 'L':  A is a lower triangular matrix.
+          = 'U':  A is an upper triangular matrix.
+          = 'H':  A is an upper Hessenberg matrix.
+          = 'B':  A is a symmetric band matrix with lower bandwidth KL
+                  and upper bandwidth KU and with the only the lower
+                  half stored.
+          = 'Q':  A is a symmetric band matrix with lower bandwidth KL
+                  and upper bandwidth KU and with the only the upper
+                  half stored.
+          = 'Z':  A is a band matrix with lower bandwidth KL and upper
+                  bandwidth KU. See CGBTRF for storage details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+L} & \begin{DoxyVerb}          KL is INTEGER
+          The lower bandwidth of A.  Referenced only if TYPE = 'B',
+          'Q' or 'Z'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+U} & \begin{DoxyVerb}          KU is INTEGER
+          The upper bandwidth of A.  Referenced only if TYPE = 'B',
+          'Q' or 'Z'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+F\+R\+O\+M} & \begin{DoxyVerb}          CFROM is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+T\+O} & \begin{DoxyVerb}          CTO is REAL
+
+          The matrix A is multiplied by CTO/CFROM. A(I,J) is computed
+          without over/underflow if the final result CTO*A(I,J)/CFROM
+          can be represented without over/underflow.  CFROM must be
+          nonzero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A.  M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          The matrix to be multiplied by CTO/CFROM.  See TYPE for the
+          storage type.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          0  - successful exit
+          <0 - if INFO = -i, the i-th argument had an illegal value.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

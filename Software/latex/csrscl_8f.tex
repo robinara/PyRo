@@ -1,0 +1,64 @@
+\hypertarget{csrscl_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/csrscl.f File Reference}
+\label{csrscl_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/csrscl.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/csrscl.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{csrscl_8f_a505a9b690770eee5797b3efdd8ce89a6}{csrscl} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, S\+A, S\+X, I\+N\+C\+X)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+S\+R\+S\+C\+L} multiplies a vector by the reciprocal of a real scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{csrscl_8f_a505a9b690770eee5797b3efdd8ce89a6}{}\index{csrscl.\+f@{csrscl.\+f}!csrscl@{csrscl}}
+\index{csrscl@{csrscl}!csrscl.\+f@{csrscl.\+f}}
+\subsubsection[{csrscl}]{\setlength{\rightskip}{0pt plus 5cm}subroutine csrscl (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real}]{S\+A, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{S\+X, }
+\item[{integer}]{I\+N\+C\+X}
+\end{DoxyParamCaption}
+)}\label{csrscl_8f_a505a9b690770eee5797b3efdd8ce89a6}
+
+
+{\bfseries C\+S\+R\+S\+C\+L} multiplies a vector by the reciprocal of a real scalar. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CSRSCL multiplies an n-element complex vector x by the real scalar
+ 1/a.  This is done without overflow or underflow as long as
+ the final result x/a does not overflow or underflow.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of components of the vector x.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+A} & \begin{DoxyVerb}          SA is REAL
+          The scalar a which is used to divide each component of x.
+          SA must be >= 0, or the subroutine will divide by zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em S\+X} & \begin{DoxyVerb}          SX is COMPLEX array, dimension
+                         (1+(N-1)*abs(INCX))
+          The n-element vector x.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between successive values of the vector SX.
+          > 0:  SX(1) = X(1) and SX(1+(i-1)*INCX) = x(i),     1< i<= n\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

@@ -1,0 +1,237 @@
+\hypertarget{classscipy_1_1io_1_1__fortran_1_1FortranFile}{}\section{scipy.\+io.\+\_\+fortran.\+Fortran\+File Class Reference}
+\label{classscipy_1_1io_1_1__fortran_1_1FortranFile}\index{scipy.\+io.\+\_\+fortran.\+Fortran\+File@{scipy.\+io.\+\_\+fortran.\+Fortran\+File}}
+Inheritance diagram for scipy.\+io.\+\_\+fortran.\+Fortran\+File\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1io_1_1__fortran_1_1FortranFile}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1io_1_1__fortran_1_1FortranFile_a6b61b83803c0e081e63b679bd29a1225}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1__fortran_1_1FortranFile_a9ab85cc3ddbf3e566af90f0aec0da42b}{write\+\_\+record}
+\item 
+def \hyperlink{classscipy_1_1io_1_1__fortran_1_1FortranFile_a2a79a8d2075e0c286dabea621319bcb6}{read\+\_\+record}
+\item 
+def \hyperlink{classscipy_1_1io_1_1__fortran_1_1FortranFile_a6fd42139c3347f139fa5e020b53c468b}{read\+\_\+ints}
+\item 
+def \hyperlink{classscipy_1_1io_1_1__fortran_1_1FortranFile_aac44ec3f84a3dfed1cced04a77d8e54e}{read\+\_\+reals}
+\item 
+def \hyperlink{classscipy_1_1io_1_1__fortran_1_1FortranFile_a9b1afc4070da3f96b3d03796e635d1b5}{close}
+\item 
+def \hyperlink{classscipy_1_1io_1_1__fortran_1_1FortranFile_a0c1d0427c50c87415720c3e239db4f7f}{\+\_\+\+\_\+enter\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1__fortran_1_1FortranFile_a562e1484c59c82776f3c3d18c9661116}{\+\_\+\+\_\+exit\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}A file object for unformatted sequential files from Fortran code.
+
+Parameters
+----------
+filename: file or str
+    Open file object or filename.
+mode : {'r', 'w'}, optional
+    Read-write mode, default is 'r'.
+header_dtype : data-type
+    Data type of the header. Size and endiness must match the input/output file.
+
+Notes
+-----
+These files are broken up into records of unspecified types. The size of
+each record is given at the start (although the size of this header is not
+standard) and the data is written onto disk without any formatting. Fortran
+compilers supporting the BACKSPACE statement will write a second copy of
+the size to facilitate backwards seeking.
+
+This class only supports files written with both sizes for the record.
+It also does not support the subrecords used in Intel and gfortran compilers
+for records which are greater than 2GB with a 4-byte header.
+
+An example of an unformatted sequential file in Fortran would be written as::
+
+    OPEN(1, FILE=myfilename, FORM='unformatted')
+
+    WRITE(1) myvariable
+
+Since this is a non-standard file format, whose contents depend on the
+compiler and the endianness of the machine, caution is advised. Files from
+gfortran 4.8.0 and gfortran 4.1.2 on x86_64 are known to work.
+
+Consider using Fortran direct-access files or files from the newer Stream
+I/O, which can be easily read by `numpy.fromfile`.
+
+Examples
+--------
+To create an unformatted sequential Fortran file:
+
+>>> from scipy.io import FortranFile
+>>> f = FortranFile('test.unf', 'w')
+>>> f.write_record(np.array([1,2,3,4,5],dtype=np.int32))
+>>> f.write_record(np.linspace(0,1,20).reshape((5,-1)))
+>>> f.close()
+
+To read this file:
+
+>>> from scipy.io import FortranFile
+>>> f = FortranFile('test.unf', 'r')
+>>> print(f.read_ints(dtype=np.int32))
+[1 2 3 4 5]
+>>> print(f.read_reals(dtype=np.float).reshape((5,-1)))
+[[ 0.          0.05263158  0.10526316  0.15789474]
+ [ 0.21052632  0.26315789  0.31578947  0.36842105]
+ [ 0.42105263  0.47368421  0.52631579  0.57894737]
+ [ 0.63157895  0.68421053  0.73684211  0.78947368]
+ [ 0.84210526  0.89473684  0.94736842  1.        ]]
+>>> f.close()\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1io_1_1__fortran_1_1FortranFile_a6b61b83803c0e081e63b679bd29a1225}{}\index{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+\_\+fortran.\+Fortran\+File.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{filename, }
+\item[{}]{mode = {\ttfamily '{\bf r}'}, }
+\item[{}]{header\+\_\+dtype = {\ttfamily np.uint32}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1__fortran_1_1FortranFile_a6b61b83803c0e081e63b679bd29a1225}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1io_1_1__fortran_1_1FortranFile_a0c1d0427c50c87415720c3e239db4f7f}{}\index{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}!\+\_\+\+\_\+enter\+\_\+\+\_\+@{\+\_\+\+\_\+enter\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+enter\+\_\+\+\_\+@{\+\_\+\+\_\+enter\+\_\+\+\_\+}!scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}}
+\subsubsection[{\+\_\+\+\_\+enter\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+\_\+fortran.\+Fortran\+File.\+\_\+\+\_\+enter\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1__fortran_1_1FortranFile_a0c1d0427c50c87415720c3e239db4f7f}
+\hypertarget{classscipy_1_1io_1_1__fortran_1_1FortranFile_a562e1484c59c82776f3c3d18c9661116}{}\index{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}!\+\_\+\+\_\+exit\+\_\+\+\_\+@{\+\_\+\+\_\+exit\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+exit\+\_\+\+\_\+@{\+\_\+\+\_\+exit\+\_\+\+\_\+}!scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}}
+\subsubsection[{\+\_\+\+\_\+exit\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+\_\+fortran.\+Fortran\+File.\+\_\+\+\_\+exit\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{type, }
+\item[{}]{value, }
+\item[{}]{tb}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1__fortran_1_1FortranFile_a562e1484c59c82776f3c3d18c9661116}
+\hypertarget{classscipy_1_1io_1_1__fortran_1_1FortranFile_a9b1afc4070da3f96b3d03796e635d1b5}{}\index{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}!close@{close}}
+\index{close@{close}!scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+\_\+fortran.\+Fortran\+File.\+close (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1__fortran_1_1FortranFile_a9b1afc4070da3f96b3d03796e635d1b5}
+\begin{DoxyVerb}Closes the file. It is unsupported to call any other methods off this
+object after closing it. Note that this class supports the 'with'
+statement in modern versions of Python, to call this automatically\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1__fortran_1_1FortranFile_a6fd42139c3347f139fa5e020b53c468b}{}\index{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}!read\+\_\+ints@{read\+\_\+ints}}
+\index{read\+\_\+ints@{read\+\_\+ints}!scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}}
+\subsubsection[{read\+\_\+ints}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+\_\+fortran.\+Fortran\+File.\+read\+\_\+ints (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{dtype = {\ttfamily 'i4'}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1__fortran_1_1FortranFile_a6fd42139c3347f139fa5e020b53c468b}
+\begin{DoxyVerb}Reads a record of a given type from the file, defaulting to an integer
+type (INTEGER*4 in Fortran)
+
+Parameters
+----------
+dtype : data-type
+    Data type specifying the size and endiness of the data.
+
+Returns
+-------
+data : ndarray
+    A one-dimensional array object.
+
+See Also
+--------
+read_reals
+read_record\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1__fortran_1_1FortranFile_aac44ec3f84a3dfed1cced04a77d8e54e}{}\index{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}!read\+\_\+reals@{read\+\_\+reals}}
+\index{read\+\_\+reals@{read\+\_\+reals}!scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}}
+\subsubsection[{read\+\_\+reals}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+\_\+fortran.\+Fortran\+File.\+read\+\_\+reals (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{dtype = {\ttfamily 'f8'}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1__fortran_1_1FortranFile_aac44ec3f84a3dfed1cced04a77d8e54e}
+\begin{DoxyVerb}Reads a record of a given type from the file, defaulting to a floating
+point number (real*8 in Fortran)
+
+Parameters
+----------
+dtype : data-type
+    Data type specifying the size and endiness of the data.
+
+Returns
+-------
+data : ndarray
+    A one-dimensional array object.
+
+See Also
+--------
+read_ints
+read_record\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1__fortran_1_1FortranFile_a2a79a8d2075e0c286dabea621319bcb6}{}\index{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}!read\+\_\+record@{read\+\_\+record}}
+\index{read\+\_\+record@{read\+\_\+record}!scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}}
+\subsubsection[{read\+\_\+record}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+\_\+fortran.\+Fortran\+File.\+read\+\_\+record (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{dtype = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1__fortran_1_1FortranFile_a2a79a8d2075e0c286dabea621319bcb6}
+\begin{DoxyVerb}Reads a record of a given type from the file.
+
+Parameters
+----------
+dtype : data-type
+    Data type specifying the size and endiness of the data.
+
+Returns
+-------
+data : ndarray
+    A one-dimensional array object.
+
+Notes
+-----
+If the record contains a multi-dimensional array, calling reshape or
+resize will restructure the array to the correct size.
+Since Fortran multidimensional arrays are stored in column-major format,
+this may have some non-intuitive consequences. If the variable was
+declared as 'INTEGER var(5,4)', for example, var could be read with
+'read_record(dtype=np.integer).reshape( (4,5) )' since Python uses
+row-major ordering of indices.
+
+One can transpose to obtain the indices in the same order as in Fortran.
+
+See Also
+--------
+read_reals
+read_ints\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1__fortran_1_1FortranFile_a9ab85cc3ddbf3e566af90f0aec0da42b}{}\index{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}!write\+\_\+record@{write\+\_\+record}}
+\index{write\+\_\+record@{write\+\_\+record}!scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File@{scipy\+::io\+::\+\_\+fortran\+::\+Fortran\+File}}
+\subsubsection[{write\+\_\+record}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+\_\+fortran.\+Fortran\+File.\+write\+\_\+record (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1__fortran_1_1FortranFile_a9ab85cc3ddbf3e566af90f0aec0da42b}
+\begin{DoxyVerb}Write a record (including sizes) to the file.
+
+Parameters
+----------
+s : array_like
+   The data to write.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/io/\hyperlink{io_2__fortran_8py}{\+\_\+fortran.\+py}\end{DoxyCompactItemize}

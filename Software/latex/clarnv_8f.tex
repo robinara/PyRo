@@ -1,0 +1,75 @@
+\hypertarget{clarnv_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clarnv.f File Reference}
+\label{clarnv_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarnv.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarnv.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clarnv_8f_aeb83a97beac7316cb75278b4cd96c752}{clarnv} (I\+D\+I\+S\+T, I\+S\+E\+E\+D, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, X)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+R\+N\+V} returns a vector of random numbers from a uniform or normal distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clarnv_8f_aeb83a97beac7316cb75278b4cd96c752}{}\index{clarnv.\+f@{clarnv.\+f}!clarnv@{clarnv}}
+\index{clarnv@{clarnv}!clarnv.\+f@{clarnv.\+f}}
+\subsubsection[{clarnv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clarnv (
+\begin{DoxyParamCaption}
+\item[{integer}]{I\+D\+I\+S\+T, }
+\item[{integer, dimension( 4 )}]{I\+S\+E\+E\+D, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{X}
+\end{DoxyParamCaption}
+)}\label{clarnv_8f_aeb83a97beac7316cb75278b4cd96c752}
+
+
+{\bfseries C\+L\+A\+R\+N\+V} returns a vector of random numbers from a uniform or normal distribution. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLARNV returns a vector of n random complex numbers from a uniform or
+ normal distribution.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I\+D\+I\+S\+T} & \begin{DoxyVerb}          IDIST is INTEGER
+          Specifies the distribution of the random numbers:
+          = 1:  real and imaginary parts each uniform (0,1)
+          = 2:  real and imaginary parts each uniform (-1,1)
+          = 3:  real and imaginary parts each normal (0,1)
+          = 4:  uniformly distributed on the disc abs(z) < 1
+          = 5:  uniformly distributed on the circle abs(z) = 1\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em I\+S\+E\+E\+D} & \begin{DoxyVerb}          ISEED is INTEGER array, dimension (4)
+          On entry, the seed of the random number generator; the array
+          elements must be between 0 and 4095, and ISEED(4) must be
+          odd.
+          On exit, the seed is updated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of random numbers to be generated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX array, dimension (N)
+          The generated random numbers.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  This routine calls the auxiliary routine SLARUV to generate random
+  real numbers from a uniform (0,1) distribution, in batches of up to
+  128 using vectorisable code. The Box-Muller method is used to
+  transform numbers from a uniform to a normal distribution.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

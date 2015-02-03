@@ -1,0 +1,131 @@
+\hypertarget{array_2reduce_8h}{}\section{packages/scipy-\/0.14.0/scipy/weave/blitz/blitz/array/reduce.h File Reference}
+\label{array_2reduce_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/reduce.\+h@{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/reduce.\+h}}
+{\ttfamily \#include $<$blitz/reduce.\+h$>$}\\*
+{\ttfamily \#include $<$blitz/array/reduce.\+cc$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class__bz__ArrayExprReduce}{\+\_\+bz\+\_\+\+Array\+Expr\+Reduce$<$ T\+\_\+expr, N\+\_\+index, T\+\_\+reduction $>$}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{array_2reduce_8h_ab4f55963dc558ec3d708a4947f369e14}{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+R\+E\+D\+U\+C\+E}(fn,  reduction)
+\item 
+\#define \hyperlink{array_2reduce_8h_ab3cfe82ac1f3d32bb91ff323432b687c}{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E}(fn,  reduction)
+\item 
+\#define \hyperlink{array_2reduce_8h_ab1ae661359efecc9470aa2ffaef0f438}{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E\+\_\+\+I\+N\+D\+E\+X\+V\+E\+C\+T\+O\+R}(fn,  reduction)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T\+\_\+expr , typename T\+\_\+reduction $>$ }\\\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} T\+\_\+reduction\+::\+T\+\_\+resulttype \hyperlink{array_2reduce_8h_a4e7a25b2ff75618589bde6d3f8bf5e40}{\+\_\+bz\+\_\+\+Array\+Expr\+Full\+Reduce} (T\+\_\+expr expr, T\+\_\+reduction reduction)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{array_2reduce_8h_ab3cfe82ac1f3d32bb91ff323432b687c}{}\index{array/reduce.\+h@{array/reduce.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E@{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E@{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E}!array/reduce.\+h@{array/reduce.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E(
+\begin{DoxyParamCaption}
+\item[{}]{fn, }
+\item[{}]{reduction}
+\end{DoxyParamCaption}
+)}\label{array_2reduce_8h_ab3cfe82ac1f3d32bb91ff323432b687c}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T\_expr>                                               \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{inline                                                                  \(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename} reduction<\_bz\_typename T\_expr::T\_numtype>::T\_resulttype    \(\backslash\)
+fn(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr<T\_expr>} expr)                                          \(\backslash\)
+\{                                                                       \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{array_2reduce_8h_a4e7a25b2ff75618589bde6d3f8bf5e40}{\_bz\_ArrayExprFullReduce}(expr,                                \(\backslash\)
+        reduction<\_bz\_typename T\_expr::T\_numtype>());                   \(\backslash\)
+\}                                                                       \(\backslash\)
+                                                                        \(\backslash\)
+template<typename T\_numtype, int N\_rank>                                \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{inline                                                                  \(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename} reduction<T\_numtype>::T\_resulttype                         \(\backslash\)
+fn(\textcolor{keyword}{const} \hyperlink{classArray}{Array<T\_numtype, N\_rank>}& array)                               \(\backslash\)
+\{                                                                       \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{array_2reduce_8h_a4e7a25b2ff75618589bde6d3f8bf5e40}{\_bz\_ArrayExprFullReduce}(array.beginFast(),                   \(\backslash\)
+        reduction<T\_numtype>());                                        \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{array_2reduce_8h_ab1ae661359efecc9470aa2ffaef0f438}{}\index{array/reduce.\+h@{array/reduce.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E\+\_\+\+I\+N\+D\+E\+X\+V\+E\+C\+T\+O\+R@{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E\+\_\+\+I\+N\+D\+E\+X\+V\+E\+C\+T\+O\+R}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E\+\_\+\+I\+N\+D\+E\+X\+V\+E\+C\+T\+O\+R@{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E\+\_\+\+I\+N\+D\+E\+X\+V\+E\+C\+T\+O\+R}!array/reduce.\+h@{array/reduce.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E\+\_\+\+I\+N\+D\+E\+X\+V\+E\+C\+T\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+F\+U\+L\+L\+\_\+\+R\+E\+D\+U\+C\+E\+\_\+\+I\+N\+D\+E\+X\+V\+E\+C\+T\+O\+R(
+\begin{DoxyParamCaption}
+\item[{}]{fn, }
+\item[{}]{reduction}
+\end{DoxyParamCaption}
+)}\label{array_2reduce_8h_ab1ae661359efecc9470aa2ffaef0f438}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T\_expr>                                               \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{inline                                                                  \(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename} \hyperlink{namespacescipy_1_1weave_1_1size__check_a63541aa871f606408a1c62b6f903c37c}{reduction}<\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename} T\_expr::T\_numtype,                  
+      \hyperlink{zfftnd_8c_a6cfd95afd0afebd625b889fb6e58371c}{\(\backslash\)}
+\hyperlink{zfftnd_8c_a6cfd95afd0afebd625b889fb6e58371c}{    T\_expr::rank}>::T\_resulttype                                         \(\backslash\)
+fn(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr<T\_expr>} expr)                                          \(\backslash\)
+\{                                                                       \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{reduce_8cc_a2e5ae03374f895f734388e552c759ed9}{\_bz\_reduceWithIndexVectorTraversal}(expr,            
+               \(\backslash\)
+        reduction<\_bz\_typename T\_expr::T\_numtype, T\_expr::rank>());     \(\backslash\)
+\}                                                                       \(\backslash\)
+                                                                        \(\backslash\)
+template<typename T\_numtype, int N\_rank>                                \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{inline                                                                  \(\backslash\)}
+\hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\_bz\_typename} reduction<T\_numtype,N\_rank>::T\_resulttype                  \(\backslash\)
+fn(\textcolor{keyword}{const} \hyperlink{classArray}{Array<T\_numtype, N\_rank>}& array)                               \(\backslash\)
+\{                                                                       \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{reduce_8cc_a2e5ae03374f895f734388e552c759ed9}{\_bz\_reduceWithIndexVectorTraversal}( array.beginFast(
+      ),       \(\backslash\)
+        reduction<T\_numtype,N\_rank>());                                 \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{array_2reduce_8h_ab4f55963dc558ec3d708a4947f369e14}{}\index{array/reduce.\+h@{array/reduce.\+h}!B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+R\+E\+D\+U\+C\+E@{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+R\+E\+D\+U\+C\+E}}
+\index{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+R\+E\+D\+U\+C\+E@{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+R\+E\+D\+U\+C\+E}!array/reduce.\+h@{array/reduce.\+h}}
+\subsubsection[{B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+R\+E\+D\+U\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+D\+E\+C\+L\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+P\+A\+R\+T\+I\+A\+L\+\_\+\+R\+E\+D\+U\+C\+E(
+\begin{DoxyParamCaption}
+\item[{}]{fn, }
+\item[{}]{reduction}
+\end{DoxyParamCaption}
+)}\label{array_2reduce_8h_ab4f55963dc558ec3d708a4947f369e14}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T\_expr, \textcolor{keywordtype}{int} N\_index>                                  \(\backslash\)
+inline                                                                  \(\backslash\)
+\_bz\_ArrayExpr<\_bz\_ArrayExprReduce<\_bz\_ArrayExpr<T\_expr>, N\_index,       \(\backslash\)
+    reduction<\_bz\_typename T\_expr::T\_numtype> > >                       \(\backslash\)
+fn(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr<T\_expr>} expr, \textcolor{keyword}{const} 
+      \hyperlink{classIndexPlaceholder}{IndexPlaceholder<N\_index>}&)        \(\backslash\)
+\{                                                                       \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{class__bz__ArrayExprReduce}{\_bz\_ArrayExprReduce<\_bz\_ArrayExpr<T\_expr>}, 
+      N\_index,          \(\backslash\)
+        reduction<\_bz\_typename T\_expr::T\_numtype> >(expr);              \(\backslash\)
+\}                                                                       \(\backslash\)
+                                                                        \(\backslash\)
+template<typename T\_numtype, int N\_rank, int N\_index>                   \(\backslash\)
+inline                                                                  \(\backslash\)
+\_bz\_ArrayExpr<\_bz\_ArrayExprReduce<FastArrayIterator<T\_numtype,N\_rank>,  \(\backslash\)
+    N\_index, reduction<T\_numtype> > >                                   \(\backslash\)
+fn(\textcolor{keyword}{const} \hyperlink{classArray}{Array<T\_numtype, N\_rank>}& array,                               \(\backslash\)
+    \textcolor{keyword}{const} \hyperlink{classIndexPlaceholder}{IndexPlaceholder<N\_index>}&)                                   \(\backslash\)
+\{                                                                       \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{class__bz__ArrayExprReduce}{\_bz\_ArrayExprReduce<FastArrayIterator<T\_numtype,N\_rank>}
+      ,     \(\backslash\)
+        N\_index, reduction<T\_numtype> > (array.beginFast());            \(\backslash\)
+\}
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{array_2reduce_8h_a4e7a25b2ff75618589bde6d3f8bf5e40}{}\index{array/reduce.\+h@{array/reduce.\+h}!\+\_\+bz\+\_\+\+Array\+Expr\+Full\+Reduce@{\+\_\+bz\+\_\+\+Array\+Expr\+Full\+Reduce}}
+\index{\+\_\+bz\+\_\+\+Array\+Expr\+Full\+Reduce@{\+\_\+bz\+\_\+\+Array\+Expr\+Full\+Reduce}!array/reduce.\+h@{array/reduce.\+h}}
+\subsubsection[{\+\_\+bz\+\_\+\+Array\+Expr\+Full\+Reduce}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+expr , typename T\+\_\+reduction $>$ {\bf \+\_\+bz\+\_\+typename} T\+\_\+reduction\+::\+T\+\_\+resulttype \+\_\+bz\+\_\+\+Array\+Expr\+Full\+Reduce (
+\begin{DoxyParamCaption}
+\item[{T\+\_\+expr}]{expr, }
+\item[{T\+\_\+reduction}]{reduction}
+\end{DoxyParamCaption}
+)}\label{array_2reduce_8h_a4e7a25b2ff75618589bde6d3f8bf5e40}

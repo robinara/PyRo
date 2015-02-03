@@ -1,0 +1,134 @@
+\hypertarget{slarft_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slarft.f File Reference}
+\label{slarft_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slarft.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slarft.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slarft_8f_aee4c78e6f808a5c1a782b3eaaee5d12c}{slarft} (D\+I\+R\+E\+C\+T, S\+T\+O\+R\+E\+V, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, V, L\+D\+V, T\+A\+U, T, L\+D\+T)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+R\+F\+T} forms the triangular factor T of a block reflector H = I -\/ vtv\+H \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slarft_8f_aee4c78e6f808a5c1a782b3eaaee5d12c}{}\index{slarft.\+f@{slarft.\+f}!slarft@{slarft}}
+\index{slarft@{slarft}!slarft.\+f@{slarft.\+f}}
+\subsubsection[{slarft}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slarft (
+\begin{DoxyParamCaption}
+\item[{character}]{D\+I\+R\+E\+C\+T, }
+\item[{character}]{S\+T\+O\+R\+E\+V, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{real, dimension( ldv, $\ast$ )}]{V, }
+\item[{integer}]{L\+D\+V, }
+\item[{real, dimension( $\ast$ )}]{T\+A\+U, }
+\item[{real, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T}
+\end{DoxyParamCaption}
+)}\label{slarft_8f_aee4c78e6f808a5c1a782b3eaaee5d12c}
+
+
+{\bfseries S\+L\+A\+R\+F\+T} forms the triangular factor T of a block reflector H = I -\/ vtv\+H 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLARFT forms the triangular factor T of a real block reflector H
+ of order n, which is defined as a product of k elementary reflectors.
+
+ If DIRECT = 'F', H = H(1) H(2) . . . H(k) and T is upper triangular;
+
+ If DIRECT = 'B', H = H(k) . . . H(2) H(1) and T is lower triangular.
+
+ If STOREV = 'C', the vector which defines the elementary reflector
+ H(i) is stored in the i-th column of the array V, and
+
+    H  =  I - V * T * V**T
+
+ If STOREV = 'R', the vector which defines the elementary reflector
+ H(i) is stored in the i-th row of the array V, and
+
+    H  =  I - V**T * T * V\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em D\+I\+R\+E\+C\+T} & \begin{DoxyVerb}          DIRECT is CHARACTER*1
+          Specifies the order in which the elementary reflectors are
+          multiplied to form the block reflector:
+          = 'F': H = H(1) H(2) . . . H(k) (Forward)
+          = 'B': H = H(k) . . . H(2) H(1) (Backward)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+T\+O\+R\+E\+V} & \begin{DoxyVerb}          STOREV is CHARACTER*1
+          Specifies how the vectors which define the elementary
+          reflectors are stored (see also Further Details):
+          = 'C': columnwise
+          = 'R': rowwise\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the block reflector H. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+          The order of the triangular factor T (= the number of
+          elementary reflectors). K >= 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V} & \begin{DoxyVerb}          V is REAL array, dimension
+                               (LDV,K) if STOREV = 'C'
+                               (LDV,N) if STOREV = 'R'
+          The matrix V. See further details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V} & \begin{DoxyVerb}          LDV is INTEGER
+          The leading dimension of the array V.
+          If STOREV = 'C', LDV >= max(1,N); if STOREV = 'R', LDV >= K.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is REAL array, dimension (K)
+          TAU(i) must contain the scalar factor of the elementary
+          reflector H(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T} & \begin{DoxyVerb}          T is REAL array, dimension (LDT,K)
+          The k by k triangular factor T of the block reflector.
+          If DIRECT = 'F', T is upper triangular; if DIRECT = 'B', T is
+          lower triangular. The rest of the array is not used.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T. LDT >= K.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The shape of the matrix V and the storage of the vectors which define
+  the H(i) is best illustrated by the following example with n = 5 and
+  k = 3. The elements equal to 1 are not stored.
+
+  DIRECT = 'F' and STOREV = 'C':         DIRECT = 'F' and STOREV = 'R':
+
+               V = (  1       )                 V = (  1 v1 v1 v1 v1 )
+                   ( v1  1    )                     (     1 v2 v2 v2 )
+                   ( v1 v2  1 )                     (        1 v3 v3 )
+                   ( v1 v2 v3 )
+                   ( v1 v2 v3 )
+
+  DIRECT = 'B' and STOREV = 'C':         DIRECT = 'B' and STOREV = 'R':
+
+               V = ( v1 v2 v3 )                 V = ( v1 v1  1       )
+                   ( v1 v2 v3 )                     ( v2 v2 v2  1    )
+                   (  1 v2 v3 )                     ( v3 v3 v3 v3  1 )
+                   (     1 v3 )
+                   (        1 )\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

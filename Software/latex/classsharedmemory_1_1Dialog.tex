@@ -1,0 +1,122 @@
+\hypertarget{classsharedmemory_1_1Dialog}{}\section{sharedmemory.\+Dialog Class Reference}
+\label{classsharedmemory_1_1Dialog}\index{sharedmemory.\+Dialog@{sharedmemory.\+Dialog}}
+Inheritance diagram for sharedmemory.\+Dialog\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsharedmemory_1_1Dialog}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classsharedmemory_1_1Dialog_ad7a5a004ab2014f44d6604e9bb48e886}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classsharedmemory_1_1Dialog_af9ef8aaaf0bc2b15b6dff145ae8b0092}{load\+From\+File}
+\item 
+def \hyperlink{classsharedmemory_1_1Dialog_a7e434ce9b1b7c90194399a2764d5a9aa}{load\+From\+Memory}
+\item 
+def \hyperlink{classsharedmemory_1_1Dialog_a88d721f58f5112728d860eec261db2c9}{detach}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsharedmemory_1_1Dialog_a7e6ad78e8d2a27ff905e4c7cfa09a909}{shared\+Memory}
+\item 
+\hyperlink{classsharedmemory_1_1Dialog_acd62e54f362063200fb201c52be27011}{ui}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This class is a simple example of how to use QSharedMemory.  It is a
+simple dialog that presents a few buttons.  Run the executable twice to
+create two processes running the dialog.  In one of the processes, press
+the button to load an image into a shared memory segment, and then select
+an image file to load.  Once the first process has loaded and displayed the
+image, in the second process, press the button to read the same image from
+shared memory.  The second process displays the same image loaded from its
+new location in shared memory.
+
+The class contains a data member sharedMemory, which is initialized with
+the key "QSharedMemoryExample" to force all instances of Dialog to access
+the same shared memory segment.  The constructor also connects the
+clicked() signal from each of the three dialog buttons to the slot function
+appropriate for handling each button.
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsharedmemory_1_1Dialog_ad7a5a004ab2014f44d6604e9bb48e886}{}\index{sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def sharedmemory.\+Dialog.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{parent = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classsharedmemory_1_1Dialog_ad7a5a004ab2014f44d6604e9bb48e886}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsharedmemory_1_1Dialog_a88d721f58f5112728d860eec261db2c9}{}\index{sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}!detach@{detach}}
+\index{detach@{detach}!sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}}
+\subsubsection[{detach}]{\setlength{\rightskip}{0pt plus 5cm}def sharedmemory.\+Dialog.\+detach (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classsharedmemory_1_1Dialog_a88d721f58f5112728d860eec261db2c9}
+\begin{DoxyVerb}This private function is called by the destructor to detach the
+process from its shared memory segment.  When the last process detaches
+from a shared memory segment, the system releases the shared memory.
+\end{DoxyVerb}
+ \hypertarget{classsharedmemory_1_1Dialog_af9ef8aaaf0bc2b15b6dff145ae8b0092}{}\index{sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}!load\+From\+File@{load\+From\+File}}
+\index{load\+From\+File@{load\+From\+File}!sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}}
+\subsubsection[{load\+From\+File}]{\setlength{\rightskip}{0pt plus 5cm}def sharedmemory.\+Dialog.\+load\+From\+File (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classsharedmemory_1_1Dialog_af9ef8aaaf0bc2b15b6dff145ae8b0092}
+\begin{DoxyVerb}This slot function is called when the "Load Image From File..."
+button is pressed on the firs Dialog process.  First, it tests whether
+the process is already connected to a shared memory segment and, if so,
+detaches from that segment.  This ensures that we always start the
+example from the beginning if we run it multiple times with the same
+two Dialog processes.  After detaching from an existing shared memory
+segment, the user is prompted to select an image file.  The selected
+file is loaded into a QImage.  The QImage is displayed in the Dialog
+and streamed into a QBuffer with a QDataStream.  Next, it gets a new
+shared memory segment from the system big enough to hold the image data
+in the QBuffer, and it locks the segment to prevent the second Dialog
+process from accessing it.  Then it copies the image from the QBuffer
+into the shared memory segment.  Finally, it unlocks the shared memory
+segment so the second Dialog process can access it.  After self
+function runs, the user is expected to press the "Load Image from
+Shared Memory" button on the second Dialog process.
+\end{DoxyVerb}
+ \hypertarget{classsharedmemory_1_1Dialog_a7e434ce9b1b7c90194399a2764d5a9aa}{}\index{sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}!load\+From\+Memory@{load\+From\+Memory}}
+\index{load\+From\+Memory@{load\+From\+Memory}!sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}}
+\subsubsection[{load\+From\+Memory}]{\setlength{\rightskip}{0pt plus 5cm}def sharedmemory.\+Dialog.\+load\+From\+Memory (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classsharedmemory_1_1Dialog_a7e434ce9b1b7c90194399a2764d5a9aa}
+\begin{DoxyVerb}This slot function is called in the second Dialog process, when the
+user presses the "Load Image from Shared Memory" button.  First, it
+attaches the process to the shared memory segment created by the first
+Dialog process.  Then it locks the segment for exclusive access, copies
+the image data from the segment into a QBuffer, and streams the QBuffer
+into a QImage.  Then it unlocks the shared memory segment, detaches
+from it, and finally displays the QImage in the Dialog.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classsharedmemory_1_1Dialog_a7e6ad78e8d2a27ff905e4c7cfa09a909}{}\index{sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}!shared\+Memory@{shared\+Memory}}
+\index{shared\+Memory@{shared\+Memory}!sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}}
+\subsubsection[{shared\+Memory}]{\setlength{\rightskip}{0pt plus 5cm}sharedmemory.\+Dialog.\+shared\+Memory}\label{classsharedmemory_1_1Dialog_a7e6ad78e8d2a27ff905e4c7cfa09a909}
+\hypertarget{classsharedmemory_1_1Dialog_acd62e54f362063200fb201c52be27011}{}\index{sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}!ui@{ui}}
+\index{ui@{ui}!sharedmemory\+::\+Dialog@{sharedmemory\+::\+Dialog}}
+\subsubsection[{ui}]{\setlength{\rightskip}{0pt plus 5cm}sharedmemory.\+Dialog.\+ui}\label{classsharedmemory_1_1Dialog_acd62e54f362063200fb201c52be27011}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/examples/ipc/sharedmemory/\hyperlink{sharedmemory_8py}{sharedmemory.\+py}\end{DoxyCompactItemize}

@@ -1,0 +1,183 @@
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData}{}\section{scipy.\+special.\+\_\+testutils.\+Func\+Data Class Reference}
+\label{classscipy_1_1special_1_1__testutils_1_1FuncData}\index{scipy.\+special.\+\_\+testutils.\+Func\+Data@{scipy.\+special.\+\_\+testutils.\+Func\+Data}}
+Inheritance diagram for scipy.\+special.\+\_\+testutils.\+Func\+Data\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1special_1_1__testutils_1_1FuncData}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a77c2591d1f290105364dadb100c592fb}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a6d1719564b030a404304c1bb0d4c0136}{get\+\_\+tolerances}
+\item 
+def \hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a620b47aa7136f63d26dd58ad460bc0b8}{check}
+\item 
+def \hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a004c00f567e9c84d98b6d1dc064bf5ab}{\+\_\+\+\_\+repr\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a9514238f05efefb00053933172cc03df}{func}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a0a6b3a7c83479159654805bd0735ab98}{data}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a118029497d6ace6dfffdc6d9f55510e2}{dataname}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a6931858f0e70ce92aa4045c42c56f29f}{param\+\_\+columns}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a37ff3e7de0befe61446902b5d82f819c}{result\+\_\+columns}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_afd71df1d8a45d6e9d730424b89b5a399}{result\+\_\+func}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_ab2e78968b9b5a66db6605f3515905510}{rtol}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a70931261baebb60d0b0fa791dcad8745}{atol}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_ac35f9b766f3d21269cc13797c4331902}{param\+\_\+filter}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a58bcc9d986b204bba9e21ae4a3a1d48a}{knownfailure}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a22fea6cf9a3d43d86ea7805b19e9e05c}{nan\+\_\+ok}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a15b7c53bd4d9894489163394d32efa14}{vectorized}
+\item 
+\hyperlink{classscipy_1_1special_1_1__testutils_1_1FuncData_a4805063db14f34f5b7c3d23bb247928c}{ignore\+\_\+inf\+\_\+sign}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Data set for checking a special function.
+
+Parameters
+----------
+func : function
+    Function to test
+filename : str
+    Input file name
+param_columns : int or tuple of ints
+    Columns indices in which the parameters to `func` lie.
+    Can be imaginary integers to indicate that the parameter
+    should be cast to complex.
+result_columns : int or tuple of ints, optional
+    Column indices for expected results from `func`.
+result_func : callable, optional
+    Function to call to obtain results.
+rtol : float, optional
+    Required relative tolerance. Default is 5*eps.
+atol : float, optional
+    Required absolute tolerance. Default is 5*tiny.
+param_filter : function, or tuple of functions/Nones, optional
+    Filter functions to exclude some parameter ranges.
+    If omitted, no filtering is done.
+knownfailure : str, optional
+    Known failure error message to raise when the test is run.
+    If omitted, no exception is raised.
+nan_ok : bool, optional
+    If nan is always an accepted result.
+vectorized : bool, optional
+    Whether all functions passed in are vectorized.
+ignore_inf_sign : bool, optional
+    Whether to ignore signs of infinities.
+    (Doesn't matter for complex-valued functions.)\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a77c2591d1f290105364dadb100c592fb}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+special.\+\_\+testutils.\+Func\+Data.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{func, }
+\item[{}]{data, }
+\item[{}]{param\+\_\+columns, }
+\item[{}]{result\+\_\+columns = {\ttfamily None}, }
+\item[{}]{result\+\_\+func = {\ttfamily None}, }
+\item[{}]{rtol = {\ttfamily None}, }
+\item[{}]{atol = {\ttfamily None}, }
+\item[{}]{param\+\_\+filter = {\ttfamily None}, }
+\item[{}]{knownfailure = {\ttfamily None}, }
+\item[{}]{dataname = {\ttfamily None}, }
+\item[{}]{nan\+\_\+ok = {\ttfamily {\bf False}}, }
+\item[{}]{vectorized = {\ttfamily {\bf True}}, }
+\item[{}]{ignore\+\_\+inf\+\_\+sign = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a77c2591d1f290105364dadb100c592fb}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a004c00f567e9c84d98b6d1dc064bf5ab}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!\+\_\+\+\_\+repr\+\_\+\+\_\+@{\+\_\+\+\_\+repr\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+repr\+\_\+\+\_\+@{\+\_\+\+\_\+repr\+\_\+\+\_\+}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{\+\_\+\+\_\+repr\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+special.\+\_\+testutils.\+Func\+Data.\+\_\+\+\_\+repr\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a004c00f567e9c84d98b6d1dc064bf5ab}
+\begin{DoxyVerb}Pretty-printing, esp. for Nose output\end{DoxyVerb}
+ \hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a620b47aa7136f63d26dd58ad460bc0b8}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!check@{check}}
+\index{check@{check}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+special.\+\_\+testutils.\+Func\+Data.\+check (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{data = {\ttfamily None}, }
+\item[{}]{dtype = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a620b47aa7136f63d26dd58ad460bc0b8}
+\begin{DoxyVerb}Check the special function against the data.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a6d1719564b030a404304c1bb0d4c0136}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!get\+\_\+tolerances@{get\+\_\+tolerances}}
+\index{get\+\_\+tolerances@{get\+\_\+tolerances}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{get\+\_\+tolerances}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+special.\+\_\+testutils.\+Func\+Data.\+get\+\_\+tolerances (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{dtype}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a6d1719564b030a404304c1bb0d4c0136}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a70931261baebb60d0b0fa791dcad8745}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!atol@{atol}}
+\index{atol@{atol}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{atol}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+atol}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a70931261baebb60d0b0fa791dcad8745}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a0a6b3a7c83479159654805bd0735ab98}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!data@{data}}
+\index{data@{data}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+data}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a0a6b3a7c83479159654805bd0735ab98}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a118029497d6ace6dfffdc6d9f55510e2}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!dataname@{dataname}}
+\index{dataname@{dataname}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{dataname}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+dataname}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a118029497d6ace6dfffdc6d9f55510e2}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a9514238f05efefb00053933172cc03df}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!func@{func}}
+\index{func@{func}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{func}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+func}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a9514238f05efefb00053933172cc03df}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a4805063db14f34f5b7c3d23bb247928c}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!ignore\+\_\+inf\+\_\+sign@{ignore\+\_\+inf\+\_\+sign}}
+\index{ignore\+\_\+inf\+\_\+sign@{ignore\+\_\+inf\+\_\+sign}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{ignore\+\_\+inf\+\_\+sign}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+ignore\+\_\+inf\+\_\+sign}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a4805063db14f34f5b7c3d23bb247928c}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a58bcc9d986b204bba9e21ae4a3a1d48a}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!knownfailure@{knownfailure}}
+\index{knownfailure@{knownfailure}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{knownfailure}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+knownfailure}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a58bcc9d986b204bba9e21ae4a3a1d48a}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a22fea6cf9a3d43d86ea7805b19e9e05c}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!nan\+\_\+ok@{nan\+\_\+ok}}
+\index{nan\+\_\+ok@{nan\+\_\+ok}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{nan\+\_\+ok}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+nan\+\_\+ok}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a22fea6cf9a3d43d86ea7805b19e9e05c}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a6931858f0e70ce92aa4045c42c56f29f}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!param\+\_\+columns@{param\+\_\+columns}}
+\index{param\+\_\+columns@{param\+\_\+columns}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{param\+\_\+columns}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+param\+\_\+columns}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a6931858f0e70ce92aa4045c42c56f29f}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_ac35f9b766f3d21269cc13797c4331902}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!param\+\_\+filter@{param\+\_\+filter}}
+\index{param\+\_\+filter@{param\+\_\+filter}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{param\+\_\+filter}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+param\+\_\+filter}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_ac35f9b766f3d21269cc13797c4331902}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a37ff3e7de0befe61446902b5d82f819c}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!result\+\_\+columns@{result\+\_\+columns}}
+\index{result\+\_\+columns@{result\+\_\+columns}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{result\+\_\+columns}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+result\+\_\+columns}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a37ff3e7de0befe61446902b5d82f819c}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_afd71df1d8a45d6e9d730424b89b5a399}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!result\+\_\+func@{result\+\_\+func}}
+\index{result\+\_\+func@{result\+\_\+func}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{result\+\_\+func}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+result\+\_\+func}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_afd71df1d8a45d6e9d730424b89b5a399}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_ab2e78968b9b5a66db6605f3515905510}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!rtol@{rtol}}
+\index{rtol@{rtol}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{rtol}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+rtol}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_ab2e78968b9b5a66db6605f3515905510}
+\hypertarget{classscipy_1_1special_1_1__testutils_1_1FuncData_a15b7c53bd4d9894489163394d32efa14}{}\index{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}!vectorized@{vectorized}}
+\index{vectorized@{vectorized}!scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data@{scipy\+::special\+::\+\_\+testutils\+::\+Func\+Data}}
+\subsubsection[{vectorized}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+special.\+\_\+testutils.\+Func\+Data.\+vectorized}\label{classscipy_1_1special_1_1__testutils_1_1FuncData_a15b7c53bd4d9894489163394d32efa14}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/special/\hyperlink{special_2__testutils_8py}{\+\_\+testutils.\+py}\end{DoxyCompactItemize}

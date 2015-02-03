@@ -1,0 +1,141 @@
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase}{}\section{scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base Class Reference}
+\label{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase}\index{scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base@{scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base}}
+Inheritance diagram for scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_ad51d5e56b1f67065c8290f41770d900c}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a32c659d82a72e5f8fcd1de51ce62d1c4}{construct\+\_\+fast}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a46f074c851478ec5fe44ac1e54aef47a}{extend}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a314051da518e45a73efd354a8eef5b67}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a63738e69e006c8810b6f7c0b7f5166a7}{c}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a55ad7595d1d8cf0d01ac327bb280c781}{x}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_ae956a6a4fe79cae71fa2d89c4a85e821}{extrapolate}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Base class for piecewise polynomials.
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_ad51d5e56b1f67065c8290f41770d900c}{}\index{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{c, }
+\item[{}]{x, }
+\item[{}]{extrapolate = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_ad51d5e56b1f67065c8290f41770d900c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a314051da518e45a73efd354a8eef5b67}{}\index{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{nu = {\ttfamily 0}, }
+\item[{}]{extrapolate = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a314051da518e45a73efd354a8eef5b67}
+\begin{DoxyVerb}Evaluate the piecewise polynomial or its derivative
+
+Parameters
+----------
+x : array-like
+    Points to evaluate the interpolant at.
+nu : int, optional
+    Order of derivative to evaluate. Must be non-negative.
+extrapolate : bool, optional
+    Whether to extrapolate to ouf-of-bounds points based on first
+    and last intervals, or to return NaNs.
+
+Returns
+-------
+y : array-like
+    Interpolated values. Shape is determined by replacing
+    the interpolation axis in the original array with the shape of x.
+
+Notes
+-----
+Derivatives are evaluated piecewise for each polynomial
+segment, even if the polynomial is not differentiable at the
+breakpoints. The polynomial intervals are considered half-open,
+``[a, b)``, except for the last interval which is closed
+``[a, b]``.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a32c659d82a72e5f8fcd1de51ce62d1c4}{}\index{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}!construct\+\_\+fast@{construct\+\_\+fast}}
+\index{construct\+\_\+fast@{construct\+\_\+fast}!scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}}
+\subsubsection[{construct\+\_\+fast}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base.\+construct\+\_\+fast (
+\begin{DoxyParamCaption}
+\item[{}]{cls, }
+\item[{}]{c, }
+\item[{}]{x, }
+\item[{}]{extrapolate = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a32c659d82a72e5f8fcd1de51ce62d1c4}
+\begin{DoxyVerb}Construct the piecewise polynomial without making checks.
+
+Takes the same parameters as the constructor. Input arguments
+`c` and `x` must be arrays of the correct shape and type.  The
+`c` array can only be of dtypes float and complex, and `x`
+array must have dtype float.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a46f074c851478ec5fe44ac1e54aef47a}{}\index{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}!extend@{extend}}
+\index{extend@{extend}!scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}}
+\subsubsection[{extend}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base.\+extend (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{c, }
+\item[{}]{x, }
+\item[{}]{right = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a46f074c851478ec5fe44ac1e54aef47a}
+\begin{DoxyVerb}Add additional breakpoints and coefficients to the polynomial.
+
+Parameters
+----------
+c : ndarray, size (k, m, ...)
+    Additional coefficients for polynomials in intervals
+    ``self.x[-1] <= x < x_right[0]``, ``x_right[0] <= x < x_right[1]``,
+    ..., ``x_right[m-2] <= x < x_right[m-1]``
+x : ndarray, size (m,)
+    Additional breakpoints. Must be sorted and either to
+    the right or to the left of the current breakpoints.
+right : bool, optional
+    Whether the new intervals are to the right or to the left
+    of the current intervals.\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a63738e69e006c8810b6f7c0b7f5166a7}{}\index{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}!c@{c}}
+\index{c@{c}!scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}}
+\subsubsection[{c}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base.\+c}\label{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a63738e69e006c8810b6f7c0b7f5166a7}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_ae956a6a4fe79cae71fa2d89c4a85e821}{}\index{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}!extrapolate@{extrapolate}}
+\index{extrapolate@{extrapolate}!scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}}
+\subsubsection[{extrapolate}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base.\+extrapolate}\label{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_ae956a6a4fe79cae71fa2d89c4a85e821}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a55ad7595d1d8cf0d01ac327bb280c781}{}\index{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}!x@{x}}
+\index{x@{x}!scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base@{scipy\+::interpolate\+::interpolate\+::\+\_\+\+P\+Poly\+Base}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+\_\+\+P\+Poly\+Base.\+x}\label{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase_a55ad7595d1d8cf0d01ac327bb280c781}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{interpolate_8py}{interpolate.\+py}\end{DoxyCompactItemize}

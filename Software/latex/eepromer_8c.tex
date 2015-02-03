@@ -1,0 +1,228 @@
+\hypertarget{eepromer_8c}{}\section{packages/i2c-\/tools-\/3.1.1/eepromer/eepromer.c File Reference}
+\label{eepromer_8c}\index{packages/i2c-\/tools-\/3.\+1.\+1/eepromer/eepromer.\+c@{packages/i2c-\/tools-\/3.\+1.\+1/eepromer/eepromer.\+c}}
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{eepromer_8c_acd42232d95d3d105e3b83d17009ecfbc}{M\+A\+X\+\_\+\+B\+L\+K\+\_\+\+S\+I\+Z\+E}~64
+\item 
+\#define \hyperlink{eepromer_8c_ae3ef7bba113f663df6996f286b632a3f}{E\+E\+P\+R\+O\+M\+\_\+\+S\+I\+Z\+E}~32768
+\item 
+\#define \hyperlink{eepromer_8c_ada74e7db007a68e763f20c17f2985356}{R\+E\+A\+D}~1
+\item 
+\#define \hyperlink{eepromer_8c_aa10f470e996d0f51210d24f442d25e1e}{W\+R\+I\+T\+E}~0
+\item 
+\#define \hyperlink{eepromer_8c_a0d4522ecaa66a6e2edacf9cd78b07f89}{E\+R\+A\+S\+E}~2
+\item 
+\#define \hyperlink{eepromer_8c_ada9674d9d799fb5565774eee60fdedff}{P\+H\+E\+A\+D\+E\+R}~3
+\item 
+\#define \hyperlink{eepromer_8c_a98ed931f97fef7e06e3ea441d0326c67}{V\+E\+R}~\char`\"{}eepromer v 0.\+4 (c) Daniel Smolik 2001\textbackslash{}\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}\char`\"{}
+\item 
+\#define \hyperlink{eepromer_8c_a559af0e5a7ad6c1693c0387eefde89bf}{H\+E\+A\+D\+\_\+\+S\+I\+Z\+E}~sizeof(\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} mini\+\_\+inode)
+\item 
+\#define \hyperlink{eepromer_8c_a3e5f052539c22308aa320cc42527dd5c}{S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R}~0
+\item 
+\#define \hyperlink{eepromer_8c_a88e090a808630e22e34d9f69c0be9c66}{F\+O\+R\+C\+E}~1
+\item 
+\#define \hyperlink{eepromer_8c_a92d636935b554ca1631b589d500ab2a8}{W\+A\+R\+N\+I\+N\+C}
+\item 
+\#define \hyperlink{eepromer_8c_a4aba839df15f8bac6b9e3e5d0be16ce5}{P\+O\+K}~32
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{eepromer_8c_a43615d5f1cd20eccb494b322ad38382e}{block\+\_\+write} (int file, int dev\+\_\+addr, int eeprom\+\_\+addr, unsigned char $\ast$buf, int lenght)
+\item 
+int \hyperlink{eepromer_8c_a1de5ae6ec4c515779e31686d87715fe9}{block\+\_\+read} (int file, int dev\+\_\+addr, int eeprom\+\_\+addr, unsigned char $\ast$buf)
+\item 
+void \hyperlink{eepromer_8c_a0bed8474bd33a912769360766f6b10d4}{help} (void)
+\item 
+int \hyperlink{eepromer_8c_a339ccb8b263e2aee2e476c3369e591c0}{init} (char $\ast$device, int addr)
+\item 
+int \hyperlink{eepromer_8c_a21c6bf79b69b13f0a04db26b7332fd0d}{content\+\_\+write} (int file, int addr)
+\item 
+int \hyperlink{eepromer_8c_aa03f560c3ff5f58d123d850635a33fd6}{content\+\_\+read} (int file, int addr)
+\item 
+int \hyperlink{eepromer_8c_aee3bb641d637b7008e5a6d5b61d14d23}{inode\+\_\+write} (int file, int dev\+\_\+addr, int lenght)
+\item 
+int \hyperlink{eepromer_8c_af5392ae197394d4c77fc4369f23f5772}{inode\+\_\+read} (int file, int dev\+\_\+addr, void $\ast$p\+\_\+inode)
+\item 
+void \hyperlink{eepromer_8c_abbb49ef0476bd447ea7fec120ecf68e0}{pheader} (int file, int addr)
+\item 
+void \hyperlink{eepromer_8c_aac902579e004eea9cb57ed373df68203}{erase} (int file, int addr, int eeprom\+\_\+size)
+\item 
+void \hyperlink{eepromer_8c_a03987bb5b9d2926985b48428de1a6c78}{made\+\_\+address} (int addr, unsigned char $\ast$buf)
+\item 
+void \hyperlink{eepromer_8c_acc421dc81e5dbb4c9cc2f0709f71b861}{warn} (void)
+\item 
+void \hyperlink{eepromer_8c_a2924c0b64ca8f0b241891bcc826b5602}{bar} (void)
+\item 
+int \hyperlink{eepromer_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{eepromer_8c_ae3ef7bba113f663df6996f286b632a3f}{}\index{eepromer.\+c@{eepromer.\+c}!E\+E\+P\+R\+O\+M\+\_\+\+S\+I\+Z\+E@{E\+E\+P\+R\+O\+M\+\_\+\+S\+I\+Z\+E}}
+\index{E\+E\+P\+R\+O\+M\+\_\+\+S\+I\+Z\+E@{E\+E\+P\+R\+O\+M\+\_\+\+S\+I\+Z\+E}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{E\+E\+P\+R\+O\+M\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+E\+P\+R\+O\+M\+\_\+\+S\+I\+Z\+E~32768}\label{eepromer_8c_ae3ef7bba113f663df6996f286b632a3f}
+\hypertarget{eepromer_8c_a0d4522ecaa66a6e2edacf9cd78b07f89}{}\index{eepromer.\+c@{eepromer.\+c}!E\+R\+A\+S\+E@{E\+R\+A\+S\+E}}
+\index{E\+R\+A\+S\+E@{E\+R\+A\+S\+E}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{E\+R\+A\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+R\+A\+S\+E~2}\label{eepromer_8c_a0d4522ecaa66a6e2edacf9cd78b07f89}
+\hypertarget{eepromer_8c_a88e090a808630e22e34d9f69c0be9c66}{}\index{eepromer.\+c@{eepromer.\+c}!F\+O\+R\+C\+E@{F\+O\+R\+C\+E}}
+\index{F\+O\+R\+C\+E@{F\+O\+R\+C\+E}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{F\+O\+R\+C\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+C\+E~1}\label{eepromer_8c_a88e090a808630e22e34d9f69c0be9c66}
+\hypertarget{eepromer_8c_a559af0e5a7ad6c1693c0387eefde89bf}{}\index{eepromer.\+c@{eepromer.\+c}!H\+E\+A\+D\+\_\+\+S\+I\+Z\+E@{H\+E\+A\+D\+\_\+\+S\+I\+Z\+E}}
+\index{H\+E\+A\+D\+\_\+\+S\+I\+Z\+E@{H\+E\+A\+D\+\_\+\+S\+I\+Z\+E}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{H\+E\+A\+D\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+E\+A\+D\+\_\+\+S\+I\+Z\+E~sizeof({\bf struct} mini\+\_\+inode)}\label{eepromer_8c_a559af0e5a7ad6c1693c0387eefde89bf}
+\hypertarget{eepromer_8c_acd42232d95d3d105e3b83d17009ecfbc}{}\index{eepromer.\+c@{eepromer.\+c}!M\+A\+X\+\_\+\+B\+L\+K\+\_\+\+S\+I\+Z\+E@{M\+A\+X\+\_\+\+B\+L\+K\+\_\+\+S\+I\+Z\+E}}
+\index{M\+A\+X\+\_\+\+B\+L\+K\+\_\+\+S\+I\+Z\+E@{M\+A\+X\+\_\+\+B\+L\+K\+\_\+\+S\+I\+Z\+E}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{M\+A\+X\+\_\+\+B\+L\+K\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+B\+L\+K\+\_\+\+S\+I\+Z\+E~64}\label{eepromer_8c_acd42232d95d3d105e3b83d17009ecfbc}
+\hypertarget{eepromer_8c_ada9674d9d799fb5565774eee60fdedff}{}\index{eepromer.\+c@{eepromer.\+c}!P\+H\+E\+A\+D\+E\+R@{P\+H\+E\+A\+D\+E\+R}}
+\index{P\+H\+E\+A\+D\+E\+R@{P\+H\+E\+A\+D\+E\+R}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{P\+H\+E\+A\+D\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+H\+E\+A\+D\+E\+R~3}\label{eepromer_8c_ada9674d9d799fb5565774eee60fdedff}
+\hypertarget{eepromer_8c_a4aba839df15f8bac6b9e3e5d0be16ce5}{}\index{eepromer.\+c@{eepromer.\+c}!P\+O\+K@{P\+O\+K}}
+\index{P\+O\+K@{P\+O\+K}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{P\+O\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+O\+K~32}\label{eepromer_8c_a4aba839df15f8bac6b9e3e5d0be16ce5}
+\hypertarget{eepromer_8c_ada74e7db007a68e763f20c17f2985356}{}\index{eepromer.\+c@{eepromer.\+c}!R\+E\+A\+D@{R\+E\+A\+D}}
+\index{R\+E\+A\+D@{R\+E\+A\+D}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{R\+E\+A\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+A\+D~1}\label{eepromer_8c_ada74e7db007a68e763f20c17f2985356}
+\hypertarget{eepromer_8c_a3e5f052539c22308aa320cc42527dd5c}{}\index{eepromer.\+c@{eepromer.\+c}!S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R@{S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R}}
+\index{S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R@{S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+A\+R\+T\+\_\+\+A\+D\+D\+R~0}\label{eepromer_8c_a3e5f052539c22308aa320cc42527dd5c}
+\hypertarget{eepromer_8c_a98ed931f97fef7e06e3ea441d0326c67}{}\index{eepromer.\+c@{eepromer.\+c}!V\+E\+R@{V\+E\+R}}
+\index{V\+E\+R@{V\+E\+R}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{V\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+E\+R~\char`\"{}eepromer v 0.\+4 (c) Daniel Smolik 2001\textbackslash{}{\bf n}\char`\"{}}\label{eepromer_8c_a98ed931f97fef7e06e3ea441d0326c67}
+\hypertarget{eepromer_8c_a92d636935b554ca1631b589d500ab2a8}{}\index{eepromer.\+c@{eepromer.\+c}!W\+A\+R\+N\+I\+N\+C@{W\+A\+R\+N\+I\+N\+C}}
+\index{W\+A\+R\+N\+I\+N\+C@{W\+A\+R\+N\+I\+N\+C}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{W\+A\+R\+N\+I\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+A\+R\+N\+I\+N\+C}\label{eepromer_8c_a92d636935b554ca1631b589d500ab2a8}
+\hypertarget{eepromer_8c_aa10f470e996d0f51210d24f442d25e1e}{}\index{eepromer.\+c@{eepromer.\+c}!W\+R\+I\+T\+E@{W\+R\+I\+T\+E}}
+\index{W\+R\+I\+T\+E@{W\+R\+I\+T\+E}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{W\+R\+I\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+R\+I\+T\+E~0}\label{eepromer_8c_aa10f470e996d0f51210d24f442d25e1e}
+
+
+\subsection{Function Documentation}
+\hypertarget{eepromer_8c_a2924c0b64ca8f0b241891bcc826b5602}{}\index{eepromer.\+c@{eepromer.\+c}!bar@{bar}}
+\index{bar@{bar}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{bar}]{\setlength{\rightskip}{0pt plus 5cm}void bar (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_a2924c0b64ca8f0b241891bcc826b5602}
+\hypertarget{eepromer_8c_a1de5ae6ec4c515779e31686d87715fe9}{}\index{eepromer.\+c@{eepromer.\+c}!block\+\_\+read@{block\+\_\+read}}
+\index{block\+\_\+read@{block\+\_\+read}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{block\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int block\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{int}]{file, }
+\item[{int}]{dev\+\_\+addr, }
+\item[{int}]{eeprom\+\_\+addr, }
+\item[{unsigned char $\ast$}]{buf}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_a1de5ae6ec4c515779e31686d87715fe9}
+\hypertarget{eepromer_8c_a43615d5f1cd20eccb494b322ad38382e}{}\index{eepromer.\+c@{eepromer.\+c}!block\+\_\+write@{block\+\_\+write}}
+\index{block\+\_\+write@{block\+\_\+write}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{block\+\_\+write}]{\setlength{\rightskip}{0pt plus 5cm}int block\+\_\+write (
+\begin{DoxyParamCaption}
+\item[{int}]{file, }
+\item[{int}]{dev\+\_\+addr, }
+\item[{int}]{eeprom\+\_\+addr, }
+\item[{unsigned char $\ast$}]{buf, }
+\item[{int}]{lenght}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_a43615d5f1cd20eccb494b322ad38382e}
+\hypertarget{eepromer_8c_aa03f560c3ff5f58d123d850635a33fd6}{}\index{eepromer.\+c@{eepromer.\+c}!content\+\_\+read@{content\+\_\+read}}
+\index{content\+\_\+read@{content\+\_\+read}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{content\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int content\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{int}]{file, }
+\item[{int}]{addr}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_aa03f560c3ff5f58d123d850635a33fd6}
+\hypertarget{eepromer_8c_a21c6bf79b69b13f0a04db26b7332fd0d}{}\index{eepromer.\+c@{eepromer.\+c}!content\+\_\+write@{content\+\_\+write}}
+\index{content\+\_\+write@{content\+\_\+write}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{content\+\_\+write}]{\setlength{\rightskip}{0pt plus 5cm}int content\+\_\+write (
+\begin{DoxyParamCaption}
+\item[{int}]{file, }
+\item[{int}]{addr}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_a21c6bf79b69b13f0a04db26b7332fd0d}
+\hypertarget{eepromer_8c_aac902579e004eea9cb57ed373df68203}{}\index{eepromer.\+c@{eepromer.\+c}!erase@{erase}}
+\index{erase@{erase}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{erase}]{\setlength{\rightskip}{0pt plus 5cm}void erase (
+\begin{DoxyParamCaption}
+\item[{int}]{file, }
+\item[{int}]{addr, }
+\item[{int}]{eeprom\+\_\+size}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_aac902579e004eea9cb57ed373df68203}
+\hypertarget{eepromer_8c_a0bed8474bd33a912769360766f6b10d4}{}\index{eepromer.\+c@{eepromer.\+c}!help@{help}}
+\index{help@{help}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{help}]{\setlength{\rightskip}{0pt plus 5cm}void help (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_a0bed8474bd33a912769360766f6b10d4}
+\hypertarget{eepromer_8c_a339ccb8b263e2aee2e476c3369e591c0}{}\index{eepromer.\+c@{eepromer.\+c}!init@{init}}
+\index{init@{init}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}int init (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{device, }
+\item[{int}]{addr}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_a339ccb8b263e2aee2e476c3369e591c0}
+\hypertarget{eepromer_8c_af5392ae197394d4c77fc4369f23f5772}{}\index{eepromer.\+c@{eepromer.\+c}!inode\+\_\+read@{inode\+\_\+read}}
+\index{inode\+\_\+read@{inode\+\_\+read}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{inode\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}int inode\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{int}]{file, }
+\item[{int}]{dev\+\_\+addr, }
+\item[{void $\ast$}]{p\+\_\+inode}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_af5392ae197394d4c77fc4369f23f5772}
+\hypertarget{eepromer_8c_aee3bb641d637b7008e5a6d5b61d14d23}{}\index{eepromer.\+c@{eepromer.\+c}!inode\+\_\+write@{inode\+\_\+write}}
+\index{inode\+\_\+write@{inode\+\_\+write}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{inode\+\_\+write}]{\setlength{\rightskip}{0pt plus 5cm}int inode\+\_\+write (
+\begin{DoxyParamCaption}
+\item[{int}]{file, }
+\item[{int}]{dev\+\_\+addr, }
+\item[{int}]{lenght}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_aee3bb641d637b7008e5a6d5b61d14d23}
+\hypertarget{eepromer_8c_a03987bb5b9d2926985b48428de1a6c78}{}\index{eepromer.\+c@{eepromer.\+c}!made\+\_\+address@{made\+\_\+address}}
+\index{made\+\_\+address@{made\+\_\+address}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{made\+\_\+address}]{\setlength{\rightskip}{0pt plus 5cm}void made\+\_\+address (
+\begin{DoxyParamCaption}
+\item[{int}]{addr, }
+\item[{unsigned char $\ast$}]{buf}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_a03987bb5b9d2926985b48428de1a6c78}
+\hypertarget{eepromer_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\index{eepromer.\+c@{eepromer.\+c}!main@{main}}
+\index{main@{main}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_a0ddf1224851353fc92bfbff6f499fa97}
+\hypertarget{eepromer_8c_abbb49ef0476bd447ea7fec120ecf68e0}{}\index{eepromer.\+c@{eepromer.\+c}!pheader@{pheader}}
+\index{pheader@{pheader}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{pheader}]{\setlength{\rightskip}{0pt plus 5cm}void pheader (
+\begin{DoxyParamCaption}
+\item[{int}]{file, }
+\item[{int}]{addr}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_abbb49ef0476bd447ea7fec120ecf68e0}
+\hypertarget{eepromer_8c_acc421dc81e5dbb4c9cc2f0709f71b861}{}\index{eepromer.\+c@{eepromer.\+c}!warn@{warn}}
+\index{warn@{warn}!eepromer.\+c@{eepromer.\+c}}
+\subsubsection[{warn}]{\setlength{\rightskip}{0pt plus 5cm}void warn (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{eepromer_8c_acc421dc81e5dbb4c9cc2f0709f71b861}

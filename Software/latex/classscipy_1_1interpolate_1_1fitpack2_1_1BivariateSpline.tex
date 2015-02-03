@@ -1,0 +1,100 @@
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1BivariateSpline}{}\section{scipy.\+interpolate.\+fitpack2.\+Bivariate\+Spline Class Reference}
+\label{classscipy_1_1interpolate_1_1fitpack2_1_1BivariateSpline}\index{scipy.\+interpolate.\+fitpack2.\+Bivariate\+Spline@{scipy.\+interpolate.\+fitpack2.\+Bivariate\+Spline}}
+Inheritance diagram for scipy.\+interpolate.\+fitpack2.\+Bivariate\+Spline\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.565865cm]{classscipy_1_1interpolate_1_1fitpack2_1_1BivariateSpline}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1BivariateSpline_ab7ebccfd13c160ed6a00fe9cfd0043fb}{ev}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1BivariateSpline_acd7041cb76e1c57dcebc59f429a887f3}{integral}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Base class for bivariate splines.
+
+This describes a spline ``s(x, y)`` of degrees ``kx`` and ``ky`` on
+the rectangle ``[xb, xe] * [yb, ye]`` calculated from a given set
+of data points ``(x, y, z)``.
+
+This class is meant to be subclassed, not instantiated directly.
+To construct these splines, call either `SmoothBivariateSpline` or
+`LSQBivariateSpline`.
+
+See Also
+--------
+UnivariateSpline : a similar class for univariate spline interpolation
+SmoothBivariateSpline :
+    to create a BivariateSpline through the given points
+LSQBivariateSpline :
+    to create a BivariateSpline using weighted least-squares fitting
+SphereBivariateSpline :
+    bivariate spline interpolation in spherical cooridinates
+bisplrep : older wrapping of FITPACK
+bisplev : older wrapping of FITPACK\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1BivariateSpline_ab7ebccfd13c160ed6a00fe9cfd0043fb}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Bivariate\+Spline}!ev@{ev}}
+\index{ev@{ev}!scipy\+::interpolate\+::fitpack2\+::\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Bivariate\+Spline}}
+\subsubsection[{ev}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Bivariate\+Spline.\+ev (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{xi, }
+\item[{}]{yi, }
+\item[{}]{dx = {\ttfamily 0}, }
+\item[{}]{dy = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1BivariateSpline_ab7ebccfd13c160ed6a00fe9cfd0043fb}
+\begin{DoxyVerb}Evaluate the spline at points
+
+Returns the interpolated value at ``(xi[i], yi[i]),
+i=0,...,len(xi)-1``.
+
+Parameters
+----------
+xi, yi : array-like
+    Input coordinates. Standard Numpy broadcasting is obeyed.
+dx : int
+    Order of x-derivative
+
+    .. versionadded:: 0.14.0
+dy : int
+    Order of y-derivative
+
+    .. versionadded:: 0.14.0
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1BivariateSpline_acd7041cb76e1c57dcebc59f429a887f3}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Bivariate\+Spline}!integral@{integral}}
+\index{integral@{integral}!scipy\+::interpolate\+::fitpack2\+::\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Bivariate\+Spline}}
+\subsubsection[{integral}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Bivariate\+Spline.\+integral (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{xa, }
+\item[{}]{xb, }
+\item[{}]{ya, }
+\item[{}]{yb}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1BivariateSpline_acd7041cb76e1c57dcebc59f429a887f3}
+\begin{DoxyVerb}Evaluate the integral of the spline over area [xa,xb] x [ya,yb].
+
+Parameters
+----------
+xa, xb : float
+    The end-points of the x integration interval.
+ya, yb : float
+    The end-points of the y integration interval.
+
+Returns
+-------
+integ : float
+    The value of the resulting integral.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{fitpack2_8py}{fitpack2.\+py}\end{DoxyCompactItemize}

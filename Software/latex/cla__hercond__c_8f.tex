@@ -1,0 +1,105 @@
+\hypertarget{cla__hercond__c_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/cla\+\_\+hercond\+\_\+c.f File Reference}
+\label{cla__hercond__c_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cla\+\_\+hercond\+\_\+c.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cla\+\_\+hercond\+\_\+c.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+real \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{cla__hercond__c_8f_afb20032f889fa17495f6d52f8943015f}{cla\+\_\+hercond\+\_\+c} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, A\+F, L\+D\+A\+F, I\+P\+I\+V, C, C\+A\+P\+P\+L\+Y, I\+N\+F\+O, W\+O\+R\+K, R\+W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+\_\+\+H\+E\+R\+C\+O\+N\+D\+\_\+\+C} computes the infinity norm condition number of op(\+A)$\ast$inv(diag(c)) for Hermitian indefinite matrices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{cla__hercond__c_8f_afb20032f889fa17495f6d52f8943015f}{}\index{cla\+\_\+hercond\+\_\+c.\+f@{cla\+\_\+hercond\+\_\+c.\+f}!cla\+\_\+hercond\+\_\+c@{cla\+\_\+hercond\+\_\+c}}
+\index{cla\+\_\+hercond\+\_\+c@{cla\+\_\+hercond\+\_\+c}!cla\+\_\+hercond\+\_\+c.\+f@{cla\+\_\+hercond\+\_\+c.\+f}}
+\subsubsection[{cla\+\_\+hercond\+\_\+c}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf function} cla\+\_\+hercond\+\_\+c (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}, dimension( ldaf, $\ast$ )}]{A\+F, }
+\item[{integer}]{L\+D\+A\+F, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{real, dimension ( $\ast$ )}]{C, }
+\item[{{\bf logical}}]{C\+A\+P\+P\+L\+Y, }
+\item[{integer}]{I\+N\+F\+O, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{real, dimension( $\ast$ )}]{R\+W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{cla__hercond__c_8f_afb20032f889fa17495f6d52f8943015f}
+
+
+{\bfseries C\+L\+A\+\_\+\+H\+E\+R\+C\+O\+N\+D\+\_\+\+C} computes the infinity norm condition number of op(\+A)$\ast$inv(diag(c)) for Hermitian indefinite matrices. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    CLA_HERCOND_C computes the infinity norm condition number of
+    op(A) * inv(diag(C)) where C is a REAL vector.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+       = 'U':  Upper triangle of A is stored;
+       = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+     The number of linear equations, i.e., the order of the
+     matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+     On entry, the N-by-N matrix A\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+     The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+F} & \begin{DoxyVerb}          AF is COMPLEX array, dimension (LDAF,N)
+     The block diagonal matrix D and the multipliers used to
+     obtain the factor U or L as computed by CHETRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+F} & \begin{DoxyVerb}          LDAF is INTEGER
+     The leading dimension of the array AF.  LDAF >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+     Details of the interchanges and the block structure of D
+     as determined by CHETRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is REAL array, dimension (N)
+     The vector C in the formula op(A) * inv(diag(C)).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+A\+P\+P\+L\+Y} & \begin{DoxyVerb}          CAPPLY is LOGICAL
+     If .TRUE. then access the vector C in the formula above.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+       = 0:  Successful exit.
+     i > 0:  The ith argument is invalid.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (2*N).
+     Workspace.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is REAL array, dimension (N).
+     Workspace.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

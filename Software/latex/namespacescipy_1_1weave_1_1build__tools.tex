@@ -1,0 +1,281 @@
+\hypertarget{namespacescipy_1_1weave_1_1build__tools}{}\section{scipy.\+weave.\+build\+\_\+tools Namespace Reference}
+\label{namespacescipy_1_1weave_1_1build__tools}\index{scipy.\+weave.\+build\+\_\+tools@{scipy.\+weave.\+build\+\_\+tools}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1weave_1_1build__tools_1_1CompileError}{Compile\+Error}
+\item 
+class \hyperlink{classscipy_1_1weave_1_1build__tools_1_1Mingw32CCompiler}{Mingw32\+C\+Compiler}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_a8229bd8f1d2c31d58ff05b5e9c4a451f}{create\+\_\+extension}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_a7f26b87595b289576e414a4b29c2a308}{build\+\_\+extension}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_a1099ae72d4b28d2c40b2ed87c9d07eb5}{configure\+\_\+sys\+\_\+argv}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_a787690fd7764771ad17e801605c012c4}{restore\+\_\+sys\+\_\+argv}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_a451e6f0415ed5faa7b7aa070852cb3ca}{configure\+\_\+python\+\_\+path}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_aa8275c23fdb87dc0b42fa5374baf361a}{choose\+\_\+compiler}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_a8b56827a80ba8ed79821231e69dce497}{gcc\+\_\+exists}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_a599bf035738eebb9dcc3b83902e346c1}{msvc\+\_\+exists}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_adfd9596a2ff4edc55a62dae7c030540b}{run\+\_\+command}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_a861ffa191b510ff8b94f82d1bc57e547}{configure\+\_\+temp\+\_\+dir}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_aeb1a20fc11310d4534a89c51d2c5b400}{configure\+\_\+build\+\_\+dir}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_aac342eb93fb94587f966b2f8b4fcaf60}{import\+\_\+library\+\_\+exists}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1build__tools_a6a65c1c7c44bdad69c2c2a35993c304c}{build\+\_\+import\+\_\+library}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacescipy_1_1weave_1_1build__tools_a6f8298fe5226e3c1a6b0a91b8a37c11e}{old\+\_\+init\+\_\+posix} = distutils.\+sysconfig.\+\_\+init\+\_\+posix
+\item 
+list \hyperlink{namespacescipy_1_1weave_1_1build__tools_aa46171df8959450fc5ea7795eae4ebfd}{old\+\_\+argv} = \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{namespacescipy_1_1weave_1_1build__tools_af42c96dca957b7a6f3fd70d224c64b72}{run\+\_\+command} = commands.\+getstatusoutput
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Tools for compiling C/C++ code to extension modules
+
+The main function, build_extension(), takes the C/C++ file
+along with some other options and builds a Python extension.
+It uses distutils for most of the heavy lifting.
+
+choose_compiler() is also useful (mainly on windows anyway)
+for trying to determine whether MSVC++ or gcc is available.
+MSVC doesn't handle templates as well, so some of the code emitted
+by the python->C conversions need this info to choose what kind
+of code to create.
+
+The other main thing here is an alternative version of the MingW32
+compiler class.  The class makes it possible to build libraries with
+gcc even if the original version of python was built using MSVC.  It
+does this by converting a pythonxx.lib file to a libpythonxx.a file.
+Note that you need write access to the pythonxx/lib directory to do this.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1weave_1_1build__tools_a7f26b87595b289576e414a4b29c2a308}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!build\+\_\+extension@{build\+\_\+extension}}
+\index{build\+\_\+extension@{build\+\_\+extension}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{build\+\_\+extension}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+build\+\_\+extension (
+\begin{DoxyParamCaption}
+\item[{}]{module\+\_\+path, }
+\item[{}]{compiler\+\_\+name = {\ttfamily ''}, }
+\item[{}]{build\+\_\+dir = {\ttfamily None}, }
+\item[{}]{temp\+\_\+dir = {\ttfamily None}, }
+\item[{}]{verbose = {\ttfamily 0}, }
+\item[{}]{kw}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_a7f26b87595b289576e414a4b29c2a308}
+\begin{DoxyVerb}Build the file given by module_path into a Python extension module.
+
+    build_extensions uses distutils to build Python extension modules.
+    kw arguments not used are passed on to the distutils extension
+    module.  Directory settings can handle absoulte settings, but don't
+    currently expand '~' or environment variables.
+
+    module_path   -- the full path name to the c file to compile.
+                     Something like:  /full/path/name/module_name.c
+                     The name of the c/c++ file should be the same as the
+                     name of the module (i.e. the initmodule() routine)
+    compiler_name -- The name of the compiler to use.  On Windows if it
+                     isn't given, MSVC is used if it exists (is found).
+                     gcc is used as a second choice. If neither are found,
+                     the default distutils compiler is used. Acceptable
+                     names are 'gcc', 'msvc' or any of the compiler names
+                     shown by distutils.ccompiler.show_compilers()
+    build_dir     -- The location where the resulting extension module
+                     should be placed. This location must be writable.  If
+                     it isn't, several default locations are tried.  If the
+                     build_dir is not in the current python path, a warning
+                     is emitted, and it is added to the end of the path.
+                     build_dir defaults to the current directory.
+    temp_dir      -- The location where temporary files (*.o or *.obj)
+                     from the build are placed. This location must be
+                     writable.  If it isn't, several default locations are
+                     tried.  It defaults to tempfile.gettempdir()
+    verbose       -- 0, 1, or 2.  0 is as quiet as possible. 1 prints
+                     minimal information.  2 is noisy.
+    **kw          -- keyword arguments. These are passed on to the
+                     distutils extension module.  Most of the keywords
+                     are listed below.
+
+    Distutils keywords.  These are cut and pasted from Greg Ward's
+    distutils.extension.Extension class for convenience:
+
+    sources : [string]
+      list of source filenames, relative to the distribution root
+      (where the setup script lives), in Unix form (slash-separated)
+      for portability.  Source files may be C, C++, SWIG (.i),
+      platform-specific resource files, or whatever else is recognized
+      by the "build_ext" command as source for a Python extension.
+      Note: The module_path file is always appended to the front of this
+            list
+    include_dirs : [string]
+      list of directories to search for C/C++ header files (in Unix
+      form for portability)
+    define_macros : [(name : string, value : string|None)]
+      list of macros to define; each macro is defined using a 2-tuple,
+      where 'value' is either the string to define it to or None to
+      define it without a particular value (equivalent of "#define
+      FOO" in source or -DFOO on Unix C compiler command line)
+    undef_macros : [string]
+      list of macros to undefine explicitly
+    library_dirs : [string]
+      list of directories to search for C/C++ libraries at link time
+    libraries : [string]
+      list of library names (not filenames or paths) to link against
+    runtime_library_dirs : [string]
+      list of directories to search for C/C++ libraries at run time
+      (for shared extensions, this is when the extension is loaded)
+    extra_objects : [string]
+      list of extra files to link with (eg. object files not implied
+      by 'sources', static library that must be explicitly specified,
+      binary resource files, etc.)
+    extra_compile_args : [string]
+      any extra platform- and compiler-specific information to use
+      when compiling the source files in 'sources'.  For platforms and
+      compilers where "command line" makes sense, this is typically a
+      list of command-line arguments, but for other platforms it could
+      be anything.
+    extra_link_args : [string]
+      any extra platform- and compiler-specific information to use
+      when linking object files together to create the extension (or
+      to create a new static Python interpreter).  Similar
+      interpretation as for 'extra_compile_args'.
+    export_symbols : [string]
+      list of symbols to be exported from a shared extension.  Not
+      used on all platforms, and not generally necessary for Python
+      extensions, which typically export exactly one symbol: "init" +
+      extension_name.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1build__tools_a6a65c1c7c44bdad69c2c2a35993c304c}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!build\+\_\+import\+\_\+library@{build\+\_\+import\+\_\+library}}
+\index{build\+\_\+import\+\_\+library@{build\+\_\+import\+\_\+library}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{build\+\_\+import\+\_\+library}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+build\+\_\+import\+\_\+library (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_a6a65c1c7c44bdad69c2c2a35993c304c}
+\begin{DoxyVerb}Build the import libraries for Mingw32-gcc on Windows
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1build__tools_aa8275c23fdb87dc0b42fa5374baf361a}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!choose\+\_\+compiler@{choose\+\_\+compiler}}
+\index{choose\+\_\+compiler@{choose\+\_\+compiler}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{choose\+\_\+compiler}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+choose\+\_\+compiler (
+\begin{DoxyParamCaption}
+\item[{}]{compiler\+\_\+name = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_aa8275c23fdb87dc0b42fa5374baf361a}
+\begin{DoxyVerb}Try and figure out which compiler is gonna be used on windows.
+    On other platforms, it just returns whatever value it is given.
+
+    converts 'gcc' to 'mingw32' on win32
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1build__tools_aeb1a20fc11310d4534a89c51d2c5b400}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!configure\+\_\+build\+\_\+dir@{configure\+\_\+build\+\_\+dir}}
+\index{configure\+\_\+build\+\_\+dir@{configure\+\_\+build\+\_\+dir}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{configure\+\_\+build\+\_\+dir}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+configure\+\_\+build\+\_\+dir (
+\begin{DoxyParamCaption}
+\item[{}]{build\+\_\+dir = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_aeb1a20fc11310d4534a89c51d2c5b400}
+\hypertarget{namespacescipy_1_1weave_1_1build__tools_a451e6f0415ed5faa7b7aa070852cb3ca}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!configure\+\_\+python\+\_\+path@{configure\+\_\+python\+\_\+path}}
+\index{configure\+\_\+python\+\_\+path@{configure\+\_\+python\+\_\+path}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{configure\+\_\+python\+\_\+path}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+configure\+\_\+python\+\_\+path (
+\begin{DoxyParamCaption}
+\item[{}]{build\+\_\+dir}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_a451e6f0415ed5faa7b7aa070852cb3ca}
+\hypertarget{namespacescipy_1_1weave_1_1build__tools_a1099ae72d4b28d2c40b2ed87c9d07eb5}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!configure\+\_\+sys\+\_\+argv@{configure\+\_\+sys\+\_\+argv}}
+\index{configure\+\_\+sys\+\_\+argv@{configure\+\_\+sys\+\_\+argv}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{configure\+\_\+sys\+\_\+argv}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+configure\+\_\+sys\+\_\+argv (
+\begin{DoxyParamCaption}
+\item[{}]{compiler\+\_\+name, }
+\item[{}]{temp\+\_\+dir, }
+\item[{}]{build\+\_\+dir}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_a1099ae72d4b28d2c40b2ed87c9d07eb5}
+\hypertarget{namespacescipy_1_1weave_1_1build__tools_a861ffa191b510ff8b94f82d1bc57e547}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!configure\+\_\+temp\+\_\+dir@{configure\+\_\+temp\+\_\+dir}}
+\index{configure\+\_\+temp\+\_\+dir@{configure\+\_\+temp\+\_\+dir}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{configure\+\_\+temp\+\_\+dir}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+configure\+\_\+temp\+\_\+dir (
+\begin{DoxyParamCaption}
+\item[{}]{temp\+\_\+dir = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_a861ffa191b510ff8b94f82d1bc57e547}
+\hypertarget{namespacescipy_1_1weave_1_1build__tools_a8229bd8f1d2c31d58ff05b5e9c4a451f}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!create\+\_\+extension@{create\+\_\+extension}}
+\index{create\+\_\+extension@{create\+\_\+extension}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{create\+\_\+extension}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+create\+\_\+extension (
+\begin{DoxyParamCaption}
+\item[{}]{module\+\_\+path, }
+\item[{}]{kw}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_a8229bd8f1d2c31d58ff05b5e9c4a451f}
+\begin{DoxyVerb}Create an Extension that can be buil by setup.py
+
+    See build_extension for information on keyword arguments.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1build__tools_a8b56827a80ba8ed79821231e69dce497}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!gcc\+\_\+exists@{gcc\+\_\+exists}}
+\index{gcc\+\_\+exists@{gcc\+\_\+exists}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{gcc\+\_\+exists}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+gcc\+\_\+exists (
+\begin{DoxyParamCaption}
+\item[{}]{name = {\ttfamily 'gcc'}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_a8b56827a80ba8ed79821231e69dce497}
+\begin{DoxyVerb}Test to make sure gcc is found.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1build__tools_aac342eb93fb94587f966b2f8b4fcaf60}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!import\+\_\+library\+\_\+exists@{import\+\_\+library\+\_\+exists}}
+\index{import\+\_\+library\+\_\+exists@{import\+\_\+library\+\_\+exists}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{import\+\_\+library\+\_\+exists}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+import\+\_\+library\+\_\+exists (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_aac342eb93fb94587f966b2f8b4fcaf60}
+\begin{DoxyVerb}on windows platforms, make sure a gcc import library exists
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1build__tools_a599bf035738eebb9dcc3b83902e346c1}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!msvc\+\_\+exists@{msvc\+\_\+exists}}
+\index{msvc\+\_\+exists@{msvc\+\_\+exists}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{msvc\+\_\+exists}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+msvc\+\_\+exists (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_a599bf035738eebb9dcc3b83902e346c1}
+\begin{DoxyVerb}Determine whether MSVC is available on the machine.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1build__tools_a787690fd7764771ad17e801605c012c4}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!restore\+\_\+sys\+\_\+argv@{restore\+\_\+sys\+\_\+argv}}
+\index{restore\+\_\+sys\+\_\+argv@{restore\+\_\+sys\+\_\+argv}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{restore\+\_\+sys\+\_\+argv}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+restore\+\_\+sys\+\_\+argv (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_a787690fd7764771ad17e801605c012c4}
+\hypertarget{namespacescipy_1_1weave_1_1build__tools_adfd9596a2ff4edc55a62dae7c030540b}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!run\+\_\+command@{run\+\_\+command}}
+\index{run\+\_\+command@{run\+\_\+command}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{run\+\_\+command}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+build\+\_\+tools.\+run\+\_\+command (
+\begin{DoxyParamCaption}
+\item[{}]{command}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1build__tools_adfd9596a2ff4edc55a62dae7c030540b}
+\begin{DoxyVerb}not sure how to get exit status on nt. \end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1weave_1_1build__tools_aa46171df8959450fc5ea7795eae4ebfd}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!old\+\_\+argv@{old\+\_\+argv}}
+\index{old\+\_\+argv@{old\+\_\+argv}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{old\+\_\+argv}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+weave.\+build\+\_\+tools.\+old\+\_\+argv = \mbox{[}$\,$\mbox{]}}\label{namespacescipy_1_1weave_1_1build__tools_aa46171df8959450fc5ea7795eae4ebfd}
+\hypertarget{namespacescipy_1_1weave_1_1build__tools_a6f8298fe5226e3c1a6b0a91b8a37c11e}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!old\+\_\+init\+\_\+posix@{old\+\_\+init\+\_\+posix}}
+\index{old\+\_\+init\+\_\+posix@{old\+\_\+init\+\_\+posix}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{old\+\_\+init\+\_\+posix}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+weave.\+build\+\_\+tools.\+old\+\_\+init\+\_\+posix = distutils.\+sysconfig.\+\_\+init\+\_\+posix}\label{namespacescipy_1_1weave_1_1build__tools_a6f8298fe5226e3c1a6b0a91b8a37c11e}
+\hypertarget{namespacescipy_1_1weave_1_1build__tools_af42c96dca957b7a6f3fd70d224c64b72}{}\index{scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}!run\+\_\+command@{run\+\_\+command}}
+\index{run\+\_\+command@{run\+\_\+command}!scipy\+::weave\+::build\+\_\+tools@{scipy\+::weave\+::build\+\_\+tools}}
+\subsubsection[{run\+\_\+command}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+weave.\+build\+\_\+tools.\+run\+\_\+command = commands.\+getstatusoutput}\label{namespacescipy_1_1weave_1_1build__tools_af42c96dca957b7a6f3fd70d224c64b72}

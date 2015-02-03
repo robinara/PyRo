@@ -1,0 +1,575 @@
+\hypertarget{group__complex16PTcomputational}{}\section{complex16}
+\label{group__complex16PTcomputational}\index{complex16@{complex16}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{group__complex16PTcomputational_gae93ce2977fc454e3b4362e894d8b54df}{zptcon} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, A\+N\+O\+R\+M, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, R\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+P\+T\+C\+O\+N} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex16PTcomputational_ga08d07a22ba5f50a14d9caf644723b5c3}{zpteqr} (C\+O\+M\+P\+Z, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, Z, L\+D\+Z, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+P\+T\+E\+Q\+R} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex16PTcomputational_ga93372dc1bb896550f56db40a44b3f202}{zptrfs} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, D\+F, E\+F, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, X, L\+D\+X, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a78fd14d7abebae04095cfbe02928f153}{F\+E\+R\+R}, B\+E\+R\+R, W\+O\+R\+K, R\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+P\+T\+R\+F\+S} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex16PTcomputational_gac66038080132a6b116df577c91e3a39d}{zpttrf} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+P\+T\+T\+R\+F} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex16PTcomputational_ga7a91b8a69883b74c20c26aee3c537c55}{zpttrs} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+P\+T\+T\+R\+S} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__complex16PTcomputational_ga216beeac0fe239f03d9b37f51e96d7c7}{zptts2} (I\+U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B})
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+P\+T\+T\+S2} solves a tridiagonal system of the form A\+X=B using the L D L\+H factorization computed by spttrf. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of complex16 computational functions for P\+T matrices 
+
+\subsection{Function Documentation}
+\hypertarget{group__complex16PTcomputational_gae93ce2977fc454e3b4362e894d8b54df}{}\index{complex16@{complex16}!zptcon@{zptcon}}
+\index{zptcon@{zptcon}!complex16@{complex16}}
+\subsubsection[{zptcon}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zptcon (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{E, }
+\item[{double {\bf precision}}]{A\+N\+O\+R\+M, }
+\item[{double {\bf precision}}]{R\+C\+O\+N\+D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complex16PTcomputational_gae93ce2977fc454e3b4362e894d8b54df}
+
+
+{\bfseries Z\+P\+T\+C\+O\+N} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZPTCON computes the reciprocal of the condition number (in the
+ 1-norm) of a complex Hermitian positive definite tridiagonal matrix
+ using the factorization A = L*D*L**H or A = U**H*D*U computed by
+ ZPTTRF.
+
+ Norm(inv(A)) is computed by a direct method, and the reciprocal of
+ the condition number is computed as
+                  RCOND = 1 / (ANORM * norm(inv(A))).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+          The n diagonal elements of the diagonal matrix D from the
+          factorization of A, as computed by ZPTTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is COMPLEX*16 array, dimension (N-1)
+          The (n-1) off-diagonal elements of the unit bidiagonal factor
+          U or L from the factorization of A, as computed by ZPTTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+N\+O\+R\+M} & \begin{DoxyVerb}          ANORM is DOUBLE PRECISION
+          The 1-norm of the original matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is DOUBLE PRECISION
+          The reciprocal of the condition number of the matrix A,
+          computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is the
+          1-norm of inv(A) computed in this routine.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is DOUBLE PRECISION array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The method used is described in Nicholas J. Higham, "Efficient
+  Algorithms for Computing the Condition Number of a Tridiagonal
+  Matrix", SIAM J. Sci. Stat. Comput., Vol. 7, No. 1, January 1986.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__complex16PTcomputational_ga08d07a22ba5f50a14d9caf644723b5c3}{}\index{complex16@{complex16}!zpteqr@{zpteqr}}
+\index{zpteqr@{zpteqr}!complex16@{complex16}}
+\subsubsection[{zpteqr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zpteqr (
+\begin{DoxyParamCaption}
+\item[{character}]{C\+O\+M\+P\+Z, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{E, }
+\item[{{\bf complex}$\ast$16, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complex16PTcomputational_ga08d07a22ba5f50a14d9caf644723b5c3}
+
+
+{\bfseries Z\+P\+T\+E\+Q\+R} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZPTEQR computes all eigenvalues and, optionally, eigenvectors of a
+ symmetric positive definite tridiagonal matrix by first factoring the
+ matrix using DPTTRF and then calling ZBDSQR to compute the singular
+ values of the bidiagonal factor.
+
+ This routine computes the eigenvalues of the positive definite
+ tridiagonal matrix to high relative accuracy.  This means that if the
+ eigenvalues range over many orders of magnitude in size, then the
+ small eigenvalues and corresponding eigenvectors will be computed
+ more accurately than, for example, with the standard QR method.
+
+ The eigenvectors of a full or band positive definite Hermitian matrix
+ can also be found if ZHETRD, ZHPTRD, or ZHBTRD has been used to
+ reduce this matrix to tridiagonal form.  (The reduction to
+ tridiagonal form, however, may preclude the possibility of obtaining
+ high relative accuracy in the small eigenvalues of the original
+ matrix, if these eigenvalues range over many orders of magnitude.)\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em C\+O\+M\+P\+Z} & \begin{DoxyVerb}          COMPZ is CHARACTER*1
+          = 'N':  Compute eigenvalues only.
+          = 'V':  Compute eigenvectors of original Hermitian
+                  matrix also.  Array Z contains the unitary matrix
+                  used to reduce the original matrix to tridiagonal
+                  form.
+          = 'I':  Compute eigenvectors of tridiagonal matrix also.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+          On entry, the n diagonal elements of the tridiagonal matrix.
+          On normal exit, D contains the eigenvalues, in descending
+          order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E} & \begin{DoxyVerb}          E is DOUBLE PRECISION array, dimension (N-1)
+          On entry, the (n-1) subdiagonal elements of the tridiagonal
+          matrix.
+          On exit, E has been destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Z} & \begin{DoxyVerb}          Z is COMPLEX*16 array, dimension (LDZ, N)
+          On entry, if COMPZ = 'V', the unitary matrix used in the
+          reduction to tridiagonal form.
+          On exit, if COMPZ = 'V', the orthonormal eigenvectors of the
+          original Hermitian matrix;
+          if COMPZ = 'I', the orthonormal eigenvectors of the
+          tridiagonal matrix.
+          If INFO > 0 on exit, Z contains the eigenvectors associated
+          with only the stored eigenvalues.
+          If  COMPZ = 'N', then Z is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDZ >= 1, and if
+          COMPZ = 'V' or 'I', LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (4*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if INFO = i, and i is:
+                <= N  the Cholesky factorization of the matrix could
+                      not be performed because the i-th principal minor
+                      was not positive definite.
+                > N   the SVD algorithm failed to converge;
+                      if INFO = N+i, i off-diagonal elements of the
+                      bidiagonal factor did not converge to zero.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complex16PTcomputational_ga93372dc1bb896550f56db40a44b3f202}{}\index{complex16@{complex16}!zptrfs@{zptrfs}}
+\index{zptrfs@{zptrfs}!complex16@{complex16}}
+\subsubsection[{zptrfs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zptrfs (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{E, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D\+F, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{E\+F, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{{\bf complex}$\ast$16, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{F\+E\+R\+R, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B\+E\+R\+R, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complex16PTcomputational_ga93372dc1bb896550f56db40a44b3f202}
+
+
+{\bfseries Z\+P\+T\+R\+F\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZPTRFS improves the computed solution to a system of linear
+ equations when the coefficient matrix is Hermitian positive definite
+ and tridiagonal, and provides error bounds and backward error
+ estimates for the solution.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the superdiagonal or the subdiagonal of the
+          tridiagonal matrix A is stored and the form of the
+          factorization:
+          = 'U':  E is the superdiagonal of A, and A = U**H*D*U;
+          = 'L':  E is the subdiagonal of A, and A = L*D*L**H.
+          (The two forms are equivalent if A is real.)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+          The n real diagonal elements of the tridiagonal matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is COMPLEX*16 array, dimension (N-1)
+          The (n-1) off-diagonal elements of the tridiagonal matrix A
+          (see UPLO).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+F} & \begin{DoxyVerb}          DF is DOUBLE PRECISION array, dimension (N)
+          The n diagonal elements of the diagonal matrix D from
+          the factorization computed by ZPTTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E\+F} & \begin{DoxyVerb}          EF is COMPLEX*16 array, dimension (N-1)
+          The (n-1) off-diagonal elements of the unit bidiagonal
+          factor U or L from the factorization computed by ZPTTRF
+          (see UPLO).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX*16 array, dimension (LDB,NRHS)
+          The right hand side matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX*16 array, dimension (LDX,NRHS)
+          On entry, the solution matrix X, as computed by ZPTTRS.
+          On exit, the improved solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.  LDX >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em F\+E\+R\+R} & \begin{DoxyVerb}          FERR is DOUBLE PRECISION array, dimension (NRHS)
+          The forward error bound for each solution vector
+          X(j) (the j-th column of the solution matrix X).
+          If XTRUE is the true solution corresponding to X(j), FERR(j)
+          is an estimated upper bound for the magnitude of the largest
+          element in (X(j) - XTRUE) divided by the magnitude of the
+          largest element in X(j).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+R\+R} & \begin{DoxyVerb}          BERR is DOUBLE PRECISION array, dimension (NRHS)
+          The componentwise relative backward error of each solution
+          vector X(j) (i.e., the smallest relative change in
+          any element of A or B that makes X(j) an exact solution).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is DOUBLE PRECISION array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  ITMAX is the maximum number of steps of iterative refinement.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complex16PTcomputational_gac66038080132a6b116df577c91e3a39d}{}\index{complex16@{complex16}!zpttrf@{zpttrf}}
+\index{zpttrf@{zpttrf}!complex16@{complex16}}
+\subsubsection[{zpttrf}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zpttrf (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{E, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complex16PTcomputational_gac66038080132a6b116df577c91e3a39d}
+
+
+{\bfseries Z\+P\+T\+T\+R\+F} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZPTTRF computes the L*D*L**H factorization of a complex Hermitian
+ positive definite tridiagonal matrix A.  The factorization may also
+ be regarded as having the form A = U**H *D*U.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+          On entry, the n diagonal elements of the tridiagonal matrix
+          A.  On exit, the n diagonal elements of the diagonal matrix
+          D from the L*D*L**H factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E} & \begin{DoxyVerb}          E is COMPLEX*16 array, dimension (N-1)
+          On entry, the (n-1) subdiagonal elements of the tridiagonal
+          matrix A.  On exit, the (n-1) subdiagonal elements of the
+          unit bidiagonal factor L from the L*D*L**H factorization of A.
+          E can also be regarded as the superdiagonal of the unit
+          bidiagonal factor U from the U**H *D*U factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -k, the k-th argument had an illegal value
+          > 0: if INFO = k, the leading minor of order k is not
+               positive definite; if k < N, the factorization could not
+               be completed, while if k = N, the factorization was
+               completed, but D(N) <= 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complex16PTcomputational_ga7a91b8a69883b74c20c26aee3c537c55}{}\index{complex16@{complex16}!zpttrs@{zpttrs}}
+\index{zpttrs@{zpttrs}!complex16@{complex16}}
+\subsubsection[{zpttrs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zpttrs (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{E, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__complex16PTcomputational_ga7a91b8a69883b74c20c26aee3c537c55}
+
+
+{\bfseries Z\+P\+T\+T\+R\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZPTTRS solves a tridiagonal system of the form
+    A * X = B
+ using the factorization A = U**H *D* U or A = L*D*L**H computed by ZPTTRF.
+ D is a diagonal matrix specified in the vector D, U (or L) is a unit
+ bidiagonal matrix whose superdiagonal (subdiagonal) is specified in
+ the vector E, and X and B are N by NRHS matrices.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies the form of the factorization and whether the
+          vector E is the superdiagonal of the upper bidiagonal factor
+          U or the subdiagonal of the lower bidiagonal factor L.
+          = 'U':  A = U**H *D*U, E is the superdiagonal of U
+          = 'L':  A = L*D*L**H, E is the subdiagonal of L\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the tridiagonal matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+          The n diagonal elements of the diagonal matrix D from the
+          factorization A = U**H *D*U or A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is COMPLEX*16 array, dimension (N-1)
+          If UPLO = 'U', the (n-1) superdiagonal elements of the unit
+          bidiagonal factor U from the factorization A = U**H*D*U.
+          If UPLO = 'L', the (n-1) subdiagonal elements of the unit
+          bidiagonal factor L from the factorization A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+          On entry, the right hand side vectors B for the system of
+          linear equations.
+          On exit, the solution vectors, X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -k, the k-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__complex16PTcomputational_ga216beeac0fe239f03d9b37f51e96d7c7}{}\index{complex16@{complex16}!zptts2@{zptts2}}
+\index{zptts2@{zptts2}!complex16@{complex16}}
+\subsubsection[{zptts2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zptts2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I\+U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{E, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B}
+\end{DoxyParamCaption}
+)}\label{group__complex16PTcomputational_ga216beeac0fe239f03d9b37f51e96d7c7}
+
+
+{\bfseries Z\+P\+T\+T\+S2} solves a tridiagonal system of the form A\+X=B using the L D L\+H factorization computed by spttrf. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZPTTS2 solves a tridiagonal system of the form
+    A * X = B
+ using the factorization A = U**H *D*U or A = L*D*L**H computed by ZPTTRF.
+ D is a diagonal matrix specified in the vector D, U (or L) is a unit
+ bidiagonal matrix whose superdiagonal (subdiagonal) is specified in
+ the vector E, and X and B are N by NRHS matrices.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I\+U\+P\+L\+O} & \begin{DoxyVerb}          IUPLO is INTEGER
+          Specifies the form of the factorization and whether the
+          vector E is the superdiagonal of the upper bidiagonal factor
+          U or the subdiagonal of the lower bidiagonal factor L.
+          = 1:  A = U**H *D*U, E is the superdiagonal of U
+          = 0:  A = L*D*L**H, E is the subdiagonal of L\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the tridiagonal matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+          The n diagonal elements of the diagonal matrix D from the
+          factorization A = U**H *D*U or A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is COMPLEX*16 array, dimension (N-1)
+          If IUPLO = 1, the (n-1) superdiagonal elements of the unit
+          bidiagonal factor U from the factorization A = U**H*D*U.
+          If IUPLO = 0, the (n-1) subdiagonal elements of the unit
+          bidiagonal factor L from the factorization A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+          On entry, the right hand side vectors B for the system of
+          linear equations.
+          On exit, the solution vectors, X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

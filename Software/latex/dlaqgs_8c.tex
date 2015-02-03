@@ -1,0 +1,154 @@
+\hypertarget{dlaqgs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlaqgs.c File Reference}
+\label{dlaqgs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlaqgs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlaqgs.\+c}}
+
+
+Equlibrates a general sprase matrix.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dlaqgs_8c_a0656018abfc9fa2821827415f5d5ea57}{T\+H\+R\+E\+S\+H}~(0.\+1)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{dlaqgs_8c_a07e1fa4926680eb02069087f0aa26fa1}{dlaqgs} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, double $\ast$\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}, double $\ast$c, double rowcnd, double colcnd, double amax, char $\ast$equed)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Equlibrates a general sprase matrix. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Modified from LAPACK routine DLAQGE
+\end{DoxyPre}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dlaqgs_8c_a0656018abfc9fa2821827415f5d5ea57}{}\index{dlaqgs.\+c@{dlaqgs.\+c}!T\+H\+R\+E\+S\+H@{T\+H\+R\+E\+S\+H}}
+\index{T\+H\+R\+E\+S\+H@{T\+H\+R\+E\+S\+H}!dlaqgs.\+c@{dlaqgs.\+c}}
+\subsubsection[{T\+H\+R\+E\+S\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+H\+R\+E\+S\+H~(0.\+1)}\label{dlaqgs_8c_a0656018abfc9fa2821827415f5d5ea57}
+
+
+\subsection{Function Documentation}
+\hypertarget{dlaqgs_8c_a07e1fa4926680eb02069087f0aa26fa1}{}\index{dlaqgs.\+c@{dlaqgs.\+c}!dlaqgs@{dlaqgs}}
+\index{dlaqgs@{dlaqgs}!dlaqgs.\+c@{dlaqgs.\+c}}
+\subsubsection[{dlaqgs}]{\setlength{\rightskip}{0pt plus 5cm}void dlaqgs (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{double $\ast$}]{r, }
+\item[{double $\ast$}]{c, }
+\item[{double}]{rowcnd, }
+\item[{double}]{colcnd, }
+\item[{double}]{amax, }
+\item[{char $\ast$}]{equed}
+\end{DoxyParamCaption}
+)}\label{dlaqgs_8c_a07e1fa4926680eb02069087f0aa26fa1}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  DLAQGS equilibrates a general sparse M by N matrix \hyperlink{classA}{A} using the row and   
+  scaling factors in the vectors R and C.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A}       (input/output) SuperMatrix*
+          On exit, the equilibrated matrix.  See EQUED for the form of 
+          the equilibrated matrix. The type of \hyperlink{classA}{A} can be:
+     Stype = NC; Dtype = SLU\_D; Mtype = GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  R       (input) double*, dimension (A->nrow)
+          The row scale factors for \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  C       (input) double*, dimension (A->ncol)
+          The column scale factors for \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ROWCND  (input) double
+          Ratio of the smallest R(i) to the largest R(i).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  COLCND  (input) double
+          Ratio of the smallest C(i) to the largest C(i).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  AMAX    (input) double
+          Absolute value of largest matrix entry.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  EQUED   (output) char*
+          Specifies the form of equilibration that was done.   
+          = 'N':  No equilibration   
+          = 'R':  Row equilibration, i.e., \hyperlink{classA}{A} has been premultiplied by  
+                  diag(R).   
+          = 'C':  Column equilibration, i.e., \hyperlink{classA}{A} has been postmultiplied  
+                  by diag(C).   
+          = 'B':  Both row and column equilibration, i.e., \hyperlink{classA}{A} has been
+                  replaced by diag(R) * \hyperlink{classA}{A} * diag(C).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Internal Parameters   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  THRESH is a threshold value used to decide if row or column scaling   
+  should be done based on the ratio of the row or column scaling   
+  factors.  If ROWCND < THRESH, row scaling is done, and if   
+  COLCND < THRESH, column scaling is done.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  LARGE and SMALL are threshold values used to decide if row scaling   
+  should be done based on the absolute size of the largest matrix   
+  element.  If AMAX > LARGE or AMAX < SMALL, row scaling is done.   
+
+
+
+\end{DoxyPre}
+ 

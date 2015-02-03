@@ -1,0 +1,113 @@
+\hypertarget{namespacescipy_1_1io_1_1harwell__boeing_1_1hb}{}\section{scipy.\+io.\+harwell\+\_\+boeing.\+hb Namespace Reference}
+\label{namespacescipy_1_1io_1_1harwell__boeing_1_1hb}\index{scipy.\+io.\+harwell\+\_\+boeing.\+hb@{scipy.\+io.\+harwell\+\_\+boeing.\+hb}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1io_1_1harwell__boeing_1_1hb_1_1HBFile}{H\+B\+File}
+\item 
+class \hyperlink{classscipy_1_1io_1_1harwell__boeing_1_1hb_1_1HBInfo}{H\+B\+Info}
+\item 
+class \hyperlink{classscipy_1_1io_1_1harwell__boeing_1_1hb_1_1HBMatrixType}{H\+B\+Matrix\+Type}
+\item 
+class \hyperlink{classscipy_1_1io_1_1harwell__boeing_1_1hb_1_1LineOverflow}{Line\+Overflow}
+\item 
+class \hyperlink{classscipy_1_1io_1_1harwell__boeing_1_1hb_1_1MalformedHeader}{Malformed\+Header}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1io_1_1harwell__boeing_1_1hb_aad0d5b9be381fc6be6c9ea2c1b776bb5}{hb\+\_\+read}
+\item 
+def \hyperlink{namespacescipy_1_1io_1_1harwell__boeing_1_1hb_a8630612e16d8fe7c14a76433b3d5938a}{hb\+\_\+write}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1io_1_1harwell__boeing_1_1hb_a858acb43c10fc019d17f1ca9438ded91}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Implementation of Harwell-Boeing read/write.
+
+At the moment not the full Harwell-Boeing format is supported. Supported
+features are:
+
+    - assembled, non-symmetric, real matrices
+    - integer for pointer/indices
+    - exponential format for float values, and int format\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1io_1_1harwell__boeing_1_1hb_aad0d5b9be381fc6be6c9ea2c1b776bb5}{}\index{scipy\+::io\+::harwell\+\_\+boeing\+::hb@{scipy\+::io\+::harwell\+\_\+boeing\+::hb}!hb\+\_\+read@{hb\+\_\+read}}
+\index{hb\+\_\+read@{hb\+\_\+read}!scipy\+::io\+::harwell\+\_\+boeing\+::hb@{scipy\+::io\+::harwell\+\_\+boeing\+::hb}}
+\subsubsection[{hb\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+harwell\+\_\+boeing.\+hb.\+hb\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{}]{file}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1io_1_1harwell__boeing_1_1hb_aad0d5b9be381fc6be6c9ea2c1b776bb5}
+\begin{DoxyVerb}Read HB-format file.
+
+Parameters
+----------
+file : str-like or file-like
+    If a string-like object, file is the name of the file to read. If a
+    file-like object, the data are read from it.
+
+Returns
+-------
+data : scipy.sparse.csc_matrix instance
+    The data read from the HB file as a sparse matrix.
+
+Notes
+-----
+At the moment not the full Harwell-Boeing format is supported. Supported
+features are:
+
+    - assembled, non-symmetric, real matrices
+    - integer for pointer/indices
+    - exponential format for float values, and int format\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1io_1_1harwell__boeing_1_1hb_a8630612e16d8fe7c14a76433b3d5938a}{}\index{scipy\+::io\+::harwell\+\_\+boeing\+::hb@{scipy\+::io\+::harwell\+\_\+boeing\+::hb}!hb\+\_\+write@{hb\+\_\+write}}
+\index{hb\+\_\+write@{hb\+\_\+write}!scipy\+::io\+::harwell\+\_\+boeing\+::hb@{scipy\+::io\+::harwell\+\_\+boeing\+::hb}}
+\subsubsection[{hb\+\_\+write}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+harwell\+\_\+boeing.\+hb.\+hb\+\_\+write (
+\begin{DoxyParamCaption}
+\item[{}]{file, }
+\item[{}]{m, }
+\item[{}]{hb\+\_\+info = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1io_1_1harwell__boeing_1_1hb_a8630612e16d8fe7c14a76433b3d5938a}
+\begin{DoxyVerb}Write HB-format file.
+
+Parameters
+----------
+file : str-like or file-like
+    if a string-like object, file is the name of the file to read. If a
+    file-like object, the data are read from it.
+m : sparse-matrix
+    the sparse matrix to write
+hb_info : HBInfo
+    contains the meta-data for write
+
+Returns
+-------
+None
+
+Notes
+-----
+At the moment not the full Harwell-Boeing format is supported. Supported
+features are:
+
+    - assembled, non-symmetric, real matrices
+    - integer for pointer/indices
+    - exponential format for float values, and int format\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1io_1_1harwell__boeing_1_1hb_a858acb43c10fc019d17f1ca9438ded91}{}\index{scipy\+::io\+::harwell\+\_\+boeing\+::hb@{scipy\+::io\+::harwell\+\_\+boeing\+::hb}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::io\+::harwell\+\_\+boeing\+::hb@{scipy\+::io\+::harwell\+\_\+boeing\+::hb}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+io.\+harwell\+\_\+boeing.\+hb.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1io_1_1harwell__boeing_1_1hb_a858acb43c10fc019d17f1ca9438ded91}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{"MalformedHeader"}, \textcolor{stringliteral}{"hb\_read"}, \textcolor{stringliteral}{"hb\_write"}, \textcolor{stringliteral}{"HBInfo"}, \textcolor{stringliteral}{"HBFile"},
+2            \textcolor{stringliteral}{"HBMatrixType"}]
+\end{DoxyCode}

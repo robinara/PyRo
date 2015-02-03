@@ -1,0 +1,554 @@
+\hypertarget{ni__support_8h}{}\section{packages/scipy-\/0.14.0/scipy/ndimage/src/ni\+\_\+support.h File Reference}
+\label{ni__support_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+support.\+h@{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+support.\+h}}
+{\ttfamily \#include \char`\"{}nd\+\_\+image.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$float.\+h$>$}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structNI__Iterator}{N\+I\+\_\+\+Iterator}
+\item 
+struct \hyperlink{structNI__LineBuffer}{N\+I\+\_\+\+Line\+Buffer}
+\item 
+struct \hyperlink{structNI__FilterIterator}{N\+I\+\_\+\+Filter\+Iterator}
+\item 
+struct \hyperlink{structNI__CoordinateBlock}{N\+I\+\_\+\+Coordinate\+Block}
+\item 
+struct \hyperlink{structNI__CoordinateList}{N\+I\+\_\+\+Coordinate\+List}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ni__support_8h_ae8424c508d5804206e67cdf571ad606e}{N\+I\+\_\+\+L\+I\+K\+E\+L\+Y}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})~(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})
+\item 
+\#define \hyperlink{ni__support_8h_a68f2d4f4c75693b8cc1332e9f8413ec4}{N\+I\+\_\+\+U\+N\+L\+I\+K\+E\+L\+Y}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})~(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})
+\item 
+\#define \hyperlink{ni__support_8h_a917b1eaebd15cd42edd98bd54675955d}{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+R\+E\+S\+E\+T}(iterator)
+\item 
+\#define \hyperlink{ni__support_8h_a16cda480b1c4c2fc40314fcc9ec547a0}{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T}(iterator,  pointer)
+\item 
+\#define \hyperlink{ni__support_8h_acea55302fd2bf33b46dbb0513d62427f}{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T2}(iterator1,  iterator2, pointer1,  pointer2)
+\item 
+\#define \hyperlink{ni__support_8h_aa63032493877fb4315336589785f6ab8}{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T3}(iterator1,  iterator2, iterator3, pointer1,  pointer2,  pointer3)
+\item 
+\#define \hyperlink{ni__support_8h_ac3caabd9354d35b7ec98afe8a2be4c5b}{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+G\+O\+T\+O}(iterator,  destination,  base,  pointer)
+\item 
+\#define \hyperlink{ni__support_8h_ad9793196562e7c247f29e9e842190346}{N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+I\+N\+E}(\+\_\+buffer,  \+\_\+line)
+\item 
+\#define \hyperlink{ni__support_8h_a318468020b3b6fdcc3f785f33e2dab38}{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T}(iteratorf,  iterator1,  pointerf,  pointer1)
+\item 
+\#define \hyperlink{ni__support_8h_a606a4e28d96a8586312b01bc533ea050}{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T2}(iteratorf,  iterator1,  iterator2, pointerf,  pointer1,  pointer2)
+\item 
+\#define \hyperlink{ni__support_8h_a2b02d600185fc4342a4ab0a2d4a64a1f}{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T3}(iteratorf,  iterator1,  iterator2,  iterator3, pointerf,  pointer1,  pointer2,  pointer3)
+\item 
+\#define \hyperlink{ni__support_8h_a29f33ddd95e61f7cf79d1c1fc946e128}{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+G\+O\+T\+O}(iteratorf,  iterator,  fbase,  pointerf)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode} \{ \\*
+\hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617faa9784a2c9f4f7d42524bf14c3f81536e5}{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+F\+I\+R\+S\+T} = 0, 
+\hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617faa01d122c7374f9a6eacbab52f69969694}{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+N\+E\+A\+R\+E\+S\+T} = 0, 
+\hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617faa00e606be25611e9f6c5d81e1958ee26e}{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+W\+R\+A\+P} = 1, 
+\hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617faa2825c87f6fafa8614338a3e0899a2884}{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+R\+E\+F\+L\+E\+C\+T} = 2, 
+\\*
+\hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617faa1fea8911953a717a34894d447026a6ba}{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+M\+I\+R\+R\+O\+R} = 3, 
+\hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617faa7cab4063271706935a9bac91dd8d5d8b}{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T} = 4, 
+\hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617faae0a23a1efa956540fa547f9039b64596}{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+L\+A\+S\+T} = N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T, 
+\hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617faaad1d778f3dddd92a32cfae01a1f0b1be}{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T} = N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+M\+I\+R\+R\+O\+R
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ni__support_8h_a2ee9c8664bf5477fa15c9b98c33a34b1}{N\+I\+\_\+\+Init\+Point\+Iterator} (Py\+Array\+Object $\ast$, \hyperlink{structNI__Iterator}{N\+I\+\_\+\+Iterator} $\ast$)
+\item 
+int \hyperlink{ni__support_8h_a622fc93efbbdaa1bbaceadfba7e7d029}{N\+I\+\_\+\+Subspace\+Iterator} (\hyperlink{structNI__Iterator}{N\+I\+\_\+\+Iterator} $\ast$, U\+Int32)
+\item 
+int \hyperlink{ni__support_8h_a1d506d1598c73af140da4eecf10b746a}{N\+I\+\_\+\+Line\+Iterator} (\hyperlink{structNI__Iterator}{N\+I\+\_\+\+Iterator} $\ast$, int)
+\item 
+int \hyperlink{ni__support_8h_adad370db4cb0dc6c38e4feb048772482}{N\+I\+\_\+\+Allocate\+Line\+Buffer} (Py\+Array\+Object $\ast$, int, npy\+\_\+intp, npy\+\_\+intp, npy\+\_\+intp $\ast$, npy\+\_\+intp, double $\ast$$\ast$)
+\item 
+int \hyperlink{ni__support_8h_a92bf0178a09c35d9a8937588546f10ca}{N\+I\+\_\+\+Init\+Line\+Buffer} (Py\+Array\+Object $\ast$, int, npy\+\_\+intp, npy\+\_\+intp, npy\+\_\+intp, double $\ast$, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode}, double, \hyperlink{structNI__LineBuffer}{N\+I\+\_\+\+Line\+Buffer} $\ast$)
+\item 
+int \hyperlink{ni__support_8h_a300eefadf5a92d302fae8904e4644aaa}{N\+I\+\_\+\+Extend\+Line} (double $\ast$, npy\+\_\+intp, npy\+\_\+intp, npy\+\_\+intp, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode}, double)
+\item 
+int \hyperlink{ni__support_8h_a4f946759c5bfc1d3a8af94685219458e}{N\+I\+\_\+\+Array\+To\+Line\+Buffer} (\hyperlink{structNI__LineBuffer}{N\+I\+\_\+\+Line\+Buffer} $\ast$, npy\+\_\+intp $\ast$, int $\ast$)
+\item 
+int \hyperlink{ni__support_8h_a406a87a74d2272b9e79f0749fc095991}{N\+I\+\_\+\+Line\+Buffer\+To\+Array} (\hyperlink{structNI__LineBuffer}{N\+I\+\_\+\+Line\+Buffer} $\ast$)
+\item 
+int \hyperlink{ni__support_8h_aa198a57a54097578380ab80a4d1b3704}{N\+I\+\_\+\+Init\+Filter\+Iterator} (int, npy\+\_\+intp $\ast$, npy\+\_\+intp, npy\+\_\+intp $\ast$, npy\+\_\+intp $\ast$, \hyperlink{structNI__FilterIterator}{N\+I\+\_\+\+Filter\+Iterator} $\ast$)
+\item 
+int \hyperlink{ni__support_8h_a7229f3811028c85fa75f24099b13c29f}{N\+I\+\_\+\+Init\+Filter\+Offsets} (Py\+Array\+Object $\ast$, Bool $\ast$, npy\+\_\+intp $\ast$, npy\+\_\+intp $\ast$, \hyperlink{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{N\+I\+\_\+\+Extend\+Mode}, npy\+\_\+intp $\ast$$\ast$, npy\+\_\+intp $\ast$, npy\+\_\+intp $\ast$$\ast$)
+\item 
+\hyperlink{structNI__CoordinateList}{N\+I\+\_\+\+Coordinate\+List} $\ast$ \hyperlink{ni__support_8h_a3277c366b94bb10eeeb511279859ab43}{N\+I\+\_\+\+Init\+Coordinate\+List} (int, int)
+\item 
+int \hyperlink{ni__support_8h_a126c3784d671bcdf873ac841aaf77567}{N\+I\+\_\+\+Coordinate\+List\+Steal\+Blocks} (\hyperlink{structNI__CoordinateList}{N\+I\+\_\+\+Coordinate\+List} $\ast$, \hyperlink{structNI__CoordinateList}{N\+I\+\_\+\+Coordinate\+List} $\ast$)
+\item 
+\hyperlink{structNI__CoordinateBlock}{N\+I\+\_\+\+Coordinate\+Block} $\ast$ \hyperlink{ni__support_8h_a680e66eb4e1ad70b2814198a7ba38222}{N\+I\+\_\+\+Coordinate\+List\+Add\+Block} (\hyperlink{structNI__CoordinateList}{N\+I\+\_\+\+Coordinate\+List} $\ast$)
+\item 
+\hyperlink{structNI__CoordinateBlock}{N\+I\+\_\+\+Coordinate\+Block} $\ast$ \hyperlink{ni__support_8h_a0466a903690b991bbb6806c01f322b54}{N\+I\+\_\+\+Coordinate\+List\+Delete\+Block} (\hyperlink{structNI__CoordinateList}{N\+I\+\_\+\+Coordinate\+List} $\ast$)
+\item 
+void \hyperlink{ni__support_8h_afe93263160eac80e11ab24c3eed6ab03}{N\+I\+\_\+\+Free\+Coordinate\+List} (\hyperlink{structNI__CoordinateList}{N\+I\+\_\+\+Coordinate\+List} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ni__support_8h_a29f33ddd95e61f7cf79d1c1fc946e128}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+G\+O\+T\+O@{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+G\+O\+T\+O}}
+\index{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+G\+O\+T\+O@{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+G\+O\+T\+O}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+G\+O\+T\+O}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+G\+O\+T\+O(
+\begin{DoxyParamCaption}
+\item[{}]{iteratorf, }
+\item[{}]{iterator, }
+\item[{}]{fbase, }
+\item[{}]{pointerf}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a29f33ddd95e61f7cf79d1c1fc946e128}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                            \(\backslash\)
+    int \_ii;                                                   \(\backslash\)
+    npy\_intp \_jj;                                             \(\backslash\)
+    pointerf = fbase;                                          \(\backslash\)
+    for(\_ii = iterator.rank\_m1; \_ii >= 0; \_ii--) \{             \(\backslash\)
+        npy\_intp \_pp = iterator.coordinates[\_ii];             \(\backslash\)
+        npy\_intp b1 = (iteratorf).bound1[\_ii];                \(\backslash\)
+        npy\_intp b2 = (iteratorf).bound2[\_ii];                \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_pp < b1) \{                                          \(\backslash\)
+                \_jj = \_pp;                                           \(\backslash\)
+        \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_pp > b2 && b2 >= b1) \{                       \(\backslash\)
+                \_jj = \_pp + b1 - b2;                                 \(\backslash\)
+        \} \textcolor{keywordflow}{else} \{                                                 \(\backslash\)
+                \_jj = b1;                                            \(\backslash\)
+        \}                                                        \(\backslash\)
+        pointerf += (iteratorf).strides[\_ii] * \_jj;              \(\backslash\)
+    \}                                                          \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{ni__support_8h_a318468020b3b6fdcc3f785f33e2dab38}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T@{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T}}
+\index{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T@{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T(
+\begin{DoxyParamCaption}
+\item[{}]{iteratorf, }
+\item[{}]{iterator1, }
+\item[{}]{pointerf, }
+\item[{}]{pointer1}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a318468020b3b6fdcc3f785f33e2dab38}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                 \(\backslash\)
+    int \_ii;                                                        \(\backslash\)
+    for(\_ii = (iterator1).rank\_m1; \_ii >= 0; \_ii--) \{               \(\backslash\)
+        npy\_intp \_pp = (iterator1).coordinates[\_ii];              \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_pp < (iterator1).dimensions[\_ii]) \{                      
+      \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{            if} (\_pp < (iteratorf).bound1[\_ii] ||                        \(\backslash\)
+                                                                    \_pp >= (iteratorf).bound2[\_ii]) \(\backslash\)
+                pointerf += (iteratorf).strides[\_ii];                     \(\backslash\)
+            (iterator1).coordinates[\_ii]++;                             \(\backslash\)
+            pointer1 += (iterator1).strides[\_ii];                       \(\backslash\)
+            break;                                                      \(\backslash\)
+        \} \textcolor{keywordflow}{else} \{                                                      \(\backslash\)
+            (iterator1).coordinates[\_ii] = 0;                           \(\backslash\)
+            pointer1 -= (iterator1).backstrides[\_ii];                   \(\backslash\)
+            pointerf -= (iteratorf).backstrides[\_ii];                   \(\backslash\)
+        \}                                                             \(\backslash\)
+    \}                                                               \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{ni__support_8h_a606a4e28d96a8586312b01bc533ea050}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T2@{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T2}}
+\index{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T2@{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T2}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T2}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T2(
+\begin{DoxyParamCaption}
+\item[{}]{iteratorf, }
+\item[{}]{iterator1, }
+\item[{}]{iterator2, }
+\item[{}]{pointerf, }
+\item[{}]{pointer1, }
+\item[{}]{pointer2}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a606a4e28d96a8586312b01bc533ea050}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                           \(\backslash\)
+    int \_ii;                                                  \(\backslash\)
+    for(\_ii = (iterator1).rank\_m1; \_ii >= 0; \_ii--) \{         \(\backslash\)
+        npy\_intp \_pp = (iterator1).coordinates[\_ii];        \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_pp < (iterator1).dimensions[\_ii]) \{                \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{            if} (\_pp < (iteratorf).bound1[\_ii] ||                  \(\backslash\)
+                                                        \_pp >= (iteratorf).bound2[\_ii]) \(\backslash\)
+                pointerf += (iteratorf).strides[\_ii];               \(\backslash\)
+            (iterator1).coordinates[\_ii]++;                       \(\backslash\)
+            pointer1 += (iterator1).strides[\_ii];                 \(\backslash\)
+            pointer2 += (iterator2).strides[\_ii];                 \(\backslash\)
+            break;                                                \(\backslash\)
+        \} \textcolor{keywordflow}{else} \{                                                \(\backslash\)
+            (iterator1).coordinates[\_ii] = 0;                     \(\backslash\)
+            pointer1 -= (iterator1).backstrides[\_ii];             \(\backslash\)
+            pointer2 -= (iterator2).backstrides[\_ii];             \(\backslash\)
+            pointerf -= (iteratorf).backstrides[\_ii];             \(\backslash\)
+        \}                                                       \(\backslash\)
+    \}                                                         \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{ni__support_8h_a2b02d600185fc4342a4ab0a2d4a64a1f}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T3@{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T3}}
+\index{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T3@{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T3}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T3}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+N\+E\+X\+T3(
+\begin{DoxyParamCaption}
+\item[{}]{iteratorf, }
+\item[{}]{iterator1, }
+\item[{}]{iterator2, }
+\item[{}]{iterator3, }
+\item[{}]{pointerf, }
+\item[{}]{pointer1, }
+\item[{}]{pointer2, }
+\item[{}]{pointer3}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a2b02d600185fc4342a4ab0a2d4a64a1f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                    \(\backslash\)
+    int \_ii;                                                           \(\backslash\)
+    for(\_ii = (iterator1).rank\_m1; \_ii >= 0; \_ii--) \{                  \(\backslash\)
+        npy\_intp \_pp = (iterator1).coordinates[\_ii];                 \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_pp < (iterator1).dimensions[\_ii]) \{                         
+      \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{            if} (\_pp < (iteratorf).bound1[\_ii] ||                           \(\backslash\)
+                                                                         \_pp >= (iteratorf).bound2[\_ii]) \(\backslash\)
+                pointerf += (iteratorf).strides[\_ii];                        \(\backslash\)
+            (iterator1).coordinates[\_ii]++;                                \(\backslash\)
+            pointer1 += (iterator1).strides[\_ii];                          \(\backslash\)
+            pointer2 += (iterator2).strides[\_ii];                          \(\backslash\)
+            pointer3 += (iterator3).strides[\_ii];                          \(\backslash\)
+            break;                                                         \(\backslash\)
+        \} \textcolor{keywordflow}{else} \{                                                         \(\backslash\)
+            (iterator1).coordinates[\_ii] = 0;                              \(\backslash\)
+            pointer1 -= (iterator1).backstrides[\_ii];                      \(\backslash\)
+            pointer2 -= (iterator2).backstrides[\_ii];                      \(\backslash\)
+            pointer3 -= (iterator3).backstrides[\_ii];                      \(\backslash\)
+            pointerf -= (iteratorf).backstrides[\_ii];                      \(\backslash\)
+        \}                                                                \(\backslash\)
+    \}                                                                  \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{ni__support_8h_ad9793196562e7c247f29e9e842190346}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+I\+N\+E@{N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+I\+N\+E}}
+\index{N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+I\+N\+E@{N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+I\+N\+E}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+I\+N\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+I\+N\+E(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+buffer, }
+\item[{}]{\+\_\+line}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_ad9793196562e7c247f29e9e842190346}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((\_buffer).buffer\_data + (\_line) * ((\_buffer).line\_length +            \(\backslash\)
+                                                                            (\_buffer).size1 + (\_buffer).
+      size2))
+\end{DoxyCode}
+\hypertarget{ni__support_8h_ac3caabd9354d35b7ec98afe8a2be4c5b}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+G\+O\+T\+O@{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+G\+O\+T\+O}}
+\index{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+G\+O\+T\+O@{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+G\+O\+T\+O}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+G\+O\+T\+O}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+G\+O\+T\+O(
+\begin{DoxyParamCaption}
+\item[{}]{iterator, }
+\item[{}]{destination, }
+\item[{}]{base, }
+\item[{}]{pointer}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_ac3caabd9354d35b7ec98afe8a2be4c5b}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                              \(\backslash\)
+    int \_ii;                                                     \(\backslash\)
+    pointer = \hyperlink{namespaceplugins_a3fd3ca789a728fdb7c30556d62947f38}{base};                                              \(\backslash\)
+    for(\_ii = (iterator).rank\_m1; \_ii >= 0; \_ii--) \{             \(\backslash\)
+        pointer += destination[\_ii] * (iterator).strides[\_ii];     \(\backslash\)
+        (iterator).coordinates[\_ii] = destination[\_ii];            \(\backslash\)
+    \}                                                            \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{ni__support_8h_a16cda480b1c4c2fc40314fcc9ec547a0}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T@{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T}}
+\index{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T@{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T(
+\begin{DoxyParamCaption}
+\item[{}]{iterator, }
+\item[{}]{pointer}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a16cda480b1c4c2fc40314fcc9ec547a0}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                   \(\backslash\)
+    int \_ii;                                                          \(\backslash\)
+    for(\_ii = (iterator).rank\_m1; \_ii >= 0; \_ii--)                    \(\backslash\)
+        \textcolor{keywordflow}{if} ((iterator).coordinates[\_ii] < (iterator).dimensions[\_ii]) \{ \(\backslash\)
+            (iterator).coordinates[\_ii]++;                                \(\backslash\)
+            pointer += (iterator).strides[\_ii];                           \(\backslash\)
+            break;                                                        \(\backslash\)
+        \} \textcolor{keywordflow}{else} \{                                                        \(\backslash\)
+            (iterator).coordinates[\_ii] = 0;                              \(\backslash\)
+            pointer -= (iterator).backstrides[\_ii];                       \(\backslash\)
+        \}                                                               \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{ni__support_8h_acea55302fd2bf33b46dbb0513d62427f}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T2@{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T2}}
+\index{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T2@{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T2}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T2}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T2(
+\begin{DoxyParamCaption}
+\item[{}]{iterator1, }
+\item[{}]{iterator2, }
+\item[{}]{pointer1, }
+\item[{}]{pointer2}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_acea55302fd2bf33b46dbb0513d62427f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                     \(\backslash\)
+    int \_ii;                                                            \(\backslash\)
+    for(\_ii = (iterator1).rank\_m1; \_ii >= 0; \_ii--)                     \(\backslash\)
+        \textcolor{keywordflow}{if} ((iterator1).coordinates[\_ii] < (iterator1).dimensions[\_ii]) \{ \(\backslash\)
+            (iterator1).coordinates[\_ii]++;                                 \(\backslash\)
+            pointer1 += (iterator1).strides[\_ii];                           \(\backslash\)
+            pointer2 += (iterator2).strides[\_ii];                           \(\backslash\)
+            break;                                                          \(\backslash\)
+        \} \textcolor{keywordflow}{else} \{                                                          \(\backslash\)
+            (iterator1).coordinates[\_ii] = 0;                               \(\backslash\)
+            pointer1 -= (iterator1).backstrides[\_ii];                       \(\backslash\)
+            pointer2 -= (iterator2).backstrides[\_ii];                       \(\backslash\)
+        \}                                                                 \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{ni__support_8h_aa63032493877fb4315336589785f6ab8}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T3@{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T3}}
+\index{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T3@{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T3}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T3}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+N\+E\+X\+T3(
+\begin{DoxyParamCaption}
+\item[{}]{iterator1, }
+\item[{}]{iterator2, }
+\item[{}]{iterator3, }
+\item[{}]{pointer1, }
+\item[{}]{pointer2, }
+\item[{}]{pointer3}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_aa63032493877fb4315336589785f6ab8}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                                     \(\backslash\)
+    int \_ii;                                                            \(\backslash\)
+    for(\_ii = (iterator1).rank\_m1; \_ii >= 0; \_ii--)                     \(\backslash\)
+        \textcolor{keywordflow}{if} ((iterator1).coordinates[\_ii] < (iterator1).dimensions[\_ii]) \{ \(\backslash\)
+            (iterator1).coordinates[\_ii]++;                                 \(\backslash\)
+            pointer1 += (iterator1).strides[\_ii];                           \(\backslash\)
+            pointer2 += (iterator2).strides[\_ii];                           \(\backslash\)
+            pointer3 += (iterator3).strides[\_ii];                           \(\backslash\)
+            break;                                                          \(\backslash\)
+        \} \textcolor{keywordflow}{else} \{                                                          \(\backslash\)
+            (iterator1).coordinates[\_ii] = 0;                               \(\backslash\)
+            pointer1 -= (iterator1).backstrides[\_ii];                       \(\backslash\)
+            pointer2 -= (iterator2).backstrides[\_ii];                       \(\backslash\)
+            pointer3 -= (iterator3).backstrides[\_ii];                       \(\backslash\)
+        \}                                                                 \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{ni__support_8h_a917b1eaebd15cd42edd98bd54675955d}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+R\+E\+S\+E\+T@{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+R\+E\+S\+E\+T}}
+\index{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+R\+E\+S\+E\+T@{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+R\+E\+S\+E\+T}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+R\+E\+S\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+I\+T\+E\+R\+A\+T\+O\+R\+\_\+\+R\+E\+S\+E\+T(
+\begin{DoxyParamCaption}
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a917b1eaebd15cd42edd98bd54675955d}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                \(\backslash\)
+    int \_ii;                                       \(\backslash\)
+    for(\_ii = 0; \_ii <= (iterator).rank\_m1; \_ii++) \(\backslash\)
+        (iterator).coordinates[\_ii] = 0;             \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{ni__support_8h_ae8424c508d5804206e67cdf571ad606e}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+L\+I\+K\+E\+L\+Y@{N\+I\+\_\+\+L\+I\+K\+E\+L\+Y}}
+\index{N\+I\+\_\+\+L\+I\+K\+E\+L\+Y@{N\+I\+\_\+\+L\+I\+K\+E\+L\+Y}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+L\+I\+K\+E\+L\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+L\+I\+K\+E\+L\+Y(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~({\bf x})}\label{ni__support_8h_ae8424c508d5804206e67cdf571ad606e}
+\hypertarget{ni__support_8h_a68f2d4f4c75693b8cc1332e9f8413ec4}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+U\+N\+L\+I\+K\+E\+L\+Y@{N\+I\+\_\+\+U\+N\+L\+I\+K\+E\+L\+Y}}
+\index{N\+I\+\_\+\+U\+N\+L\+I\+K\+E\+L\+Y@{N\+I\+\_\+\+U\+N\+L\+I\+K\+E\+L\+Y}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+U\+N\+L\+I\+K\+E\+L\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+U\+N\+L\+I\+K\+E\+L\+Y(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~({\bf x})}\label{ni__support_8h_a68f2d4f4c75693b8cc1332e9f8413ec4}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Extend\+Mode@{N\+I\+\_\+\+Extend\+Mode}}
+\index{N\+I\+\_\+\+Extend\+Mode@{N\+I\+\_\+\+Extend\+Mode}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Extend\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf N\+I\+\_\+\+Extend\+Mode}}\label{ni__support_8h_a07581b5249763908e2c9c86b18c617fa}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+F\+I\+R\+S\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+F\+I\+R\+S\+T}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+F\+I\+R\+S\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+F\+I\+R\+S\+T}}\item[{\em 
+\hypertarget{ni__support_8h_a07581b5249763908e2c9c86b18c617faa9784a2c9f4f7d42524bf14c3f81536e5}{}N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+F\+I\+R\+S\+T\label{ni__support_8h_a07581b5249763908e2c9c86b18c617faa9784a2c9f4f7d42524bf14c3f81536e5}
+}]\index{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+N\+E\+A\+R\+E\+S\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+N\+E\+A\+R\+E\+S\+T}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+N\+E\+A\+R\+E\+S\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+N\+E\+A\+R\+E\+S\+T}}\item[{\em 
+\hypertarget{ni__support_8h_a07581b5249763908e2c9c86b18c617faa01d122c7374f9a6eacbab52f69969694}{}N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+N\+E\+A\+R\+E\+S\+T\label{ni__support_8h_a07581b5249763908e2c9c86b18c617faa01d122c7374f9a6eacbab52f69969694}
+}]\index{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+W\+R\+A\+P@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+W\+R\+A\+P}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+W\+R\+A\+P@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+W\+R\+A\+P}}\item[{\em 
+\hypertarget{ni__support_8h_a07581b5249763908e2c9c86b18c617faa00e606be25611e9f6c5d81e1958ee26e}{}N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+W\+R\+A\+P\label{ni__support_8h_a07581b5249763908e2c9c86b18c617faa00e606be25611e9f6c5d81e1958ee26e}
+}]\index{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+R\+E\+F\+L\+E\+C\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+R\+E\+F\+L\+E\+C\+T}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+R\+E\+F\+L\+E\+C\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+R\+E\+F\+L\+E\+C\+T}}\item[{\em 
+\hypertarget{ni__support_8h_a07581b5249763908e2c9c86b18c617faa2825c87f6fafa8614338a3e0899a2884}{}N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+R\+E\+F\+L\+E\+C\+T\label{ni__support_8h_a07581b5249763908e2c9c86b18c617faa2825c87f6fafa8614338a3e0899a2884}
+}]\index{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+M\+I\+R\+R\+O\+R@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+M\+I\+R\+R\+O\+R}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+M\+I\+R\+R\+O\+R@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+M\+I\+R\+R\+O\+R}}\item[{\em 
+\hypertarget{ni__support_8h_a07581b5249763908e2c9c86b18c617faa1fea8911953a717a34894d447026a6ba}{}N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+M\+I\+R\+R\+O\+R\label{ni__support_8h_a07581b5249763908e2c9c86b18c617faa1fea8911953a717a34894d447026a6ba}
+}]\index{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T}}\item[{\em 
+\hypertarget{ni__support_8h_a07581b5249763908e2c9c86b18c617faa7cab4063271706935a9bac91dd8d5d8b}{}N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T\label{ni__support_8h_a07581b5249763908e2c9c86b18c617faa7cab4063271706935a9bac91dd8d5d8b}
+}]\index{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+L\+A\+S\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+L\+A\+S\+T}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+L\+A\+S\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+L\+A\+S\+T}}\item[{\em 
+\hypertarget{ni__support_8h_a07581b5249763908e2c9c86b18c617faae0a23a1efa956540fa547f9039b64596}{}N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+L\+A\+S\+T\label{ni__support_8h_a07581b5249763908e2c9c86b18c617faae0a23a1efa956540fa547f9039b64596}
+}]\index{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T@{N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T}}\item[{\em 
+\hypertarget{ni__support_8h_a07581b5249763908e2c9c86b18c617faaad1d778f3dddd92a32cfae01a1f0b1be}{}N\+I\+\_\+\+E\+X\+T\+E\+N\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T\label{ni__support_8h_a07581b5249763908e2c9c86b18c617faaad1d778f3dddd92a32cfae01a1f0b1be}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{ni__support_8h_adad370db4cb0dc6c38e4feb048772482}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Allocate\+Line\+Buffer@{N\+I\+\_\+\+Allocate\+Line\+Buffer}}
+\index{N\+I\+\_\+\+Allocate\+Line\+Buffer@{N\+I\+\_\+\+Allocate\+Line\+Buffer}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Allocate\+Line\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Allocate\+Line\+Buffer (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{, }
+\item[{int}]{, }
+\item[{npy\+\_\+intp}]{, }
+\item[{npy\+\_\+intp}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp}]{, }
+\item[{double $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_adad370db4cb0dc6c38e4feb048772482}
+\hypertarget{ni__support_8h_a4f946759c5bfc1d3a8af94685219458e}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Array\+To\+Line\+Buffer@{N\+I\+\_\+\+Array\+To\+Line\+Buffer}}
+\index{N\+I\+\_\+\+Array\+To\+Line\+Buffer@{N\+I\+\_\+\+Array\+To\+Line\+Buffer}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Array\+To\+Line\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Array\+To\+Line\+Buffer (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+I\+\_\+\+Line\+Buffer} $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a4f946759c5bfc1d3a8af94685219458e}
+\hypertarget{ni__support_8h_a680e66eb4e1ad70b2814198a7ba38222}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Coordinate\+List\+Add\+Block@{N\+I\+\_\+\+Coordinate\+List\+Add\+Block}}
+\index{N\+I\+\_\+\+Coordinate\+List\+Add\+Block@{N\+I\+\_\+\+Coordinate\+List\+Add\+Block}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Coordinate\+List\+Add\+Block}]{\setlength{\rightskip}{0pt plus 5cm}{\bf N\+I\+\_\+\+Coordinate\+Block}$\ast$ N\+I\+\_\+\+Coordinate\+List\+Add\+Block (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+I\+\_\+\+Coordinate\+List} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a680e66eb4e1ad70b2814198a7ba38222}
+\hypertarget{ni__support_8h_a0466a903690b991bbb6806c01f322b54}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Coordinate\+List\+Delete\+Block@{N\+I\+\_\+\+Coordinate\+List\+Delete\+Block}}
+\index{N\+I\+\_\+\+Coordinate\+List\+Delete\+Block@{N\+I\+\_\+\+Coordinate\+List\+Delete\+Block}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Coordinate\+List\+Delete\+Block}]{\setlength{\rightskip}{0pt plus 5cm}{\bf N\+I\+\_\+\+Coordinate\+Block}$\ast$ N\+I\+\_\+\+Coordinate\+List\+Delete\+Block (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+I\+\_\+\+Coordinate\+List} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a0466a903690b991bbb6806c01f322b54}
+\hypertarget{ni__support_8h_a126c3784d671bcdf873ac841aaf77567}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Coordinate\+List\+Steal\+Blocks@{N\+I\+\_\+\+Coordinate\+List\+Steal\+Blocks}}
+\index{N\+I\+\_\+\+Coordinate\+List\+Steal\+Blocks@{N\+I\+\_\+\+Coordinate\+List\+Steal\+Blocks}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Coordinate\+List\+Steal\+Blocks}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Coordinate\+List\+Steal\+Blocks (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+I\+\_\+\+Coordinate\+List} $\ast$}]{, }
+\item[{{\bf N\+I\+\_\+\+Coordinate\+List} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a126c3784d671bcdf873ac841aaf77567}
+\hypertarget{ni__support_8h_a300eefadf5a92d302fae8904e4644aaa}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Extend\+Line@{N\+I\+\_\+\+Extend\+Line}}
+\index{N\+I\+\_\+\+Extend\+Line@{N\+I\+\_\+\+Extend\+Line}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Extend\+Line}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Extend\+Line (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{, }
+\item[{npy\+\_\+intp}]{, }
+\item[{npy\+\_\+intp}]{, }
+\item[{npy\+\_\+intp}]{, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{, }
+\item[{double}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a300eefadf5a92d302fae8904e4644aaa}
+\hypertarget{ni__support_8h_afe93263160eac80e11ab24c3eed6ab03}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Free\+Coordinate\+List@{N\+I\+\_\+\+Free\+Coordinate\+List}}
+\index{N\+I\+\_\+\+Free\+Coordinate\+List@{N\+I\+\_\+\+Free\+Coordinate\+List}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Free\+Coordinate\+List}]{\setlength{\rightskip}{0pt plus 5cm}void N\+I\+\_\+\+Free\+Coordinate\+List (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+I\+\_\+\+Coordinate\+List} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_afe93263160eac80e11ab24c3eed6ab03}
+\hypertarget{ni__support_8h_a3277c366b94bb10eeeb511279859ab43}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Init\+Coordinate\+List@{N\+I\+\_\+\+Init\+Coordinate\+List}}
+\index{N\+I\+\_\+\+Init\+Coordinate\+List@{N\+I\+\_\+\+Init\+Coordinate\+List}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Init\+Coordinate\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf N\+I\+\_\+\+Coordinate\+List}$\ast$ N\+I\+\_\+\+Init\+Coordinate\+List (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a3277c366b94bb10eeeb511279859ab43}
+\hypertarget{ni__support_8h_aa198a57a54097578380ab80a4d1b3704}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Init\+Filter\+Iterator@{N\+I\+\_\+\+Init\+Filter\+Iterator}}
+\index{N\+I\+\_\+\+Init\+Filter\+Iterator@{N\+I\+\_\+\+Init\+Filter\+Iterator}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Init\+Filter\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Init\+Filter\+Iterator (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{{\bf N\+I\+\_\+\+Filter\+Iterator} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_aa198a57a54097578380ab80a4d1b3704}
+\hypertarget{ni__support_8h_a7229f3811028c85fa75f24099b13c29f}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Init\+Filter\+Offsets@{N\+I\+\_\+\+Init\+Filter\+Offsets}}
+\index{N\+I\+\_\+\+Init\+Filter\+Offsets@{N\+I\+\_\+\+Init\+Filter\+Offsets}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Init\+Filter\+Offsets}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Init\+Filter\+Offsets (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{, }
+\item[{Bool $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{, }
+\item[{npy\+\_\+intp $\ast$$\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$}]{, }
+\item[{npy\+\_\+intp $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a7229f3811028c85fa75f24099b13c29f}
+\hypertarget{ni__support_8h_a92bf0178a09c35d9a8937588546f10ca}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Init\+Line\+Buffer@{N\+I\+\_\+\+Init\+Line\+Buffer}}
+\index{N\+I\+\_\+\+Init\+Line\+Buffer@{N\+I\+\_\+\+Init\+Line\+Buffer}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Init\+Line\+Buffer}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Init\+Line\+Buffer (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{, }
+\item[{int}]{, }
+\item[{npy\+\_\+intp}]{, }
+\item[{npy\+\_\+intp}]{, }
+\item[{npy\+\_\+intp}]{, }
+\item[{double $\ast$}]{, }
+\item[{{\bf N\+I\+\_\+\+Extend\+Mode}}]{, }
+\item[{double}]{, }
+\item[{{\bf N\+I\+\_\+\+Line\+Buffer} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a92bf0178a09c35d9a8937588546f10ca}
+\hypertarget{ni__support_8h_a2ee9c8664bf5477fa15c9b98c33a34b1}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Init\+Point\+Iterator@{N\+I\+\_\+\+Init\+Point\+Iterator}}
+\index{N\+I\+\_\+\+Init\+Point\+Iterator@{N\+I\+\_\+\+Init\+Point\+Iterator}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Init\+Point\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Init\+Point\+Iterator (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{, }
+\item[{{\bf N\+I\+\_\+\+Iterator} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a2ee9c8664bf5477fa15c9b98c33a34b1}
+\hypertarget{ni__support_8h_a406a87a74d2272b9e79f0749fc095991}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Line\+Buffer\+To\+Array@{N\+I\+\_\+\+Line\+Buffer\+To\+Array}}
+\index{N\+I\+\_\+\+Line\+Buffer\+To\+Array@{N\+I\+\_\+\+Line\+Buffer\+To\+Array}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Line\+Buffer\+To\+Array}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Line\+Buffer\+To\+Array (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+I\+\_\+\+Line\+Buffer} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a406a87a74d2272b9e79f0749fc095991}
+\hypertarget{ni__support_8h_a1d506d1598c73af140da4eecf10b746a}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Line\+Iterator@{N\+I\+\_\+\+Line\+Iterator}}
+\index{N\+I\+\_\+\+Line\+Iterator@{N\+I\+\_\+\+Line\+Iterator}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Line\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Line\+Iterator (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+I\+\_\+\+Iterator} $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a1d506d1598c73af140da4eecf10b746a}
+\hypertarget{ni__support_8h_a622fc93efbbdaa1bbaceadfba7e7d029}{}\index{ni\+\_\+support.\+h@{ni\+\_\+support.\+h}!N\+I\+\_\+\+Subspace\+Iterator@{N\+I\+\_\+\+Subspace\+Iterator}}
+\index{N\+I\+\_\+\+Subspace\+Iterator@{N\+I\+\_\+\+Subspace\+Iterator}!ni\+\_\+support.\+h@{ni\+\_\+support.\+h}}
+\subsubsection[{N\+I\+\_\+\+Subspace\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Subspace\+Iterator (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+I\+\_\+\+Iterator} $\ast$}]{, }
+\item[{U\+Int32}]{}
+\end{DoxyParamCaption}
+)}\label{ni__support_8h_a622fc93efbbdaa1bbaceadfba7e7d029}

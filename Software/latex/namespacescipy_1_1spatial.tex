@@ -1,0 +1,119 @@
+\hypertarget{namespacescipy_1_1spatial}{}\section{scipy.\+spatial Namespace Reference}
+\label{namespacescipy_1_1spatial}\index{scipy.\+spatial@{scipy.\+spatial}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacescipy_1_1spatial_1_1__plotutils}{\+\_\+plotutils}
+\item 
+ \hyperlink{namespacescipy_1_1spatial_1_1distance}{distance}
+\item 
+ \hyperlink{namespacescipy_1_1spatial_1_1kdtree}{kdtree}
+\item 
+ \hyperlink{namespacescipy_1_1spatial_1_1setup}{setup}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1spatial_a20fc1ad122cc3a448b249c5d924fc5c0}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} for \hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s} in dir() \hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} not s.\+startswith('\+\_\+')\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1spatial_a9a201637fcd0d98a27b5a6f80349abe2}{test} = Tester()
+\item 
+tuple \hyperlink{namespacescipy_1_1spatial_a5b7d767a9ff3163062223a0372e4b3fe}{bench} = Tester()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}=============================================================
+Spatial algorithms and data structures (:mod:`scipy.spatial`)
+=============================================================
+
+.. currentmodule:: scipy.spatial
+
+Nearest-neighbor Queries
+========================
+.. autosummary::
+   :toctree: generated/
+
+   KDTree      -- class for efficient nearest-neighbor queries
+   cKDTree     -- class for efficient nearest-neighbor queries (faster impl.)
+   distance    -- module containing many different distance measures
+
+Delaunay Triangulation, Convex Hulls and Voronoi Diagrams
+=========================================================
+
+.. autosummary::
+   :toctree: generated/
+
+   Delaunay    -- compute Delaunay triangulation of input points
+   ConvexHull  -- compute a convex hull for input points
+   Voronoi     -- compute a Voronoi diagram hull from input points
+
+Plotting Helpers
+================
+
+.. autosummary::
+   :toctree: generated/
+
+   delaunay_plot_2d     -- plot 2-D triangulation
+   convex_hull_plot_2d  -- plot 2-D convex hull
+   voronoi_plot_2d      -- plot 2-D voronoi diagram
+
+.. seealso:: :ref:`Tutorial <qhulltutorial>`
+
+
+Simplex representation
+======================
+The simplices (triangles, tetrahedra, ...) appearing in the Delaunay
+tesselation (N-dim simplices), convex hull facets, and Voronoi ridges
+(N-1 dim simplices) are represented in the following scheme::
+
+    tess = Delaunay(points)
+    hull = ConvexHull(points)
+    voro = Voronoi(points)
+
+    # coordinates of the j-th vertex of the i-th simplex
+    tess.points[tess.simplices[i, j], :]        # tesselation element
+    hull.points[hull.simplices[i, j], :]        # convex hull facet
+    voro.vertices[voro.ridge_vertices[i, j], :] # ridge between Voronoi cells
+
+For Delaunay triangulations and convex hulls, the neighborhood
+structure of the simplices satisfies the condition:
+
+    ``tess.neighbors[i,j]`` is the neighboring simplex of the i-th
+    simplex, opposite to the j-vertex. It is -1 in case of no
+    neighbor.
+
+Convex hull facets also define a hyperplane equation:
+
+    (hull.equations[i,:-1] * coord).sum() + hull.equations[i,-1] == 0
+
+Similar hyperplane equations for the Delaunay triangulation correspond
+to the convex hull facets on the corresponding N+1 dimensional
+paraboloid.
+
+The Delaunay triangulation objects offer a method for locating the
+simplex containing a given point, and barycentric coordinate
+computations.
+
+Functions
+---------
+
+.. autosummary::
+   :toctree: generated/
+
+   tsearch
+   distance_matrix
+   minkowski_distance
+   minkowski_distance_p\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1spatial_a20fc1ad122cc3a448b249c5d924fc5c0}{}\index{scipy\+::spatial@{scipy\+::spatial}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::spatial@{scipy\+::spatial}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+spatial.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}{\bf s} for {\bf s} in dir() {\bf if} not s.\+startswith('\+\_\+')\mbox{]}}\label{namespacescipy_1_1spatial_a20fc1ad122cc3a448b249c5d924fc5c0}
+\hypertarget{namespacescipy_1_1spatial_a5b7d767a9ff3163062223a0372e4b3fe}{}\index{scipy\+::spatial@{scipy\+::spatial}!bench@{bench}}
+\index{bench@{bench}!scipy\+::spatial@{scipy\+::spatial}}
+\subsubsection[{bench}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+spatial.\+bench = Tester()}\label{namespacescipy_1_1spatial_a5b7d767a9ff3163062223a0372e4b3fe}
+\hypertarget{namespacescipy_1_1spatial_a9a201637fcd0d98a27b5a6f80349abe2}{}\index{scipy\+::spatial@{scipy\+::spatial}!test@{test}}
+\index{test@{test}!scipy\+::spatial@{scipy\+::spatial}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+spatial.\+test = Tester()}\label{namespacescipy_1_1spatial_a9a201637fcd0d98a27b5a6f80349abe2}

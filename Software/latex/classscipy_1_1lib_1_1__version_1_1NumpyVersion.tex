@@ -1,0 +1,165 @@
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion}{}\section{scipy.\+lib.\+\_\+version.\+Numpy\+Version Class Reference}
+\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion}\index{scipy.\+lib.\+\_\+version.\+Numpy\+Version@{scipy.\+lib.\+\_\+version.\+Numpy\+Version}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_aae467fa8ea5786b0db3d1d7f5cc3cd36}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_ad97c202edd297085dfe551322704716c}{\+\_\+\+\_\+lt\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a6cb58ee344cbfdf3e158218300cafe7d}{\+\_\+\+\_\+le\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_aa147eb4eb55617e12930c31738dc4715}{\+\_\+\+\_\+eq\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a33344eefbb1eacc3b416e84d69d6c6c6}{\+\_\+\+\_\+ne\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a48821a37d9328462bf42ffc7849c5cc5}{\+\_\+\+\_\+gt\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a5eaace85a4fa081923a60916d1eac5db}{\+\_\+\+\_\+ge\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a03d9c58eea51a0c21d0c49058388047a}{vstring}
+\item 
+\hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a8630787243493374a9995f1b0193a42d}{version}
+\item 
+\hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a39182e57e74bdaed63d36321c60b733a}{bugfix}
+\item 
+\hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_afcdc02faf7b614a614eed44516564adf}{pre\+\_\+release}
+\item 
+\hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a5cdf6c59231dd5def55439f81bbd3686}{is\+\_\+devversion}
+\item 
+\hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a11d816abfe2c1ec464fffefdc8e4d27b}{major}
+\item 
+\hyperlink{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a072289ce637e8c22ad13d8ae488659a5}{minor}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Parse and compare numpy version strings.
+
+Numpy has the following versioning scheme (numbers given are examples; they
+can be >9) in principle):
+
+- Released version: '1.8.0', '1.8.1', etc.
+- Alpha: '1.8.0a1', '1.8.0a2', etc.
+- Beta: '1.8.0b1', '1.8.0b2', etc.
+- Release candidates: '1.8.0rc1', '1.8.0rc2', etc.
+- Development versions: '1.8.0.dev-f1234afa' (git commit hash appended)
+- Development versions after a1: '1.8.0a1.dev-f1234afa',
+                                 '1.8.0b2.dev-f1234afa',
+                                 '1.8.1rc1.dev-f1234afa', etc.
+- Development versions (no git hash available): '1.8.0.dev-Unknown'
+
+Comparing needs to be done against a valid version string or other
+`NumpyVersion` instance.
+
+Parameters
+----------
+vstring : str
+    Numpy version string (``np.__version__``).
+
+Notes
+-----
+All dev versions of the same (pre-)release compare equal.
+
+Examples
+--------
+>>> from scipy.lib._version import NumpyVersion
+>>> if NumpyVersion(np.__version__) < '1.7.0'):
+...     print('skip')
+skip
+
+>>> NumpyVersion('1.7')  # raises ValueError, add ".0"\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_aae467fa8ea5786b0db3d1d7f5cc3cd36}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{vstring}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_aae467fa8ea5786b0db3d1d7f5cc3cd36}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_aa147eb4eb55617e12930c31738dc4715}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!\+\_\+\+\_\+eq\+\_\+\+\_\+@{\+\_\+\+\_\+eq\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+eq\+\_\+\+\_\+@{\+\_\+\+\_\+eq\+\_\+\+\_\+}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{\+\_\+\+\_\+eq\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+\_\+\+\_\+eq\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{other}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_aa147eb4eb55617e12930c31738dc4715}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a5eaace85a4fa081923a60916d1eac5db}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!\+\_\+\+\_\+ge\+\_\+\+\_\+@{\+\_\+\+\_\+ge\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+ge\+\_\+\+\_\+@{\+\_\+\+\_\+ge\+\_\+\+\_\+}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{\+\_\+\+\_\+ge\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+\_\+\+\_\+ge\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{other}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a5eaace85a4fa081923a60916d1eac5db}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a48821a37d9328462bf42ffc7849c5cc5}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!\+\_\+\+\_\+gt\+\_\+\+\_\+@{\+\_\+\+\_\+gt\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+gt\+\_\+\+\_\+@{\+\_\+\+\_\+gt\+\_\+\+\_\+}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{\+\_\+\+\_\+gt\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+\_\+\+\_\+gt\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{other}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a48821a37d9328462bf42ffc7849c5cc5}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a6cb58ee344cbfdf3e158218300cafe7d}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!\+\_\+\+\_\+le\+\_\+\+\_\+@{\+\_\+\+\_\+le\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+le\+\_\+\+\_\+@{\+\_\+\+\_\+le\+\_\+\+\_\+}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{\+\_\+\+\_\+le\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+\_\+\+\_\+le\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{other}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a6cb58ee344cbfdf3e158218300cafe7d}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_ad97c202edd297085dfe551322704716c}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!\+\_\+\+\_\+lt\+\_\+\+\_\+@{\+\_\+\+\_\+lt\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+lt\+\_\+\+\_\+@{\+\_\+\+\_\+lt\+\_\+\+\_\+}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{\+\_\+\+\_\+lt\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+\_\+\+\_\+lt\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{other}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_ad97c202edd297085dfe551322704716c}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a33344eefbb1eacc3b416e84d69d6c6c6}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!\+\_\+\+\_\+ne\+\_\+\+\_\+@{\+\_\+\+\_\+ne\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+ne\+\_\+\+\_\+@{\+\_\+\+\_\+ne\+\_\+\+\_\+}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{\+\_\+\+\_\+ne\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+\_\+\+\_\+ne\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{other}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a33344eefbb1eacc3b416e84d69d6c6c6}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a39182e57e74bdaed63d36321c60b733a}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!bugfix@{bugfix}}
+\index{bugfix@{bugfix}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{bugfix}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+bugfix}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a39182e57e74bdaed63d36321c60b733a}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a5cdf6c59231dd5def55439f81bbd3686}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!is\+\_\+devversion@{is\+\_\+devversion}}
+\index{is\+\_\+devversion@{is\+\_\+devversion}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{is\+\_\+devversion}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+is\+\_\+devversion}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a5cdf6c59231dd5def55439f81bbd3686}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a11d816abfe2c1ec464fffefdc8e4d27b}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!major@{major}}
+\index{major@{major}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{major}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+major}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a11d816abfe2c1ec464fffefdc8e4d27b}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a072289ce637e8c22ad13d8ae488659a5}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!minor@{minor}}
+\index{minor@{minor}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{minor}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+minor}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a072289ce637e8c22ad13d8ae488659a5}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_afcdc02faf7b614a614eed44516564adf}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!pre\+\_\+release@{pre\+\_\+release}}
+\index{pre\+\_\+release@{pre\+\_\+release}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{pre\+\_\+release}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+pre\+\_\+release}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_afcdc02faf7b614a614eed44516564adf}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a8630787243493374a9995f1b0193a42d}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!version@{version}}
+\index{version@{version}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{version}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+version}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a8630787243493374a9995f1b0193a42d}
+\hypertarget{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a03d9c58eea51a0c21d0c49058388047a}{}\index{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}!vstring@{vstring}}
+\index{vstring@{vstring}!scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version@{scipy\+::lib\+::\+\_\+version\+::\+Numpy\+Version}}
+\subsubsection[{vstring}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+lib.\+\_\+version.\+Numpy\+Version.\+vstring}\label{classscipy_1_1lib_1_1__version_1_1NumpyVersion_a03d9c58eea51a0c21d0c49058388047a}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/lib/\hyperlink{__version_8py}{\+\_\+version.\+py}\end{DoxyCompactItemize}

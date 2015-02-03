@@ -1,0 +1,114 @@
+\hypertarget{scolumn__bmod_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/scolumn\+\_\+bmod.c File Reference}
+\label{scolumn__bmod_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/scolumn\+\_\+bmod.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/scolumn\+\_\+bmod.\+c}}
+
+
+performs numeric block updates  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{scolumn__bmod_8c_a25ea48f4f948c68a423f5bd3929e3c1f}{susolve} (int, int, float $\ast$, float $\ast$)
+\item 
+void \hyperlink{scolumn__bmod_8c_aa8bbeb2abbd5a10ac13fa9b48504691c}{slsolve} (int, int, float $\ast$, float $\ast$)
+\item 
+void \hyperlink{scolumn__bmod_8c_ab452e957171a4d0d9cfe6abb3d8a950c}{smatvec} (int, int, int, float $\ast$, float $\ast$, float $\ast$)
+\item 
+int \hyperlink{scolumn__bmod_8c_ac89043410fd16fe2b8d3b2c902fec9f7}{scolumn\+\_\+bmod} (const int jcol, const int nseg, float $\ast$dense, float $\ast$tempv, int $\ast$segrep, int $\ast$repfnz, int fpanelc, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+performs numeric block updates 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} Permission is hereby granted to use or copy this program for any
+ purpose, provided the above notices are retained on all copies.
+ Permission to modify the code and to distribute modified code is
+ granted, provided the above notices are retained, and a notice that
+ the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{scolumn__bmod_8c_ac89043410fd16fe2b8d3b2c902fec9f7}{}\index{scolumn\+\_\+bmod.\+c@{scolumn\+\_\+bmod.\+c}!scolumn\+\_\+bmod@{scolumn\+\_\+bmod}}
+\index{scolumn\+\_\+bmod@{scolumn\+\_\+bmod}!scolumn\+\_\+bmod.\+c@{scolumn\+\_\+bmod.\+c}}
+\subsubsection[{scolumn\+\_\+bmod}]{\setlength{\rightskip}{0pt plus 5cm}int scolumn\+\_\+bmod (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const int}]{nseg, }
+\item[{float $\ast$}]{dense, }
+\item[{float $\ast$}]{tempv, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int}]{fpanelc, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{scolumn__bmod_8c_ac89043410fd16fe2b8d3b2c902fec9f7}
+
+\begin{DoxyPre}
+\subsection*{Purpose:
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+Performs numeric block updates (sup-col) in topological order.
+It features: col-col, 2cols-col, 3cols-col, and sup-col updates.
+Special processing on the supernodal portion of L[*,j]
+Return value:   0 - successful return
+              > 0 - number of bytes allocated when run out of space
+\end{DoxyPre}
+ \hypertarget{scolumn__bmod_8c_aa8bbeb2abbd5a10ac13fa9b48504691c}{}\index{scolumn\+\_\+bmod.\+c@{scolumn\+\_\+bmod.\+c}!slsolve@{slsolve}}
+\index{slsolve@{slsolve}!scolumn\+\_\+bmod.\+c@{scolumn\+\_\+bmod.\+c}}
+\subsubsection[{slsolve}]{\setlength{\rightskip}{0pt plus 5cm}void slsolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{scolumn__bmod_8c_aa8bbeb2abbd5a10ac13fa9b48504691c}
+\hypertarget{scolumn__bmod_8c_ab452e957171a4d0d9cfe6abb3d8a950c}{}\index{scolumn\+\_\+bmod.\+c@{scolumn\+\_\+bmod.\+c}!smatvec@{smatvec}}
+\index{smatvec@{smatvec}!scolumn\+\_\+bmod.\+c@{scolumn\+\_\+bmod.\+c}}
+\subsubsection[{smatvec}]{\setlength{\rightskip}{0pt plus 5cm}void smatvec (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{scolumn__bmod_8c_ab452e957171a4d0d9cfe6abb3d8a950c}
+\hypertarget{scolumn__bmod_8c_a25ea48f4f948c68a423f5bd3929e3c1f}{}\index{scolumn\+\_\+bmod.\+c@{scolumn\+\_\+bmod.\+c}!susolve@{susolve}}
+\index{susolve@{susolve}!scolumn\+\_\+bmod.\+c@{scolumn\+\_\+bmod.\+c}}
+\subsubsection[{susolve}]{\setlength{\rightskip}{0pt plus 5cm}void susolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{scolumn__bmod_8c_a25ea48f4f948c68a423f5bd3929e3c1f}

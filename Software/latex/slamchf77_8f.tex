@@ -1,0 +1,122 @@
+\hypertarget{slamchf77_8f}{}\section{packages/lapack-\/3.5.0/\+I\+N\+S\+T\+A\+L\+L/slamchf77.f File Reference}
+\label{slamchf77_8f}\index{packages/lapack-\/3.\+5.\+0/\+I\+N\+S\+T\+A\+L\+L/slamchf77.\+f@{packages/lapack-\/3.\+5.\+0/\+I\+N\+S\+T\+A\+L\+L/slamchf77.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+real \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{group__auxOTHERauxiliary_ga279f9f1e475af3a6e6101fbfd874f955}{slamch} (C\+M\+A\+C\+H)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+M\+C\+H} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__auxOTHERauxiliary_ga0259f906df485fc6fba360cb3ebef320}{slamc1} (B\+E\+T\+A, T, R\+N\+D, I\+E\+E\+E1)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+M\+C1} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__auxOTHERauxiliary_ga72e67de62733142ac7f456696018d1ef}{slamc2} (B\+E\+T\+A, T, R\+N\+D, \hyperlink{tukey_8c_a6ebf6899d6c1c8b7b9d09be872c05aae}{E\+P\+S}, E\+M\+I\+N, R\+M\+I\+N, E\+M\+A\+X, R\+M\+A\+X)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+M\+C2} \end{DoxyCompactList}\item 
+real \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{slamchf77_8f_a063f886475dbe005f58b9c37ced98b65}{slamc3} (\hyperlink{classA}{A}, B)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+M\+C3} \end{DoxyCompactList}\item 
+subroutine \hyperlink{slamchf77_8f_a94c08689c8608b5ec74a6986fc752b64}{slamc4} (E\+M\+I\+N, S\+T\+A\+R\+T, B\+A\+S\+E)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+M\+C4} \end{DoxyCompactList}\item 
+subroutine \hyperlink{slamchf77_8f_a1b6914b771d6c2276fc60475c1d6e70b}{slamc5} (B\+E\+T\+A, P, E\+M\+I\+N, I\+E\+E\+E, E\+M\+A\+X, R\+M\+A\+X)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+M\+C5} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slamchf77_8f_a063f886475dbe005f58b9c37ced98b65}{}\index{slamchf77.\+f@{slamchf77.\+f}!slamc3@{slamc3}}
+\index{slamc3@{slamc3}!slamchf77.\+f@{slamchf77.\+f}}
+\subsubsection[{slamc3}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf function} slamc3 (
+\begin{DoxyParamCaption}
+\item[{real}]{A, }
+\item[{real}]{B}
+\end{DoxyParamCaption}
+)}\label{slamchf77_8f_a063f886475dbe005f58b9c37ced98b65}
+
+
+{\bfseries S\+L\+A\+M\+C3} 
+
+{\bfseries Purpose\+:} \begin{DoxyVerb} SLAMC3  is intended to force  A  and  B  to be stored prior to doing
+ the addition of  A  and  B ,  for use in situations where optimizers
+ might hold one of these in a register.\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          The values A and B.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\hypertarget{slamchf77_8f_a94c08689c8608b5ec74a6986fc752b64}{}\index{slamchf77.\+f@{slamchf77.\+f}!slamc4@{slamc4}}
+\index{slamc4@{slamc4}!slamchf77.\+f@{slamchf77.\+f}}
+\subsubsection[{slamc4}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slamc4 (
+\begin{DoxyParamCaption}
+\item[{integer}]{E\+M\+I\+N, }
+\item[{real}]{S\+T\+A\+R\+T, }
+\item[{integer}]{B\+A\+S\+E}
+\end{DoxyParamCaption}
+)}\label{slamchf77_8f_a94c08689c8608b5ec74a6986fc752b64}
+
+
+{\bfseries S\+L\+A\+M\+C4} 
+
+{\bfseries Purpose\+:} \begin{DoxyVerb} SLAMC4 is a service routine for SLAMC2.\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em E\+M\+I\+N} & \begin{DoxyVerb}          The minimum exponent before (gradual) underflow, computed by
+          setting A = START and dividing by BASE until the previous A
+          can not be recovered.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+T\+A\+R\+T} & \begin{DoxyVerb}          The starting point for determining EMIN.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+A\+S\+E} & \begin{DoxyVerb}          The base of the machine.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\hypertarget{slamchf77_8f_a1b6914b771d6c2276fc60475c1d6e70b}{}\index{slamchf77.\+f@{slamchf77.\+f}!slamc5@{slamc5}}
+\index{slamc5@{slamc5}!slamchf77.\+f@{slamchf77.\+f}}
+\subsubsection[{slamc5}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slamc5 (
+\begin{DoxyParamCaption}
+\item[{integer}]{B\+E\+T\+A, }
+\item[{integer}]{P, }
+\item[{integer}]{E\+M\+I\+N, }
+\item[{{\bf logical}}]{I\+E\+E\+E, }
+\item[{integer}]{E\+M\+A\+X, }
+\item[{real}]{R\+M\+A\+X}
+\end{DoxyParamCaption}
+)}\label{slamchf77_8f_a1b6914b771d6c2276fc60475c1d6e70b}
+
+
+{\bfseries S\+L\+A\+M\+C5} 
+
+{\bfseries Purpose\+:} \begin{DoxyVerb} SLAMC5 attempts to compute RMAX, the largest machine floating-point
+ number, without overflow.  It assumes that EMAX + abs(EMIN) sum
+ approximately to a power of 2.  It will fail on machines where this
+ assumption does not hold, for example, the Cyber 205 (EMIN = -28625,
+ EMAX = 28718).  It will also fail if the value supplied for EMIN is
+ too large (i.e. too close to zero), probably with overflow.\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em B\+E\+T\+A} & \begin{DoxyVerb}          The base of floating-point arithmetic.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P} & \begin{DoxyVerb}          The number of base BETA digits in the mantissa of a
+          floating-point value.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E\+M\+I\+N} & \begin{DoxyVerb}          The minimum exponent before (gradual) underflow.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+E\+E\+E} & \begin{DoxyVerb}          A logical flag specifying whether or not the arithmetic
+          system is thought to comply with the IEEE standard.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em E\+M\+A\+X} & \begin{DoxyVerb}          The largest exponent before overflow\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+M\+A\+X} & \begin{DoxyVerb}          The largest machine floating-point number.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}

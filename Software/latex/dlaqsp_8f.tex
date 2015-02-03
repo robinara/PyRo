@@ -1,0 +1,98 @@
+\hypertarget{dlaqsp_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlaqsp.f File Reference}
+\label{dlaqsp_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaqsp.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaqsp.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlaqsp_8f_a5d13d1960b3f7ed1342aa5889196dc2f}{dlaqsp} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, A\+P, S, S\+C\+O\+N\+D, A\+M\+A\+X, E\+Q\+U\+E\+D)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+Q\+S\+P} scales a symmetric/\+Hermitian matrix in packed storage, using scaling factors computed by sppequ. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlaqsp_8f_a5d13d1960b3f7ed1342aa5889196dc2f}{}\index{dlaqsp.\+f@{dlaqsp.\+f}!dlaqsp@{dlaqsp}}
+\index{dlaqsp@{dlaqsp}!dlaqsp.\+f@{dlaqsp.\+f}}
+\subsubsection[{dlaqsp}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlaqsp (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{A\+P, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{S, }
+\item[{double {\bf precision}}]{S\+C\+O\+N\+D, }
+\item[{double {\bf precision}}]{A\+M\+A\+X, }
+\item[{character}]{E\+Q\+U\+E\+D}
+\end{DoxyParamCaption}
+)}\label{dlaqsp_8f_a5d13d1960b3f7ed1342aa5889196dc2f}
+
+
+{\bfseries D\+L\+A\+Q\+S\+P} scales a symmetric/\+Hermitian matrix in packed storage, using scaling factors computed by sppequ. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLAQSP equilibrates a symmetric matrix A using the scaling factors
+ in the vector S.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the upper or lower triangular part of the
+          symmetric matrix A is stored.
+          = 'U':  Upper triangular
+          = 'L':  Lower triangular\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+P} & \begin{DoxyVerb}          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+          On entry, the upper or lower triangle of the symmetric matrix
+          A, packed columnwise in a linear array.  The j-th column of A
+          is stored in the array AP as follows:
+          if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
+          if UPLO = 'L', AP(i + (j-1)*(2n-j)/2) = A(i,j) for j<=i<=n.
+
+          On exit, the equilibrated matrix:  diag(S) * A * diag(S), in
+          the same storage format as A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is DOUBLE PRECISION array, dimension (N)
+          The scale factors for A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+C\+O\+N\+D} & \begin{DoxyVerb}          SCOND is DOUBLE PRECISION
+          Ratio of the smallest S(i) to the largest S(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+M\+A\+X} & \begin{DoxyVerb}          AMAX is DOUBLE PRECISION
+          Absolute value of largest matrix entry.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em E\+Q\+U\+E\+D} & \begin{DoxyVerb}          EQUED is CHARACTER*1
+          Specifies whether or not equilibration was done.
+          = 'N':  No equilibration.
+          = 'Y':  Equilibration was done, i.e., A has been replaced by
+                  diag(S) * A * diag(S).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  THRESH is a threshold value used to decide if scaling should be done
+  based on the ratio of the scaling factors.  If SCOND < THRESH,
+  scaling is done.
+
+  LARGE and SMALL are threshold values used to decide if scaling should
+  be done based on the absolute size of the largest matrix element.
+  If AMAX > LARGE or AMAX < SMALL, scaling is done.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

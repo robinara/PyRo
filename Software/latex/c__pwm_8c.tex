@@ -1,0 +1,131 @@
+\hypertarget{c__pwm_8c}{}\section{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/c\+\_\+pwm.c File Reference}
+\label{c__pwm_8c}\index{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/c\+\_\+pwm.\+c@{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/c\+\_\+pwm.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}c\+\_\+pwm.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{c__pwm_8c_ae6ae55940dfdf1155736df656d83a7cd}{K\+E\+Y\+L\+E\+N}~7
+\item 
+\#define \hyperlink{c__pwm_8c_af281425e62298bac2df0fbe8690a4844}{P\+E\+R\+I\+O\+D}~0
+\item 
+\#define \hyperlink{c__pwm_8c_aae799989484868663493555dfc371e21}{D\+U\+T\+Y}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} pwm\+\_\+exp $\ast$ \hyperlink{c__pwm_8c_a01f1cc7e25ec5cc5dc60133958f5bdbb}{lookup\+\_\+exported\+\_\+pwm} (const char $\ast$key)
+\item 
+int \hyperlink{c__pwm_8c_ae91609d2bce43e4ced1166462c921b2a}{initialize\+\_\+pwm} (void)
+\item 
+int \hyperlink{c__pwm_8c_ac2359b21a5daaa6f71eda1999336f08a}{pwm\+\_\+set\+\_\+frequency} (const char $\ast$key, float freq)
+\item 
+int \hyperlink{c__pwm_8c_afac542cacd16a3eac032271ae6928436}{pwm\+\_\+set\+\_\+polarity} (const char $\ast$key, int polarity)
+\item 
+int \hyperlink{c__pwm_8c_ac6677f9ffa8370937790df4e15f943eb}{pwm\+\_\+set\+\_\+duty\+\_\+cycle} (const char $\ast$key, float duty)
+\item 
+int \hyperlink{c__pwm_8c_ae448fd768c215b695abae134d574b50f}{pwm\+\_\+start} (const char $\ast$key, float duty, float freq, int polarity)
+\item 
+int \hyperlink{c__pwm_8c_a9472a2faeef45eb6f105afffe0fa6901}{pwm\+\_\+disable} (const char $\ast$key)
+\item 
+void \hyperlink{c__pwm_8c_acff2d082b25713b49d4a240a9f8c8f46}{pwm\+\_\+cleanup} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{c__pwm_8c_a2f799f90f90d231a6d63396984f8735e}{pwm\+\_\+initialized} = 0
+\item 
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} pwm\+\_\+exp $\ast$ \hyperlink{c__pwm_8c_abb90e24cd73d80c147a5f24b39ca83c8}{exported\+\_\+pwms} = N\+U\+L\+L
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{c__pwm_8c_aae799989484868663493555dfc371e21}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!D\+U\+T\+Y@{D\+U\+T\+Y}}
+\index{D\+U\+T\+Y@{D\+U\+T\+Y}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{D\+U\+T\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+U\+T\+Y~1}\label{c__pwm_8c_aae799989484868663493555dfc371e21}
+\hypertarget{c__pwm_8c_ae6ae55940dfdf1155736df656d83a7cd}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!K\+E\+Y\+L\+E\+N@{K\+E\+Y\+L\+E\+N}}
+\index{K\+E\+Y\+L\+E\+N@{K\+E\+Y\+L\+E\+N}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{K\+E\+Y\+L\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\+E\+Y\+L\+E\+N~7}\label{c__pwm_8c_ae6ae55940dfdf1155736df656d83a7cd}
+\hypertarget{c__pwm_8c_af281425e62298bac2df0fbe8690a4844}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!P\+E\+R\+I\+O\+D@{P\+E\+R\+I\+O\+D}}
+\index{P\+E\+R\+I\+O\+D@{P\+E\+R\+I\+O\+D}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{P\+E\+R\+I\+O\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+E\+R\+I\+O\+D~0}\label{c__pwm_8c_af281425e62298bac2df0fbe8690a4844}
+
+
+\subsection{Function Documentation}
+\hypertarget{c__pwm_8c_ae91609d2bce43e4ced1166462c921b2a}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!initialize\+\_\+pwm@{initialize\+\_\+pwm}}
+\index{initialize\+\_\+pwm@{initialize\+\_\+pwm}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{initialize\+\_\+pwm}]{\setlength{\rightskip}{0pt plus 5cm}int initialize\+\_\+pwm (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{c__pwm_8c_ae91609d2bce43e4ced1166462c921b2a}
+\hypertarget{c__pwm_8c_a01f1cc7e25ec5cc5dc60133958f5bdbb}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!lookup\+\_\+exported\+\_\+pwm@{lookup\+\_\+exported\+\_\+pwm}}
+\index{lookup\+\_\+exported\+\_\+pwm@{lookup\+\_\+exported\+\_\+pwm}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{lookup\+\_\+exported\+\_\+pwm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf struct} pwm\+\_\+exp$\ast$ lookup\+\_\+exported\+\_\+pwm (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\label{c__pwm_8c_a01f1cc7e25ec5cc5dc60133958f5bdbb}
+\hypertarget{c__pwm_8c_acff2d082b25713b49d4a240a9f8c8f46}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!pwm\+\_\+cleanup@{pwm\+\_\+cleanup}}
+\index{pwm\+\_\+cleanup@{pwm\+\_\+cleanup}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{pwm\+\_\+cleanup}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\+\_\+cleanup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{c__pwm_8c_acff2d082b25713b49d4a240a9f8c8f46}
+\hypertarget{c__pwm_8c_a9472a2faeef45eb6f105afffe0fa6901}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!pwm\+\_\+disable@{pwm\+\_\+disable}}
+\index{pwm\+\_\+disable@{pwm\+\_\+disable}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{pwm\+\_\+disable}]{\setlength{\rightskip}{0pt plus 5cm}int pwm\+\_\+disable (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\label{c__pwm_8c_a9472a2faeef45eb6f105afffe0fa6901}
+\hypertarget{c__pwm_8c_ac6677f9ffa8370937790df4e15f943eb}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!pwm\+\_\+set\+\_\+duty\+\_\+cycle@{pwm\+\_\+set\+\_\+duty\+\_\+cycle}}
+\index{pwm\+\_\+set\+\_\+duty\+\_\+cycle@{pwm\+\_\+set\+\_\+duty\+\_\+cycle}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{pwm\+\_\+set\+\_\+duty\+\_\+cycle}]{\setlength{\rightskip}{0pt plus 5cm}int pwm\+\_\+set\+\_\+duty\+\_\+cycle (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{float}]{duty}
+\end{DoxyParamCaption}
+)}\label{c__pwm_8c_ac6677f9ffa8370937790df4e15f943eb}
+\hypertarget{c__pwm_8c_ac2359b21a5daaa6f71eda1999336f08a}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!pwm\+\_\+set\+\_\+frequency@{pwm\+\_\+set\+\_\+frequency}}
+\index{pwm\+\_\+set\+\_\+frequency@{pwm\+\_\+set\+\_\+frequency}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{pwm\+\_\+set\+\_\+frequency}]{\setlength{\rightskip}{0pt plus 5cm}int pwm\+\_\+set\+\_\+frequency (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{float}]{freq}
+\end{DoxyParamCaption}
+)}\label{c__pwm_8c_ac2359b21a5daaa6f71eda1999336f08a}
+\hypertarget{c__pwm_8c_afac542cacd16a3eac032271ae6928436}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!pwm\+\_\+set\+\_\+polarity@{pwm\+\_\+set\+\_\+polarity}}
+\index{pwm\+\_\+set\+\_\+polarity@{pwm\+\_\+set\+\_\+polarity}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{pwm\+\_\+set\+\_\+polarity}]{\setlength{\rightskip}{0pt plus 5cm}int pwm\+\_\+set\+\_\+polarity (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{int}]{polarity}
+\end{DoxyParamCaption}
+)}\label{c__pwm_8c_afac542cacd16a3eac032271ae6928436}
+\hypertarget{c__pwm_8c_ae448fd768c215b695abae134d574b50f}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!pwm\+\_\+start@{pwm\+\_\+start}}
+\index{pwm\+\_\+start@{pwm\+\_\+start}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{pwm\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}int pwm\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{float}]{duty, }
+\item[{float}]{freq, }
+\item[{int}]{polarity}
+\end{DoxyParamCaption}
+)}\label{c__pwm_8c_ae448fd768c215b695abae134d574b50f}
+
+
+\subsection{Variable Documentation}
+\hypertarget{c__pwm_8c_abb90e24cd73d80c147a5f24b39ca83c8}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!exported\+\_\+pwms@{exported\+\_\+pwms}}
+\index{exported\+\_\+pwms@{exported\+\_\+pwms}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{exported\+\_\+pwms}]{\setlength{\rightskip}{0pt plus 5cm}{\bf struct} pwm\+\_\+exp$\ast$ exported\+\_\+pwms = N\+U\+L\+L}\label{c__pwm_8c_abb90e24cd73d80c147a5f24b39ca83c8}
+\hypertarget{c__pwm_8c_a2f799f90f90d231a6d63396984f8735e}{}\index{c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}!pwm\+\_\+initialized@{pwm\+\_\+initialized}}
+\index{pwm\+\_\+initialized@{pwm\+\_\+initialized}!c\+\_\+pwm.\+c@{c\+\_\+pwm.\+c}}
+\subsubsection[{pwm\+\_\+initialized}]{\setlength{\rightskip}{0pt plus 5cm}int pwm\+\_\+initialized = 0}\label{c__pwm_8c_a2f799f90f90d231a6d63396984f8735e}

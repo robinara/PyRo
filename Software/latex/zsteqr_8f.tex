@@ -1,0 +1,107 @@
+\hypertarget{zsteqr_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zsteqr.f File Reference}
+\label{zsteqr_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zsteqr.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zsteqr.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zsteqr_8f_a253c3755d52f1d8a0591190152375be4}{zsteqr} (C\+O\+M\+P\+Z, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, Z, L\+D\+Z, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+S\+T\+E\+Q\+R} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zsteqr_8f_a253c3755d52f1d8a0591190152375be4}{}\index{zsteqr.\+f@{zsteqr.\+f}!zsteqr@{zsteqr}}
+\index{zsteqr@{zsteqr}!zsteqr.\+f@{zsteqr.\+f}}
+\subsubsection[{zsteqr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zsteqr (
+\begin{DoxyParamCaption}
+\item[{character}]{C\+O\+M\+P\+Z, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{E, }
+\item[{{\bf complex}$\ast$16, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zsteqr_8f_a253c3755d52f1d8a0591190152375be4}
+
+
+{\bfseries Z\+S\+T\+E\+Q\+R} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZSTEQR computes all eigenvalues and, optionally, eigenvectors of a
+ symmetric tridiagonal matrix using the implicit QL or QR method.
+ The eigenvectors of a full or band complex Hermitian matrix can also
+ be found if ZHETRD or ZHPTRD or ZHBTRD has been used to reduce this
+ matrix to tridiagonal form.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em C\+O\+M\+P\+Z} & \begin{DoxyVerb}          COMPZ is CHARACTER*1
+          = 'N':  Compute eigenvalues only.
+          = 'V':  Compute eigenvalues and eigenvectors of the original
+                  Hermitian matrix.  On entry, Z must contain the
+                  unitary matrix used to reduce the original matrix
+                  to tridiagonal form.
+          = 'I':  Compute eigenvalues and eigenvectors of the
+                  tridiagonal matrix.  Z is initialized to the identity
+                  matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+          On entry, the diagonal elements of the tridiagonal matrix.
+          On exit, if INFO = 0, the eigenvalues in ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E} & \begin{DoxyVerb}          E is DOUBLE PRECISION array, dimension (N-1)
+          On entry, the (n-1) subdiagonal elements of the tridiagonal
+          matrix.
+          On exit, E has been destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Z} & \begin{DoxyVerb}          Z is COMPLEX*16 array, dimension (LDZ, N)
+          On entry, if  COMPZ = 'V', then Z contains the unitary
+          matrix used in the reduction to tridiagonal form.
+          On exit, if INFO = 0, then if COMPZ = 'V', Z contains the
+          orthonormal eigenvectors of the original Hermitian matrix,
+          and if COMPZ = 'I', Z contains the orthonormal eigenvectors
+          of the symmetric tridiagonal matrix.
+          If COMPZ = 'N', then Z is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDZ >= 1, and if
+          eigenvectors are desired, then  LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (max(1,2*N-2))
+          If COMPZ = 'N', then WORK is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  the algorithm has failed to find all the eigenvalues in
+                a total of 30*N iterations; if INFO = i, then i
+                elements of E have not converged to zero; on exit, D
+                and E contain the elements of a symmetric tridiagonal
+                matrix which is unitarily similar to the original
+                matrix.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

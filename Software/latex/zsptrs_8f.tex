@@ -1,0 +1,90 @@
+\hypertarget{zsptrs_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zsptrs.f File Reference}
+\label{zsptrs_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zsptrs.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zsptrs.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zsptrs_8f_ad7707b93da81b9fbe2e77e181da213ea}{zsptrs} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, A\+P, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+S\+P\+T\+R\+S} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zsptrs_8f_ad7707b93da81b9fbe2e77e181da213ea}{}\index{zsptrs.\+f@{zsptrs.\+f}!zsptrs@{zsptrs}}
+\index{zsptrs@{zsptrs}!zsptrs.\+f@{zsptrs.\+f}}
+\subsubsection[{zsptrs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zsptrs (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{A\+P, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zsptrs_8f_ad7707b93da81b9fbe2e77e181da213ea}
+
+
+{\bfseries Z\+S\+P\+T\+R\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZSPTRS solves a system of linear equations A*X = B with a complex
+ symmetric matrix A stored in packed format using the factorization
+ A = U*D*U**T or A = L*D*L**T computed by ZSPTRF.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the details of the factorization are stored
+          as an upper or lower triangular matrix.
+          = 'U':  Upper triangular, form is A = U*D*U**T;
+          = 'L':  Lower triangular, form is A = L*D*L**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+P} & \begin{DoxyVerb}          AP is COMPLEX*16 array, dimension (N*(N+1)/2)
+          The block diagonal matrix D and the multipliers used to
+          obtain the factor U or L as computed by ZSPTRF, stored as a
+          packed triangular matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          Details of the interchanges and the block structure of D
+          as determined by ZSPTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX*16 array, dimension (LDB,NRHS)
+          On entry, the right hand side matrix B.
+          On exit, the solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

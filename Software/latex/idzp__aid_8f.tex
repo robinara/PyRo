@@ -1,0 +1,101 @@
+\hypertarget{idzp__aid_8f}{}\section{packages/scipy-\/0.14.0/scipy/linalg/src/id\+\_\+dist/src/idzp\+\_\+aid.f File Reference}
+\label{idzp__aid_8f}\index{packages/scipy-\/0.\+14.\+0/scipy/linalg/src/id\+\_\+dist/src/idzp\+\_\+aid.\+f@{packages/scipy-\/0.\+14.\+0/scipy/linalg/src/id\+\_\+dist/src/idzp\+\_\+aid.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{idzp__aid_8f_ad5ee5002b262f59afc3100dab5e0006d}{idzp\+\_\+aid} (eps, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, work, krank, list, proj)
+\item 
+subroutine \hyperlink{idzp__aid_8f_abb7c2fcc8f3cbc2bcdd0984107eb4b26}{idzp\+\_\+aid0} (eps, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, krank, list, proj, rnorms)
+\item 
+subroutine \hyperlink{idzp__aid_8f_a9c393c6ebcceb6f52c5d821b9adfdc68}{idzp\+\_\+aid1} (eps, n2, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, kranki, proj, krank, list, rnorms)
+\item 
+subroutine \hyperlink{idzp__aid_8f_a6d96604d2b842ae89570c943a974b62d}{idz\+\_\+estrank} (eps, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, w, krank, ra)
+\item 
+subroutine \hyperlink{idzp__aid_8f_af93699a7427155c7e50a2ab0889420a5}{idz\+\_\+estrank0} (eps, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, w, n2, krank, ra, rat, \hyperlink{dense_8h_a0440a74729365d9e7ed71b8f3927a27f}{scal})
+\item 
+subroutine \hyperlink{idzp__aid_8f_aaf526d88dc6b7f4b681ad4bfa5dcb4bb}{idz\+\_\+transposer} (\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, at)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{idzp__aid_8f_a6d96604d2b842ae89570c943a974b62d}{}\index{idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}!idz\+\_\+estrank@{idz\+\_\+estrank}}
+\index{idz\+\_\+estrank@{idz\+\_\+estrank}!idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}}
+\subsubsection[{idz\+\_\+estrank}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idz\+\_\+estrank (
+\begin{DoxyParamCaption}
+\item[{real$\ast$8}]{eps, }
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{{\bf complex}$\ast$16, dimension({\bf m},{\bf n})}]{a, }
+\item[{{\bf complex}$\ast$16, dimension(17$\ast${\bf m}+70)}]{w, }
+\item[{integer}]{krank, }
+\item[{{\bf complex}$\ast$16, dimension($\ast$)}]{ra}
+\end{DoxyParamCaption}
+)}\label{idzp__aid_8f_a6d96604d2b842ae89570c943a974b62d}
+\hypertarget{idzp__aid_8f_af93699a7427155c7e50a2ab0889420a5}{}\index{idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}!idz\+\_\+estrank0@{idz\+\_\+estrank0}}
+\index{idz\+\_\+estrank0@{idz\+\_\+estrank0}!idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}}
+\subsubsection[{idz\+\_\+estrank0}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idz\+\_\+estrank0 (
+\begin{DoxyParamCaption}
+\item[{real$\ast$8}]{eps, }
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{{\bf complex}$\ast$16, dimension({\bf m},{\bf n})}]{a, }
+\item[{{\bf complex}$\ast$16, dimension(17$\ast${\bf m}+70)}]{w, }
+\item[{integer}]{n2, }
+\item[{integer}]{krank, }
+\item[{{\bf complex}$\ast$16, dimension(n2,{\bf n})}]{ra, }
+\item[{{\bf complex}$\ast$16, dimension({\bf n},n2+1)}]{rat, }
+\item[{real$\ast$8, dimension(n2+1)}]{scal}
+\end{DoxyParamCaption}
+)}\label{idzp__aid_8f_af93699a7427155c7e50a2ab0889420a5}
+\hypertarget{idzp__aid_8f_aaf526d88dc6b7f4b681ad4bfa5dcb4bb}{}\index{idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}!idz\+\_\+transposer@{idz\+\_\+transposer}}
+\index{idz\+\_\+transposer@{idz\+\_\+transposer}!idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}}
+\subsubsection[{idz\+\_\+transposer}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idz\+\_\+transposer (
+\begin{DoxyParamCaption}
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{{\bf complex}$\ast$16, dimension({\bf m},{\bf n})}]{a, }
+\item[{{\bf complex}$\ast$16, dimension({\bf n},{\bf m})}]{at}
+\end{DoxyParamCaption}
+)}\label{idzp__aid_8f_aaf526d88dc6b7f4b681ad4bfa5dcb4bb}
+\hypertarget{idzp__aid_8f_ad5ee5002b262f59afc3100dab5e0006d}{}\index{idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}!idzp\+\_\+aid@{idzp\+\_\+aid}}
+\index{idzp\+\_\+aid@{idzp\+\_\+aid}!idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}}
+\subsubsection[{idzp\+\_\+aid}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idzp\+\_\+aid (
+\begin{DoxyParamCaption}
+\item[{real$\ast$8}]{eps, }
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{{\bf complex}$\ast$16, dimension({\bf m},{\bf n})}]{a, }
+\item[{{\bf complex}$\ast$16, dimension(17$\ast${\bf m}+70)}]{work, }
+\item[{integer}]{krank, }
+\item[{integer, dimension({\bf n})}]{list, }
+\item[{{\bf complex}$\ast$16, dimension($\ast$)}]{proj}
+\end{DoxyParamCaption}
+)}\label{idzp__aid_8f_ad5ee5002b262f59afc3100dab5e0006d}
+\hypertarget{idzp__aid_8f_abb7c2fcc8f3cbc2bcdd0984107eb4b26}{}\index{idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}!idzp\+\_\+aid0@{idzp\+\_\+aid0}}
+\index{idzp\+\_\+aid0@{idzp\+\_\+aid0}!idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}}
+\subsubsection[{idzp\+\_\+aid0}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idzp\+\_\+aid0 (
+\begin{DoxyParamCaption}
+\item[{real$\ast$8}]{eps, }
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{{\bf complex}$\ast$16, dimension({\bf m},{\bf n})}]{a, }
+\item[{integer}]{krank, }
+\item[{integer, dimension({\bf n})}]{list, }
+\item[{{\bf complex}$\ast$16, dimension({\bf m},{\bf n})}]{proj, }
+\item[{real$\ast$8, dimension({\bf n})}]{rnorms}
+\end{DoxyParamCaption}
+)}\label{idzp__aid_8f_abb7c2fcc8f3cbc2bcdd0984107eb4b26}
+\hypertarget{idzp__aid_8f_a9c393c6ebcceb6f52c5d821b9adfdc68}{}\index{idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}!idzp\+\_\+aid1@{idzp\+\_\+aid1}}
+\index{idzp\+\_\+aid1@{idzp\+\_\+aid1}!idzp\+\_\+aid.\+f@{idzp\+\_\+aid.\+f}}
+\subsubsection[{idzp\+\_\+aid1}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idzp\+\_\+aid1 (
+\begin{DoxyParamCaption}
+\item[{real$\ast$8}]{eps, }
+\item[{integer}]{n2, }
+\item[{integer}]{n, }
+\item[{integer}]{kranki, }
+\item[{{\bf complex}$\ast$16, dimension(n2$\ast${\bf n})}]{proj, }
+\item[{integer}]{krank, }
+\item[{integer, dimension({\bf n})}]{list, }
+\item[{real$\ast$8, dimension({\bf n})}]{rnorms}
+\end{DoxyParamCaption}
+)}\label{idzp__aid_8f_a9c393c6ebcceb6f52c5d821b9adfdc68}

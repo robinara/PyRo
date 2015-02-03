@@ -1,0 +1,380 @@
+\hypertarget{dmemory_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dmemory.c File Reference}
+\label{dmemory_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dmemory.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dmemory.\+c}}
+
+
+Memory details.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dmemory_8c_a1ef4d4db4d5e1fe0719416163e0e51ae}{Stack\+Full}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})~( \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x} + Glu-\/$>$stack.\+used $>$= Glu-\/$>$stack.\+size )
+\item 
+\#define \hyperlink{dmemory_8c_ac11b1c3847a3d397e9675de40782134d}{Not\+Double\+Align}(addr)~( (long int)addr \& 7 )
+\item 
+\#define \hyperlink{dmemory_8c_ac8204d321846eb4b23d563eac7e5bfa7}{Double\+Align}(addr)~( ((long int)addr + 7) \& $\sim$7\+L )
+\item 
+\#define \hyperlink{dmemory_8c_a70ca807c578a0c495f7ce5edb0215e2b}{Temp\+Space}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m},  w)
+\item 
+\#define \hyperlink{dmemory_8c_a7b2a35bfd2e6c9d03e2a6ccdba9fa847}{Reduce}(alpha)~((alpha + 1) / 2)  /$\ast$ i.\+e. (alpha-\/1)/2 + 1 $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{dmemory_8c_afe3104df9ace895f5332843534ae99b4}{dexpand} (int $\ast$prev\+\_\+len,\hyperlink{superlu__enum__consts_8h_abd31f838aefffa46191d0d7dc36a96b2}{Mem\+Type} \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type},int len\+\_\+to\+\_\+copy,int keep\+\_\+prev,\hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Expand the existing storage to accommodate more fill-\/ins. \end{DoxyCompactList}\item 
+int \hyperlink{dmemory_8c_a0ae701a41439ca8af10604920e2f72ba}{d\+L\+U\+Work\+Init} (int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int panel\+\_\+size, int $\ast$$\ast$iworkptr, double $\ast$$\ast$dworkptr, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Allocate known working storage. Returns 0 if success, otherwise returns the number of bytes allocated so far when failure occurred. \end{DoxyCompactList}\item 
+void \hyperlink{dmemory_8c_a1540850a622674131bd1ea6a4f91cd56}{copy\+\_\+mem\+\_\+double} (int, void $\ast$, void $\ast$)
+\item 
+void \hyperlink{dmemory_8c_aadb43e6ea6725f06d04704a1db3dc0be}{d\+Stack\+Compress} (\hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Compress the work\mbox{[}\mbox{]} array to remove fragmentation. \end{DoxyCompactList}\item 
+void \hyperlink{dmemory_8c_acb29e96116d7b170d6f021a87a4763e6}{d\+Setup\+Space} (void $\ast$work, int lwork, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Setup the memory model to be used for factorization. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{dmemory_8c_a00f228f45bab7594bea821b70eedbf51}{duser\+\_\+malloc} (int, int, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+void \hyperlink{dmemory_8c_a8412c8f776ad7cfe599a5b601310fb8e}{duser\+\_\+free} (int, int, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+void \hyperlink{dmemory_8c_ab59eea34474da95fb3dc125400a1287e}{copy\+\_\+mem\+\_\+int} (int, void $\ast$, void $\ast$)
+\item 
+void \hyperlink{dmemory_8c_a4c226087c09a94ff40b92b14fa46fc53}{user\+\_\+bcopy} (char $\ast$, char $\ast$, int)
+\item 
+int \hyperlink{dmemory_8c_ae94c561110fcc75c31cda89105fd0a6c}{d\+Query\+Space} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t} $\ast$mem\+\_\+usage)
+\item 
+int \hyperlink{dmemory_8c_a61aaccf587a78d15d79c4cc79f80e8b0}{ilu\+\_\+d\+Query\+Space} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t} $\ast$mem\+\_\+usage)
+\item 
+int \hyperlink{dmemory_8c_ae2ca2ac5e9a763fd3f07487343e4522e}{d\+L\+U\+Mem\+Init} (\hyperlink{superlu__enum__consts_8h_ac785c8235480e5cfef9848d89c047c0a}{fact\+\_\+t} fact, void $\ast$work, int lwork, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int annz, int panel\+\_\+size, double fill\+\_\+ratio, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, int $\ast$$\ast$iwork, double $\ast$$\ast$dwork)
+\begin{DoxyCompactList}\small\item\em Allocate storage for the data structures common to all factor routines. \end{DoxyCompactList}\item 
+void \hyperlink{dmemory_8c_aaa5359da217b433b43bf6c8e2d29aa45}{d\+Set\+R\+Work} (int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int panel\+\_\+size, double $\ast$dworkptr, double $\ast$$\ast$dense, double $\ast$$\ast$tempv)
+\begin{DoxyCompactList}\small\item\em Set up pointers for real working arrays. \end{DoxyCompactList}\item 
+void \hyperlink{dmemory_8c_aa7d9129a2b0dc259ccccc8d6d2218cf8}{d\+L\+U\+Work\+Free} (int $\ast$iwork, double $\ast$dwork, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Free the working storage used by factor routines. \end{DoxyCompactList}\item 
+int \hyperlink{dmemory_8c_a9aff5dfe301496ef7c9234789975c043}{d\+L\+U\+Mem\+Xpand} (int jcol, int next, \hyperlink{superlu__enum__consts_8h_abd31f838aefffa46191d0d7dc36a96b2}{Mem\+Type} mem\+\_\+type, int $\ast$maxlen, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Expand the data structures for L and U during the factorization. \end{DoxyCompactList}\item 
+void \hyperlink{dmemory_8c_aeed250713fbfb3fac567d7a503774ccc}{dallocate\+A} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nnz, double $\ast$$\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, int $\ast$$\ast$asub, int $\ast$$\ast$xa)
+\begin{DoxyCompactList}\small\item\em Allocate storage for original matrix \hyperlink{classA}{A}. \end{DoxyCompactList}\item 
+double $\ast$ \hyperlink{dmemory_8c_a8f2b9305cb611c37e7f627da902451a8}{double\+Malloc} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+double $\ast$ \hyperlink{dmemory_8c_ac8b6d99155644578a5e5542c32040cfe}{double\+Calloc} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+int \hyperlink{dmemory_8c_a5c9b1e24d07635068c014999d44672aa}{dmemory\+\_\+usage} (const int nzlmax, const int nzumax, const int nzlumax, const int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Memory details. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.0) --
+Lawrence Berkeley National Laboratory.
+June 30, 2009
+\end{DoxyPre}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dmemory_8c_ac8204d321846eb4b23d563eac7e5bfa7}{}\index{dmemory.\+c@{dmemory.\+c}!Double\+Align@{Double\+Align}}
+\index{Double\+Align@{Double\+Align}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{Double\+Align}]{\setlength{\rightskip}{0pt plus 5cm}\#define Double\+Align(
+\begin{DoxyParamCaption}
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)~( ((long int)addr + 7) \& $\sim$7\+L )}\label{dmemory_8c_ac8204d321846eb4b23d563eac7e5bfa7}
+\hypertarget{dmemory_8c_ac11b1c3847a3d397e9675de40782134d}{}\index{dmemory.\+c@{dmemory.\+c}!Not\+Double\+Align@{Not\+Double\+Align}}
+\index{Not\+Double\+Align@{Not\+Double\+Align}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{Not\+Double\+Align}]{\setlength{\rightskip}{0pt plus 5cm}\#define Not\+Double\+Align(
+\begin{DoxyParamCaption}
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)~( (long int)addr \& 7 )}\label{dmemory_8c_ac11b1c3847a3d397e9675de40782134d}
+\hypertarget{dmemory_8c_a7b2a35bfd2e6c9d03e2a6ccdba9fa847}{}\index{dmemory.\+c@{dmemory.\+c}!Reduce@{Reduce}}
+\index{Reduce@{Reduce}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{Reduce}]{\setlength{\rightskip}{0pt plus 5cm}\#define Reduce(
+\begin{DoxyParamCaption}
+\item[{}]{alpha}
+\end{DoxyParamCaption}
+)~((alpha + 1) / 2)  /$\ast$ i.\+e. (alpha-\/1)/2 + 1 $\ast$/}\label{dmemory_8c_a7b2a35bfd2e6c9d03e2a6ccdba9fa847}
+\hypertarget{dmemory_8c_a1ef4d4db4d5e1fe0719416163e0e51ae}{}\index{dmemory.\+c@{dmemory.\+c}!Stack\+Full@{Stack\+Full}}
+\index{Stack\+Full@{Stack\+Full}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{Stack\+Full}]{\setlength{\rightskip}{0pt plus 5cm}\#define Stack\+Full(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~( {\bf x} + Glu-\/$>$stack.\+used $>$= Glu-\/$>$stack.\+size )}\label{dmemory_8c_a1ef4d4db4d5e1fe0719416163e0e51ae}
+\hypertarget{dmemory_8c_a70ca807c578a0c495f7ce5edb0215e2b}{}\index{dmemory.\+c@{dmemory.\+c}!Temp\+Space@{Temp\+Space}}
+\index{Temp\+Space@{Temp\+Space}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{Temp\+Space}]{\setlength{\rightskip}{0pt plus 5cm}\#define Temp\+Space(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf m}, }
+\item[{}]{w}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_a70ca807c578a0c495f7ce5edb0215e2b}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+( (2*\hyperlink{namespacewebbrowser_a3ea3a2acb0471880f104d018e68ae648}{w} + 4 + \hyperlink{slu__util_8h_a9b7b2a5116ee487722b0967317ab6360}{NO\_MARKER}) * \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}) + \(\backslash\)
+                  (\hyperlink{namespacewebbrowser_a3ea3a2acb0471880f104d018e68ae648}{w} + 1) * \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{double}) )
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{dmemory_8c_a1540850a622674131bd1ea6a4f91cd56}{}\index{dmemory.\+c@{dmemory.\+c}!copy\+\_\+mem\+\_\+double@{copy\+\_\+mem\+\_\+double}}
+\index{copy\+\_\+mem\+\_\+double@{copy\+\_\+mem\+\_\+double}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{copy\+\_\+mem\+\_\+double}]{\setlength{\rightskip}{0pt plus 5cm}void copy\+\_\+mem\+\_\+double (
+\begin{DoxyParamCaption}
+\item[{int}]{howmany, }
+\item[{void $\ast$}]{old, }
+\item[{void $\ast$}]{new}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_a1540850a622674131bd1ea6a4f91cd56}
+\hypertarget{dmemory_8c_ab59eea34474da95fb3dc125400a1287e}{}\index{dmemory.\+c@{dmemory.\+c}!copy\+\_\+mem\+\_\+int@{copy\+\_\+mem\+\_\+int}}
+\index{copy\+\_\+mem\+\_\+int@{copy\+\_\+mem\+\_\+int}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{copy\+\_\+mem\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}void copy\+\_\+mem\+\_\+int (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{void $\ast$}]{, }
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_ab59eea34474da95fb3dc125400a1287e}
+\hypertarget{dmemory_8c_aeed250713fbfb3fac567d7a503774ccc}{}\index{dmemory.\+c@{dmemory.\+c}!dallocate\+A@{dallocate\+A}}
+\index{dallocate\+A@{dallocate\+A}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{dallocate\+A}]{\setlength{\rightskip}{0pt plus 5cm}void dallocate\+A (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{nnz, }
+\item[{double $\ast$$\ast$}]{a, }
+\item[{int $\ast$$\ast$}]{asub, }
+\item[{int $\ast$$\ast$}]{xa}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_aeed250713fbfb3fac567d7a503774ccc}
+
+
+Allocate storage for original matrix \hyperlink{classA}{A}. 
+
+\hypertarget{dmemory_8c_afe3104df9ace895f5332843534ae99b4}{}\index{dmemory.\+c@{dmemory.\+c}!dexpand@{dexpand}}
+\index{dexpand@{dexpand}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{dexpand}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ dexpand (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{prev\+\_\+len, }
+\item[{{\bf Mem\+Type}}]{type, }
+\item[{int}]{len\+\_\+to\+\_\+copy, }
+\item[{int}]{keep\+\_\+prev, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_afe3104df9ace895f5332843534ae99b4}
+
+
+Expand the existing storage to accommodate more fill-\/ins. 
+
+\hypertarget{dmemory_8c_ae2ca2ac5e9a763fd3f07487343e4522e}{}\index{dmemory.\+c@{dmemory.\+c}!d\+L\+U\+Mem\+Init@{d\+L\+U\+Mem\+Init}}
+\index{d\+L\+U\+Mem\+Init@{d\+L\+U\+Mem\+Init}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{d\+L\+U\+Mem\+Init}]{\setlength{\rightskip}{0pt plus 5cm}int d\+L\+U\+Mem\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf fact\+\_\+t}}]{fact, }
+\item[{void $\ast$}]{work, }
+\item[{int}]{lwork, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{annz, }
+\item[{int}]{panel\+\_\+size, }
+\item[{double}]{fill\+\_\+ratio, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{int $\ast$$\ast$}]{iwork, }
+\item[{double $\ast$$\ast$}]{dwork}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_ae2ca2ac5e9a763fd3f07487343e4522e}
+
+
+Allocate storage for the data structures common to all factor routines. 
+
+Memory-\/related.
+
+
+\begin{DoxyPre}
+For those unpredictable size, estimate as fill\_ratio * nnz(A).
+Return value:
+    If lwork = -1, return the estimated amount of space required, plus n;
+    otherwise, return the amount of space actually allocated when
+    memory allocation failure occurred.
+\end{DoxyPre}
+ \hypertarget{dmemory_8c_a9aff5dfe301496ef7c9234789975c043}{}\index{dmemory.\+c@{dmemory.\+c}!d\+L\+U\+Mem\+Xpand@{d\+L\+U\+Mem\+Xpand}}
+\index{d\+L\+U\+Mem\+Xpand@{d\+L\+U\+Mem\+Xpand}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{d\+L\+U\+Mem\+Xpand}]{\setlength{\rightskip}{0pt plus 5cm}int d\+L\+U\+Mem\+Xpand (
+\begin{DoxyParamCaption}
+\item[{int}]{jcol, }
+\item[{int}]{next, }
+\item[{{\bf Mem\+Type}}]{mem\+\_\+type, }
+\item[{int $\ast$}]{maxlen, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_a9aff5dfe301496ef7c9234789975c043}
+
+
+Expand the data structures for L and U during the factorization. 
+
+
+\begin{DoxyPre}
+Return value:   0 - successful return
+              > 0 - number of bytes allocated when run out of space
+\end{DoxyPre}
+ \hypertarget{dmemory_8c_aa7d9129a2b0dc259ccccc8d6d2218cf8}{}\index{dmemory.\+c@{dmemory.\+c}!d\+L\+U\+Work\+Free@{d\+L\+U\+Work\+Free}}
+\index{d\+L\+U\+Work\+Free@{d\+L\+U\+Work\+Free}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{d\+L\+U\+Work\+Free}]{\setlength{\rightskip}{0pt plus 5cm}void d\+L\+U\+Work\+Free (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{iwork, }
+\item[{double $\ast$}]{dwork, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_aa7d9129a2b0dc259ccccc8d6d2218cf8}
+
+
+Free the working storage used by factor routines. 
+
+\hypertarget{dmemory_8c_a0ae701a41439ca8af10604920e2f72ba}{}\index{dmemory.\+c@{dmemory.\+c}!d\+L\+U\+Work\+Init@{d\+L\+U\+Work\+Init}}
+\index{d\+L\+U\+Work\+Init@{d\+L\+U\+Work\+Init}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{d\+L\+U\+Work\+Init}]{\setlength{\rightskip}{0pt plus 5cm}int d\+L\+U\+Work\+Init (
+\begin{DoxyParamCaption}
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{panel\+\_\+size, }
+\item[{int $\ast$$\ast$}]{iworkptr, }
+\item[{double $\ast$$\ast$}]{dworkptr, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_a0ae701a41439ca8af10604920e2f72ba}
+
+
+Allocate known working storage. Returns 0 if success, otherwise returns the number of bytes allocated so far when failure occurred. 
+
+\hypertarget{dmemory_8c_a5c9b1e24d07635068c014999d44672aa}{}\index{dmemory.\+c@{dmemory.\+c}!dmemory\+\_\+usage@{dmemory\+\_\+usage}}
+\index{dmemory\+\_\+usage@{dmemory\+\_\+usage}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{dmemory\+\_\+usage}]{\setlength{\rightskip}{0pt plus 5cm}int dmemory\+\_\+usage (
+\begin{DoxyParamCaption}
+\item[{const int}]{nzlmax, }
+\item[{const int}]{nzumax, }
+\item[{const int}]{nzlumax, }
+\item[{const int}]{n}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_a5c9b1e24d07635068c014999d44672aa}
+\hypertarget{dmemory_8c_ac8b6d99155644578a5e5542c32040cfe}{}\index{dmemory.\+c@{dmemory.\+c}!double\+Calloc@{double\+Calloc}}
+\index{double\+Calloc@{double\+Calloc}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{double\+Calloc}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ double\+Calloc (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_ac8b6d99155644578a5e5542c32040cfe}
+\hypertarget{dmemory_8c_a8f2b9305cb611c37e7f627da902451a8}{}\index{dmemory.\+c@{dmemory.\+c}!double\+Malloc@{double\+Malloc}}
+\index{double\+Malloc@{double\+Malloc}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{double\+Malloc}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ double\+Malloc (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_a8f2b9305cb611c37e7f627da902451a8}
+\hypertarget{dmemory_8c_ae94c561110fcc75c31cda89105fd0a6c}{}\index{dmemory.\+c@{dmemory.\+c}!d\+Query\+Space@{d\+Query\+Space}}
+\index{d\+Query\+Space@{d\+Query\+Space}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{d\+Query\+Space}]{\setlength{\rightskip}{0pt plus 5cm}int d\+Query\+Space (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf mem\+\_\+usage\+\_\+t} $\ast$}]{mem\+\_\+usage}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_ae94c561110fcc75c31cda89105fd0a6c}
+
+\begin{DoxyPre}
+mem\_usage consists of the following fields:
+\begin{DoxyItemize}
+\item for\_lu (float)
+     The amount of space used in bytes for the L data structures.
+\item total\_needed (float)
+     The amount of space needed in bytes to perform factorization.
+
+
+\end{DoxyItemize}\end{DoxyPre}
+\hypertarget{dmemory_8c_aaa5359da217b433b43bf6c8e2d29aa45}{}\index{dmemory.\+c@{dmemory.\+c}!d\+Set\+R\+Work@{d\+Set\+R\+Work}}
+\index{d\+Set\+R\+Work@{d\+Set\+R\+Work}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{d\+Set\+R\+Work}]{\setlength{\rightskip}{0pt plus 5cm}void d\+Set\+R\+Work (
+\begin{DoxyParamCaption}
+\item[{int}]{m, }
+\item[{int}]{panel\+\_\+size, }
+\item[{double $\ast$}]{dworkptr, }
+\item[{double $\ast$$\ast$}]{dense, }
+\item[{double $\ast$$\ast$}]{tempv}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_aaa5359da217b433b43bf6c8e2d29aa45}
+
+
+Set up pointers for real working arrays. 
+
+\hypertarget{dmemory_8c_acb29e96116d7b170d6f021a87a4763e6}{}\index{dmemory.\+c@{dmemory.\+c}!d\+Setup\+Space@{d\+Setup\+Space}}
+\index{d\+Setup\+Space@{d\+Setup\+Space}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{d\+Setup\+Space}]{\setlength{\rightskip}{0pt plus 5cm}void d\+Setup\+Space (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{work, }
+\item[{int}]{lwork, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_acb29e96116d7b170d6f021a87a4763e6}
+
+
+Setup the memory model to be used for factorization. 
+
+lwork = 0\+: use system malloc; lwork $>$ 0\+: use user-\/supplied work\mbox{[}\mbox{]} space. \hypertarget{dmemory_8c_aadb43e6ea6725f06d04704a1db3dc0be}{}\index{dmemory.\+c@{dmemory.\+c}!d\+Stack\+Compress@{d\+Stack\+Compress}}
+\index{d\+Stack\+Compress@{d\+Stack\+Compress}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{d\+Stack\+Compress}]{\setlength{\rightskip}{0pt plus 5cm}void d\+Stack\+Compress (
+\begin{DoxyParamCaption}
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_aadb43e6ea6725f06d04704a1db3dc0be}
+
+
+Compress the work\mbox{[}\mbox{]} array to remove fragmentation. 
+
+\hypertarget{dmemory_8c_a8412c8f776ad7cfe599a5b601310fb8e}{}\index{dmemory.\+c@{dmemory.\+c}!duser\+\_\+free@{duser\+\_\+free}}
+\index{duser\+\_\+free@{duser\+\_\+free}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{duser\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}void duser\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{int}]{bytes, }
+\item[{int}]{which\+\_\+end, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_a8412c8f776ad7cfe599a5b601310fb8e}
+\hypertarget{dmemory_8c_a00f228f45bab7594bea821b70eedbf51}{}\index{dmemory.\+c@{dmemory.\+c}!duser\+\_\+malloc@{duser\+\_\+malloc}}
+\index{duser\+\_\+malloc@{duser\+\_\+malloc}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{duser\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ duser\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{int}]{bytes, }
+\item[{int}]{which\+\_\+end, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_a00f228f45bab7594bea821b70eedbf51}
+\hypertarget{dmemory_8c_a61aaccf587a78d15d79c4cc79f80e8b0}{}\index{dmemory.\+c@{dmemory.\+c}!ilu\+\_\+d\+Query\+Space@{ilu\+\_\+d\+Query\+Space}}
+\index{ilu\+\_\+d\+Query\+Space@{ilu\+\_\+d\+Query\+Space}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{ilu\+\_\+d\+Query\+Space}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+d\+Query\+Space (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf mem\+\_\+usage\+\_\+t} $\ast$}]{mem\+\_\+usage}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_a61aaccf587a78d15d79c4cc79f80e8b0}
+
+\begin{DoxyPre}
+mem\_usage consists of the following fields:
+\begin{DoxyItemize}
+\item for\_lu (float)
+     The amount of space used in bytes for the L data structures.
+\item total\_needed (float)
+     The amount of space needed in bytes to perform factorization.
+
+
+\end{DoxyItemize}\end{DoxyPre}
+\hypertarget{dmemory_8c_a4c226087c09a94ff40b92b14fa46fc53}{}\index{dmemory.\+c@{dmemory.\+c}!user\+\_\+bcopy@{user\+\_\+bcopy}}
+\index{user\+\_\+bcopy@{user\+\_\+bcopy}!dmemory.\+c@{dmemory.\+c}}
+\subsubsection[{user\+\_\+bcopy}]{\setlength{\rightskip}{0pt plus 5cm}void user\+\_\+bcopy (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{char $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{dmemory_8c_a4c226087c09a94ff40b92b14fa46fc53}

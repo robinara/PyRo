@@ -1,0 +1,700 @@
+\hypertarget{namespacescipy_1_1signal_1_1windows}{}\section{scipy.\+signal.\+windows Namespace Reference}
+\label{namespacescipy_1_1signal_1_1windows}\index{scipy.\+signal.\+windows@{scipy.\+signal.\+windows}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_aa87cdbe07202ca582fbf5dff9aefb182}{boxcar}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a247179942b79396efbec6fc9410eacad}{triang}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_ad950410c579524d4f5a3ac32e796c96e}{parzen}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a443764fca2e3b676a2848dc72b9922fb}{bohman}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a9c011ba894f282c9bdf41bab1e98cc78}{blackman}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a790d1b7a5cdc9ad681a9ece510348391}{nuttall}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a99b1e85701207b578a9507920c90f2ec}{blackmanharris}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a59fdc70d84272da80278ca21dd7745fe}{flattop}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_af26dd7863b2073e64991fa2a71a321e2}{bartlett}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a25f492c76fc589606b17d08ceb04bafd}{hann}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a7883d59937f93c12d04fa2681c464736}{barthann}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a3f268a66ca50c39fd0acb58369571391}{hamming}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a6dd2261f91e939b40c65142c538873f5}{kaiser}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_aabe275e734bd4fcd0a0152469e17d2c7}{gaussian}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_afbcbe2852cec2fbfe892d0a2d3a92c67}{general\+\_\+gaussian}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_ac1451f3270b47990da454007577fab72}{chebwin}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a29a36e1e151cfa31a9ce7238de3da0b0}{slepian}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_a5af9f464d48182a53361bbda52a3acea}{cosine}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1windows_ae19f5ed49910fb07ffda192777d02b0f}{get\+\_\+window}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1signal_1_1windows_a6076af085b01d29a5b5da48e38b8a281}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+\hyperlink{namespacescipy_1_1signal_1_1windows_afbc14fc8f8fc91f08c82a1674fd0087b}{hanning} = \hyperlink{namespacescipy_1_1signal_1_1windows_a25f492c76fc589606b17d08ceb04bafd}{hann}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}The suite of window functions.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1windows_a7883d59937f93c12d04fa2681c464736}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!barthann@{barthann}}
+\index{barthann@{barthann}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{barthann}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+barthann (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a7883d59937f93c12d04fa2681c464736}
+\begin{DoxyVerb}Return a modified Bartlett-Hann window.
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero or less, an empty
+    array is returned.
+sym : bool, optional
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value normalized to 1 (though the value 1
+    does not appear if `M` is even and `sym` is True).
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> from scipy import signal
+>>> from scipy.fftpack import fft, fftshift
+>>> import matplotlib.pyplot as plt
+
+>>> window = signal.barthann(51)
+>>> plt.plot(window)
+>>> plt.title("Bartlett-Hann window")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title("Frequency response of the Bartlett-Hann window")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1windows_af26dd7863b2073e64991fa2a71a321e2}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!bartlett@{bartlett}}
+\index{bartlett@{bartlett}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{bartlett}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+bartlett (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_af26dd7863b2073e64991fa2a71a321e2}
+\hypertarget{namespacescipy_1_1signal_1_1windows_a9c011ba894f282c9bdf41bab1e98cc78}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!blackman@{blackman}}
+\index{blackman@{blackman}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{blackman}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+blackman (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a9c011ba894f282c9bdf41bab1e98cc78}
+\hypertarget{namespacescipy_1_1signal_1_1windows_a99b1e85701207b578a9507920c90f2ec}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!blackmanharris@{blackmanharris}}
+\index{blackmanharris@{blackmanharris}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{blackmanharris}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+blackmanharris (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a99b1e85701207b578a9507920c90f2ec}
+\begin{DoxyVerb}Return a minimum 4-term Blackman-Harris window.
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero or less, an empty
+    array is returned.
+sym : bool, optional
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value normalized to 1 (though the value 1
+    does not appear if `M` is even and `sym` is True).
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> from scipy import signal
+>>> from scipy.fftpack import fft, fftshift
+>>> import matplotlib.pyplot as plt
+
+>>> window = signal.blackmanharris(51)
+>>> plt.plot(window)
+>>> plt.title("Blackman-Harris window")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title("Frequency response of the Blackman-Harris window")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1windows_a443764fca2e3b676a2848dc72b9922fb}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!bohman@{bohman}}
+\index{bohman@{bohman}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{bohman}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+bohman (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a443764fca2e3b676a2848dc72b9922fb}
+\begin{DoxyVerb}Return a Bohman window.
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero or less, an empty
+    array is returned.
+sym : bool, optional
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value normalized to 1 (though the value 1
+    does not appear if `M` is even and `sym` is True).
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> from scipy import signal
+>>> from scipy.fftpack import fft, fftshift
+>>> import matplotlib.pyplot as plt
+
+>>> window = signal.bohman(51)
+>>> plt.plot(window)
+>>> plt.title("Bohman window")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title("Frequency response of the Bohman window")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1windows_aa87cdbe07202ca582fbf5dff9aefb182}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!boxcar@{boxcar}}
+\index{boxcar@{boxcar}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{boxcar}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+boxcar (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_aa87cdbe07202ca582fbf5dff9aefb182}
+\begin{DoxyVerb}Return a boxcar or rectangular window.
+
+Included for completeness, this is equivalent to no window at all.
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero or less, an empty
+    array is returned.
+sym : bool, optional
+    Whether the window is symmetric. (Has no effect for boxcar.)
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value normalized to 1.
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> from scipy import signal
+>>> from scipy.fftpack import fft, fftshift
+>>> import matplotlib.pyplot as plt
+
+>>> window = signal.boxcar(51)
+>>> plt.plot(window)
+>>> plt.title("Boxcar window")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title("Frequency response of the boxcar window")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1windows_ac1451f3270b47990da454007577fab72}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!chebwin@{chebwin}}
+\index{chebwin@{chebwin}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{chebwin}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+chebwin (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{at, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_ac1451f3270b47990da454007577fab72}
+\hypertarget{namespacescipy_1_1signal_1_1windows_a5af9f464d48182a53361bbda52a3acea}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!cosine@{cosine}}
+\index{cosine@{cosine}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{cosine}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+cosine (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a5af9f464d48182a53361bbda52a3acea}
+\begin{DoxyVerb}Return a window with a simple cosine shape.
+
+.. versionadded:: 0.13.0
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero or less, an empty
+    array is returned.
+sym : bool, optional
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value normalized to 1 (though the value 1
+    does not appear if `M` is even and `sym` is True).
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> from scipy import signal
+>>> from scipy.fftpack import fft, fftshift
+>>> import matplotlib.pyplot as plt
+
+>>> window = signal.cosine(51)
+>>> plt.plot(window)
+>>> plt.title("Cosine window")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title("Frequency response of the cosine window")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")
+>>> plt.show()\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1windows_a59fdc70d84272da80278ca21dd7745fe}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!flattop@{flattop}}
+\index{flattop@{flattop}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{flattop}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+flattop (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a59fdc70d84272da80278ca21dd7745fe}
+\begin{DoxyVerb}Return a flat top window.
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero or less, an empty
+    array is returned.
+sym : bool, optional
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value normalized to 1 (though the value 1
+    does not appear if `M` is even and `sym` is True).
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> from scipy import signal
+>>> from scipy.fftpack import fft, fftshift
+>>> import matplotlib.pyplot as plt
+
+>>> window = signal.flattop(51)
+>>> plt.plot(window)
+>>> plt.title("Flat top window")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title("Frequency response of the flat top window")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1windows_aabe275e734bd4fcd0a0152469e17d2c7}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!gaussian@{gaussian}}
+\index{gaussian@{gaussian}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{gaussian}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+gaussian (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{std, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_aabe275e734bd4fcd0a0152469e17d2c7}
+\hypertarget{namespacescipy_1_1signal_1_1windows_afbcbe2852cec2fbfe892d0a2d3a92c67}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!general\+\_\+gaussian@{general\+\_\+gaussian}}
+\index{general\+\_\+gaussian@{general\+\_\+gaussian}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{general\+\_\+gaussian}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+general\+\_\+gaussian (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{p, }
+\item[{}]{sig, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_afbcbe2852cec2fbfe892d0a2d3a92c67}
+\hypertarget{namespacescipy_1_1signal_1_1windows_ae19f5ed49910fb07ffda192777d02b0f}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!get\+\_\+window@{get\+\_\+window}}
+\index{get\+\_\+window@{get\+\_\+window}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{get\+\_\+window}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+get\+\_\+window (
+\begin{DoxyParamCaption}
+\item[{}]{window, }
+\item[{}]{Nx, }
+\item[{}]{fftbins = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_ae19f5ed49910fb07ffda192777d02b0f}
+\begin{DoxyVerb}Return a window.
+
+Parameters
+----------
+window : string, float, or tuple
+    The type of window to create. See below for more details.
+Nx : int
+    The number of samples in the window.
+fftbins : bool, optional
+    If True, create a "periodic" window ready to use with ifftshift
+    and be multiplied by the result of an fft (SEE ALSO fftfreq).
+
+Returns
+-------
+get_window : ndarray
+    Returns a window of length `Nx` and type `window`
+
+Notes
+-----
+Window types:
+
+    boxcar, triang, blackman, hamming, hann, bartlett, flattop,
+    parzen, bohman, blackmanharris, nuttall, barthann,
+    kaiser (needs beta), gaussian (needs std),
+    general_gaussian (needs power, width),
+    slepian (needs width), chebwin (needs attenuation)
+
+
+If the window requires no parameters, then `window` can be a string.
+
+If the window requires parameters, then `window` must be a tuple
+with the first argument the string name of the window, and the next
+arguments the needed parameters.
+
+If `window` is a floating point number, it is interpreted as the beta
+parameter of the kaiser window.
+
+Each of the window types listed above is also the name of
+a function that can be called directly to create a window of
+that type.
+
+Examples
+--------
+>>> from scipy import signal
+>>> signal.get_window('triang', 7)
+array([ 0.25,  0.5 ,  0.75,  1.  ,  0.75,  0.5 ,  0.25])
+>>> signal.get_window(('kaiser', 4.0), 9)
+array([ 0.08848053,  0.32578323,  0.63343178,  0.89640418,  1.        ,
+        0.89640418,  0.63343178,  0.32578323,  0.08848053])
+>>> signal.get_window(4.0, 9)
+array([ 0.08848053,  0.32578323,  0.63343178,  0.89640418,  1.        ,
+        0.89640418,  0.63343178,  0.32578323,  0.08848053])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1windows_a3f268a66ca50c39fd0acb58369571391}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!hamming@{hamming}}
+\index{hamming@{hamming}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{hamming}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+hamming (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a3f268a66ca50c39fd0acb58369571391}
+\hypertarget{namespacescipy_1_1signal_1_1windows_a25f492c76fc589606b17d08ceb04bafd}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!hann@{hann}}
+\index{hann@{hann}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{hann}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+hann (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a25f492c76fc589606b17d08ceb04bafd}
+\hypertarget{namespacescipy_1_1signal_1_1windows_a6dd2261f91e939b40c65142c538873f5}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!kaiser@{kaiser}}
+\index{kaiser@{kaiser}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{kaiser}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+kaiser (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{beta, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a6dd2261f91e939b40c65142c538873f5}
+\hypertarget{namespacescipy_1_1signal_1_1windows_a790d1b7a5cdc9ad681a9ece510348391}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!nuttall@{nuttall}}
+\index{nuttall@{nuttall}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{nuttall}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+nuttall (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a790d1b7a5cdc9ad681a9ece510348391}
+\begin{DoxyVerb}Return a minimum 4-term Blackman-Harris window according to Nuttall.
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero or less, an empty
+    array is returned.
+sym : bool, optional
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value normalized to 1 (though the value 1
+    does not appear if `M` is even and `sym` is True).
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> from scipy import signal
+>>> from scipy.fftpack import fft, fftshift
+>>> import matplotlib.pyplot as plt
+
+>>> window = signal.nuttall(51)
+>>> plt.plot(window)
+>>> plt.title("Nuttall window")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title("Frequency response of the Nuttall window")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1windows_ad950410c579524d4f5a3ac32e796c96e}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!parzen@{parzen}}
+\index{parzen@{parzen}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{parzen}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+parzen (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_ad950410c579524d4f5a3ac32e796c96e}
+\begin{DoxyVerb}Return a Parzen window.
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero or less, an empty
+    array is returned.
+sym : bool, optional
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value normalized to 1 (though the value 1
+    does not appear if `M` is even and `sym` is True).
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> from scipy import signal
+>>> from scipy.fftpack import fft, fftshift
+>>> import matplotlib.pyplot as plt
+
+>>> window = signal.parzen(51)
+>>> plt.plot(window)
+>>> plt.title("Parzen window")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title("Frequency response of the Parzen window")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1windows_a29a36e1e151cfa31a9ce7238de3da0b0}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!slepian@{slepian}}
+\index{slepian@{slepian}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{slepian}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+slepian (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{width, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a29a36e1e151cfa31a9ce7238de3da0b0}
+\begin{DoxyVerb}Return a digital Slepian (DPSS) window.
+
+Used to maximize the energy concentration in the main lobe.  Also called
+the digital prolate spheroidal sequence (DPSS).
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero or less, an empty
+    array is returned.
+width : float
+    Bandwidth
+sym : bool, optional
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value always normalized to 1
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> from scipy import signal
+>>> from scipy.fftpack import fft, fftshift
+>>> import matplotlib.pyplot as plt
+
+>>> window = signal.slepian(51, width=0.3)
+>>> plt.plot(window)
+>>> plt.title("Slepian (DPSS) window (BW=0.3)")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title("Frequency response of the Slepian window (BW=0.3)")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1windows_a247179942b79396efbec6fc9410eacad}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!triang@{triang}}
+\index{triang@{triang}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{triang}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+windows.\+triang (
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{sym = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1windows_a247179942b79396efbec6fc9410eacad}
+\begin{DoxyVerb}Return a triangular window.
+
+Parameters
+----------
+M : int
+    Number of points in the output window. If zero or less, an empty
+    array is returned.
+sym : bool, optional
+    When True (default), generates a symmetric window, for use in filter
+    design.
+    When False, generates a periodic window, for use in spectral analysis.
+
+Returns
+-------
+w : ndarray
+    The window, with the maximum value normalized to 1 (though the value 1
+    does not appear if `M` is even and `sym` is True).
+
+Examples
+--------
+Plot the window and its frequency response:
+
+>>> from scipy import signal
+>>> from scipy.fftpack import fft, fftshift
+>>> import matplotlib.pyplot as plt
+
+>>> window = signal.triang(51)
+>>> plt.plot(window)
+>>> plt.title("Triangular window")
+>>> plt.ylabel("Amplitude")
+>>> plt.xlabel("Sample")
+
+>>> plt.figure()
+>>> A = fft(window, 2048) / (len(window)/2.0)
+>>> freq = np.linspace(-0.5, 0.5, len(A))
+>>> response = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))
+>>> plt.plot(freq, response)
+>>> plt.axis([-0.5, 0.5, -120, 0])
+>>> plt.title("Frequency response of the triangular window")
+>>> plt.ylabel("Normalized magnitude [dB]")
+>>> plt.xlabel("Normalized frequency [cycles per sample]")\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1windows_a6076af085b01d29a5b5da48e38b8a281}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+signal.\+windows.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1signal_1_1windows_a6076af085b01d29a5b5da48e38b8a281}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'boxcar'}, \textcolor{stringliteral}{'triang'}, \textcolor{stringliteral}{'parzen'}, \textcolor{stringliteral}{'bohman'}, \textcolor{stringliteral}{'blackman'}, \textcolor{stringliteral}{'nuttall'},
+2            \textcolor{stringliteral}{'blackmanharris'}, \textcolor{stringliteral}{'flattop'}, \textcolor{stringliteral}{'bartlett'}, \textcolor{stringliteral}{'hanning'}, \textcolor{stringliteral}{'barthann'},
+3            \textcolor{stringliteral}{'hamming'}, \textcolor{stringliteral}{'kaiser'}, \textcolor{stringliteral}{'gaussian'}, \textcolor{stringliteral}{'general\_gaussian'}, \textcolor{stringliteral}{'chebwin'},
+4            \textcolor{stringliteral}{'slepian'}, \textcolor{stringliteral}{'cosine'}, \textcolor{stringliteral}{'hann'}, \textcolor{stringliteral}{'get\_window'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1signal_1_1windows_afbc14fc8f8fc91f08c82a1674fd0087b}{}\index{scipy\+::signal\+::windows@{scipy\+::signal\+::windows}!hanning@{hanning}}
+\index{hanning@{hanning}!scipy\+::signal\+::windows@{scipy\+::signal\+::windows}}
+\subsubsection[{hanning}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+signal.\+windows.\+hanning = {\bf hann}}\label{namespacescipy_1_1signal_1_1windows_afbc14fc8f8fc91f08c82a1674fd0087b}

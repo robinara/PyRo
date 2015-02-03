@@ -1,0 +1,59 @@
+\hypertarget{sreadrb_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sreadrb.c File Reference}
+\label{sreadrb_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sreadrb.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sreadrb.\+c}}
+
+
+Read a matrix stored in Rutherford-\/\+Boeing format.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sreadrb_8c_a9db4e3af3f6d1037a275ebb516efe51c}{sreadrb} (int $\ast$nrow, int $\ast$ncol, int $\ast$nonz, float $\ast$$\ast$nzval, int $\ast$$\ast$rowind, int $\ast$$\ast$colptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read a matrix stored in Rutherford-\/\+Boeing format. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.0) --
+Lawrence Berkeley National Laboratory.
+June 30, 2009
+\end{DoxyPre}
+
+
+\subsection*{Purpose }
+
+Read a F\+L\+O\+A\+T P\+R\+E\+C\+I\+S\+I\+O\+N matrix stored in Rutherford-\/\+Boeing format as described below.
+
+Line 1 (A72, A8) Col. 1 -\/ 72 Title (T\+I\+T\+L\+E) Col. 73 -\/ 80 \hyperlink{classMatrix}{Matrix} name / identifier (M\+T\+R\+X\+I\+D)
+
+Line 2 (I14, 3(1\+X, I13)) Col. 1 -\/ 14 Total number of lines excluding header (T\+O\+T\+C\+R\+D) Col. 16 -\/ 28 Number of lines for pointers (P\+T\+R\+C\+R\+D) Col. 30 -\/ 42 Number of lines for row (or variable) indices (I\+N\+D\+C\+R\+D) Col. 44 -\/ 56 Number of lines for numerical values (V\+A\+L\+C\+R\+D)
+
+Line 3 (A3, 11\+X, 4(1\+X, I13)) Col. 1 -\/ 3 \hyperlink{classMatrix}{Matrix} type (see below) (M\+X\+T\+Y\+P\+E) Col. 15 -\/ 28 Compressed Column\+: Number of rows (N\+R\+O\+W) Elemental\+: Largest integer used to index variable (M\+V\+A\+R) Col. 30 -\/ 42 Compressed Column\+: Number of columns (N\+C\+O\+L) Elemental\+: Number of element matrices (N\+E\+L\+T) Col. 44 -\/ 56 Compressed Column\+: Number of entries (N\+N\+Z\+E\+R\+O) Elemental\+: Number of variable indeces (N\+V\+A\+R\+I\+X) Col. 58 -\/ 70 Compressed Column\+: Unused, explicitly zero Elemental\+: Number of elemental matrix entries (N\+E\+L\+T\+V\+L)
+
+Line 4 (2\+A16, A20) Col. 1 -\/ 16 Fortran format for pointers (P\+T\+R\+F\+M\+T) Col. 17 -\/ 32 Fortran format for row (or variable) indices (I\+N\+D\+F\+M\+T) Col. 33 -\/ 52 Fortran format for numerical values of coefficient matrix (V\+A\+L\+F\+M\+T) (blank in the case of matrix patterns)
+
+The three character type field on line 3 describes the matrix type. The following table lists the permitted values for each of the three characters. As an example of the type field, R\+S\+A denotes that the matrix is real, symmetric, and assembled.
+
+First Character\+: R Real matrix C Complex matrix I integer matrix P Pattern only (no numerical values supplied) Q Pattern only (numerical values supplied in associated auxiliary value file)
+
+Second Character\+: S \hyperlink{classSymmetric}{Symmetric} U Unsymmetric H Hermitian Z Skew symmetric R Rectangular
+
+Third Character\+: \hyperlink{classA}{A} Compressed column form E Elemental form
+
+\subsection{Function Documentation}
+\hypertarget{sreadrb_8c_a9db4e3af3f6d1037a275ebb516efe51c}{}\index{sreadrb.\+c@{sreadrb.\+c}!sreadrb@{sreadrb}}
+\index{sreadrb@{sreadrb}!sreadrb.\+c@{sreadrb.\+c}}
+\subsubsection[{sreadrb}]{\setlength{\rightskip}{0pt plus 5cm}void sreadrb (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{nrow, }
+\item[{int $\ast$}]{ncol, }
+\item[{int $\ast$}]{nonz, }
+\item[{float $\ast$$\ast$}]{nzval, }
+\item[{int $\ast$$\ast$}]{rowind, }
+\item[{int $\ast$$\ast$}]{colptr}
+\end{DoxyParamCaption}
+)}\label{sreadrb_8c_a9db4e3af3f6d1037a275ebb516efe51c}

@@ -1,0 +1,199 @@
+\hypertarget{namespacescipy_1_1ndimage_1_1fourier}{}\section{scipy.\+ndimage.\+fourier Namespace Reference}
+\label{namespacescipy_1_1ndimage_1_1fourier}\index{scipy.\+ndimage.\+fourier@{scipy.\+ndimage.\+fourier}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1fourier_a03addb66552dc7121367fa484bd3a178}{fourier\+\_\+gaussian}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1fourier_afa58ebd82dda821d1c19b752e799f56e}{fourier\+\_\+uniform}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1fourier_abff113b1ce4b9d13cd5640a5b499d2c3}{fourier\+\_\+ellipsoid}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1fourier_ab6f6c0b190ab0cfe75b863af02d3d1aa}{fourier\+\_\+shift}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1ndimage_1_1fourier_a3083302dd8ea5b2bc4f3c94d8b3d0976}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1ndimage_1_1fourier_abff113b1ce4b9d13cd5640a5b499d2c3}{}\index{scipy\+::ndimage\+::fourier@{scipy\+::ndimage\+::fourier}!fourier\+\_\+ellipsoid@{fourier\+\_\+ellipsoid}}
+\index{fourier\+\_\+ellipsoid@{fourier\+\_\+ellipsoid}!scipy\+::ndimage\+::fourier@{scipy\+::ndimage\+::fourier}}
+\subsubsection[{fourier\+\_\+ellipsoid}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+fourier.\+fourier\+\_\+ellipsoid (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{size, }
+\item[{}]{n = {\ttfamily -\/1}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{output = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1fourier_abff113b1ce4b9d13cd5640a5b499d2c3}
+\begin{DoxyVerb}Multi-dimensional ellipsoid fourier filter.
+
+The array is multiplied with the fourier transform of a ellipsoid of
+given sizes.
+
+Parameters
+----------
+input : array_like
+    The input array.
+size : float or sequence
+    The size of the box used for filtering.
+    If a float, `size` is the same for all axes. If a sequence, `size` has
+    to contain one value for each axis.
+n : int, optional
+    If `n` is negative (default), then the input is assumed to be the
+    result of a complex fft.
+    If `n` is larger than or equal to zero, the input is assumed to be the
+    result of a real fft, and `n` gives the length of the array before
+    transformation along the real transform direction.
+axis : int, optional
+    The axis of the real transform.
+output : ndarray, optional
+    If given, the result of filtering the input is placed in this array.
+    None is returned in this case.
+
+Returns
+-------
+fourier_ellipsoid : ndarray or None
+    The filtered input. If `output` is given as a parameter, None is
+    returned.
+
+Notes
+-----
+This function is implemented for arrays of rank 1, 2, or 3.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1ndimage_1_1fourier_a03addb66552dc7121367fa484bd3a178}{}\index{scipy\+::ndimage\+::fourier@{scipy\+::ndimage\+::fourier}!fourier\+\_\+gaussian@{fourier\+\_\+gaussian}}
+\index{fourier\+\_\+gaussian@{fourier\+\_\+gaussian}!scipy\+::ndimage\+::fourier@{scipy\+::ndimage\+::fourier}}
+\subsubsection[{fourier\+\_\+gaussian}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+fourier.\+fourier\+\_\+gaussian (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{sigma, }
+\item[{}]{n = {\ttfamily -\/1}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{output = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1fourier_a03addb66552dc7121367fa484bd3a178}
+\begin{DoxyVerb}Multi-dimensional Gaussian fourier filter.
+
+The array is multiplied with the fourier transform of a Gaussian
+kernel.
+
+Parameters
+----------
+input : array_like
+    The input array.
+sigma : float or sequence
+    The sigma of the Gaussian kernel. If a float, `sigma` is the same for
+    all axes. If a sequence, `sigma` has to contain one value for each
+    axis.
+n : int, optional
+    If `n` is negative (default), then the input is assumed to be the
+    result of a complex fft.
+    If `n` is larger than or equal to zero, the input is assumed to be the
+    result of a real fft, and `n` gives the length of the array before
+    transformation along the real transform direction.
+axis : int, optional
+    The axis of the real transform.
+output : ndarray, optional
+    If given, the result of filtering the input is placed in this array.
+    None is returned in this case.
+
+Returns
+-------
+fourier_gaussian : ndarray or None
+    The filtered input. If `output` is given as a parameter, None is
+    returned.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1ndimage_1_1fourier_ab6f6c0b190ab0cfe75b863af02d3d1aa}{}\index{scipy\+::ndimage\+::fourier@{scipy\+::ndimage\+::fourier}!fourier\+\_\+shift@{fourier\+\_\+shift}}
+\index{fourier\+\_\+shift@{fourier\+\_\+shift}!scipy\+::ndimage\+::fourier@{scipy\+::ndimage\+::fourier}}
+\subsubsection[{fourier\+\_\+shift}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+fourier.\+fourier\+\_\+shift (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{shift, }
+\item[{}]{n = {\ttfamily -\/1}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{output = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1fourier_ab6f6c0b190ab0cfe75b863af02d3d1aa}
+\begin{DoxyVerb}Multi-dimensional fourier shift filter.
+
+The array is multiplied with the fourier transform of a shift operation.
+
+Parameters
+----------
+input : array_like
+    The input array.
+shift : float or sequence
+    The size of the box used for filtering.
+    If a float, `shift` is the same for all axes. If a sequence, `shift`
+    has to contain one value for each axis.
+n : int, optional
+    If `n` is negative (default), then the input is assumed to be the
+    result of a complex fft.
+    If `n` is larger than or equal to zero, the input is assumed to be the
+    result of a real fft, and `n` gives the length of the array before
+    transformation along the real transform direction.
+axis : int, optional
+    The axis of the real transform.
+output : ndarray, optional
+    If given, the result of shifting the input is placed in this array.
+    None is returned in this case.
+
+Returns
+-------
+fourier_shift : ndarray or None
+    The shifted input. If `output` is given as a parameter, None is
+    returned.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1ndimage_1_1fourier_afa58ebd82dda821d1c19b752e799f56e}{}\index{scipy\+::ndimage\+::fourier@{scipy\+::ndimage\+::fourier}!fourier\+\_\+uniform@{fourier\+\_\+uniform}}
+\index{fourier\+\_\+uniform@{fourier\+\_\+uniform}!scipy\+::ndimage\+::fourier@{scipy\+::ndimage\+::fourier}}
+\subsubsection[{fourier\+\_\+uniform}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+fourier.\+fourier\+\_\+uniform (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{size, }
+\item[{}]{n = {\ttfamily -\/1}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{output = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1fourier_afa58ebd82dda821d1c19b752e799f56e}
+\begin{DoxyVerb}Multi-dimensional uniform fourier filter.
+
+The array is multiplied with the fourier transform of a box of given
+size.
+
+Parameters
+----------
+input : array_like
+    The input array.
+size : float or sequence
+    The size of the box used for filtering.
+    If a float, `size` is the same for all axes. If a sequence, `size` has
+    to contain one value for each axis.
+n : int, optional
+    If `n` is negative (default), then the input is assumed to be the
+    result of a complex fft.
+    If `n` is larger than or equal to zero, the input is assumed to be the
+    result of a real fft, and `n` gives the length of the array before
+    transformation along the real transform direction.
+axis : int, optional
+    The axis of the real transform.
+output : ndarray, optional
+    If given, the result of filtering the input is placed in this array.
+    None is returned in this case.
+
+Returns
+-------
+fourier_uniform : ndarray or None
+    The filtered input. If `output` is given as a parameter, None is
+    returned.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1ndimage_1_1fourier_a3083302dd8ea5b2bc4f3c94d8b3d0976}{}\index{scipy\+::ndimage\+::fourier@{scipy\+::ndimage\+::fourier}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::ndimage\+::fourier@{scipy\+::ndimage\+::fourier}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+ndimage.\+fourier.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1ndimage_1_1fourier_a3083302dd8ea5b2bc4f3c94d8b3d0976}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'fourier\_gaussian'}, \textcolor{stringliteral}{'fourier\_uniform'}, \textcolor{stringliteral}{'fourier\_ellipsoid'},
+2            \textcolor{stringliteral}{'fourier\_shift'}]
+\end{DoxyCode}

@@ -1,0 +1,94 @@
+\hypertarget{chetrs_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/chetrs.f File Reference}
+\label{chetrs_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chetrs.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chetrs.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{chetrs_8f_a6f9d8da222ffaa7b7535efc922faa1dc}{chetrs} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+H\+E\+T\+R\+S} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{chetrs_8f_a6f9d8da222ffaa7b7535efc922faa1dc}{}\index{chetrs.\+f@{chetrs.\+f}!chetrs@{chetrs}}
+\index{chetrs@{chetrs}!chetrs.\+f@{chetrs.\+f}}
+\subsubsection[{chetrs}]{\setlength{\rightskip}{0pt plus 5cm}subroutine chetrs (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{chetrs_8f_a6f9d8da222ffaa7b7535efc922faa1dc}
+
+
+{\bfseries C\+H\+E\+T\+R\+S} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CHETRS solves a system of linear equations A*X = B with a complex
+ Hermitian matrix A using the factorization A = U*D*U**H or
+ A = L*D*L**H computed by CHETRF.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the details of the factorization are stored
+          as an upper or lower triangular matrix.
+          = 'U':  Upper triangular, form is A = U*D*U**H;
+          = 'L':  Lower triangular, form is A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          The block diagonal matrix D and the multipliers used to
+          obtain the factor U or L as computed by CHETRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          Details of the interchanges and the block structure of D
+          as determined by CHETRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX array, dimension (LDB,NRHS)
+          On entry, the right hand side matrix B.
+          On exit, the solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

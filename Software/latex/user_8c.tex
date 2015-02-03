@@ -1,0 +1,97 @@
+\hypertarget{user_8c}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/user.c File Reference}
+\label{user_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/user.\+c@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/user.\+c}}
+{\ttfamily \#include \char`\"{}qhull\+\_\+a.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{user_8c_a17c89ec13fba83a683432d79ac0323cd}{qh\+\_\+new\+\_\+qhull} (int dim, int numpoints, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$points, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} ismalloc, char $\ast$qhull\+\_\+cmd, F\+I\+L\+E $\ast$outfile, F\+I\+L\+E $\ast$errfile)
+\item 
+void \hyperlink{user_8c_a5f9e5bc131c58db28e039707aea6f6dc}{qh\+\_\+errexit} (int exitcode, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structridgeT}{ridge\+T} $\ast$ridge)
+\item 
+void \hyperlink{user_8c_a7903aa238e40e8d6fc4d56e6b46db802}{qh\+\_\+errprint} (const char $\ast$string, \hyperlink{structfacetT}{facet\+T} $\ast$atfacet, \hyperlink{structfacetT}{facet\+T} $\ast$otherfacet, \hyperlink{structridgeT}{ridge\+T} $\ast$atridge, \hyperlink{structvertexT}{vertex\+T} $\ast$atvertex)
+\item 
+void \hyperlink{user_8c_a9a6b401cf15e1cd536a220d00d041273}{qh\+\_\+printfacetlist} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist, \hyperlink{structsetT}{set\+T} $\ast$facets, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} printall)
+\item 
+void \hyperlink{user_8c_a7a6915f37bb64324a3c7457469ff2481}{qh\+\_\+printhelp\+\_\+degenerate} (F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{user_8c_afeae1613f36f0ebcabecb03c151f6abb}{qh\+\_\+printhelp\+\_\+narrowhull} (F\+I\+L\+E $\ast$fp, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} minangle)
+\item 
+void \hyperlink{user_8c_af5b1d1f8cbeec0187c4b16df2c24a540}{qh\+\_\+printhelp\+\_\+singular} (F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{user_8c_a8ef1422d3893feadd481c11131240d55}{qh\+\_\+user\+\_\+memsizes} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{user_8c_a5f9e5bc131c58db28e039707aea6f6dc}{}\index{user.\+c@{user.\+c}!qh\+\_\+errexit@{qh\+\_\+errexit}}
+\index{qh\+\_\+errexit@{qh\+\_\+errexit}!user.\+c@{user.\+c}}
+\subsubsection[{qh\+\_\+errexit}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+errexit (
+\begin{DoxyParamCaption}
+\item[{int}]{exitcode, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf ridge\+T} $\ast$}]{ridge}
+\end{DoxyParamCaption}
+)}\label{user_8c_a5f9e5bc131c58db28e039707aea6f6dc}
+\hypertarget{user_8c_a7903aa238e40e8d6fc4d56e6b46db802}{}\index{user.\+c@{user.\+c}!qh\+\_\+errprint@{qh\+\_\+errprint}}
+\index{qh\+\_\+errprint@{qh\+\_\+errprint}!user.\+c@{user.\+c}}
+\subsubsection[{qh\+\_\+errprint}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+errprint (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{{\bf facet\+T} $\ast$}]{atfacet, }
+\item[{{\bf facet\+T} $\ast$}]{otherfacet, }
+\item[{{\bf ridge\+T} $\ast$}]{atridge, }
+\item[{{\bf vertex\+T} $\ast$}]{atvertex}
+\end{DoxyParamCaption}
+)}\label{user_8c_a7903aa238e40e8d6fc4d56e6b46db802}
+\hypertarget{user_8c_a17c89ec13fba83a683432d79ac0323cd}{}\index{user.\+c@{user.\+c}!qh\+\_\+new\+\_\+qhull@{qh\+\_\+new\+\_\+qhull}}
+\index{qh\+\_\+new\+\_\+qhull@{qh\+\_\+new\+\_\+qhull}!user.\+c@{user.\+c}}
+\subsubsection[{qh\+\_\+new\+\_\+qhull}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+new\+\_\+qhull (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{int}]{numpoints, }
+\item[{{\bf coord\+T} $\ast$}]{points, }
+\item[{{\bf bool\+T}}]{ismalloc, }
+\item[{char $\ast$}]{qhull\+\_\+cmd, }
+\item[{F\+I\+L\+E $\ast$}]{outfile, }
+\item[{F\+I\+L\+E $\ast$}]{errfile}
+\end{DoxyParamCaption}
+)}\label{user_8c_a17c89ec13fba83a683432d79ac0323cd}
+\hypertarget{user_8c_a9a6b401cf15e1cd536a220d00d041273}{}\index{user.\+c@{user.\+c}!qh\+\_\+printfacetlist@{qh\+\_\+printfacetlist}}
+\index{qh\+\_\+printfacetlist@{qh\+\_\+printfacetlist}!user.\+c@{user.\+c}}
+\subsubsection[{qh\+\_\+printfacetlist}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printfacetlist (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist, }
+\item[{{\bf set\+T} $\ast$}]{facets, }
+\item[{{\bf bool\+T}}]{printall}
+\end{DoxyParamCaption}
+)}\label{user_8c_a9a6b401cf15e1cd536a220d00d041273}
+\hypertarget{user_8c_a7a6915f37bb64324a3c7457469ff2481}{}\index{user.\+c@{user.\+c}!qh\+\_\+printhelp\+\_\+degenerate@{qh\+\_\+printhelp\+\_\+degenerate}}
+\index{qh\+\_\+printhelp\+\_\+degenerate@{qh\+\_\+printhelp\+\_\+degenerate}!user.\+c@{user.\+c}}
+\subsubsection[{qh\+\_\+printhelp\+\_\+degenerate}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printhelp\+\_\+degenerate (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{user_8c_a7a6915f37bb64324a3c7457469ff2481}
+\hypertarget{user_8c_afeae1613f36f0ebcabecb03c151f6abb}{}\index{user.\+c@{user.\+c}!qh\+\_\+printhelp\+\_\+narrowhull@{qh\+\_\+printhelp\+\_\+narrowhull}}
+\index{qh\+\_\+printhelp\+\_\+narrowhull@{qh\+\_\+printhelp\+\_\+narrowhull}!user.\+c@{user.\+c}}
+\subsubsection[{qh\+\_\+printhelp\+\_\+narrowhull}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printhelp\+\_\+narrowhull (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{{\bf real\+T}}]{minangle}
+\end{DoxyParamCaption}
+)}\label{user_8c_afeae1613f36f0ebcabecb03c151f6abb}
+\hypertarget{user_8c_af5b1d1f8cbeec0187c4b16df2c24a540}{}\index{user.\+c@{user.\+c}!qh\+\_\+printhelp\+\_\+singular@{qh\+\_\+printhelp\+\_\+singular}}
+\index{qh\+\_\+printhelp\+\_\+singular@{qh\+\_\+printhelp\+\_\+singular}!user.\+c@{user.\+c}}
+\subsubsection[{qh\+\_\+printhelp\+\_\+singular}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printhelp\+\_\+singular (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{user_8c_af5b1d1f8cbeec0187c4b16df2c24a540}
+\hypertarget{user_8c_a8ef1422d3893feadd481c11131240d55}{}\index{user.\+c@{user.\+c}!qh\+\_\+user\+\_\+memsizes@{qh\+\_\+user\+\_\+memsizes}}
+\index{qh\+\_\+user\+\_\+memsizes@{qh\+\_\+user\+\_\+memsizes}!user.\+c@{user.\+c}}
+\subsubsection[{qh\+\_\+user\+\_\+memsizes}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+user\+\_\+memsizes (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{user_8c_a8ef1422d3893feadd481c11131240d55}

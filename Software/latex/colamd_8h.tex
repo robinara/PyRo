@@ -1,0 +1,298 @@
+\hypertarget{colamd_8h}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/colamd.h File Reference}
+\label{colamd_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/colamd.\+h@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/colamd.\+h}}
+
+
+Colamd prototypes and definitions.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structColamd__Col__struct}{Colamd\+\_\+\+Col\+\_\+struct}
+\item 
+struct \hyperlink{structColamd__Row__struct}{Colamd\+\_\+\+Row\+\_\+struct}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{colamd_8h_ae92bb10d09f7cd004f07d1baddf90548}{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}~20
+\item 
+\#define \hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}~20
+\item 
+\#define \hyperlink{colamd_8h_a45a417439d08823fa620ca00d834dd61}{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W}~0
+\item 
+\#define \hyperlink{colamd_8h_af92de54efdec91d7ab64e7bec07eb12c}{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+C\+O\+L}~1
+\item 
+\#define \hyperlink{colamd_8h_ababfabfa19364ec563aa9c15bcc9714e}{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+F\+R\+A\+G\+\_\+\+C\+O\+U\+N\+T}~2
+\item 
+\#define \hyperlink{colamd_8h_a6a4201ce55dfa3a6375b90097e8c747e}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+U\+S}~3
+\item 
+\#define \hyperlink{colamd_8h_a569d56a773011e0b4e465b3f5830e80b}{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O1}~4
+\item 
+\#define \hyperlink{colamd_8h_a2161fd78bbd688f943250d1d7583284b}{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O2}~5
+\item 
+\#define \hyperlink{colamd_8h_a15d83814c573d742764ff83e9d1d67fc}{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O3}~6
+\item 
+\#define \hyperlink{colamd_8h_aa754fd30d924c5c8d2d402fa0a482d72}{C\+O\+L\+A\+M\+D\+\_\+\+O\+K}~(0)
+\item 
+\#define \hyperlink{colamd_8h_ac0d7f3882e6e9e39527aa2195dd23789}{C\+O\+L\+A\+M\+D\+\_\+\+O\+K\+\_\+\+B\+U\+T\+\_\+\+J\+U\+M\+B\+L\+E\+D}~(1)
+\item 
+\#define \hyperlink{colamd_8h_a2347fb9e509c8bf9b97a50f96dea281c}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+not\+\_\+present}~(-\/1)
+\item 
+\#define \hyperlink{colamd_8h_a51d3f9714a4cb80c0f54dea5d0c5f95f}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p\+\_\+not\+\_\+present}~(-\/2)
+\item 
+\#define \hyperlink{colamd_8h_a8e848cfde5cdf42fcb316695305f8002}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nrow\+\_\+negative}~(-\/3)
+\item 
+\#define \hyperlink{colamd_8h_a2feedddbe535286cbea9eca9fca91f45}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+ncol\+\_\+negative}~(-\/4)
+\item 
+\#define \hyperlink{colamd_8h_a7147ea7a9d673f17ef856e9914f90c81}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nnz\+\_\+negative}~(-\/5)
+\item 
+\#define \hyperlink{colamd_8h_a58b5d911cc825b4334ade136bad3afd3}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p0\+\_\+nonzero}~(-\/6)
+\item 
+\#define \hyperlink{colamd_8h_a323108d44db4186fad5a2066139f70b7}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+too\+\_\+small}~(-\/7)
+\item 
+\#define \hyperlink{colamd_8h_a3b6df4a489ed0c7de8ad12251cdac5d6}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+col\+\_\+length\+\_\+negative}~(-\/8)
+\item 
+\#define \hyperlink{colamd_8h_a0559e0ff07deab1841e7aaee8cde51e6}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+row\+\_\+index\+\_\+out\+\_\+of\+\_\+bounds}~(-\/9)
+\item 
+\#define \hyperlink{colamd_8h_a703f11265b521c931cdd44709d141fca}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+out\+\_\+of\+\_\+memory}~(-\/10)
+\item 
+\#define \hyperlink{colamd_8h_ae97b9ba07b455e4ce07c53a4d71c1169}{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+internal\+\_\+error}~(-\/999)
+\item 
+\#define \hyperlink{colamd_8h_a339fb9b07ed315667cc4542c15116c83}{C\+O\+L\+A\+M\+D\+\_\+\+C}(n\+\_\+col)~((int) (((n\+\_\+col) + 1) $\ast$ sizeof (\hyperlink{colamd_8h_a059db10cdebbb878b50bfcd2e023315a}{Colamd\+\_\+\+Col}) / sizeof (int)))
+\item 
+\#define \hyperlink{colamd_8h_a52e8a8827c11d9c2a1f1b87e09bc8dc0}{C\+O\+L\+A\+M\+D\+\_\+\+R}(n\+\_\+row)~((int) (((n\+\_\+row) + 1) $\ast$ sizeof (\hyperlink{colamd_8h_a8a1ceeb79ebba705abb1d27469f4a358}{Colamd\+\_\+\+Row}) / sizeof (int)))
+\item 
+\#define \hyperlink{colamd_8h_aa6980d68bd04f7567d7d0bd40b244c2f}{C\+O\+L\+A\+M\+D\+\_\+\+R\+E\+C\+O\+M\+M\+E\+N\+D\+E\+D}(nnz,  n\+\_\+row,  n\+\_\+col)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structColamd__Col__struct}{Colamd\+\_\+\+Col\+\_\+struct} \hyperlink{colamd_8h_a059db10cdebbb878b50bfcd2e023315a}{Colamd\+\_\+\+Col}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structColamd__Row__struct}{Colamd\+\_\+\+Row\+\_\+struct} \hyperlink{colamd_8h_a8a1ceeb79ebba705abb1d27469f4a358}{Colamd\+\_\+\+Row}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{colamd_8h_a9b48c9b9eb5dce7e9ca42174208b1015}{colamd\+\_\+recommended} (int nnz, int n\+\_\+row, int n\+\_\+col)
+\item 
+void \hyperlink{colamd_8h_ae582ce20a46b5ef39434acb9d66fe2ca}{colamd\+\_\+set\+\_\+defaults} (double knobs\mbox{[}\hyperlink{colamd_8h_ae92bb10d09f7cd004f07d1baddf90548}{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}\mbox{]})
+\item 
+int \hyperlink{colamd_8h_af5cec4b6391e4c20abfaa6da39975bca}{colamd} (int n\+\_\+row, int n\+\_\+col, int Alen, int \hyperlink{classA}{A}\mbox{[}$\,$\mbox{]}, int \hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}\mbox{[}$\,$\mbox{]}, double knobs\mbox{[}\hyperlink{colamd_8h_ae92bb10d09f7cd004f07d1baddf90548}{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}\mbox{]}, int stats\mbox{[}\hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}\mbox{]})
+\item 
+int \hyperlink{colamd_8h_ae3d0175d1cb36f6cb16dfe96bbf946a3}{symamd} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int \hyperlink{classA}{A}\mbox{[}$\,$\mbox{]}, int \hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}\mbox{[}$\,$\mbox{]}, int perm\mbox{[}$\,$\mbox{]}, double knobs\mbox{[}\hyperlink{colamd_8h_ae92bb10d09f7cd004f07d1baddf90548}{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}\mbox{]}, int stats\mbox{[}\hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}\mbox{]}, void $\ast$($\ast$allocate)(size\+\_\+t, size\+\_\+t), void($\ast$release)(void $\ast$))
+\item 
+void \hyperlink{colamd_8h_a7cfa2e07413d0bc9489f10ac881faa51}{colamd\+\_\+report} (int stats\mbox{[}\hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}\mbox{]})
+\item 
+void \hyperlink{colamd_8h_a948750692c453eb36edc5b77a670ec54}{symamd\+\_\+report} (int stats\mbox{[}\hyperlink{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Colamd prototypes and definitions. 
+
+$<$\subsection*{pre$>$ }
+
+\subsection*{=== colamd/symamd prototypes and definitions ============================= }
+
+You must include this file (\hyperlink{colamd_8h}{colamd.\+h}) in any routine that uses colamd, symamd, or the related macros and definitions.
+
+Authors\+:
+
+The authors of the code itself are Stefan I. Larimore and Timothy \hyperlink{classA}{A}. Davis (\href{mailto:davis@cise.ufl.edu}{\tt davis@cise.\+ufl.\+edu}), University of Florida. The algorithm was developed in collaboration with John Gilbert, Xerox P\+A\+R\+C, and Esmond Ng, Oak Ridge National Laboratory.
+
+Date\+:
+
+September 8, 2003. Version 2.\+3.
+
+Acknowledgements\+:
+
+This work was supported by the National Science Foundation, under grants D\+M\+S-\/9504974 and D\+M\+S-\/9803599.
+
+Notice\+:
+
+Copyright (c) 1998-\/2003 by the University of Florida. All Rights Reserved.
+
+T\+H\+I\+S M\+A\+T\+E\+R\+I\+A\+L I\+S P\+R\+O\+V\+I\+D\+E\+D A\+S I\+S, W\+I\+T\+H A\+B\+S\+O\+L\+U\+T\+E\+L\+Y N\+O W\+A\+R\+R\+A\+N\+T\+Y E\+X\+P\+R\+E\+S\+S\+E\+D O\+R I\+M\+P\+L\+I\+E\+D. A\+N\+Y U\+S\+E I\+S A\+T Y\+O\+U\+R O\+W\+N R\+I\+S\+K.
+
+Permission is hereby granted to use, copy, modify, and/or distribute this program, provided that the Copyright, this License, and the Availability of the original version is retained on all copies and made accessible to the end-\/user of any code or package that includes C\+O\+L\+A\+M\+D or any modified version of C\+O\+L\+A\+M\+D.
+
+Availability\+:
+
+The colamd/symamd library is available at \begin{DoxyVerb}http://www.cise.ufl.edu/research/sparse/colamd/
+\end{DoxyVerb}
+
+
+This is the \href{http://www.cise.ufl.edu/research/sparse/colamd/colamd.h}{\tt http\+://www.\+cise.\+ufl.\+edu/research/sparse/colamd/colamd.\+h} file. It is required by the \hyperlink{colamd_8c}{colamd.\+c}, colamdmex.\+c, and symamdmex.\+c files, and by any C code that calls the routines whose prototypes are listed below, or that uses the colamd/symamd definitions listed below.  
+
+\subsection{Macro Definition Documentation}
+\hypertarget{colamd_8h_a339fb9b07ed315667cc4542c15116c83}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+C@{C\+O\+L\+A\+M\+D\+\_\+\+C}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+C@{C\+O\+L\+A\+M\+D\+\_\+\+C}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+C(
+\begin{DoxyParamCaption}
+\item[{}]{n\+\_\+col}
+\end{DoxyParamCaption}
+)~((int) (((n\+\_\+col) + 1) $\ast$ sizeof ({\bf Colamd\+\_\+\+Col}) / sizeof (int)))}\label{colamd_8h_a339fb9b07ed315667cc4542c15116c83}
+\hypertarget{colamd_8h_ababfabfa19364ec563aa9c15bcc9714e}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+F\+R\+A\+G\+\_\+\+C\+O\+U\+N\+T@{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+F\+R\+A\+G\+\_\+\+C\+O\+U\+N\+T}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+F\+R\+A\+G\+\_\+\+C\+O\+U\+N\+T@{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+F\+R\+A\+G\+\_\+\+C\+O\+U\+N\+T}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+F\+R\+A\+G\+\_\+\+C\+O\+U\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+F\+R\+A\+G\+\_\+\+C\+O\+U\+N\+T~2}\label{colamd_8h_ababfabfa19364ec563aa9c15bcc9714e}
+\hypertarget{colamd_8h_af92de54efdec91d7ab64e7bec07eb12c}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+C\+O\+L@{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+C\+O\+L}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+C\+O\+L@{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+C\+O\+L}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+C\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+C\+O\+L~1}\label{colamd_8h_af92de54efdec91d7ab64e7bec07eb12c}
+\hypertarget{colamd_8h_a45a417439d08823fa620ca00d834dd61}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W@{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W@{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+D\+E\+N\+S\+E\+\_\+\+R\+O\+W~0}\label{colamd_8h_a45a417439d08823fa620ca00d834dd61}
+\hypertarget{colamd_8h_a2347fb9e509c8bf9b97a50f96dea281c}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+not\+\_\+present@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+not\+\_\+present}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+not\+\_\+present@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+not\+\_\+present}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+not\+\_\+present}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+not\+\_\+present~(-\/1)}\label{colamd_8h_a2347fb9e509c8bf9b97a50f96dea281c}
+\hypertarget{colamd_8h_a323108d44db4186fad5a2066139f70b7}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+too\+\_\+small@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+too\+\_\+small}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+too\+\_\+small@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+too\+\_\+small}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+too\+\_\+small}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+A\+\_\+too\+\_\+small~(-\/7)}\label{colamd_8h_a323108d44db4186fad5a2066139f70b7}
+\hypertarget{colamd_8h_a3b6df4a489ed0c7de8ad12251cdac5d6}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+col\+\_\+length\+\_\+negative@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+col\+\_\+length\+\_\+negative}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+col\+\_\+length\+\_\+negative@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+col\+\_\+length\+\_\+negative}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+col\+\_\+length\+\_\+negative}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+col\+\_\+length\+\_\+negative~(-\/8)}\label{colamd_8h_a3b6df4a489ed0c7de8ad12251cdac5d6}
+\hypertarget{colamd_8h_ae97b9ba07b455e4ce07c53a4d71c1169}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+internal\+\_\+error@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+internal\+\_\+error}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+internal\+\_\+error@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+internal\+\_\+error}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+internal\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+internal\+\_\+error~(-\/999)}\label{colamd_8h_ae97b9ba07b455e4ce07c53a4d71c1169}
+\hypertarget{colamd_8h_a2feedddbe535286cbea9eca9fca91f45}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+ncol\+\_\+negative@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+ncol\+\_\+negative}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+ncol\+\_\+negative@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+ncol\+\_\+negative}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+ncol\+\_\+negative}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+ncol\+\_\+negative~(-\/4)}\label{colamd_8h_a2feedddbe535286cbea9eca9fca91f45}
+\hypertarget{colamd_8h_a7147ea7a9d673f17ef856e9914f90c81}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nnz\+\_\+negative@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nnz\+\_\+negative}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nnz\+\_\+negative@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nnz\+\_\+negative}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nnz\+\_\+negative}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nnz\+\_\+negative~(-\/5)}\label{colamd_8h_a7147ea7a9d673f17ef856e9914f90c81}
+\hypertarget{colamd_8h_a8e848cfde5cdf42fcb316695305f8002}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nrow\+\_\+negative@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nrow\+\_\+negative}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nrow\+\_\+negative@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nrow\+\_\+negative}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nrow\+\_\+negative}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+nrow\+\_\+negative~(-\/3)}\label{colamd_8h_a8e848cfde5cdf42fcb316695305f8002}
+\hypertarget{colamd_8h_a703f11265b521c931cdd44709d141fca}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+out\+\_\+of\+\_\+memory@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+out\+\_\+of\+\_\+memory}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+out\+\_\+of\+\_\+memory@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+out\+\_\+of\+\_\+memory}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+out\+\_\+of\+\_\+memory}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+out\+\_\+of\+\_\+memory~(-\/10)}\label{colamd_8h_a703f11265b521c931cdd44709d141fca}
+\hypertarget{colamd_8h_a58b5d911cc825b4334ade136bad3afd3}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p0\+\_\+nonzero@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p0\+\_\+nonzero}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p0\+\_\+nonzero@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p0\+\_\+nonzero}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p0\+\_\+nonzero}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p0\+\_\+nonzero~(-\/6)}\label{colamd_8h_a58b5d911cc825b4334ade136bad3afd3}
+\hypertarget{colamd_8h_a51d3f9714a4cb80c0f54dea5d0c5f95f}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p\+\_\+not\+\_\+present@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p\+\_\+not\+\_\+present}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p\+\_\+not\+\_\+present@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p\+\_\+not\+\_\+present}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p\+\_\+not\+\_\+present}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+p\+\_\+not\+\_\+present~(-\/2)}\label{colamd_8h_a51d3f9714a4cb80c0f54dea5d0c5f95f}
+\hypertarget{colamd_8h_a0559e0ff07deab1841e7aaee8cde51e6}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+row\+\_\+index\+\_\+out\+\_\+of\+\_\+bounds@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+row\+\_\+index\+\_\+out\+\_\+of\+\_\+bounds}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+row\+\_\+index\+\_\+out\+\_\+of\+\_\+bounds@{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+row\+\_\+index\+\_\+out\+\_\+of\+\_\+bounds}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+row\+\_\+index\+\_\+out\+\_\+of\+\_\+bounds}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+row\+\_\+index\+\_\+out\+\_\+of\+\_\+bounds~(-\/9)}\label{colamd_8h_a0559e0ff07deab1841e7aaee8cde51e6}
+\hypertarget{colamd_8h_a569d56a773011e0b4e465b3f5830e80b}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O1@{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O1}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O1@{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O1}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O1}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O1~4}\label{colamd_8h_a569d56a773011e0b4e465b3f5830e80b}
+\hypertarget{colamd_8h_a2161fd78bbd688f943250d1d7583284b}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O2@{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O2}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O2@{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O2}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O2}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O2~5}\label{colamd_8h_a2161fd78bbd688f943250d1d7583284b}
+\hypertarget{colamd_8h_a15d83814c573d742764ff83e9d1d67fc}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O3@{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O3}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O3@{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O3}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O3}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+I\+N\+F\+O3~6}\label{colamd_8h_a15d83814c573d742764ff83e9d1d67fc}
+\hypertarget{colamd_8h_ae92bb10d09f7cd004f07d1baddf90548}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S@{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S@{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S~20}\label{colamd_8h_ae92bb10d09f7cd004f07d1baddf90548}
+\hypertarget{colamd_8h_aa754fd30d924c5c8d2d402fa0a482d72}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+O\+K@{C\+O\+L\+A\+M\+D\+\_\+\+O\+K}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+O\+K@{C\+O\+L\+A\+M\+D\+\_\+\+O\+K}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+O\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+O\+K~(0)}\label{colamd_8h_aa754fd30d924c5c8d2d402fa0a482d72}
+\hypertarget{colamd_8h_ac0d7f3882e6e9e39527aa2195dd23789}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+O\+K\+\_\+\+B\+U\+T\+\_\+\+J\+U\+M\+B\+L\+E\+D@{C\+O\+L\+A\+M\+D\+\_\+\+O\+K\+\_\+\+B\+U\+T\+\_\+\+J\+U\+M\+B\+L\+E\+D}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+O\+K\+\_\+\+B\+U\+T\+\_\+\+J\+U\+M\+B\+L\+E\+D@{C\+O\+L\+A\+M\+D\+\_\+\+O\+K\+\_\+\+B\+U\+T\+\_\+\+J\+U\+M\+B\+L\+E\+D}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+O\+K\+\_\+\+B\+U\+T\+\_\+\+J\+U\+M\+B\+L\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+O\+K\+\_\+\+B\+U\+T\+\_\+\+J\+U\+M\+B\+L\+E\+D~(1)}\label{colamd_8h_ac0d7f3882e6e9e39527aa2195dd23789}
+\hypertarget{colamd_8h_a52e8a8827c11d9c2a1f1b87e09bc8dc0}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+R@{C\+O\+L\+A\+M\+D\+\_\+\+R}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+R@{C\+O\+L\+A\+M\+D\+\_\+\+R}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+R(
+\begin{DoxyParamCaption}
+\item[{}]{n\+\_\+row}
+\end{DoxyParamCaption}
+)~((int) (((n\+\_\+row) + 1) $\ast$ sizeof ({\bf Colamd\+\_\+\+Row}) / sizeof (int)))}\label{colamd_8h_a52e8a8827c11d9c2a1f1b87e09bc8dc0}
+\hypertarget{colamd_8h_aa6980d68bd04f7567d7d0bd40b244c2f}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+R\+E\+C\+O\+M\+M\+E\+N\+D\+E\+D@{C\+O\+L\+A\+M\+D\+\_\+\+R\+E\+C\+O\+M\+M\+E\+N\+D\+E\+D}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+R\+E\+C\+O\+M\+M\+E\+N\+D\+E\+D@{C\+O\+L\+A\+M\+D\+\_\+\+R\+E\+C\+O\+M\+M\+E\+N\+D\+E\+D}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+R\+E\+C\+O\+M\+M\+E\+N\+D\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+R\+E\+C\+O\+M\+M\+E\+N\+D\+E\+D(
+\begin{DoxyParamCaption}
+\item[{}]{nnz, }
+\item[{}]{n\+\_\+row, }
+\item[{}]{n\+\_\+col}
+\end{DoxyParamCaption}
+)}\label{colamd_8h_aa6980d68bd04f7567d7d0bd40b244c2f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(                                                                             \(\backslash\)
+((nnz) < 0 || (n\_row) < 0 || (n\_col) < 0)                                     \(\backslash\)
+?                                                                             \(\backslash\)
+    (-1)                                                                      \(\backslash\)
+:                                                                             \(\backslash\)
+    (2 * (nnz) + \hyperlink{colamd_8h_a339fb9b07ed315667cc4542c15116c83}{COLAMD\_C} (n\_col) + \hyperlink{colamd_8h_a52e8a8827c11d9c2a1f1b87e09bc8dc0}{COLAMD\_R} (n\_row) + (n\_col) + ((nnz) / 5)) \(\backslash\)
+)
+\end{DoxyCode}
+\hypertarget{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S@{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S@{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S~20}\label{colamd_8h_a411703fc0a994b83ec0e00df1abfc0f7}
+\hypertarget{colamd_8h_a6a4201ce55dfa3a6375b90097e8c747e}{}\index{colamd.\+h@{colamd.\+h}!C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+U\+S@{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+U\+S}}
+\index{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+U\+S@{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+U\+S}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+U\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+U\+S~3}\label{colamd_8h_a6a4201ce55dfa3a6375b90097e8c747e}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{colamd_8h_a059db10cdebbb878b50bfcd2e023315a}{}\index{colamd.\+h@{colamd.\+h}!Colamd\+\_\+\+Col@{Colamd\+\_\+\+Col}}
+\index{Colamd\+\_\+\+Col@{Colamd\+\_\+\+Col}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{Colamd\+\_\+\+Col}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf Colamd\+\_\+\+Col\+\_\+struct}  {\bf Colamd\+\_\+\+Col}}\label{colamd_8h_a059db10cdebbb878b50bfcd2e023315a}
+\hypertarget{colamd_8h_a8a1ceeb79ebba705abb1d27469f4a358}{}\index{colamd.\+h@{colamd.\+h}!Colamd\+\_\+\+Row@{Colamd\+\_\+\+Row}}
+\index{Colamd\+\_\+\+Row@{Colamd\+\_\+\+Row}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{Colamd\+\_\+\+Row}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf Colamd\+\_\+\+Row\+\_\+struct}  {\bf Colamd\+\_\+\+Row}}\label{colamd_8h_a8a1ceeb79ebba705abb1d27469f4a358}
+
+
+\subsection{Function Documentation}
+\hypertarget{colamd_8h_af5cec4b6391e4c20abfaa6da39975bca}{}\index{colamd.\+h@{colamd.\+h}!colamd@{colamd}}
+\index{colamd@{colamd}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{colamd}]{\setlength{\rightskip}{0pt plus 5cm}int colamd (
+\begin{DoxyParamCaption}
+\item[{int}]{n\+\_\+row, }
+\item[{int}]{n\+\_\+col, }
+\item[{int}]{Alen, }
+\item[{int}]{A\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{p\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{knobs\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S\mbox{]}, }
+\item[{int}]{stats\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8h_af5cec4b6391e4c20abfaa6da39975bca}
+\hypertarget{colamd_8h_a9b48c9b9eb5dce7e9ca42174208b1015}{}\index{colamd.\+h@{colamd.\+h}!colamd\+\_\+recommended@{colamd\+\_\+recommended}}
+\index{colamd\+\_\+recommended@{colamd\+\_\+recommended}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{colamd\+\_\+recommended}]{\setlength{\rightskip}{0pt plus 5cm}int colamd\+\_\+recommended (
+\begin{DoxyParamCaption}
+\item[{int}]{nnz, }
+\item[{int}]{n\+\_\+row, }
+\item[{int}]{n\+\_\+col}
+\end{DoxyParamCaption}
+)}\label{colamd_8h_a9b48c9b9eb5dce7e9ca42174208b1015}
+\hypertarget{colamd_8h_a7cfa2e07413d0bc9489f10ac881faa51}{}\index{colamd.\+h@{colamd.\+h}!colamd\+\_\+report@{colamd\+\_\+report}}
+\index{colamd\+\_\+report@{colamd\+\_\+report}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{colamd\+\_\+report}]{\setlength{\rightskip}{0pt plus 5cm}void colamd\+\_\+report (
+\begin{DoxyParamCaption}
+\item[{int}]{stats\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8h_a7cfa2e07413d0bc9489f10ac881faa51}
+\hypertarget{colamd_8h_ae582ce20a46b5ef39434acb9d66fe2ca}{}\index{colamd.\+h@{colamd.\+h}!colamd\+\_\+set\+\_\+defaults@{colamd\+\_\+set\+\_\+defaults}}
+\index{colamd\+\_\+set\+\_\+defaults@{colamd\+\_\+set\+\_\+defaults}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{colamd\+\_\+set\+\_\+defaults}]{\setlength{\rightskip}{0pt plus 5cm}void colamd\+\_\+set\+\_\+defaults (
+\begin{DoxyParamCaption}
+\item[{double}]{knobs\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8h_ae582ce20a46b5ef39434acb9d66fe2ca}
+\hypertarget{colamd_8h_ae3d0175d1cb36f6cb16dfe96bbf946a3}{}\index{colamd.\+h@{colamd.\+h}!symamd@{symamd}}
+\index{symamd@{symamd}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{symamd}]{\setlength{\rightskip}{0pt plus 5cm}int symamd (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{A\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{p\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{perm\mbox{[}$\,$\mbox{]}, }
+\item[{double}]{knobs\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+K\+N\+O\+B\+S\mbox{]}, }
+\item[{int}]{stats\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]}, }
+\item[{void $\ast$($\ast$)(size\+\_\+t, size\+\_\+t)}]{allocate, }
+\item[{void($\ast$)(void $\ast$)}]{release}
+\end{DoxyParamCaption}
+)}\label{colamd_8h_ae3d0175d1cb36f6cb16dfe96bbf946a3}
+\hypertarget{colamd_8h_a948750692c453eb36edc5b77a670ec54}{}\index{colamd.\+h@{colamd.\+h}!symamd\+\_\+report@{symamd\+\_\+report}}
+\index{symamd\+\_\+report@{symamd\+\_\+report}!colamd.\+h@{colamd.\+h}}
+\subsubsection[{symamd\+\_\+report}]{\setlength{\rightskip}{0pt plus 5cm}void symamd\+\_\+report (
+\begin{DoxyParamCaption}
+\item[{int}]{stats\mbox{[}\+C\+O\+L\+A\+M\+D\+\_\+\+S\+T\+A\+T\+S\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{colamd_8h_a948750692c453eb36edc5b77a670ec54}

@@ -1,0 +1,128 @@
+\hypertarget{c__misc_2struve_8c}{}\section{packages/scipy-\/0.14.0/scipy/special/c\+\_\+misc/struve.c File Reference}
+\label{c__misc_2struve_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/special/c\+\_\+misc/struve.\+c@{packages/scipy-\/0.\+14.\+0/scipy/special/c\+\_\+misc/struve.\+c}}
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}cephes.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}amos\+\_\+wrappers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}misc.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}double2.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{c__misc_2struve_8c_a9e60f3e57fde2b9b1c7fe2eab7334add}{M\+A\+X\+I\+T\+E\+R}~10000
+\item 
+\#define \hyperlink{c__misc_2struve_8c_add6f18c778b54845d28fd14a04ba583f}{S\+U\+M\+\_\+\+E\+P\+S}~1e-\/16   /$\ast$ be sure we are in the tail of the sum $\ast$/
+\item 
+\#define \hyperlink{c__misc_2struve_8c_a985f50e7222821f1866337148cd32580}{S\+U\+M\+\_\+\+T\+I\+N\+Y}~1e-\/100
+\item 
+\#define \hyperlink{c__misc_2struve_8c_a2a0789cd46fefc9c2ec61b7d17b13df5}{G\+O\+O\+D\+\_\+\+E\+P\+S}~1e-\/12
+\item 
+\#define \hyperlink{c__misc_2struve_8c_a4a0c4f7ac91f7008608e79cd2e7665fe}{A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+E\+P\+S}~1e-\/7
+\item 
+\#define \hyperlink{c__misc_2struve_8c_a3c01fd75d21f86303ef0702827c497d2}{A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+A\+T\+O\+L}~1e-\/300
+\item 
+\#define \hyperlink{c__misc_2struve_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{M\+I\+N}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) $<$ (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}) ? (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) \+: (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{c__misc_2struve_8c_ac5a3bf09c72888ad3c52f0ef635c694a}{struve\+\_\+power\+\_\+series} (double v, double \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, int is\+\_\+h, double $\ast$err)
+\item 
+double \hyperlink{c__misc_2struve_8c_ac9cf8e9654db61a6962b0ba13d7f845d}{struve\+\_\+asymp\+\_\+large\+\_\+z} (double v, double z, int is\+\_\+h, double $\ast$err)
+\item 
+double \hyperlink{c__misc_2struve_8c_a14c1dd147a3dc45fb450c7af1e4c0950}{struve\+\_\+bessel\+\_\+series} (double v, double z, int is\+\_\+h, double $\ast$err)
+\item 
+double \hyperlink{c__misc_2struve_8c_a611a13c39afca5c7c6e4bd72c4f3305d}{polevl} (double \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, void $\ast$P, int \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N})
+\item 
+double \hyperlink{c__misc_2struve_8c_abbf22d2470600fbfda5b4626117b94f7}{struve\+\_\+h} (double v, double z)
+\item 
+double \hyperlink{c__misc_2struve_8c_a18c98b90e56cedea89fa5b47744b7b7d}{struve\+\_\+l} (double v, double z)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{c__misc_2struve_8c_a3c01fd75d21f86303ef0702827c497d2}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+A\+T\+O\+L@{A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+A\+T\+O\+L}}
+\index{A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+A\+T\+O\+L@{A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+A\+T\+O\+L}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+A\+T\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+A\+T\+O\+L~1e-\/300}\label{c__misc_2struve_8c_a3c01fd75d21f86303ef0702827c497d2}
+\hypertarget{c__misc_2struve_8c_a4a0c4f7ac91f7008608e79cd2e7665fe}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+E\+P\+S@{A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+E\+P\+S}}
+\index{A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+E\+P\+S@{A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+E\+P\+S}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+E\+P\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+C\+C\+E\+P\+T\+A\+B\+L\+E\+\_\+\+E\+P\+S~1e-\/7}\label{c__misc_2struve_8c_a4a0c4f7ac91f7008608e79cd2e7665fe}
+\hypertarget{c__misc_2struve_8c_a2a0789cd46fefc9c2ec61b7d17b13df5}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!G\+O\+O\+D\+\_\+\+E\+P\+S@{G\+O\+O\+D\+\_\+\+E\+P\+S}}
+\index{G\+O\+O\+D\+\_\+\+E\+P\+S@{G\+O\+O\+D\+\_\+\+E\+P\+S}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{G\+O\+O\+D\+\_\+\+E\+P\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+O\+O\+D\+\_\+\+E\+P\+S~1e-\/12}\label{c__misc_2struve_8c_a2a0789cd46fefc9c2ec61b7d17b13df5}
+\hypertarget{c__misc_2struve_8c_a9e60f3e57fde2b9b1c7fe2eab7334add}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!M\+A\+X\+I\+T\+E\+R@{M\+A\+X\+I\+T\+E\+R}}
+\index{M\+A\+X\+I\+T\+E\+R@{M\+A\+X\+I\+T\+E\+R}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{M\+A\+X\+I\+T\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+I\+T\+E\+R~10000}\label{c__misc_2struve_8c_a9e60f3e57fde2b9b1c7fe2eab7334add}
+\hypertarget{c__misc_2struve_8c_a3acffbd305ee72dcd4593c0d8af64a4f}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!M\+I\+N@{M\+I\+N}}
+\index{M\+I\+N@{M\+I\+N}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+I\+N(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~(({\bf a}) $<$ ({\bf b}) ? ({\bf a}) \+: ({\bf b}))}\label{c__misc_2struve_8c_a3acffbd305ee72dcd4593c0d8af64a4f}
+\hypertarget{c__misc_2struve_8c_add6f18c778b54845d28fd14a04ba583f}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!S\+U\+M\+\_\+\+E\+P\+S@{S\+U\+M\+\_\+\+E\+P\+S}}
+\index{S\+U\+M\+\_\+\+E\+P\+S@{S\+U\+M\+\_\+\+E\+P\+S}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{S\+U\+M\+\_\+\+E\+P\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+M\+\_\+\+E\+P\+S~1e-\/16   /$\ast$ be sure we are in the tail of the sum $\ast$/}\label{c__misc_2struve_8c_add6f18c778b54845d28fd14a04ba583f}
+\hypertarget{c__misc_2struve_8c_a985f50e7222821f1866337148cd32580}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!S\+U\+M\+\_\+\+T\+I\+N\+Y@{S\+U\+M\+\_\+\+T\+I\+N\+Y}}
+\index{S\+U\+M\+\_\+\+T\+I\+N\+Y@{S\+U\+M\+\_\+\+T\+I\+N\+Y}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{S\+U\+M\+\_\+\+T\+I\+N\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+M\+\_\+\+T\+I\+N\+Y~1e-\/100}\label{c__misc_2struve_8c_a985f50e7222821f1866337148cd32580}
+
+
+\subsection{Function Documentation}
+\hypertarget{c__misc_2struve_8c_a611a13c39afca5c7c6e4bd72c4f3305d}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!polevl@{polevl}}
+\index{polevl@{polevl}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{polevl}]{\setlength{\rightskip}{0pt plus 5cm}double polevl (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{void $\ast$}]{P, }
+\item[{int}]{N}
+\end{DoxyParamCaption}
+)}\label{c__misc_2struve_8c_a611a13c39afca5c7c6e4bd72c4f3305d}
+\hypertarget{c__misc_2struve_8c_ac9cf8e9654db61a6962b0ba13d7f845d}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!struve\+\_\+asymp\+\_\+large\+\_\+z@{struve\+\_\+asymp\+\_\+large\+\_\+z}}
+\index{struve\+\_\+asymp\+\_\+large\+\_\+z@{struve\+\_\+asymp\+\_\+large\+\_\+z}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{struve\+\_\+asymp\+\_\+large\+\_\+z}]{\setlength{\rightskip}{0pt plus 5cm}double struve\+\_\+asymp\+\_\+large\+\_\+z (
+\begin{DoxyParamCaption}
+\item[{double}]{v, }
+\item[{double}]{z, }
+\item[{int}]{is\+\_\+h, }
+\item[{double $\ast$}]{err}
+\end{DoxyParamCaption}
+)}\label{c__misc_2struve_8c_ac9cf8e9654db61a6962b0ba13d7f845d}
+\hypertarget{c__misc_2struve_8c_a14c1dd147a3dc45fb450c7af1e4c0950}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!struve\+\_\+bessel\+\_\+series@{struve\+\_\+bessel\+\_\+series}}
+\index{struve\+\_\+bessel\+\_\+series@{struve\+\_\+bessel\+\_\+series}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{struve\+\_\+bessel\+\_\+series}]{\setlength{\rightskip}{0pt plus 5cm}double struve\+\_\+bessel\+\_\+series (
+\begin{DoxyParamCaption}
+\item[{double}]{v, }
+\item[{double}]{z, }
+\item[{int}]{is\+\_\+h, }
+\item[{double $\ast$}]{err}
+\end{DoxyParamCaption}
+)}\label{c__misc_2struve_8c_a14c1dd147a3dc45fb450c7af1e4c0950}
+\hypertarget{c__misc_2struve_8c_abbf22d2470600fbfda5b4626117b94f7}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!struve\+\_\+h@{struve\+\_\+h}}
+\index{struve\+\_\+h@{struve\+\_\+h}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{struve\+\_\+h}]{\setlength{\rightskip}{0pt plus 5cm}double struve\+\_\+h (
+\begin{DoxyParamCaption}
+\item[{double}]{v, }
+\item[{double}]{z}
+\end{DoxyParamCaption}
+)}\label{c__misc_2struve_8c_abbf22d2470600fbfda5b4626117b94f7}
+\hypertarget{c__misc_2struve_8c_a18c98b90e56cedea89fa5b47744b7b7d}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!struve\+\_\+l@{struve\+\_\+l}}
+\index{struve\+\_\+l@{struve\+\_\+l}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{struve\+\_\+l}]{\setlength{\rightskip}{0pt plus 5cm}double struve\+\_\+l (
+\begin{DoxyParamCaption}
+\item[{double}]{v, }
+\item[{double}]{z}
+\end{DoxyParamCaption}
+)}\label{c__misc_2struve_8c_a18c98b90e56cedea89fa5b47744b7b7d}
+\hypertarget{c__misc_2struve_8c_ac5a3bf09c72888ad3c52f0ef635c694a}{}\index{c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}!struve\+\_\+power\+\_\+series@{struve\+\_\+power\+\_\+series}}
+\index{struve\+\_\+power\+\_\+series@{struve\+\_\+power\+\_\+series}!c\+\_\+misc/struve.\+c@{c\+\_\+misc/struve.\+c}}
+\subsubsection[{struve\+\_\+power\+\_\+series}]{\setlength{\rightskip}{0pt plus 5cm}double struve\+\_\+power\+\_\+series (
+\begin{DoxyParamCaption}
+\item[{double}]{v, }
+\item[{double}]{x, }
+\item[{int}]{is\+\_\+h, }
+\item[{double $\ast$}]{err}
+\end{DoxyParamCaption}
+)}\label{c__misc_2struve_8c_ac5a3bf09c72888ad3c52f0ef635c694a}

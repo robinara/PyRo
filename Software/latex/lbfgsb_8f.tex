@@ -1,0 +1,478 @@
+\hypertarget{lbfgsb_8f}{}\section{packages/scipy-\/0.14.0/scipy/optimize/lbfgsb/lbfgsb.f File Reference}
+\label{lbfgsb_8f}\index{packages/scipy-\/0.\+14.\+0/scipy/optimize/lbfgsb/lbfgsb.\+f@{packages/scipy-\/0.\+14.\+0/scipy/optimize/lbfgsb/lbfgsb.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{lbfgsb_8f_a98990772aba60ae5986ecbbcc015ebed}{setulb} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, u, nbd, f, g, factr, pgtol, wa, iwa, task, iprint, csave, lsave, isave, dsave)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a5a0132dc055b1aade2710adfff9b8f09}{mainlb} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, u, nbd, f, g, factr, pgtol, ws, wy, sy, ss, wt, wn, snd, z, \hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}, d, \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t}, xp, wa, index, iwhere, indx2, task, iprint, csave, lsave, isave, dsave)
+\item 
+subroutine \hyperlink{lbfgsb_8f_aabce91f1253de53e2bae52ad9b94fcbb}{active} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, u, nbd, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, iwhere, iprint, prjctd, cnstnd, boxed)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a3b7cf8256f5c958dd10a7f72db1a0f14}{bmv} (\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, sy, wt, col, v, \hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}, info)
+\item 
+subroutine \hyperlink{lbfgsb_8f_ade50ac4208f509bdc3d04a325285a8be}{cauchy} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, u, nbd, g, iorder, iwhere, \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t}, d, xcp, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, wy, ws, sy, wt, \hyperlink{gen__mat5files_8m_a485aacac5dba13c16bc07a75e7af465c}{theta}, col, head, \hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}, c, wbp, v, nseg, iprint, sbgnrm, info, epsmch)
+\item 
+subroutine \hyperlink{lbfgsb_8f_aeca70b38353e4c44297fef717a66def4}{cmprlb} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, g, ws, wy, sy, wt, z, \hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}, wa, index, \hyperlink{gen__mat5files_8m_a485aacac5dba13c16bc07a75e7af465c}{theta}, col, head, nfree, cnstnd, info)
+\item 
+subroutine \hyperlink{lbfgsb_8f_affdf5cf80f86556653ba2cc860a2bb32}{errclb} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, factr, \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, u, nbd, task, info, \hyperlink{indexexpr_8h_abb72938a198351550846b37a84588b63}{k})
+\item 
+subroutine \hyperlink{lbfgsb_8f_a0e64ef7f777edb20419c8d441107c654}{formk} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, nsub, ind, nenter, ileave, indx2, iupdat, updatd, wn, wn1, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, ws, wy, sy, \hyperlink{gen__mat5files_8m_a485aacac5dba13c16bc07a75e7af465c}{theta}, col, head, info)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a237bf34b63889556b05399c224ec5f71}{formt} (\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, wt, sy, ss, col, \hyperlink{gen__mat5files_8m_a485aacac5dba13c16bc07a75e7af465c}{theta}, info)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a9e31e2bbd26db0eabd2e72c99e5a2f84}{freev} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, nfree, index, nenter, ileave, indx2, iwhere, wrk, updatd, cnstnd, iprint, iter)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a94349c617519970019d2f15efcb1df41}{hpsolb} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t}, iorder, iheap)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a39a5ed1544c79127ec31703136240b70}{lnsrlb} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, u, nbd, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, f, fold, gd, gdold, g, d, \hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}, \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t}, z, stp, dnorm, dtd, xstep, stpmx, iter, ifun, iback, nfgv, info, task, boxed, cnstnd, csave, isave, dsave, iprint)
+\item 
+subroutine \hyperlink{lbfgsb_8f_ae0d8b7b11bf7546ed4d53b433273f74b}{matupd} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, ws, wy, sy, ss, d, \hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}, itail, iupdat, col, head, \hyperlink{gen__mat5files_8m_a485aacac5dba13c16bc07a75e7af465c}{theta}, rr, dr, stp, dtd)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a9d5d96d3efd3ea19322ee8d472954cc9}{prn1lb} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, u, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, iprint, itfile, epsmch)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a5df5a6f8f26c5a5a68585b45a41032bd}{prn2lb} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, f, g, iprint, itfile, iter, nfgv, nact, sbgnrm, nseg, word, iword, iback, stp, xstep)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a433c19f6cb8b79a552a65371fecffb8c}{prn3lb} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, f, task, iprint, info, itfile, iter, nfgv, nintol, nskip, nact, sbgnrm, time, nseg, word, iback, stp, xstep, \hyperlink{indexexpr_8h_abb72938a198351550846b37a84588b63}{k}, cachyt, sbtime, lnscht)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a7c7b868c8b42f51efd25e48cd293cb5f}{projgr} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, u, nbd, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, g, sbgnrm)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a885224f17c93707dec22de0a51a4081d}{subsm} (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, nsub, ind, \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, u, nbd, \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, d, xp, ws, wy, \hyperlink{gen__mat5files_8m_a485aacac5dba13c16bc07a75e7af465c}{theta}, xx, gg, col, head, iword, wv, wn, iprint, info)
+\item 
+subroutine \hyperlink{lbfgsb_8f_a25db7a7d8ddac831be23892a10ba2a76}{dcsrch} (f, g, stp, ftol, gtol, xtol, stpmin, stpmax, task, isave, dsave)
+\item 
+subroutine \hyperlink{lbfgsb_8f_aa8518f45aef3723242c7ca3f41717a31}{dcstep} (stx, fx, dx, sty, fy, dy, stp, fp, dp, brackt, stpmin, stpmax)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{lbfgsb_8f_aabce91f1253de53e2bae52ad9b94fcbb}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!active@{active}}
+\index{active@{active}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{active}]{\setlength{\rightskip}{0pt plus 5cm}subroutine active (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{double {\bf precision}, dimension({\bf n})}]{l, }
+\item[{double {\bf precision}, dimension({\bf n})}]{u, }
+\item[{integer, dimension({\bf n})}]{nbd, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{integer, dimension({\bf n})}]{iwhere, }
+\item[{integer}]{iprint, }
+\item[{{\bf logical}}]{prjctd, }
+\item[{{\bf logical}}]{cnstnd, }
+\item[{{\bf logical}}]{boxed}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_aabce91f1253de53e2bae52ad9b94fcbb}
+\hypertarget{lbfgsb_8f_a3b7cf8256f5c958dd10a7f72db1a0f14}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!bmv@{bmv}}
+\index{bmv@{bmv}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{bmv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine bmv (
+\begin{DoxyParamCaption}
+\item[{integer}]{m, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{sy, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{wt, }
+\item[{integer}]{col, }
+\item[{double {\bf precision}, dimension(2$\ast$col)}]{v, }
+\item[{double {\bf precision}, dimension(2$\ast$col)}]{p, }
+\item[{integer}]{info}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a3b7cf8256f5c958dd10a7f72db1a0f14}
+\hypertarget{lbfgsb_8f_ade50ac4208f509bdc3d04a325285a8be}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!cauchy@{cauchy}}
+\index{cauchy@{cauchy}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{cauchy}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cauchy (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{double {\bf precision}, dimension({\bf n})}]{l, }
+\item[{double {\bf precision}, dimension({\bf n})}]{u, }
+\item[{integer, dimension({\bf n})}]{nbd, }
+\item[{double {\bf precision}, dimension({\bf n})}]{g, }
+\item[{integer, dimension({\bf n})}]{iorder, }
+\item[{integer, dimension({\bf n})}]{iwhere, }
+\item[{double {\bf precision}, dimension({\bf n})}]{t, }
+\item[{double {\bf precision}, dimension({\bf n})}]{d, }
+\item[{double {\bf precision}, dimension({\bf n})}]{xcp, }
+\item[{integer}]{m, }
+\item[{double {\bf precision}, dimension({\bf n}, col)}]{wy, }
+\item[{double {\bf precision}, dimension({\bf n}, col)}]{ws, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{sy, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{wt, }
+\item[{double {\bf precision}}]{theta, }
+\item[{integer}]{col, }
+\item[{integer}]{head, }
+\item[{double {\bf precision}, dimension(2$\ast${\bf m})}]{p, }
+\item[{double {\bf precision}, dimension(2$\ast${\bf m})}]{c, }
+\item[{double {\bf precision}, dimension(2$\ast${\bf m})}]{wbp, }
+\item[{double {\bf precision}, dimension(2$\ast${\bf m})}]{v, }
+\item[{integer}]{nseg, }
+\item[{integer}]{iprint, }
+\item[{double {\bf precision}}]{sbgnrm, }
+\item[{integer}]{info, }
+\item[{double {\bf precision}}]{epsmch}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_ade50ac4208f509bdc3d04a325285a8be}
+\hypertarget{lbfgsb_8f_aeca70b38353e4c44297fef717a66def4}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!cmprlb@{cmprlb}}
+\index{cmprlb@{cmprlb}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{cmprlb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cmprlb (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{integer}]{m, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{double {\bf precision}, dimension({\bf n})}]{g, }
+\item[{double {\bf precision}, dimension({\bf n}, {\bf m})}]{ws, }
+\item[{double {\bf precision}, dimension({\bf n}, {\bf m})}]{wy, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{sy, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{wt, }
+\item[{double {\bf precision}, dimension({\bf n})}]{z, }
+\item[{double {\bf precision}, dimension({\bf n})}]{r, }
+\item[{double {\bf precision}, dimension(4$\ast${\bf m})}]{wa, }
+\item[{integer, dimension({\bf n})}]{index, }
+\item[{double {\bf precision}}]{theta, }
+\item[{integer}]{col, }
+\item[{integer}]{head, }
+\item[{integer}]{nfree, }
+\item[{{\bf logical}}]{cnstnd, }
+\item[{integer}]{info}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_aeca70b38353e4c44297fef717a66def4}
+\hypertarget{lbfgsb_8f_a25db7a7d8ddac831be23892a10ba2a76}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!dcsrch@{dcsrch}}
+\index{dcsrch@{dcsrch}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{dcsrch}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dcsrch (
+\begin{DoxyParamCaption}
+\item[{double {\bf precision}}]{f, }
+\item[{double {\bf precision}}]{g, }
+\item[{double {\bf precision}}]{stp, }
+\item[{double {\bf precision}}]{ftol, }
+\item[{double {\bf precision}}]{gtol, }
+\item[{double {\bf precision}}]{xtol, }
+\item[{double {\bf precision}}]{stpmin, }
+\item[{double {\bf precision}}]{stpmax, }
+\item[{character$\ast$($\ast$)}]{task, }
+\item[{integer, dimension(2)}]{isave, }
+\item[{double {\bf precision}, dimension(13)}]{dsave}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a25db7a7d8ddac831be23892a10ba2a76}
+\hypertarget{lbfgsb_8f_aa8518f45aef3723242c7ca3f41717a31}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!dcstep@{dcstep}}
+\index{dcstep@{dcstep}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{dcstep}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dcstep (
+\begin{DoxyParamCaption}
+\item[{double {\bf precision}}]{stx, }
+\item[{double {\bf precision}}]{fx, }
+\item[{double {\bf precision}}]{dx, }
+\item[{double {\bf precision}}]{sty, }
+\item[{double {\bf precision}}]{fy, }
+\item[{double {\bf precision}}]{dy, }
+\item[{double {\bf precision}}]{stp, }
+\item[{double {\bf precision}}]{fp, }
+\item[{double {\bf precision}}]{dp, }
+\item[{{\bf logical}}]{brackt, }
+\item[{double {\bf precision}}]{stpmin, }
+\item[{double {\bf precision}}]{stpmax}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_aa8518f45aef3723242c7ca3f41717a31}
+\hypertarget{lbfgsb_8f_affdf5cf80f86556653ba2cc860a2bb32}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!errclb@{errclb}}
+\index{errclb@{errclb}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{errclb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine errclb (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{integer}]{m, }
+\item[{double {\bf precision}}]{factr, }
+\item[{double {\bf precision}, dimension({\bf n})}]{l, }
+\item[{double {\bf precision}, dimension({\bf n})}]{u, }
+\item[{integer, dimension({\bf n})}]{nbd, }
+\item[{character$\ast$60}]{task, }
+\item[{integer}]{info, }
+\item[{integer}]{k}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_affdf5cf80f86556653ba2cc860a2bb32}
+\hypertarget{lbfgsb_8f_a0e64ef7f777edb20419c8d441107c654}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!formk@{formk}}
+\index{formk@{formk}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{formk}]{\setlength{\rightskip}{0pt plus 5cm}subroutine formk (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{integer}]{nsub, }
+\item[{integer, dimension({\bf n})}]{ind, }
+\item[{integer}]{nenter, }
+\item[{integer}]{ileave, }
+\item[{integer, dimension({\bf n})}]{indx2, }
+\item[{integer}]{iupdat, }
+\item[{{\bf logical}}]{updatd, }
+\item[{double {\bf precision}, dimension(2$\ast${\bf m}, 2$\ast${\bf m})}]{wn, }
+\item[{double {\bf precision}, dimension(2$\ast${\bf m}, 2$\ast${\bf m})}]{wn1, }
+\item[{integer}]{m, }
+\item[{double {\bf precision}, dimension({\bf n}, {\bf m})}]{ws, }
+\item[{double {\bf precision}, dimension({\bf n}, {\bf m})}]{wy, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{sy, }
+\item[{double {\bf precision}}]{theta, }
+\item[{integer}]{col, }
+\item[{integer}]{head, }
+\item[{integer}]{info}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a0e64ef7f777edb20419c8d441107c654}
+\hypertarget{lbfgsb_8f_a237bf34b63889556b05399c224ec5f71}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!formt@{formt}}
+\index{formt@{formt}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{formt}]{\setlength{\rightskip}{0pt plus 5cm}subroutine formt (
+\begin{DoxyParamCaption}
+\item[{integer}]{m, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{wt, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{sy, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{ss, }
+\item[{integer}]{col, }
+\item[{double {\bf precision}}]{theta, }
+\item[{integer}]{info}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a237bf34b63889556b05399c224ec5f71}
+\hypertarget{lbfgsb_8f_a9e31e2bbd26db0eabd2e72c99e5a2f84}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!freev@{freev}}
+\index{freev@{freev}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{freev}]{\setlength{\rightskip}{0pt plus 5cm}subroutine freev (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{integer}]{nfree, }
+\item[{integer, dimension({\bf n})}]{index, }
+\item[{integer}]{nenter, }
+\item[{integer}]{ileave, }
+\item[{integer, dimension({\bf n})}]{indx2, }
+\item[{integer, dimension({\bf n})}]{iwhere, }
+\item[{{\bf logical}}]{wrk, }
+\item[{{\bf logical}}]{updatd, }
+\item[{{\bf logical}}]{cnstnd, }
+\item[{integer}]{iprint, }
+\item[{integer}]{iter}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a9e31e2bbd26db0eabd2e72c99e5a2f84}
+\hypertarget{lbfgsb_8f_a94349c617519970019d2f15efcb1df41}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!hpsolb@{hpsolb}}
+\index{hpsolb@{hpsolb}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{hpsolb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine hpsolb (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{double {\bf precision}, dimension({\bf n})}]{t, }
+\item[{integer, dimension({\bf n})}]{iorder, }
+\item[{integer}]{iheap}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a94349c617519970019d2f15efcb1df41}
+\hypertarget{lbfgsb_8f_a39a5ed1544c79127ec31703136240b70}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!lnsrlb@{lnsrlb}}
+\index{lnsrlb@{lnsrlb}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{lnsrlb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine lnsrlb (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{double {\bf precision}, dimension({\bf n})}]{l, }
+\item[{double {\bf precision}, dimension({\bf n})}]{u, }
+\item[{integer, dimension({\bf n})}]{nbd, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{double {\bf precision}}]{f, }
+\item[{double {\bf precision}}]{fold, }
+\item[{double {\bf precision}}]{gd, }
+\item[{double {\bf precision}}]{gdold, }
+\item[{double {\bf precision}, dimension({\bf n})}]{g, }
+\item[{double {\bf precision}, dimension({\bf n})}]{d, }
+\item[{double {\bf precision}, dimension({\bf n})}]{r, }
+\item[{double {\bf precision}, dimension({\bf n})}]{t, }
+\item[{double {\bf precision}, dimension({\bf n})}]{z, }
+\item[{double {\bf precision}}]{stp, }
+\item[{double {\bf precision}}]{dnorm, }
+\item[{double {\bf precision}}]{dtd, }
+\item[{double {\bf precision}}]{xstep, }
+\item[{double {\bf precision}}]{stpmx, }
+\item[{integer}]{iter, }
+\item[{integer}]{ifun, }
+\item[{integer}]{iback, }
+\item[{integer}]{nfgv, }
+\item[{integer}]{info, }
+\item[{character$\ast$60}]{task, }
+\item[{{\bf logical}}]{boxed, }
+\item[{{\bf logical}}]{cnstnd, }
+\item[{character$\ast$60}]{csave, }
+\item[{integer, dimension(2)}]{isave, }
+\item[{double {\bf precision}, dimension(13)}]{dsave, }
+\item[{integer}]{iprint}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a39a5ed1544c79127ec31703136240b70}
+\hypertarget{lbfgsb_8f_a5a0132dc055b1aade2710adfff9b8f09}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!mainlb@{mainlb}}
+\index{mainlb@{mainlb}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{mainlb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine mainlb (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{integer}]{m, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{double {\bf precision}, dimension({\bf n})}]{l, }
+\item[{double {\bf precision}, dimension({\bf n})}]{u, }
+\item[{integer, dimension({\bf n})}]{nbd, }
+\item[{double {\bf precision}}]{f, }
+\item[{double {\bf precision}, dimension({\bf n})}]{g, }
+\item[{double {\bf precision}}]{factr, }
+\item[{double {\bf precision}}]{pgtol, }
+\item[{}]{ws, }
+\item[{}]{wy, }
+\item[{}]{sy, }
+\item[{}]{ss, }
+\item[{}]{wt, }
+\item[{}]{wn, }
+\item[{}]{snd, }
+\item[{double {\bf precision}, dimension({\bf n})}]{z, }
+\item[{double {\bf precision}, dimension({\bf n})}]{r, }
+\item[{double {\bf precision}, dimension({\bf n})}]{d, }
+\item[{double {\bf precision}, dimension({\bf n})}]{t, }
+\item[{}]{xp, }
+\item[{}]{wa, }
+\item[{integer, dimension({\bf n})}]{index, }
+\item[{integer, dimension({\bf n})}]{iwhere, }
+\item[{integer, dimension({\bf n})}]{indx2, }
+\item[{character$\ast$60}]{task, }
+\item[{integer}]{iprint, }
+\item[{character$\ast$60}]{csave, }
+\item[{{\bf logical}, dimension(4)}]{lsave, }
+\item[{integer, dimension(23)}]{isave, }
+\item[{}]{dsave}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a5a0132dc055b1aade2710adfff9b8f09}
+\hypertarget{lbfgsb_8f_ae0d8b7b11bf7546ed4d53b433273f74b}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!matupd@{matupd}}
+\index{matupd@{matupd}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{matupd}]{\setlength{\rightskip}{0pt plus 5cm}subroutine matupd (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{integer}]{m, }
+\item[{double {\bf precision}, dimension({\bf n}, {\bf m})}]{ws, }
+\item[{double {\bf precision}, dimension({\bf n}, {\bf m})}]{wy, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{sy, }
+\item[{double {\bf precision}, dimension({\bf m}, {\bf m})}]{ss, }
+\item[{double {\bf precision}, dimension({\bf n})}]{d, }
+\item[{double {\bf precision}, dimension({\bf n})}]{r, }
+\item[{integer}]{itail, }
+\item[{integer}]{iupdat, }
+\item[{integer}]{col, }
+\item[{integer}]{head, }
+\item[{double {\bf precision}}]{theta, }
+\item[{double {\bf precision}}]{rr, }
+\item[{double {\bf precision}}]{dr, }
+\item[{double {\bf precision}}]{stp, }
+\item[{double {\bf precision}}]{dtd}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_ae0d8b7b11bf7546ed4d53b433273f74b}
+\hypertarget{lbfgsb_8f_a9d5d96d3efd3ea19322ee8d472954cc9}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!prn1lb@{prn1lb}}
+\index{prn1lb@{prn1lb}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{prn1lb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine prn1lb (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{integer}]{m, }
+\item[{double {\bf precision}, dimension({\bf n})}]{l, }
+\item[{double {\bf precision}, dimension({\bf n})}]{u, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{integer}]{iprint, }
+\item[{integer}]{itfile, }
+\item[{double {\bf precision}}]{epsmch}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a9d5d96d3efd3ea19322ee8d472954cc9}
+\hypertarget{lbfgsb_8f_a5df5a6f8f26c5a5a68585b45a41032bd}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!prn2lb@{prn2lb}}
+\index{prn2lb@{prn2lb}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{prn2lb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine prn2lb (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{double {\bf precision}}]{f, }
+\item[{double {\bf precision}, dimension({\bf n})}]{g, }
+\item[{integer}]{iprint, }
+\item[{integer}]{itfile, }
+\item[{integer}]{iter, }
+\item[{integer}]{nfgv, }
+\item[{integer}]{nact, }
+\item[{double {\bf precision}}]{sbgnrm, }
+\item[{integer}]{nseg, }
+\item[{character$\ast$3}]{word, }
+\item[{integer}]{iword, }
+\item[{integer}]{iback, }
+\item[{double {\bf precision}}]{stp, }
+\item[{double {\bf precision}}]{xstep}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a5df5a6f8f26c5a5a68585b45a41032bd}
+\hypertarget{lbfgsb_8f_a433c19f6cb8b79a552a65371fecffb8c}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!prn3lb@{prn3lb}}
+\index{prn3lb@{prn3lb}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{prn3lb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine prn3lb (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{double {\bf precision}}]{f, }
+\item[{character$\ast$60}]{task, }
+\item[{integer}]{iprint, }
+\item[{integer}]{info, }
+\item[{integer}]{itfile, }
+\item[{integer}]{iter, }
+\item[{integer}]{nfgv, }
+\item[{integer}]{nintol, }
+\item[{integer}]{nskip, }
+\item[{integer}]{nact, }
+\item[{double {\bf precision}}]{sbgnrm, }
+\item[{double {\bf precision}}]{time, }
+\item[{integer}]{nseg, }
+\item[{character$\ast$3}]{word, }
+\item[{integer}]{iback, }
+\item[{double {\bf precision}}]{stp, }
+\item[{double {\bf precision}}]{xstep, }
+\item[{integer}]{k, }
+\item[{double {\bf precision}}]{cachyt, }
+\item[{double {\bf precision}}]{sbtime, }
+\item[{double {\bf precision}}]{lnscht}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a433c19f6cb8b79a552a65371fecffb8c}
+\hypertarget{lbfgsb_8f_a7c7b868c8b42f51efd25e48cd293cb5f}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!projgr@{projgr}}
+\index{projgr@{projgr}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{projgr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine projgr (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{double {\bf precision}, dimension({\bf n})}]{l, }
+\item[{double {\bf precision}, dimension({\bf n})}]{u, }
+\item[{integer, dimension({\bf n})}]{nbd, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{double {\bf precision}, dimension({\bf n})}]{g, }
+\item[{double {\bf precision}}]{sbgnrm}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a7c7b868c8b42f51efd25e48cd293cb5f}
+\hypertarget{lbfgsb_8f_a98990772aba60ae5986ecbbcc015ebed}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!setulb@{setulb}}
+\index{setulb@{setulb}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{setulb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine setulb (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{integer}]{m, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{double {\bf precision}, dimension({\bf n})}]{l, }
+\item[{double {\bf precision}, dimension({\bf n})}]{u, }
+\item[{integer, dimension({\bf n})}]{nbd, }
+\item[{double {\bf precision}}]{f, }
+\item[{double {\bf precision}, dimension({\bf n})}]{g, }
+\item[{double {\bf precision}}]{factr, }
+\item[{double {\bf precision}}]{pgtol, }
+\item[{}]{wa, }
+\item[{integer, dimension(3$\ast${\bf n})}]{iwa, }
+\item[{character$\ast$60}]{task, }
+\item[{integer}]{iprint, }
+\item[{character$\ast$60}]{csave, }
+\item[{{\bf logical}, dimension(4)}]{lsave, }
+\item[{integer, dimension(44)}]{isave, }
+\item[{}]{dsave}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a98990772aba60ae5986ecbbcc015ebed}
+\hypertarget{lbfgsb_8f_a885224f17c93707dec22de0a51a4081d}{}\index{lbfgsb.\+f@{lbfgsb.\+f}!subsm@{subsm}}
+\index{subsm@{subsm}!lbfgsb.\+f@{lbfgsb.\+f}}
+\subsubsection[{subsm}]{\setlength{\rightskip}{0pt plus 5cm}subroutine subsm (
+\begin{DoxyParamCaption}
+\item[{integer}]{n, }
+\item[{integer}]{m, }
+\item[{integer}]{nsub, }
+\item[{integer, dimension(nsub)}]{ind, }
+\item[{double {\bf precision}, dimension({\bf n})}]{l, }
+\item[{double {\bf precision}, dimension({\bf n})}]{u, }
+\item[{integer, dimension({\bf n})}]{nbd, }
+\item[{double {\bf precision}, dimension({\bf n})}]{x, }
+\item[{double {\bf precision}, dimension({\bf n})}]{d, }
+\item[{double {\bf precision}, dimension({\bf n})}]{xp, }
+\item[{double {\bf precision}, dimension({\bf n}, {\bf m})}]{ws, }
+\item[{double {\bf precision}, dimension({\bf n}, {\bf m})}]{wy, }
+\item[{double {\bf precision}}]{theta, }
+\item[{double {\bf precision}, dimension({\bf n})}]{xx, }
+\item[{double {\bf precision}, dimension({\bf n})}]{gg, }
+\item[{integer}]{col, }
+\item[{integer}]{head, }
+\item[{integer}]{iword, }
+\item[{double {\bf precision}, dimension(2$\ast${\bf m})}]{wv, }
+\item[{double {\bf precision}, dimension(2$\ast${\bf m}, 2$\ast${\bf m})}]{wn, }
+\item[{integer}]{iprint, }
+\item[{integer}]{info}
+\end{DoxyParamCaption}
+)}\label{lbfgsb_8f_a885224f17c93707dec22de0a51a4081d}

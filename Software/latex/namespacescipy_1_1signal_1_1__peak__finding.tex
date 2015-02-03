@@ -1,0 +1,275 @@
+\hypertarget{namespacescipy_1_1signal_1_1__peak__finding}{}\section{scipy.\+signal.\+\_\+peak\+\_\+finding Namespace Reference}
+\label{namespacescipy_1_1signal_1_1__peak__finding}\index{scipy.\+signal.\+\_\+peak\+\_\+finding@{scipy.\+signal.\+\_\+peak\+\_\+finding}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1__peak__finding_a6d96eb9d3ff71b8fab335c1e2aa9c578}{argrelmin}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1__peak__finding_aa6f97343ee96f0430c88bc4af8a18766}{argrelmax}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1__peak__finding_ad2054e7fee29a0b211d4001de76ba916}{argrelextrema}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1__peak__finding_a5ef1b2fe6fbcdc48f6d5fd94bb7be272}{find\+\_\+peaks\+\_\+cwt}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Functions for identifying peaks in signals.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1__peak__finding_ad2054e7fee29a0b211d4001de76ba916}{}\index{scipy\+::signal\+::\+\_\+peak\+\_\+finding@{scipy\+::signal\+::\+\_\+peak\+\_\+finding}!argrelextrema@{argrelextrema}}
+\index{argrelextrema@{argrelextrema}!scipy\+::signal\+::\+\_\+peak\+\_\+finding@{scipy\+::signal\+::\+\_\+peak\+\_\+finding}}
+\subsubsection[{argrelextrema}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+\_\+peak\+\_\+finding.\+argrelextrema (
+\begin{DoxyParamCaption}
+\item[{}]{data, }
+\item[{}]{comparator, }
+\item[{}]{axis = {\ttfamily 0}, }
+\item[{}]{order = {\ttfamily 1}, }
+\item[{}]{mode = {\ttfamily 'clip'}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1__peak__finding_ad2054e7fee29a0b211d4001de76ba916}
+\begin{DoxyVerb}Calculate the relative extrema of `data`.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+data : ndarray
+    Array in which to find the relative extrema.
+comparator : callable
+    Function to use to compare two data points.
+    Should take 2 numbers as arguments.
+axis : int, optional
+    Axis over which to select from `data`.  Default is 0.
+order : int, optional
+    How many points on each side to use for the comparison
+    to consider ``comparator(n, n+x)`` to be True.
+mode : str, optional
+    How the edges of the vector are treated.  'wrap' (wrap around) or
+    'clip' (treat overflow as the same as the last (or first) element).
+    Default is 'clip'.  See `numpy.take`.
+
+Returns
+-------
+extrema : tuple of ndarrays
+    Indices of the maxima in arrays of integers.  ``extrema[k]`` is
+    the array of indices of axis `k` of `data`.  Note that the
+    return value is a tuple even when `data` is one-dimensional.
+
+See Also
+--------
+argrelmin, argrelmax
+
+Examples
+--------
+>>> x = np.array([2, 1, 2, 3, 2, 0, 1, 0])
+>>> argrelextrema(x, np.greater)
+(array([3, 6]),)
+>>> y = np.array([[1, 2, 1, 2],
+...               [2, 2, 0, 0],
+...               [5, 3, 4, 4]])
+...
+>>> argrelextrema(y, np.less, axis=1)
+(array([0, 2]), array([2, 1]))\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1__peak__finding_aa6f97343ee96f0430c88bc4af8a18766}{}\index{scipy\+::signal\+::\+\_\+peak\+\_\+finding@{scipy\+::signal\+::\+\_\+peak\+\_\+finding}!argrelmax@{argrelmax}}
+\index{argrelmax@{argrelmax}!scipy\+::signal\+::\+\_\+peak\+\_\+finding@{scipy\+::signal\+::\+\_\+peak\+\_\+finding}}
+\subsubsection[{argrelmax}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+\_\+peak\+\_\+finding.\+argrelmax (
+\begin{DoxyParamCaption}
+\item[{}]{data, }
+\item[{}]{axis = {\ttfamily 0}, }
+\item[{}]{order = {\ttfamily 1}, }
+\item[{}]{mode = {\ttfamily 'clip'}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1__peak__finding_aa6f97343ee96f0430c88bc4af8a18766}
+\begin{DoxyVerb}Calculate the relative maxima of `data`.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+data : ndarray
+    Array in which to find the relative maxima.
+axis : int, optional
+    Axis over which to select from `data`.  Default is 0.
+order : int, optional
+    How many points on each side to use for the comparison
+    to consider ``comparator(n, n+x)`` to be True.
+mode : str, optional
+    How the edges of the vector are treated.
+    Available options are 'wrap' (wrap around) or 'clip' (treat overflow
+    as the same as the last (or first) element).
+    Default 'clip'.  See `numpy.take`.
+
+Returns
+-------
+extrema : tuple of ndarrays
+    Indices of the maxima in arrays of integers.  ``extrema[k]`` is
+    the array of indices of axis `k` of `data`.  Note that the
+    return value is a tuple even when `data` is one-dimensional.
+
+See Also
+--------
+argrelextrema, argrelmin
+
+Notes
+-----
+This function uses `argrelextrema` with np.greater as comparator.
+
+Examples
+--------
+>>> x = np.array([2, 1, 2, 3, 2, 0, 1, 0])
+>>> argrelmax(x)
+(array([3, 6]),)
+>>> y = np.array([[1, 2, 1, 2],
+...               [2, 2, 0, 0],
+...               [5, 3, 4, 4]])
+...
+>>> argrelmax(y, axis=1)
+(array([0]), array([1]))
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1__peak__finding_a6d96eb9d3ff71b8fab335c1e2aa9c578}{}\index{scipy\+::signal\+::\+\_\+peak\+\_\+finding@{scipy\+::signal\+::\+\_\+peak\+\_\+finding}!argrelmin@{argrelmin}}
+\index{argrelmin@{argrelmin}!scipy\+::signal\+::\+\_\+peak\+\_\+finding@{scipy\+::signal\+::\+\_\+peak\+\_\+finding}}
+\subsubsection[{argrelmin}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+\_\+peak\+\_\+finding.\+argrelmin (
+\begin{DoxyParamCaption}
+\item[{}]{data, }
+\item[{}]{axis = {\ttfamily 0}, }
+\item[{}]{order = {\ttfamily 1}, }
+\item[{}]{mode = {\ttfamily 'clip'}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1__peak__finding_a6d96eb9d3ff71b8fab335c1e2aa9c578}
+\begin{DoxyVerb}Calculate the relative minima of `data`.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+data : ndarray
+    Array in which to find the relative minima.
+axis : int, optional
+    Axis over which to select from `data`.  Default is 0.
+order : int, optional
+    How many points on each side to use for the comparison
+    to consider ``comparator(n, n+x)`` to be True.
+mode : str, optional
+    How the edges of the vector are treated.
+    Available options are 'wrap' (wrap around) or 'clip' (treat overflow
+    as the same as the last (or first) element).
+    Default 'clip'. See numpy.take
+
+Returns
+-------
+extrema : tuple of ndarrays
+    Indices of the minima in arrays of integers.  ``extrema[k]`` is
+    the array of indices of axis `k` of `data`.  Note that the
+    return value is a tuple even when `data` is one-dimensional.
+
+See Also
+--------
+argrelextrema, argrelmax
+
+Notes
+-----
+This function uses `argrelextrema` with np.less as comparator.
+
+Examples
+--------
+>>> x = np.array([2, 1, 2, 3, 2, 0, 1, 0])
+>>> argrelmin(x)
+(array([1, 5]),)
+>>> y = np.array([[1, 2, 1, 2],
+...               [2, 2, 0, 0],
+...               [5, 3, 4, 4]])
+...
+>>> argrelmin(y, axis=1)
+(array([0, 2]), array([2, 1]))\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1__peak__finding_a5ef1b2fe6fbcdc48f6d5fd94bb7be272}{}\index{scipy\+::signal\+::\+\_\+peak\+\_\+finding@{scipy\+::signal\+::\+\_\+peak\+\_\+finding}!find\+\_\+peaks\+\_\+cwt@{find\+\_\+peaks\+\_\+cwt}}
+\index{find\+\_\+peaks\+\_\+cwt@{find\+\_\+peaks\+\_\+cwt}!scipy\+::signal\+::\+\_\+peak\+\_\+finding@{scipy\+::signal\+::\+\_\+peak\+\_\+finding}}
+\subsubsection[{find\+\_\+peaks\+\_\+cwt}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+\_\+peak\+\_\+finding.\+find\+\_\+peaks\+\_\+cwt (
+\begin{DoxyParamCaption}
+\item[{}]{vector, }
+\item[{}]{widths, }
+\item[{}]{wavelet = {\ttfamily None}, }
+\item[{}]{max\+\_\+distances = {\ttfamily None}, }
+\item[{}]{gap\+\_\+thresh = {\ttfamily None}, }
+\item[{}]{min\+\_\+length = {\ttfamily None}, }
+\item[{}]{min\+\_\+snr = {\ttfamily 1}, }
+\item[{}]{noise\+\_\+perc = {\ttfamily 10}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1__peak__finding_a5ef1b2fe6fbcdc48f6d5fd94bb7be272}
+\begin{DoxyVerb}Attempt to find the peaks in a 1-D array.
+
+The general approach is to smooth `vector` by convolving it with
+`wavelet(width)` for each width in `widths`. Relative maxima which
+appear at enough length scales, and with sufficiently high SNR, are
+accepted.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+vector : ndarray
+    1-D array in which to find the peaks.
+widths : sequence
+    1-D array of widths to use for calculating the CWT matrix. In general,
+    this range should cover the expected width of peaks of interest.
+wavelet : callable, optional
+    Should take a single variable and return a 1-D array to convolve
+    with `vector`.  Should be normalized to unit area.
+    Default is the ricker wavelet.
+max_distances : ndarray, optional
+    At each row, a ridge line is only connected if the relative max at
+    row[n] is within ``max_distances[n]`` from the relative max at
+    ``row[n+1]``.  Default value is ``widths/4``.
+gap_thresh : float, optional
+    If a relative maximum is not found within `max_distances`,
+    there will be a gap. A ridge line is discontinued if there are more
+    than `gap_thresh` points without connecting a new relative maximum.
+    Default is 2.
+min_length : int, optional
+    Minimum length a ridge line needs to be acceptable.
+    Default is ``cwt.shape[0] / 4``, ie 1/4-th the number of widths.
+min_snr : float, optional
+    Minimum SNR ratio. Default 1. The signal is the value of
+    the cwt matrix at the shortest length scale (``cwt[0, loc]``), the
+    noise is the `noise_perc`th percentile of datapoints contained within a
+    window of `window_size` around ``cwt[0, loc]``.
+noise_perc : float, optional
+    When calculating the noise floor, percentile of data points
+    examined below which to consider noise. Calculated using
+    `stats.scoreatpercentile`.  Default is 10.
+
+See Also
+--------
+cwt
+
+Notes
+-----
+This approach was designed for finding sharp peaks among noisy data,
+however with proper parameter selection it should function well for
+different peak shapes.
+
+The algorithm is as follows:
+ 1. Perform a continuous wavelet transform on `vector`, for the supplied
+    `widths`. This is a convolution of `vector` with `wavelet(width)` for
+    each width in `widths`. See `cwt`
+ 2. Identify "ridge lines" in the cwt matrix. These are relative maxima
+    at each row, connected across adjacent rows. See identify_ridge_lines
+ 3. Filter the ridge_lines using filter_ridge_lines.
+
+References
+----------
+.. [1] Bioinformatics (2006) 22 (17): 2059-2065.
+    doi: 10.1093/bioinformatics/btl355
+    http://bioinformatics.oxfordjournals.org/content/22/17/2059.long
+
+Examples
+--------
+>>> from scipy import signal
+>>> xs = np.arange(0, np.pi, 0.05)
+>>> data = np.sin(xs)
+>>> peakind = signal.find_peaks_cwt(data, np.arange(1,10))
+>>> peakind, xs[peakind], data[peakind]
+([32], array([ 1.6]), array([ 0.9995736]))\end{DoxyVerb}
+ 

@@ -1,0 +1,152 @@
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf}{}\section{scipy.\+interpolate.\+rbf.\+Rbf Class Reference}
+\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf}\index{scipy.\+interpolate.\+rbf.\+Rbf@{scipy.\+interpolate.\+rbf.\+Rbf}}
+Inheritance diagram for scipy.\+interpolate.\+rbf.\+Rbf\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1interpolate_1_1rbf_1_1Rbf}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a8430d662a0bae6c6e62a865eb3ffc76d}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_ac9a1a6c8ad4ae7ba26edb92f26eb2395}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_adae3a26303d4067bbca967c12a5a20cb}{function}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_af5d200c0303d7a606e9c68ae19bb308d}{xi}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a08be3ff84003b52e34dfe7adab057c82}{N}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a34196bf3e3be1f597b43bd495c9f189b}{di}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a60d3b97eec4bbf56b1fd17667e6f102c}{norm}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a53e0ee1cb56d26758f4401a803b86ae4}{epsilon}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a162528574686f807f8836f40d8592387}{smooth}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_afb2cd343c91507fc1ece660ba091b3d2}{A}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a205ddf5abe6a62201fb48b905e47fe31}{nodes}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1rbf_1_1Rbf_ab76f2f6bfa972d44175d1c51507d2e16}{xa}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Rbf(*args)
+
+A class for radial basis function approximation/interpolation of
+n-dimensional scattered data.
+
+Parameters
+----------
+*args : arrays
+    x, y, z, ..., d, where x, y, z, ... are the coordinates of the nodes
+    and d is the array of values at the nodes
+function : str or callable, optional
+    The radial basis function, based on the radius, r, given by the norm
+    (default is Euclidean distance); the default is 'multiquadric'::
+
+        'multiquadric': sqrt((r/self.epsilon)**2 + 1)
+        'inverse': 1.0/sqrt((r/self.epsilon)**2 + 1)
+        'gaussian': exp(-(r/self.epsilon)**2)
+        'linear': r
+        'cubic': r**3
+        'quintic': r**5
+        'thin_plate': r**2 * log(r)
+
+    If callable, then it must take 2 arguments (self, r).  The epsilon
+    parameter will be available as self.epsilon.  Other keyword
+    arguments passed in will be available as well.
+
+epsilon : float, optional
+    Adjustable constant for gaussian or multiquadrics functions
+    - defaults to approximate average distance between nodes (which is
+    a good start).
+smooth : float, optional
+    Values greater than zero increase the smoothness of the
+    approximation.  0 is for interpolation (default), the function will
+    always go through the nodal points in this case.
+norm : callable, optional
+    A function that returns the 'distance' between two points, with
+    inputs as arrays of positions (x, y, z, ...), and an output as an
+    array of distance.  E.g, the default::
+
+        def euclidean_norm(x1, x2):
+            return sqrt( ((x1 - x2)**2).sum(axis=0) )
+
+    which is called with x1=x1[ndims,newaxis,:] and
+    x2=x2[ndims,:,newaxis] such that the result is a matrix of the
+    distances from each point in x1 to each point in x2.
+
+Examples
+--------
+>>> rbfi = Rbf(x, y, z, d)  # radial basis function interpolator instance
+>>> di = rbfi(xi, yi, zi)   # interpolated values\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a8430d662a0bae6c6e62a865eb3ffc76d}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+rbf.\+Rbf.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{args, }
+\item[{}]{kwargs}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a8430d662a0bae6c6e62a865eb3ffc76d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_ac9a1a6c8ad4ae7ba26edb92f26eb2395}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+rbf.\+Rbf.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{args}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_ac9a1a6c8ad4ae7ba26edb92f26eb2395}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_afb2cd343c91507fc1ece660ba091b3d2}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!A@{A}}
+\index{A@{A}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{A}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+rbf.\+Rbf.\+A}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_afb2cd343c91507fc1ece660ba091b3d2}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a34196bf3e3be1f597b43bd495c9f189b}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!di@{di}}
+\index{di@{di}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{di}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+rbf.\+Rbf.\+di}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a34196bf3e3be1f597b43bd495c9f189b}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a53e0ee1cb56d26758f4401a803b86ae4}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!epsilon@{epsilon}}
+\index{epsilon@{epsilon}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{epsilon}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+rbf.\+Rbf.\+epsilon}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a53e0ee1cb56d26758f4401a803b86ae4}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_adae3a26303d4067bbca967c12a5a20cb}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!function@{function}}
+\index{function@{function}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{function}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+rbf.\+Rbf.\+function}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_adae3a26303d4067bbca967c12a5a20cb}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a08be3ff84003b52e34dfe7adab057c82}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!N@{N}}
+\index{N@{N}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{N}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+rbf.\+Rbf.\+N}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a08be3ff84003b52e34dfe7adab057c82}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a205ddf5abe6a62201fb48b905e47fe31}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!nodes@{nodes}}
+\index{nodes@{nodes}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{nodes}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+rbf.\+Rbf.\+nodes}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a205ddf5abe6a62201fb48b905e47fe31}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a60d3b97eec4bbf56b1fd17667e6f102c}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!norm@{norm}}
+\index{norm@{norm}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{norm}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+rbf.\+Rbf.\+norm}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a60d3b97eec4bbf56b1fd17667e6f102c}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a162528574686f807f8836f40d8592387}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!smooth@{smooth}}
+\index{smooth@{smooth}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{smooth}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+rbf.\+Rbf.\+smooth}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_a162528574686f807f8836f40d8592387}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_ab76f2f6bfa972d44175d1c51507d2e16}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!xa@{xa}}
+\index{xa@{xa}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{xa}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+rbf.\+Rbf.\+xa}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_ab76f2f6bfa972d44175d1c51507d2e16}
+\hypertarget{classscipy_1_1interpolate_1_1rbf_1_1Rbf_af5d200c0303d7a606e9c68ae19bb308d}{}\index{scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}!xi@{xi}}
+\index{xi@{xi}!scipy\+::interpolate\+::rbf\+::\+Rbf@{scipy\+::interpolate\+::rbf\+::\+Rbf}}
+\subsubsection[{xi}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+rbf.\+Rbf.\+xi}\label{classscipy_1_1interpolate_1_1rbf_1_1Rbf_af5d200c0303d7a606e9c68ae19bb308d}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{rbf_8py}{rbf.\+py}\end{DoxyCompactItemize}

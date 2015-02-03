@@ -1,0 +1,226 @@
+\hypertarget{namespacescipy_1_1lib_1_1lapack}{}\section{scipy.\+lib.\+lapack Namespace Reference}
+\label{namespacescipy_1_1lib_1_1lapack}\index{scipy.\+lib.\+lapack@{scipy.\+lib.\+lapack}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacescipy_1_1lib_1_1lapack_1_1scons__support}{scons\+\_\+support}
+\item 
+ \hyperlink{namespacescipy_1_1lib_1_1lapack_1_1setup}{setup}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1lib_1_1lapack_a3978edf478323eb87be48df7f590ebcf}{get\+\_\+lapack\+\_\+funcs}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1lib_1_1lapack_a60c194a2b3886ebf8ee2c9c4c4b8a1a6}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1lib_1_1lapack_a3978edf478323eb87be48df7f590ebcf}{get\+\_\+lapack\+\_\+funcs}','calc\+\_\+lwork','\hyperlink{namespacescipy_1_1lib_1_1lapack_a404c60aedd17287c494cd682f5a44c5d}{flapack}','\hyperlink{namespacescipy_1_1lib_1_1lapack_abc1995130e6d984420c8f61bd7f92d67}{clapack}'\mbox{]}
+\item 
+int \hyperlink{namespacescipy_1_1lib_1_1lapack_a418c18faa5abfaadbb064e74720fe51c}{\+\_\+use\+\_\+force\+\_\+clapack} = 1
+\item 
+\hyperlink{namespacescipy_1_1lib_1_1lapack_abc1995130e6d984420c8f61bd7f92d67}{clapack} = \hyperlink{namespacescipy_1_1lib_1_1lapack_a404c60aedd17287c494cd682f5a44c5d}{flapack}
+\item 
+\hyperlink{namespacescipy_1_1lib_1_1lapack_a404c60aedd17287c494cd682f5a44c5d}{flapack} = \hyperlink{namespacescipy_1_1lib_1_1lapack_abc1995130e6d984420c8f61bd7f92d67}{clapack}
+\item 
+dictionary \hyperlink{namespacescipy_1_1lib_1_1lapack_a4fa2e27e96f0679788bfb6810fe70c8c}{\+\_\+type\+\_\+conv} = \{'f'\+:'\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s}', 'd'\+:'d', 'F'\+:'c', '\hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}'\+:'z'\}
+\item 
+dictionary \hyperlink{namespacescipy_1_1lib_1_1lapack_a845c31e7b59895d3172fece0d9eba795}{\+\_\+inv\+\_\+type\+\_\+conv} = \{'\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s}'\+:'f','d'\+:'d','c'\+:'F','z'\+:'\hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}'\}
+\item 
+string \hyperlink{namespacescipy_1_1lib_1_1lapack_a02a2ae7d53052e444d9c7935c2dc888a}{\+\_\+colmajor\+\_\+func\+\_\+template}
+\item 
+tuple \hyperlink{namespacescipy_1_1lib_1_1lapack_a9d95f4042d7a0ec233c8598344c6a6cf}{test} = Tester()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Wrappers to LAPACK library
+==========================
+
+NOTE: this module is deprecated -- use scipy.linalg.lapack instead!
+
+  flapack -- wrappers for Fortran [*] LAPACK routines
+  clapack -- wrappers for ATLAS LAPACK routines
+  calc_lwork -- calculate optimal lwork parameters
+  get_lapack_funcs -- query for wrapper functions.
+
+[*] If ATLAS libraries are available then Fortran routines
+    actually use ATLAS routines and should perform equally
+    well to ATLAS routines.
+
+Module flapack
+++++++++++++++
+
+In the following all function names are shown without
+type prefix (s,d,c,z). Optimal values for lwork can
+be computed using calc_lwork module.
+
+Linear Equations
+----------------
+
+  Drivers::
+
+    lu,piv,x,info = gesv(a,b,overwrite_a=0,overwrite_b=0)
+    lub,piv,x,info = gbsv(kl,ku,ab,b,overwrite_ab=0,overwrite_b=0)
+    c,x,info = posv(a,b,lower=0,overwrite_a=0,overwrite_b=0)
+
+  Computational routines::
+
+    lu,piv,info = getrf(a,overwrite_a=0)
+    x,info = getrs(lu,piv,b,trans=0,overwrite_b=0)
+    inv_a,info = getri(lu,piv,lwork=min_lwork,overwrite_lu=0)
+
+    c,info = potrf(a,lower=0,clean=1,overwrite_a=0)
+    x,info = potrs(c,b,lower=0,overwrite_b=0)
+    inv_a,info = potri(c,lower=0,overwrite_c=0)
+
+    inv_c,info = trtri(c,lower=0,unitdiag=0,overwrite_c=0)
+
+Linear Least Squares (LLS) Problems
+-----------------------------------
+
+  Drivers::
+
+    v,x,s,rank,info = gelss(a,b,cond=-1.0,lwork=min_lwork,overwrite_a=0,overwrite_b=0)
+
+  Computational routines::
+
+    qr,tau,info = geqrf(a,lwork=min_lwork,overwrite_a=0)
+    q,info = orgqr|ungqr(qr,tau,lwork=min_lwork,overwrite_qr=0,overwrite_tau=1)
+
+Generalized Linear Least Squares (LSE and GLM) Problems
+-------------------------------------------------------
+
+Standard Eigenvalue and Singular Value Problems
+-----------------------------------------------
+
+  Drivers::
+
+    w,v,info = syev|heev(a,compute_v=1,lower=0,lwork=min_lwork,overwrite_a=0)
+    w,v,info = syevd|heevd(a,compute_v=1,lower=0,lwork=min_lwork,overwrite_a=0)
+    w,v,info = syevr|heevr(a,compute_v=1,lower=0,vrange=,irange=,atol=-1.0,lwork=min_lwork,overwrite_a=0)
+    t,sdim,(wr,wi|w),vs,info = gees(select,a,compute_v=1,sort_t=0,lwork=min_lwork,select_extra_args=(),overwrite_a=0)
+    wr,(wi,vl|w),vr,info = geev(a,compute_vl=1,compute_vr=1,lwork=min_lwork,overwrite_a=0)
+    u,s,vt,info = gesdd(a,compute_uv=1,lwork=min_lwork,overwrite_a=0)
+
+  Computational routines::
+
+    ht,tau,info = gehrd(a,lo=0,hi=n-1,lwork=min_lwork,overwrite_a=0)
+    ba,lo,hi,pivscale,info = gebal(a,scale=0,permute=0,overwrite_a=0)
+
+Generalized Eigenvalue and Singular Value Problems
+--------------------------------------------------
+
+  Drivers::
+
+    w,v,info = sygv|hegv(a,b,itype=1,compute_v=1,lower=0,lwork=min_lwork,overwrite_a=0,overwrite_b=0)
+    w,v,info = sygvd|hegvd(a,b,itype=1,compute_v=1,lower=0,lwork=min_lwork,overwrite_a=0,overwrite_b=0)
+    (alphar,alphai|alpha),beta,vl,vr,info = ggev(a,b,compute_vl=1,compute_vr=1,lwork=min_lwork,overwrite_a=0,overwrite_b=0)
+
+
+Auxiliary routines
+------------------
+
+  a,info = lauum(c,lower=0,overwrite_c=0)
+  a = laswp(a,piv,k1=0,k2=len(piv)-1,off=0,inc=1,overwrite_a=0)
+
+Module clapack
+++++++++++++++
+
+Linear Equations
+----------------
+
+  Drivers::
+
+    lu,piv,x,info = gesv(a,b,rowmajor=1,overwrite_a=0,overwrite_b=0)
+    c,x,info = posv(a,b,lower=0,rowmajor=1,overwrite_a=0,overwrite_b=0)
+
+  Computational routines::
+
+    lu,piv,info = getrf(a,rowmajor=1,overwrite_a=0)
+    x,info = getrs(lu,piv,b,trans=0,rowmajor=1,overwrite_b=0)
+    inv_a,info = getri(lu,piv,rowmajor=1,overwrite_lu=0)
+
+    c,info = potrf(a,lower=0,clean=1,rowmajor=1,overwrite_a=0)
+    x,info = potrs(c,b,lower=0,rowmajor=1,overwrite_b=0)
+    inv_a,info = potri(c,lower=0,rowmajor=1,overwrite_c=0)
+
+    inv_c,info = trtri(c,lower=0,unitdiag=0,rowmajor=1,overwrite_c=0)
+
+Auxiliary routines
+------------------
+
+  a,info = lauum(c,lower=0,rowmajor=1,overwrite_c=0)
+
+Module calc_lwork
++++++++++++++++++
+
+Optimal lwork is maxwrk. Default is minwrk.
+
+  minwrk,maxwrk = gehrd(prefix,n,lo=0,hi=n-1)
+  minwrk,maxwrk = gesdd(prefix,m,n,compute_uv=1)
+  minwrk,maxwrk = gelss(prefix,m,n,nrhs)
+  minwrk,maxwrk = getri(prefix,n)
+  minwrk,maxwrk = geev(prefix,n,compute_vl=1,compute_vr=1)
+  minwrk,maxwrk = heev(prefix,n,lower=0)
+  minwrk,maxwrk = syev(prefix,n,lower=0)
+  minwrk,maxwrk = gees(prefix,n,compute_v=1)
+  minwrk,maxwrk = geqrf(prefix,m,n)
+  minwrk,maxwrk = gqr(prefix,m,n)\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1lib_1_1lapack_a3978edf478323eb87be48df7f590ebcf}{}\index{scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}!get\+\_\+lapack\+\_\+funcs@{get\+\_\+lapack\+\_\+funcs}}
+\index{get\+\_\+lapack\+\_\+funcs@{get\+\_\+lapack\+\_\+funcs}!scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}}
+\subsubsection[{get\+\_\+lapack\+\_\+funcs}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+lapack.\+get\+\_\+lapack\+\_\+funcs (
+\begin{DoxyParamCaption}
+\item[{}]{names, }
+\item[{}]{arrays = {\ttfamily ()}, }
+\item[{}]{debug = {\ttfamily 0}, }
+\item[{}]{force\+\_\+clapack = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1lib_1_1lapack_a3978edf478323eb87be48df7f590ebcf}
+\begin{DoxyVerb}Return available LAPACK function objects with names.
+arrays are used to determine the optimal prefix of
+LAPACK routines.
+If force_clapack is True then available Atlas routine
+is returned for column major storaged arrays with
+rowmajor argument set to False.
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1lib_1_1lapack_a60c194a2b3886ebf8ee2c9c4c4b8a1a6}{}\index{scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+lib.\+lapack.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf get\+\_\+lapack\+\_\+funcs}','calc\+\_\+lwork','{\bf flapack}','{\bf clapack}'\mbox{]}}\label{namespacescipy_1_1lib_1_1lapack_a60c194a2b3886ebf8ee2c9c4c4b8a1a6}
+\hypertarget{namespacescipy_1_1lib_1_1lapack_a02a2ae7d53052e444d9c7935c2dc888a}{}\index{scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}!\+\_\+colmajor\+\_\+func\+\_\+template@{\+\_\+colmajor\+\_\+func\+\_\+template}}
+\index{\+\_\+colmajor\+\_\+func\+\_\+template@{\+\_\+colmajor\+\_\+func\+\_\+template}!scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}}
+\subsubsection[{\+\_\+colmajor\+\_\+func\+\_\+template}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+lib.\+lapack.\+\_\+colmajor\+\_\+func\+\_\+template}\label{namespacescipy_1_1lib_1_1lapack_a02a2ae7d53052e444d9c7935c2dc888a}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \textcolor{stringliteral}{'''\(\backslash\)}
+2 \textcolor{stringliteral}{def %(func\_name)s(*args,**kws):}
+3 \textcolor{stringliteral}{    if "rowmajor" not in kws:}
+4 \textcolor{stringliteral}{        kws["rowmajor"] = 0}
+5 \textcolor{stringliteral}{    return clapack\_func(*args,**kws)}
+6 \textcolor{stringliteral}{func\_code = %(func\_name)s.func\_code}
+7 \textcolor{stringliteral}{'''}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1lib_1_1lapack_a845c31e7b59895d3172fece0d9eba795}{}\index{scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}!\+\_\+inv\+\_\+type\+\_\+conv@{\+\_\+inv\+\_\+type\+\_\+conv}}
+\index{\+\_\+inv\+\_\+type\+\_\+conv@{\+\_\+inv\+\_\+type\+\_\+conv}!scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}}
+\subsubsection[{\+\_\+inv\+\_\+type\+\_\+conv}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+lib.\+lapack.\+\_\+inv\+\_\+type\+\_\+conv = \{'{\bf s}'\+:'f','d'\+:'d','c'\+:'F','z'\+:'{\bf D}'\}}\label{namespacescipy_1_1lib_1_1lapack_a845c31e7b59895d3172fece0d9eba795}
+\hypertarget{namespacescipy_1_1lib_1_1lapack_a4fa2e27e96f0679788bfb6810fe70c8c}{}\index{scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}!\+\_\+type\+\_\+conv@{\+\_\+type\+\_\+conv}}
+\index{\+\_\+type\+\_\+conv@{\+\_\+type\+\_\+conv}!scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}}
+\subsubsection[{\+\_\+type\+\_\+conv}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+lib.\+lapack.\+\_\+type\+\_\+conv = \{'f'\+:'{\bf s}', 'd'\+:'d', 'F'\+:'c', '{\bf D}'\+:'z'\}}\label{namespacescipy_1_1lib_1_1lapack_a4fa2e27e96f0679788bfb6810fe70c8c}
+\hypertarget{namespacescipy_1_1lib_1_1lapack_a418c18faa5abfaadbb064e74720fe51c}{}\index{scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}!\+\_\+use\+\_\+force\+\_\+clapack@{\+\_\+use\+\_\+force\+\_\+clapack}}
+\index{\+\_\+use\+\_\+force\+\_\+clapack@{\+\_\+use\+\_\+force\+\_\+clapack}!scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}}
+\subsubsection[{\+\_\+use\+\_\+force\+\_\+clapack}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+lib.\+lapack.\+\_\+use\+\_\+force\+\_\+clapack = 1}\label{namespacescipy_1_1lib_1_1lapack_a418c18faa5abfaadbb064e74720fe51c}
+\hypertarget{namespacescipy_1_1lib_1_1lapack_abc1995130e6d984420c8f61bd7f92d67}{}\index{scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}!clapack@{clapack}}
+\index{clapack@{clapack}!scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}}
+\subsubsection[{clapack}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+lib.\+lapack.\+clapack = {\bf flapack}}\label{namespacescipy_1_1lib_1_1lapack_abc1995130e6d984420c8f61bd7f92d67}
+\hypertarget{namespacescipy_1_1lib_1_1lapack_a404c60aedd17287c494cd682f5a44c5d}{}\index{scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}!flapack@{flapack}}
+\index{flapack@{flapack}!scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}}
+\subsubsection[{flapack}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+lib.\+lapack.\+flapack = {\bf clapack}}\label{namespacescipy_1_1lib_1_1lapack_a404c60aedd17287c494cd682f5a44c5d}
+\hypertarget{namespacescipy_1_1lib_1_1lapack_a9d95f4042d7a0ec233c8598344c6a6cf}{}\index{scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}!test@{test}}
+\index{test@{test}!scipy\+::lib\+::lapack@{scipy\+::lib\+::lapack}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+lib.\+lapack.\+test = Tester()}\label{namespacescipy_1_1lib_1_1lapack_a9d95f4042d7a0ec233c8598344c6a6cf}

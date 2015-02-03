@@ -1,0 +1,82 @@
+\hypertarget{namespacescipy_1_1interpolate_1_1__monotone}{}\section{scipy.\+interpolate.\+\_\+monotone Namespace Reference}
+\label{namespacescipy_1_1interpolate_1_1__monotone}\index{scipy.\+interpolate.\+\_\+monotone@{scipy.\+interpolate.\+\_\+monotone}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1__monotone_1_1Akima1DInterpolator}{Akima1\+D\+Interpolator}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator}{Pchip\+Interpolator}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1__monotone_aa34806539957bb18e451b95e11b96f47}{pchip\+\_\+interpolate}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1interpolate_1_1__monotone_a995fd4ce36ab357b2cddfa78d1271084}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+\hyperlink{namespacescipy_1_1interpolate_1_1__monotone_a3130a2af208814c3fea4cd27df32485f}{pchip} = \hyperlink{classscipy_1_1interpolate_1_1__monotone_1_1PchipInterpolator}{Pchip\+Interpolator}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1__monotone_aa34806539957bb18e451b95e11b96f47}{}\index{scipy\+::interpolate\+::\+\_\+monotone@{scipy\+::interpolate\+::\+\_\+monotone}!pchip\+\_\+interpolate@{pchip\+\_\+interpolate}}
+\index{pchip\+\_\+interpolate@{pchip\+\_\+interpolate}!scipy\+::interpolate\+::\+\_\+monotone@{scipy\+::interpolate\+::\+\_\+monotone}}
+\subsubsection[{pchip\+\_\+interpolate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+\_\+monotone.\+pchip\+\_\+interpolate (
+\begin{DoxyParamCaption}
+\item[{}]{xi, }
+\item[{}]{yi, }
+\item[{}]{x, }
+\item[{}]{der = {\ttfamily 0}, }
+\item[{}]{axis = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1__monotone_aa34806539957bb18e451b95e11b96f47}
+\begin{DoxyVerb}Convenience function for pchip interpolation. 
+xi and yi are arrays of values used to approximate some function f,
+with ``yi = f(xi)``.  The interpolant uses monotonic cubic splines
+to find the value of new points x and the derivatives there.
+
+See `PchipInterpolator` for details.
+
+Parameters
+----------
+xi : array_like
+    A sorted list of x-coordinates, of length N.
+yi :  array_like
+    A 1-D array of real values.  `yi`'s length along the interpolation
+    axis must be equal to the length of `xi`. If N-D array, use axis 
+    parameter to select correct axis.
+x : scalar or array_like
+    Of length M.
+der : integer or list
+    How many derivatives to extract; None for all potentially
+    nonzero derivatives (that is a number equal to the number
+    of points), or a list of derivatives to extract. This number
+    includes the function value as 0th derivative.
+axis : int, optional
+    Axis in the yi array corresponding to the x-coordinate values.
+
+See Also
+--------
+PchipInterpolator
+
+Returns
+-------
+y : scalar or array_like
+    The result, of length R or length M or M by R,\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1__monotone_a995fd4ce36ab357b2cddfa78d1271084}{}\index{scipy\+::interpolate\+::\+\_\+monotone@{scipy\+::interpolate\+::\+\_\+monotone}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::interpolate\+::\+\_\+monotone@{scipy\+::interpolate\+::\+\_\+monotone}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+interpolate.\+\_\+monotone.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1interpolate_1_1__monotone_a995fd4ce36ab357b2cddfa78d1271084}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{"PchipInterpolator"}, \textcolor{stringliteral}{"pchip\_interpolate"}, \textcolor{stringliteral}{"pchip"},
+2            \textcolor{stringliteral}{"Akima1DInterpolator"}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1interpolate_1_1__monotone_a3130a2af208814c3fea4cd27df32485f}{}\index{scipy\+::interpolate\+::\+\_\+monotone@{scipy\+::interpolate\+::\+\_\+monotone}!pchip@{pchip}}
+\index{pchip@{pchip}!scipy\+::interpolate\+::\+\_\+monotone@{scipy\+::interpolate\+::\+\_\+monotone}}
+\subsubsection[{pchip}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+\_\+monotone.\+pchip = {\bf Pchip\+Interpolator}}\label{namespacescipy_1_1interpolate_1_1__monotone_a3130a2af208814c3fea4cd27df32485f}

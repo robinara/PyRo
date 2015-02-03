@@ -1,0 +1,77 @@
+\hypertarget{namespacescipy_1_1odr_1_1odrpack}{}\section{scipy.\+odr.\+odrpack Namespace Reference}
+\label{namespacescipy_1_1odr_1_1odrpack}\index{scipy.\+odr.\+odrpack@{scipy.\+odr.\+odrpack}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Data}{Data}
+\item 
+class \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Model}{Model}
+\item 
+class \hyperlink{classscipy_1_1odr_1_1odrpack_1_1ODR}{O\+D\+R}
+\item 
+class \hyperlink{classscipy_1_1odr_1_1odrpack_1_1odr__error}{odr\+\_\+error}
+\item 
+class \hyperlink{classscipy_1_1odr_1_1odrpack_1_1odr__stop}{odr\+\_\+stop}
+\item 
+class \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Output}{Output}
+\item 
+class \hyperlink{classscipy_1_1odr_1_1odrpack_1_1RealData}{Real\+Data}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1odr_1_1odrpack_a22fc156aa61462fcc50dff98c62ce2aa}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+\hyperlink{namespacescipy_1_1odr_1_1odrpack_abf3cc466ed8f8669da1f87e61813bc18}{odr} = \+\_\+\+\_\+odrpack.\+odr
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Python wrappers for Orthogonal Distance Regression (ODRPACK).
+
+Notes
+=====
+
+* Array formats -- FORTRAN stores its arrays in memory column first, i.e. an
+  array element A(i, j, k) will be next to A(i+1, j, k). In C and, consequently,
+  NumPy, arrays are stored row first: A[i, j, k] is next to A[i, j, k+1]. For
+  efficiency and convenience, the input and output arrays of the fitting
+  function (and its Jacobians) are passed to FORTRAN without transposition.
+  Therefore, where the ODRPACK documentation says that the X array is of shape
+  (N, M), it will be passed to the Python function as an array of shape (M, N).
+  If M==1, the one-dimensional case, then nothing matters; if M>1, then your
+  Python functions will be dealing with arrays that are indexed in reverse of
+  the ODRPACK documentation. No real biggie, but watch out for your indexing of
+  the Jacobians: the i,j'th elements (@f_i/@x_j) evaluated at the n'th
+  observation will be returned as jacd[j, i, n]. Except for the Jacobians, it
+  really is easier to deal with x[0] and x[1] than x[:,0] and x[:,1]. Of course,
+  you can always use the transpose() function from scipy explicitly.
+
+* Examples -- See the accompanying file test/test.py for examples of how to set
+  up fits of your own. Some are taken from the User's Guide; some are from
+  other sources.
+
+* Models -- Some common models are instantiated in the accompanying module
+  models.py . Contributions are welcome.
+
+Credits
+=======
+
+* Thanks to Arnold Moene and Gerard Vermeulen for fixing some killer bugs.
+
+Robert Kern
+robert.kern@gmail.com\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1odr_1_1odrpack_a22fc156aa61462fcc50dff98c62ce2aa}{}\index{scipy\+::odr\+::odrpack@{scipy\+::odr\+::odrpack}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::odr\+::odrpack@{scipy\+::odr\+::odrpack}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+odr.\+odrpack.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1odr_1_1odrpack_a22fc156aa61462fcc50dff98c62ce2aa}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'odr'}, \textcolor{stringliteral}{'odr\_error'}, \textcolor{stringliteral}{'odr\_stop'}, \textcolor{stringliteral}{'Data'}, \textcolor{stringliteral}{'RealData'}, \textcolor{stringliteral}{'Model'},
+2            \textcolor{stringliteral}{'Output'}, \textcolor{stringliteral}{'ODR'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1odr_1_1odrpack_abf3cc466ed8f8669da1f87e61813bc18}{}\index{scipy\+::odr\+::odrpack@{scipy\+::odr\+::odrpack}!odr@{odr}}
+\index{odr@{odr}!scipy\+::odr\+::odrpack@{scipy\+::odr\+::odrpack}}
+\subsubsection[{odr}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+odr = \+\_\+\+\_\+odrpack.\+odr}\label{namespacescipy_1_1odr_1_1odrpack_abf3cc466ed8f8669da1f87e61813bc18}

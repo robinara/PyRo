@@ -1,0 +1,368 @@
+\hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs}{}\section{scipy.\+fftpack.\+pseudo\+\_\+diffs Namespace Reference}
+\label{namespacescipy_1_1fftpack_1_1pseudo__diffs}\index{scipy.\+fftpack.\+pseudo\+\_\+diffs@{scipy.\+fftpack.\+pseudo\+\_\+diffs}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_adb9f63fe09163beab2b77d8c8b5ca299}{diff}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_a7d94b849d40ac9ce79d70227a953f26c}{tilbert}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_afee349b2f57baa5a9eada13f39d0c8a7}{itilbert}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_a18485d25af8944034dced75db40e835c}{hilbert}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_a7eb238c1593a8e0577e934692fc75782}{ihilbert}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_a19bff218b7c5b2a4437d12acc8c3bba4}{cs\+\_\+diff}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_a0160afb72f1f469673ac034d886b22f3}{sc\+\_\+diff}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_a2c19470883e518246d275790e4e9c01b}{ss\+\_\+diff}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_af7bf913b255a3e27b2417f6807923743}{cc\+\_\+diff}
+\item 
+def \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_ac3d3fb65d79a12ba90299dc3411b825f}{shift}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_a66deb77dd40743d440d6a71eb71341a2}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+dictionary \hyperlink{namespacescipy_1_1fftpack_1_1pseudo__diffs_adb08a0217dd62951147e1c426b48a575}{\+\_\+cache} = \{\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Differential and pseudo-differential operators.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_af7bf913b255a3e27b2417f6807923743}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!cc\+\_\+diff@{cc\+\_\+diff}}
+\index{cc\+\_\+diff@{cc\+\_\+diff}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{cc\+\_\+diff}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+pseudo\+\_\+diffs.\+cc\+\_\+diff (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{period = {\ttfamily None}, }
+\item[{}]{\+\_\+cache = {\ttfamily \+\_\+cache}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_af7bf913b255a3e27b2417f6807923743}
+\begin{DoxyVerb}Return (a,b)-cosh/cosh pseudo-derivative of a periodic sequence.
+
+If x_j and y_j are Fourier coefficients of periodic functions x
+and y, respectively, then::
+
+  y_j = cosh(j*a*2*pi/period)/cosh(j*b*2*pi/period) * x_j
+
+Parameters
+----------
+x : array_like
+    The array to take the pseudo-derivative from.
+a,b : float
+    Defines the parameters of the sinh/sinh pseudo-differential
+    operator.
+period : float, optional
+    The period of the sequence x. Default is ``2*pi``.
+
+Returns
+-------
+cc_diff : ndarray
+    Pseudo-derivative of periodic sequence `x`.
+
+Notes
+-----
+``cc_diff(cc_diff(x,a,b),b,a) == x``\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_a19bff218b7c5b2a4437d12acc8c3bba4}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!cs\+\_\+diff@{cs\+\_\+diff}}
+\index{cs\+\_\+diff@{cs\+\_\+diff}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{cs\+\_\+diff}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+pseudo\+\_\+diffs.\+cs\+\_\+diff (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{period = {\ttfamily None}, }
+\item[{}]{\+\_\+cache = {\ttfamily \+\_\+cache}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_a19bff218b7c5b2a4437d12acc8c3bba4}
+\begin{DoxyVerb}Return (a,b)-cosh/sinh pseudo-derivative of a periodic sequence.
+
+If ``x_j`` and ``y_j`` are Fourier coefficients of periodic functions x
+and y, respectively, then::
+
+  y_j = -sqrt(-1)*cosh(j*a*2*pi/period)/sinh(j*b*2*pi/period) * x_j
+  y_0 = 0
+
+Parameters
+----------
+x : array_like
+    The array to take the pseudo-derivative from.
+a, b : float
+    Defines the parameters of the cosh/sinh pseudo-differential
+    operator.
+period : float, optional
+    The period of the sequence. Default period is ``2*pi``.
+
+Returns
+-------
+cs_diff : ndarray
+    Pseudo-derivative of periodic sequence `x`.
+
+Notes
+-----
+For even len(`x`), the Nyquist mode of `x` is taken as zero.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_adb9f63fe09163beab2b77d8c8b5ca299}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!diff@{diff}}
+\index{diff@{diff}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{diff}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+pseudo\+\_\+diffs.\+diff (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{order = {\ttfamily 1}, }
+\item[{}]{period = {\ttfamily None}, }
+\item[{}]{\+\_\+cache = {\ttfamily \+\_\+cache}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_adb9f63fe09163beab2b77d8c8b5ca299}
+\begin{DoxyVerb}Return k-th derivative (or integral) of a periodic sequence x.
+
+If x_j and y_j are Fourier coefficients of periodic functions x
+and y, respectively, then::
+
+  y_j = pow(sqrt(-1)*j*2*pi/period, order) * x_j
+  y_0 = 0 if order is not 0.
+
+Parameters
+----------
+x : array_like
+    Input array.
+order : int, optional
+    The order of differentiation. Default order is 1. If order is
+    negative, then integration is carried out under the assumption
+    that ``x_0 == 0``.
+period : float, optional
+    The assumed period of the sequence. Default is ``2*pi``.
+
+Notes
+-----
+If ``sum(x, axis=0) = 0`` then ``diff(diff(x, k), -k) == x`` (within
+numerical accuracy).
+
+For odd order and even ``len(x)``, the Nyquist mode is taken zero.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_a18485d25af8944034dced75db40e835c}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!hilbert@{hilbert}}
+\index{hilbert@{hilbert}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{hilbert}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+pseudo\+\_\+diffs.\+hilbert (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{\+\_\+cache = {\ttfamily \+\_\+cache}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_a18485d25af8944034dced75db40e835c}
+\begin{DoxyVerb}Return Hilbert transform of a periodic sequence x.
+
+If x_j and y_j are Fourier coefficients of periodic functions x
+and y, respectively, then::
+
+  y_j = sqrt(-1)*sign(j) * x_j
+  y_0 = 0
+
+Parameters
+----------
+x : array_like
+    The input array, should be periodic.
+_cache : dict, optional
+    Dictionary that contains the kernel used to do a convolution with.
+
+Returns
+-------
+y : ndarray
+    The transformed input.
+
+Notes
+-----
+If ``sum(x, axis=0) == 0`` then ``hilbert(ihilbert(x)) == x``.
+
+For even len(x), the Nyquist mode of x is taken zero.
+
+The sign of the returned transform does not have a factor -1 that is more
+often than not found in the definition of the Hilbert transform.  Note also
+that ``scipy.signal.hilbert`` does have an extra -1 factor compared to this
+function.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_a7eb238c1593a8e0577e934692fc75782}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!ihilbert@{ihilbert}}
+\index{ihilbert@{ihilbert}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{ihilbert}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+pseudo\+\_\+diffs.\+ihilbert (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_a7eb238c1593a8e0577e934692fc75782}
+\begin{DoxyVerb}Return inverse Hilbert transform of a periodic sequence x.
+
+If ``x_j`` and ``y_j`` are Fourier coefficients of periodic functions x
+and y, respectively, then::
+
+  y_j = -sqrt(-1)*sign(j) * x_j
+  y_0 = 0\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_afee349b2f57baa5a9eada13f39d0c8a7}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!itilbert@{itilbert}}
+\index{itilbert@{itilbert}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{itilbert}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+pseudo\+\_\+diffs.\+itilbert (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{h, }
+\item[{}]{period = {\ttfamily None}, }
+\item[{}]{\+\_\+cache = {\ttfamily \+\_\+cache}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_afee349b2f57baa5a9eada13f39d0c8a7}
+\begin{DoxyVerb}Return inverse h-Tilbert transform of a periodic sequence x.
+
+If ``x_j`` and ``y_j`` are Fourier coefficients of periodic functions x
+and y, respectively, then::
+
+  y_j = -sqrt(-1)*tanh(j*h*2*pi/period) * x_j
+  y_0 = 0
+
+For more details, see `tilbert`.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_a0160afb72f1f469673ac034d886b22f3}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!sc\+\_\+diff@{sc\+\_\+diff}}
+\index{sc\+\_\+diff@{sc\+\_\+diff}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{sc\+\_\+diff}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+pseudo\+\_\+diffs.\+sc\+\_\+diff (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{period = {\ttfamily None}, }
+\item[{}]{\+\_\+cache = {\ttfamily \+\_\+cache}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_a0160afb72f1f469673ac034d886b22f3}
+\begin{DoxyVerb}Return (a,b)-sinh/cosh pseudo-derivative of a periodic sequence x.
+
+If x_j and y_j are Fourier coefficients of periodic functions x
+and y, respectively, then::
+
+  y_j = sqrt(-1)*sinh(j*a*2*pi/period)/cosh(j*b*2*pi/period) * x_j
+  y_0 = 0
+
+Parameters
+----------
+x : array_like
+    Input array.
+a,b : float
+    Defines the parameters of the sinh/cosh pseudo-differential
+    operator.
+period : float, optional
+    The period of the sequence x. Default is 2*pi.
+
+Notes
+-----
+``sc_diff(cs_diff(x,a,b),b,a) == x``
+For even ``len(x)``, the Nyquist mode of x is taken as zero.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_ac3d3fb65d79a12ba90299dc3411b825f}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!shift@{shift}}
+\index{shift@{shift}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{shift}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+pseudo\+\_\+diffs.\+shift (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{a, }
+\item[{}]{period = {\ttfamily None}, }
+\item[{}]{\+\_\+cache = {\ttfamily \+\_\+cache}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_ac3d3fb65d79a12ba90299dc3411b825f}
+\begin{DoxyVerb}Shift periodic sequence x by a: y(u) = x(u+a).
+
+If x_j and y_j are Fourier coefficients of periodic functions x
+and y, respectively, then::
+
+      y_j = exp(j*a*2*pi/period*sqrt(-1)) * x_f
+
+Parameters
+----------
+x : array_like
+    The array to take the pseudo-derivative from.
+a : float
+    Defines the parameters of the sinh/sinh pseudo-differential
+period : float, optional
+    The period of the sequences x and y. Default period is ``2*pi``.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_a2c19470883e518246d275790e4e9c01b}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!ss\+\_\+diff@{ss\+\_\+diff}}
+\index{ss\+\_\+diff@{ss\+\_\+diff}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{ss\+\_\+diff}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+pseudo\+\_\+diffs.\+ss\+\_\+diff (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{period = {\ttfamily None}, }
+\item[{}]{\+\_\+cache = {\ttfamily \+\_\+cache}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_a2c19470883e518246d275790e4e9c01b}
+\begin{DoxyVerb}Return (a,b)-sinh/sinh pseudo-derivative of a periodic sequence x.
+
+If x_j and y_j are Fourier coefficients of periodic functions x
+and y, respectively, then::
+
+  y_j = sinh(j*a*2*pi/period)/sinh(j*b*2*pi/period) * x_j
+  y_0 = a/b * x_0
+
+Parameters
+----------
+x : array_like
+    The array to take the pseudo-derivative from.
+a,b
+    Defines the parameters of the sinh/sinh pseudo-differential
+    operator.
+period : float, optional
+    The period of the sequence x. Default is ``2*pi``.
+
+Notes
+-----
+``ss_diff(ss_diff(x,a,b),b,a) == x``\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_a7d94b849d40ac9ce79d70227a953f26c}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!tilbert@{tilbert}}
+\index{tilbert@{tilbert}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{tilbert}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+fftpack.\+pseudo\+\_\+diffs.\+tilbert (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{h, }
+\item[{}]{period = {\ttfamily None}, }
+\item[{}]{\+\_\+cache = {\ttfamily \+\_\+cache}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_a7d94b849d40ac9ce79d70227a953f26c}
+\begin{DoxyVerb}Return h-Tilbert transform of a periodic sequence x.
+
+If x_j and y_j are Fourier coefficients of periodic functions x
+and y, respectively, then::
+
+    y_j = sqrt(-1)*coth(j*h*2*pi/period) * x_j
+    y_0 = 0
+
+Parameters
+----------
+x : array_like
+    The input array to transform.
+h : float
+    Defines the parameter of the Tilbert transform.
+period : float, optional
+    The assumed period of the sequence.  Default period is ``2*pi``.
+
+Returns
+-------
+tilbert : ndarray
+    The result of the transform.
+
+Notes
+-----
+If ``sum(x, axis=0) == 0`` and ``n = len(x)`` is odd then
+``tilbert(itilbert(x)) == x``.
+
+If ``2 * pi * h / period`` is approximately 10 or larger, then
+numerically ``tilbert == hilbert``
+(theoretically oo-Tilbert == Hilbert).
+
+For even ``len(x)``, the Nyquist mode of ``x`` is taken zero.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_a66deb77dd40743d440d6a71eb71341a2}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+fftpack.\+pseudo\+\_\+diffs.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_a66deb77dd40743d440d6a71eb71341a2}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'diff'},
+2            \textcolor{stringliteral}{'tilbert'},\textcolor{stringliteral}{'itilbert'},\textcolor{stringliteral}{'hilbert'},\textcolor{stringliteral}{'ihilbert'},
+3            \textcolor{stringliteral}{'cs\_diff'},\textcolor{stringliteral}{'cc\_diff'},\textcolor{stringliteral}{'sc\_diff'},\textcolor{stringliteral}{'ss\_diff'},
+4            \textcolor{stringliteral}{'shift'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1fftpack_1_1pseudo__diffs_adb08a0217dd62951147e1c426b48a575}{}\index{scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}!\+\_\+cache@{\+\_\+cache}}
+\index{\+\_\+cache@{\+\_\+cache}!scipy\+::fftpack\+::pseudo\+\_\+diffs@{scipy\+::fftpack\+::pseudo\+\_\+diffs}}
+\subsubsection[{\+\_\+cache}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+fftpack.\+pseudo\+\_\+diffs.\+\_\+cache = \{\}}\label{namespacescipy_1_1fftpack_1_1pseudo__diffs_adb08a0217dd62951147e1c426b48a575}

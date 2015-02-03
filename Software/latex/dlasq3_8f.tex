@@ -1,0 +1,140 @@
+\hypertarget{dlasq3_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlasq3.f File Reference}
+\label{dlasq3_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlasq3.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlasq3.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlasq3_8f_a38579c1852f8094a33d0afeed15b2b65}{dlasq3} (I0, N0, Z, P\+P, \hyperlink{zeros_8h_af9a0a96e48b21c87d05acd4ed5117ba0}{D\+M\+I\+N}, S\+I\+G\+M\+A, D\+E\+S\+I\+G, Q\+M\+A\+X, N\+F\+A\+I\+L, I\+T\+E\+R, N\+D\+I\+V, I\+E\+E\+E, T\+T\+Y\+P\+E, D\+M\+I\+N1, D\+M\+I\+N2, D\+N, D\+N1, D\+N2, G, T\+A\+U)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+S\+Q3} checks for deflation, computes a shift and calls dqds. Used by sbdsqr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlasq3_8f_a38579c1852f8094a33d0afeed15b2b65}{}\index{dlasq3.\+f@{dlasq3.\+f}!dlasq3@{dlasq3}}
+\index{dlasq3@{dlasq3}!dlasq3.\+f@{dlasq3.\+f}}
+\subsubsection[{dlasq3}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlasq3 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I0, }
+\item[{integer}]{N0, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{Z, }
+\item[{integer}]{P\+P, }
+\item[{double {\bf precision}}]{D\+M\+I\+N, }
+\item[{double {\bf precision}}]{S\+I\+G\+M\+A, }
+\item[{double {\bf precision}}]{D\+E\+S\+I\+G, }
+\item[{double {\bf precision}}]{Q\+M\+A\+X, }
+\item[{integer}]{N\+F\+A\+I\+L, }
+\item[{integer}]{I\+T\+E\+R, }
+\item[{integer}]{N\+D\+I\+V, }
+\item[{{\bf logical}}]{I\+E\+E\+E, }
+\item[{integer}]{T\+T\+Y\+P\+E, }
+\item[{double {\bf precision}}]{D\+M\+I\+N1, }
+\item[{double {\bf precision}}]{D\+M\+I\+N2, }
+\item[{double {\bf precision}}]{D\+N, }
+\item[{double {\bf precision}}]{D\+N1, }
+\item[{double {\bf precision}}]{D\+N2, }
+\item[{double {\bf precision}}]{G, }
+\item[{double {\bf precision}}]{T\+A\+U}
+\end{DoxyParamCaption}
+)}\label{dlasq3_8f_a38579c1852f8094a33d0afeed15b2b65}
+
+
+{\bfseries D\+L\+A\+S\+Q3} checks for deflation, computes a shift and calls dqds. Used by sbdsqr. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLASQ3 checks for deflation, computes a shift (TAU) and calls dqds.
+ In case of failure it changes shifts, and tries again until output
+ is positive.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I0} & \begin{DoxyVerb}          I0 is INTEGER
+         First index.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em N0} & \begin{DoxyVerb}          N0 is INTEGER
+         Last index.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array, dimension ( 4*N )
+         Z holds the qd array.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em P\+P} & \begin{DoxyVerb}          PP is INTEGER
+         PP=0 for ping, PP=1 for pong.
+         PP=2 indicates that flipping was applied to the Z array   
+         and that the initial tests for deflation should not be 
+         performed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em D\+M\+I\+N} & \begin{DoxyVerb}          DMIN is DOUBLE PRECISION
+         Minimum value of d.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+I\+G\+M\+A} & \begin{DoxyVerb}          SIGMA is DOUBLE PRECISION
+         Sum of shifts used in current segment.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+E\+S\+I\+G} & \begin{DoxyVerb}          DESIG is DOUBLE PRECISION
+         Lower order part of SIGMA\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q\+M\+A\+X} & \begin{DoxyVerb}          QMAX is DOUBLE PRECISION
+         Maximum value of q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em N\+F\+A\+I\+L} & \begin{DoxyVerb}          NFAIL is INTEGER
+         Number of times shift was too big.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+T\+E\+R} & \begin{DoxyVerb}          ITER is INTEGER
+         Number of iterations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em N\+D\+I\+V} & \begin{DoxyVerb}          NDIV is INTEGER
+         Number of divisions.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+E\+E\+E} & \begin{DoxyVerb}          IEEE is LOGICAL
+         Flag for IEEE or non IEEE arithmetic (passed to DLASQ5).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em T\+T\+Y\+P\+E} & \begin{DoxyVerb}          TTYPE is INTEGER
+         Shift type.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+M\+I\+N1} & \begin{DoxyVerb}          DMIN1 is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+M\+I\+N2} & \begin{DoxyVerb}          DMIN2 is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+N} & \begin{DoxyVerb}          DN is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+N1} & \begin{DoxyVerb}          DN1 is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+N2} & \begin{DoxyVerb}          DN2 is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em G} & \begin{DoxyVerb}          G is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is DOUBLE PRECISION
+
+         These are passed as arguments in order to save their values
+         between calls to DLASQ3.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

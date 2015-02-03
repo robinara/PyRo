@@ -1,0 +1,103 @@
+\hypertarget{chegst_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/chegst.f File Reference}
+\label{chegst_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chegst.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chegst.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{chegst_8f_a12301fc39ffb222db15ff7801c01abbb}{chegst} (I\+T\+Y\+P\+E, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+H\+E\+G\+S\+T} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{chegst_8f_a12301fc39ffb222db15ff7801c01abbb}{}\index{chegst.\+f@{chegst.\+f}!chegst@{chegst}}
+\index{chegst@{chegst}!chegst.\+f@{chegst.\+f}}
+\subsubsection[{chegst}]{\setlength{\rightskip}{0pt plus 5cm}subroutine chegst (
+\begin{DoxyParamCaption}
+\item[{integer}]{I\+T\+Y\+P\+E, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{chegst_8f_a12301fc39ffb222db15ff7801c01abbb}
+
+
+{\bfseries C\+H\+E\+G\+S\+T} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CHEGST reduces a complex Hermitian-definite generalized
+ eigenproblem to standard form.
+
+ If ITYPE = 1, the problem is A*x = lambda*B*x,
+ and A is overwritten by inv(U**H)*A*inv(U) or inv(L)*A*inv(L**H)
+
+ If ITYPE = 2 or 3, the problem is A*B*x = lambda*x or
+ B*A*x = lambda*x, and A is overwritten by U*A*U**H or L**H*A*L.
+
+ B must have been previously factorized as U**H*U or L*L**H by CPOTRF.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I\+T\+Y\+P\+E} & \begin{DoxyVerb}          ITYPE is INTEGER
+          = 1: compute inv(U**H)*A*inv(U) or inv(L)*A*inv(L**H);
+          = 2 or 3: compute U*A*U**H or L**H*A*L.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored and B is factored as
+                  U**H*U;
+          = 'L':  Lower triangle of A is stored and B is factored as
+                  L*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrices A and B.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
+          N-by-N upper triangular part of A contains the upper
+          triangular part of the matrix A, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = 'L', the
+          leading N-by-N lower triangular part of A contains the lower
+          triangular part of the matrix A, and the strictly upper
+          triangular part of A is not referenced.
+
+          On exit, if INFO = 0, the transformed matrix, stored in the
+          same format as A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX array, dimension (LDB,N)
+          The triangular factor from the Cholesky factorization of B,
+          as returned by CPOTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

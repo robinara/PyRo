@@ -1,0 +1,84 @@
+\hypertarget{ssnode__dfs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ssnode\+\_\+dfs.c File Reference}
+\label{ssnode__dfs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ssnode\+\_\+dfs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ssnode\+\_\+dfs.\+c}}
+
+
+Determines the union of row structures of columns within the relaxed node.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ssnode__dfs_8c_a5b66817c89ddf9f74e4773b49dc72872}{ssnode\+\_\+dfs} (const int jcol, const int kcol, const int $\ast$asub, const int $\ast$xa\+\_\+begin, const int $\ast$xa\+\_\+end, int $\ast$xprune, int $\ast$marker, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Determines the union of row structures of columns within the relaxed node. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Permission is hereby granted to use or copy this program for any
+purpose, provided the above notices are retained on all copies.
+Permission to modify the code and to distribute modified code is
+granted, provided the above notices are retained, and a notice that
+the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{ssnode__dfs_8c_a5b66817c89ddf9f74e4773b49dc72872}{}\index{ssnode\+\_\+dfs.\+c@{ssnode\+\_\+dfs.\+c}!ssnode\+\_\+dfs@{ssnode\+\_\+dfs}}
+\index{ssnode\+\_\+dfs@{ssnode\+\_\+dfs}!ssnode\+\_\+dfs.\+c@{ssnode\+\_\+dfs.\+c}}
+\subsubsection[{ssnode\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}int ssnode\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const int}]{kcol, }
+\item[{const int $\ast$}]{asub, }
+\item[{const int $\ast$}]{xa\+\_\+begin, }
+\item[{const int $\ast$}]{xa\+\_\+end, }
+\item[{int $\ast$}]{xprune, }
+\item[{int $\ast$}]{marker, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{ssnode__dfs_8c_a5b66817c89ddf9f74e4773b49dc72872}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+   \hyperlink{ssnode__dfs_8c_a5b66817c89ddf9f74e4773b49dc72872}{ssnode\_dfs()} - Determine the union of the row structures of those 
+   columns within the relaxed snode.
+   Note: The relaxed snodes are leaves of the supernodal etree, therefore, 
+   the portion outside the rectangular supernode must be zero.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Return value
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+    0   success;
+   >0   number of bytes allocated when run out of memory.
+\end{DoxyPre}
+ 

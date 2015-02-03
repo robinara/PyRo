@@ -1,0 +1,112 @@
+\hypertarget{VARIANTS_2qr_2LL_2zgeqrf_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/\+V\+A\+R\+I\+A\+N\+T\+S/qr/\+L\+L/zgeqrf.f File Reference}
+\label{VARIANTS_2qr_2LL_2zgeqrf_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/\+V\+A\+R\+I\+A\+N\+T\+S/qr/\+L\+L/zgeqrf.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/\+V\+A\+R\+I\+A\+N\+T\+S/qr/\+L\+L/zgeqrf.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{VARIANTS_2qr_2LL_2zgeqrf_8f_a91323e2e5f9678324dde6fd72f1e6bd1}{zgeqrf} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, T\+A\+U, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+G\+E\+Q\+R\+F} V\+A\+R\+I\+A\+N\+T\+: left-\/looking Level 3 B\+L\+A\+S of the algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{VARIANTS_2qr_2LL_2zgeqrf_8f_a91323e2e5f9678324dde6fd72f1e6bd1}{}\index{V\+A\+R\+I\+A\+N\+T\+S/qr/\+L\+L/zgeqrf.\+f@{V\+A\+R\+I\+A\+N\+T\+S/qr/\+L\+L/zgeqrf.\+f}!zgeqrf@{zgeqrf}}
+\index{zgeqrf@{zgeqrf}!V\+A\+R\+I\+A\+N\+T\+S/qr/\+L\+L/zgeqrf.\+f@{V\+A\+R\+I\+A\+N\+T\+S/qr/\+L\+L/zgeqrf.\+f}}
+\subsubsection[{zgeqrf}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zgeqrf (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{T\+A\+U, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{VARIANTS_2qr_2LL_2zgeqrf_8f_a91323e2e5f9678324dde6fd72f1e6bd1}
+
+
+{\bfseries Z\+G\+E\+Q\+R\+F} V\+A\+R\+I\+A\+N\+T\+: left-\/looking Level 3 B\+L\+A\+S of the algorithm. 
+
+{\bfseries Purpose\+:} \begin{DoxyVerb} ZGEQRF computes a QR factorization of a real M-by-N matrix A:
+ A = Q * R.
+
+ This is the left-looking Level 3 BLAS version of the algorithm.\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A.  M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the M-by-N matrix A.
+          On exit, the elements on and above the diagonal of the array
+          contain the min(M,N)-by-N upper trapezoidal matrix R (R is
+          upper triangular if m >= n); the elements below the diagonal,
+          with the array TAU, represent the orthogonal matrix Q as a
+          product of min(m,n) elementary reflectors (see Further
+          Details).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is COMPLEX*16 array, dimension (min(M,N))
+          The scalar factors of the elementary reflectors (see Further
+          Details).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER\end{DoxyVerb}
+ \begin{DoxyVerb}          The dimension of the array WORK. The dimension can be divided into three parts.\end{DoxyVerb}
+ \begin{DoxyVerb}          1) The part for the triangular factor T. If the very last T is not bigger 
+             than any of the rest, then this part is NB x ceiling(K/NB), otherwise, 
+             NB x (K-NT), where K = min(M,N) and NT is the dimension of the very last T              \end{DoxyVerb}
+ \begin{DoxyVerb}          2) The part for the very last T when T is bigger than any of the rest T. 
+             The size of this part is NT x NT, where NT = K - ceiling ((K-NX)/NB) x NB,
+             where K = min(M,N), NX is calculated by
+                   NX = MAX( 0, ILAENV( 3, 'ZGEQRF', ' ', M, N, -1, -1 ) )\end{DoxyVerb}
+ \begin{DoxyVerb}          3) The part for dlarfb is of size max((N-M)*K, (N-M)*NB, K*NB, NB*NB)\end{DoxyVerb}
+ \begin{DoxyVerb}          So LWORK = part1 + part2 + part3\end{DoxyVerb}
+ \begin{DoxyVerb}          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal size of the WORK array, returns
+          this value as the first entry of the WORK array, and no error
+          message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011
+\end{DoxyDate}
+{\bfseries Further} {\bfseries Details} \begin{DoxyVerb}  The matrix Q is represented as a product of elementary reflectors
+
+     Q = H(1) H(2) . . . H(k), where k = min(m,n).
+
+  Each H(i) has the form
+
+     H(i) = I - tau * v * v'
+
+  where tau is a real scalar, and v is a real vector with
+  v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i),
+  and tau in TAU(i).\end{DoxyVerb}
+ 

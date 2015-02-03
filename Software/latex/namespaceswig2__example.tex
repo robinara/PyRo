@@ -1,0 +1,46 @@
+\hypertarget{namespaceswig2__example}{}\section{swig2\+\_\+example Namespace Reference}
+\label{namespaceswig2__example}\index{swig2\+\_\+example@{swig2\+\_\+example}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceswig2__example_abdcd9837ef8f832eee66e507e4ddad85}{test}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Simple example to show how to use weave.inline on SWIG2 wrapped
+objects.  SWIG2 refers to SWIG versions >= 1.3.
+
+To run this example you must build the trivial SWIG2 extension called
+swig2_ext.  To do this you need to do something like this::
+
+ $ swig -c++ -python -I. -o swig2_ext_wrap.cxx swig2_ext.i
+
+ $ g++ -Wall -O2 -I/usr/include/python2.3 -fPIC -I. -c \
+   -o swig2_ext_wrap.os swig2_ext_wrap.cxx
+
+ $ g++ -shared -o _swig2_ext.so swig2_ext_wrap.os \
+   -L/usr/lib/python2.3/config
+
+The files swig2_ext.i and swig2_ext.h are included in the same
+directory that contains this file.
+
+Note that weave's SWIG2 support works fine whether SWIG_COBJECT_TYPES
+are used or not.
+
+Author: Prabhu Ramachandran
+Copyright (c) 2004, Prabhu Ramachandran
+License: BSD Style.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespaceswig2__example_abdcd9837ef8f832eee66e507e4ddad85}{}\index{swig2\+\_\+example@{swig2\+\_\+example}!test@{test}}
+\index{test@{test}!swig2\+\_\+example@{swig2\+\_\+example}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}def swig2\+\_\+example.\+test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespaceswig2__example_abdcd9837ef8f832eee66e507e4ddad85}
+\begin{DoxyVerb}Instantiate the SWIG wrapped object and then call its method
+from C++ using weave.inline\end{DoxyVerb}
+ 

@@ -1,0 +1,473 @@
+\hypertarget{namespacescipy_1_1ndimage_1_1interpolation}{}\section{scipy.\+ndimage.\+interpolation Namespace Reference}
+\label{namespacescipy_1_1ndimage_1_1interpolation}\index{scipy.\+ndimage.\+interpolation@{scipy.\+ndimage.\+interpolation}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1interpolation_a25d17b60f8116bf93653f23a4cd0b77b}{spline\+\_\+filter1d}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1interpolation_a76cbec8c11b62a35fa225fb6fc4d786d}{spline\+\_\+filter}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1interpolation_af937dbd95ebfb4145ff0a97af27ef985}{geometric\+\_\+transform}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1interpolation_acc7e6b8904f3c4e9df3a4aa135f77e10}{map\+\_\+coordinates}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1interpolation_a2dd803c1031673376f9e69739b0fe208}{affine\+\_\+transform}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1interpolation_a0b897ab9708c006d9e1c696dfd61d46f}{shift}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1interpolation_a03ec10a1d2993d79751b35f664247467}{zoom}
+\item 
+def \hyperlink{namespacescipy_1_1ndimage_1_1interpolation_abb9f8f94c0fd801436c15c06c65c2a81}{rotate}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1ndimage_1_1interpolation_acecf910ae21d689b5db25e9832428764}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1ndimage_1_1interpolation_a2dd803c1031673376f9e69739b0fe208}{}\index{scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}!affine\+\_\+transform@{affine\+\_\+transform}}
+\index{affine\+\_\+transform@{affine\+\_\+transform}!scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}}
+\subsubsection[{affine\+\_\+transform}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+interpolation.\+affine\+\_\+transform (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{matrix, }
+\item[{}]{offset = {\ttfamily 0.0}, }
+\item[{}]{output\+\_\+shape = {\ttfamily None}, }
+\item[{}]{output = {\ttfamily None}, }
+\item[{}]{order = {\ttfamily 3}, }
+\item[{}]{mode = {\ttfamily 'constant'}, }
+\item[{}]{cval = {\ttfamily 0.0}, }
+\item[{}]{prefilter = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1interpolation_a2dd803c1031673376f9e69739b0fe208}
+\begin{DoxyVerb}Apply an affine transformation.
+
+The given matrix and offset are used to find for each point in the
+output the corresponding coordinates in the input by an affine
+transformation. The value of the input at those coordinates is
+determined by spline interpolation of the requested order. Points
+outside the boundaries of the input are filled according to the given
+mode.
+
+Parameters
+----------
+input : ndarray
+    The input array.
+matrix : ndarray
+    The matrix must be two-dimensional or can also be given as a
+    one-dimensional sequence or array. In the latter case, it is assumed
+    that the matrix is diagonal. A more efficient algorithms is then
+    applied that exploits the separability of the problem.
+offset : float or sequence, optional
+    The offset into the array where the transform is applied. If a float,
+    `offset` is the same for each axis. If a sequence, `offset` should
+    contain one value for each axis.
+output_shape : tuple of ints, optional
+    Shape tuple.
+output : ndarray or dtype, optional
+    The array in which to place the output, or the dtype of the returned
+    array.
+order : int, optional
+    The order of the spline interpolation, default is 3.
+    The order has to be in the range 0-5.
+mode : str, optional
+    Points outside the boundaries of the input are filled according
+    to the given mode ('constant', 'nearest', 'reflect' or 'wrap').
+    Default is 'constant'.
+cval : scalar, optional
+    Value used for points outside the boundaries of the input if
+    ``mode='constant'``. Default is 0.0
+prefilter : bool, optional
+    The parameter prefilter determines if the input is pre-filtered with
+    `spline_filter` before interpolation (necessary for spline
+    interpolation of order > 1).  If False, it is assumed that the input is
+    already filtered. Default is True.
+
+Returns
+-------
+affine_transform : ndarray or None
+    The transformed input. If `output` is given as a parameter, None is
+    returned.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1ndimage_1_1interpolation_af937dbd95ebfb4145ff0a97af27ef985}{}\index{scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}!geometric\+\_\+transform@{geometric\+\_\+transform}}
+\index{geometric\+\_\+transform@{geometric\+\_\+transform}!scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}}
+\subsubsection[{geometric\+\_\+transform}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+interpolation.\+geometric\+\_\+transform (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{mapping, }
+\item[{}]{output\+\_\+shape = {\ttfamily None}, }
+\item[{}]{output = {\ttfamily None}, }
+\item[{}]{order = {\ttfamily 3}, }
+\item[{}]{mode = {\ttfamily 'constant'}, }
+\item[{}]{cval = {\ttfamily 0.0}, }
+\item[{}]{prefilter = {\ttfamily {\bf True}}, }
+\item[{}]{extra\+\_\+arguments = {\ttfamily ()}, }
+\item[{}]{extra\+\_\+keywords = {\ttfamily \{\}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1interpolation_af937dbd95ebfb4145ff0a97af27ef985}
+\begin{DoxyVerb}Apply an arbritrary geometric transform.
+
+The given mapping function is used to find, for each point in the
+output, the corresponding coordinates in the input. The value of the
+input at those coordinates is determined by spline interpolation of
+the requested order.
+
+Parameters
+----------
+input : array_like
+    The input array.
+mapping : callable
+    A callable object that accepts a tuple of length equal to the output
+    array rank, and returns the corresponding input coordinates as a tuple
+    of length equal to the input array rank.
+output_shape : tuple of ints
+    Shape tuple.
+output : ndarray or dtype, optional
+    The array in which to place the output, or the dtype of the returned
+    array.
+order : int, optional
+    The order of the spline interpolation, default is 3.
+    The order has to be in the range 0-5.
+mode : str, optional
+    Points outside the boundaries of the input are filled according
+    to the given mode ('constant', 'nearest', 'reflect' or 'wrap').
+    Default is 'constant'.
+cval : scalar, optional
+    Value used for points outside the boundaries of the input if
+    ``mode='constant'``. Default is 0.0
+prefilter : bool, optional
+    The parameter prefilter determines if the input is pre-filtered with
+    `spline_filter` before interpolation (necessary for spline
+    interpolation of order > 1).  If False, it is assumed that the input is
+    already filtered. Default is True.
+extra_arguments : tuple, optional
+    Extra arguments passed to `mapping`.
+extra_keywords : dict, optional
+    Extra keywords passed to `mapping`.
+
+Returns
+-------
+return_value : ndarray or None
+    The filtered input. If `output` is given as a parameter, None is
+    returned.
+
+See Also
+--------
+map_coordinates, affine_transform, spline_filter1d
+
+Examples
+--------
+>>> a = np.arange(12.).reshape((4, 3))
+>>> def shift_func(output_coords):
+...     return (output_coords[0] - 0.5, output_coords[1] - 0.5)
+...
+>>> sp.ndimage.geometric_transform(a, shift_func)
+array([[ 0.   ,  0.   ,  0.   ],
+       [ 0.   ,  1.362,  2.738],
+       [ 0.   ,  4.812,  6.187],
+       [ 0.   ,  8.263,  9.637]])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1ndimage_1_1interpolation_acc7e6b8904f3c4e9df3a4aa135f77e10}{}\index{scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}!map\+\_\+coordinates@{map\+\_\+coordinates}}
+\index{map\+\_\+coordinates@{map\+\_\+coordinates}!scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}}
+\subsubsection[{map\+\_\+coordinates}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+interpolation.\+map\+\_\+coordinates (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{coordinates, }
+\item[{}]{output = {\ttfamily None}, }
+\item[{}]{order = {\ttfamily 3}, }
+\item[{}]{mode = {\ttfamily 'constant'}, }
+\item[{}]{cval = {\ttfamily 0.0}, }
+\item[{}]{prefilter = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1interpolation_acc7e6b8904f3c4e9df3a4aa135f77e10}
+\begin{DoxyVerb}Map the input array to new coordinates by interpolation.
+
+The array of coordinates is used to find, for each point in the output,
+the corresponding coordinates in the input. The value of the input at
+those coordinates is determined by spline interpolation of the
+requested order.
+
+The shape of the output is derived from that of the coordinate
+array by dropping the first axis. The values of the array along
+the first axis are the coordinates in the input array at which the
+output value is found.
+
+Parameters
+----------
+input : ndarray
+    The input array.
+coordinates : array_like
+    The coordinates at which `input` is evaluated.
+output : ndarray or dtype, optional
+    The array in which to place the output, or the dtype of the returned
+    array.
+order : int, optional
+    The order of the spline interpolation, default is 3.
+    The order has to be in the range 0-5.
+mode : str, optional
+    Points outside the boundaries of the input are filled according
+    to the given mode ('constant', 'nearest', 'reflect' or 'wrap').
+    Default is 'constant'.
+cval : scalar, optional
+    Value used for points outside the boundaries of the input if
+    ``mode='constant'``. Default is 0.0
+prefilter : bool, optional
+    The parameter prefilter determines if the input is pre-filtered with
+    `spline_filter` before interpolation (necessary for spline
+    interpolation of order > 1).  If False, it is assumed that the input is
+    already filtered. Default is True.
+
+Returns
+-------
+map_coordinates : ndarray
+    The result of transforming the input. The shape of the output is
+    derived from that of `coordinates` by dropping the first axis.
+
+See Also
+--------
+spline_filter, geometric_transform, scipy.interpolate
+
+Examples
+--------
+>>> from scipy import ndimage
+>>> a = np.arange(12.).reshape((4, 3))
+>>> a
+array([[  0.,   1.,   2.],
+       [  3.,   4.,   5.],
+       [  6.,   7.,   8.],
+       [  9.,  10.,  11.]])
+>>> ndimage.map_coordinates(a, [[0.5, 2], [0.5, 1]], order=1)
+[ 2.  7.]
+
+Above, the interpolated value of a[0.5, 0.5] gives output[0], while
+a[2, 1] is output[1].
+
+>>> inds = np.array([[0.5, 2], [0.5, 4]])
+>>> ndimage.map_coordinates(a, inds, order=1, cval=-33.3)
+array([  2. , -33.3])
+>>> ndimage.map_coordinates(a, inds, order=1, mode='nearest')
+array([ 2.,  8.])
+>>> ndimage.map_coordinates(a, inds, order=1, cval=0, output=bool)
+array([ True, False], dtype=bool\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1ndimage_1_1interpolation_abb9f8f94c0fd801436c15c06c65c2a81}{}\index{scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}!rotate@{rotate}}
+\index{rotate@{rotate}!scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+interpolation.\+rotate (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{angle, }
+\item[{}]{axes = {\ttfamily (1,~0}, }
+\item[{}]{reshape = {\ttfamily {\bf True}}, }
+\item[{}]{output = {\ttfamily None}, }
+\item[{}]{order = {\ttfamily 3}, }
+\item[{}]{mode = {\ttfamily 'constant'}, }
+\item[{}]{cval = {\ttfamily 0.0}, }
+\item[{}]{prefilter = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1interpolation_abb9f8f94c0fd801436c15c06c65c2a81}
+\begin{DoxyVerb}Rotate an array.
+
+The array is rotated in the plane defined by the two axes given by the
+`axes` parameter using spline interpolation of the requested order.
+
+Parameters
+----------
+input : ndarray
+    The input array.
+angle : float
+    The rotation angle in degrees.
+axes : tuple of 2 ints, optional
+    The two axes that define the plane of rotation. Default is the first
+    two axes.
+reshape : bool, optional
+    If `reshape` is true, the output shape is adapted so that the input
+    array is contained completely in the output. Default is True.
+output : ndarray or dtype, optional
+    The array in which to place the output, or the dtype of the returned
+    array.
+order : int, optional
+    The order of the spline interpolation, default is 3.
+    The order has to be in the range 0-5.
+mode : str, optional
+    Points outside the boundaries of the input are filled according
+    to the given mode ('constant', 'nearest', 'reflect' or 'wrap').
+    Default is 'constant'.
+cval : scalar, optional
+    Value used for points outside the boundaries of the input if
+    ``mode='constant'``. Default is 0.0
+prefilter : bool, optional
+    The parameter prefilter determines if the input is pre-filtered with
+    `spline_filter` before interpolation (necessary for spline
+    interpolation of order > 1).  If False, it is assumed that the input is
+    already filtered. Default is True.
+
+Returns
+-------
+rotate : ndarray or None
+    The rotated input. If `output` is given as a parameter, None is
+    returned.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1ndimage_1_1interpolation_a0b897ab9708c006d9e1c696dfd61d46f}{}\index{scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}!shift@{shift}}
+\index{shift@{shift}!scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}}
+\subsubsection[{shift}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+interpolation.\+shift (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{shift, }
+\item[{}]{output = {\ttfamily None}, }
+\item[{}]{order = {\ttfamily 3}, }
+\item[{}]{mode = {\ttfamily 'constant'}, }
+\item[{}]{cval = {\ttfamily 0.0}, }
+\item[{}]{prefilter = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1interpolation_a0b897ab9708c006d9e1c696dfd61d46f}
+\begin{DoxyVerb}Shift an array.
+
+The array is shifted using spline interpolation of the requested order.
+Points outside the boundaries of the input are filled according to the
+given mode.
+
+Parameters
+----------
+input : ndarray
+    The input array.
+shift : float or sequence, optional
+    The shift along the axes. If a float, `shift` is the same for each
+    axis. If a sequence, `shift` should contain one value for each axis.
+output : ndarray or dtype, optional
+    The array in which to place the output, or the dtype of the returned
+    array.
+order : int, optional
+    The order of the spline interpolation, default is 3.
+    The order has to be in the range 0-5.
+mode : str, optional
+    Points outside the boundaries of the input are filled according
+    to the given mode ('constant', 'nearest', 'reflect' or 'wrap').
+    Default is 'constant'.
+cval : scalar, optional
+    Value used for points outside the boundaries of the input if
+    ``mode='constant'``. Default is 0.0
+prefilter : bool, optional
+    The parameter prefilter determines if the input is pre-filtered with
+    `spline_filter` before interpolation (necessary for spline
+    interpolation of order > 1).  If False, it is assumed that the input is
+    already filtered. Default is True.
+
+Returns
+-------
+shift : ndarray or None
+    The shifted input. If `output` is given as a parameter, None is
+    returned.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1ndimage_1_1interpolation_a76cbec8c11b62a35fa225fb6fc4d786d}{}\index{scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}!spline\+\_\+filter@{spline\+\_\+filter}}
+\index{spline\+\_\+filter@{spline\+\_\+filter}!scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}}
+\subsubsection[{spline\+\_\+filter}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+interpolation.\+spline\+\_\+filter (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{order = {\ttfamily 3}, }
+\item[{}]{output = {\ttfamily numpy.float64}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1interpolation_a76cbec8c11b62a35fa225fb6fc4d786d}
+\begin{DoxyVerb}Multi-dimensional spline filter.
+
+For more details, see `spline_filter1d`.
+
+See Also
+--------
+spline_filter1d
+
+Notes
+-----
+The multi-dimensional filter is implemented as a sequence of
+one-dimensional spline filters. The intermediate arrays are stored
+in the same data type as the output. Therefore, for output types
+with a limited precision, the results may be imprecise because
+intermediate results may be stored with insufficient precision.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1ndimage_1_1interpolation_a25d17b60f8116bf93653f23a4cd0b77b}{}\index{scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}!spline\+\_\+filter1d@{spline\+\_\+filter1d}}
+\index{spline\+\_\+filter1d@{spline\+\_\+filter1d}!scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}}
+\subsubsection[{spline\+\_\+filter1d}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+interpolation.\+spline\+\_\+filter1d (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{order = {\ttfamily 3}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{output = {\ttfamily numpy.float64}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1interpolation_a25d17b60f8116bf93653f23a4cd0b77b}
+\begin{DoxyVerb}Calculates a one-dimensional spline filter along the given axis.
+
+The lines of the array along the given axis are filtered by a
+spline filter. The order of the spline must be >= 2 and <= 5.
+
+Parameters
+----------
+input : array_like
+    The input array.
+order : int, optional
+    The order of the spline, default is 3.
+axis : int, optional
+    The axis along which the spline filter is applied. Default is the last
+    axis.
+output : ndarray or dtype, optional
+    The array in which to place the output, or the dtype of the returned
+    array. Default is `numpy.float64`.
+
+Returns
+-------
+spline_filter1d : ndarray or None
+    The filtered input. If `output` is given as a parameter, None is
+    returned.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1ndimage_1_1interpolation_a03ec10a1d2993d79751b35f664247467}{}\index{scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}!zoom@{zoom}}
+\index{zoom@{zoom}!scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}}
+\subsubsection[{zoom}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+ndimage.\+interpolation.\+zoom (
+\begin{DoxyParamCaption}
+\item[{}]{input, }
+\item[{}]{zoom, }
+\item[{}]{output = {\ttfamily None}, }
+\item[{}]{order = {\ttfamily 3}, }
+\item[{}]{mode = {\ttfamily 'constant'}, }
+\item[{}]{cval = {\ttfamily 0.0}, }
+\item[{}]{prefilter = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1ndimage_1_1interpolation_a03ec10a1d2993d79751b35f664247467}
+\begin{DoxyVerb}Zoom an array.
+
+The array is zoomed using spline interpolation of the requested order.
+
+Parameters
+----------
+input : ndarray
+    The input array.
+zoom : float or sequence, optional
+    The zoom factor along the axes. If a float, `zoom` is the same for each
+    axis. If a sequence, `zoom` should contain one value for each axis.
+output : ndarray or dtype, optional
+    The array in which to place the output, or the dtype of the returned
+    array.
+order : int, optional
+    The order of the spline interpolation, default is 3.
+    The order has to be in the range 0-5.
+mode : str, optional
+    Points outside the boundaries of the input are filled according
+    to the given mode ('constant', 'nearest', 'reflect' or 'wrap').
+    Default is 'constant'.
+cval : scalar, optional
+    Value used for points outside the boundaries of the input if
+    ``mode='constant'``. Default is 0.0
+prefilter : bool, optional
+    The parameter prefilter determines if the input is pre-filtered with
+    `spline_filter` before interpolation (necessary for spline
+    interpolation of order > 1).  If False, it is assumed that the input is
+    already filtered. Default is True.
+
+Returns
+-------
+zoom : ndarray or None
+    The zoomed input. If `output` is given as a parameter, None is
+    returned.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1ndimage_1_1interpolation_acecf910ae21d689b5db25e9832428764}{}\index{scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::ndimage\+::interpolation@{scipy\+::ndimage\+::interpolation}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+ndimage.\+interpolation.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1ndimage_1_1interpolation_acecf910ae21d689b5db25e9832428764}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'spline\_filter1d'}, \textcolor{stringliteral}{'spline\_filter'}, \textcolor{stringliteral}{'geometric\_transform'},
+2            \textcolor{stringliteral}{'map\_coordinates'}, \textcolor{stringliteral}{'affine\_transform'}, \textcolor{stringliteral}{'shift'}, \textcolor{stringliteral}{'zoom'}, \textcolor{stringliteral}{'rotate'}]
+\end{DoxyCode}

@@ -1,0 +1,64 @@
+\hypertarget{py__gpio_8c}{}\section{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/py\+\_\+gpio.c File Reference}
+\label{py__gpio_8c}\index{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/py\+\_\+gpio.\+c@{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/py\+\_\+gpio.\+c}}
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}constants.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}event\+\_\+gpio.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} \hyperlink{py__gpio_8c_a580fa8506ad513321f8577e1b3d5b5c3}{init\+G\+P\+I\+O} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Py\+Method\+Def \hyperlink{py__gpio_8c_ae16b3eb00d85d3d868d44b691a24232c}{gpio\+\_\+methods} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{py__gpio_8c_a580fa8506ad513321f8577e1b3d5b5c3}{}\index{py\+\_\+gpio.\+c@{py\+\_\+gpio.\+c}!init\+G\+P\+I\+O@{init\+G\+P\+I\+O}}
+\index{init\+G\+P\+I\+O@{init\+G\+P\+I\+O}!py\+\_\+gpio.\+c@{py\+\_\+gpio.\+c}}
+\subsubsection[{init\+G\+P\+I\+O}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} init\+G\+P\+I\+O (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{py__gpio_8c_a580fa8506ad513321f8577e1b3d5b5c3}
+
+
+\subsection{Variable Documentation}
+\hypertarget{py__gpio_8c_ae16b3eb00d85d3d868d44b691a24232c}{}\index{py\+\_\+gpio.\+c@{py\+\_\+gpio.\+c}!gpio\+\_\+methods@{gpio\+\_\+methods}}
+\index{gpio\+\_\+methods@{gpio\+\_\+methods}!py\+\_\+gpio.\+c@{py\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+methods}]{\setlength{\rightskip}{0pt plus 5cm}Py\+Method\+Def gpio\+\_\+methods\mbox{[}$\,$\mbox{]}}\label{py__gpio_8c_ae16b3eb00d85d3d868d44b691a24232c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+   \{\textcolor{stringliteral}{"setup"}, (PyCFunction)py\_setup\_channel, METH\_VARARGS | METH\_KEYWORDS, \textcolor{stringliteral}{"Set up the GPIO channel,
+       direction and (optional) pull/up down control\(\backslash\)nchannel        - Either: RPi board pin number (not BCM GPIO 00..nn
+       number).  Pins start from 1\(\backslash\)n                 or    : BCM GPIO number\(\backslash\)ndirection      - INPUT or OUTPUT\(\backslash\)n
+      [pull\_up\_down] - PUD\_OFF (default), PUD\_UP or PUD\_DOWN\(\backslash\)n[initial]      - Initial value for an output channel"}\},
+   \{\textcolor{stringliteral}{"cleanup"}, py\_cleanup, METH\_VARARGS, \textcolor{stringliteral}{"Clean up by resetting all GPIO channels that have been used by
+       this program to INPUT with no pullup/pulldown and no event detection"}\},
+   \{\textcolor{stringliteral}{"output"}, py\_output\_gpio, METH\_VARARGS, \textcolor{stringliteral}{"Output to a GPIO channel\(\backslash\)ngpio  - gpio channel\(\backslash\)nvalue - 0/1 or
+       False/True or LOW/HIGH"}\},
+   \{\textcolor{stringliteral}{"input"}, py\_input\_gpio, METH\_VARARGS, \textcolor{stringliteral}{"Input from a GPIO channel.  Returns HIGH=1=True or LOW=0=False\(\backslash\)n
+      gpio - gpio channel"}\},
+   \{\textcolor{stringliteral}{"add\_event\_detect"}, (PyCFunction)py\_add\_event\_detect, METH\_VARARGS | METH\_KEYWORDS, \textcolor{stringliteral}{"Enable edge
+       detection events for a particular GPIO channel.\(\backslash\)nchannel      - either board pin number or BCM number depending on
+       which mode is set.\(\backslash\)nedge         - RISING, FALLING or BOTH\(\backslash\)n[callback]   - A callback function for the
+       event (optional)\(\backslash\)n[bouncetime] - Switch bounce timeout in ms for callback"}\},
+   \{\textcolor{stringliteral}{"remove\_event\_detect"}, py\_remove\_event\_detect, METH\_VARARGS, \textcolor{stringliteral}{"Remove edge detection for a particular
+       GPIO channel\(\backslash\)ngpio - gpio channel"}\},
+   \{\textcolor{stringliteral}{"event\_detected"}, py\_event\_detected, METH\_VARARGS, \textcolor{stringliteral}{"Returns True if an edge has occured on a given
+       GPIO.  You need to enable edge detection using add\_event\_detect() first.\(\backslash\)ngpio - gpio channel"}\},
+   \{\textcolor{stringliteral}{"add\_event\_callback"}, (PyCFunction)py\_add\_event\_callback, METH\_VARARGS | METH\_KEYWORDS, \textcolor{stringliteral}{"Add a callback
+       for an event already defined using add\_event\_detect()\(\backslash\)ngpio         - gpio channel\(\backslash\)ncallback     - a
+       callback function\(\backslash\)n[bouncetime] - Switch bounce timeout in ms"}\},
+   \{\textcolor{stringliteral}{"wait\_for\_edge"}, py\_wait\_for\_edge, METH\_VARARGS, \textcolor{stringliteral}{"Wait for an edge.\(\backslash\)ngpio - gpio channel\(\backslash\)nedge -
+       RISING, FALLING or BOTH"}\},
+   \{\textcolor{stringliteral}{"gpio\_function"}, py\_gpio\_function, METH\_VARARGS, \textcolor{stringliteral}{"Return the current GPIO function (IN, OUT, ALT0)\(\backslash\)n
+      gpio - gpio channel"}\},
+   \{\textcolor{stringliteral}{"setwarnings"}, py\_setwarnings, METH\_VARARGS, \textcolor{stringliteral}{"Enable or disable warning messages"}\},
+   \{NULL, NULL, 0, NULL\}
+\}
+\end{DoxyCode}

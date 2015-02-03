@@ -1,0 +1,97 @@
+\hypertarget{claev2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/claev2.f File Reference}
+\label{claev2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/claev2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/claev2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{claev2_8f_a638b33f81ef91f4e3118a603807a5b32}{claev2} (\hyperlink{classA}{A}, B, C, R\+T1, R\+T2, C\+S1, S\+N1)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+E\+V2} computes the eigenvalues and eigenvectors of a 2-\/by-\/2 symmetric/\+Hermitian matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{claev2_8f_a638b33f81ef91f4e3118a603807a5b32}{}\index{claev2.\+f@{claev2.\+f}!claev2@{claev2}}
+\index{claev2@{claev2}!claev2.\+f@{claev2.\+f}}
+\subsubsection[{claev2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine claev2 (
+\begin{DoxyParamCaption}
+\item[{{\bf complex}}]{A, }
+\item[{{\bf complex}}]{B, }
+\item[{{\bf complex}}]{C, }
+\item[{real}]{R\+T1, }
+\item[{real}]{R\+T2, }
+\item[{real}]{C\+S1, }
+\item[{{\bf complex}}]{S\+N1}
+\end{DoxyParamCaption}
+)}\label{claev2_8f_a638b33f81ef91f4e3118a603807a5b32}
+
+
+{\bfseries C\+L\+A\+E\+V2} computes the eigenvalues and eigenvectors of a 2-\/by-\/2 symmetric/\+Hermitian matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLAEV2 computes the eigendecomposition of a 2-by-2 Hermitian matrix
+    [  A         B  ]
+    [  CONJG(B)  C  ].
+ On return, RT1 is the eigenvalue of larger absolute value, RT2 is the
+ eigenvalue of smaller absolute value, and (CS1,SN1) is the unit right
+ eigenvector for RT1, giving the decomposition
+
+ [ CS1  CONJG(SN1) ] [    A     B ] [ CS1 -CONJG(SN1) ] = [ RT1  0  ]
+ [-SN1     CS1     ] [ CONJG(B) C ] [ SN1     CS1     ]   [  0  RT2 ].\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX
+         The (1,1) element of the 2-by-2 matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX
+         The (1,2) element and the conjugate of the (2,1) element of
+         the 2-by-2 matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is COMPLEX
+         The (2,2) element of the 2-by-2 matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+T1} & \begin{DoxyVerb}          RT1 is REAL
+         The eigenvalue of larger absolute value.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+T2} & \begin{DoxyVerb}          RT2 is REAL
+         The eigenvalue of smaller absolute value.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C\+S1} & \begin{DoxyVerb}          CS1 is REAL\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+N1} & \begin{DoxyVerb}          SN1 is COMPLEX
+         The vector (CS1, SN1) is a unit right eigenvector for RT1.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  RT1 is accurate to a few ulps barring over/underflow.
+
+  RT2 may be inaccurate if there is massive cancellation in the
+  determinant A*C-B*B; higher precision or correctly rounded or
+  correctly truncated arithmetic would be needed to compute RT2
+  accurately in all cases.
+
+  CS1 and SN1 are accurate to a few ulps barring over/underflow.
+
+  Overflow is possible only if RT1 is within a factor of 5 of overflow.
+  Underflow is harmless if the input data is 0 or exceeds
+     underflow_threshold / macheps.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

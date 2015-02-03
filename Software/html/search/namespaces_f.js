@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['comment_5feater',['comment_eater',['../namespacenumpydoc_1_1comment__eater.html',1,'numpydoc']]],
+  ['commschannel',['commsChannel',['../namespacenetwork_1_1commsChannel.html',1,'network']]],
+  ['compiler_5funparse',['compiler_unparse',['../namespacenumpydoc_1_1compiler__unparse.html',1,'numpydoc']]],
+  ['docscrape',['docscrape',['../namespacenumpydoc_1_1docscrape.html',1,'numpydoc']]],
+  ['docscrape_5fsphinx',['docscrape_sphinx',['../namespacenumpydoc_1_1docscrape__sphinx.html',1,'numpydoc']]],
+  ['i2c',['I2C',['../namespacenetwork_1_1I2C.html',1,'network']]],
+  ['linkcode',['linkcode',['../namespacenumpydoc_1_1linkcode.html',1,'numpydoc']]],
+  ['network',['network',['../namespacenetwork.html',1,'']]],
+  ['network_5fcore',['NETWORK_CORE',['../namespacenetwork_1_1NETWORK__CORE.html',1,'network']]],
+  ['newton_5fkrylov_5fpreconditioning',['newton_krylov_preconditioning',['../namespacenewton__krylov__preconditioning.html',1,'']]],
+  ['normdiscr_5fplot1',['normdiscr_plot1',['../namespacenormdiscr__plot1.html',1,'']]],
+  ['normdiscr_5fplot2',['normdiscr_plot2',['../namespacenormdiscr__plot2.html',1,'']]],
+  ['numpydoc',['numpydoc',['../namespacenumpydoc.html',1,'']]],
+  ['numpydoc',['numpydoc',['../namespacenumpydoc_1_1numpydoc.html',1,'numpydoc']]],
+  ['phantom_5fimport',['phantom_import',['../namespacenumpydoc_1_1phantom__import.html',1,'numpydoc']]],
+  ['plot_5fdirective',['plot_directive',['../namespacenumpydoc_1_1plot__directive.html',1,'numpydoc']]],
+  ['traitsdoc',['traitsdoc',['../namespacenumpydoc_1_1traitsdoc.html',1,'numpydoc']]],
+  ['utilities',['utilities',['../namespacenetwork_1_1utilities.html',1,'network']]]
+];

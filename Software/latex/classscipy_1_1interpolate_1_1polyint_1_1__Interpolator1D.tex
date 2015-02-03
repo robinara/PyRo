@@ -1,0 +1,97 @@
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D}{}\section{scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D Class Reference}
+\label{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D}\index{scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D@{scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D}}
+Inheritance diagram for scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.242242cm]{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D_ac32a2d5932a50baef5042c92cd169c05}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D_a0a5b848d116216b585098b35f71248c0}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D_ab6e2e2a41885a338f07101212d57204d}{dtype}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Common features in univariate interpolation
+
+Deal with input data type and interpolation axis rolling.  The
+actual interpolator can assume the y-data is of shape (n, r) where
+`n` is the number of x-points, and `r` the number of variables,
+and use self.dtype as the y-data type.
+
+Attributes
+----------
+_y_axis
+    Axis along which the interpolation goes in the original array
+_y_extra_shape
+    Additional trailing shape of the input arrays, excluding
+    the interpolation axis.
+dtype
+    Dtype of the y-data arrays. Can be set via set_dtype, which
+    forces it to be float or complex.
+
+Methods
+-------
+__call__
+_prepare_x
+_finish_y
+_reshape_yi
+_set_yi
+_set_dtype
+_evaluate\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D_ac32a2d5932a50baef5042c92cd169c05}{}\index{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D@{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D@{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{xi = {\ttfamily None}, }
+\item[{}]{yi = {\ttfamily None}, }
+\item[{}]{axis = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D_ac32a2d5932a50baef5042c92cd169c05}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D_a0a5b848d116216b585098b35f71248c0}{}\index{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D@{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D@{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D_a0a5b848d116216b585098b35f71248c0}
+\begin{DoxyVerb}Evaluate the interpolant
+
+Parameters
+----------
+x : array-like
+    Points to evaluate the interpolant at.
+
+Returns
+-------
+y : array-like
+    Interpolated values. Shape is determined by replacing
+    the interpolation axis in the original array with the shape of x.\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D_ab6e2e2a41885a338f07101212d57204d}{}\index{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D@{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D}!dtype@{dtype}}
+\index{dtype@{dtype}!scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D@{scipy\+::interpolate\+::polyint\+::\+\_\+\+Interpolator1\+D}}
+\subsubsection[{dtype}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+\_\+\+Interpolator1\+D.\+dtype}\label{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D_ab6e2e2a41885a338f07101212d57204d}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{polyint_8py}{polyint.\+py}\end{DoxyCompactItemize}

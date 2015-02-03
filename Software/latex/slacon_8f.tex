@@ -1,0 +1,87 @@
+\hypertarget{slacon_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slacon.f File Reference}
+\label{slacon_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slacon.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slacon.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slacon_8f_af666e711b4509f60ad6712d9e7e90b95}{slacon} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, V, X, I\+S\+G\+N, E\+S\+T, K\+A\+S\+E)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+C\+O\+N} estimates the 1-\/norm of a square matrix, using reverse communication for evaluating matrix-\/vector products. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slacon_8f_af666e711b4509f60ad6712d9e7e90b95}{}\index{slacon.\+f@{slacon.\+f}!slacon@{slacon}}
+\index{slacon@{slacon}!slacon.\+f@{slacon.\+f}}
+\subsubsection[{slacon}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slacon (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{V, }
+\item[{real, dimension( $\ast$ )}]{X, }
+\item[{integer, dimension( $\ast$ )}]{I\+S\+G\+N, }
+\item[{real}]{E\+S\+T, }
+\item[{integer}]{K\+A\+S\+E}
+\end{DoxyParamCaption}
+)}\label{slacon_8f_af666e711b4509f60ad6712d9e7e90b95}
+
+
+{\bfseries S\+L\+A\+C\+O\+N} estimates the 1-\/norm of a square matrix, using reverse communication for evaluating matrix-\/vector products. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLACON estimates the 1-norm of a square, real matrix A.
+ Reverse communication is used for evaluating matrix-vector products.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+         The order of the matrix.  N >= 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em V} & \begin{DoxyVerb}          V is REAL array, dimension (N)
+         On the final return, V = A*W,  where  EST = norm(V)/norm(W)
+         (W is not returned).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is REAL array, dimension (N)
+         On an intermediate return, X should be overwritten by
+               A * X,   if KASE=1,
+               A**T * X,  if KASE=2,
+         and SLACON must be re-called with all the other parameters
+         unchanged.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+S\+G\+N} & \begin{DoxyVerb}          ISGN is INTEGER array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E\+S\+T} & \begin{DoxyVerb}          EST is REAL
+         On entry with KASE = 1 or 2 and JUMP = 3, EST should be
+         unchanged from the previous call to SLACON.
+         On exit, EST is an estimate (a lower bound) for norm(A). \end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em K\+A\+S\+E} & \begin{DoxyVerb}          KASE is INTEGER
+         On the initial call to SLACON, KASE should be 0.
+         On an intermediate return, KASE will be 1 or 2, indicating
+         whether X should be overwritten by A * X  or A**T * X.
+         On the final return from SLACON, KASE will again be 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Nick Higham, University of Manchester. ~\newline
+ Originally named S\+O\+N\+E\+S\+T, dated March 16, 1988. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{References\+: }
+N.\+J. Higham, \char`\"{}\+F\+O\+R\+T\+R\+A\+N codes for estimating the one-\/norm of
+  a real or complex matrix, with applications to condition estimation\char`\"{}, A\+C\+M Trans. Math. Soft., vol. 14, no. 4, pp. 381-\/396, December 1988. 
+\end{DoxyParagraph}

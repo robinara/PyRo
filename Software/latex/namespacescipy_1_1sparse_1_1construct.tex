@@ -1,0 +1,508 @@
+\hypertarget{namespacescipy_1_1sparse_1_1construct}{}\section{scipy.\+sparse.\+construct Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1construct}\index{scipy.\+sparse.\+construct@{scipy.\+sparse.\+construct}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_af3ba8d89eb6cb8d1a8b73873649d0101}{spdiags}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_abc7b5e5fa6f7ae320ca90d6a1829ba75}{diags}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_a46c09743ab990da449a06002d6c4ce44}{identity}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_a8f8bd8bbd23456d2b64e319b9ee30825}{eye}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_ac19f528243422bed4409aa82c1026dbc}{kron}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_aaf190b7402f569c08348aa5921c3f589}{kronsum}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_aba59863a54c7a332dedb0e252bcbe40a}{hstack}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_a1278fe2b57145ac76b8d4d2a0281fc12}{vstack}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_adf31ca29673da6577fff166ed444633c}{bmat}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_a1e6c51dfaadde408d6cc5a23c0f37577}{block\+\_\+diag}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1construct_a3f8281838fc1684c7d30b9f55f9aba26}{rand}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1construct_a20c15c943f1e2d41939fde1d20c6f91c}{\+\_\+\+\_\+docformat\+\_\+\+\_\+} = \char`\"{}restructuredtext en\char`\"{}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1construct_a05ab312e8bcba96672a2b2925feffab2}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Functions to construct sparse matrices
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1construct_a1e6c51dfaadde408d6cc5a23c0f37577}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!block\+\_\+diag@{block\+\_\+diag}}
+\index{block\+\_\+diag@{block\+\_\+diag}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{block\+\_\+diag}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+block\+\_\+diag (
+\begin{DoxyParamCaption}
+\item[{}]{mats, }
+\item[{}]{format = {\ttfamily None}, }
+\item[{}]{dtype = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_a1e6c51dfaadde408d6cc5a23c0f37577}
+\begin{DoxyVerb}Build a block diagonal sparse matrix from provided matrices.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+A, B, ... : sequence of matrices
+    Input matrices.
+format : str, optional
+    The sparse format of the result (e.g. "csr").  If not given, the matrix
+    is returned in "coo" format.
+dtype : dtype specifier, optional
+    The data-type of the output matrix.  If not given, the dtype is
+    determined from that of `blocks`.
+
+Returns
+-------
+res : sparse matrix
+
+See Also
+--------
+bmat, diags
+
+Examples
+--------
+>>> A = coo_matrix([[1, 2], [3, 4]])
+>>> B = coo_matrix([[5], [6]])
+>>> C = coo_matrix([[7]])
+>>> block_diag((A, B, C)).todense()
+matrix([[1, 2, 0, 0],
+        [3, 4, 0, 0],
+        [0, 0, 5, 0],
+        [0, 0, 6, 0],
+        [0, 0, 0, 7]])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1construct_adf31ca29673da6577fff166ed444633c}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!bmat@{bmat}}
+\index{bmat@{bmat}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{bmat}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+bmat (
+\begin{DoxyParamCaption}
+\item[{}]{blocks, }
+\item[{}]{format = {\ttfamily None}, }
+\item[{}]{dtype = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_adf31ca29673da6577fff166ed444633c}
+\begin{DoxyVerb}Build a sparse matrix from sparse sub-blocks
+
+Parameters
+----------
+blocks : array_like
+    Grid of sparse matrices with compatible shapes.
+    An entry of None implies an all-zero matrix.
+format : {'bsr', 'coo', 'csc', 'csr', 'dia', 'dok', 'lil'}, optional
+    The sparse format of the result (e.g. "csr").  By default an
+    appropriate sparse matrix format is returned.
+    This choice is subject to change.
+dtype : dtype specifier, optional
+    The data-type of the output matrix.  If not given, the dtype is
+    determined from that of `blocks`.
+
+Returns
+-------
+bmat : sparse matrix
+
+See Also
+--------
+block_diag, diags
+
+Examples
+--------
+>>> from scipy.sparse import coo_matrix, bmat
+>>> A = coo_matrix([[1,2],[3,4]])
+>>> B = coo_matrix([[5],[6]])
+>>> C = coo_matrix([[7]])
+>>> bmat( [[A,B],[None,C]] ).todense()
+matrix([[1, 2, 5],
+        [3, 4, 6],
+        [0, 0, 7]])
+
+>>> bmat( [[A,None],[None,C]] ).todense()
+matrix([[1, 2, 0],
+        [3, 4, 0],
+        [0, 0, 7]])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1construct_abc7b5e5fa6f7ae320ca90d6a1829ba75}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!diags@{diags}}
+\index{diags@{diags}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{diags}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+diags (
+\begin{DoxyParamCaption}
+\item[{}]{diagonals, }
+\item[{}]{offsets, }
+\item[{}]{shape = {\ttfamily None}, }
+\item[{}]{format = {\ttfamily None}, }
+\item[{}]{dtype = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_abc7b5e5fa6f7ae320ca90d6a1829ba75}
+\begin{DoxyVerb}Construct a sparse matrix from diagonals.
+
+.. versionadded:: 0.11
+
+Parameters
+----------
+diagonals : sequence of array_like
+    Sequence of arrays containing the matrix diagonals,
+    corresponding to `offsets`.
+offsets  : sequence of int
+    Diagonals to set:
+      - k = 0  the main diagonal
+      - k > 0  the k-th upper diagonal
+      - k < 0  the k-th lower diagonal
+shape : tuple of int, optional
+    Shape of the result. If omitted, a square matrix large enough
+    to contain the diagonals is returned.
+format : {"dia", "csr", "csc", "lil", ...}, optional
+    Matrix format of the result.  By default (format=None) an
+    appropriate sparse matrix format is returned.  This choice is
+    subject to change.
+dtype : dtype, optional
+    Data type of the matrix.
+
+See Also
+--------
+spdiags : construct matrix from diagonals
+
+Notes
+-----
+This function differs from `spdiags` in the way it handles
+off-diagonals.
+
+The result from `diags` is the sparse equivalent of::
+
+    np.diag(diagonals[0], offsets[0])
+    + ...
+    + np.diag(diagonals[k], offsets[k])
+
+Repeated diagonal offsets are disallowed.
+
+Examples
+--------
+>>> diagonals = [[1,2,3,4], [1,2,3], [1,2]]
+>>> diags(diagonals, [0, -1, 2]).todense()
+matrix([[1, 0, 1, 0],
+        [1, 2, 0, 2],
+        [0, 2, 3, 0],
+        [0, 0, 3, 4]])
+
+Broadcasting of scalars is supported (but shape needs to be
+specified):
+
+>>> diags([1, -2, 1], [-1, 0, 1], shape=(4, 4)).todense()
+matrix([[-2.,  1.,  0.,  0.],
+        [ 1., -2.,  1.,  0.],
+        [ 0.,  1., -2.,  1.],
+        [ 0.,  0.,  1., -2.]])
+
+
+If only one diagonal is wanted (as in `numpy.diag`), the following
+works as well:
+
+>>> diags([1, 2, 3], 1).todense()
+matrix([[ 0.,  1.,  0.,  0.],
+        [ 0.,  0.,  2.,  0.],
+        [ 0.,  0.,  0.,  3.],
+        [ 0.,  0.,  0.,  0.]])
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1construct_a8f8bd8bbd23456d2b64e319b9ee30825}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!eye@{eye}}
+\index{eye@{eye}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{eye}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+eye (
+\begin{DoxyParamCaption}
+\item[{}]{m, }
+\item[{}]{n = {\ttfamily None}, }
+\item[{}]{k = {\ttfamily 0}, }
+\item[{}]{dtype = {\ttfamily float}, }
+\item[{}]{format = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_a8f8bd8bbd23456d2b64e319b9ee30825}
+\begin{DoxyVerb}Sparse matrix with ones on diagonal
+
+Returns a sparse (m x n) matrix where the k-th diagonal
+is all ones and everything else is zeros.
+
+Parameters
+----------
+n : integer
+    Number of rows in the matrix.
+m : integer, optional
+    Number of columns. Default: n
+k : integer, optional
+    Diagonal to place ones on. Default: 0 (main diagonal)
+dtype :
+    Data type of the matrix
+format : string
+    Sparse format of the result, e.g. format="csr", etc.
+
+Examples
+--------
+>>> from scipy import sparse
+>>> sparse.eye(3).todense()
+matrix([[ 1.,  0.,  0.],
+        [ 0.,  1.,  0.],
+        [ 0.,  0.,  1.]])
+>>> sparse.eye(3, dtype=np.int8)
+<3x3 sparse matrix of type '<type 'numpy.int8'>'
+    with 3 stored elements (1 diagonals) in DIAgonal format>\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1construct_aba59863a54c7a332dedb0e252bcbe40a}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!hstack@{hstack}}
+\index{hstack@{hstack}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{hstack}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+hstack (
+\begin{DoxyParamCaption}
+\item[{}]{blocks, }
+\item[{}]{format = {\ttfamily None}, }
+\item[{}]{dtype = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_aba59863a54c7a332dedb0e252bcbe40a}
+\begin{DoxyVerb}Stack sparse matrices horizontally (column wise)
+
+Parameters
+----------
+blocks
+    sequence of sparse matrices with compatible shapes
+format : string
+    sparse format of the result (e.g. "csr")
+    by default an appropriate sparse matrix format is returned.
+    This choice is subject to change.
+
+See Also
+--------
+vstack : stack sparse matrices vertically (row wise)
+
+Examples
+--------
+>>> from scipy.sparse import coo_matrix, hstack
+>>> A = coo_matrix([[1,2],[3,4]])
+>>> B = coo_matrix([[5],[6]])
+>>> hstack( [A,B] ).todense()
+matrix([[1, 2, 5],
+        [3, 4, 6]])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1construct_a46c09743ab990da449a06002d6c4ce44}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!identity@{identity}}
+\index{identity@{identity}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{identity}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+identity (
+\begin{DoxyParamCaption}
+\item[{}]{n, }
+\item[{}]{dtype = {\ttfamily 'd'}, }
+\item[{}]{format = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_a46c09743ab990da449a06002d6c4ce44}
+\begin{DoxyVerb}Identity matrix in sparse format
+
+Returns an identity matrix with shape (n,n) using a given
+sparse format and dtype.
+
+Parameters
+----------
+n : integer
+    Shape of the identity matrix.
+dtype :
+    Data type of the matrix
+format : string
+    Sparse format of the result, e.g. format="csr", etc.
+
+Examples
+--------
+>>> identity(3).todense()
+matrix([[ 1.,  0.,  0.],
+        [ 0.,  1.,  0.],
+        [ 0.,  0.,  1.]])
+>>> identity(3, dtype='int8', format='dia')
+<3x3 sparse matrix of type '<type 'numpy.int8'>'
+        with 3 stored elements (1 diagonals) in DIAgonal format>\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1construct_ac19f528243422bed4409aa82c1026dbc}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!kron@{kron}}
+\index{kron@{kron}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{kron}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+kron (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{B, }
+\item[{}]{format = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_ac19f528243422bed4409aa82c1026dbc}
+\begin{DoxyVerb}kronecker product of sparse matrices A and B
+
+Parameters
+----------
+A : sparse or dense matrix
+    first matrix of the product
+B : sparse or dense matrix
+    second matrix of the product
+format : string
+    format of the result (e.g. "csr")
+
+Returns
+-------
+kronecker product in a sparse matrix format
+
+
+Examples
+--------
+>>> A = csr_matrix(array([[0,2],[5,0]]))
+>>> B = csr_matrix(array([[1,2],[3,4]]))
+>>> kron(A,B).todense()
+matrix([[ 0,  0,  2,  4],
+        [ 0,  0,  6,  8],
+        [ 5, 10,  0,  0],
+        [15, 20,  0,  0]])
+
+>>> kron(A,[[1,2],[3,4]]).todense()
+matrix([[ 0,  0,  2,  4],
+        [ 0,  0,  6,  8],
+        [ 5, 10,  0,  0],
+        [15, 20,  0,  0]])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1construct_aaf190b7402f569c08348aa5921c3f589}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!kronsum@{kronsum}}
+\index{kronsum@{kronsum}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{kronsum}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+kronsum (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{B, }
+\item[{}]{format = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_aaf190b7402f569c08348aa5921c3f589}
+\begin{DoxyVerb}kronecker sum of sparse matrices A and B
+
+Kronecker sum of two sparse matrices is a sum of two Kronecker
+products kron(I_n,A) + kron(B,I_m) where A has shape (m,m)
+and B has shape (n,n) and I_m and I_n are identity matrices
+of shape (m,m) and (n,n) respectively.
+
+Parameters
+----------
+A
+    square matrix
+B
+    square matrix
+format : string
+    format of the result (e.g. "csr")
+
+Returns
+-------
+kronecker sum in a sparse matrix format
+
+Examples
+--------\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1construct_a3f8281838fc1684c7d30b9f55f9aba26}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!rand@{rand}}
+\index{rand@{rand}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{rand}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+rand (
+\begin{DoxyParamCaption}
+\item[{}]{m, }
+\item[{}]{n, }
+\item[{}]{density = {\ttfamily 0.01}, }
+\item[{}]{format = {\ttfamily \char`\"{}coo\char`\"{}}, }
+\item[{}]{dtype = {\ttfamily None}, }
+\item[{}]{random\+\_\+state = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_a3f8281838fc1684c7d30b9f55f9aba26}
+\begin{DoxyVerb}Generate a sparse matrix of the given shape and density with uniformly
+distributed values.
+
+Parameters
+----------
+m, n : int
+    shape of the matrix
+density : real
+    density of the generated matrix: density equal to one means a full
+    matrix, density of 0 means a matrix with no non-zero items.
+format : str
+    sparse matrix format.
+dtype : dtype
+    type of the returned matrix values.
+random_state : {numpy.random.RandomState, int}, optional
+    Random number generator or random seed. If not given, the singleton
+    numpy.random will be used.
+
+Notes
+-----
+Only float types are supported for now.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1construct_af3ba8d89eb6cb8d1a8b73873649d0101}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!spdiags@{spdiags}}
+\index{spdiags@{spdiags}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{spdiags}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+spdiags (
+\begin{DoxyParamCaption}
+\item[{}]{data, }
+\item[{}]{diags, }
+\item[{}]{m, }
+\item[{}]{n, }
+\item[{}]{format = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_af3ba8d89eb6cb8d1a8b73873649d0101}
+\begin{DoxyVerb}Return a sparse matrix from diagonals.
+
+Parameters
+----------
+data   : array_like
+    matrix diagonals stored row-wise
+diags  : diagonals to set
+    - k = 0  the main diagonal
+    - k > 0  the k-th upper diagonal
+    - k < 0  the k-th lower diagonal
+m, n : int
+    shape of the result
+format : format of the result (e.g. "csr")
+    By default (format=None) an appropriate sparse matrix
+    format is returned.  This choice is subject to change.
+
+See Also
+--------
+diags : more convenient form of this function
+dia_matrix : the sparse DIAgonal format.
+
+Examples
+--------
+>>> data = array([[1,2,3,4],[1,2,3,4],[1,2,3,4]])
+>>> diags = array([0,-1,2])
+>>> spdiags(data, diags, 4, 4).todense()
+matrix([[1, 0, 3, 0],
+        [1, 2, 0, 4],
+        [0, 2, 3, 0],
+        [0, 0, 3, 4]])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1construct_a1278fe2b57145ac76b8d4d2a0281fc12}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!vstack@{vstack}}
+\index{vstack@{vstack}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{vstack}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+construct.\+vstack (
+\begin{DoxyParamCaption}
+\item[{}]{blocks, }
+\item[{}]{format = {\ttfamily None}, }
+\item[{}]{dtype = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1construct_a1278fe2b57145ac76b8d4d2a0281fc12}
+\begin{DoxyVerb}Stack sparse matrices vertically (row wise)
+
+Parameters
+----------
+blocks
+    sequence of sparse matrices with compatible shapes
+format : string
+    sparse format of the result (e.g. "csr")
+    by default an appropriate sparse matrix format is returned.
+    This choice is subject to change.
+
+See Also
+--------
+hstack : stack sparse matrices horizontally (column wise)
+
+Examples
+--------
+>>> from scipy.sparse import coo_matrix, vstack
+>>> A = coo_matrix([[1,2],[3,4]])
+>>> B = coo_matrix([[5,6]])
+>>> vstack( [A,B] ).todense()
+matrix([[1, 2],
+        [3, 4],
+        [5, 6]])\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1construct_a05ab312e8bcba96672a2b2925feffab2}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+construct.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1sparse_1_1construct_a05ab312e8bcba96672a2b2925feffab2}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'spdiags'}, \textcolor{stringliteral}{'eye'}, \textcolor{stringliteral}{'identity'}, \textcolor{stringliteral}{'kron'}, \textcolor{stringliteral}{'kronsum'},
+2             \textcolor{stringliteral}{'hstack'}, \textcolor{stringliteral}{'vstack'}, \textcolor{stringliteral}{'bmat'}, \textcolor{stringliteral}{'rand'}, \textcolor{stringliteral}{'diags'}, \textcolor{stringliteral}{'block\_diag'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1construct_a20c15c943f1e2d41939fde1d20c6f91c}{}\index{scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}!\+\_\+\+\_\+docformat\+\_\+\+\_\+@{\+\_\+\+\_\+docformat\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+docformat\+\_\+\+\_\+@{\+\_\+\+\_\+docformat\+\_\+\+\_\+}!scipy\+::sparse\+::construct@{scipy\+::sparse\+::construct}}
+\subsubsection[{\+\_\+\+\_\+docformat\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+construct.\+\_\+\+\_\+docformat\+\_\+\+\_\+ = \char`\"{}restructuredtext en\char`\"{}}\label{namespacescipy_1_1sparse_1_1construct_a20c15c943f1e2d41939fde1d20c6f91c}

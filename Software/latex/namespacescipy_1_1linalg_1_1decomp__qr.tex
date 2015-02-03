@@ -1,0 +1,267 @@
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__qr}{}\section{scipy.\+linalg.\+decomp\+\_\+qr Namespace Reference}
+\label{namespacescipy_1_1linalg_1_1decomp__qr}\index{scipy.\+linalg.\+decomp\+\_\+qr@{scipy.\+linalg.\+decomp\+\_\+qr}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__qr_a9cbbae320a41c14f8ea6f37a436bc5de}{safecall}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__qr_a6e131e925d4d63cf2052982c4f9458b3}{qr}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__qr_abf8496a99c592d34da97cdb5ba19fed4}{qr\+\_\+multiply}
+\item 
+def \hyperlink{namespacescipy_1_1linalg_1_1decomp__qr_a508d88a8287c253cab142b376283ccef}{rq}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1linalg_1_1decomp__qr_a563589e815942fd816c73c55d5ef4e70}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1linalg_1_1decomp__qr_a6e131e925d4d63cf2052982c4f9458b3}{qr}', '\hyperlink{namespacescipy_1_1linalg_1_1decomp__qr_abf8496a99c592d34da97cdb5ba19fed4}{qr\+\_\+multiply}', '\hyperlink{namespacescipy_1_1linalg_1_1decomp__qr_a508d88a8287c253cab142b376283ccef}{rq}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}QR decomposition functions.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__qr_a6e131e925d4d63cf2052982c4f9458b3}{}\index{scipy\+::linalg\+::decomp\+\_\+qr@{scipy\+::linalg\+::decomp\+\_\+qr}!qr@{qr}}
+\index{qr@{qr}!scipy\+::linalg\+::decomp\+\_\+qr@{scipy\+::linalg\+::decomp\+\_\+qr}}
+\subsubsection[{qr}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+qr.\+qr (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{overwrite\+\_\+a = {\ttfamily {\bf False}}, }
+\item[{}]{lwork = {\ttfamily None}, }
+\item[{}]{mode = {\ttfamily 'full'}, }
+\item[{}]{pivoting = {\ttfamily {\bf False}}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__qr_a6e131e925d4d63cf2052982c4f9458b3}
+\begin{DoxyVerb}Compute QR decomposition of a matrix.
+
+Calculate the decomposition ``A = Q R`` where Q is unitary/orthogonal
+and R upper triangular.
+
+Parameters
+----------
+a : (M, N) array_like
+    Matrix to be decomposed
+overwrite_a : bool, optional
+    Whether data in a is overwritten (may improve performance)
+lwork : int, optional
+    Work array size, lwork >= a.shape[1]. If None or -1, an optimal size
+    is computed.
+mode : {'full', 'r', 'economic', 'raw'}, optional
+    Determines what information is to be returned: either both Q and R
+    ('full', default), only R ('r') or both Q and R but computed in
+    economy-size ('economic', see Notes). The final option 'raw'
+    (added in Scipy 0.11) makes the function return two matrices
+    (Q, TAU) in the internal format used by LAPACK.
+pivoting : bool, optional
+    Whether or not factorization should include pivoting for rank-revealing
+    qr decomposition. If pivoting, compute the decomposition
+    ``A P = Q R`` as above, but where P is chosen such that the diagonal
+    of R is non-increasing.
+check_finite : boolean, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+Q : float or complex ndarray
+    Of shape (M, M), or (M, K) for ``mode='economic'``.  Not returned
+    if ``mode='r'``.
+R : float or complex ndarray
+    Of shape (M, N), or (K, N) for ``mode='economic'``.  ``K = min(M, N)``.
+P : int ndarray
+    Of shape (N,) for ``pivoting=True``. Not returned if
+    ``pivoting=False``.
+
+Raises
+------
+LinAlgError
+    Raised if decomposition fails
+
+Notes
+-----
+This is an interface to the LAPACK routines dgeqrf, zgeqrf,
+dorgqr, zungqr, dgeqp3, and zgeqp3.
+
+If ``mode=economic``, the shapes of Q and R are (M, K) and (K, N) instead
+of (M,M) and (M,N), with ``K=min(M,N)``.
+
+Examples
+--------
+>>> from scipy import random, linalg, dot, diag, all, allclose
+>>> a = random.randn(9, 6)
+
+>>> q, r = linalg.qr(a)
+>>> allclose(a, np.dot(q, r))
+True
+>>> q.shape, r.shape
+((9, 9), (9, 6))
+
+>>> r2 = linalg.qr(a, mode='r')
+>>> allclose(r, r2)
+True
+
+>>> q3, r3 = linalg.qr(a, mode='economic')
+>>> q3.shape, r3.shape
+((9, 6), (6, 6))
+
+>>> q4, r4, p4 = linalg.qr(a, pivoting=True)
+>>> d = abs(diag(r4))
+>>> all(d[1:] <= d[:-1])
+True
+>>> allclose(a[:, p4], dot(q4, r4))
+True
+>>> q4.shape, r4.shape, p4.shape
+((9, 9), (9, 6), (6,))
+
+>>> q5, r5, p5 = linalg.qr(a, mode='economic', pivoting=True)
+>>> q5.shape, r5.shape, p5.shape
+((9, 6), (6, 6), (6,))\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__qr_abf8496a99c592d34da97cdb5ba19fed4}{}\index{scipy\+::linalg\+::decomp\+\_\+qr@{scipy\+::linalg\+::decomp\+\_\+qr}!qr\+\_\+multiply@{qr\+\_\+multiply}}
+\index{qr\+\_\+multiply@{qr\+\_\+multiply}!scipy\+::linalg\+::decomp\+\_\+qr@{scipy\+::linalg\+::decomp\+\_\+qr}}
+\subsubsection[{qr\+\_\+multiply}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+qr.\+qr\+\_\+multiply (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{c, }
+\item[{}]{mode = {\ttfamily 'right'}, }
+\item[{}]{pivoting = {\ttfamily {\bf False}}, }
+\item[{}]{conjugate = {\ttfamily {\bf False}}, }
+\item[{}]{overwrite\+\_\+a = {\ttfamily {\bf False}}, }
+\item[{}]{overwrite\+\_\+c = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__qr_abf8496a99c592d34da97cdb5ba19fed4}
+\begin{DoxyVerb}Calculate the QR decomposition and multiply Q with a matrix.
+
+Calculate the decomposition ``A = Q R`` where Q is unitary/orthogonal
+and R upper triangular. Multiply Q with a vector or a matrix c.
+
+.. versionadded:: 0.11.0
+
+Parameters
+----------
+a : ndarray, shape (M, N)
+    Matrix to be decomposed
+c : ndarray, one- or two-dimensional
+    calculate the product of c and q, depending on the mode:
+mode : {'left', 'right'}, optional
+    ``dot(Q, c)`` is returned if mode is 'left',
+    ``dot(c, Q)`` is returned if mode is 'right'.
+    The shape of c must be appropriate for the matrix multiplications,
+    if mode is 'left', ``min(a.shape) == c.shape[0]``,
+    if mode is 'right', ``a.shape[0] == c.shape[1]``.
+pivoting : bool, optional
+    Whether or not factorization should include pivoting for rank-revealing
+    qr decomposition, see the documentation of qr.
+conjugate : bool, optional
+    Whether Q should be complex-conjugated. This might be faster
+    than explicit conjugation.
+overwrite_a : bool, optional
+    Whether data in a is overwritten (may improve performance)
+overwrite_c : bool, optional
+    Whether data in c is overwritten (may improve performance).
+    If this is used, c must be big enough to keep the result,
+    i.e. c.shape[0] = a.shape[0] if mode is 'left'.
+
+
+Returns
+-------
+CQ : float or complex ndarray
+    the product of Q and c, as defined in mode
+R : float or complex ndarray
+    Of shape (K, N), ``K = min(M, N)``.
+P : ndarray of ints
+    Of shape (N,) for ``pivoting=True``.
+    Not returned if ``pivoting=False``.
+
+Raises
+------
+LinAlgError
+    Raised if decomposition fails
+
+Notes
+-----
+This is an interface to the LAPACK routines dgeqrf, zgeqrf,
+dormqr, zunmqr, dgeqp3, and zgeqp3.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__qr_a508d88a8287c253cab142b376283ccef}{}\index{scipy\+::linalg\+::decomp\+\_\+qr@{scipy\+::linalg\+::decomp\+\_\+qr}!rq@{rq}}
+\index{rq@{rq}!scipy\+::linalg\+::decomp\+\_\+qr@{scipy\+::linalg\+::decomp\+\_\+qr}}
+\subsubsection[{rq}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+qr.\+rq (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{overwrite\+\_\+a = {\ttfamily {\bf False}}, }
+\item[{}]{lwork = {\ttfamily None}, }
+\item[{}]{mode = {\ttfamily 'full'}, }
+\item[{}]{check\+\_\+finite = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__qr_a508d88a8287c253cab142b376283ccef}
+\begin{DoxyVerb}Compute RQ decomposition of a square real matrix.
+
+Calculate the decomposition ``A = R Q`` where ``Q`` is
+unitary/orthogonal and ``R`` upper triangular.
+
+Parameters
+----------
+a : array, shape (M, M)
+    Matrix to be decomposed
+overwrite_a : bool, optional
+    Whether data in a is overwritten (may improve performance)
+lwork : int, optional
+    Work array size, lwork >= a.shape[1]. If None or -1, an optimal size
+    is computed.
+mode : {'full', 'r', 'economic'}, optional
+    Determines what information is to be returned: either both Q and R
+    ('full', default), only R ('r') or both Q and R but computed in
+    economy-size ('economic', see Notes).
+check_finite : bool, optional
+    Whether to check that the input matrix contains only finite numbers.
+    Disabling may give a performance gain, but may result in problems
+    (crashes, non-termination) if the inputs do contain infinities or NaNs.
+
+Returns
+-------
+R : float array, shape (M, N)
+    Upper triangular
+Q : float or complex array, shape (M, M)
+    Unitary/orthogonal
+
+Raises
+------
+LinAlgError
+    If decomposition fails.
+
+Examples
+--------
+>>> from scipy import linalg
+>>> from numpy import random, dot, allclose
+>>> a = random.randn(6, 9)
+>>> r, q = linalg.rq(a)
+>>> allclose(a, dot(r, q))
+True
+>>> r.shape, q.shape
+((6, 9), (9, 9))
+>>> r2 = linalg.rq(a, mode='r')
+>>> allclose(r, r2)
+True
+>>> r3, q3 = linalg.rq(a, mode='economic')
+>>> r3.shape, q3.shape
+((6, 6), (6, 9))\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1linalg_1_1decomp__qr_a9cbbae320a41c14f8ea6f37a436bc5de}{}\index{scipy\+::linalg\+::decomp\+\_\+qr@{scipy\+::linalg\+::decomp\+\_\+qr}!safecall@{safecall}}
+\index{safecall@{safecall}!scipy\+::linalg\+::decomp\+\_\+qr@{scipy\+::linalg\+::decomp\+\_\+qr}}
+\subsubsection[{safecall}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+linalg.\+decomp\+\_\+qr.\+safecall (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{name, }
+\item[{}]{args, }
+\item[{}]{kwargs}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1linalg_1_1decomp__qr_a9cbbae320a41c14f8ea6f37a436bc5de}
+\begin{DoxyVerb}Call a LAPACK routine, determining lwork automatically and handling
+error return values\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1linalg_1_1decomp__qr_a563589e815942fd816c73c55d5ef4e70}{}\index{scipy\+::linalg\+::decomp\+\_\+qr@{scipy\+::linalg\+::decomp\+\_\+qr}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::linalg\+::decomp\+\_\+qr@{scipy\+::linalg\+::decomp\+\_\+qr}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+linalg.\+decomp\+\_\+qr.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf qr}', '{\bf qr\+\_\+multiply}', '{\bf rq}'\mbox{]}}\label{namespacescipy_1_1linalg_1_1decomp__qr_a563589e815942fd816c73c55d5ef4e70}

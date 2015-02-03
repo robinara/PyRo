@@ -1,0 +1,203 @@
+\hypertarget{get__perm__c_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/get\+\_\+perm\+\_\+c.c File Reference}
+\label{get__perm__c_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/get\+\_\+perm\+\_\+c.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/get\+\_\+perm\+\_\+c.\+c}}
+
+
+\hyperlink{classMatrix}{Matrix} permutation operations.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}colamd.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{get__perm__c_8c_a792508355b6bef974fcd9e214de40c8e}{genmmd\+\_\+} (int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$)
+\item 
+void \hyperlink{get__perm__c_8c_ae92c26cd488b7a86b8277cee2773d8ef}{get\+\_\+colamd} (const int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, const int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, const int nnz, int $\ast$colptr, int $\ast$rowind, int $\ast$perm\+\_\+c)
+\item 
+void \hyperlink{get__perm__c_8c_a90f30e2b284864f6a800a98ceaff8fbc}{getata} (const int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, const int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, const int nz, int $\ast$colptr, int $\ast$rowind, int $\ast$atanz, int $\ast$$\ast$ata\+\_\+colptr, int $\ast$$\ast$ata\+\_\+rowind)
+\item 
+void \hyperlink{get__perm__c_8c_a486ee50799ff66abe91efa46a5950a57}{at\+\_\+plus\+\_\+a} (const int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, const int nz, int $\ast$colptr, int $\ast$rowind, int $\ast$bnz, int $\ast$$\ast$b\+\_\+colptr, int $\ast$$\ast$b\+\_\+rowind)
+\item 
+void \hyperlink{get__perm__c_8c_aaecb6e6e7a3e97356050bcfdf2573796}{get\+\_\+perm\+\_\+c} (int ispec, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int $\ast$perm\+\_\+c)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classMatrix}{Matrix} permutation operations. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.1) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+August 1, 2008
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{get__perm__c_8c_a486ee50799ff66abe91efa46a5950a57}{}\index{get\+\_\+perm\+\_\+c.\+c@{get\+\_\+perm\+\_\+c.\+c}!at\+\_\+plus\+\_\+a@{at\+\_\+plus\+\_\+a}}
+\index{at\+\_\+plus\+\_\+a@{at\+\_\+plus\+\_\+a}!get\+\_\+perm\+\_\+c.\+c@{get\+\_\+perm\+\_\+c.\+c}}
+\subsubsection[{at\+\_\+plus\+\_\+a}]{\setlength{\rightskip}{0pt plus 5cm}void at\+\_\+plus\+\_\+a (
+\begin{DoxyParamCaption}
+\item[{const int}]{n, }
+\item[{const int}]{nz, }
+\item[{int $\ast$}]{colptr, }
+\item[{int $\ast$}]{rowind, }
+\item[{int $\ast$}]{bnz, }
+\item[{int $\ast$$\ast$}]{b\+\_\+colptr, }
+\item[{int $\ast$$\ast$}]{b\+\_\+rowind}
+\end{DoxyParamCaption}
+)}\label{get__perm__c_8c_a486ee50799ff66abe91efa46a5950a57}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Form the structure of \hyperlink{classA}{A}'+A. \hyperlink{classA}{A} is an n-by-n matrix in column oriented
+format represented by (colptr, rowind). The output \hyperlink{classA}{A}'+A is in column
+oriented format (symmetrically, also row oriented), represented by
+(b\_colptr, b\_rowind).
+\end{DoxyPre}
+ \hypertarget{get__perm__c_8c_a792508355b6bef974fcd9e214de40c8e}{}\index{get\+\_\+perm\+\_\+c.\+c@{get\+\_\+perm\+\_\+c.\+c}!genmmd\+\_\+@{genmmd\+\_\+}}
+\index{genmmd\+\_\+@{genmmd\+\_\+}!get\+\_\+perm\+\_\+c.\+c@{get\+\_\+perm\+\_\+c.\+c}}
+\subsubsection[{genmmd\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int genmmd\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{get__perm__c_8c_a792508355b6bef974fcd9e214de40c8e}
+\hypertarget{get__perm__c_8c_ae92c26cd488b7a86b8277cee2773d8ef}{}\index{get\+\_\+perm\+\_\+c.\+c@{get\+\_\+perm\+\_\+c.\+c}!get\+\_\+colamd@{get\+\_\+colamd}}
+\index{get\+\_\+colamd@{get\+\_\+colamd}!get\+\_\+perm\+\_\+c.\+c@{get\+\_\+perm\+\_\+c.\+c}}
+\subsubsection[{get\+\_\+colamd}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+colamd (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{n, }
+\item[{const int}]{nnz, }
+\item[{int $\ast$}]{colptr, }
+\item[{int $\ast$}]{rowind, }
+\item[{int $\ast$}]{perm\+\_\+c}
+\end{DoxyParamCaption}
+)}\label{get__perm__c_8c_ae92c26cd488b7a86b8277cee2773d8ef}
+\hypertarget{get__perm__c_8c_aaecb6e6e7a3e97356050bcfdf2573796}{}\index{get\+\_\+perm\+\_\+c.\+c@{get\+\_\+perm\+\_\+c.\+c}!get\+\_\+perm\+\_\+c@{get\+\_\+perm\+\_\+c}}
+\index{get\+\_\+perm\+\_\+c@{get\+\_\+perm\+\_\+c}!get\+\_\+perm\+\_\+c.\+c@{get\+\_\+perm\+\_\+c.\+c}}
+\subsubsection[{get\+\_\+perm\+\_\+c}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+perm\+\_\+c (
+\begin{DoxyParamCaption}
+\item[{int}]{ispec, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+c}
+\end{DoxyParamCaption}
+)}\label{get__perm__c_8c_aaecb6e6e7a3e97356050bcfdf2573796}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}GET\_PERM\_C obtains a permutation matrix Pc, by applying the multiple
+minimum degree ordering code by Joseph Liu to matrix \hyperlink{classA}{A}'*A or A+A'.
+or using approximate minimum degree column ordering by Davis et. al.
+The LU factorization of A*Pc tends to have less fill than the LU 
+factorization of \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}ispec   (input) int
+        Specifies the type of column ordering to reduce fill:
+        = 1: minimum degree on the structure of A^T * \hyperlink{classA}{A}
+        = 2: minimum degree on the structure of A^T + \hyperlink{classA}{A}
+        = 3: approximate minimum degree for unsymmetric matrices
+        If ispec == 0, the natural ordering (i.e., Pc = I) is returned.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}       (input) SuperMatrix*
+        \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} in A*X=B, of dimension (A->nrow, A->ncol). The number
+        of the linear equations is A->nrow. Currently, the type of \hyperlink{classA}{A} 
+        can be: Stype = NC; Dtype = \_D; Mtype = GE. In the future,
+        more general \hyperlink{classA}{A} can be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (output) int*
+    Column permutation vector of size A->ncol, which defines the 
+        permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+        in position j in A*Pc.
+\end{DoxyPre}
+ \hypertarget{get__perm__c_8c_a90f30e2b284864f6a800a98ceaff8fbc}{}\index{get\+\_\+perm\+\_\+c.\+c@{get\+\_\+perm\+\_\+c.\+c}!getata@{getata}}
+\index{getata@{getata}!get\+\_\+perm\+\_\+c.\+c@{get\+\_\+perm\+\_\+c.\+c}}
+\subsubsection[{getata}]{\setlength{\rightskip}{0pt plus 5cm}void getata (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{n, }
+\item[{const int}]{nz, }
+\item[{int $\ast$}]{colptr, }
+\item[{int $\ast$}]{rowind, }
+\item[{int $\ast$}]{atanz, }
+\item[{int $\ast$$\ast$}]{ata\+\_\+colptr, }
+\item[{int $\ast$$\ast$}]{ata\+\_\+rowind}
+\end{DoxyParamCaption}
+)}\label{get__perm__c_8c_a90f30e2b284864f6a800a98ceaff8fbc}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Form the structure of \hyperlink{classA}{A}'*A. \hyperlink{classA}{A} is an m-by-n matrix in column oriented
+format represented by (colptr, rowind). The output \hyperlink{classA}{A}'*A is in column
+oriented format (symmetrically, also row oriented), represented by
+(ata\_colptr, ata\_rowind).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}This routine is modified from GETATA routine by Tim Davis.
+The complexity of this algorithm is: SUM\_\{i=1,m\} r(i)^2,
+i.e., the sum of the square of the row counts.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Questions
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+    o  Do I need to withhold the {\itshape dense} rows?
+    o  How do I know the number of nonzeros in \hyperlink{classA}{A}'*A?
+\end{DoxyPre}
+ 

@@ -1,0 +1,380 @@
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg}{}\section{scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg}\index{scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg@{scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_1_1CallableLinearOperator}{Callable\+Linear\+Operator}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aa183ec0063fd295253ce902985b21e04}{symeig}
+\begin{DoxyCompactList}\small\item\em try\+: from symeig import symeig except\+: raise Import\+Error('lobpcg requires symeig') \end{DoxyCompactList}\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aa94b494b714317896c7dcd451e185f98}{pause}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a2b392ed8ad37e2dc359ed5c0aa8c98e8}{save}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a223dbb069e4a2545d5b80d926d32550e}{as2d}
+\begin{DoxyCompactList}\small\item\em 21.\+05.\+2007, c \end{DoxyCompactList}\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a0647bc0e18f1bdbb0ce836d3c0128c27}{make\+Operator}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_af8c649e330565d6b550a2630a685e922}{apply\+Constraints}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a91ae4d05cf848405823c5a31e076a740}{b\+\_\+orthonormalize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a07eb016602225854788a18521e1a414f}{lobpcg}
+\begin{DoxyCompactList}\small\item\em Apply constraints to X. \end{DoxyCompactList}\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a6e978f3841f96576a3b5e62657e92ec0}{precond}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a43db8aab433fe8e2481626eab919e0a5}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a07eb016602225854788a18521e1a414f}{lobpcg}'\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a49c3c9d868a61c99986e60bdfbdb6772}{out} = fun(mtx\+A)
+\begin{DoxyCompactList}\small\item\em print fun \end{DoxyCompactList}\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a86c6a9c1929d10de1f1df41b04d03979}{w} = \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a49c3c9d868a61c99986e60bdfbdb6772}{out}\mbox{[}0\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a2eb7090c79267f136ad92f2113585e44}{ii} = np.\+argsort(\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a86c6a9c1929d10de1f1df41b04d03979}{w})
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a257dfe1f781c7cec50d1e3bb811059fe}{v} = \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a49c3c9d868a61c99986e60bdfbdb6772}{out}\mbox{[}1\mbox{]}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adfc3268862aad3537c08b6ce4c2385a8}{eig\+Block\+Vector\+X} = eig\+Block\+Vector\mbox{[}\+:size\+X\mbox{]}
+\begin{DoxyCompactList}\small\item\em \subsection*{Normalize eigenvectors!}
+
+aux = np.\+sum( eig\+Block\+Vector.\+conjugate() $\ast$ eig\+Block\+Vector, 0 ) eig\+Vec\+Norms = np.\+sqrt( aux ) eig\+Block\+Vector = eig\+Block\+Vector / eig\+Vec\+Norms\mbox{[}np.\+newaxis,\+:\mbox{]} eig\+Block\+Vector, aux = b\+\_\+orthonormalize( B, eig\+Block\+Vector ) \end{DoxyCompactList}\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac8795baf14a0d28960429f9f9938558b}{eig\+Block\+Vector\+R} = eig\+Block\+Vector\mbox{[}size\+X\+:size\+X+current\+Block\+Size\mbox{]}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a1bcbfc8b9d54d16b70d9f20eb58ae9d9}{eig\+Block\+Vector\+P} = eig\+Block\+Vector\mbox{[}size\+X+current\+Block\+Size\+:\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae9bf54322e073125cfc164421e46e06f}{pp} = \hyperlink{vecdot_8cc_af747d922978de16d142e896d61057e8a}{sp.\+dot}(active\+Block\+Vector\+R, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac8795baf14a0d28960429f9f9938558b}{eig\+Block\+Vector\+R})
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a4543341ba5b5f6b9492a4bee372afd63}{app} = \hyperlink{vecdot_8cc_af747d922978de16d142e896d61057e8a}{sp.\+dot}(active\+Block\+Vector\+A\+R, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac8795baf14a0d28960429f9f9938558b}{eig\+Block\+Vector\+R})
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_abaa6fe0404849ed36f2bd404d5fc0a54}{bpp} = \hyperlink{vecdot_8cc_af747d922978de16d142e896d61057e8a}{sp.\+dot}(active\+Block\+Vector\+B\+R, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac8795baf14a0d28960429f9f9938558b}{eig\+Block\+Vector\+R})
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a894c527a60b3b2e0ec5e006148942207}{block\+Vector\+X} = \hyperlink{vecdot_8cc_af747d922978de16d142e896d61057e8a}{sp.\+dot}(block\+Vector\+X, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adfc3268862aad3537c08b6ce4c2385a8}{eig\+Block\+Vector\+X})
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adc03b908eb348e4692b522fcd141b34d}{block\+Vector\+A\+X} = \hyperlink{vecdot_8cc_af747d922978de16d142e896d61057e8a}{sp.\+dot}(block\+Vector\+A\+X, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adfc3268862aad3537c08b6ce4c2385a8}{eig\+Block\+Vector\+X})
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a29d5ba27a3140a36d8479422487884c4}{block\+Vector\+B\+X} = \hyperlink{vecdot_8cc_af747d922978de16d142e896d61057e8a}{sp.\+dot}(block\+Vector\+B\+X, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adfc3268862aad3537c08b6ce4c2385a8}{eig\+Block\+Vector\+X})
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adb073264dca8d79af3711b9f60b7b4cc}{aux} = \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a29d5ba27a3140a36d8479422487884c4}{block\+Vector\+B\+X}$\ast$\+\_\+lambda\mbox{[}np.\+newaxis,\+:\mbox{]}
+\item 
+\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac3a32f0f6a95fcfd3e8f9b52f64d850c}{block\+Vector\+R} = \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adc03b908eb348e4692b522fcd141b34d}{block\+Vector\+A\+X}-\/\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adb073264dca8d79af3711b9f60b7b4cc}{aux}
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aeaf3bf4842eedfa8994ce5910544bf18}{residual\+Norms} = \hyperlink{vecuops_8cc_ac9f82fdb8cd289615247f897852ee5f2}{np.\+sqrt}(\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adb073264dca8d79af3711b9f60b7b4cc}{aux})
+\item 
+int \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{n} = 100
+\begin{DoxyCompactList}\small\item\em def B( vec )\+: return vec \end{DoxyCompactList}\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a3e2eb0dc2da865e733347213fcd1b7c7}{vals} = \mbox{[}np.\+arange(\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{n}, dtype=np.\+float64) + 1\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a5c17ce3c37fa53977fcb3e10b5ac5c80}{A} = spdiags(\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a3e2eb0dc2da865e733347213fcd1b7c7}{vals}, 0, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{n}, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{n})
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_afa891615ce0428e839b2e1b3218a9f56}{B} = speye(\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{n}, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{n})
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a3ba7d3d4a3ef2d2a2ac6011b3a298bae}{Y} = np.\+eye(\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{n}, 3)
+\item 
+dictionary \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a5d9fbf72b57f59bf652026c4675543c9}{xfile} = \{100\+: 'X.\+txt', 1000\+: 'X2.\+txt', 10000\+: 'X3.\+txt'\}
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae977342f088d4561c1040be0a06e6101}{X} = np.\+fromfile(\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a5d9fbf72b57f59bf652026c4675543c9}{xfile}\mbox{[}\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{n}\mbox{]}, dtype=np.\+float64, sep=' ')
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a36a1416a081cdcae1f3763175b756653}{ivals} = \mbox{[}1./\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a3e2eb0dc2da865e733347213fcd1b7c7}{vals}\mbox{[}0\mbox{]}\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac8e47a552d89a9f84ac901c1ef809dfd}{precond} = spdiags(\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a36a1416a081cdcae1f3763175b756653}{ivals}, 0, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{n}, \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{n})
+\item 
+tuple \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a80b0f3773714710705e3116976e6189f}{tt} = time.\+clock()
+\item 
+\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aa4151c097daf543ab6da855db2ab8c72}{M} = \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac8e47a552d89a9f84ac901c1ef809dfd}{precond},
+\item 
+int \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a53b8909f7048bdc4e32b6073389c3d7c}{residual\+Tolerance} = 1
+\item 
+int \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a2cd714c0b814f341f94c430c9c7a9897}{largest} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Pure SciPy implementation of Locally Optimal Block Preconditioned Conjugate
+Gradient Method (LOBPCG), see
+http://www-math.cudenver.edu/~aknyazev/software/BLOPEX/
+
+License: BSD
+
+Authors: Robert Cimrman, Andrew Knyazev
+
+Examples in tests directory contributed by Nils Wagner.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_af8c649e330565d6b550a2630a685e922}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!apply\+Constraints@{apply\+Constraints}}
+\index{apply\+Constraints@{apply\+Constraints}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{apply\+Constraints}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+apply\+Constraints (
+\begin{DoxyParamCaption}
+\item[{}]{block\+Vector\+V, }
+\item[{}]{fact\+Y\+B\+Y, }
+\item[{}]{block\+Vector\+B\+Y, }
+\item[{}]{block\+Vector\+Y}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_af8c649e330565d6b550a2630a685e922}
+\begin{DoxyVerb}Internal. Changes blockVectorV in place.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a223dbb069e4a2545d5b80d926d32550e}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!as2d@{as2d}}
+\index{as2d@{as2d}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{as2d}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+as2d (
+\begin{DoxyParamCaption}
+\item[{}]{ar}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a223dbb069e4a2545d5b80d926d32550e}
+
+
+21.\+05.\+2007, c 
+
+\begin{DoxyVerb}If the input array is 2D return it, if it is 1D, append a dimension,
+making it a column vector.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a91ae4d05cf848405823c5a31e076a740}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!b\+\_\+orthonormalize@{b\+\_\+orthonormalize}}
+\index{b\+\_\+orthonormalize@{b\+\_\+orthonormalize}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{b\+\_\+orthonormalize}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+b\+\_\+orthonormalize (
+\begin{DoxyParamCaption}
+\item[{}]{B, }
+\item[{}]{block\+Vector\+V, }
+\item[{}]{block\+Vector\+B\+V = {\ttfamily None}, }
+\item[{}]{ret\+Inv\+R = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a91ae4d05cf848405823c5a31e076a740}
+\begin{DoxyVerb}Internal.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a07eb016602225854788a18521e1a414f}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!lobpcg@{lobpcg}}
+\index{lobpcg@{lobpcg}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{lobpcg}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+lobpcg (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{X, }
+\item[{}]{B = {\ttfamily None}, }
+\item[{}]{M = {\ttfamily None}, }
+\item[{}]{Y = {\ttfamily None}, }
+\item[{}]{tol = {\ttfamily None}, }
+\item[{}]{maxiter = {\ttfamily 20}, }
+\item[{}]{largest = {\ttfamily {\bf True}}, }
+\item[{}]{verbosity\+Level = {\ttfamily 0}, }
+\item[{}]{ret\+Lambda\+History = {\ttfamily {\bf False}}, }
+\item[{}]{ret\+Residual\+Norms\+History = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a07eb016602225854788a18521e1a414f}
+
+
+Apply constraints to X. 
+
+\begin{DoxyVerb}Solve symmetric partial eigenproblems with optional preconditioning
+
+This function implements the Locally Optimal Block Preconditioned
+Conjugate Gradient Method (LOBPCG).
+
+Parameters
+----------
+A : {sparse matrix, dense matrix, LinearOperator}
+    The symmetric linear operator of the problem, usually a
+    sparse matrix.  Often called the "stiffness matrix".
+X : array_like
+    Initial approximation to the k eigenvectors. If A has
+    shape=(n,n) then X should have shape shape=(n,k).
+B : {dense matrix, sparse matrix, LinearOperator}, optional
+    the right hand side operator in a generalized eigenproblem.
+    by default, B = Identity
+    often called the "mass matrix"
+M : {dense matrix, sparse matrix, LinearOperator}, optional
+    preconditioner to A; by default M = Identity
+    M should approximate the inverse of A
+Y : array_like, optional
+    n-by-sizeY matrix of constraints, sizeY < n
+    The iterations will be performed in the B-orthogonal complement
+    of the column-space of Y. Y must be full rank.
+
+Returns
+-------
+w : array
+    Array of k eigenvalues
+v : array
+    An array of k eigenvectors.  V has the same shape as X.
+
+Other Parameters
+----------------
+tol : scalar, optional
+    Solver tolerance (stopping criterion)
+    by default: tol=n*sqrt(eps)
+maxiter : integer, optional
+    maximum number of iterations
+    by default: maxiter=min(n,20)
+largest : boolean, optional
+    when True, solve for the largest eigenvalues, otherwise the smallest
+verbosityLevel : integer, optional
+    controls solver output.  default: verbosityLevel = 0.
+retLambdaHistory : boolean, optional
+    whether to return eigenvalue history
+retResidualNormsHistory : boolean, optional
+    whether to return history of residual norms
+
+
+Notes
+-----
+If both retLambdaHistory and retResidualNormsHistory are True, the
+return tuple has the following format
+(lambda, V, lambda history, residual norms history)\end{DoxyVerb}
+ B-\/orthonormalize X. Compute the initial Ritz vectors\+: solve the eigenproblem. Active index set. Main iteration loop. Apply constraints to the preconditioned residuals. B-\/orthonormalize the preconditioned residuals. Perform the Rayleigh Ritz Procedure\+: Compute symmetric Gram matrices\+: Solve the generalized eigenvalue problem. \+\_\+lambda, eig\+Block\+Vector = la.\+eig( gram\+A, gram\+B ) \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a0647bc0e18f1bdbb0ce836d3c0128c27}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!make\+Operator@{make\+Operator}}
+\index{make\+Operator@{make\+Operator}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{make\+Operator}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+make\+Operator (
+\begin{DoxyParamCaption}
+\item[{}]{operator\+Input, }
+\item[{}]{expected\+Shape}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a0647bc0e18f1bdbb0ce836d3c0128c27}
+\begin{DoxyVerb}Internal. Takes a dense numpy array or a sparse matrix or
+a function and makes an operator performing matrix * blockvector
+products.
+
+Examples
+--------
+>>> A = makeOperator( arrayA, (n, n) )
+>>> vectorB = A( vectorX )\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aa94b494b714317896c7dcd451e185f98}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!pause@{pause}}
+\index{pause@{pause}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{pause}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+pause (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aa94b494b714317896c7dcd451e185f98}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a6e978f3841f96576a3b5e62657e92ec0}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!precond@{precond}}
+\index{precond@{precond}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{precond}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+precond (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a6e978f3841f96576a3b5e62657e92ec0}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a2b392ed8ad37e2dc359ed5c0aa8c98e8}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!save@{save}}
+\index{save@{save}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+save (
+\begin{DoxyParamCaption}
+\item[{}]{ar, }
+\item[{}]{file\+Name}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a2b392ed8ad37e2dc359ed5c0aa8c98e8}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aa183ec0063fd295253ce902985b21e04}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!symeig@{symeig}}
+\index{symeig@{symeig}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{symeig}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+symeig (
+\begin{DoxyParamCaption}
+\item[{}]{mtx\+A, }
+\item[{}]{mtx\+B = {\ttfamily None}, }
+\item[{}]{eigenvectors = {\ttfamily {\bf True}}, }
+\item[{}]{select = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aa183ec0063fd295253ce902985b21e04}
+
+
+try\+: from symeig import symeig except\+: raise Import\+Error('lobpcg requires symeig') 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a43db8aab433fe8e2481626eab919e0a5}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf lobpcg}'\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a43db8aab433fe8e2481626eab919e0a5}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a5c17ce3c37fa53977fcb3e10b5ac5c80}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!A@{A}}
+\index{A@{A}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{A}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+A = spdiags({\bf vals}, 0, {\bf n}, {\bf n})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a5c17ce3c37fa53977fcb3e10b5ac5c80}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a4543341ba5b5f6b9492a4bee372afd63}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!app@{app}}
+\index{app@{app}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{app}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+app = {\bf sp.\+dot}(active\+Block\+Vector\+A\+R, {\bf eig\+Block\+Vector\+R})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a4543341ba5b5f6b9492a4bee372afd63}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adb073264dca8d79af3711b9f60b7b4cc}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!aux@{aux}}
+\index{aux@{aux}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{aux}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+aux = {\bf block\+Vector\+B\+X}$\ast$\+\_\+lambda\mbox{[}np.\+newaxis,\+:\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adb073264dca8d79af3711b9f60b7b4cc}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_afa891615ce0428e839b2e1b3218a9f56}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!B@{B}}
+\index{B@{B}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{B}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+B = speye({\bf n}, {\bf n})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_afa891615ce0428e839b2e1b3218a9f56}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adc03b908eb348e4692b522fcd141b34d}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!block\+Vector\+A\+X@{block\+Vector\+A\+X}}
+\index{block\+Vector\+A\+X@{block\+Vector\+A\+X}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{block\+Vector\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+block\+Vector\+A\+X = {\bf sp.\+dot}(block\+Vector\+A\+X, {\bf eig\+Block\+Vector\+X})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adc03b908eb348e4692b522fcd141b34d}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a29d5ba27a3140a36d8479422487884c4}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!block\+Vector\+B\+X@{block\+Vector\+B\+X}}
+\index{block\+Vector\+B\+X@{block\+Vector\+B\+X}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{block\+Vector\+B\+X}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+block\+Vector\+B\+X = {\bf sp.\+dot}(block\+Vector\+B\+X, {\bf eig\+Block\+Vector\+X})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a29d5ba27a3140a36d8479422487884c4}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac3a32f0f6a95fcfd3e8f9b52f64d850c}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!block\+Vector\+R@{block\+Vector\+R}}
+\index{block\+Vector\+R@{block\+Vector\+R}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{block\+Vector\+R}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+block\+Vector\+R = {\bf block\+Vector\+A\+X}-\/{\bf aux}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac3a32f0f6a95fcfd3e8f9b52f64d850c}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a894c527a60b3b2e0ec5e006148942207}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!block\+Vector\+X@{block\+Vector\+X}}
+\index{block\+Vector\+X@{block\+Vector\+X}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{block\+Vector\+X}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+block\+Vector\+X = {\bf sp.\+dot}(block\+Vector\+X, {\bf eig\+Block\+Vector\+X})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a894c527a60b3b2e0ec5e006148942207}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_abaa6fe0404849ed36f2bd404d5fc0a54}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!bpp@{bpp}}
+\index{bpp@{bpp}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{bpp}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+bpp = {\bf sp.\+dot}(active\+Block\+Vector\+B\+R, {\bf eig\+Block\+Vector\+R})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_abaa6fe0404849ed36f2bd404d5fc0a54}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a1bcbfc8b9d54d16b70d9f20eb58ae9d9}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!eig\+Block\+Vector\+P@{eig\+Block\+Vector\+P}}
+\index{eig\+Block\+Vector\+P@{eig\+Block\+Vector\+P}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{eig\+Block\+Vector\+P}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+eig\+Block\+Vector\+P = eig\+Block\+Vector\mbox{[}size\+X+current\+Block\+Size\+:\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a1bcbfc8b9d54d16b70d9f20eb58ae9d9}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac8795baf14a0d28960429f9f9938558b}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!eig\+Block\+Vector\+R@{eig\+Block\+Vector\+R}}
+\index{eig\+Block\+Vector\+R@{eig\+Block\+Vector\+R}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{eig\+Block\+Vector\+R}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+eig\+Block\+Vector\+R = eig\+Block\+Vector\mbox{[}size\+X\+:size\+X+current\+Block\+Size\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac8795baf14a0d28960429f9f9938558b}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adfc3268862aad3537c08b6ce4c2385a8}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!eig\+Block\+Vector\+X@{eig\+Block\+Vector\+X}}
+\index{eig\+Block\+Vector\+X@{eig\+Block\+Vector\+X}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{eig\+Block\+Vector\+X}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+eig\+Block\+Vector\+X = eig\+Block\+Vector\mbox{[}\+:size\+X\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_adfc3268862aad3537c08b6ce4c2385a8}
+
+
+\subsection*{Normalize eigenvectors!}
+
+aux = np.\+sum( eig\+Block\+Vector.\+conjugate() $\ast$ eig\+Block\+Vector, 0 ) eig\+Vec\+Norms = np.\+sqrt( aux ) eig\+Block\+Vector = eig\+Block\+Vector / eig\+Vec\+Norms\mbox{[}np.\+newaxis,\+:\mbox{]} eig\+Block\+Vector, aux = b\+\_\+orthonormalize( B, eig\+Block\+Vector ) 
+
+Compute Ritz vectors. \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a2eb7090c79267f136ad92f2113585e44}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!ii@{ii}}
+\index{ii@{ii}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{ii}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+ii = np.\+argsort({\bf w})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a2eb7090c79267f136ad92f2113585e44}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a36a1416a081cdcae1f3763175b756653}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!ivals@{ivals}}
+\index{ivals@{ivals}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{ivals}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+ivals = \mbox{[}1./{\bf vals}\mbox{[}0\mbox{]}\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a36a1416a081cdcae1f3763175b756653}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a2cd714c0b814f341f94c430c9c7a9897}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!largest@{largest}}
+\index{largest@{largest}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{largest}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+largest = 1}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a2cd714c0b814f341f94c430c9c7a9897}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aa4151c097daf543ab6da855db2ab8c72}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!M@{M}}
+\index{M@{M}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{M}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+M = {\bf precond},}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aa4151c097daf543ab6da855db2ab8c72}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!n@{n}}
+\index{n@{n}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+n = 100}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae795230f2ed4598923ccdeaa311f303c}
+
+
+def B( vec )\+: return vec 
+
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a49c3c9d868a61c99986e60bdfbdb6772}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!out@{out}}
+\index{out@{out}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{out}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+out = fun(mtx\+A)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a49c3c9d868a61c99986e60bdfbdb6772}
+
+
+print fun 
+
+print w print v print info from symeig import symeig print symeig( mtx\+A, mtx\+B ) \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae9bf54322e073125cfc164421e46e06f}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!pp@{pp}}
+\index{pp@{pp}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{pp}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+pp = {\bf sp.\+dot}(active\+Block\+Vector\+R, {\bf eig\+Block\+Vector\+R})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae9bf54322e073125cfc164421e46e06f}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac8e47a552d89a9f84ac901c1ef809dfd}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!precond@{precond}}
+\index{precond@{precond}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{precond}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+precond = spdiags({\bf ivals}, 0, {\bf n}, {\bf n})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ac8e47a552d89a9f84ac901c1ef809dfd}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aeaf3bf4842eedfa8994ce5910544bf18}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!residual\+Norms@{residual\+Norms}}
+\index{residual\+Norms@{residual\+Norms}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{residual\+Norms}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+residual\+Norms = {\bf np.\+sqrt}({\bf aux})}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_aeaf3bf4842eedfa8994ce5910544bf18}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a53b8909f7048bdc4e32b6073389c3d7c}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!residual\+Tolerance@{residual\+Tolerance}}
+\index{residual\+Tolerance@{residual\+Tolerance}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{residual\+Tolerance}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+residual\+Tolerance = 1}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a53b8909f7048bdc4e32b6073389c3d7c}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a80b0f3773714710705e3116976e6189f}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!tt@{tt}}
+\index{tt@{tt}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{tt}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+tt = time.\+clock()}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a80b0f3773714710705e3116976e6189f}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a257dfe1f781c7cec50d1e3bb811059fe}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!v@{v}}
+\index{v@{v}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{v}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+v = {\bf out}\mbox{[}1\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a257dfe1f781c7cec50d1e3bb811059fe}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a3e2eb0dc2da865e733347213fcd1b7c7}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!vals@{vals}}
+\index{vals@{vals}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{vals}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+vals = \mbox{[}np.\+arange({\bf n}, dtype=np.\+float64) + 1\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a3e2eb0dc2da865e733347213fcd1b7c7}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a86c6a9c1929d10de1f1df41b04d03979}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!w@{w}}
+\index{w@{w}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{w}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+w = {\bf out}\mbox{[}0\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a86c6a9c1929d10de1f1df41b04d03979}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae977342f088d4561c1040be0a06e6101}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!X@{X}}
+\index{X@{X}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{X}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+X = np.\+fromfile({\bf xfile}\mbox{[}{\bf n}\mbox{]}, dtype=np.\+float64, sep=' ')}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_ae977342f088d4561c1040be0a06e6101}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a5d9fbf72b57f59bf652026c4675543c9}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!xfile@{xfile}}
+\index{xfile@{xfile}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{xfile}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+xfile = \{100\+: 'X.\+txt', 1000\+: 'X2.\+txt', 10000\+: 'X3.\+txt'\}}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a5d9fbf72b57f59bf652026c4675543c9}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a3ba7d3d4a3ef2d2a2ac6011b3a298bae}{}\index{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}!Y@{Y}}
+\index{Y@{Y}!scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg@{scipy\+::sparse\+::linalg\+::eigen\+::lobpcg\+::lobpcg}}
+\subsubsection[{Y}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+sparse.\+linalg.\+eigen.\+lobpcg.\+lobpcg.\+Y = np.\+eye({\bf n}, 3)}\label{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a3ba7d3d4a3ef2d2a2ac6011b3a298bae}

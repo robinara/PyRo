@@ -1,0 +1,192 @@
+\hypertarget{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader}{}\section{scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader Class Reference}
+\label{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader}\index{scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader@{scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader}}
+Inheritance diagram for scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a1aeaab025fda79263f766eeb6e02ae6d}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_ad0155765772c1349d5ab672a627d0568}{guess\+\_\+byte\+\_\+order}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a6488410a90cb27d3e5f5d96caad19102}{read\+\_\+file\+\_\+header}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a2030efac4ca178827d82d4c0fdcc1b6a}{initialize\+\_\+read}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_afca7c913616a81f180b5111006ed306d}{read\+\_\+var\+\_\+header}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a64e90c885ca9767b6a3fe759559e2e95}{read\+\_\+var\+\_\+array}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_af2dff34c68ad0b28b0e39e140ad610c6}{get\+\_\+variables}
+\item 
+def \hyperlink{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a15ce78fcef8ecec20b1ed50ce7cca2ca}{list\+\_\+variables}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a158d3981a776da56155fdbc4744517de}{uint16\+\_\+codec}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Reader for Mat 5 mat files
+Adds the following attribute to base class
+
+uint16_codec - char codec to use for uint16 char arrays
+    (defaults to system default codec)
+
+Uses variable reader that has the following stardard interface (see
+abstract class in ``miobase``::
+
+   __init__(self, file_reader)
+   read_header(self)
+   array_from_header(self)
+
+and added interface::
+
+   set_stream(self, stream)
+   read_full_tag(self)\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a1aeaab025fda79263f766eeb6e02ae6d}{}\index{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{mat\+\_\+stream, }
+\item[{}]{byte\+\_\+order = {\ttfamily None}, }
+\item[{}]{mat\+\_\+dtype = {\ttfamily {\bf False}}, }
+\item[{}]{squeeze\+\_\+me = {\ttfamily {\bf False}}, }
+\item[{}]{chars\+\_\+as\+\_\+strings = {\ttfamily {\bf True}}, }
+\item[{}]{matlab\+\_\+compatible = {\ttfamily {\bf False}}, }
+\item[{}]{struct\+\_\+as\+\_\+record = {\ttfamily {\bf True}}, }
+\item[{}]{verify\+\_\+compressed\+\_\+data\+\_\+integrity = {\ttfamily {\bf True}}, }
+\item[{}]{uint16\+\_\+codec = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a1aeaab025fda79263f766eeb6e02ae6d}
+\begin{DoxyVerb}Initializer for matlab 5 file format reader
+
+    %(matstream_arg)s
+    %(load_args)s
+    %(struct_arg)s
+    uint16_codec : {None, string}
+Set codec to use for uint16 char arrays (e.g. 'utf-8').
+Use system default codec if None
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_af2dff34c68ad0b28b0e39e140ad610c6}{}\index{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}!get\+\_\+variables@{get\+\_\+variables}}
+\index{get\+\_\+variables@{get\+\_\+variables}!scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}}
+\subsubsection[{get\+\_\+variables}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader.\+get\+\_\+variables (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{variable\+\_\+names = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_af2dff34c68ad0b28b0e39e140ad610c6}
+\begin{DoxyVerb}get variables from stream as dictionary
+
+variable_names   - optional list of variable names to get
+
+If variable_names is None, then get all variables in file
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_ad0155765772c1349d5ab672a627d0568}{}\index{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}!guess\+\_\+byte\+\_\+order@{guess\+\_\+byte\+\_\+order}}
+\index{guess\+\_\+byte\+\_\+order@{guess\+\_\+byte\+\_\+order}!scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}}
+\subsubsection[{guess\+\_\+byte\+\_\+order}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader.\+guess\+\_\+byte\+\_\+order (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_ad0155765772c1349d5ab672a627d0568}
+\begin{DoxyVerb}Guess byte order.
+Sets stream pointer to 0 \end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a2030efac4ca178827d82d4c0fdcc1b6a}{}\index{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}!initialize\+\_\+read@{initialize\+\_\+read}}
+\index{initialize\+\_\+read@{initialize\+\_\+read}!scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}}
+\subsubsection[{initialize\+\_\+read}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader.\+initialize\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a2030efac4ca178827d82d4c0fdcc1b6a}
+\begin{DoxyVerb}Run when beginning read of variables
+
+Sets up readers from parameters in `self`
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a15ce78fcef8ecec20b1ed50ce7cca2ca}{}\index{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}!list\+\_\+variables@{list\+\_\+variables}}
+\index{list\+\_\+variables@{list\+\_\+variables}!scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}}
+\subsubsection[{list\+\_\+variables}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader.\+list\+\_\+variables (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a15ce78fcef8ecec20b1ed50ce7cca2ca}
+\begin{DoxyVerb}list variables from stream \end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a6488410a90cb27d3e5f5d96caad19102}{}\index{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}!read\+\_\+file\+\_\+header@{read\+\_\+file\+\_\+header}}
+\index{read\+\_\+file\+\_\+header@{read\+\_\+file\+\_\+header}!scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}}
+\subsubsection[{read\+\_\+file\+\_\+header}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader.\+read\+\_\+file\+\_\+header (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a6488410a90cb27d3e5f5d96caad19102}
+\begin{DoxyVerb}Read in mat 5 file header \end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a64e90c885ca9767b6a3fe759559e2e95}{}\index{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}!read\+\_\+var\+\_\+array@{read\+\_\+var\+\_\+array}}
+\index{read\+\_\+var\+\_\+array@{read\+\_\+var\+\_\+array}!scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}}
+\subsubsection[{read\+\_\+var\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader.\+read\+\_\+var\+\_\+array (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{header, }
+\item[{}]{process = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a64e90c885ca9767b6a3fe759559e2e95}
+\begin{DoxyVerb}Read array, given `header`
+
+Parameters
+----------
+header : header object
+   object with fields defining variable header
+process : {True, False} bool, optional
+   If True, apply recursive post-processing during loading of
+   array.
+
+Returns
+-------
+arr : array
+   array with post-processing applied or not according to
+   `process`.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_afca7c913616a81f180b5111006ed306d}{}\index{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}!read\+\_\+var\+\_\+header@{read\+\_\+var\+\_\+header}}
+\index{read\+\_\+var\+\_\+header@{read\+\_\+var\+\_\+header}!scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}}
+\subsubsection[{read\+\_\+var\+\_\+header}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader.\+read\+\_\+var\+\_\+header (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_afca7c913616a81f180b5111006ed306d}
+\begin{DoxyVerb}Read header, return header, next position
+
+Header has to define at least .name and .is_global
+
+Parameters
+----------
+None
+
+Returns
+-------
+header : object
+   object that can be passed to self.read_var_array, and that
+   has attributes .name and .is_global
+next_position : int
+   position in stream of next variable
+\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a158d3981a776da56155fdbc4744517de}{}\index{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}!uint16\+\_\+codec@{uint16\+\_\+codec}}
+\index{uint16\+\_\+codec@{uint16\+\_\+codec}!scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader@{scipy\+::io\+::matlab\+::mio5\+::\+Mat\+File5\+Reader}}
+\subsubsection[{uint16\+\_\+codec}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+matlab.\+mio5.\+Mat\+File5\+Reader.\+uint16\+\_\+codec}\label{classscipy_1_1io_1_1matlab_1_1mio5_1_1MatFile5Reader_a158d3981a776da56155fdbc4744517de}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/io/matlab/\hyperlink{mio5_8py}{mio5.\+py}\end{DoxyCompactItemize}

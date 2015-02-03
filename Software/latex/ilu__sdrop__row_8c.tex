@@ -1,0 +1,141 @@
+\hypertarget{ilu__sdrop__row_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+sdrop\+\_\+row.c File Reference}
+\label{ilu__sdrop__row_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+sdrop\+\_\+row.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+sdrop\+\_\+row.\+c}}
+
+
+Drop small rows from L.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ilu__sdrop__row_8c_a2ea44e9849dcb189a4e81f09d97e3c95}{sswap\+\_\+} (int $\ast$, float\mbox{[}$\,$\mbox{]}, int $\ast$, float\mbox{[}$\,$\mbox{]}, int $\ast$)
+\item 
+void \hyperlink{ilu__sdrop__row_8c_ade8ba65d9c44f41e97cf2c40a772cff7}{saxpy\+\_\+} (int $\ast$, float $\ast$, float\mbox{[}$\,$\mbox{]}, int $\ast$, float\mbox{[}$\,$\mbox{]}, int $\ast$)
+\item 
+void \hyperlink{ilu__sdrop__row_8c_af839d60e0d4028df30ea1106ce429210}{scopy\+\_\+} (int $\ast$, float\mbox{[}$\,$\mbox{]}, int $\ast$, float\mbox{[}$\,$\mbox{]}, int $\ast$)
+\item 
+float \hyperlink{ilu__sdrop__row_8c_a43ef780d8b669dc0b19d41fa6727124f}{sasum\+\_\+} (int $\ast$, float $\ast$, int $\ast$)
+\item 
+float \hyperlink{ilu__sdrop__row_8c_ac419c8b8797339212c62cd423e3e652c}{snrm2\+\_\+} (int $\ast$, float $\ast$, int $\ast$)
+\item 
+double \hyperlink{ilu__sdrop__row_8c_a61a0022627cc1977966c0067f1f12e26}{dnrm2\+\_\+} (int $\ast$, double\mbox{[}$\,$\mbox{]}, int $\ast$)
+\item 
+int \hyperlink{ilu__sdrop__row_8c_a18eff2aa758918dee76e31b812c88c9f}{isamax\+\_\+} (int $\ast$, float\mbox{[}$\,$\mbox{]}, int $\ast$)
+\item 
+int \hyperlink{ilu__sdrop__row_8c_a0d9b169f47790d6eed41107efb445867}{ilu\+\_\+sdrop\+\_\+row} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options, int first, int last, double drop\+\_\+tol, int quota, int $\ast$nnz\+Lj, double $\ast$fill\+\_\+tol, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, float swork\mbox{[}$\,$\mbox{]}, float swork2\mbox{[}$\,$\mbox{]}, int lastc)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Drop small rows from L. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.1) --
+Lawrence Berkeley National Laboratory.
+June 30, 2009
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{ilu__sdrop__row_8c_a61a0022627cc1977966c0067f1f12e26}{}\index{ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}!dnrm2\+\_\+@{dnrm2\+\_\+}}
+\index{dnrm2\+\_\+@{dnrm2\+\_\+}!ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}}
+\subsubsection[{dnrm2\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double dnrm2\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{double}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ilu__sdrop__row_8c_a61a0022627cc1977966c0067f1f12e26}
+\hypertarget{ilu__sdrop__row_8c_a0d9b169f47790d6eed41107efb445867}{}\index{ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}!ilu\+\_\+sdrop\+\_\+row@{ilu\+\_\+sdrop\+\_\+row}}
+\index{ilu\+\_\+sdrop\+\_\+row@{ilu\+\_\+sdrop\+\_\+row}!ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}}
+\subsubsection[{ilu\+\_\+sdrop\+\_\+row}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+sdrop\+\_\+row (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{int}]{first, }
+\item[{int}]{last, }
+\item[{double}]{drop\+\_\+tol, }
+\item[{int}]{quota, }
+\item[{int $\ast$}]{nnz\+Lj, }
+\item[{double $\ast$}]{fill\+\_\+tol, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{float}]{swork\mbox{[}$\,$\mbox{]}, }
+\item[{float}]{swork2\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{lastc}
+\end{DoxyParamCaption}
+)}\label{ilu__sdrop__row_8c_a0d9b169f47790d6eed41107efb445867}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+   \hyperlink{ilu__sdrop__row_8c_a0d9b169f47790d6eed41107efb445867}{ilu\_sdrop\_row()} - Drop some small rows from the previous 
+   supernode (L-part only).
+\end{DoxyPre}
+ \hypertarget{ilu__sdrop__row_8c_a18eff2aa758918dee76e31b812c88c9f}{}\index{ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}!isamax\+\_\+@{isamax\+\_\+}}
+\index{isamax\+\_\+@{isamax\+\_\+}!ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}}
+\subsubsection[{isamax\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int isamax\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{float}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ilu__sdrop__row_8c_a18eff2aa758918dee76e31b812c88c9f}
+\hypertarget{ilu__sdrop__row_8c_a43ef780d8b669dc0b19d41fa6727124f}{}\index{ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}!sasum\+\_\+@{sasum\+\_\+}}
+\index{sasum\+\_\+@{sasum\+\_\+}!ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}}
+\subsubsection[{sasum\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}float sasum\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ilu__sdrop__row_8c_a43ef780d8b669dc0b19d41fa6727124f}
+\hypertarget{ilu__sdrop__row_8c_ade8ba65d9c44f41e97cf2c40a772cff7}{}\index{ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}!saxpy\+\_\+@{saxpy\+\_\+}}
+\index{saxpy\+\_\+@{saxpy\+\_\+}!ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}}
+\subsubsection[{saxpy\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}void saxpy\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{float}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{, }
+\item[{float}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ilu__sdrop__row_8c_ade8ba65d9c44f41e97cf2c40a772cff7}
+\hypertarget{ilu__sdrop__row_8c_af839d60e0d4028df30ea1106ce429210}{}\index{ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}!scopy\+\_\+@{scopy\+\_\+}}
+\index{scopy\+\_\+@{scopy\+\_\+}!ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}}
+\subsubsection[{scopy\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}void scopy\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{float}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{, }
+\item[{float}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ilu__sdrop__row_8c_af839d60e0d4028df30ea1106ce429210}
+\hypertarget{ilu__sdrop__row_8c_ac419c8b8797339212c62cd423e3e652c}{}\index{ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}!snrm2\+\_\+@{snrm2\+\_\+}}
+\index{snrm2\+\_\+@{snrm2\+\_\+}!ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}}
+\subsubsection[{snrm2\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}float snrm2\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ilu__sdrop__row_8c_ac419c8b8797339212c62cd423e3e652c}
+\hypertarget{ilu__sdrop__row_8c_a2ea44e9849dcb189a4e81f09d97e3c95}{}\index{ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}!sswap\+\_\+@{sswap\+\_\+}}
+\index{sswap\+\_\+@{sswap\+\_\+}!ilu\+\_\+sdrop\+\_\+row.\+c@{ilu\+\_\+sdrop\+\_\+row.\+c}}
+\subsubsection[{sswap\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}void sswap\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{float}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{, }
+\item[{float}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ilu__sdrop__row_8c_a2ea44e9849dcb189a4e81f09d97e3c95}

@@ -1,0 +1,190 @@
+\hypertarget{zgstrs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zgstrs.c File Reference}
+\label{zgstrs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zgstrs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zgstrs.\+c}}
+
+
+Solves a system using L\+U factorization.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+zdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{zgstrs_8c_ac9798dda11fa387039351d70fa59ce3b}{zusolve} (int, int, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$)
+\item 
+void \hyperlink{zgstrs_8c_afb6f65890b5348dc1692d01b087be35d}{zlsolve} (int, int, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$)
+\item 
+void \hyperlink{zgstrs_8c_a1165292a4e2a6c282638868bd503fb7a}{zmatvec} (int, int, int, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$)
+\item 
+void \hyperlink{zgstrs_8c_a7ddda3f91ee65762d0589d5d613f2795}{zgstrs} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62}{trans\+\_\+t} trans, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, int $\ast$perm\+\_\+c, int $\ast$perm\+\_\+r, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$B, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat, int $\ast$info)
+\item 
+void \hyperlink{zgstrs_8c_aafcbead526e1e4f1b7895d3c5abfe4ab}{zprint\+\_\+soln} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nrhs, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$soln)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Solves a system using L\+U factorization. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Permission is hereby granted to use or copy this program for any
+purpose, provided the above notices are retained on all copies.
+Permission to modify the code and to distribute modified code is
+granted, provided the above notices are retained, and a notice that
+the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{zgstrs_8c_a7ddda3f91ee65762d0589d5d613f2795}{}\index{zgstrs.\+c@{zgstrs.\+c}!zgstrs@{zgstrs}}
+\index{zgstrs@{zgstrs}!zgstrs.\+c@{zgstrs.\+c}}
+\subsubsection[{zgstrs}]{\setlength{\rightskip}{0pt plus 5cm}void zgstrs (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\+\_\+t}}]{trans, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{zgstrs_8c_a7ddda3f91ee65762d0589d5d613f2795}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}ZGSTRS solves a system of linear equations A*X=B or \hyperlink{classA}{A}'*X=B
+with \hyperlink{classA}{A} sparse and B dense, using the LU factorization computed by
+ZGSTRF.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}trans   (input) trans\_t
+         Specifies the form of the system of equations:
+         = NOTRANS: \hyperlink{classA}{A} * X = B  (No transpose)
+         = TRANS:   \hyperlink{classA}{A}'* X = B  (Transpose)
+         = CONJ:    A**H * X = B  (Conjugate transpose)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L       (input) SuperMatrix*
+        The factor L from the factorization Pr*A*Pc=L*U as computed by
+        \hyperlink{slu__zdefs_8h_a58d722a16a6f114a94cb2f59c8b08df4}{zgstrf()}. Use compressed row subscripts storage for supernodes,
+        i.e., L has types: Stype = SLU\_SC, Dtype = SLU\_Z, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U       (input) SuperMatrix*
+        The factor U from the factorization Pr*A*Pc=L*U as computed by
+        \hyperlink{slu__zdefs_8h_a58d722a16a6f114a94cb2f59c8b08df4}{zgstrf()}. Use column-wise storage scheme, i.e., U has types:
+        Stype = SLU\_NC, Dtype = SLU\_Z, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (input) int*, dimension (L->ncol)
+    Column permutation vector, which defines the 
+        permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+        in position j in A*Pc.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_r  (input) int*, dimension (L->nrow)
+        Row permutation vector, which defines the permutation matrix Pr; 
+        perm\_r[i] = j means row i of \hyperlink{classA}{A} is in position j in Pr*A.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}B       (input/output) SuperMatrix*
+        B has types: Stype = SLU\_DN, Dtype = SLU\_Z, Mtype = SLU\_GE.
+        On entry, the right hand side matrix.
+        On exit, the solution matrix if info = 0;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}stat     (output) SuperLUStat\_t*
+         Record the statistics on runtime and floating-point operation count.
+         See util.h for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}info    (output) int*
+       = 0: successful exit
+    < 0: if info = -i, the i-th argument had an illegal value
+\end{DoxyPre}
+ \hypertarget{zgstrs_8c_afb6f65890b5348dc1692d01b087be35d}{}\index{zgstrs.\+c@{zgstrs.\+c}!zlsolve@{zlsolve}}
+\index{zlsolve@{zlsolve}!zgstrs.\+c@{zgstrs.\+c}}
+\subsubsection[{zlsolve}]{\setlength{\rightskip}{0pt plus 5cm}void zlsolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{zgstrs_8c_afb6f65890b5348dc1692d01b087be35d}
+\hypertarget{zgstrs_8c_a1165292a4e2a6c282638868bd503fb7a}{}\index{zgstrs.\+c@{zgstrs.\+c}!zmatvec@{zmatvec}}
+\index{zmatvec@{zmatvec}!zgstrs.\+c@{zgstrs.\+c}}
+\subsubsection[{zmatvec}]{\setlength{\rightskip}{0pt plus 5cm}void zmatvec (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{zgstrs_8c_a1165292a4e2a6c282638868bd503fb7a}
+\hypertarget{zgstrs_8c_aafcbead526e1e4f1b7895d3c5abfe4ab}{}\index{zgstrs.\+c@{zgstrs.\+c}!zprint\+\_\+soln@{zprint\+\_\+soln}}
+\index{zprint\+\_\+soln@{zprint\+\_\+soln}!zgstrs.\+c@{zgstrs.\+c}}
+\subsubsection[{zprint\+\_\+soln}]{\setlength{\rightskip}{0pt plus 5cm}void zprint\+\_\+soln (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{nrhs, }
+\item[{{\bf doublecomplex} $\ast$}]{soln}
+\end{DoxyParamCaption}
+)}\label{zgstrs_8c_aafcbead526e1e4f1b7895d3c5abfe4ab}
+\hypertarget{zgstrs_8c_ac9798dda11fa387039351d70fa59ce3b}{}\index{zgstrs.\+c@{zgstrs.\+c}!zusolve@{zusolve}}
+\index{zusolve@{zusolve}!zgstrs.\+c@{zgstrs.\+c}}
+\subsubsection[{zusolve}]{\setlength{\rightskip}{0pt plus 5cm}void zusolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{zgstrs_8c_ac9798dda11fa387039351d70fa59ce3b}

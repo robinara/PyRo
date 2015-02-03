@@ -1,0 +1,556 @@
+\hypertarget{dlamch_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlamch.c File Reference}
+\label{dlamch_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlamch.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlamch.\+c}}
+
+
+Determines double precision machine parameters.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+\+Cnames.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dlamch_8c_aca1e6c3771fa0306e1dad2b11d22a8e5}{T\+R\+U\+E\+\_\+}~(1)
+\item 
+\#define \hyperlink{dlamch_8c_ad4986ecbba005b963f63a85f7c8c281d}{F\+A\+L\+S\+E\+\_\+}~(0)
+\item 
+\#define \hyperlink{dlamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})~((\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) $>$= 0 ? (\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) \+: -\/(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}))
+\item 
+\#define \hyperlink{dlamch_8c_ac6afabdc09a49a433ee19d8a9486056d}{min}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) $<$= (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}) ? (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) \+: (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}))
+\item 
+\#define \hyperlink{dlamch_8c_affe776513b24d84b39af8ab0930fef7f}{max}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~((\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) $>$= (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}) ? (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) \+: (\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{dlamch_8c_a8f8bef103c45d87276d6508164f5883c}{dlamch\+\_\+} (char $\ast$cmach)
+\item 
+int \hyperlink{dlamch_8c_aeaa4a6b78a27d38535ca1a7dc010c92e}{dlamc1\+\_\+} (int $\ast$\hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, int $\ast$\hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t}, int $\ast$rnd, int $\ast$ieee1)
+\item 
+int \hyperlink{dlamch_8c_aa05275111d3110333608138f59f3f8c3}{dlamc2\+\_\+} (int $\ast$\hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, int $\ast$\hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t}, int $\ast$rnd, double $\ast$eps, int $\ast$emin, double $\ast$rmin, int $\ast$emax, double $\ast$rmax)
+\item 
+double \hyperlink{dlamch_8c_a35cd4981c9a7d3c46226a75f68720dad}{dlamc3\+\_\+} (double $\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, double $\ast$\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})
+\item 
+int \hyperlink{dlamch_8c_a141c735fa5fb73f28150470ee91da0f9}{dlamc4\+\_\+} (int $\ast$emin, double $\ast$start, int $\ast$base)
+\item 
+int \hyperlink{dlamch_8c_a0309c617fb0124d2d3ca73dfbdda9fa9}{dlamc5\+\_\+} (int $\ast$\hyperlink{specfun_8f_a4d410ae9b4a4ee1e3bce2ca6c0e57b68}{beta}, int $\ast$\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}, int $\ast$emin, int $\ast$ieee, int $\ast$emax, double $\ast$rmax)
+\item 
+double \hyperlink{dlamch_8c_a9537f19743fcaaac6231895afa9f9e4d}{pow\+\_\+di} (double $\ast$ap, int $\ast$bp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Determines double precision machine parameters. 
+
+
+\begin{DoxyPre}
+      -- LAPACK auxiliary routine (version 2.0) --   
+      Univ. of Tennessee, Univ. of California Berkeley, NAG Ltd.,   
+      Courant Institute, Argonne National Lab, and Rice University   
+      October 31, 1992   
+\end{DoxyPre}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dlamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{}\index{dlamch.\+c@{dlamch.\+c}!abs@{abs}}
+\index{abs@{abs}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{abs}]{\setlength{\rightskip}{0pt plus 5cm}\#define abs(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~(({\bf x}) $>$= 0 ? ({\bf x}) \+: -\/({\bf x}))}\label{dlamch_8c_a3aa069ac3980707dae1e0530f50d59e4}
+\hypertarget{dlamch_8c_ad4986ecbba005b963f63a85f7c8c281d}{}\index{dlamch.\+c@{dlamch.\+c}!F\+A\+L\+S\+E\+\_\+@{F\+A\+L\+S\+E\+\_\+}}
+\index{F\+A\+L\+S\+E\+\_\+@{F\+A\+L\+S\+E\+\_\+}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{F\+A\+L\+S\+E\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+L\+S\+E\+\_\+~(0)}\label{dlamch_8c_ad4986ecbba005b963f63a85f7c8c281d}
+\hypertarget{dlamch_8c_affe776513b24d84b39af8ab0930fef7f}{}\index{dlamch.\+c@{dlamch.\+c}!max@{max}}
+\index{max@{max}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}\#define max(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~(({\bf a}) $>$= ({\bf b}) ? ({\bf a}) \+: ({\bf b}))}\label{dlamch_8c_affe776513b24d84b39af8ab0930fef7f}
+\hypertarget{dlamch_8c_ac6afabdc09a49a433ee19d8a9486056d}{}\index{dlamch.\+c@{dlamch.\+c}!min@{min}}
+\index{min@{min}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}\#define min(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~(({\bf a}) $<$= ({\bf b}) ? ({\bf a}) \+: ({\bf b}))}\label{dlamch_8c_ac6afabdc09a49a433ee19d8a9486056d}
+\hypertarget{dlamch_8c_aca1e6c3771fa0306e1dad2b11d22a8e5}{}\index{dlamch.\+c@{dlamch.\+c}!T\+R\+U\+E\+\_\+@{T\+R\+U\+E\+\_\+}}
+\index{T\+R\+U\+E\+\_\+@{T\+R\+U\+E\+\_\+}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{T\+R\+U\+E\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+R\+U\+E\+\_\+~(1)}\label{dlamch_8c_aca1e6c3771fa0306e1dad2b11d22a8e5}
+
+
+\subsection{Function Documentation}
+\hypertarget{dlamch_8c_aeaa4a6b78a27d38535ca1a7dc010c92e}{}\index{dlamch.\+c@{dlamch.\+c}!dlamc1\+\_\+@{dlamc1\+\_\+}}
+\index{dlamc1\+\_\+@{dlamc1\+\_\+}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{dlamc1\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int dlamc1\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{beta, }
+\item[{int $\ast$}]{t, }
+\item[{int $\ast$}]{rnd, }
+\item[{int $\ast$}]{ieee1}
+\end{DoxyParamCaption}
+)}\label{dlamch_8c_aeaa4a6b78a27d38535ca1a7dc010c92e}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    DLAMC1 determines the machine parameters given by BETA, T, RND, and   
+    IEEE1.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    BETA    (output) INT   
+            The base of the machine.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    T       (output) INT   
+            The number of ( BETA ) digits in the mantissa.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    RND     (output) INT   
+            Specifies whether proper rounding  ( RND = .TRUE. )  or   
+            chopping  ( RND = .FALSE. )  occurs in addition. This may not\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            be a reliable guide to the way in which the machine performs\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            its arithmetic.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    IEEE1   (output) INT   
+            Specifies whether rounding appears to be done in the IEEE   
+            'round to nearest' style.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Further Details   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    The routine is based on the routine  ENVRON  by Malcolm and   
+    incorporates suggestions by Gentleman and Marovich. See\end{DoxyPre}
+
+
+
+\begin{DoxyPre}       Malcolm M. \hyperlink{classA}{A}. (1972) Algorithms to reveal properties of   
+          floating-point arithmetic. Comms. of the ACM, 15, 949-951.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}       Gentleman W. M. and Marovich S. B. (1974) More on algorithms   
+          that reveal properties of floating point arithmetic units.   
+          Comms. of the ACM, 17, 276-277.   
+
+
+
+\end{DoxyPre}
+ \hypertarget{dlamch_8c_aa05275111d3110333608138f59f3f8c3}{}\index{dlamch.\+c@{dlamch.\+c}!dlamc2\+\_\+@{dlamc2\+\_\+}}
+\index{dlamc2\+\_\+@{dlamc2\+\_\+}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{dlamc2\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int dlamc2\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{beta, }
+\item[{int $\ast$}]{t, }
+\item[{int $\ast$}]{rnd, }
+\item[{double $\ast$}]{eps, }
+\item[{int $\ast$}]{emin, }
+\item[{double $\ast$}]{rmin, }
+\item[{int $\ast$}]{emax, }
+\item[{double $\ast$}]{rmax}
+\end{DoxyParamCaption}
+)}\label{dlamch_8c_aa05275111d3110333608138f59f3f8c3}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    DLAMC2 determines the machine parameters specified in its argument   
+    list.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    BETA    (output) INT   
+            The base of the machine.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    T       (output) INT   
+            The number of ( BETA ) digits in the mantissa.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    RND     (output) INT   
+            Specifies whether proper rounding  ( RND = .TRUE. )  or   
+            chopping  ( RND = .FALSE. )  occurs in addition. This may not\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            be a reliable guide to the way in which the machine performs\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            its arithmetic.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EPS     (output) DOUBLE PRECISION   
+            The smallest positive number such that\end{DoxyPre}
+
+
+
+\begin{DoxyPre}               fl( 1.0 - EPS ) .LT. 1.0,\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            where fl denotes the computed value.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMIN    (output) INT   
+            The minimum exponent before (gradual) underflow occurs.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    RMIN    (output) DOUBLE PRECISION   
+            The smallest normalized number for the machine, given by   
+            BASE**( EMIN - 1 ), where  BASE  is the floating point value\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            of BETA.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMAX    (output) INT   
+            The maximum exponent before overflow occurs.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    RMAX    (output) DOUBLE PRECISION   
+            The largest positive number for the machine, given by   
+            BASE**EMAX * ( 1 - EPS ), where  BASE  is the floating point\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            value of BETA.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Further Details   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    The computation of  EPS  is based on a routine PARANOIA by   
+    W. Kahan of the University of California at Berkeley.   
+
+
+
+\end{DoxyPre}
+ \hypertarget{dlamch_8c_a35cd4981c9a7d3c46226a75f68720dad}{}\index{dlamch.\+c@{dlamch.\+c}!dlamc3\+\_\+@{dlamc3\+\_\+}}
+\index{dlamc3\+\_\+@{dlamc3\+\_\+}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{dlamc3\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double dlamc3\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{a, }
+\item[{double $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{dlamch_8c_a35cd4981c9a7d3c46226a75f68720dad}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    DLAMC3  is intended to force  \hyperlink{classA}{A}  and  B  to be stored prior to doing\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    the addition of  \hyperlink{classA}{A}  and  B ,  for use in situations where optimizers\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    might hold one of these in a register.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    \hyperlink{classA}{A}, B    (input) DOUBLE PRECISION   
+            The values \hyperlink{classA}{A} and B.   
+
+
+
+\end{DoxyPre}
+ \hypertarget{dlamch_8c_a141c735fa5fb73f28150470ee91da0f9}{}\index{dlamch.\+c@{dlamch.\+c}!dlamc4\+\_\+@{dlamc4\+\_\+}}
+\index{dlamc4\+\_\+@{dlamc4\+\_\+}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{dlamc4\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int dlamc4\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{emin, }
+\item[{double $\ast$}]{start, }
+\item[{int $\ast$}]{base}
+\end{DoxyParamCaption}
+)}\label{dlamch_8c_a141c735fa5fb73f28150470ee91da0f9}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    DLAMC4 is a service routine for DLAMC2.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMIN    (output) EMIN   
+            The minimum exponent before (gradual) underflow, computed by\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            setting \hyperlink{classA}{A} = START and dividing by BASE until the previous \hyperlink{classA}{A}   
+            can not be recovered.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    START   (input) DOUBLE PRECISION   
+            The starting point for determining EMIN.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    BASE    (input) INT   
+            The base of the machine.   
+
+
+
+\end{DoxyPre}
+ \hypertarget{dlamch_8c_a0309c617fb0124d2d3ca73dfbdda9fa9}{}\index{dlamch.\+c@{dlamch.\+c}!dlamc5\+\_\+@{dlamc5\+\_\+}}
+\index{dlamc5\+\_\+@{dlamc5\+\_\+}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{dlamc5\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int dlamc5\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{beta, }
+\item[{int $\ast$}]{p, }
+\item[{int $\ast$}]{emin, }
+\item[{int $\ast$}]{ieee, }
+\item[{int $\ast$}]{emax, }
+\item[{double $\ast$}]{rmax}
+\end{DoxyParamCaption}
+)}\label{dlamch_8c_a0309c617fb0124d2d3ca73dfbdda9fa9}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    DLAMC5 attempts to compute RMAX, the largest machine floating-point   
+    number, without overflow.  It assumes that EMAX + \hyperlink{dlamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(EMIN)} sum   
+    approximately to a power of 2.  It will fail on machines where this   
+    assumption does not hold, for example, the Cyber 205 (EMIN = -28625,\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMAX = 28718).  It will also fail if the value supplied for EMIN is   
+    too large (i.e. too close to zero), probably with overflow.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    BETA    (input) INT   
+            The base of floating-point arithmetic.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    P       (input) INT   
+            The number of base BETA digits in the mantissa of a   
+            floating-point value.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMIN    (input) INT   
+            The minimum exponent before (gradual) underflow.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    IEEE    (input) INT   
+            \hyperlink{classA}{A} int flag specifying whether or not the arithmetic   
+            system is thought to comply with the IEEE standard.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    EMAX    (output) INT   
+            The largest exponent before overflow\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    RMAX    (output) DOUBLE PRECISION   
+            The largest machine floating-point number.   
+
+
+\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\begin{DoxyVerb}   First compute LEXP and UEXP, two powers of 2 that bound   
+   abs(EMIN). We then assume that EMAX + abs(EMIN) will sum   
+   approximately to the bound that is closest to abs(EMIN).   
+   (EMAX is the exponent of the required number RMAX).
+\end{DoxyVerb}
+
+\end{DoxyPre}
+ \hypertarget{dlamch_8c_a8f8bef103c45d87276d6508164f5883c}{}\index{dlamch.\+c@{dlamch.\+c}!dlamch\+\_\+@{dlamch\+\_\+}}
+\index{dlamch\+\_\+@{dlamch\+\_\+}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{dlamch\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double dlamch\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{cmach}
+\end{DoxyParamCaption}
+)}\label{dlamch_8c_a8f8bef103c45d87276d6508164f5883c}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    DLAMCH determines double precision machine parameters.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    CMACH   (input) CHARACTER*1   
+            Specifies the value to be returned by DLAMCH:   
+            = 'E' or 'e',   DLAMCH := eps   
+            = 'S' or 's ,   DLAMCH := sfmin   
+            = 'B' or 'b',   DLAMCH := base   
+            = 'P' or 'p',   DLAMCH := eps*base   
+            = 'N' or 'n',   DLAMCH := t   
+            = 'R' or 'r',   DLAMCH := rnd   
+            = 'M' or 'm',   DLAMCH := emin   
+            = 'U' or 'u',   DLAMCH := rmin   
+            = 'L' or 'l',   DLAMCH := emax   
+            = 'O' or 'o',   DLAMCH := rmax\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            where\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            eps   = relative machine precision   
+            sfmin = safe minimum, such that 1/sfmin does not overflow   
+            base  = base of the machine   
+            prec  = eps*base   
+            t     = number of (base) digits in the mantissa   
+            rnd   = 1.0 when rounding occurs in addition, 0.0 otherwise   
+            emin  = minimum exponent before (gradual) underflow   
+            rmin  = underflow threshold - base**(emin-1)   
+            emax  = largest exponent before overflow   
+            rmax  = overflow threshold  - (base**emax)*(1-eps)   
+
+
+
+\end{DoxyPre}
+ \hypertarget{dlamch_8c_a9537f19743fcaaac6231895afa9f9e4d}{}\index{dlamch.\+c@{dlamch.\+c}!pow\+\_\+di@{pow\+\_\+di}}
+\index{pow\+\_\+di@{pow\+\_\+di}!dlamch.\+c@{dlamch.\+c}}
+\subsubsection[{pow\+\_\+di}]{\setlength{\rightskip}{0pt plus 5cm}double pow\+\_\+di (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{ap, }
+\item[{int $\ast$}]{bp}
+\end{DoxyParamCaption}
+)}\label{dlamch_8c_a9537f19743fcaaac6231895afa9f9e4d}

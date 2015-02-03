@@ -1,0 +1,66 @@
+\hypertarget{BLAS_2xerbla_8f}{}\section{packages/\+B\+L\+A\+S/xerbla.f File Reference}
+\label{BLAS_2xerbla_8f}\index{packages/\+B\+L\+A\+S/xerbla.\+f@{packages/\+B\+L\+A\+S/xerbla.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{BLAS_2xerbla_8f_ga377ee61015baf8dea7770b3a404b1c07}{xerbla} (S\+R\+N\+A\+M\+E, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries X\+E\+R\+B\+L\+A} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{BLAS_2xerbla_8f_ga377ee61015baf8dea7770b3a404b1c07}{}\index{B\+L\+A\+S/xerbla.\+f@{B\+L\+A\+S/xerbla.\+f}!xerbla@{xerbla}}
+\index{xerbla@{xerbla}!B\+L\+A\+S/xerbla.\+f@{B\+L\+A\+S/xerbla.\+f}}
+\subsubsection[{xerbla}]{\setlength{\rightskip}{0pt plus 5cm}subroutine xerbla (
+\begin{DoxyParamCaption}
+\item[{character$\ast$($\ast$)}]{S\+R\+N\+A\+M\+E, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{BLAS_2xerbla_8f_ga377ee61015baf8dea7770b3a404b1c07}
+
+
+{\bfseries X\+E\+R\+B\+L\+A} 
+
+\begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} This is a special version of XERBLA to be used only as part of
+ the test program for testing error exits from the LAPACK routines.
+ Error messages are printed if INFO.NE.INFOT or if SRNAME.NE.SRNAMT,
+ where INFOT and SRNAMT are values stored in COMMON.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+R\+N\+A\+M\+E} & \begin{DoxyVerb}          SRNAME is CHARACTER*(*)
+          The name of the subroutine calling XERBLA.  This name should
+          match the COMMON variable SRNAMT.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          The error return code from the calling subroutine.  INFO
+          should equal the COMMON variable INFOT.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The following variables are passed via the common blocks INFOC and
+  SRNAMC:
+
+  INFOT   INTEGER      Expected integer return code
+  NOUT    INTEGER      Unit number for printing error messages
+  OK      LOGICAL      Set to .TRUE. if INFO = INFOT and
+                       SRNAME = SRNAMT, otherwise set to .FALSE.
+  LERR    LOGICAL      Set to .TRUE., indicating that XERBLA was called
+  SRNAMT  CHARACTER*(*) Expected name of calling subroutine\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

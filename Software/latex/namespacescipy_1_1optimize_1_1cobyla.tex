@@ -1,0 +1,181 @@
+\hypertarget{namespacescipy_1_1optimize_1_1cobyla}{}\section{scipy.\+optimize.\+cobyla Namespace Reference}
+\label{namespacescipy_1_1optimize_1_1cobyla}\index{scipy.\+optimize.\+cobyla@{scipy.\+optimize.\+cobyla}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1cobyla_af1c43e75606550919328d3a102b54e83}{fmin\+\_\+cobyla}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1cobyla_a551298fb52002cac9b8bc38ae5357730}{fun}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1cobyla_ad7375b5406899d286ea54cb2cb19d68f}{cons}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1optimize_1_1cobyla_a0e6de265f9f99f8bf58266a2fa176f7b}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1optimize_1_1cobyla_af1c43e75606550919328d3a102b54e83}{fmin\+\_\+cobyla}'\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{x} = \hyperlink{namespacescipy_1_1optimize_1_1cobyla_af1c43e75606550919328d3a102b54e83}{fmin\+\_\+cobyla}(\hyperlink{namespacescipy_1_1optimize_1_1cobyla_a551298fb52002cac9b8bc38ae5357730}{fun}, \mbox{[}1., 1.\mbox{]}, \hyperlink{namespacescipy_1_1optimize_1_1cobyla_ad7375b5406899d286ea54cb2cb19d68f}{cons}, iprint=3, disp=1)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Interface to Constrained Optimization By Linear Approximation
+
+Functions
+---------
+.. autosummary::
+   :toctree: generated/
+
+    fmin_cobyla\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1cobyla_ad7375b5406899d286ea54cb2cb19d68f}{}\index{scipy\+::optimize\+::cobyla@{scipy\+::optimize\+::cobyla}!cons@{cons}}
+\index{cons@{cons}!scipy\+::optimize\+::cobyla@{scipy\+::optimize\+::cobyla}}
+\subsubsection[{cons}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+cobyla.\+cons (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1cobyla_ad7375b5406899d286ea54cb2cb19d68f}
+\hypertarget{namespacescipy_1_1optimize_1_1cobyla_af1c43e75606550919328d3a102b54e83}{}\index{scipy\+::optimize\+::cobyla@{scipy\+::optimize\+::cobyla}!fmin\+\_\+cobyla@{fmin\+\_\+cobyla}}
+\index{fmin\+\_\+cobyla@{fmin\+\_\+cobyla}!scipy\+::optimize\+::cobyla@{scipy\+::optimize\+::cobyla}}
+\subsubsection[{fmin\+\_\+cobyla}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+cobyla.\+fmin\+\_\+cobyla (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{x0, }
+\item[{}]{cons, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{consargs = {\ttfamily None}, }
+\item[{}]{rhobeg = {\ttfamily 1.0}, }
+\item[{}]{rhoend = {\ttfamily 1e-\/4}, }
+\item[{}]{iprint = {\ttfamily 1}, }
+\item[{}]{maxfun = {\ttfamily 1000}, }
+\item[{}]{disp = {\ttfamily None}, }
+\item[{}]{catol = {\ttfamily 2e-\/4}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1cobyla_af1c43e75606550919328d3a102b54e83}
+\begin{DoxyVerb}Minimize a function using the Constrained Optimization BY Linear
+Approximation (COBYLA) method. This method wraps a FORTRAN
+implentation of the algorithm.
+
+Parameters
+----------
+func : callable
+    Function to minimize. In the form func(x, \\*args).
+x0 : ndarray
+    Initial guess.
+cons : sequence
+    Constraint functions; must all be ``>=0`` (a single function
+    if only 1 constraint). Each function takes the parameters `x`
+    as its first argument.
+args : tuple
+    Extra arguments to pass to function.
+consargs : tuple
+    Extra arguments to pass to constraint functions (default of None means
+    use same extra arguments as those passed to func).
+    Use ``()`` for no extra arguments.
+rhobeg :
+    Reasonable initial changes to the variables.
+rhoend :
+    Final accuracy in the optimization (not precisely guaranteed). This
+    is a lower bound on the size of the trust region.
+iprint : {0, 1, 2, 3}
+    Controls the frequency of output; 0 implies no output.  Deprecated.
+disp : {0, 1, 2, 3}
+    Over-rides the iprint interface.  Preferred.
+maxfun : int
+    Maximum number of function evaluations.
+catol : float
+    Absolute tolerance for constraint violations.
+
+Returns
+-------
+x : ndarray
+    The argument that minimises `f`.
+
+See also
+--------
+minimize: Interface to minimization algorithms for multivariate
+    functions. See the 'COBYLA' `method` in particular.
+
+Notes
+-----
+This algorithm is based on linear approximations to the objective
+function and each constraint. We briefly describe the algorithm.
+
+Suppose the function is being minimized over k variables. At the
+jth iteration the algorithm has k+1 points v_1, ..., v_(k+1),
+an approximate solution x_j, and a radius RHO_j.
+(i.e. linear plus a constant) approximations to the objective
+function and constraint functions such that their function values
+agree with the linear approximation on the k+1 points v_1,.., v_(k+1).
+This gives a linear program to solve (where the linear approximations
+of the constraint functions are constrained to be non-negative).
+
+However the linear approximations are likely only good
+approximations near the current simplex, so the linear program is
+given the further requirement that the solution, which
+will become x_(j+1), must be within RHO_j from x_j. RHO_j only
+decreases, never increases. The initial RHO_j is rhobeg and the
+final RHO_j is rhoend. In this way COBYLA's iterations behave
+like a trust region algorithm.
+
+Additionally, the linear program may be inconsistent, or the
+approximation may give poor improvement. For details about
+how these issues are resolved, as well as how the points v_i are
+updated, refer to the source code or the references below.
+
+
+References
+----------
+Powell M.J.D. (1994), "A direct search optimization method that models
+the objective and constraint functions by linear interpolation.", in
+Advances in Optimization and Numerical Analysis, eds. S. Gomez and
+J-P Hennart, Kluwer Academic (Dordrecht), pp. 51-67
+
+Powell M.J.D. (1998), "Direct search algorithms for optimization
+calculations", Acta Numerica 7, 287-336
+
+Powell M.J.D. (2007), "A view of algorithms for optimization without
+derivatives", Cambridge University Technical Report DAMTP 2007/NA03
+
+
+Examples
+--------
+Minimize the objective function f(x,y) = x*y subject
+to the constraints x**2 + y**2 < 1 and y > 0::
+
+    >>> def objective(x):
+    ...     return x[0]*x[1]
+    ...
+    >>> def constr1(x):
+    ...     return 1 - (x[0]**2 + x[1]**2)
+    ...
+    >>> def constr2(x):
+    ...     return x[1]
+    ...
+    >>> fmin_cobyla(objective, [0.0, 0.1], [constr1, constr2], rhoend=1e-7)
+
+       Normal return from subroutine COBYLA
+
+       NFVALS =   64   F =-5.000000E-01    MAXCV = 1.998401E-14
+       X =-7.071069E-01   7.071067E-01
+    array([-0.70710685,  0.70710671])
+
+The exact solution is (-sqrt(2)/2, sqrt(2)/2).\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1cobyla_a551298fb52002cac9b8bc38ae5357730}{}\index{scipy\+::optimize\+::cobyla@{scipy\+::optimize\+::cobyla}!fun@{fun}}
+\index{fun@{fun}!scipy\+::optimize\+::cobyla@{scipy\+::optimize\+::cobyla}}
+\subsubsection[{fun}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+cobyla.\+fun (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1cobyla_a551298fb52002cac9b8bc38ae5357730}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1cobyla_a0e6de265f9f99f8bf58266a2fa176f7b}{}\index{scipy\+::optimize\+::cobyla@{scipy\+::optimize\+::cobyla}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::optimize\+::cobyla@{scipy\+::optimize\+::cobyla}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+optimize.\+cobyla.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf fmin\+\_\+cobyla}'\mbox{]}}\label{namespacescipy_1_1optimize_1_1cobyla_a0e6de265f9f99f8bf58266a2fa176f7b}
+\hypertarget{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}{}\index{scipy\+::optimize\+::cobyla@{scipy\+::optimize\+::cobyla}!x@{x}}
+\index{x@{x}!scipy\+::optimize\+::cobyla@{scipy\+::optimize\+::cobyla}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+optimize.\+cobyla.\+x = {\bf fmin\+\_\+cobyla}({\bf fun}, \mbox{[}1., 1.\mbox{]}, {\bf cons}, iprint=3, disp=1)}\label{namespacescipy_1_1optimize_1_1cobyla_abea32d6fecaef8d33932edaeeba5f50f}

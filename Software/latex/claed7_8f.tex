@@ -1,0 +1,201 @@
+\hypertarget{claed7_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/claed7.f File Reference}
+\label{claed7_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/claed7.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/claed7.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{claed7_8f_a349b28e07b331bd74faba7bb36e3ffae}{claed7} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, C\+U\+T\+P\+N\+T, Q\+S\+I\+Z, T\+L\+V\+L\+S, C\+U\+R\+L\+V\+L, C\+U\+R\+P\+B\+M, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, Q, L\+D\+Q, R\+H\+O, I\+N\+D\+X\+Q, Q\+S\+T\+O\+R\+E, Q\+P\+T\+R, P\+R\+M\+P\+T\+R, P\+E\+R\+M, G\+I\+V\+P\+T\+R, G\+I\+V\+C\+O\+L, G\+I\+V\+N\+U\+M, W\+O\+R\+K, R\+W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+E\+D7} used by sstedc. Computes the updated eigensystem of a diagonal matrix after modification by a rank-\/one symmetric matrix. Used when the original matrix is dense. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{claed7_8f_a349b28e07b331bd74faba7bb36e3ffae}{}\index{claed7.\+f@{claed7.\+f}!claed7@{claed7}}
+\index{claed7@{claed7}!claed7.\+f@{claed7.\+f}}
+\subsubsection[{claed7}]{\setlength{\rightskip}{0pt plus 5cm}subroutine claed7 (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{integer}]{C\+U\+T\+P\+N\+T, }
+\item[{integer}]{Q\+S\+I\+Z, }
+\item[{integer}]{T\+L\+V\+L\+S, }
+\item[{integer}]{C\+U\+R\+L\+V\+L, }
+\item[{integer}]{C\+U\+R\+P\+B\+M, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{real}]{R\+H\+O, }
+\item[{integer, dimension( $\ast$ )}]{I\+N\+D\+X\+Q, }
+\item[{real, dimension( $\ast$ )}]{Q\+S\+T\+O\+R\+E, }
+\item[{integer, dimension( $\ast$ )}]{Q\+P\+T\+R, }
+\item[{integer, dimension( $\ast$ )}]{P\+R\+M\+P\+T\+R, }
+\item[{integer, dimension( $\ast$ )}]{P\+E\+R\+M, }
+\item[{integer, dimension( $\ast$ )}]{G\+I\+V\+P\+T\+R, }
+\item[{integer, dimension( 2, $\ast$ )}]{G\+I\+V\+C\+O\+L, }
+\item[{real, dimension( 2, $\ast$ )}]{G\+I\+V\+N\+U\+M, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{real, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{claed7_8f_a349b28e07b331bd74faba7bb36e3ffae}
+
+
+{\bfseries C\+L\+A\+E\+D7} used by sstedc. Computes the updated eigensystem of a diagonal matrix after modification by a rank-\/one symmetric matrix. Used when the original matrix is dense. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLAED7 computes the updated eigensystem of a diagonal
+ matrix after modification by a rank-one symmetric matrix. This
+ routine is used only for the eigenproblem which requires all
+ eigenvalues and optionally eigenvectors of a dense or banded
+ Hermitian matrix that has been reduced to tridiagonal form.
+
+   T = Q(in) ( D(in) + RHO * Z*Z**H ) Q**H(in) = Q(out) * D(out) * Q**H(out)
+
+   where Z = Q**Hu, u is a vector of length N with ones in the
+   CUTPNT and CUTPNT + 1 th elements and zeros elsewhere.
+
+    The eigenvectors of the original matrix are stored in Q, and the
+    eigenvalues are in D.  The algorithm consists of three stages:
+
+       The first stage consists of deflating the size of the problem
+       when there are multiple eigenvalues or if there is a zero in
+       the Z vector.  For each such occurence the dimension of the
+       secular equation problem is reduced by one.  This stage is
+       performed by the routine SLAED2.
+
+       The second stage consists of calculating the updated
+       eigenvalues. This is done by finding the roots of the secular
+       equation via the routine SLAED4 (as called by SLAED3).
+       This routine also calculates the eigenvectors of the current
+       problem.
+
+       The final stage consists of computing the updated eigenvectors
+       directly using the updated eigenvalues.  The eigenvectors for
+       the current problem are multiplied with the eigenvectors from
+       the overall problem.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+         The dimension of the symmetric tridiagonal matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+U\+T\+P\+N\+T} & \begin{DoxyVerb}          CUTPNT is INTEGER
+         Contains the location of the last eigenvalue in the leading
+         sub-matrix.  min(1,N) <= CUTPNT <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q\+S\+I\+Z} & \begin{DoxyVerb}          QSIZ is INTEGER
+         The dimension of the unitary matrix used to reduce
+         the full matrix to tridiagonal form.  QSIZ >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+L\+V\+L\+S} & \begin{DoxyVerb}          TLVLS is INTEGER
+         The total number of merging levels in the overall divide and
+         conquer tree.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+U\+R\+L\+V\+L} & \begin{DoxyVerb}          CURLVL is INTEGER
+         The current level in the overall merge routine,
+         0 <= curlvl <= tlvls.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C\+U\+R\+P\+B\+M} & \begin{DoxyVerb}          CURPBM is INTEGER
+         The current problem in the current level in the overall
+         merge routine (counting from upper left to lower right).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+         On entry, the eigenvalues of the rank-1-perturbed matrix.
+         On exit, the eigenvalues of the repaired matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q} & \begin{DoxyVerb}          Q is COMPLEX array, dimension (LDQ,N)
+         On entry, the eigenvectors of the rank-1-perturbed matrix.
+         On exit, the eigenvectors of the repaired tridiagonal matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+         The leading dimension of the array Q.  LDQ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+H\+O} & \begin{DoxyVerb}          RHO is REAL
+         Contains the subdiagonal element used to create the rank-1
+         modification.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+D\+X\+Q} & \begin{DoxyVerb}          INDXQ is INTEGER array, dimension (N)
+         This contains the permutation which will reintegrate the
+         subproblem just solved back into sorted order,
+         ie. D( INDXQ( I = 1, N ) ) will be in ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (4*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is REAL array,
+                                 dimension (3*N+2*QSIZ*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (QSIZ*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q\+S\+T\+O\+R\+E} & \begin{DoxyVerb}          QSTORE is REAL array, dimension (N**2+1)
+         Stores eigenvectors of submatrices encountered during
+         divide and conquer, packed together. QPTR points to
+         beginning of the submatrices.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q\+P\+T\+R} & \begin{DoxyVerb}          QPTR is INTEGER array, dimension (N+2)
+         List of indices pointing to beginning of submatrices stored
+         in QSTORE. The submatrices are numbered starting at the
+         bottom left of the divide and conquer tree, from left to
+         right and bottom to top.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+R\+M\+P\+T\+R} & \begin{DoxyVerb}          PRMPTR is INTEGER array, dimension (N lg N)
+         Contains a list of pointers which indicate where in PERM a
+         level's permutation is stored.  PRMPTR(i+1) - PRMPTR(i)
+         indicates the size of the permutation and also the size of
+         the full, non-deflated problem.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+E\+R\+M} & \begin{DoxyVerb}          PERM is INTEGER array, dimension (N lg N)
+         Contains the permutations (from deflation and sorting) to be
+         applied to each eigenblock.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+I\+V\+P\+T\+R} & \begin{DoxyVerb}          GIVPTR is INTEGER array, dimension (N lg N)
+         Contains a list of pointers which indicate where in GIVCOL a
+         level's Givens rotations are stored.  GIVPTR(i+1) - GIVPTR(i)
+         indicates the number of Givens rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+I\+V\+C\+O\+L} & \begin{DoxyVerb}          GIVCOL is INTEGER array, dimension (2, N lg N)
+         Each pair of numbers indicates a pair of columns to take place
+         in a Givens rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+I\+V\+N\+U\+M} & \begin{DoxyVerb}          GIVNUM is REAL array, dimension (2, N lg N)
+         Each number indicates the S value to be used in the
+         corresponding Givens rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if INFO = 1, an eigenvalue did not converge\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

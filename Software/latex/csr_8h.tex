@@ -1,0 +1,608 @@
+\hypertarget{csr_8h}{}\section{packages/scipy-\/0.14.0/scipy/sparse/sparsetools/csr.h File Reference}
+\label{csr_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/sparsetools/csr.\+h@{packages/scipy-\/0.\+14.\+0/scipy/sparse/sparsetools/csr.\+h}}
+{\ttfamily \#include $<$set$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include $<$functional$>$}\\*
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dense.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a4a0ca0d6aa7d411978e0fe4924b06f33}{csr\+\_\+diagonal} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, T Yx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I $>$ }\\void \hyperlink{csr_8h_a6fd84ce7ca6f6938f9e6ca4fe46e5ce7}{expandptr} (const I n\+\_\+row, const I Ap\mbox{[}$\,$\mbox{]}, I Bi\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_ae196659d531f04b9be69c7703b3a0915}{csr\+\_\+scale\+\_\+rows} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, T Ax\mbox{[}$\,$\mbox{]}, const T Xx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a627ef5ca0278a2f624c9d102595cd67a}{csr\+\_\+scale\+\_\+columns} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, T Ax\mbox{[}$\,$\mbox{]}, const T Xx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I $>$ }\\I \hyperlink{csr_8h_a28ca2f9d078c7fadf27f5df79fcd573e}{csr\+\_\+count\+\_\+blocks} (const I n\+\_\+row, const I n\+\_\+col, const I R, const I C, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_ac6c83471f903048aee452819b462518d}{csr\+\_\+tobsr} (const I n\+\_\+row, const I n\+\_\+col, const I R, const I C, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, I Bp\mbox{[}$\,$\mbox{]}, I Bj\mbox{[}$\,$\mbox{]}, T Bx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I $>$ }\\\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{csr_8h_a38de79ed0cf577a33fd658f57f83f671}{csr\+\_\+has\+\_\+sorted\+\_\+indices} (const I n\+\_\+row, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I $>$ }\\\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{csr_8h_a42fb44f4eae92261e40da593fc268feb}{csr\+\_\+has\+\_\+canonical\+\_\+format} (const I n\+\_\+row, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class T1 , class T2 $>$ }\\\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{csr_8h_a1166c259af71f5e595e529c834695402}{kv\+\_\+pair\+\_\+less} (const std\+::pair$<$ T1, T2 $>$ \&\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, const std\+::pair$<$ T1, T2 $>$ \&y)
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_aa722a3d5f99f0f089f02ffd41983b561}{csr\+\_\+sort\+\_\+indices} (const I n\+\_\+row, const I Ap\mbox{[}$\,$\mbox{]}, I Aj\mbox{[}$\,$\mbox{]}, T Ax\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a79b0ce19f3f9d68c250f2f4fcd438284}{csr\+\_\+tocsc} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, I Bp\mbox{[}$\,$\mbox{]}, I Bi\mbox{[}$\,$\mbox{]}, T Bx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_ac76375c6ea61431a29d14e2b90590716}{csr\+\_\+toell} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I row\+\_\+length, I Bj\mbox{[}$\,$\mbox{]}, T Bx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I $>$ }\\void \hyperlink{csr_8h_ae2c0487afbbf5aac133d7dddcc0b995c}{csr\+\_\+matmat\+\_\+pass1} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a628042cc8369283d56d072d9cddc16a8}{csr\+\_\+matmat\+\_\+pass2} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T , class T2 , class binary\+\_\+op $>$ }\\void \hyperlink{csr_8h_ab06ce7841bccdf3bc0af736852ef073e}{csr\+\_\+binop\+\_\+csr\+\_\+general} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T2 Cx\mbox{[}$\,$\mbox{]}, const binary\+\_\+op \&op)
+\item 
+{\footnotesize template$<$class I , class T , class T2 , class binary\+\_\+op $>$ }\\void \hyperlink{csr_8h_a7f5bb3c2d75e4e86c9d512cb8ce7c322}{csr\+\_\+binop\+\_\+csr\+\_\+canonical} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T2 Cx\mbox{[}$\,$\mbox{]}, const binary\+\_\+op \&op)
+\item 
+{\footnotesize template$<$class I , class T , class T2 , class binary\+\_\+op $>$ }\\void \hyperlink{csr_8h_a8a609e51482ba16fd6a8dc24537e8f94}{csr\+\_\+binop\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T2 Cx\mbox{[}$\,$\mbox{]}, const binary\+\_\+op \&op)
+\item 
+{\footnotesize template$<$class I , class T , class T2 $>$ }\\void \hyperlink{csr_8h_aa973fad465e037ef0fb9fac741319e79}{csr\+\_\+ne\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T2 Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T , class T2 $>$ }\\void \hyperlink{csr_8h_ab5b9c5e249a0bbe30297aa3c29d96306}{csr\+\_\+lt\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T2 Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T , class T2 $>$ }\\void \hyperlink{csr_8h_a64e3f95019218eb034864e88a7003bd7}{csr\+\_\+gt\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T2 Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T , class T2 $>$ }\\void \hyperlink{csr_8h_af90d20f34cb2edd271a0ea57df2ef947}{csr\+\_\+le\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T2 Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T , class T2 $>$ }\\void \hyperlink{csr_8h_a02e94fe8160444ae2ed4fd071e79fdff}{csr\+\_\+ge\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T2 Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a56ef550ddcb1652d2d13fa21b4e20f4b}{csr\+\_\+elmul\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a801bcd65210bb6606cbeb418652b44e0}{csr\+\_\+eldiv\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a213cb787d7097bca93a3ae0f80cda5fd}{csr\+\_\+plus\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a83a64363ac2a373a79567d5c95364edd}{csr\+\_\+minus\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a70b9719ba828951c801b6fede722b7e6}{csr\+\_\+maximum\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_ad295a91688752e785dbc1325ef87fe85}{csr\+\_\+minimum\+\_\+csr} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I Bp\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, const T Bx\mbox{[}$\,$\mbox{]}, I Cp\mbox{[}$\,$\mbox{]}, I Cj\mbox{[}$\,$\mbox{]}, T Cx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a98cead65bb113af4bd104fe2920540fd}{csr\+\_\+sum\+\_\+duplicates} (const I n\+\_\+row, const I n\+\_\+col, I Ap\mbox{[}$\,$\mbox{]}, I Aj\mbox{[}$\,$\mbox{]}, T Ax\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a92634d0597fc5e2c71e7650eabc5493b}{csr\+\_\+eliminate\+\_\+zeros} (const I n\+\_\+row, const I n\+\_\+col, I Ap\mbox{[}$\,$\mbox{]}, I Aj\mbox{[}$\,$\mbox{]}, T Ax\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a7ab0f89dc636f4644f429d5f6b2f39e7}{csr\+\_\+matvec} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const T Xx\mbox{[}$\,$\mbox{]}, T Yx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a1b67d3df2544322ce2abeddb1305e3af}{csr\+\_\+matvecs} (const I n\+\_\+row, const I n\+\_\+col, const I n\+\_\+vecs, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const T Xx\mbox{[}$\,$\mbox{]}, T Yx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a490652ca261c220a0227babe7be845a1}{get\+\_\+csr\+\_\+submatrix} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I ir0, const I ir1, const I ic0, const I ic1, std\+::vector$<$ I $>$ $\ast$Bp, std\+::vector$<$ I $>$ $\ast$Bj, std\+::vector$<$ T $>$ $\ast$Bx)
+\item 
+{\footnotesize template$<$class I $>$ }\\I \hyperlink{csr_8h_adcbe7fada93b1072bae707f9bd33bf5a}{csr\+\_\+count\+\_\+diagonals} (const I n\+\_\+row, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I , class T $>$ }\\void \hyperlink{csr_8h_a6e8d1726ffedc3117af99a18e9079009}{csr\+\_\+sample\+\_\+values} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const T Ax\mbox{[}$\,$\mbox{]}, const I n\+\_\+samples, const I Bi\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, T Bx\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class I $>$ }\\int \hyperlink{csr_8h_a953969c1f61dd09af9147a7d1f7dd5d8}{csr\+\_\+sample\+\_\+offsets} (const I n\+\_\+row, const I n\+\_\+col, const I Ap\mbox{[}$\,$\mbox{]}, const I Aj\mbox{[}$\,$\mbox{]}, const I n\+\_\+samples, const I Bi\mbox{[}$\,$\mbox{]}, const I Bj\mbox{[}$\,$\mbox{]}, I Bp\mbox{[}$\,$\mbox{]})
+\item 
+{\footnotesize template$<$class T $>$ }\\int \hyperlink{csr_8h_a6074038b8c71fbac710d21c86abbec26}{test\+\_\+throw\+\_\+error} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{csr_8h_a8a609e51482ba16fd6a8dc24537e8f94}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+binop\+\_\+csr@{csr\+\_\+binop\+\_\+csr}}
+\index{csr\+\_\+binop\+\_\+csr@{csr\+\_\+binop\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+binop\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T , class T2 , class binary\+\_\+op $>$ void csr\+\_\+binop\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T2}]{Cx\mbox{[}$\,$\mbox{]}, }
+\item[{const binary\+\_\+op \&}]{op}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a8a609e51482ba16fd6a8dc24537e8f94}
+\hypertarget{csr_8h_a7f5bb3c2d75e4e86c9d512cb8ce7c322}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+binop\+\_\+csr\+\_\+canonical@{csr\+\_\+binop\+\_\+csr\+\_\+canonical}}
+\index{csr\+\_\+binop\+\_\+csr\+\_\+canonical@{csr\+\_\+binop\+\_\+csr\+\_\+canonical}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+binop\+\_\+csr\+\_\+canonical}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T , class T2 , class binary\+\_\+op $>$ void csr\+\_\+binop\+\_\+csr\+\_\+canonical (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T2}]{Cx\mbox{[}$\,$\mbox{]}, }
+\item[{const binary\+\_\+op \&}]{op}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a7f5bb3c2d75e4e86c9d512cb8ce7c322}
+\hypertarget{csr_8h_ab06ce7841bccdf3bc0af736852ef073e}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+binop\+\_\+csr\+\_\+general@{csr\+\_\+binop\+\_\+csr\+\_\+general}}
+\index{csr\+\_\+binop\+\_\+csr\+\_\+general@{csr\+\_\+binop\+\_\+csr\+\_\+general}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+binop\+\_\+csr\+\_\+general}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T , class T2 , class binary\+\_\+op $>$ void csr\+\_\+binop\+\_\+csr\+\_\+general (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T2}]{Cx\mbox{[}$\,$\mbox{]}, }
+\item[{const binary\+\_\+op \&}]{op}
+\end{DoxyParamCaption}
+)}\label{csr_8h_ab06ce7841bccdf3bc0af736852ef073e}
+\hypertarget{csr_8h_a28ca2f9d078c7fadf27f5df79fcd573e}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+count\+\_\+blocks@{csr\+\_\+count\+\_\+blocks}}
+\index{csr\+\_\+count\+\_\+blocks@{csr\+\_\+count\+\_\+blocks}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+count\+\_\+blocks}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I $>$ I csr\+\_\+count\+\_\+blocks (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{R, }
+\item[{const I}]{C, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a28ca2f9d078c7fadf27f5df79fcd573e}
+\hypertarget{csr_8h_adcbe7fada93b1072bae707f9bd33bf5a}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+count\+\_\+diagonals@{csr\+\_\+count\+\_\+diagonals}}
+\index{csr\+\_\+count\+\_\+diagonals@{csr\+\_\+count\+\_\+diagonals}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+count\+\_\+diagonals}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I $>$ I csr\+\_\+count\+\_\+diagonals (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_adcbe7fada93b1072bae707f9bd33bf5a}
+\hypertarget{csr_8h_a4a0ca0d6aa7d411978e0fe4924b06f33}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+diagonal@{csr\+\_\+diagonal}}
+\index{csr\+\_\+diagonal@{csr\+\_\+diagonal}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+diagonal}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+diagonal (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Yx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a4a0ca0d6aa7d411978e0fe4924b06f33}
+\hypertarget{csr_8h_a801bcd65210bb6606cbeb418652b44e0}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+eldiv\+\_\+csr@{csr\+\_\+eldiv\+\_\+csr}}
+\index{csr\+\_\+eldiv\+\_\+csr@{csr\+\_\+eldiv\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+eldiv\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+eldiv\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a801bcd65210bb6606cbeb418652b44e0}
+\hypertarget{csr_8h_a92634d0597fc5e2c71e7650eabc5493b}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+eliminate\+\_\+zeros@{csr\+\_\+eliminate\+\_\+zeros}}
+\index{csr\+\_\+eliminate\+\_\+zeros@{csr\+\_\+eliminate\+\_\+zeros}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+eliminate\+\_\+zeros}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+eliminate\+\_\+zeros (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Ax\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a92634d0597fc5e2c71e7650eabc5493b}
+\hypertarget{csr_8h_a56ef550ddcb1652d2d13fa21b4e20f4b}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+elmul\+\_\+csr@{csr\+\_\+elmul\+\_\+csr}}
+\index{csr\+\_\+elmul\+\_\+csr@{csr\+\_\+elmul\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+elmul\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+elmul\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a56ef550ddcb1652d2d13fa21b4e20f4b}
+\hypertarget{csr_8h_a02e94fe8160444ae2ed4fd071e79fdff}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+ge\+\_\+csr@{csr\+\_\+ge\+\_\+csr}}
+\index{csr\+\_\+ge\+\_\+csr@{csr\+\_\+ge\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+ge\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T , class T2 $>$ void csr\+\_\+ge\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T2}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a02e94fe8160444ae2ed4fd071e79fdff}
+\hypertarget{csr_8h_a64e3f95019218eb034864e88a7003bd7}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+gt\+\_\+csr@{csr\+\_\+gt\+\_\+csr}}
+\index{csr\+\_\+gt\+\_\+csr@{csr\+\_\+gt\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+gt\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T , class T2 $>$ void csr\+\_\+gt\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T2}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a64e3f95019218eb034864e88a7003bd7}
+\hypertarget{csr_8h_a42fb44f4eae92261e40da593fc268feb}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+has\+\_\+canonical\+\_\+format@{csr\+\_\+has\+\_\+canonical\+\_\+format}}
+\index{csr\+\_\+has\+\_\+canonical\+\_\+format@{csr\+\_\+has\+\_\+canonical\+\_\+format}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+has\+\_\+canonical\+\_\+format}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I $>$ {\bf bool} csr\+\_\+has\+\_\+canonical\+\_\+format (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a42fb44f4eae92261e40da593fc268feb}
+\hypertarget{csr_8h_a38de79ed0cf577a33fd658f57f83f671}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+has\+\_\+sorted\+\_\+indices@{csr\+\_\+has\+\_\+sorted\+\_\+indices}}
+\index{csr\+\_\+has\+\_\+sorted\+\_\+indices@{csr\+\_\+has\+\_\+sorted\+\_\+indices}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+has\+\_\+sorted\+\_\+indices}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I $>$ {\bf bool} csr\+\_\+has\+\_\+sorted\+\_\+indices (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a38de79ed0cf577a33fd658f57f83f671}
+\hypertarget{csr_8h_af90d20f34cb2edd271a0ea57df2ef947}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+le\+\_\+csr@{csr\+\_\+le\+\_\+csr}}
+\index{csr\+\_\+le\+\_\+csr@{csr\+\_\+le\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+le\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T , class T2 $>$ void csr\+\_\+le\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T2}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_af90d20f34cb2edd271a0ea57df2ef947}
+\hypertarget{csr_8h_ab5b9c5e249a0bbe30297aa3c29d96306}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+lt\+\_\+csr@{csr\+\_\+lt\+\_\+csr}}
+\index{csr\+\_\+lt\+\_\+csr@{csr\+\_\+lt\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+lt\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T , class T2 $>$ void csr\+\_\+lt\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T2}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_ab5b9c5e249a0bbe30297aa3c29d96306}
+\hypertarget{csr_8h_ae2c0487afbbf5aac133d7dddcc0b995c}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+matmat\+\_\+pass1@{csr\+\_\+matmat\+\_\+pass1}}
+\index{csr\+\_\+matmat\+\_\+pass1@{csr\+\_\+matmat\+\_\+pass1}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+matmat\+\_\+pass1}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I $>$ void csr\+\_\+matmat\+\_\+pass1 (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_ae2c0487afbbf5aac133d7dddcc0b995c}
+\hypertarget{csr_8h_a628042cc8369283d56d072d9cddc16a8}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+matmat\+\_\+pass2@{csr\+\_\+matmat\+\_\+pass2}}
+\index{csr\+\_\+matmat\+\_\+pass2@{csr\+\_\+matmat\+\_\+pass2}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+matmat\+\_\+pass2}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+matmat\+\_\+pass2 (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a628042cc8369283d56d072d9cddc16a8}
+\hypertarget{csr_8h_a7ab0f89dc636f4644f429d5f6b2f39e7}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+matvec@{csr\+\_\+matvec}}
+\index{csr\+\_\+matvec@{csr\+\_\+matvec}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+matvec}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+matvec (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Xx\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Yx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a7ab0f89dc636f4644f429d5f6b2f39e7}
+\hypertarget{csr_8h_a1b67d3df2544322ce2abeddb1305e3af}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+matvecs@{csr\+\_\+matvecs}}
+\index{csr\+\_\+matvecs@{csr\+\_\+matvecs}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+matvecs}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+matvecs (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{n\+\_\+vecs, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Xx\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Yx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a1b67d3df2544322ce2abeddb1305e3af}
+\hypertarget{csr_8h_a70b9719ba828951c801b6fede722b7e6}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+maximum\+\_\+csr@{csr\+\_\+maximum\+\_\+csr}}
+\index{csr\+\_\+maximum\+\_\+csr@{csr\+\_\+maximum\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+maximum\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+maximum\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a70b9719ba828951c801b6fede722b7e6}
+\hypertarget{csr_8h_ad295a91688752e785dbc1325ef87fe85}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+minimum\+\_\+csr@{csr\+\_\+minimum\+\_\+csr}}
+\index{csr\+\_\+minimum\+\_\+csr@{csr\+\_\+minimum\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+minimum\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+minimum\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_ad295a91688752e785dbc1325ef87fe85}
+\hypertarget{csr_8h_a83a64363ac2a373a79567d5c95364edd}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+minus\+\_\+csr@{csr\+\_\+minus\+\_\+csr}}
+\index{csr\+\_\+minus\+\_\+csr@{csr\+\_\+minus\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+minus\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+minus\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a83a64363ac2a373a79567d5c95364edd}
+\hypertarget{csr_8h_aa973fad465e037ef0fb9fac741319e79}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+ne\+\_\+csr@{csr\+\_\+ne\+\_\+csr}}
+\index{csr\+\_\+ne\+\_\+csr@{csr\+\_\+ne\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+ne\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T , class T2 $>$ void csr\+\_\+ne\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T2}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_aa973fad465e037ef0fb9fac741319e79}
+\hypertarget{csr_8h_a213cb787d7097bca93a3ae0f80cda5fd}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+plus\+\_\+csr@{csr\+\_\+plus\+\_\+csr}}
+\index{csr\+\_\+plus\+\_\+csr@{csr\+\_\+plus\+\_\+csr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+plus\+\_\+csr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+plus\+\_\+csr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Bx\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Cj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Cx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a213cb787d7097bca93a3ae0f80cda5fd}
+\hypertarget{csr_8h_a953969c1f61dd09af9147a7d1f7dd5d8}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+sample\+\_\+offsets@{csr\+\_\+sample\+\_\+offsets}}
+\index{csr\+\_\+sample\+\_\+offsets@{csr\+\_\+sample\+\_\+offsets}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+sample\+\_\+offsets}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I $>$ int csr\+\_\+sample\+\_\+offsets (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{n\+\_\+samples, }
+\item[{const I}]{Bi\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Bp\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a953969c1f61dd09af9147a7d1f7dd5d8}
+\hypertarget{csr_8h_a6e8d1726ffedc3117af99a18e9079009}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+sample\+\_\+values@{csr\+\_\+sample\+\_\+values}}
+\index{csr\+\_\+sample\+\_\+values@{csr\+\_\+sample\+\_\+values}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+sample\+\_\+values}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+sample\+\_\+values (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{n\+\_\+samples, }
+\item[{const I}]{Bi\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Bx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a6e8d1726ffedc3117af99a18e9079009}
+\hypertarget{csr_8h_a627ef5ca0278a2f624c9d102595cd67a}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+scale\+\_\+columns@{csr\+\_\+scale\+\_\+columns}}
+\index{csr\+\_\+scale\+\_\+columns@{csr\+\_\+scale\+\_\+columns}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+scale\+\_\+columns}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+scale\+\_\+columns (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Xx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a627ef5ca0278a2f624c9d102595cd67a}
+\hypertarget{csr_8h_ae196659d531f04b9be69c7703b3a0915}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+scale\+\_\+rows@{csr\+\_\+scale\+\_\+rows}}
+\index{csr\+\_\+scale\+\_\+rows@{csr\+\_\+scale\+\_\+rows}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+scale\+\_\+rows}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+scale\+\_\+rows (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Xx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_ae196659d531f04b9be69c7703b3a0915}
+\hypertarget{csr_8h_aa722a3d5f99f0f089f02ffd41983b561}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+sort\+\_\+indices@{csr\+\_\+sort\+\_\+indices}}
+\index{csr\+\_\+sort\+\_\+indices@{csr\+\_\+sort\+\_\+indices}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+sort\+\_\+indices}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+sort\+\_\+indices (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Ax\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_aa722a3d5f99f0f089f02ffd41983b561}
+\hypertarget{csr_8h_a98cead65bb113af4bd104fe2920540fd}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+sum\+\_\+duplicates@{csr\+\_\+sum\+\_\+duplicates}}
+\index{csr\+\_\+sum\+\_\+duplicates@{csr\+\_\+sum\+\_\+duplicates}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+sum\+\_\+duplicates}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+sum\+\_\+duplicates (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Ax\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a98cead65bb113af4bd104fe2920540fd}
+\hypertarget{csr_8h_ac6c83471f903048aee452819b462518d}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+tobsr@{csr\+\_\+tobsr}}
+\index{csr\+\_\+tobsr@{csr\+\_\+tobsr}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+tobsr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+tobsr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{R, }
+\item[{const I}]{C, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Bx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_ac6c83471f903048aee452819b462518d}
+\hypertarget{csr_8h_a79b0ce19f3f9d68c250f2f4fcd438284}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+tocsc@{csr\+\_\+tocsc}}
+\index{csr\+\_\+tocsc@{csr\+\_\+tocsc}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+tocsc}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+tocsc (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Bp\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Bi\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Bx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a79b0ce19f3f9d68c250f2f4fcd438284}
+\hypertarget{csr_8h_ac76375c6ea61431a29d14e2b90590716}{}\index{csr.\+h@{csr.\+h}!csr\+\_\+toell@{csr\+\_\+toell}}
+\index{csr\+\_\+toell@{csr\+\_\+toell}!csr.\+h@{csr.\+h}}
+\subsubsection[{csr\+\_\+toell}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void csr\+\_\+toell (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{row\+\_\+length, }
+\item[{I}]{Bj\mbox{[}$\,$\mbox{]}, }
+\item[{T}]{Bx\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_ac76375c6ea61431a29d14e2b90590716}
+\hypertarget{csr_8h_a6fd84ce7ca6f6938f9e6ca4fe46e5ce7}{}\index{csr.\+h@{csr.\+h}!expandptr@{expandptr}}
+\index{expandptr@{expandptr}!csr.\+h@{csr.\+h}}
+\subsubsection[{expandptr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I $>$ void expandptr (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{I}]{Bi\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a6fd84ce7ca6f6938f9e6ca4fe46e5ce7}
+\hypertarget{csr_8h_a490652ca261c220a0227babe7be845a1}{}\index{csr.\+h@{csr.\+h}!get\+\_\+csr\+\_\+submatrix@{get\+\_\+csr\+\_\+submatrix}}
+\index{get\+\_\+csr\+\_\+submatrix@{get\+\_\+csr\+\_\+submatrix}!csr.\+h@{csr.\+h}}
+\subsubsection[{get\+\_\+csr\+\_\+submatrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class I , class T $>$ void get\+\_\+csr\+\_\+submatrix (
+\begin{DoxyParamCaption}
+\item[{const I}]{n\+\_\+row, }
+\item[{const I}]{n\+\_\+col, }
+\item[{const I}]{Ap\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{Aj\mbox{[}$\,$\mbox{]}, }
+\item[{const T}]{Ax\mbox{[}$\,$\mbox{]}, }
+\item[{const I}]{ir0, }
+\item[{const I}]{ir1, }
+\item[{const I}]{ic0, }
+\item[{const I}]{ic1, }
+\item[{std\+::vector$<$ I $>$ $\ast$}]{Bp, }
+\item[{std\+::vector$<$ I $>$ $\ast$}]{Bj, }
+\item[{std\+::vector$<$ T $>$ $\ast$}]{Bx}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a490652ca261c220a0227babe7be845a1}
+\hypertarget{csr_8h_a1166c259af71f5e595e529c834695402}{}\index{csr.\+h@{csr.\+h}!kv\+\_\+pair\+\_\+less@{kv\+\_\+pair\+\_\+less}}
+\index{kv\+\_\+pair\+\_\+less@{kv\+\_\+pair\+\_\+less}!csr.\+h@{csr.\+h}}
+\subsubsection[{kv\+\_\+pair\+\_\+less}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T1 , class T2 $>$ {\bf bool} kv\+\_\+pair\+\_\+less (
+\begin{DoxyParamCaption}
+\item[{const std\+::pair$<$ T1, T2 $>$ \&}]{x, }
+\item[{const std\+::pair$<$ T1, T2 $>$ \&}]{y}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a1166c259af71f5e595e529c834695402}
+\hypertarget{csr_8h_a6074038b8c71fbac710d21c86abbec26}{}\index{csr.\+h@{csr.\+h}!test\+\_\+throw\+\_\+error@{test\+\_\+throw\+\_\+error}}
+\index{test\+\_\+throw\+\_\+error@{test\+\_\+throw\+\_\+error}!csr.\+h@{csr.\+h}}
+\subsubsection[{test\+\_\+throw\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int test\+\_\+throw\+\_\+error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{csr_8h_a6074038b8c71fbac710d21c86abbec26}

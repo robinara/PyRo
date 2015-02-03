@@ -1,0 +1,66 @@
+\hypertarget{namespacenumpydoc_1_1phantom__import}{}\section{numpydoc.\+phantom\+\_\+import Namespace Reference}
+\label{namespacenumpydoc_1_1phantom__import}\index{numpydoc.\+phantom\+\_\+import@{numpydoc.\+phantom\+\_\+import}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacenumpydoc_1_1phantom__import_a45c5c42fc93ab33948259617874b7a81}{setup}
+\item 
+def \hyperlink{namespacenumpydoc_1_1phantom__import_a2dbcebca09c9839dd687c26fa6b7958b}{initialize}
+\item 
+def \hyperlink{namespacenumpydoc_1_1phantom__import_a49cef0a1ab1941e55957f4eea357a021}{import\+\_\+phantom\+\_\+module}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}==============
+phantom_import
+==============
+
+Sphinx extension to make directives from ``sphinx.ext.autodoc`` and similar
+extensions to use docstrings loaded from an XML file.
+
+This extension loads an XML file in the Pydocweb format [1] and
+creates a dummy module that contains the specified docstrings. This
+can be used to get the current docstrings from a Pydocweb instance
+without needing to rebuild the documented module.
+
+.. [1] http://code.google.com/p/pydocweb\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacenumpydoc_1_1phantom__import_a49cef0a1ab1941e55957f4eea357a021}{}\index{numpydoc\+::phantom\+\_\+import@{numpydoc\+::phantom\+\_\+import}!import\+\_\+phantom\+\_\+module@{import\+\_\+phantom\+\_\+module}}
+\index{import\+\_\+phantom\+\_\+module@{import\+\_\+phantom\+\_\+module}!numpydoc\+::phantom\+\_\+import@{numpydoc\+::phantom\+\_\+import}}
+\subsubsection[{import\+\_\+phantom\+\_\+module}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+phantom\+\_\+import.\+import\+\_\+phantom\+\_\+module (
+\begin{DoxyParamCaption}
+\item[{}]{xml\+\_\+file}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1phantom__import_a49cef0a1ab1941e55957f4eea357a021}
+\begin{DoxyVerb}Insert a fake Python module to sys.modules, based on a XML file.
+
+The XML file is expected to conform to Pydocweb DTD. The fake
+module will contain dummy objects, which guarantee the following:
+
+- Docstrings are correct.
+- Class inheritance relationships are correct (if present in XML).
+- Function argspec is *NOT* correct (even if present in XML).
+  Instead, the function signature is prepended to the function docstring.
+- Class attributes are *NOT* correct; instead, they are dummy objects.
+
+Parameters
+----------
+xml_file : str
+    Name of an XML file to read\end{DoxyVerb}
+ \hypertarget{namespacenumpydoc_1_1phantom__import_a2dbcebca09c9839dd687c26fa6b7958b}{}\index{numpydoc\+::phantom\+\_\+import@{numpydoc\+::phantom\+\_\+import}!initialize@{initialize}}
+\index{initialize@{initialize}!numpydoc\+::phantom\+\_\+import@{numpydoc\+::phantom\+\_\+import}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+phantom\+\_\+import.\+initialize (
+\begin{DoxyParamCaption}
+\item[{}]{app}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1phantom__import_a2dbcebca09c9839dd687c26fa6b7958b}
+\hypertarget{namespacenumpydoc_1_1phantom__import_a45c5c42fc93ab33948259617874b7a81}{}\index{numpydoc\+::phantom\+\_\+import@{numpydoc\+::phantom\+\_\+import}!setup@{setup}}
+\index{setup@{setup}!numpydoc\+::phantom\+\_\+import@{numpydoc\+::phantom\+\_\+import}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+phantom\+\_\+import.\+setup (
+\begin{DoxyParamCaption}
+\item[{}]{app}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1phantom__import_a45c5c42fc93ab33948259617874b7a81}

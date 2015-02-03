@@ -1,0 +1,251 @@
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools}{}\section{scipy.\+sparse.\+generate\+\_\+sparsetools Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1generate__sparsetools}\index{scipy.\+sparse.\+generate\+\_\+sparsetools@{scipy.\+sparse.\+generate\+\_\+sparsetools}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a277cdc39ec98ccfaba1506461b60deae}{get\+\_\+thunk\+\_\+type\+\_\+set}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a11f9b4d9d306faaa0079ddfc1bc6bf19}{parse\+\_\+routine}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a62e4a51d4dd670fab855f851f07e6253}{main}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a2eaea6f40472e02dedc6db3d1f59b1b3}{write\+\_\+autogen\+\_\+blurb}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a8d41c0c416f80d2304cf9e469ae6a9a7}{B\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a2bee8bb0ce54b9f73ccc8682d6377e6c}{C\+S\+C\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a92b8d452abc51ffe88f8cea3ee3744b4}{C\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a49a18aee1c135f71f1644be713060270}{O\+T\+H\+E\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a6ef9fac0061967a7ca63ba16e6a7aa9e}{C\+O\+M\+P\+I\+L\+A\+T\+I\+O\+N\+\_\+\+U\+N\+I\+T\+S}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a3cc0e62bd2f9c00d2d4d1540d92f4f1d}{I\+\_\+\+T\+Y\+P\+E\+S}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a04396a3bf7698e500fcd31c3b8598752}{T\+\_\+\+T\+Y\+P\+E\+S}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a3e9ff6cfee1ff57715fbcc99081da666}{T\+H\+U\+N\+K\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a9cd966a75cdb15636e056cc0b82e51cf}{M\+E\+T\+H\+O\+D\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1generate__sparsetools_a683454f01c744c00ae18bb6954b6a722}{G\+E\+T\+\_\+\+T\+H\+U\+N\+K\+\_\+\+C\+A\+S\+E\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a277cdc39ec98ccfaba1506461b60deae}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!get\+\_\+thunk\+\_\+type\+\_\+set@{get\+\_\+thunk\+\_\+type\+\_\+set}}
+\index{get\+\_\+thunk\+\_\+type\+\_\+set@{get\+\_\+thunk\+\_\+type\+\_\+set}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{get\+\_\+thunk\+\_\+type\+\_\+set}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+generate\+\_\+sparsetools.\+get\+\_\+thunk\+\_\+type\+\_\+set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a277cdc39ec98ccfaba1506461b60deae}
+\begin{DoxyVerb}Get a list containing cartesian product of data types, plus a getter routine.
+
+Returns
+-------
+i_types : list [(j, I_typenum, None, I_type, None), ...] 
+     Pairing of index type numbers and the corresponding C++ types,
+     and an unique index `j`. This is for routines that are parameterized
+     only by I but not by T.
+it_types : list [(j, I_typenum, T_typenum, I_type, T_type), ...]
+     Same as `i_types`, but for routines parameterized both by T and I.
+getter_code : str
+     C++ code for a function that takes I_typenum, T_typenum and returns
+     the unique index corresponding to the lists, or -1 if no match was
+     found.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a62e4a51d4dd670fab855f851f07e6253}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!main@{main}}
+\index{main@{main}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+generate\+\_\+sparsetools.\+main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a62e4a51d4dd670fab855f851f07e6253}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a11f9b4d9d306faaa0079ddfc1bc6bf19}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!parse\+\_\+routine@{parse\+\_\+routine}}
+\index{parse\+\_\+routine@{parse\+\_\+routine}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{parse\+\_\+routine}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+generate\+\_\+sparsetools.\+parse\+\_\+routine (
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{args, }
+\item[{}]{types}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a11f9b4d9d306faaa0079ddfc1bc6bf19}
+\begin{DoxyVerb}Generate thunk and method code for a given routine.
+
+Parameters
+----------
+name : str
+    Name of the C++ routine
+args : str
+    Argument list specification (in format explained above)
+types : list
+    List of types to instantiate, as returned `get_thunk_type_set`\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a2eaea6f40472e02dedc6db3d1f59b1b3}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!write\+\_\+autogen\+\_\+blurb@{write\+\_\+autogen\+\_\+blurb}}
+\index{write\+\_\+autogen\+\_\+blurb@{write\+\_\+autogen\+\_\+blurb}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{write\+\_\+autogen\+\_\+blurb}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+generate\+\_\+sparsetools.\+write\+\_\+autogen\+\_\+blurb (
+\begin{DoxyParamCaption}
+\item[{}]{stream}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a2eaea6f40472e02dedc6db3d1f59b1b3}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a8d41c0c416f80d2304cf9e469ae6a9a7}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!B\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S@{B\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}}
+\index{B\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S@{B\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{B\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+generate\+\_\+sparsetools.\+B\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a8d41c0c416f80d2304cf9e469ae6a9a7}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \textcolor{stringliteral}{"""}
+2 \textcolor{stringliteral}{bsr\_diagonal        v iiiiIIT*T}
+3 \textcolor{stringliteral}{bsr\_scale\_rows      v iiiiII*TT}
+4 \textcolor{stringliteral}{bsr\_scale\_columns   v iiiiII*TT}
+5 \textcolor{stringliteral}{bsr\_sort\_indices    v iiii*I*I*T}
+6 \textcolor{stringliteral}{bsr\_transpose       v iiiiIIT*I*I*T}
+7 \textcolor{stringliteral}{bsr\_matmat\_pass2    v iiiiiIITIIT*I*I*T}
+8 \textcolor{stringliteral}{bsr\_matvec          v iiiiIITT*T}
+9 \textcolor{stringliteral}{bsr\_matvecs         v iiiiiIITT*T}
+10 \textcolor{stringliteral}{bsr\_elmul\_bsr       v iiiiIITIIT*I*I*T}
+11 \textcolor{stringliteral}{bsr\_eldiv\_bsr       v iiiiIITIIT*I*I*T}
+12 \textcolor{stringliteral}{bsr\_plus\_bsr        v iiiiIITIIT*I*I*T}
+13 \textcolor{stringliteral}{bsr\_minus\_bsr       v iiiiIITIIT*I*I*T}
+14 \textcolor{stringliteral}{bsr\_maximum\_bsr     v iiiiIITIIT*I*I*T}
+15 \textcolor{stringliteral}{bsr\_minimum\_bsr     v iiiiIITIIT*I*I*T}
+16 \textcolor{stringliteral}{bsr\_ne\_bsr          v iiiiIITIIT*I*I*B}
+17 \textcolor{stringliteral}{bsr\_lt\_bsr          v iiiiIITIIT*I*I*B}
+18 \textcolor{stringliteral}{bsr\_gt\_bsr          v iiiiIITIIT*I*I*B}
+19 \textcolor{stringliteral}{bsr\_le\_bsr          v iiiiIITIIT*I*I*B}
+20 \textcolor{stringliteral}{bsr\_ge\_bsr          v iiiiIITIIT*I*I*B}
+21 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a6ef9fac0061967a7ca63ba16e6a7aa9e}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!C\+O\+M\+P\+I\+L\+A\+T\+I\+O\+N\+\_\+\+U\+N\+I\+T\+S@{C\+O\+M\+P\+I\+L\+A\+T\+I\+O\+N\+\_\+\+U\+N\+I\+T\+S}}
+\index{C\+O\+M\+P\+I\+L\+A\+T\+I\+O\+N\+\_\+\+U\+N\+I\+T\+S@{C\+O\+M\+P\+I\+L\+A\+T\+I\+O\+N\+\_\+\+U\+N\+I\+T\+S}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{C\+O\+M\+P\+I\+L\+A\+T\+I\+O\+N\+\_\+\+U\+N\+I\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+generate\+\_\+sparsetools.\+C\+O\+M\+P\+I\+L\+A\+T\+I\+O\+N\+\_\+\+U\+N\+I\+T\+S}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a6ef9fac0061967a7ca63ba16e6a7aa9e}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [
+2     (\textcolor{stringliteral}{'bsr'}, BSR\_ROUTINES),
+3     (\textcolor{stringliteral}{'csr'}, CSR\_ROUTINES),
+4     (\textcolor{stringliteral}{'csc'}, CSC\_ROUTINES),
+5     (\textcolor{stringliteral}{'other'}, OTHER\_ROUTINES),
+6 ]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a2bee8bb0ce54b9f73ccc8682d6377e6c}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!C\+S\+C\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S@{C\+S\+C\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}}
+\index{C\+S\+C\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S@{C\+S\+C\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{C\+S\+C\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+generate\+\_\+sparsetools.\+C\+S\+C\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a2bee8bb0ce54b9f73ccc8682d6377e6c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \textcolor{stringliteral}{"""}
+2 \textcolor{stringliteral}{csc\_diagonal        v iiIIT*T}
+3 \textcolor{stringliteral}{csc\_tocsr           v iiIIT*I*I*T}
+4 \textcolor{stringliteral}{csc\_matmat\_pass1    v iiIIII*I}
+5 \textcolor{stringliteral}{csc\_matmat\_pass2    v iiIITIIT*I*I*T}
+6 \textcolor{stringliteral}{csc\_matvec          v iiIITT*T}
+7 \textcolor{stringliteral}{csc\_matvecs         v iiiIITT*T}
+8 \textcolor{stringliteral}{csc\_elmul\_csc       v iiIITIIT*I*I*T}
+9 \textcolor{stringliteral}{csc\_eldiv\_csc       v iiIITIIT*I*I*T}
+10 \textcolor{stringliteral}{csc\_plus\_csc        v iiIITIIT*I*I*T}
+11 \textcolor{stringliteral}{csc\_minus\_csc       v iiIITIIT*I*I*T}
+12 \textcolor{stringliteral}{csc\_maximum\_csc     v iiIITIIT*I*I*T}
+13 \textcolor{stringliteral}{csc\_minimum\_csc     v iiIITIIT*I*I*T}
+14 \textcolor{stringliteral}{csc\_ne\_csc          v iiIITIIT*I*I*B}
+15 \textcolor{stringliteral}{csc\_lt\_csc          v iiIITIIT*I*I*B}
+16 \textcolor{stringliteral}{csc\_gt\_csc          v iiIITIIT*I*I*B}
+17 \textcolor{stringliteral}{csc\_le\_csc          v iiIITIIT*I*I*B}
+18 \textcolor{stringliteral}{csc\_ge\_csc          v iiIITIIT*I*I*B}
+19 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a92b8d452abc51ffe88f8cea3ee3744b4}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!C\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S@{C\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}}
+\index{C\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S@{C\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{C\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+generate\+\_\+sparsetools.\+C\+S\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a92b8d452abc51ffe88f8cea3ee3744b4}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a683454f01c744c00ae18bb6954b6a722}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!G\+E\+T\+\_\+\+T\+H\+U\+N\+K\+\_\+\+C\+A\+S\+E\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E@{G\+E\+T\+\_\+\+T\+H\+U\+N\+K\+\_\+\+C\+A\+S\+E\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}}
+\index{G\+E\+T\+\_\+\+T\+H\+U\+N\+K\+\_\+\+C\+A\+S\+E\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E@{G\+E\+T\+\_\+\+T\+H\+U\+N\+K\+\_\+\+C\+A\+S\+E\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{G\+E\+T\+\_\+\+T\+H\+U\+N\+K\+\_\+\+C\+A\+S\+E\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+generate\+\_\+sparsetools.\+G\+E\+T\+\_\+\+T\+H\+U\+N\+K\+\_\+\+C\+A\+S\+E\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a683454f01c744c00ae18bb6954b6a722}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \textcolor{stringliteral}{"""}
+2 \textcolor{stringliteral}{static int get\_thunk\_case(int I\_typenum, int T\_typenum)}
+3 \textcolor{stringliteral}{\{}
+4 \textcolor{stringliteral}{    %(content)s;}
+5 \textcolor{stringliteral}{    return -1;}
+6 \textcolor{stringliteral}{\}}
+7 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a3cc0e62bd2f9c00d2d4d1540d92f4f1d}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!I\+\_\+\+T\+Y\+P\+E\+S@{I\+\_\+\+T\+Y\+P\+E\+S}}
+\index{I\+\_\+\+T\+Y\+P\+E\+S@{I\+\_\+\+T\+Y\+P\+E\+S}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{I\+\_\+\+T\+Y\+P\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+generate\+\_\+sparsetools.\+I\+\_\+\+T\+Y\+P\+E\+S}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a3cc0e62bd2f9c00d2d4d1540d92f4f1d}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [
+2     (\textcolor{stringliteral}{'NPY\_INT32'}, \textcolor{stringliteral}{'npy\_int32'}),
+3     (\textcolor{stringliteral}{'NPY\_INT64'}, \textcolor{stringliteral}{'npy\_int64'}),
+4 ]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a9cd966a75cdb15636e056cc0b82e51cf}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!M\+E\+T\+H\+O\+D\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E@{M\+E\+T\+H\+O\+D\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}}
+\index{M\+E\+T\+H\+O\+D\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E@{M\+E\+T\+H\+O\+D\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{M\+E\+T\+H\+O\+D\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+generate\+\_\+sparsetools.\+M\+E\+T\+H\+O\+D\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a9cd966a75cdb15636e056cc0b82e51cf}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \textcolor{stringliteral}{"""}
+2 \textcolor{stringliteral}{NPY\_VISIBILITY\_HIDDEN PyObject *}
+3 \textcolor{stringliteral}{%(name)s\_method(PyObject *self, PyObject *args)}
+4 \textcolor{stringliteral}{\{}
+5 \textcolor{stringliteral}{    return call\_thunk('%(ret\_spec)s', "%(arg\_spec)s", %(name)s\_thunk, args);}
+6 \textcolor{stringliteral}{\}}
+7 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a49a18aee1c135f71f1644be713060270}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!O\+T\+H\+E\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S@{O\+T\+H\+E\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}}
+\index{O\+T\+H\+E\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S@{O\+T\+H\+E\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{O\+T\+H\+E\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+generate\+\_\+sparsetools.\+O\+T\+H\+E\+R\+\_\+\+R\+O\+U\+T\+I\+N\+E\+S}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a49a18aee1c135f71f1644be713060270}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \textcolor{stringliteral}{"""}
+2 \textcolor{stringliteral}{coo\_tocsr           v iiiIIT*I*I*T}
+3 \textcolor{stringliteral}{coo\_tocsc           v iiiIIT*I*I*T}
+4 \textcolor{stringliteral}{coo\_todense         v iiiIIT*Ti}
+5 \textcolor{stringliteral}{coo\_matvec          v iIITT*T}
+6 \textcolor{stringliteral}{coo\_count\_diagonals i iII}
+7 \textcolor{stringliteral}{dia\_matvec          v iiiiITT*T}
+8 \textcolor{stringliteral}{cs\_graph\_components i iII*I}
+9 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a04396a3bf7698e500fcd31c3b8598752}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!T\+\_\+\+T\+Y\+P\+E\+S@{T\+\_\+\+T\+Y\+P\+E\+S}}
+\index{T\+\_\+\+T\+Y\+P\+E\+S@{T\+\_\+\+T\+Y\+P\+E\+S}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{T\+\_\+\+T\+Y\+P\+E\+S}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+generate\+\_\+sparsetools.\+T\+\_\+\+T\+Y\+P\+E\+S}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a04396a3bf7698e500fcd31c3b8598752}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [
+2     (\textcolor{stringliteral}{'NPY\_BOOL'}, \textcolor{stringliteral}{'npy\_bool\_wrapper'}),
+3     (\textcolor{stringliteral}{'NPY\_BYTE'}, \textcolor{stringliteral}{'npy\_byte'}),
+4     (\textcolor{stringliteral}{'NPY\_UBYTE'}, \textcolor{stringliteral}{'npy\_ubyte'}),
+5     (\textcolor{stringliteral}{'NPY\_SHORT'}, \textcolor{stringliteral}{'npy\_short'}),
+6     (\textcolor{stringliteral}{'NPY\_USHORT'}, \textcolor{stringliteral}{'npy\_ushort'}),
+7     (\textcolor{stringliteral}{'NPY\_INT'}, \textcolor{stringliteral}{'npy\_int'}),
+8     (\textcolor{stringliteral}{'NPY\_UINT'}, \textcolor{stringliteral}{'npy\_uint'}),
+9     (\textcolor{stringliteral}{'NPY\_LONG'}, \textcolor{stringliteral}{'npy\_long'}),
+10     (\textcolor{stringliteral}{'NPY\_ULONG'}, \textcolor{stringliteral}{'npy\_ulong'}),
+11     (\textcolor{stringliteral}{'NPY\_LONGLONG'}, \textcolor{stringliteral}{'npy\_longlong'}),
+12     (\textcolor{stringliteral}{'NPY\_ULONGLONG'}, \textcolor{stringliteral}{'npy\_ulonglong'}),
+13     (\textcolor{stringliteral}{'NPY\_FLOAT'}, \textcolor{stringliteral}{'npy\_float'}),
+14     (\textcolor{stringliteral}{'NPY\_DOUBLE'}, \textcolor{stringliteral}{'npy\_double'}),
+15     (\textcolor{stringliteral}{'NPY\_LONGDOUBLE'}, \textcolor{stringliteral}{'npy\_longdouble'}),
+16     (\textcolor{stringliteral}{'NPY\_CFLOAT'}, \textcolor{stringliteral}{'npy\_cfloat\_wrapper'}),
+17     (\textcolor{stringliteral}{'NPY\_CDOUBLE'}, \textcolor{stringliteral}{'npy\_cdouble\_wrapper'}),
+18     (\textcolor{stringliteral}{'NPY\_CLONGDOUBLE'}, \textcolor{stringliteral}{'npy\_clongdouble\_wrapper'}),
+19 ]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1sparse_1_1generate__sparsetools_a3e9ff6cfee1ff57715fbcc99081da666}{}\index{scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}!T\+H\+U\+N\+K\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E@{T\+H\+U\+N\+K\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}}
+\index{T\+H\+U\+N\+K\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E@{T\+H\+U\+N\+K\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}!scipy\+::sparse\+::generate\+\_\+sparsetools@{scipy\+::sparse\+::generate\+\_\+sparsetools}}
+\subsubsection[{T\+H\+U\+N\+K\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+generate\+\_\+sparsetools.\+T\+H\+U\+N\+K\+\_\+\+T\+E\+M\+P\+L\+A\+T\+E}\label{namespacescipy_1_1sparse_1_1generate__sparsetools_a3e9ff6cfee1ff57715fbcc99081da666}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \textcolor{stringliteral}{"""}
+2 \textcolor{stringliteral}{static Py\_ssize\_t %(name)s\_thunk(int I\_typenum, int T\_typenum, void **a)}
+3 \textcolor{stringliteral}{\{}
+4 \textcolor{stringliteral}{    %(thunk\_content)s}
+5 \textcolor{stringliteral}{\}}
+6 \textcolor{stringliteral}{"""}
+\end{DoxyCode}

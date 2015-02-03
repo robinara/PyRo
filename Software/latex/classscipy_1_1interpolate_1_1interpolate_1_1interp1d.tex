@@ -1,0 +1,142 @@
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1interp1d}{}\section{scipy.\+interpolate.\+interpolate.\+interp1d Class Reference}
+\label{classscipy_1_1interpolate_1_1interpolate_1_1interp1d}\index{scipy.\+interpolate.\+interpolate.\+interp1d@{scipy.\+interpolate.\+interpolate.\+interp1d}}
+Inheritance diagram for scipy.\+interpolate.\+interpolate.\+interp1d\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1interpolate_1_1interpolate_1_1interp1d}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_aeee0d3a66d646672ba9fd44e10012223}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_aee1d2e2c4a2be5bfe7175015bdfb51ba}{copy}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_aeaa301d92feb5ad41ad2c2c3dd3f5975}{bounds\+\_\+error}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_ac953b4bcbdc3d343dea4e90d51e71939}{fill\+\_\+value}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_ae6e81157d5b76ac03abf60f86fce7a5b}{axis}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_a3c7198a95c4626dcb5184baa37954888}{y}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_afd6b75c3bcd0b72c86e60ca8fd905183}{x\+\_\+bds}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_a6dece428e3c7689e5734d674c51bc9e8}{x}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}interp1d(x, y, kind='linear', axis=-1, copy=True, bounds_error=True,
+         fill_value=np.nan, assume_sorted=False)
+
+Interpolate a 1-D function.
+
+`x` and `y` are arrays of values used to approximate some function f:
+``y = f(x)``.  This class returns a function whose call method uses
+interpolation to find the value of new points.
+
+Parameters
+----------
+x : (N,) array_like
+    A 1-D array of real values.
+y : (...,N,...) array_like
+    A N-D array of real values. The length of `y` along the interpolation
+    axis must be equal to the length of `x`.
+kind : str or int, optional
+    Specifies the kind of interpolation as a string
+    ('linear', 'nearest', 'zero', 'slinear', 'quadratic, 'cubic'
+    where 'slinear', 'quadratic' and 'cubic' refer to a spline
+    interpolation of first, second or third order) or as an integer
+    specifying the order of the spline interpolator to use.
+    Default is 'linear'.
+axis : int, optional
+    Specifies the axis of `y` along which to interpolate.
+    Interpolation defaults to the last axis of `y`.
+copy : bool, optional
+    If True, the class makes internal copies of x and y.
+    If False, references to `x` and `y` are used. The default is to copy.
+bounds_error : bool, optional
+    If True, a ValueError is raised any time interpolation is attempted on
+    a value outside of the range of x (where extrapolation is
+    necessary). If False, out of bounds values are assigned `fill_value`.
+    By default, an error is raised.
+fill_value : float, optional
+    If provided, then this value will be used to fill in for requested
+    points outside of the data range. If not provided, then the default
+    is NaN.
+assume_sorted : bool, optional
+    If False, values of `x` can be in any order and they are sorted first.
+If True, `x` has to be an array of monotonically increasing values.
+
+
+See Also
+--------
+UnivariateSpline : A more recent wrapper of the FITPACK routines.
+splrep, splev
+    Spline interpolation based on FITPACK.
+interp2d
+
+Examples
+--------
+>>> from scipy import interpolate
+>>> x = np.arange(0, 10)
+>>> y = np.exp(-x/3.0)
+>>> f = interpolate.interp1d(x, y)
+
+>>> xnew = np.arange(0,9, 0.1)
+>>> ynew = f(xnew)   # use interpolation function returned by `interp1d`
+>>> plt.plot(x, y, 'o', xnew, ynew, '-')
+>>> plt.show()\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_aeee0d3a66d646672ba9fd44e10012223}{}\index{scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+interp1d.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{kind = {\ttfamily '{\bf linear}'}, }
+\item[{}]{axis = {\ttfamily -\/1}, }
+\item[{}]{copy = {\ttfamily {\bf True}}, }
+\item[{}]{bounds\+\_\+error = {\ttfamily {\bf True}}, }
+\item[{}]{fill\+\_\+value = {\ttfamily np.nan}, }
+\item[{}]{assume\+\_\+sorted = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_aeee0d3a66d646672ba9fd44e10012223}
+\begin{DoxyVerb}Initialize a 1D linear interpolation class.\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_ae6e81157d5b76ac03abf60f86fce7a5b}{}\index{scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}!axis@{axis}}
+\index{axis@{axis}!scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}}
+\subsubsection[{axis}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+interp1d.\+axis}\label{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_ae6e81157d5b76ac03abf60f86fce7a5b}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_aeaa301d92feb5ad41ad2c2c3dd3f5975}{}\index{scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}!bounds\+\_\+error@{bounds\+\_\+error}}
+\index{bounds\+\_\+error@{bounds\+\_\+error}!scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}}
+\subsubsection[{bounds\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+interp1d.\+bounds\+\_\+error}\label{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_aeaa301d92feb5ad41ad2c2c3dd3f5975}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_aee1d2e2c4a2be5bfe7175015bdfb51ba}{}\index{scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}!copy@{copy}}
+\index{copy@{copy}!scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}}
+\subsubsection[{copy}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+interp1d.\+copy}\label{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_aee1d2e2c4a2be5bfe7175015bdfb51ba}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_ac953b4bcbdc3d343dea4e90d51e71939}{}\index{scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}!fill\+\_\+value@{fill\+\_\+value}}
+\index{fill\+\_\+value@{fill\+\_\+value}!scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}}
+\subsubsection[{fill\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+interp1d.\+fill\+\_\+value}\label{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_ac953b4bcbdc3d343dea4e90d51e71939}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_a6dece428e3c7689e5734d674c51bc9e8}{}\index{scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}!x@{x}}
+\index{x@{x}!scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+interp1d.\+x}\label{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_a6dece428e3c7689e5734d674c51bc9e8}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_afd6b75c3bcd0b72c86e60ca8fd905183}{}\index{scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}!x\+\_\+bds@{x\+\_\+bds}}
+\index{x\+\_\+bds@{x\+\_\+bds}!scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}}
+\subsubsection[{x\+\_\+bds}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+interp1d.\+x\+\_\+bds}\label{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_afd6b75c3bcd0b72c86e60ca8fd905183}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_a3c7198a95c4626dcb5184baa37954888}{}\index{scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}!y@{y}}
+\index{y@{y}!scipy\+::interpolate\+::interpolate\+::interp1d@{scipy\+::interpolate\+::interpolate\+::interp1d}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+interp1d.\+y}\label{classscipy_1_1interpolate_1_1interpolate_1_1interp1d_a3c7198a95c4626dcb5184baa37954888}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{interpolate_8py}{interpolate.\+py}\end{DoxyCompactItemize}

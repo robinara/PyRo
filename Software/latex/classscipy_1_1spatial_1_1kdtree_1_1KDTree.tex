@@ -1,0 +1,402 @@
+\hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree}{}\section{scipy.\+spatial.\+kdtree.\+K\+D\+Tree Class Reference}
+\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree}\index{scipy.\+spatial.\+kdtree.\+K\+D\+Tree@{scipy.\+spatial.\+kdtree.\+K\+D\+Tree}}
+Inheritance diagram for scipy.\+spatial.\+kdtree.\+K\+D\+Tree\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1spatial_1_1kdtree_1_1KDTree}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_1_1innernode}{innernode}
+\item 
+class \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_1_1leafnode}{leafnode}
+\item 
+class \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_1_1node}{node}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a6eb2743dd105d2796b758d1fc7ec3e00}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a562327e8239ae3df870296e38d15b79e}{query}
+\item 
+def \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a4f8639d93206dce7dfef095a1fa9d421}{query\+\_\+ball\+\_\+point}
+\item 
+def \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_ae2d6b0561287117695e24f5becfc2b32}{query\+\_\+ball\+\_\+tree}
+\item 
+def \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_ad86033ebe09f30b5216ad45339fe4367}{query\+\_\+pairs}
+\item 
+def \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_ad6a91f85ae76ae364a34d4051e76fb24}{count\+\_\+neighbors}
+\item 
+def \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a29b33c027a8aec40ab53c23c4b4ec24c}{sparse\+\_\+distance\+\_\+matrix}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a89685062babd7ff12cd5f465f7e74a6c}{data}
+\item 
+\hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a79ba7c07dbc703fd689e82541f44b84c}{m}
+\item 
+\hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_afc6f34f45726bb27be32908d8345de49}{leafsize}
+\item 
+\hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_aa94c9b4f7ca63474d06e6bcbdd110c9a}{maxes}
+\item 
+\hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a87b8f3b2253d9f73512530535cf40fb4}{mins}
+\item 
+\hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a885b7950948f0cf39887d406ffe4d456}{tree}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}kd-tree for quick nearest-neighbor lookup
+
+This class provides an index into a set of k-dimensional points which
+can be used to rapidly look up the nearest neighbors of any point.
+
+Parameters
+----------
+data : (N,K) array_like
+    The data points to be indexed. This array is not copied, and
+    so modifying this data will result in bogus results.
+leafsize : int, optional
+    The number of points at which the algorithm switches over to
+    brute-force.  Has to be positive.
+
+Raises
+------
+RuntimeError
+    The maximum recursion limit can be exceeded for large data
+    sets.  If this happens, either increase the value for the `leafsize`
+    parameter or increase the recursion limit by::
+
+        >>> import sys
+        >>> sys.setrecursionlimit(10000)
+
+Notes
+-----
+The algorithm used is described in Maneewongvatana and Mount 1999.
+The general idea is that the kd-tree is a binary tree, each of whose
+nodes represents an axis-aligned hyperrectangle. Each node specifies
+an axis and splits the set of points based on whether their coordinate
+along that axis is greater than or less than a particular value.
+
+During construction, the axis and splitting point are chosen by the
+"sliding midpoint" rule, which ensures that the cells do not all
+become long and thin.
+
+The tree can be queried for the r closest neighbors of any given point
+(optionally returning only those within some maximum distance of the
+point). It can also be queried, with a substantial gain in efficiency,
+for the r approximate closest neighbors.
+
+For large dimensions (20 is already large) do not expect this to run
+significantly faster than brute force. High-dimensional nearest-neighbor
+queries are a substantial open problem in computer science.
+
+The tree also supports all-neighbors queries, both with arrays of points
+and with other kd-trees. These do use a reasonably efficient algorithm,
+but the kd-tree is not necessarily the best data structure for this
+sort of calculation.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a6eb2743dd105d2796b758d1fc7ec3e00}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{data, }
+\item[{}]{leafsize = {\ttfamily 10}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a6eb2743dd105d2796b758d1fc7ec3e00}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_ad6a91f85ae76ae364a34d4051e76fb24}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!count\+\_\+neighbors@{count\+\_\+neighbors}}
+\index{count\+\_\+neighbors@{count\+\_\+neighbors}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{count\+\_\+neighbors}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+count\+\_\+neighbors (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{other, }
+\item[{}]{r, }
+\item[{}]{p = {\ttfamily 2.}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_ad6a91f85ae76ae364a34d4051e76fb24}
+\begin{DoxyVerb}Count how many nearby pairs can be formed.
+
+Count the number of pairs (x1,x2) can be formed, with x1 drawn
+from self and x2 drawn from `other`, and where
+``distance(x1, x2, p) <= r``.
+This is the "two-point correlation" described in Gray and Moore 2000,
+"N-body problems in statistical learning", and the code here is based
+on their algorithm.
+
+Parameters
+----------
+other : KDTree instance
+    The other tree to draw points from.
+r : float or one-dimensional array of floats
+    The radius to produce a count for. Multiple radii are searched with
+    a single tree traversal.
+p : float, 1<=p<=infinity
+    Which Minkowski p-norm to use
+
+Returns
+-------
+result : int or 1-D array of ints
+    The number of pairs. Note that this is internally stored in a numpy
+    int, and so may overflow if very large (2e9).\end{DoxyVerb}
+ \hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a562327e8239ae3df870296e38d15b79e}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!query@{query}}
+\index{query@{query}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{query}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+query (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{k = {\ttfamily 1}, }
+\item[{}]{eps = {\ttfamily 0}, }
+\item[{}]{p = {\ttfamily 2}, }
+\item[{}]{distance\+\_\+upper\+\_\+bound = {\ttfamily np.inf}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a562327e8239ae3df870296e38d15b79e}
+\begin{DoxyVerb}Query the kd-tree for nearest neighbors
+
+Parameters
+----------
+x : array_like, last dimension self.m
+    An array of points to query.
+k : integer
+    The number of nearest neighbors to return.
+eps : nonnegative float
+    Return approximate nearest neighbors; the kth returned value
+    is guaranteed to be no further than (1+eps) times the
+    distance to the real kth nearest neighbor.
+p : float, 1<=p<=infinity
+    Which Minkowski p-norm to use.
+    1 is the sum-of-absolute-values "Manhattan" distance
+    2 is the usual Euclidean distance
+    infinity is the maximum-coordinate-difference distance
+distance_upper_bound : nonnegative float
+    Return only neighbors within this distance. This is used to prune
+    tree searches, so if you are doing a series of nearest-neighbor
+    queries, it may help to supply the distance to the nearest neighbor
+    of the most recent point.
+
+Returns
+-------
+d : array of floats
+    The distances to the nearest neighbors.
+    If x has shape tuple+(self.m,), then d has shape tuple if
+    k is one, or tuple+(k,) if k is larger than one.  Missing
+    neighbors are indicated with infinite distances.  If k is None,
+    then d is an object array of shape tuple, containing lists
+    of distances. In either case the hits are sorted by distance
+    (nearest first).
+i : array of integers
+    The locations of the neighbors in self.data. i is the same
+    shape as d.
+
+Examples
+--------
+>>> from scipy import spatial
+>>> x, y = np.mgrid[0:5, 2:8]
+>>> tree = spatial.KDTree(zip(x.ravel(), y.ravel()))
+>>> tree.data
+array([[0, 2],
+       [0, 3],
+       [0, 4],
+       [0, 5],
+       [0, 6],
+       [0, 7],
+       [1, 2],
+       [1, 3],
+       [1, 4],
+       [1, 5],
+       [1, 6],
+       [1, 7],
+       [2, 2],
+       [2, 3],
+       [2, 4],
+       [2, 5],
+       [2, 6],
+       [2, 7],
+       [3, 2],
+       [3, 3],
+       [3, 4],
+       [3, 5],
+       [3, 6],
+       [3, 7],
+       [4, 2],
+       [4, 3],
+       [4, 4],
+       [4, 5],
+       [4, 6],
+       [4, 7]])
+>>> pts = np.array([[0, 0], [2.1, 2.9]])
+>>> tree.query(pts)
+(array([ 2.        ,  0.14142136]), array([ 0, 13]))\end{DoxyVerb}
+ \hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a4f8639d93206dce7dfef095a1fa9d421}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!query\+\_\+ball\+\_\+point@{query\+\_\+ball\+\_\+point}}
+\index{query\+\_\+ball\+\_\+point@{query\+\_\+ball\+\_\+point}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{query\+\_\+ball\+\_\+point}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+query\+\_\+ball\+\_\+point (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{r, }
+\item[{}]{p = {\ttfamily 2.}, }
+\item[{}]{eps = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a4f8639d93206dce7dfef095a1fa9d421}
+\begin{DoxyVerb}Find all points within distance r of point(s) x.
+
+Parameters
+----------
+x : array_like, shape tuple + (self.m,)
+    The point or points to search for neighbors of.
+r : positive float
+    The radius of points to return.
+p : float, optional
+    Which Minkowski p-norm to use.  Should be in the range [1, inf].
+eps : nonnegative float, optional
+    Approximate search. Branches of the tree are not explored if their
+    nearest points are further than ``r / (1 + eps)``, and branches are
+    added in bulk if their furthest points are nearer than
+    ``r * (1 + eps)``.
+
+Returns
+-------
+results : list or array of lists
+    If `x` is a single point, returns a list of the indices of the
+    neighbors of `x`. If `x` is an array of points, returns an object
+    array of shape tuple containing lists of neighbors.
+
+Notes
+-----
+If you have many points whose neighbors you want to find, you may save
+substantial amounts of time by putting them in a KDTree and using
+query_ball_tree.
+
+Examples
+--------
+>>> from scipy import spatial
+>>> x, y = np.mgrid[0:4, 0:4]
+>>> points = zip(x.ravel(), y.ravel())
+>>> tree = spatial.KDTree(points)
+>>> tree.query_ball_point([2, 0], 1)
+[4, 8, 9, 12]\end{DoxyVerb}
+ \hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_ae2d6b0561287117695e24f5becfc2b32}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!query\+\_\+ball\+\_\+tree@{query\+\_\+ball\+\_\+tree}}
+\index{query\+\_\+ball\+\_\+tree@{query\+\_\+ball\+\_\+tree}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{query\+\_\+ball\+\_\+tree}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+query\+\_\+ball\+\_\+tree (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{other, }
+\item[{}]{r, }
+\item[{}]{p = {\ttfamily 2.}, }
+\item[{}]{eps = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_ae2d6b0561287117695e24f5becfc2b32}
+\begin{DoxyVerb}Find all pairs of points whose distance is at most r
+
+Parameters
+----------
+other : KDTree instance
+    The tree containing points to search against.
+r : float
+    The maximum distance, has to be positive.
+p : float, optional
+    Which Minkowski norm to use.  `p` has to meet the condition
+    ``1 <= p <= infinity``.
+eps : float, optional
+    Approximate search.  Branches of the tree are not explored
+    if their nearest points are further than ``r/(1+eps)``, and
+    branches are added in bulk if their furthest points are nearer
+    than ``r * (1+eps)``.  `eps` has to be non-negative.
+
+Returns
+-------
+results : list of lists
+    For each element ``self.data[i]`` of this tree, ``results[i]`` is a
+    list of the indices of its neighbors in ``other.data``.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_ad86033ebe09f30b5216ad45339fe4367}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!query\+\_\+pairs@{query\+\_\+pairs}}
+\index{query\+\_\+pairs@{query\+\_\+pairs}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{query\+\_\+pairs}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+query\+\_\+pairs (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{r, }
+\item[{}]{p = {\ttfamily 2.}, }
+\item[{}]{eps = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_ad86033ebe09f30b5216ad45339fe4367}
+\begin{DoxyVerb}Find all pairs of points within a distance.
+
+Parameters
+----------
+r : positive float
+    The maximum distance.
+p : float, optional
+    Which Minkowski norm to use.  `p` has to meet the condition
+    ``1 <= p <= infinity``.
+eps : float, optional
+    Approximate search.  Branches of the tree are not explored
+    if their nearest points are further than ``r/(1+eps)``, and
+    branches are added in bulk if their furthest points are nearer
+    than ``r * (1+eps)``.  `eps` has to be non-negative.
+
+Returns
+-------
+results : set
+    Set of pairs ``(i,j)``, with ``i < j``, for which the corresponding
+    positions are close.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a29b33c027a8aec40ab53c23c4b4ec24c}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!sparse\+\_\+distance\+\_\+matrix@{sparse\+\_\+distance\+\_\+matrix}}
+\index{sparse\+\_\+distance\+\_\+matrix@{sparse\+\_\+distance\+\_\+matrix}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{sparse\+\_\+distance\+\_\+matrix}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+sparse\+\_\+distance\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{other, }
+\item[{}]{max\+\_\+distance, }
+\item[{}]{p = {\ttfamily 2.}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a29b33c027a8aec40ab53c23c4b4ec24c}
+\begin{DoxyVerb}Compute a sparse distance matrix
+
+Computes a distance matrix between two KDTrees, leaving as zero
+any distance greater than max_distance.
+
+Parameters
+----------
+other : KDTree
+
+max_distance : positive float
+
+p : float, optional
+
+Returns
+-------
+result : dok_matrix
+    Sparse matrix representing the results in "dictionary of keys" format.\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a89685062babd7ff12cd5f465f7e74a6c}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!data@{data}}
+\index{data@{data}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+data}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a89685062babd7ff12cd5f465f7e74a6c}
+\hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_afc6f34f45726bb27be32908d8345de49}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!leafsize@{leafsize}}
+\index{leafsize@{leafsize}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{leafsize}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+leafsize}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_afc6f34f45726bb27be32908d8345de49}
+\hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a79ba7c07dbc703fd689e82541f44b84c}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!m@{m}}
+\index{m@{m}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{m}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+m}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a79ba7c07dbc703fd689e82541f44b84c}
+\hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_aa94c9b4f7ca63474d06e6bcbdd110c9a}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!maxes@{maxes}}
+\index{maxes@{maxes}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{maxes}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+maxes}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_aa94c9b4f7ca63474d06e6bcbdd110c9a}
+\hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a87b8f3b2253d9f73512530535cf40fb4}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!mins@{mins}}
+\index{mins@{mins}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{mins}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+mins}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a87b8f3b2253d9f73512530535cf40fb4}
+\hypertarget{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a885b7950948f0cf39887d406ffe4d456}{}\index{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}!tree@{tree}}
+\index{tree@{tree}!scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree@{scipy\+::spatial\+::kdtree\+::\+K\+D\+Tree}}
+\subsubsection[{tree}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+spatial.\+kdtree.\+K\+D\+Tree.\+tree}\label{classscipy_1_1spatial_1_1kdtree_1_1KDTree_a885b7950948f0cf39887d406ffe4d456}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/spatial/\hyperlink{kdtree_8py}{kdtree.\+py}\end{DoxyCompactItemize}

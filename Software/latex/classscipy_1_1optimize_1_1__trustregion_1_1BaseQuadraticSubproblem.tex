@@ -1,0 +1,132 @@
+\hypertarget{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem}{}\section{scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem Class Reference}
+\label{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem}\index{scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem@{scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem}}
+Inheritance diagram for scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a9bdf1ac27dba45127a2f6b2b208d9b2f}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_add95d02a2c888460b7391a57dab86f01}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_aca0b79d68b2643ed883e87fd9ff7cbb7}{fun}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a17596b1be688b5301f8300b4a21df90f}{jac}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a7c1692a1218e579bcb1a57ce97aab2fb}{hess}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a9d817d92b720b5b6264c715ba4d2e407}{hessp}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a644b50132bc0036ec1b8693c0ad272cf}{jac\+\_\+mag}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a74444759a8f4df235c7dbb63cfca89b5}{get\+\_\+boundaries\+\_\+intersections}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a5b354e359b40b37e49cde2fba4d129cb}{solve}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Base/abstract class defining the quadratic model for trust-region
+minimization. Child classes must implement the ``solve`` method.
+
+Values of the objective function, jacobian and hessian (if provided) at
+the current iterate ``x`` are evaluated on demand and then stored as
+attributes ``fun``, ``jac``, ``hess``.
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a9bdf1ac27dba45127a2f6b2b208d9b2f}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{fun, }
+\item[{}]{jac, }
+\item[{}]{hess = {\ttfamily None}, }
+\item[{}]{hessp = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a9bdf1ac27dba45127a2f6b2b208d9b2f}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_add95d02a2c888460b7391a57dab86f01}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{p}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_add95d02a2c888460b7391a57dab86f01}
+\hypertarget{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_aca0b79d68b2643ed883e87fd9ff7cbb7}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}!fun@{fun}}
+\index{fun@{fun}!scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}}
+\subsubsection[{fun}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem.\+fun (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_aca0b79d68b2643ed883e87fd9ff7cbb7}
+\begin{DoxyVerb}Value of objective function at current iteration.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a74444759a8f4df235c7dbb63cfca89b5}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}!get\+\_\+boundaries\+\_\+intersections@{get\+\_\+boundaries\+\_\+intersections}}
+\index{get\+\_\+boundaries\+\_\+intersections@{get\+\_\+boundaries\+\_\+intersections}!scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}}
+\subsubsection[{get\+\_\+boundaries\+\_\+intersections}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem.\+get\+\_\+boundaries\+\_\+intersections (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{z, }
+\item[{}]{d, }
+\item[{}]{trust\+\_\+radius}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a74444759a8f4df235c7dbb63cfca89b5}
+\begin{DoxyVerb}Solve the scalar quadratic equation ||z + t d|| == trust_radius.
+This is like a line-sphere intersection.
+Return the two values of t, sorted from low to high.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a7c1692a1218e579bcb1a57ce97aab2fb}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}!hess@{hess}}
+\index{hess@{hess}!scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}}
+\subsubsection[{hess}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem.\+hess (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a7c1692a1218e579bcb1a57ce97aab2fb}
+\begin{DoxyVerb}Value of hessian of objective function at current iteration.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a9d817d92b720b5b6264c715ba4d2e407}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}!hessp@{hessp}}
+\index{hessp@{hessp}!scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}}
+\subsubsection[{hessp}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem.\+hessp (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{p}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a9d817d92b720b5b6264c715ba4d2e407}
+\hypertarget{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a17596b1be688b5301f8300b4a21df90f}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}!jac@{jac}}
+\index{jac@{jac}!scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}}
+\subsubsection[{jac}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem.\+jac (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a17596b1be688b5301f8300b4a21df90f}
+\begin{DoxyVerb}Value of jacobian of objective function at current iteration.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a644b50132bc0036ec1b8693c0ad272cf}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}!jac\+\_\+mag@{jac\+\_\+mag}}
+\index{jac\+\_\+mag@{jac\+\_\+mag}!scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}}
+\subsubsection[{jac\+\_\+mag}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem.\+jac\+\_\+mag (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a644b50132bc0036ec1b8693c0ad272cf}
+\begin{DoxyVerb}Magniture of jacobian of objective function at current iteration.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a5b354e359b40b37e49cde2fba4d129cb}{}\index{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}!solve@{solve}}
+\index{solve@{solve}!scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem@{scipy\+::optimize\+::\+\_\+trustregion\+::\+Base\+Quadratic\+Subproblem}}
+\subsubsection[{solve}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+\_\+trustregion.\+Base\+Quadratic\+Subproblem.\+solve (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{trust\+\_\+radius}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1__trustregion_1_1BaseQuadraticSubproblem_a5b354e359b40b37e49cde2fba4d129cb}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/optimize/\hyperlink{__trustregion_8py}{\+\_\+trustregion.\+py}\end{DoxyCompactItemize}

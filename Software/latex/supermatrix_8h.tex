@@ -1,0 +1,135 @@
+\hypertarget{supermatrix_8h}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/supermatrix.h File Reference}
+\label{supermatrix_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/supermatrix.\+h@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/supermatrix.\+h}}
+
+
+Defines matrix types.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structSuperMatrix}{Super\+Matrix}
+\item 
+struct \hyperlink{structNCformat}{N\+Cformat}
+\item 
+struct \hyperlink{structNRformat}{N\+Rformat}
+\item 
+struct \hyperlink{structSCformat}{S\+Cformat}
+\item 
+struct \hyperlink{structSCPformat}{S\+C\+Pformat}
+\item 
+struct \hyperlink{structNCPformat}{N\+C\+Pformat}
+\item 
+struct \hyperlink{structDNformat}{D\+Nformat}
+\item 
+struct \hyperlink{structNRformat__loc}{N\+Rformat\+\_\+loc}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}{Stype\+\_\+t} \{ \\*
+\hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a0993c31a9ba98c523bfab0d759c1a628}{S\+L\+U\+\_\+\+N\+C}, 
+\hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a25e4eb65ac258dadb9abccd65337cfe4}{S\+L\+U\+\_\+\+N\+C\+P}, 
+\hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796aac74fbf90a105db9be6795b5be9221ca}{S\+L\+U\+\_\+\+N\+R}, 
+\hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a79d0f76e80f9b57ebdab6a0c76720462}{S\+L\+U\+\_\+\+S\+C}, 
+\\*
+\hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a35ab293720f39593ceff43e8989f4de6}{S\+L\+U\+\_\+\+S\+C\+P}, 
+\hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a9677060bfc0641fb53defdb70caa8cf5}{S\+L\+U\+\_\+\+S\+R}, 
+\hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796aa59ca236b51fe0c7bd7c80c70e345768}{S\+L\+U\+\_\+\+D\+N}, 
+\hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796ab96ddd65efd6342d0ac532bb47eb39a0}{S\+L\+U\+\_\+\+N\+R\+\_\+loc}
+ \}
+\item 
+enum \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}{Dtype\+\_\+t} \{ \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a0da7fdd394e36c76e7aa215d6a79162d}{S\+L\+U\+\_\+\+S}, 
+\hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190ab5c3b3a455e3b3a64d805d76f19ac6dc}{S\+L\+U\+\_\+\+D}, 
+\hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a1b589b5f96dbc8619450aacc22d0bf39}{S\+L\+U\+\_\+\+C}, 
+\hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a1ace1e51c238b13622aaa733ef3b2a47}{S\+L\+U\+\_\+\+Z}
+ \}
+\item 
+enum \hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60}{Mtype\+\_\+t} \{ \\*
+\hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60aea9ef3cae331a60a4bcc353bb57ad5db}{S\+L\+U\+\_\+\+G\+E}, 
+\hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60afee10f9836531b012b1b80cf36355b67}{S\+L\+U\+\_\+\+T\+R\+L\+U}, 
+\hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60a0c7113548d3d5a292cb2265477436ad7}{S\+L\+U\+\_\+\+T\+R\+U\+U}, 
+\hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60a4defa99d9ff8ed4af7a92547b3faf9fb}{S\+L\+U\+\_\+\+T\+R\+L}, 
+\\*
+\hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60aa9aea83e745716e0da54d738feb19cba}{S\+L\+U\+\_\+\+T\+R\+U}, 
+\hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60a91b9ee4e608cb7c7cf7572703fbd3506}{S\+L\+U\+\_\+\+S\+Y\+L}, 
+\hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60a0d509f1e8285653c36f81b10626fb747}{S\+L\+U\+\_\+\+S\+Y\+U}, 
+\hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60abba0b28718f648302d6f710d7d66d1fb}{S\+L\+U\+\_\+\+H\+E\+L}, 
+\\*
+\hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60abada9d0add93fd4fbe17b9d6758d38f8}{S\+L\+U\+\_\+\+H\+E\+U}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines matrix types. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}{}\index{supermatrix.\+h@{supermatrix.\+h}!Dtype\+\_\+t@{Dtype\+\_\+t}}
+\index{Dtype\+\_\+t@{Dtype\+\_\+t}!supermatrix.\+h@{supermatrix.\+h}}
+\subsubsection[{Dtype\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Dtype\+\_\+t}}\label{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+L\+U\+\_\+\+S@{S\+L\+U\+\_\+\+S}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+S@{S\+L\+U\+\_\+\+S}}\item[{\em 
+\hypertarget{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a0da7fdd394e36c76e7aa215d6a79162d}{}S\+L\+U\+\_\+\+S\label{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a0da7fdd394e36c76e7aa215d6a79162d}
+}]\index{S\+L\+U\+\_\+\+D@{S\+L\+U\+\_\+\+D}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+D@{S\+L\+U\+\_\+\+D}}\item[{\em 
+\hypertarget{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190ab5c3b3a455e3b3a64d805d76f19ac6dc}{}S\+L\+U\+\_\+\+D\label{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190ab5c3b3a455e3b3a64d805d76f19ac6dc}
+}]\index{S\+L\+U\+\_\+\+C@{S\+L\+U\+\_\+\+C}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+C@{S\+L\+U\+\_\+\+C}}\item[{\em 
+\hypertarget{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a1b589b5f96dbc8619450aacc22d0bf39}{}S\+L\+U\+\_\+\+C\label{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a1b589b5f96dbc8619450aacc22d0bf39}
+}]\index{S\+L\+U\+\_\+\+Z@{S\+L\+U\+\_\+\+Z}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+Z@{S\+L\+U\+\_\+\+Z}}\item[{\em 
+\hypertarget{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a1ace1e51c238b13622aaa733ef3b2a47}{}S\+L\+U\+\_\+\+Z\label{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190a1ace1e51c238b13622aaa733ef3b2a47}
+}]\end{description}
+\end{Desc}
+\hypertarget{supermatrix_8h_a5962adac634f3feebe487ad443802d60}{}\index{supermatrix.\+h@{supermatrix.\+h}!Mtype\+\_\+t@{Mtype\+\_\+t}}
+\index{Mtype\+\_\+t@{Mtype\+\_\+t}!supermatrix.\+h@{supermatrix.\+h}}
+\subsubsection[{Mtype\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Mtype\+\_\+t}}\label{supermatrix_8h_a5962adac634f3feebe487ad443802d60}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+L\+U\+\_\+\+G\+E@{S\+L\+U\+\_\+\+G\+E}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+G\+E@{S\+L\+U\+\_\+\+G\+E}}\item[{\em 
+\hypertarget{supermatrix_8h_a5962adac634f3feebe487ad443802d60aea9ef3cae331a60a4bcc353bb57ad5db}{}S\+L\+U\+\_\+\+G\+E\label{supermatrix_8h_a5962adac634f3feebe487ad443802d60aea9ef3cae331a60a4bcc353bb57ad5db}
+}]\index{S\+L\+U\+\_\+\+T\+R\+L\+U@{S\+L\+U\+\_\+\+T\+R\+L\+U}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+T\+R\+L\+U@{S\+L\+U\+\_\+\+T\+R\+L\+U}}\item[{\em 
+\hypertarget{supermatrix_8h_a5962adac634f3feebe487ad443802d60afee10f9836531b012b1b80cf36355b67}{}S\+L\+U\+\_\+\+T\+R\+L\+U\label{supermatrix_8h_a5962adac634f3feebe487ad443802d60afee10f9836531b012b1b80cf36355b67}
+}]\index{S\+L\+U\+\_\+\+T\+R\+U\+U@{S\+L\+U\+\_\+\+T\+R\+U\+U}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+T\+R\+U\+U@{S\+L\+U\+\_\+\+T\+R\+U\+U}}\item[{\em 
+\hypertarget{supermatrix_8h_a5962adac634f3feebe487ad443802d60a0c7113548d3d5a292cb2265477436ad7}{}S\+L\+U\+\_\+\+T\+R\+U\+U\label{supermatrix_8h_a5962adac634f3feebe487ad443802d60a0c7113548d3d5a292cb2265477436ad7}
+}]\index{S\+L\+U\+\_\+\+T\+R\+L@{S\+L\+U\+\_\+\+T\+R\+L}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+T\+R\+L@{S\+L\+U\+\_\+\+T\+R\+L}}\item[{\em 
+\hypertarget{supermatrix_8h_a5962adac634f3feebe487ad443802d60a4defa99d9ff8ed4af7a92547b3faf9fb}{}S\+L\+U\+\_\+\+T\+R\+L\label{supermatrix_8h_a5962adac634f3feebe487ad443802d60a4defa99d9ff8ed4af7a92547b3faf9fb}
+}]\index{S\+L\+U\+\_\+\+T\+R\+U@{S\+L\+U\+\_\+\+T\+R\+U}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+T\+R\+U@{S\+L\+U\+\_\+\+T\+R\+U}}\item[{\em 
+\hypertarget{supermatrix_8h_a5962adac634f3feebe487ad443802d60aa9aea83e745716e0da54d738feb19cba}{}S\+L\+U\+\_\+\+T\+R\+U\label{supermatrix_8h_a5962adac634f3feebe487ad443802d60aa9aea83e745716e0da54d738feb19cba}
+}]\index{S\+L\+U\+\_\+\+S\+Y\+L@{S\+L\+U\+\_\+\+S\+Y\+L}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+S\+Y\+L@{S\+L\+U\+\_\+\+S\+Y\+L}}\item[{\em 
+\hypertarget{supermatrix_8h_a5962adac634f3feebe487ad443802d60a91b9ee4e608cb7c7cf7572703fbd3506}{}S\+L\+U\+\_\+\+S\+Y\+L\label{supermatrix_8h_a5962adac634f3feebe487ad443802d60a91b9ee4e608cb7c7cf7572703fbd3506}
+}]\index{S\+L\+U\+\_\+\+S\+Y\+U@{S\+L\+U\+\_\+\+S\+Y\+U}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+S\+Y\+U@{S\+L\+U\+\_\+\+S\+Y\+U}}\item[{\em 
+\hypertarget{supermatrix_8h_a5962adac634f3feebe487ad443802d60a0d509f1e8285653c36f81b10626fb747}{}S\+L\+U\+\_\+\+S\+Y\+U\label{supermatrix_8h_a5962adac634f3feebe487ad443802d60a0d509f1e8285653c36f81b10626fb747}
+}]\index{S\+L\+U\+\_\+\+H\+E\+L@{S\+L\+U\+\_\+\+H\+E\+L}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+H\+E\+L@{S\+L\+U\+\_\+\+H\+E\+L}}\item[{\em 
+\hypertarget{supermatrix_8h_a5962adac634f3feebe487ad443802d60abba0b28718f648302d6f710d7d66d1fb}{}S\+L\+U\+\_\+\+H\+E\+L\label{supermatrix_8h_a5962adac634f3feebe487ad443802d60abba0b28718f648302d6f710d7d66d1fb}
+}]\index{S\+L\+U\+\_\+\+H\+E\+U@{S\+L\+U\+\_\+\+H\+E\+U}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+H\+E\+U@{S\+L\+U\+\_\+\+H\+E\+U}}\item[{\em 
+\hypertarget{supermatrix_8h_a5962adac634f3feebe487ad443802d60abada9d0add93fd4fbe17b9d6758d38f8}{}S\+L\+U\+\_\+\+H\+E\+U\label{supermatrix_8h_a5962adac634f3feebe487ad443802d60abada9d0add93fd4fbe17b9d6758d38f8}
+}]\end{description}
+\end{Desc}
+\hypertarget{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}{}\index{supermatrix.\+h@{supermatrix.\+h}!Stype\+\_\+t@{Stype\+\_\+t}}
+\index{Stype\+\_\+t@{Stype\+\_\+t}!supermatrix.\+h@{supermatrix.\+h}}
+\subsubsection[{Stype\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Stype\+\_\+t}}\label{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\+L\+U\+\_\+\+N\+C@{S\+L\+U\+\_\+\+N\+C}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+N\+C@{S\+L\+U\+\_\+\+N\+C}}\item[{\em 
+\hypertarget{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a0993c31a9ba98c523bfab0d759c1a628}{}S\+L\+U\+\_\+\+N\+C\label{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a0993c31a9ba98c523bfab0d759c1a628}
+}]\index{S\+L\+U\+\_\+\+N\+C\+P@{S\+L\+U\+\_\+\+N\+C\+P}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+N\+C\+P@{S\+L\+U\+\_\+\+N\+C\+P}}\item[{\em 
+\hypertarget{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a25e4eb65ac258dadb9abccd65337cfe4}{}S\+L\+U\+\_\+\+N\+C\+P\label{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a25e4eb65ac258dadb9abccd65337cfe4}
+}]\index{S\+L\+U\+\_\+\+N\+R@{S\+L\+U\+\_\+\+N\+R}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+N\+R@{S\+L\+U\+\_\+\+N\+R}}\item[{\em 
+\hypertarget{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796aac74fbf90a105db9be6795b5be9221ca}{}S\+L\+U\+\_\+\+N\+R\label{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796aac74fbf90a105db9be6795b5be9221ca}
+}]\index{S\+L\+U\+\_\+\+S\+C@{S\+L\+U\+\_\+\+S\+C}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+S\+C@{S\+L\+U\+\_\+\+S\+C}}\item[{\em 
+\hypertarget{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a79d0f76e80f9b57ebdab6a0c76720462}{}S\+L\+U\+\_\+\+S\+C\label{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a79d0f76e80f9b57ebdab6a0c76720462}
+}]\index{S\+L\+U\+\_\+\+S\+C\+P@{S\+L\+U\+\_\+\+S\+C\+P}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+S\+C\+P@{S\+L\+U\+\_\+\+S\+C\+P}}\item[{\em 
+\hypertarget{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a35ab293720f39593ceff43e8989f4de6}{}S\+L\+U\+\_\+\+S\+C\+P\label{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a35ab293720f39593ceff43e8989f4de6}
+}]\index{S\+L\+U\+\_\+\+S\+R@{S\+L\+U\+\_\+\+S\+R}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+S\+R@{S\+L\+U\+\_\+\+S\+R}}\item[{\em 
+\hypertarget{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a9677060bfc0641fb53defdb70caa8cf5}{}S\+L\+U\+\_\+\+S\+R\label{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796a9677060bfc0641fb53defdb70caa8cf5}
+}]\index{S\+L\+U\+\_\+\+D\+N@{S\+L\+U\+\_\+\+D\+N}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+D\+N@{S\+L\+U\+\_\+\+D\+N}}\item[{\em 
+\hypertarget{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796aa59ca236b51fe0c7bd7c80c70e345768}{}S\+L\+U\+\_\+\+D\+N\label{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796aa59ca236b51fe0c7bd7c80c70e345768}
+}]\index{S\+L\+U\+\_\+\+N\+R\+\_\+loc@{S\+L\+U\+\_\+\+N\+R\+\_\+loc}!supermatrix.\+h@{supermatrix.\+h}}\index{supermatrix.\+h@{supermatrix.\+h}!S\+L\+U\+\_\+\+N\+R\+\_\+loc@{S\+L\+U\+\_\+\+N\+R\+\_\+loc}}\item[{\em 
+\hypertarget{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796ab96ddd65efd6342d0ac532bb47eb39a0}{}S\+L\+U\+\_\+\+N\+R\+\_\+loc\label{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796ab96ddd65efd6342d0ac532bb47eb39a0}
+}]\end{description}
+\end{Desc}

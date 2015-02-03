@@ -1,0 +1,103 @@
+\hypertarget{spbequ_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/spbequ.f File Reference}
+\label{spbequ_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/spbequ.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/spbequ.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{spbequ_8f_ac6408c107f43c5ccdb71f48c961114d8}{spbequ} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+D, A\+B, L\+D\+A\+B, S, S\+C\+O\+N\+D, A\+M\+A\+X, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+P\+B\+E\+Q\+U} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{spbequ_8f_ac6408c107f43c5ccdb71f48c961114d8}{}\index{spbequ.\+f@{spbequ.\+f}!spbequ@{spbequ}}
+\index{spbequ@{spbequ}!spbequ.\+f@{spbequ.\+f}}
+\subsubsection[{spbequ}]{\setlength{\rightskip}{0pt plus 5cm}subroutine spbequ (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+D, }
+\item[{real, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{real, dimension( $\ast$ )}]{S, }
+\item[{real}]{S\+C\+O\+N\+D, }
+\item[{real}]{A\+M\+A\+X, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{spbequ_8f_ac6408c107f43c5ccdb71f48c961114d8}
+
+
+{\bfseries S\+P\+B\+E\+Q\+U} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SPBEQU computes row and column scalings intended to equilibrate a
+ symmetric positive definite band matrix A and reduce its condition
+ number (with respect to the two-norm).  S contains the scale factors,
+ S(i) = 1/sqrt(A(i,i)), chosen so that the scaled matrix B with
+ elements B(i,j) = S(i)*A(i,j)*S(j) has ones on the diagonal.  This
+ choice of S puts the condition number of B within a factor N of the
+ smallest possible condition number over all possible diagonal
+ scalings.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangular of A is stored;
+          = 'L':  Lower triangular of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+D} & \begin{DoxyVerb}          KD is INTEGER
+          The number of superdiagonals of the matrix A if UPLO = 'U',
+          or the number of subdiagonals if UPLO = 'L'.  KD >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+B} & \begin{DoxyVerb}          AB is REAL array, dimension (LDAB,N)
+          The upper or lower triangle of the symmetric band matrix A,
+          stored in the first KD+1 rows of the array.  The j-th column
+          of A is stored in the j-th column of the array AB as follows:
+          if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j;
+          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array A.  LDAB >= KD+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S} & \begin{DoxyVerb}          S is REAL array, dimension (N)
+          If INFO = 0, S contains the scale factors for A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+C\+O\+N\+D} & \begin{DoxyVerb}          SCOND is REAL
+          If INFO = 0, S contains the ratio of the smallest S(i) to
+          the largest S(i).  If SCOND >= 0.1 and AMAX is neither too
+          large nor too small, it is not worth scaling by S.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em A\+M\+A\+X} & \begin{DoxyVerb}          AMAX is REAL
+          Absolute value of largest matrix element.  If AMAX is very
+          close to overflow or very close to underflow, the matrix
+          should be scaled.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if INFO = i, the i-th diagonal element is nonpositive.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

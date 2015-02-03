@@ -1,0 +1,148 @@
+\hypertarget{dlacon_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlacon.c File Reference}
+\label{dlacon_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlacon.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dlacon.\+c}}
+
+
+Estimates the 1-\/norm.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+\+Cnames.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dlacon_8c_a51b3babab7bbf03500dbc5ede2a682b3}{d\+\_\+sign}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~(\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b} $>$= 0 ? \hyperlink{vecuops_8cc_a76daaa43c48ba4c2968bcd936031ee6b}{fabs}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) \+: -\/\hyperlink{vecuops_8cc_a76daaa43c48ba4c2968bcd936031ee6b}{fabs}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}))    /$\ast$ Copy sign $\ast$/
+\item 
+\#define \hyperlink{dlacon_8c_adccc1e5692ca1dd160d0ca2a17e1b12c}{i\+\_\+dnnt}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})~( \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}$>$=0 ? \hyperlink{vecuops_8cc_a1704c1bb1f0cddcd0bda5fabcd302764}{floor}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}+.\+5) \+: -\/\hyperlink{vecuops_8cc_a1704c1bb1f0cddcd0bda5fabcd302764}{floor}(.\+5-\/\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}) ) /$\ast$ Round to nearest integer $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{dlacon_8c_a4187621e84a9554552e3fa8098542801}{dlacon\+\_\+} (int $\ast$\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, double $\ast$v, double $\ast$\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, int $\ast$isgn, double $\ast$est, int $\ast$kase)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estimates the 1-\/norm. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997
+\end{DoxyPre}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dlacon_8c_a51b3babab7bbf03500dbc5ede2a682b3}{}\index{dlacon.\+c@{dlacon.\+c}!d\+\_\+sign@{d\+\_\+sign}}
+\index{d\+\_\+sign@{d\+\_\+sign}!dlacon.\+c@{dlacon.\+c}}
+\subsubsection[{d\+\_\+sign}]{\setlength{\rightskip}{0pt plus 5cm}\#define d\+\_\+sign(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~({\bf b} $>$= 0 ? {\bf fabs}({\bf a}) \+: -\/{\bf fabs}({\bf a}))    /$\ast$ Copy sign $\ast$/}\label{dlacon_8c_a51b3babab7bbf03500dbc5ede2a682b3}
+\hypertarget{dlacon_8c_adccc1e5692ca1dd160d0ca2a17e1b12c}{}\index{dlacon.\+c@{dlacon.\+c}!i\+\_\+dnnt@{i\+\_\+dnnt}}
+\index{i\+\_\+dnnt@{i\+\_\+dnnt}!dlacon.\+c@{dlacon.\+c}}
+\subsubsection[{i\+\_\+dnnt}]{\setlength{\rightskip}{0pt plus 5cm}\#define i\+\_\+dnnt(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)~( {\bf a}$>$=0 ? {\bf floor}({\bf a}+.\+5) \+: -\/{\bf floor}(.\+5-\/{\bf a}) ) /$\ast$ Round to nearest integer $\ast$/}\label{dlacon_8c_adccc1e5692ca1dd160d0ca2a17e1b12c}
+
+
+\subsection{Function Documentation}
+\hypertarget{dlacon_8c_a4187621e84a9554552e3fa8098542801}{}\index{dlacon.\+c@{dlacon.\+c}!dlacon\+\_\+@{dlacon\+\_\+}}
+\index{dlacon\+\_\+@{dlacon\+\_\+}!dlacon.\+c@{dlacon.\+c}}
+\subsubsection[{dlacon\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int dlacon\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{n, }
+\item[{double $\ast$}]{v, }
+\item[{double $\ast$}]{x, }
+\item[{int $\ast$}]{isgn, }
+\item[{double $\ast$}]{est, }
+\item[{int $\ast$}]{kase}
+\end{DoxyParamCaption}
+)}\label{dlacon_8c_a4187621e84a9554552e3fa8098542801}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  DLACON estimates the 1-norm of a square matrix \hyperlink{classA}{A}.   
+  Reverse communication is used for evaluating matrix-vector products.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  N      (input) INT
+         The order of the matrix.  N >= 1.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  V      (workspace) DOUBLE PRECISION array, dimension (N)   
+         On the final return, V = A*W,  where  EST = norm(V)/norm(W)   
+         (W is not returned).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  X      (input/output) DOUBLE PRECISION array, dimension (N)   
+         On an intermediate return, X should be overwritten by   
+               \hyperlink{classA}{A} * X,   if KASE=1,   
+               \hyperlink{classA}{A}' * X,  if KASE=2,
+        and DLACON must be re-called with all the other parameters   
+         unchanged.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ISGN   (workspace) INT array, dimension (N)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  EST    (output) DOUBLE PRECISION   
+         An estimate (a lower bound) for norm(A).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  KASE   (input/output) INT
+         On the initial call to DLACON, KASE should be 0.   
+         On an intermediate return, KASE will be 1 or 2, indicating   
+         whether X should be overwritten by \hyperlink{classA}{A} * X  or \hyperlink{classA}{A}' * X.   
+         On the final return from DLACON, KASE will again be 0.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Further Details   
+  ======= =======\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Contributed by Nick Higham, University of Manchester.   
+  Originally named CONEST, dated March 16, 1988.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Reference: N.J. Higham, "FORTRAN codes for estimating the one-norm of 
+  a real or complex matrix, with applications to condition estimation", 
+\subsection*{ACM Trans. Math. Soft., vol. 14, no. 4, pp. 381-396, December 1988.   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+\end{DoxyPre}
+ 

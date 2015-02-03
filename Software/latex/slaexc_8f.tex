@@ -1,0 +1,109 @@
+\hypertarget{slaexc_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slaexc.f File Reference}
+\label{slaexc_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaexc.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaexc.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slaexc_8f_a6994eb77387e08eda63d1757e7b0d2e8}{slaexc} (W\+A\+N\+T\+Q, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, T, L\+D\+T, Q, L\+D\+Q, J1, N1, N2, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+E\+X\+C} swaps adjacent diagonal blocks of a real upper quasi-\/triangular matrix in Schur canonical form, by an orthogonal similarity transformation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slaexc_8f_a6994eb77387e08eda63d1757e7b0d2e8}{}\index{slaexc.\+f@{slaexc.\+f}!slaexc@{slaexc}}
+\index{slaexc@{slaexc}!slaexc.\+f@{slaexc.\+f}}
+\subsubsection[{slaexc}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slaexc (
+\begin{DoxyParamCaption}
+\item[{{\bf logical}}]{W\+A\+N\+T\+Q, }
+\item[{integer}]{N, }
+\item[{real, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{real, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{integer}]{J1, }
+\item[{integer}]{N1, }
+\item[{integer}]{N2, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{slaexc_8f_a6994eb77387e08eda63d1757e7b0d2e8}
+
+
+{\bfseries S\+L\+A\+E\+X\+C} swaps adjacent diagonal blocks of a real upper quasi-\/triangular matrix in Schur canonical form, by an orthogonal similarity transformation. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLAEXC swaps adjacent diagonal blocks T11 and T22 of order 1 or 2 in
+ an upper quasi-triangular matrix T by an orthogonal similarity
+ transformation.
+
+ T must be in Schur canonical form, that is, block upper triangular
+ with 1-by-1 and 2-by-2 diagonal blocks; each 2-by-2 diagonal block
+ has its diagonal elemnts equal and its off-diagonal elements of
+ opposite sign.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em W\+A\+N\+T\+Q} & \begin{DoxyVerb}          WANTQ is LOGICAL
+          = .TRUE. : accumulate the transformation in the matrix Q;
+          = .FALSE.: do not accumulate the transformation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix T. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em T} & \begin{DoxyVerb}          T is REAL array, dimension (LDT,N)
+          On entry, the upper quasi-triangular matrix T, in Schur
+          canonical form.
+          On exit, the updated matrix T, again in Schur canonical form.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T. LDT >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q} & \begin{DoxyVerb}          Q is REAL array, dimension (LDQ,N)
+          On entry, if WANTQ is .TRUE., the orthogonal matrix Q.
+          On exit, if WANTQ is .TRUE., the updated matrix Q.
+          If WANTQ is .FALSE., Q is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+          The leading dimension of the array Q.
+          LDQ >= 1; and if WANTQ is .TRUE., LDQ >= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J1} & \begin{DoxyVerb}          J1 is INTEGER
+          The index of the first row of the first block T11.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N1} & \begin{DoxyVerb}          N1 is INTEGER
+          The order of the first block T11. N1 = 0, 1 or 2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N2} & \begin{DoxyVerb}          N2 is INTEGER
+          The order of the second block T22. N2 = 0, 1 or 2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          = 1: the transformed matrix T would be too far from Schur
+               form; the blocks are not swapped and T and Q are
+               unchanged.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

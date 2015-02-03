@@ -1,0 +1,113 @@
+\hypertarget{zpstf2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zpstf2.f File Reference}
+\label{zpstf2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zpstf2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zpstf2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zpstf2_8f_a0561cb42dfe8c5f8ee982625dd0ae287}{zpstf2} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, P\+I\+V, \hyperlink{splinemodule_8c_a3a88bcc63386de30443dacede2e01847}{R\+A\+N\+K}, T\+O\+L, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+P\+S\+T\+F2} computes the Cholesky factorization with complete pivoting of a real symmetric or complex Hermitian positive semi-\/definite matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zpstf2_8f_a0561cb42dfe8c5f8ee982625dd0ae287}{}\index{zpstf2.\+f@{zpstf2.\+f}!zpstf2@{zpstf2}}
+\index{zpstf2@{zpstf2}!zpstf2.\+f@{zpstf2.\+f}}
+\subsubsection[{zpstf2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zpstf2 (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( {\bf n} )}]{P\+I\+V, }
+\item[{integer}]{R\+A\+N\+K, }
+\item[{double {\bf precision}}]{T\+O\+L, }
+\item[{double {\bf precision}, dimension( 2$\ast${\bf n} )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zpstf2_8f_a0561cb42dfe8c5f8ee982625dd0ae287}
+
+
+{\bfseries Z\+P\+S\+T\+F2} computes the Cholesky factorization with complete pivoting of a real symmetric or complex Hermitian positive semi-\/definite matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZPSTF2 computes the Cholesky factorization with complete
+ pivoting of a complex Hermitian positive semidefinite matrix A.
+
+ The factorization has the form
+    P**T * A * P = U**H * U ,  if UPLO = 'U',
+    P**T * A * P = L  * L**H,  if UPLO = 'L',
+ where U is an upper triangular matrix and L is lower triangular, and
+ P is stored as vector PIV.
+
+ This algorithm does not attempt to check that A is positive
+ semidefinite. This version of the algorithm calls level 2 BLAS.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the upper or lower triangular part of the
+          symmetric matrix A is stored.
+          = 'U':  Upper triangular
+          = 'L':  Lower triangular\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+          n by n upper triangular part of A contains the upper
+          triangular part of the matrix A, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = 'L', the
+          leading n by n lower triangular part of A contains the lower
+          triangular part of the matrix A, and the strictly upper
+          triangular part of A is not referenced.
+
+          On exit, if INFO = 0, the factor U or L from the Cholesky
+          factorization as above.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em P\+I\+V} & \begin{DoxyVerb}          PIV is INTEGER array, dimension (N)
+          PIV is such that the nonzero entries are P( PIV(K), K ) = 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+A\+N\+K} & \begin{DoxyVerb}          RANK is INTEGER
+          The rank of A given by the number of steps the algorithm
+          completed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+O\+L} & \begin{DoxyVerb}          TOL is DOUBLE PRECISION
+          User defined tolerance. If TOL < 0, then N*U*MAX( A( K,K ) )
+          will be used. The algorithm terminates at the (K-1)st step
+          if the pivot <= TOL.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (2*N)
+          Work space.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          < 0: If INFO = -K, the K-th argument had an illegal value,
+          = 0: algorithm completed successfully, and
+          > 0: the matrix A is either rank deficient with computed rank
+               as returned in RANK, or is indefinite.  See Section 7 of
+               LAPACK Working Note #161 for further information.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

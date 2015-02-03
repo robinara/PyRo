@@ -1,0 +1,618 @@
+\hypertarget{hierarchy_8c}{}\section{packages/scipy-\/0.14.0/scipy/cluster/src/hierarchy.c File Reference}
+\label{hierarchy_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/cluster/src/hierarchy.\+c@{packages/scipy-\/0.\+14.\+0/scipy/cluster/src/hierarchy.\+c}}
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include $<$numpy/ndarrayobject.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}hierarchy.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hierarchy_8c_a9e1809154afef34b27c9244c4fdb5b43}{I\+S\+C\+L\+U\+S\+T\+E\+R}(\+\_\+nd)~((\+\_\+nd)-\/$>$id $>$= \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+\#define \hyperlink{hierarchy_8c_aa14760fbdabe8d01589861115ad1c4c9}{G\+E\+T\+C\+L\+U\+S\+T\+E\+R}(\+\_\+id)~((lists + \+\_\+id -\/ \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}))
+\item 
+\#define \hyperlink{hierarchy_8c_af6a6d4872bbd5468523f4ff213339b0d}{C\+P\+Y\+\_\+\+N\+I\+S}~4
+\item 
+\#define \hyperlink{hierarchy_8c_a521b5bd082386cb8b577308d5570b996}{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+M\+E\+A\+N}~0
+\item 
+\#define \hyperlink{hierarchy_8c_a4cb50ebebdd4c9e1e40854bffaa6668f}{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+S\+T\+D}~1
+\item 
+\#define \hyperlink{hierarchy_8c_a5ae4467db61f2135aec8246191cb3c98}{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+N}~2
+\item 
+\#define \hyperlink{hierarchy_8c_aacc7ae1df143a94910a036a2fac5f9c7}{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+I\+N\+S}~3
+\item 
+\#define \hyperlink{hierarchy_8c_a29d3252a0879ce89a58eeba97208ce6a}{C\+P\+Y\+\_\+\+L\+I\+S}~4
+\item 
+\#define \hyperlink{hierarchy_8c_a88ea9d5ea2548ab8fa5a3324acbdc2e3}{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+L\+E\+F\+T}~0
+\item 
+\#define \hyperlink{hierarchy_8c_ae5d6b59bac8bee75e5b45dc1062fe507}{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+R\+I\+G\+H\+T}~1
+\item 
+\#define \hyperlink{hierarchy_8c_a64023d0b01f70335bb7f4afef6bdaf09}{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+D\+I\+S\+T}~2
+\item 
+\#define \hyperlink{hierarchy_8c_a3a0745dac7f2db33de0ec81c133f8ed2}{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+C\+N\+T}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{hierarchy_8c_a05163db2e97edea4d8494b855ce63d34}{chopmins} (int $\ast$ind, int mini, int minj, int np)
+\item 
+void \hyperlink{hierarchy_8c_a62579863fbb3fc37089dafa3f606b816}{chopmin} (int $\ast$ind, int minj, int np)
+\item 
+void \hyperlink{hierarchy_8c_aedb678b3186b83cb9260f40844ebcbd1}{chopmins\+\_\+ns\+\_\+ij} (double $\ast$ind, int mini, int minj, int np)
+\item 
+void \hyperlink{hierarchy_8c_a06269a1e4f0f04086112b825993e1880}{chopmins\+\_\+ns\+\_\+i} (double $\ast$ind, int mini, int np)
+\item 
+void \hyperlink{hierarchy_8c_a199517db51926858a8a16af527c49661}{dist\+\_\+single} (\hyperlink{structcinfo}{cinfo} $\ast$info, int mini, int minj, int np, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a3ad057ddb5eb0d0cd60bd56d50da64bc}{dist\+\_\+complete} (\hyperlink{structcinfo}{cinfo} $\ast$info, int mini, int minj, int np, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a19f0d005af57af2873104f56eb72c2be}{dist\+\_\+average} (\hyperlink{structcinfo}{cinfo} $\ast$info, int mini, int minj, int np, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a4d429ed9ef4633dfb702d9b4d67a3d60}{dist\+\_\+centroid} (\hyperlink{structcinfo}{cinfo} $\ast$info, int mini, int minj, int np, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a1b8028266fc27bb4e0cfecdaca67c6b0}{combine\+\_\+centroids} (double $\ast$centroid\+Result, const double $\ast$centroid\+A, const double $\ast$centroid\+B, double na, double nb, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_aaf5dc44c38f12d23612dcfacd8f31e43}{dist\+\_\+weighted} (\hyperlink{structcinfo}{cinfo} $\ast$info, int mini, int minj, int np, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_abe71c1a0f7c19210e6e9972b226b8cce}{dist\+\_\+ward} (\hyperlink{structcinfo}{cinfo} $\ast$info, int mini, int minj, int np, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a7f2d477a623670b62ade4d535d1434ad}{print\+\_\+dm} (const double $\ast$$\ast$rows, int np)
+\item 
+void \hyperlink{hierarchy_8c_afcba5994aa18d3fad49521c079d90902}{print\+\_\+ind} (const int $\ast$inds, int np)
+\item 
+void \hyperlink{hierarchy_8c_a2a8e4fa739c1b676a48683d762f54814}{print\+\_\+vec} (const double $\ast$d, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+int \hyperlink{hierarchy_8c_a336c5fd6453a8583e10ca068a769ebd5}{linkage} (double $\ast$dm, double $\ast$Z, double $\ast$X, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int ml, int kc, \hyperlink{hierarchy_8h_ac793633f40d6c09aa7c883ae0cd6406f}{distfunc} dfunc, int method)
+\item 
+void \hyperlink{hierarchy_8c_a9feb544b24837f4fc508565cf90096ff}{linkage\+\_\+alt} (double $\ast$dm, double $\ast$Z, double $\ast$X, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int ml, int kc, \hyperlink{hierarchy_8h_ac793633f40d6c09aa7c883ae0cd6406f}{distfunc} dfunc, int method)
+\item 
+void \hyperlink{hierarchy_8c_a8800a6f2a9ba7a0b5b3f3a20f63baac8}{cpy\+\_\+to\+\_\+tree} (const double $\ast$Z, \hyperlink{structcnode}{cnode} $\ast$$\ast$tnodes, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+N\+P\+Y\+\_\+\+I\+N\+L\+I\+N\+E void \hyperlink{hierarchy_8c_a4ec731c8d597e6e019c94b6274723a0c}{set\+\_\+dist\+\_\+entry} (double $\ast$d, double val, int \hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}, int \hyperlink{indexexpr_8h_aa1f3325d66516548e69238097857fa98}{j}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a5119e65df9e0d568b0a3cec57d86f844}{cophenetic\+\_\+distances} (const double $\ast$Z, double $\ast$d, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_ac2827931b80461644fe711afb4876e19}{inconsistency\+\_\+calculation\+\_\+alt} (const double $\ast$Z, double $\ast$R, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int d)
+\item 
+void \hyperlink{hierarchy_8c_a28f9cc444d23de2c46752276593493cb}{calculate\+\_\+cluster\+\_\+sizes} (const double $\ast$Z, double $\ast$cs, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a3695132c432fd1801917ebe5cfb2b1ed}{form\+\_\+member\+\_\+list} (const double $\ast$Z, int $\ast$members, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a7ce395177f942409548e72fb48892518}{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+in} (const double $\ast$Z, const double $\ast$R, int $\ast$T, double cutoff, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a9cf9949333a27186dd2c2ffbb1bf37cf}{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+dist} (const double $\ast$Z, int $\ast$T, double cutoff, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a2bfc7eb5433147c074b8f38108b11173}{form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+dist} (const double $\ast$Z, int $\ast$T, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int mc)
+\item 
+void \hyperlink{hierarchy_8c_af6fe33fbbc5ab2de516370d36e53a952}{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+monotonic\+\_\+criterion} (const double $\ast$Z, const double $\ast$mono\+\_\+crit, int $\ast$T, double cutoff, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a1e09da4651e9fd75c5638030d202f0a9}{form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+monocrit} (const double $\ast$Z, const double $\ast$mono\+\_\+crit, int $\ast$T, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int mc)
+\item 
+void \hyperlink{hierarchy_8c_ad4dc7bf240c5ace99547314db1e63e7d}{get\+\_\+max\+\_\+dist\+\_\+for\+\_\+each\+\_\+cluster} (const double $\ast$Z, double $\ast$max\+\_\+dists, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+void \hyperlink{hierarchy_8c_a5ab45761122468d69fdf26e43712ccf7}{get\+\_\+max\+\_\+\+Rfield\+\_\+for\+\_\+each\+\_\+cluster} (const double $\ast$Z, const double $\ast$R, double $\ast$max\+\_\+rfs, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int rf)
+\item 
+int \hyperlink{hierarchy_8c_a65d54020390889fa6100852e811c737b}{leaders} (const double $\ast$Z, const int $\ast$T, int $\ast$L, int $\ast$M, int kk, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{hierarchy_8c_aacc7ae1df143a94910a036a2fac5f9c7}{}\index{hierarchy.\+c@{hierarchy.\+c}!C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+I\+N\+S@{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+I\+N\+S}}
+\index{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+I\+N\+S@{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+I\+N\+S}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+I\+N\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+I\+N\+S~3}\label{hierarchy_8c_aacc7ae1df143a94910a036a2fac5f9c7}
+\hypertarget{hierarchy_8c_a521b5bd082386cb8b577308d5570b996}{}\index{hierarchy.\+c@{hierarchy.\+c}!C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+M\+E\+A\+N@{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+M\+E\+A\+N}}
+\index{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+M\+E\+A\+N@{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+M\+E\+A\+N}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+M\+E\+A\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+M\+E\+A\+N~0}\label{hierarchy_8c_a521b5bd082386cb8b577308d5570b996}
+The column offsets for the different link stats for the inconsistency computation. \hypertarget{hierarchy_8c_a5ae4467db61f2135aec8246191cb3c98}{}\index{hierarchy.\+c@{hierarchy.\+c}!C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+N@{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+N}}
+\index{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+N@{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+N}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+N~2}\label{hierarchy_8c_a5ae4467db61f2135aec8246191cb3c98}
+\hypertarget{hierarchy_8c_a4cb50ebebdd4c9e1e40854bffaa6668f}{}\index{hierarchy.\+c@{hierarchy.\+c}!C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+S\+T\+D@{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+S\+T\+D}}
+\index{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+S\+T\+D@{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+S\+T\+D}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+S\+T\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+Y\+\_\+\+I\+N\+S\+\_\+\+S\+T\+D~1}\label{hierarchy_8c_a4cb50ebebdd4c9e1e40854bffaa6668f}
+\hypertarget{hierarchy_8c_a3a0745dac7f2db33de0ec81c133f8ed2}{}\index{hierarchy.\+c@{hierarchy.\+c}!C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+C\+N\+T@{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+C\+N\+T}}
+\index{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+C\+N\+T@{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+C\+N\+T}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+C\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+C\+N\+T~3}\label{hierarchy_8c_a3a0745dac7f2db33de0ec81c133f8ed2}
+\hypertarget{hierarchy_8c_a64023d0b01f70335bb7f4afef6bdaf09}{}\index{hierarchy.\+c@{hierarchy.\+c}!C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+D\+I\+S\+T@{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+D\+I\+S\+T}}
+\index{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+D\+I\+S\+T@{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+D\+I\+S\+T}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+D\+I\+S\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+D\+I\+S\+T~2}\label{hierarchy_8c_a64023d0b01f70335bb7f4afef6bdaf09}
+\hypertarget{hierarchy_8c_a88ea9d5ea2548ab8fa5a3324acbdc2e3}{}\index{hierarchy.\+c@{hierarchy.\+c}!C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+L\+E\+F\+T@{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+L\+E\+F\+T}}
+\index{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+L\+E\+F\+T@{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+L\+E\+F\+T}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+L\+E\+F\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+L\+E\+F\+T~0}\label{hierarchy_8c_a88ea9d5ea2548ab8fa5a3324acbdc2e3}
+The column offsets for the different link stats for the linkage matrix. \hypertarget{hierarchy_8c_ae5d6b59bac8bee75e5b45dc1062fe507}{}\index{hierarchy.\+c@{hierarchy.\+c}!C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+R\+I\+G\+H\+T@{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+R\+I\+G\+H\+T}}
+\index{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+R\+I\+G\+H\+T@{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+R\+I\+G\+H\+T}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+R\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+Y\+\_\+\+L\+I\+N\+\_\+\+R\+I\+G\+H\+T~1}\label{hierarchy_8c_ae5d6b59bac8bee75e5b45dc1062fe507}
+\hypertarget{hierarchy_8c_a29d3252a0879ce89a58eeba97208ce6a}{}\index{hierarchy.\+c@{hierarchy.\+c}!C\+P\+Y\+\_\+\+L\+I\+S@{C\+P\+Y\+\_\+\+L\+I\+S}}
+\index{C\+P\+Y\+\_\+\+L\+I\+S@{C\+P\+Y\+\_\+\+L\+I\+S}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{C\+P\+Y\+\_\+\+L\+I\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+Y\+\_\+\+L\+I\+S~4}\label{hierarchy_8c_a29d3252a0879ce89a58eeba97208ce6a}
+The number of linkage stats for each cluster. \hypertarget{hierarchy_8c_af6a6d4872bbd5468523f4ff213339b0d}{}\index{hierarchy.\+c@{hierarchy.\+c}!C\+P\+Y\+\_\+\+N\+I\+S@{C\+P\+Y\+\_\+\+N\+I\+S}}
+\index{C\+P\+Y\+\_\+\+N\+I\+S@{C\+P\+Y\+\_\+\+N\+I\+S}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{C\+P\+Y\+\_\+\+N\+I\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+P\+Y\+\_\+\+N\+I\+S~4}\label{hierarchy_8c_af6a6d4872bbd5468523f4ff213339b0d}
+The number of link stats (for the inconsistency computation) for each cluster. \hypertarget{hierarchy_8c_aa14760fbdabe8d01589861115ad1c4c9}{}\index{hierarchy.\+c@{hierarchy.\+c}!G\+E\+T\+C\+L\+U\+S\+T\+E\+R@{G\+E\+T\+C\+L\+U\+S\+T\+E\+R}}
+\index{G\+E\+T\+C\+L\+U\+S\+T\+E\+R@{G\+E\+T\+C\+L\+U\+S\+T\+E\+R}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{G\+E\+T\+C\+L\+U\+S\+T\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+E\+T\+C\+L\+U\+S\+T\+E\+R(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+id}
+\end{DoxyParamCaption}
+)~((lists + \+\_\+id -\/ {\bf n}))}\label{hierarchy_8c_aa14760fbdabe8d01589861115ad1c4c9}
+\hypertarget{hierarchy_8c_a9e1809154afef34b27c9244c4fdb5b43}{}\index{hierarchy.\+c@{hierarchy.\+c}!I\+S\+C\+L\+U\+S\+T\+E\+R@{I\+S\+C\+L\+U\+S\+T\+E\+R}}
+\index{I\+S\+C\+L\+U\+S\+T\+E\+R@{I\+S\+C\+L\+U\+S\+T\+E\+R}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{I\+S\+C\+L\+U\+S\+T\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+S\+C\+L\+U\+S\+T\+E\+R(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+nd}
+\end{DoxyParamCaption}
+)~((\+\_\+nd)-\/$>$id $>$= {\bf n})}\label{hierarchy_8c_a9e1809154afef34b27c9244c4fdb5b43}
+\hyperlink{hierarchy_8c}{hierarchy.\+c}
+
+Author\+: Damian Eads Date\+: September 22, 2007
+
+Copyright (c) 2007, 2008, Damian Eads. All rights reserved. Adapted for incorporation into Scipy, April 9, 2008.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+\begin{DoxyItemize}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the author nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyItemize}
+
+T\+H\+I\+S S\+O\+F\+T\+W\+A\+R\+E I\+S P\+R\+O\+V\+I\+D\+E\+D B\+Y T\+H\+E C\+O\+P\+Y\+R\+I\+G\+H\+T H\+O\+L\+D\+E\+R\+S A\+N\+D C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+R\+S \char`\"{}\+A\+S I\+S\char`\"{} A\+N\+D A\+N\+Y E\+X\+P\+R\+E\+S\+S O\+R I\+M\+P\+L\+I\+E\+D W\+A\+R\+R\+A\+N\+T\+I\+E\+S, I\+N\+C\+L\+U\+D\+I\+N\+G, B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O, T\+H\+E I\+M\+P\+L\+I\+E\+D W\+A\+R\+R\+A\+N\+T\+I\+E\+S O\+F M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+T\+Y A\+N\+D F\+I\+T\+N\+E\+S\+S F\+O\+R \hyperlink{classA}{A} P\+A\+R\+T\+I\+C\+U\+L\+A\+R P\+U\+R\+P\+O\+S\+E A\+R\+E D\+I\+S\+C\+L\+A\+I\+M\+E\+D. I\+N N\+O E\+V\+E\+N\+T S\+H\+A\+L\+L T\+H\+E C\+O\+P\+Y\+R\+I\+G\+H\+T O\+W\+N\+E\+R O\+R C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+R\+S B\+E L\+I\+A\+B\+L\+E F\+O\+R A\+N\+Y D\+I\+R\+E\+C\+T, I\+N\+D\+I\+R\+E\+C\+T, I\+N\+C\+I\+D\+E\+N\+T\+A\+L, S\+P\+E\+C\+I\+A\+L, E\+X\+E\+M\+P\+L\+A\+R\+Y, O\+R C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+A\+L D\+A\+M\+A\+G\+E\+S (I\+N\+C\+L\+U\+D\+I\+N\+G, B\+U\+T N\+O\+T L\+I\+M\+I\+T\+E\+D T\+O, P\+R\+O\+C\+U\+R\+E\+M\+E\+N\+T O\+F S\+U\+B\+S\+T\+I\+T\+U\+T\+E G\+O\+O\+D\+S O\+R S\+E\+R\+V\+I\+C\+E\+S; L\+O\+S\+S O\+F U\+S\+E, D\+A\+T\+A, O\+R P\+R\+O\+F\+I\+T\+S; O\+R B\+U\+S\+I\+N\+E\+S\+S I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+O\+N) H\+O\+W\+E\+V\+E\+R C\+A\+U\+S\+E\+D A\+N\+D O\+N A\+N\+Y T\+H\+E\+O\+R\+Y O\+F L\+I\+A\+B\+I\+L\+I\+T\+Y, W\+H\+E\+T\+H\+E\+R I\+N C\+O\+N\+T\+R\+A\+C\+T, S\+T\+R\+I\+C\+T L\+I\+A\+B\+I\+L\+I\+T\+Y, O\+R T\+O\+R\+T (I\+N\+C\+L\+U\+D\+I\+N\+G N\+E\+G\+L\+I\+G\+E\+N\+C\+E O\+R O\+T\+H\+E\+R\+W\+I\+S\+E) A\+R\+I\+S\+I\+N\+G I\+N A\+N\+Y W\+A\+Y O\+U\+T O\+F T\+H\+E U\+S\+E O\+F T\+H\+I\+S S\+O\+F\+T\+W\+A\+R\+E, E\+V\+E\+N I\+F A\+D\+V\+I\+S\+E\+D O\+F T\+H\+E P\+O\+S\+S\+I\+B\+I\+L\+I\+T\+Y O\+F S\+U\+C\+H D\+A\+M\+A\+G\+E. 
+
+\subsection{Function Documentation}
+\hypertarget{hierarchy_8c_a28f9cc444d23de2c46752276593493cb}{}\index{hierarchy.\+c@{hierarchy.\+c}!calculate\+\_\+cluster\+\_\+sizes@{calculate\+\_\+cluster\+\_\+sizes}}
+\index{calculate\+\_\+cluster\+\_\+sizes@{calculate\+\_\+cluster\+\_\+sizes}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{calculate\+\_\+cluster\+\_\+sizes}]{\setlength{\rightskip}{0pt plus 5cm}void calculate\+\_\+cluster\+\_\+sizes (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{double $\ast$}]{cs, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a28f9cc444d23de2c46752276593493cb}
+If the left node is a non-\/singleton, add its count.
+
+Otherwise just add 1 for the leaf.
+
+If the right node is a non-\/singleton, add its count.
+
+Otherwise just add 1 for the leaf. \hypertarget{hierarchy_8c_a62579863fbb3fc37089dafa3f606b816}{}\index{hierarchy.\+c@{hierarchy.\+c}!chopmin@{chopmin}}
+\index{chopmin@{chopmin}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{chopmin}]{\setlength{\rightskip}{0pt plus 5cm}void chopmin (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{ind, }
+\item[{int}]{minj, }
+\item[{int}]{np}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a62579863fbb3fc37089dafa3f606b816}
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\mbox{[}\+Remove mini=\%d minj=\%d\mbox{]}\textbackslash{}n\char`\"{}, mini, minj); \hypertarget{hierarchy_8c_a05163db2e97edea4d8494b855ce63d34}{}\index{hierarchy.\+c@{hierarchy.\+c}!chopmins@{chopmins}}
+\index{chopmins@{chopmins}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{chopmins}]{\setlength{\rightskip}{0pt plus 5cm}void chopmins (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{ind, }
+\item[{int}]{mini, }
+\item[{int}]{minj, }
+\item[{int}]{np}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a05163db2e97edea4d8494b855ce63d34}
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\mbox{[}\+Remove mini=\%d minj=\%d\mbox{]}\textbackslash{}n\char`\"{}, mini, minj); \hypertarget{hierarchy_8c_a06269a1e4f0f04086112b825993e1880}{}\index{hierarchy.\+c@{hierarchy.\+c}!chopmins\+\_\+ns\+\_\+i@{chopmins\+\_\+ns\+\_\+i}}
+\index{chopmins\+\_\+ns\+\_\+i@{chopmins\+\_\+ns\+\_\+i}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{chopmins\+\_\+ns\+\_\+i}]{\setlength{\rightskip}{0pt plus 5cm}void chopmins\+\_\+ns\+\_\+i (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{ind, }
+\item[{int}]{mini, }
+\item[{int}]{np}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a06269a1e4f0f04086112b825993e1880}
+\hypertarget{hierarchy_8c_aedb678b3186b83cb9260f40844ebcbd1}{}\index{hierarchy.\+c@{hierarchy.\+c}!chopmins\+\_\+ns\+\_\+ij@{chopmins\+\_\+ns\+\_\+ij}}
+\index{chopmins\+\_\+ns\+\_\+ij@{chopmins\+\_\+ns\+\_\+ij}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{chopmins\+\_\+ns\+\_\+ij}]{\setlength{\rightskip}{0pt plus 5cm}void chopmins\+\_\+ns\+\_\+ij (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{ind, }
+\item[{int}]{mini, }
+\item[{int}]{minj, }
+\item[{int}]{np}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_aedb678b3186b83cb9260f40844ebcbd1}
+\hypertarget{hierarchy_8c_a1b8028266fc27bb4e0cfecdaca67c6b0}{}\index{hierarchy.\+c@{hierarchy.\+c}!combine\+\_\+centroids@{combine\+\_\+centroids}}
+\index{combine\+\_\+centroids@{combine\+\_\+centroids}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{combine\+\_\+centroids}]{\setlength{\rightskip}{0pt plus 5cm}void combine\+\_\+centroids (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{centroid\+Result, }
+\item[{const double $\ast$}]{centroid\+A, }
+\item[{const double $\ast$}]{centroid\+B, }
+\item[{double}]{na, }
+\item[{double}]{nb, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a1b8028266fc27bb4e0cfecdaca67c6b0}
+\hypertarget{hierarchy_8c_a5119e65df9e0d568b0a3cec57d86f844}{}\index{hierarchy.\+c@{hierarchy.\+c}!cophenetic\+\_\+distances@{cophenetic\+\_\+distances}}
+\index{cophenetic\+\_\+distances@{cophenetic\+\_\+distances}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{cophenetic\+\_\+distances}]{\setlength{\rightskip}{0pt plus 5cm}void cophenetic\+\_\+distances (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{double $\ast$}]{d, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a5119e65df9e0d568b0a3cec57d86f844}
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\mbox{[}fp\mbox{]} ndid=\%d, ndid-\/n=\%d, k=\%d, lid=\%d, rid=\%d\textbackslash{}n\char`\"{}, ndid, ndid-\/n, k, lid, rid); \begin{DoxyVerb}If it's not a leaf node, and we've visited both children,
+\end{DoxyVerb}
+ record the final mean in the table.
+
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}i=\%d j=\%d k=\%d d=\%5.\+5f \textbackslash{}n\char`\"{}, i, j, k, dist); \hypertarget{hierarchy_8c_a8800a6f2a9ba7a0b5b3f3a20f63baac8}{}\index{hierarchy.\+c@{hierarchy.\+c}!cpy\+\_\+to\+\_\+tree@{cpy\+\_\+to\+\_\+tree}}
+\index{cpy\+\_\+to\+\_\+tree@{cpy\+\_\+to\+\_\+tree}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{cpy\+\_\+to\+\_\+tree}]{\setlength{\rightskip}{0pt plus 5cm}void cpy\+\_\+to\+\_\+tree (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{{\bf cnode} $\ast$$\ast$}]{tnodes, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a8800a6f2a9ba7a0b5b3f3a20f63baac8}
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}l\+: \%d r\+: \%d d\+: \%5.\+5f n\+: \%d\textbackslash{}n\char`\"{}, (int)row\mbox{[}0\mbox{]}, (int)row\mbox{[}1\mbox{]}, row\mbox{[}2\mbox{]}, (int)row\mbox{[}3\mbox{]}); \hypertarget{hierarchy_8c_a19f0d005af57af2873104f56eb72c2be}{}\index{hierarchy.\+c@{hierarchy.\+c}!dist\+\_\+average@{dist\+\_\+average}}
+\index{dist\+\_\+average@{dist\+\_\+average}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{dist\+\_\+average}]{\setlength{\rightskip}{0pt plus 5cm}void dist\+\_\+average (
+\begin{DoxyParamCaption}
+\item[{{\bf cinfo} $\ast$}]{info, }
+\item[{int}]{mini, }
+\item[{int}]{minj, }
+\item[{int}]{np, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a19f0d005af57af2873104f56eb72c2be}
+d(r,x) \hypertarget{hierarchy_8c_a4d429ed9ef4633dfb702d9b4d67a3d60}{}\index{hierarchy.\+c@{hierarchy.\+c}!dist\+\_\+centroid@{dist\+\_\+centroid}}
+\index{dist\+\_\+centroid@{dist\+\_\+centroid}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{dist\+\_\+centroid}]{\setlength{\rightskip}{0pt plus 5cm}void dist\+\_\+centroid (
+\begin{DoxyParamCaption}
+\item[{{\bf cinfo} $\ast$}]{info, }
+\item[{int}]{mini, }
+\item[{int}]{minj, }
+\item[{int}]{np, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a4d429ed9ef4633dfb702d9b4d67a3d60}
+d(r,x)
+
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\%5.\+5f \char`\"{}, $\ast$bit);
+
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\textbackslash{}n\char`\"{}); \hypertarget{hierarchy_8c_a3ad057ddb5eb0d0cd60bd56d50da64bc}{}\index{hierarchy.\+c@{hierarchy.\+c}!dist\+\_\+complete@{dist\+\_\+complete}}
+\index{dist\+\_\+complete@{dist\+\_\+complete}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{dist\+\_\+complete}]{\setlength{\rightskip}{0pt plus 5cm}void dist\+\_\+complete (
+\begin{DoxyParamCaption}
+\item[{{\bf cinfo} $\ast$}]{info, }
+\item[{int}]{mini, }
+\item[{int}]{minj, }
+\item[{int}]{np, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a3ad057ddb5eb0d0cd60bd56d50da64bc}
+\hypertarget{hierarchy_8c_a199517db51926858a8a16af527c49661}{}\index{hierarchy.\+c@{hierarchy.\+c}!dist\+\_\+single@{dist\+\_\+single}}
+\index{dist\+\_\+single@{dist\+\_\+single}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{dist\+\_\+single}]{\setlength{\rightskip}{0pt plus 5cm}void dist\+\_\+single (
+\begin{DoxyParamCaption}
+\item[{{\bf cinfo} $\ast$}]{info, }
+\item[{int}]{mini, }
+\item[{int}]{minj, }
+\item[{int}]{np, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a199517db51926858a8a16af527c49661}
+\hypertarget{hierarchy_8c_abe71c1a0f7c19210e6e9972b226b8cce}{}\index{hierarchy.\+c@{hierarchy.\+c}!dist\+\_\+ward@{dist\+\_\+ward}}
+\index{dist\+\_\+ward@{dist\+\_\+ward}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{dist\+\_\+ward}]{\setlength{\rightskip}{0pt plus 5cm}void dist\+\_\+ward (
+\begin{DoxyParamCaption}
+\item[{{\bf cinfo} $\ast$}]{info, }
+\item[{int}]{mini, }
+\item[{int}]{minj, }
+\item[{int}]{np, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_abe71c1a0f7c19210e6e9972b226b8cce}
+d(r,x)
+
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\textbackslash{}n\char`\"{}); \hypertarget{hierarchy_8c_aaf5dc44c38f12d23612dcfacd8f31e43}{}\index{hierarchy.\+c@{hierarchy.\+c}!dist\+\_\+weighted@{dist\+\_\+weighted}}
+\index{dist\+\_\+weighted@{dist\+\_\+weighted}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{dist\+\_\+weighted}]{\setlength{\rightskip}{0pt plus 5cm}void dist\+\_\+weighted (
+\begin{DoxyParamCaption}
+\item[{{\bf cinfo} $\ast$}]{info, }
+\item[{int}]{mini, }
+\item[{int}]{minj, }
+\item[{int}]{np, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_aaf5dc44c38f12d23612dcfacd8f31e43}
+d(r,x)
+
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\textbackslash{}n\char`\"{}); \hypertarget{hierarchy_8c_a9cf9949333a27186dd2c2ffbb1bf37cf}{}\index{hierarchy.\+c@{hierarchy.\+c}!form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+dist@{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+dist}}
+\index{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+dist@{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+dist}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+dist}]{\setlength{\rightskip}{0pt plus 5cm}void form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{int $\ast$}]{T, }
+\item[{double}]{cutoff, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a9cf9949333a27186dd2c2ffbb1bf37cf}
+\hypertarget{hierarchy_8c_a7ce395177f942409548e72fb48892518}{}\index{hierarchy.\+c@{hierarchy.\+c}!form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+in@{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+in}}
+\index{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+in@{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+in}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+in}]{\setlength{\rightskip}{0pt plus 5cm}void form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+in (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{const double $\ast$}]{R, }
+\item[{int $\ast$}]{T, }
+\item[{double}]{cutoff, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a7ce395177f942409548e72fb48892518}
+\hypertarget{hierarchy_8c_af6fe33fbbc5ab2de516370d36e53a952}{}\index{hierarchy.\+c@{hierarchy.\+c}!form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+monotonic\+\_\+criterion@{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+monotonic\+\_\+criterion}}
+\index{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+monotonic\+\_\+criterion@{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+monotonic\+\_\+criterion}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+monotonic\+\_\+criterion}]{\setlength{\rightskip}{0pt plus 5cm}void form\+\_\+flat\+\_\+clusters\+\_\+from\+\_\+monotonic\+\_\+criterion (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{const double $\ast$}]{mono\+\_\+crit, }
+\item[{int $\ast$}]{T, }
+\item[{double}]{cutoff, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_af6fe33fbbc5ab2de516370d36e53a952}
+form flat clusters by thresholding a monotonic criterion. number of clusters formed so far.
+
+are we in part of a tree below the cutoff? . \hypertarget{hierarchy_8c_a2bfc7eb5433147c074b8f38108b11173}{}\index{hierarchy.\+c@{hierarchy.\+c}!form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+dist@{form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+dist}}
+\index{form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+dist@{form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+dist}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+dist}]{\setlength{\rightskip}{0pt plus 5cm}void form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{int $\ast$}]{T, }
+\item[{int}]{n, }
+\item[{int}]{mc}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a2bfc7eb5433147c074b8f38108b11173}
+\hypertarget{hierarchy_8c_a1e09da4651e9fd75c5638030d202f0a9}{}\index{hierarchy.\+c@{hierarchy.\+c}!form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+monocrit@{form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+monocrit}}
+\index{form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+monocrit@{form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+monocrit}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+monocrit}]{\setlength{\rightskip}{0pt plus 5cm}void form\+\_\+flat\+\_\+clusters\+\_\+maxclust\+\_\+monocrit (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{const double $\ast$}]{mono\+\_\+crit, }
+\item[{int $\ast$}]{T, }
+\item[{int}]{n, }
+\item[{int}]{mc}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a1e09da4651e9fd75c5638030d202f0a9}
+The maximum unsuccessful distance is initially -\/1.\+0 (hack).
+
+number of clusters formed so far. \begin{DoxyVerb}1. If the threshold is <= the minimum threshold we've tried
+unsuccessfully, skip the threshold. (or)
+
+2. If the threshold is > the minimum legal threshold, it is
+\end{DoxyVerb}
+ less optimal so skip it.
+
+commented out \+: \&\& thresh $<$= max\+\_\+illegal
+
+See if the threshold M\+D\mbox{[}g\mbox{]} works.
+
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}cutoff\+: \%5.\+5f maxi\+: \%5.\+5f nc\+: \%d\textbackslash{}n\char`\"{}, cutoff, max\+\_\+mono\+\_\+crit, nc); \begin{DoxyVerb}If the current nodes maxmono_crit is <= the threshold, stop exploring
+\end{DoxyVerb}
+ deeper in the tree. The node and its descendent leaves will be their own cluster. \begin{DoxyVerb}Otherwise, the node is above the threshold, so we need to explore
+\end{DoxyVerb}
+ it's children. \begin{DoxyVerb}If the threshold is less than the current minimum legal threshold
+\end{DoxyVerb}
+ but has a legal number of clusters, set the new legal minimum. \hypertarget{hierarchy_8c_a3695132c432fd1801917ebe5cfb2b1ed}{}\index{hierarchy.\+c@{hierarchy.\+c}!form\+\_\+member\+\_\+list@{form\+\_\+member\+\_\+list}}
+\index{form\+\_\+member\+\_\+list@{form\+\_\+member\+\_\+list}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{form\+\_\+member\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}void form\+\_\+member\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{int $\ast$}]{members, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a3695132c432fd1801917ebe5cfb2b1ed}
+Returns an array of original observation indices (pre-\/order traversal). C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\mbox{[}fp\mbox{]} ndid=\%d, ndid-\/n=\%d, k=\%d, lid=\%d, rid=\%d\textbackslash{}n\char`\"{}, ndid, ndid-\/n, k, lid, rid); \hypertarget{hierarchy_8c_ad4dc7bf240c5ace99547314db1e63e7d}{}\index{hierarchy.\+c@{hierarchy.\+c}!get\+\_\+max\+\_\+dist\+\_\+for\+\_\+each\+\_\+cluster@{get\+\_\+max\+\_\+dist\+\_\+for\+\_\+each\+\_\+cluster}}
+\index{get\+\_\+max\+\_\+dist\+\_\+for\+\_\+each\+\_\+cluster@{get\+\_\+max\+\_\+dist\+\_\+for\+\_\+each\+\_\+cluster}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{get\+\_\+max\+\_\+dist\+\_\+for\+\_\+each\+\_\+cluster}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+max\+\_\+dist\+\_\+for\+\_\+each\+\_\+cluster (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{double $\ast$}]{max\+\_\+dists, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_ad4dc7bf240c5ace99547314db1e63e7d}
+\hypertarget{hierarchy_8c_a5ab45761122468d69fdf26e43712ccf7}{}\index{hierarchy.\+c@{hierarchy.\+c}!get\+\_\+max\+\_\+\+Rfield\+\_\+for\+\_\+each\+\_\+cluster@{get\+\_\+max\+\_\+\+Rfield\+\_\+for\+\_\+each\+\_\+cluster}}
+\index{get\+\_\+max\+\_\+\+Rfield\+\_\+for\+\_\+each\+\_\+cluster@{get\+\_\+max\+\_\+\+Rfield\+\_\+for\+\_\+each\+\_\+cluster}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{get\+\_\+max\+\_\+\+Rfield\+\_\+for\+\_\+each\+\_\+cluster}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+max\+\_\+\+Rfield\+\_\+for\+\_\+each\+\_\+cluster (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{const double $\ast$}]{R, }
+\item[{double $\ast$}]{max\+\_\+rfs, }
+\item[{int}]{n, }
+\item[{int}]{rf}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a5ab45761122468d69fdf26e43712ccf7}
+Returns the maximum Rrow\mbox{[}rf\mbox{]} field for each cluster node where 0 $<$= rf $<$ 3. \hypertarget{hierarchy_8c_ac2827931b80461644fe711afb4876e19}{}\index{hierarchy.\+c@{hierarchy.\+c}!inconsistency\+\_\+calculation\+\_\+alt@{inconsistency\+\_\+calculation\+\_\+alt}}
+\index{inconsistency\+\_\+calculation\+\_\+alt@{inconsistency\+\_\+calculation\+\_\+alt}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{inconsistency\+\_\+calculation\+\_\+alt}]{\setlength{\rightskip}{0pt plus 5cm}void inconsistency\+\_\+calculation\+\_\+alt (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{double $\ast$}]{R, }
+\item[{int}]{n, }
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_ac2827931b80461644fe711afb4876e19}
+for each node in the original linkage matrix.
+
+the current depth j
+
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\mbox{[}fp\mbox{]} ndid=\%d, ndid-\/n=\%d, k=\%d, lid=\%d, rid=\%d\textbackslash{}n\char`\"{}, ndid, ndid, k, lid, rid);
+
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}  Using range \%d to \%d, level\+Cnt\mbox{[}k\mbox{]}=\%d\textbackslash{}n\char`\"{}, lb, ub, level\+Cnt\mbox{[}k\mbox{]}); \begin{DoxyVerb}Let the count and sum slots be used for the next newly visited
+\end{DoxyVerb}
+ node. \hypertarget{hierarchy_8c_a65d54020390889fa6100852e811c737b}{}\index{hierarchy.\+c@{hierarchy.\+c}!leaders@{leaders}}
+\index{leaders@{leaders}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{leaders}]{\setlength{\rightskip}{0pt plus 5cm}int leaders (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{Z, }
+\item[{const int $\ast$}]{T, }
+\item[{int $\ast$}]{L, }
+\item[{int $\ast$}]{M, }
+\item[{int}]{kk, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a65d54020390889fa6100852e811c737b}
+find the leaders. report an error if found. done vector, flat cluster ids
+
+number of clusters formed so far.
+
+If the left and right have the same id, neither can be a leader, and their parent takes on their flat cluster id.
+
+Otherwise, they are both leaders.
+
+If there isn't more room in the result vectors, something is wrong. Condition (2) in help(hcluster.\+leader) is violated. \begin{DoxyVerb}Want to make sure this guy doesn't become a leader since
+\end{DoxyVerb}
+ it's children are both leaders.
+
+For the root node, if its too children have the same flat cluster id, neither is negative, the root becomes the leader. \begin{DoxyVerb}I know, I know, this looks bad! First time in a good 10 years that I've used one of
+\end{DoxyVerb}
+ these. Don't want to copy the free statements. I don't think this detracts from the code's readability. \hypertarget{hierarchy_8c_a336c5fd6453a8583e10ca068a769ebd5}{}\index{hierarchy.\+c@{hierarchy.\+c}!linkage@{linkage}}
+\index{linkage@{linkage}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{linkage}]{\setlength{\rightskip}{0pt plus 5cm}int linkage (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{dm, }
+\item[{double $\ast$}]{Z, }
+\item[{double $\ast$}]{X, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{ml, }
+\item[{int}]{kc, }
+\item[{{\bf distfunc}}]{dfunc, }
+\item[{int}]{method}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a336c5fd6453a8583e10ca068a769ebd5}
+notes to self\+: dm\+: The distance matrix. Z\+: The result of the linkage, a (n-\/1) x 3 matrix. X\+: The original observations as row vectors (=N\+U\+L\+L if not needed). n\+: The number of objects. ml\+: \hyperlink{classA}{A} boolean indicating whether a list of objects in the forest clusters should be maintained. kc\+: Keep track of the centroids.
+
+Return values\+: 0\+: success -\/1\+: out of memory--malloc() failed. An iterator through the distance matrix.
+
+Temporary array to store modified distance matrix.
+
+The next two are only necessary for euclidean distance methods.
+
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}k=\%d, nid=\%d, n=\%d np=\%d\textbackslash{}n\char`\"{}, k, nid, n, np);
+
+Note that mini $<$ minj since j $>$ i is always true.
+
+f\+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(stderr, \char`\"{}\mbox{[}lid=\%d, rid=\%d, llid=\%d, rrid=\%d m=\%5.\+8f\mbox{]}\char`\"{}, node-\/$>$left-\/$>$id, node-\/$>$right-\/$>$id, ind\mbox{[}mini\mbox{]}, ind\mbox{[}minj\mbox{]}, min); \begin{DoxyVerb}     CPY_DEBUG_MSG("L: ");
+\end{DoxyVerb}
+ print\+\_\+vec(centroid\+L, m); C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\textbackslash{}n\+R\+: \char`\"{}); print\+\_\+vec(centroid\+R, m); C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\textbackslash{}n\+T\+: \char`\"{}); print\+\_\+vec(centroid, m);
+
+print\+\_\+dm(rows, np);
+
+dfunc(buf, rows, mini, minj, np, dm, n, ind, nodes);
+
+For these rows, we must remove, i and j but leave all unused space at the end. This reduces their size by two.
+
+We skip the i'th row. For rows i+1 up to j-\/1, we just remove j. \begin{DoxyVerb}For rows 0 to mini - 1, we move them down the matrix, leaving the
+\end{DoxyVerb}
+ first row free. \begin{DoxyVerb} for (i = mini; i > 0; i--) {
+\end{DoxyVerb}
+ memcpy(rows\mbox{[}i\mbox{]}, rows\mbox{[}i-\/1\mbox{]}, sizeof(double) $\ast$ rowsize\mbox{[}i\mbox{]}-\/k); \} \begin{DoxyVerb}For rows mini+1 to minj-1, we do nothing since they are in the
+\end{DoxyVerb}
+ right place for the next iteration. For rows minj+1 onward, we move them to the right.
+
+Rows i+1 to j-\/1 lose one unit of space, so we move them up.
+
+Rows j to np-\/1 lose no space. We do nothing to them.
+
+memcpy(rows\mbox{[}0\mbox{]}, buf, sizeof(double) $\ast$ rowsize\mbox{[}0\mbox{]} -\/ k); \begin{DoxyVerb}print_dm(rows, np - 1);
+\end{DoxyVerb}
+ print\+\_\+ind(ind, np);
+
+print\+\_\+ind(ind, np -\/ 1); \hypertarget{hierarchy_8c_a9feb544b24837f4fc508565cf90096ff}{}\index{hierarchy.\+c@{hierarchy.\+c}!linkage\+\_\+alt@{linkage\+\_\+alt}}
+\index{linkage\+\_\+alt@{linkage\+\_\+alt}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{linkage\+\_\+alt}]{\setlength{\rightskip}{0pt plus 5cm}void linkage\+\_\+alt (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{dm, }
+\item[{double $\ast$}]{Z, }
+\item[{double $\ast$}]{X, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{ml, }
+\item[{int}]{kc, }
+\item[{{\bf distfunc}}]{dfunc, }
+\item[{int}]{method}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a9feb544b24837f4fc508565cf90096ff}
+Trying to reimplement so that output is consistent with M\+A\+T\+L\+A\+B's in cases where there are is than one correct choice to make at each iteration of the algorithm. This implementation is not active.
+
+X\+X\+X linkage\+\_\+alt is not used. If it ever does get used, it needs to be updated to check the results of any calls to malloc(). An iterator through the distance matrix.
+
+Temporary array to store modified distance matrix.
+
+The next two are only necessary for euclidean distance methods.
+
+C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}k=\%d, nid=\%d, n=\%d np=\%d\textbackslash{}n\char`\"{}, k, nid, n, np);
+
+Note that mini $<$ minj since j $>$ i is always true.
+
+B\+E\+G\+I\+N N\+E\+W C\+O\+D\+E
+
+fprintf(stderr, \char`\"{}\mbox{[}lid=\%d, rid=\%d, llid=\%d, rrid=\%d m=\%5.\+8f\mbox{]}\char`\"{}, node-\/$>$left-\/$>$id, node-\/$>$right-\/$>$id, ind\mbox{[}mini\mbox{]}, ind\mbox{[}minj\mbox{]}, min); \begin{DoxyVerb}     CPY_DEBUG_MSG("L: ");
+\end{DoxyVerb}
+ print\+\_\+vec(centroid\+L, m); C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\textbackslash{}n\+R\+: \char`\"{}); print\+\_\+vec(centroid\+R, m); C\+P\+Y\+\_\+\+D\+E\+B\+U\+G\+\_\+\+M\+S\+G(\char`\"{}\textbackslash{}n\+T\+: \char`\"{}); print\+\_\+vec(centroid, m);
+
+print\+\_\+dm(rows, np);
+
+dfunc(buf, rows, mini, minj, np, dm, n, ind, nodes);
+
+For these rows, we must remove, i and j but leave all unused space at the end. This reduces their size by two.
+
+We skip the i'th row. For rows i+1 up to j-\/1, we just remove j.
+
+for (i = mini + 1; i $<$ minj; i++) \{ chopmins\+\_\+ns\+\_\+i(rows\mbox{[}i\mbox{]}, minj -\/ i -\/ 1, rowsize\mbox{[}i\mbox{]}); \} \begin{DoxyVerb}For rows 0 to mini - 1, we move them down the matrix, leaving the
+\end{DoxyVerb}
+ first row free.
+
+for (i = mini; i $>$ 0; i--) \{ memcpy(rows\mbox{[}i\mbox{]}, rows\mbox{[}i-\/1\mbox{]}, sizeof(double) $\ast$ rowsize\mbox{[}i\mbox{]}-\/k); \}
+
+for (i = mini; i $<$ minj -\/ 1; i++) \{ memcpy(rows\mbox{[}i\mbox{]}, rows\mbox{[}i+1\mbox{]}, sizeof(double) $\ast$ (rowsize\mbox{[}i+1\mbox{]})); \}
+
+For rows mini+1 to minj-\/1, we do nothing since they are in the right place for the next iteration. For rows minj+1 onward, we move them to the right.
+
+Rows i+1 to j-\/1 lose one unit of space, so we move them up.
+
+Rows j to np-\/1 lose no space. We do nothing to them.
+
+memcpy(rows\mbox{[}0\mbox{]}, buf, sizeof(double) $\ast$ rowsize\mbox{[}0\mbox{]} -\/ k); \begin{DoxyVerb}print_dm(rows, np - 1);
+\end{DoxyVerb}
+ print\+\_\+ind(ind, np);
+
+print\+\_\+ind(ind, np -\/ 1); \hypertarget{hierarchy_8c_a7f2d477a623670b62ade4d535d1434ad}{}\index{hierarchy.\+c@{hierarchy.\+c}!print\+\_\+dm@{print\+\_\+dm}}
+\index{print\+\_\+dm@{print\+\_\+dm}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{print\+\_\+dm}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+dm (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$$\ast$}]{rows, }
+\item[{int}]{np}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a7f2d477a623670b62ade4d535d1434ad}
+\hypertarget{hierarchy_8c_afcba5994aa18d3fad49521c079d90902}{}\index{hierarchy.\+c@{hierarchy.\+c}!print\+\_\+ind@{print\+\_\+ind}}
+\index{print\+\_\+ind@{print\+\_\+ind}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{print\+\_\+ind}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+ind (
+\begin{DoxyParamCaption}
+\item[{const int $\ast$}]{inds, }
+\item[{int}]{np}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_afcba5994aa18d3fad49521c079d90902}
+\hypertarget{hierarchy_8c_a2a8e4fa739c1b676a48683d762f54814}{}\index{hierarchy.\+c@{hierarchy.\+c}!print\+\_\+vec@{print\+\_\+vec}}
+\index{print\+\_\+vec@{print\+\_\+vec}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{print\+\_\+vec}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+vec (
+\begin{DoxyParamCaption}
+\item[{const double $\ast$}]{d, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a2a8e4fa739c1b676a48683d762f54814}
+\hypertarget{hierarchy_8c_a4ec731c8d597e6e019c94b6274723a0c}{}\index{hierarchy.\+c@{hierarchy.\+c}!set\+\_\+dist\+\_\+entry@{set\+\_\+dist\+\_\+entry}}
+\index{set\+\_\+dist\+\_\+entry@{set\+\_\+dist\+\_\+entry}!hierarchy.\+c@{hierarchy.\+c}}
+\subsubsection[{set\+\_\+dist\+\_\+entry}]{\setlength{\rightskip}{0pt plus 5cm}N\+P\+Y\+\_\+\+I\+N\+L\+I\+N\+E void set\+\_\+dist\+\_\+entry (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{d, }
+\item[{double}]{val, }
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{hierarchy_8c_a4ec731c8d597e6e019c94b6274723a0c}

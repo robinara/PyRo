@@ -1,0 +1,941 @@
+\hypertarget{namespacescipy_1_1interpolate_1_1fitpack}{}\section{scipy.\+interpolate.\+fitpack Namespace Reference}
+\label{namespacescipy_1_1interpolate_1_1fitpack}\index{scipy.\+interpolate.\+fitpack@{scipy.\+interpolate.\+fitpack}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a6a052f827f80341f9aadade357c49c21}{splprep}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a2423e02d061f11d96122b40b2919d3b8}{splrep}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a4fd61bcdfd051a9c4407403db623f5ef}{splev}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_aee75c5d8f63bdadde1e775092428bf73}{splint}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_ad4d36dd0002fb4920b5a0f51a8d1e2ad}{sproot}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a0600e77e68e37d78ad73ef571b1e1733}{spalde}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a4c3a3eba5a81c9cb39c5e716372024bf}{bisplrep}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_acaf6a631cf8ff9bd445bd79a7cd2a364}{bisplev}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a68a8aaf2184c6401ff114d739ee5dd08}{dblint}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_adc5d6b383e2e2e68e88cc7a15f26e82c}{insert}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_ab5d4a49b29435a9e5c6582c8f9089280}{splder}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a5fc0ade95741252ab64cfa1de66ad64f}{splantider}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a65eee9893ce579b310317b8f067ced11}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+\hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a4ad199da16b4d798a68f31962ef1ea64}{myasarray} = atleast\+\_\+1d
+\item 
+dictionary \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_ab6715f34ca1201bfec232435cb6095d6}{\+\_\+iermess}
+\item 
+dictionary \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a234ed1709b55f5bbbb71855eb4f4f140}{\+\_\+iermess2}
+\item 
+dictionary \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a3793e6fff4a587159825ea08f6687c8f}{\+\_\+parcur\+\_\+cache}
+\item 
+dictionary \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_a069ddb97291502837e31c6360a10a8e8}{\+\_\+curfit\+\_\+cache}
+\item 
+dictionary \hyperlink{namespacescipy_1_1interpolate_1_1fitpack_addb72cc2d4e6140eb233f29c2d19fc7c}{\+\_\+surfit\+\_\+cache}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1fitpack_acaf6a631cf8ff9bd445bd79a7cd2a364}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!bisplev@{bisplev}}
+\index{bisplev@{bisplev}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{bisplev}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+bisplev (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{tck, }
+\item[{}]{dx = {\ttfamily 0}, }
+\item[{}]{dy = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_acaf6a631cf8ff9bd445bd79a7cd2a364}
+\begin{DoxyVerb}Evaluate a bivariate B-spline and its derivatives.
+
+Return a rank-2 array of spline function values (or spline derivative
+values) at points given by the cross-product of the rank-1 arrays `x` and
+`y`.  In special cases, return an array or just a float if either `x` or
+`y` or both are floats.  Based on BISPEV from FITPACK.
+
+Parameters
+----------
+x, y : ndarray
+    Rank-1 arrays specifying the domain over which to evaluate the
+    spline or its derivative.
+tck : tuple
+    A sequence of length 5 returned by `bisplrep` containing the knot
+    locations, the coefficients, and the degree of the spline:
+    [tx, ty, c, kx, ky].
+dx, dy : int, optional
+    The orders of the partial derivatives in `x` and `y` respectively.
+
+Returns
+-------
+vals : ndarray
+    The B-spline or its derivative evaluated over the set formed by
+    the cross-product of `x` and `y`.
+
+See Also
+--------
+splprep, splrep, splint, sproot, splev
+UnivariateSpline, BivariateSpline
+
+Notes
+-----
+    See `bisplrep` to generate the `tck` representation.
+
+References
+----------
+.. [1] Dierckx P. : An algorithm for surface fitting
+   with spline functions
+   Ima J. Numer. Anal. 1 (1981) 267-283.
+.. [2] Dierckx P. : An algorithm for surface fitting
+   with spline functions
+   report tw50, Dept. Computer Science,K.U.Leuven, 1980.
+.. [3] Dierckx P. : Curve and surface fitting with splines,
+   Monographs on Numerical Analysis, Oxford University Press, 1993.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a4c3a3eba5a81c9cb39c5e716372024bf}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!bisplrep@{bisplrep}}
+\index{bisplrep@{bisplrep}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{bisplrep}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+bisplrep (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z, }
+\item[{}]{w = {\ttfamily None}, }
+\item[{}]{xb = {\ttfamily None}, }
+\item[{}]{xe = {\ttfamily None}, }
+\item[{}]{yb = {\ttfamily None}, }
+\item[{}]{ye = {\ttfamily None}, }
+\item[{}]{kx = {\ttfamily 3}, }
+\item[{}]{ky = {\ttfamily 3}, }
+\item[{}]{task = {\ttfamily 0}, }
+\item[{}]{s = {\ttfamily None}, }
+\item[{}]{eps = {\ttfamily 1e-\/16}, }
+\item[{}]{tx = {\ttfamily None}, }
+\item[{}]{ty = {\ttfamily None}, }
+\item[{}]{full\+\_\+output = {\ttfamily 0}, }
+\item[{}]{nxest = {\ttfamily None}, }
+\item[{}]{nyest = {\ttfamily None}, }
+\item[{}]{quiet = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_a4c3a3eba5a81c9cb39c5e716372024bf}
+\begin{DoxyVerb}Find a bivariate B-spline representation of a surface.
+
+Given a set of data points (x[i], y[i], z[i]) representing a surface
+z=f(x,y), compute a B-spline representation of the surface. Based on
+the routine SURFIT from FITPACK.
+
+Parameters
+----------
+x, y, z : ndarray
+    Rank-1 arrays of data points.
+w : ndarray, optional
+    Rank-1 array of weights. By default ``w=np.ones(len(x))``.
+xb, xe : float, optional
+    End points of approximation interval in `x`.
+    By default ``xb = x.min(), xe=x.max()``.
+yb, ye : float, optional
+    End points of approximation interval in `y`.
+    By default ``yb=y.min(), ye = y.max()``.
+kx, ky : int, optional
+    The degrees of the spline (1 <= kx, ky <= 5).
+    Third order (kx=ky=3) is recommended.
+task : int, optional
+    If task=0, find knots in x and y and coefficients for a given
+    smoothing factor, s.
+    If task=1, find knots and coefficients for another value of the
+    smoothing factor, s.  bisplrep must have been previously called
+    with task=0 or task=1.
+    If task=-1, find coefficients for a given set of knots tx, ty.
+s : float, optional
+    A non-negative smoothing factor.  If weights correspond
+    to the inverse of the standard-deviation of the errors in z,
+    then a good s-value should be found in the range
+    ``(m-sqrt(2*m),m+sqrt(2*m))`` where m=len(x).
+eps : float, optional
+    A threshold for determining the effective rank of an
+    over-determined linear system of equations (0 < eps < 1).
+    `eps` is not likely to need changing.
+tx, ty : ndarray, optional
+    Rank-1 arrays of the knots of the spline for task=-1
+full_output : int, optional
+    Non-zero to return optional outputs.
+nxest, nyest : int, optional
+    Over-estimates of the total number of knots. If None then
+    ``nxest = max(kx+sqrt(m/2),2*kx+3)``,
+    ``nyest = max(ky+sqrt(m/2),2*ky+3)``.
+quiet : int, optional
+    Non-zero to suppress printing of messages.
+
+Returns
+-------
+tck : array_like
+    A list [tx, ty, c, kx, ky] containing the knots (tx, ty) and
+    coefficients (c) of the bivariate B-spline representation of the
+    surface along with the degree of the spline.
+fp : ndarray
+    The weighted sum of squared residuals of the spline approximation.
+ier : int
+    An integer flag about splrep success.  Success is indicated if
+    ier<=0. If ier in [1,2,3] an error occurred but was not raised.
+    Otherwise an error is raised.
+msg : str
+    A message corresponding to the integer flag, ier.
+
+See Also
+--------
+splprep, splrep, splint, sproot, splev
+UnivariateSpline, BivariateSpline
+
+Notes
+-----
+See `bisplev` to evaluate the value of the B-spline given its tck
+representation.
+
+References
+----------
+.. [1] Dierckx P.:An algorithm for surface fitting with spline functions
+   Ima J. Numer. Anal. 1 (1981) 267-283.
+.. [2] Dierckx P.:An algorithm for surface fitting with spline functions
+   report tw50, Dept. Computer Science,K.U.Leuven, 1980.
+.. [3] Dierckx P.:Curve and surface fitting with splines, Monographs on
+   Numerical Analysis, Oxford University Press, 1993.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a68a8aaf2184c6401ff114d739ee5dd08}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!dblint@{dblint}}
+\index{dblint@{dblint}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{dblint}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+dblint (
+\begin{DoxyParamCaption}
+\item[{}]{xa, }
+\item[{}]{xb, }
+\item[{}]{ya, }
+\item[{}]{yb, }
+\item[{}]{tck}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_a68a8aaf2184c6401ff114d739ee5dd08}
+\begin{DoxyVerb}Evaluate the integral of a spline over area [xa,xb] x [ya,yb].
+
+Parameters
+----------
+xa, xb : float
+    The end-points of the x integration interval.
+ya, yb : float
+    The end-points of the y integration interval.
+tck : list [tx, ty, c, kx, ky]
+    A sequence of length 5 returned by bisplrep containing the knot
+    locations tx, ty, the coefficients c, and the degrees kx, ky
+    of the spline.
+
+Returns
+-------
+integ : float
+    The value of the resulting integral.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_adc5d6b383e2e2e68e88cc7a15f26e82c}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!insert@{insert}}
+\index{insert@{insert}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+insert (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{tck, }
+\item[{}]{m = {\ttfamily 1}, }
+\item[{}]{per = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_adc5d6b383e2e2e68e88cc7a15f26e82c}
+\begin{DoxyVerb}Insert knots into a B-spline.
+
+Given the knots and coefficients of a B-spline representation, create a
+new B-spline with a knot inserted `m` times at point `x`.
+This is a wrapper around the FORTRAN routine insert of FITPACK.
+
+Parameters
+----------
+x (u) : array_like
+    A 1-D point at which to insert a new knot(s).  If `tck` was returned
+    from ``splprep``, then the parameter values, u should be given.
+tck : tuple
+    A tuple (t,c,k) returned by ``splrep`` or ``splprep`` containing
+    the vector of knots, the B-spline coefficients,
+    and the degree of the spline.
+m : int, optional
+    The number of times to insert the given knot (its multiplicity).
+    Default is 1.
+per : int, optional
+    If non-zero, the input spline is considered periodic.
+
+Returns
+-------
+tck : tuple
+    A tuple (t,c,k) containing the vector of knots, the B-spline
+    coefficients, and the degree of the new spline.
+    ``t(k+1) <= x <= t(n-k)``, where k is the degree of the spline.
+    In case of a periodic spline (``per != 0``) there must be
+    either at least k interior knots t(j) satisfying ``t(k+1)<t(j)<=x``
+    or at least k interior knots t(j) satisfying ``x<=t(j)<t(n-k)``.
+
+Notes
+-----
+Based on algorithms from [1]_ and [2]_.
+
+References
+----------
+.. [1] W. Boehm, "Inserting new knots into b-spline curves.",
+    Computer Aided Design, 12, p.199-201, 1980.
+.. [2] P. Dierckx, "Curve and surface fitting with splines, Monographs on
+    Numerical Analysis", Oxford University Press, 1993.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a0600e77e68e37d78ad73ef571b1e1733}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!spalde@{spalde}}
+\index{spalde@{spalde}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{spalde}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+spalde (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{tck}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_a0600e77e68e37d78ad73ef571b1e1733}
+\begin{DoxyVerb}Evaluate all derivatives of a B-spline.
+
+Given the knots and coefficients of a cubic B-spline compute all
+derivatives up to order k at a point (or set of points).
+
+Parameters
+----------
+x : array_like
+    A point or a set of points at which to evaluate the derivatives.
+    Note that ``t(k) <= x <= t(n-k+1)`` must hold for each `x`.
+tck : tuple
+    A tuple (t,c,k) containing the vector of knots,
+    the B-spline coefficients, and the degree of the spline.
+
+Returns
+-------
+results : {ndarray, list of ndarrays}
+    An array (or a list of arrays) containing all derivatives
+    up to order k inclusive for each point `x`.
+
+See Also
+--------
+splprep, splrep, splint, sproot, splev, bisplrep, bisplev,
+UnivariateSpline, BivariateSpline
+
+References
+----------
+.. [1] de Boor C : On calculating with b-splines, J. Approximation Theory
+   6 (1972) 50-62.
+.. [2] Cox M.G. : The numerical evaluation of b-splines, J. Inst. Maths
+   applics 10 (1972) 134-149.
+.. [3] Dierckx P. : Curve and surface fitting with splines, Monographs on
+   Numerical Analysis, Oxford University Press, 1993.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a5fc0ade95741252ab64cfa1de66ad64f}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!splantider@{splantider}}
+\index{splantider@{splantider}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{splantider}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+splantider (
+\begin{DoxyParamCaption}
+\item[{}]{tck, }
+\item[{}]{n = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_a5fc0ade95741252ab64cfa1de66ad64f}
+\begin{DoxyVerb}Compute the spline for the antiderivative (integral) of a given spline.
+
+.. versionadded:: 0.13.0
+
+Parameters
+----------
+tck : tuple of (t, c, k)
+    Spline whose antiderivative to compute
+n : int, optional
+    Order of antiderivative to evaluate. Default: 1
+
+Returns
+-------
+tck_ader : tuple of (t2, c2, k2)
+    Spline of order k2=k+n representing the antiderivative of the input
+    spline.
+
+See Also
+--------
+splder, splev, spalde
+
+Notes
+-----
+The `splder` function is the inverse operation of this function.
+Namely, ``splder(splantider(tck))`` is identical to `tck`, modulo
+rounding error.
+
+Examples
+--------
+>>> from scipy.interpolate import splrep, splder, splantider, splev
+>>> x = np.linspace(0, np.pi/2, 70)
+>>> y = 1 / np.sqrt(1 - 0.8*np.sin(x)**2)
+>>> spl = splrep(x, y)
+
+The derivative is the inverse operation of the antiderivative,
+although some floating point error accumulates:
+
+>>> splev(1.7, spl), splev(1.7, splder(splantider(spl)))
+(array(2.1565429877197317), array(2.1565429877201865))
+
+Antiderivative can be used to evaluate definite integrals:
+
+>>> ispl = splantider(spl)
+>>> splev(np.pi/2, ispl) - splev(0, ispl)
+2.2572053588768486
+
+This is indeed an approximation to the complete elliptic integral
+:math:`K(m) = \\int_0^{\\pi/2} [1 - m\\sin^2 x]^{-1/2} dx`:
+
+>>> from scipy.special import ellipk
+>>> ellipk(0.8)
+2.2572053268208538\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_ab5d4a49b29435a9e5c6582c8f9089280}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!splder@{splder}}
+\index{splder@{splder}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{splder}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+splder (
+\begin{DoxyParamCaption}
+\item[{}]{tck, }
+\item[{}]{n = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_ab5d4a49b29435a9e5c6582c8f9089280}
+\begin{DoxyVerb}Compute the spline representation of the derivative of a given spline
+
+.. versionadded:: 0.13.0
+
+Parameters
+----------
+tck : tuple of (t, c, k)
+    Spline whose derivative to compute
+n : int, optional
+    Order of derivative to evaluate. Default: 1
+
+Returns
+-------
+tck_der : tuple of (t2, c2, k2)
+    Spline of order k2=k-n representing the derivative
+    of the input spline.
+
+See Also
+--------
+splantider, splev, spalde
+
+Examples
+--------
+This can be used for finding maxima of a curve:
+
+>>> from scipy.interpolate import splrep, splder, sproot
+>>> x = np.linspace(0, 10, 70)
+>>> y = np.sin(x)
+>>> spl = splrep(x, y, k=4)
+
+Now, differentiate the spline and find the zeros of the
+derivative. (NB: `sproot` only works for order 3 splines, so we
+fit an order 4 spline):
+
+>>> dspl = splder(spl)
+>>> sproot(dspl) / np.pi
+array([ 0.50000001,  1.5       ,  2.49999998])
+
+This agrees well with roots :math:`\pi/2 + n\pi` of
+:math:`\cos(x) = \sin'(x)`.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a4fd61bcdfd051a9c4407403db623f5ef}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!splev@{splev}}
+\index{splev@{splev}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{splev}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+splev (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{tck, }
+\item[{}]{der = {\ttfamily 0}, }
+\item[{}]{ext = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_a4fd61bcdfd051a9c4407403db623f5ef}
+\begin{DoxyVerb}Evaluate a B-spline or its derivatives.
+
+Given the knots and coefficients of a B-spline representation, evaluate
+the value of the smoothing polynomial and its derivatives.  This is a
+wrapper around the FORTRAN routines splev and splder of FITPACK.
+
+Parameters
+----------
+x : array_like
+    A 1-D array of points at which to return the value of the smoothed
+    spline or its derivatives.  If `tck` was returned from `splprep`,
+    then the parameter values, u should be given.
+tck : tuple
+    A sequence of length 3 returned by `splrep` or `splprep` containing
+    the knots, coefficients, and degree of the spline.
+der : int
+    The order of derivative of the spline to compute (must be less than
+    or equal to k).
+ext : int
+    Controls the value returned for elements of ``x`` not in the
+    interval defined by the knot sequence.
+
+    * if ext=0, return the extrapolated value.
+    * if ext=1, return 0
+    * if ext=2, raise a ValueError
+
+    The default value is 0.
+
+Returns
+-------
+y : ndarray or list of ndarrays
+    An array of values representing the spline function evaluated at
+    the points in ``x``.  If `tck` was returned from `splprep`, then this
+    is a list of arrays representing the curve in N-dimensional space.
+
+See Also
+--------
+splprep, splrep, sproot, spalde, splint
+bisplrep, bisplev
+
+References
+----------
+.. [1] C. de Boor, "On calculating with b-splines", J. Approximation
+    Theory, 6, p.50-62, 1972.
+.. [2] M.G. Cox, "The numerical evaluation of b-splines", J. Inst. Maths
+    Applics, 10, p.134-149, 1972.
+.. [3] P. Dierckx, "Curve and surface fitting with splines", Monographs
+    on Numerical Analysis, Oxford University Press, 1993.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_aee75c5d8f63bdadde1e775092428bf73}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!splint@{splint}}
+\index{splint@{splint}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{splint}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+splint (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{tck, }
+\item[{}]{full\+\_\+output = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_aee75c5d8f63bdadde1e775092428bf73}
+\begin{DoxyVerb}Evaluate the definite integral of a B-spline.
+
+Given the knots and coefficients of a B-spline, evaluate the definite
+integral of the smoothing polynomial between two given points.
+
+Parameters
+----------
+a, b : float
+    The end-points of the integration interval.
+tck : tuple
+    A tuple (t,c,k) containing the vector of knots, the B-spline
+    coefficients, and the degree of the spline (see `splev`).
+full_output : int, optional
+    Non-zero to return optional output.
+
+Returns
+-------
+integral : float
+    The resulting integral.
+wrk : ndarray
+    An array containing the integrals of the normalized B-splines
+    defined on the set of knots.
+
+Notes
+-----
+splint silently assumes that the spline function is zero outside the data
+interval (a, b). 
+
+See Also
+--------
+splprep, splrep, sproot, spalde, splev
+bisplrep, bisplev
+UnivariateSpline, BivariateSpline
+
+References
+----------
+.. [1] P.W. Gaffney, The calculation of indefinite integrals of b-splines",
+    J. Inst. Maths Applics, 17, p.37-41, 1976.
+.. [2] P. Dierckx, "Curve and surface fitting with splines", Monographs
+    on Numerical Analysis, Oxford University Press, 1993.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a6a052f827f80341f9aadade357c49c21}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!splprep@{splprep}}
+\index{splprep@{splprep}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{splprep}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+splprep (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{w = {\ttfamily None}, }
+\item[{}]{u = {\ttfamily None}, }
+\item[{}]{ub = {\ttfamily None}, }
+\item[{}]{ue = {\ttfamily None}, }
+\item[{}]{k = {\ttfamily 3}, }
+\item[{}]{task = {\ttfamily 0}, }
+\item[{}]{s = {\ttfamily None}, }
+\item[{}]{t = {\ttfamily None}, }
+\item[{}]{full\+\_\+output = {\ttfamily 0}, }
+\item[{}]{nest = {\ttfamily None}, }
+\item[{}]{per = {\ttfamily 0}, }
+\item[{}]{quiet = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_a6a052f827f80341f9aadade357c49c21}
+\begin{DoxyVerb}Find the B-spline representation of an N-dimensional curve.
+
+Given a list of N rank-1 arrays, `x`, which represent a curve in
+N-dimensional space parametrized by `u`, find a smooth approximating
+spline curve g(`u`). Uses the FORTRAN routine parcur from FITPACK.
+
+Parameters
+----------
+x : array_like
+    A list of sample vector arrays representing the curve.
+w : array_like
+    Strictly positive rank-1 array of weights the same length as `x[0]`.
+    The weights are used in computing the weighted least-squares spline
+    fit. If the errors in the `x` values have standard-deviation given by
+    the vector d, then `w` should be 1/d. Default is ``ones(len(x[0]))``.
+u : array_like, optional
+    An array of parameter values. If not given, these values are
+    calculated automatically as ``M = len(x[0])``, where
+
+        v[0] = 0
+
+        v[i] = v[i-1] + distance(`x[i]`, `x[i-1]`)
+
+        u[i] = v[i] / v[M-1]
+
+ub, ue : int, optional
+    The end-points of the parameters interval.  Defaults to
+    u[0] and u[-1].
+k : int, optional
+    Degree of the spline. Cubic splines are recommended.
+    Even values of `k` should be avoided especially with a small s-value.
+    ``1 <= k <= 5``, default is 3.
+task : int, optional
+    If task==0 (default), find t and c for a given smoothing factor, s.
+    If task==1, find t and c for another value of the smoothing factor, s.
+    There must have been a previous call with task=0 or task=1
+    for the same set of data.
+    If task=-1 find the weighted least square spline for a given set of
+    knots, t.
+s : float, optional
+    A smoothing condition.  The amount of smoothness is determined by
+    satisfying the conditions: ``sum((w * (y - g))**2,axis=0) <= s``,
+    where g(x) is the smoothed interpolation of (x,y).  The user can
+    use `s` to control the trade-off between closeness and smoothness
+    of fit.  Larger `s` means more smoothing while smaller values of `s`
+    indicate less smoothing. Recommended values of `s` depend on the
+    weights, w.  If the weights represent the inverse of the
+    standard-deviation of y, then a good `s` value should be found in
+    the range ``(m-sqrt(2*m),m+sqrt(2*m))``, where m is the number of
+    data points in x, y, and w.
+t : int, optional
+    The knots needed for task=-1.
+full_output : int, optional
+    If non-zero, then return optional outputs.
+nest : int, optional
+    An over-estimate of the total number of knots of the spline to
+    help in determining the storage space.  By default nest=m/2.
+    Always large enough is nest=m+k+1.
+per : int, optional
+   If non-zero, data points are considered periodic with period
+   ``x[m-1] - x[0]`` and a smooth periodic spline approximation is
+   returned.  Values of ``y[m-1]`` and ``w[m-1]`` are not used.
+quiet : int, optional
+     Non-zero to suppress messages.
+
+Returns
+-------
+tck : tuple
+    A tuple (t,c,k) containing the vector of knots, the B-spline
+    coefficients, and the degree of the spline.
+u : array
+    An array of the values of the parameter.
+fp : float
+    The weighted sum of squared residuals of the spline approximation.
+ier : int
+    An integer flag about splrep success.  Success is indicated
+    if ier<=0. If ier in [1,2,3] an error occurred but was not raised.
+    Otherwise an error is raised.
+msg : str
+    A message corresponding to the integer flag, ier.
+
+See Also
+--------
+splrep, splev, sproot, spalde, splint,
+bisplrep, bisplev
+UnivariateSpline, BivariateSpline
+
+Notes
+-----
+See `splev` for evaluation of the spline and its derivatives.
+
+References
+----------
+.. [1] P. Dierckx, "Algorithms for smoothing data with periodic and
+    parametric splines, Computer Graphics and Image Processing",
+    20 (1982) 171-184.
+.. [2] P. Dierckx, "Algorithms for smoothing data with periodic and
+    parametric splines", report tw55, Dept. Computer Science,
+    K.U.Leuven, 1981.
+.. [3] P. Dierckx, "Curve and surface fitting with splines", Monographs on
+    Numerical Analysis, Oxford University Press, 1993.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a2423e02d061f11d96122b40b2919d3b8}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!splrep@{splrep}}
+\index{splrep@{splrep}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{splrep}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+splrep (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{w = {\ttfamily None}, }
+\item[{}]{xb = {\ttfamily None}, }
+\item[{}]{xe = {\ttfamily None}, }
+\item[{}]{k = {\ttfamily 3}, }
+\item[{}]{task = {\ttfamily 0}, }
+\item[{}]{s = {\ttfamily None}, }
+\item[{}]{t = {\ttfamily None}, }
+\item[{}]{full\+\_\+output = {\ttfamily 0}, }
+\item[{}]{per = {\ttfamily 0}, }
+\item[{}]{quiet = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_a2423e02d061f11d96122b40b2919d3b8}
+\begin{DoxyVerb}Find the B-spline representation of 1-D curve.
+
+Given the set of data points ``(x[i], y[i])`` determine a smooth spline
+approximation of degree k on the interval ``xb <= x <= xe``.
+
+Parameters
+----------
+x, y : array_like
+    The data points defining a curve y = f(x).
+w : array_like
+    Strictly positive rank-1 array of weights the same length as x and y.
+    The weights are used in computing the weighted least-squares spline
+    fit. If the errors in the y values have standard-deviation given by the
+    vector d, then w should be 1/d. Default is ones(len(x)).
+xb, xe : float
+    The interval to fit.  If None, these default to x[0] and x[-1]
+    respectively.
+k : int
+    The order of the spline fit. It is recommended to use cubic splines.
+    Even order splines should be avoided especially with small s values.
+    1 <= k <= 5
+task : {1, 0, -1}
+    If task==0 find t and c for a given smoothing factor, s.
+
+    If task==1 find t and c for another value of the smoothing factor, s.
+    There must have been a previous call with task=0 or task=1 for the same
+    set of data (t will be stored an used internally)
+
+    If task=-1 find the weighted least square spline for a given set of
+    knots, t. These should be interior knots as knots on the ends will be
+    added automatically.
+s : float
+    A smoothing condition. The amount of smoothness is determined by
+    satisfying the conditions: sum((w * (y - g))**2,axis=0) <= s where g(x)
+    is the smoothed interpolation of (x,y). The user can use s to control
+    the tradeoff between closeness and smoothness of fit. Larger s means
+    more smoothing while smaller values of s indicate less smoothing.
+    Recommended values of s depend on the weights, w. If the weights
+    represent the inverse of the standard-deviation of y, then a good s
+    value should be found in the range (m-sqrt(2*m),m+sqrt(2*m)) where m is
+    the number of datapoints in x, y, and w. default : s=m-sqrt(2*m) if
+    weights are supplied. s = 0.0 (interpolating) if no weights are
+    supplied.
+t : array_like
+    The knots needed for task=-1. If given then task is automatically set
+    to -1.
+full_output : bool
+    If non-zero, then return optional outputs.
+per : bool
+    If non-zero, data points are considered periodic with period x[m-1] -
+    x[0] and a smooth periodic spline approximation is returned. Values of
+    y[m-1] and w[m-1] are not used.
+quiet : bool
+    Non-zero to suppress messages.
+
+Returns
+-------
+tck : tuple
+    (t,c,k) a tuple containing the vector of knots, the B-spline
+    coefficients, and the degree of the spline.
+fp : array, optional
+    The weighted sum of squared residuals of the spline approximation.
+ier : int, optional
+    An integer flag about splrep success. Success is indicated if ier<=0.
+    If ier in [1,2,3] an error occurred but was not raised. Otherwise an
+    error is raised.
+msg : str, optional
+    A message corresponding to the integer flag, ier.
+
+Notes
+-----
+See splev for evaluation of the spline and its derivatives.
+
+The user is responsible for assuring that the values of *x* are unique.
+Otherwise, *splrep* will not return sensible results.
+
+See Also
+--------
+UnivariateSpline, BivariateSpline
+splprep, splev, sproot, spalde, splint
+bisplrep, bisplev
+
+Notes
+-----
+See splev for evaluation of the spline and its derivatives. Uses the
+FORTRAN routine curfit from FITPACK.
+
+References
+----------
+Based on algorithms described in [1], [2], [3], and [4]:
+
+.. [1] P. Dierckx, "An algorithm for smoothing, differentiation and
+   integration of experimental data using spline functions",
+   J.Comp.Appl.Maths 1 (1975) 165-184.
+.. [2] P. Dierckx, "A fast algorithm for smoothing data on a rectangular
+   grid while using spline functions", SIAM J.Numer.Anal. 19 (1982)
+   1286-1304.
+.. [3] P. Dierckx, "An improved algorithm for curve fitting with spline
+   functions", report tw54, Dept. Computer Science,K.U. Leuven, 1981.
+.. [4] P. Dierckx, "Curve and surface fitting with splines", Monographs on
+   Numerical Analysis, Oxford University Press, 1993.
+
+Examples
+--------
+
+>>> x = linspace(0, 10, 10)
+>>> y = sin(x)
+>>> tck = splrep(x, y)
+>>> x2 = linspace(0, 10, 200)
+>>> y2 = splev(x2, tck)
+>>> plot(x, y, 'o', x2, y2)\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1fitpack_ad4d36dd0002fb4920b5a0f51a8d1e2ad}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!sproot@{sproot}}
+\index{sproot@{sproot}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{sproot}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack.\+sproot (
+\begin{DoxyParamCaption}
+\item[{}]{tck, }
+\item[{}]{mest = {\ttfamily 10}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1fitpack_ad4d36dd0002fb4920b5a0f51a8d1e2ad}
+\begin{DoxyVerb}Find the roots of a cubic B-spline.
+
+Given the knots (>=8) and coefficients of a cubic B-spline return the
+roots of the spline.
+
+Parameters
+----------
+tck : tuple
+    A tuple (t,c,k) containing the vector of knots,
+    the B-spline coefficients, and the degree of the spline.
+    The number of knots must be >= 8, and the degree must be 3.
+    The knots must be a montonically increasing sequence.
+mest : int
+    An estimate of the number of zeros (Default is 10).
+
+Returns
+-------
+zeros : ndarray
+    An array giving the roots of the spline.
+
+See also
+--------
+splprep, splrep, splint, spalde, splev
+bisplrep, bisplev
+UnivariateSpline, BivariateSpline
+
+
+References
+----------
+.. [1] C. de Boor, "On calculating with b-splines", J. Approximation
+    Theory, 6, p.50-62, 1972.
+.. [2] M.G. Cox, "The numerical evaluation of b-splines", J. Inst. Maths
+    Applics, 10, p.134-149, 1972.
+.. [3] P. Dierckx, "Curve and surface fitting with splines", Monographs
+    on Numerical Analysis, Oxford University Press, 1993.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a65eee9893ce579b310317b8f067ced11}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+interpolate.\+fitpack.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1interpolate_1_1fitpack_a65eee9893ce579b310317b8f067ced11}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'splrep'}, \textcolor{stringliteral}{'splprep'}, \textcolor{stringliteral}{'splev'}, \textcolor{stringliteral}{'splint'}, \textcolor{stringliteral}{'sproot'}, \textcolor{stringliteral}{'spalde'},
+2     \textcolor{stringliteral}{'bisplrep'}, \textcolor{stringliteral}{'bisplev'}, \textcolor{stringliteral}{'insert'}, \textcolor{stringliteral}{'splder'}, \textcolor{stringliteral}{'splantider'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a069ddb97291502837e31c6360a10a8e8}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!\+\_\+curfit\+\_\+cache@{\+\_\+curfit\+\_\+cache}}
+\index{\+\_\+curfit\+\_\+cache@{\+\_\+curfit\+\_\+cache}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{\+\_\+curfit\+\_\+cache}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+interpolate.\+fitpack.\+\_\+curfit\+\_\+cache}\label{namespacescipy_1_1interpolate_1_1fitpack_a069ddb97291502837e31c6360a10a8e8}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{\textcolor{stringliteral}{'t'}: array([],float), \textcolor{stringliteral}{'wrk'}: array([],float),
+2                  \textcolor{stringliteral}{'iwrk'}:array([],intc)\}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1interpolate_1_1fitpack_ab6715f34ca1201bfec232435cb6095d6}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!\+\_\+iermess@{\+\_\+iermess}}
+\index{\+\_\+iermess@{\+\_\+iermess}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{\+\_\+iermess}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+interpolate.\+fitpack.\+\_\+iermess}\label{namespacescipy_1_1interpolate_1_1fitpack_ab6715f34ca1201bfec232435cb6095d6}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{0:[\textcolor{stringliteral}{"""\(\backslash\)}
+2 \textcolor{stringliteral}{    The spline has a residual sum of squares fp such that abs(fp-s)/s<=0.001"""},\textcolor{keywordtype}{None}],
+3                -1:[\textcolor{stringliteral}{"""\(\backslash\)}
+4 \textcolor{stringliteral}{    The spline is an interpolating spline (fp=0)"""},\textcolor{keywordtype}{None}],
+5                -2:[\textcolor{stringliteral}{"""\(\backslash\)}
+6 \textcolor{stringliteral}{    The spline is weighted least-squares polynomial of degree k.    fp gives the upper bound fp0 for the
+       smoothing factor s"""},\textcolor{keywordtype}{None}],
+7                1:[\textcolor{stringliteral}{"""\(\backslash\)}
+8 \textcolor{stringliteral}{    The required storage space exceeds the available storage space.    Probable causes: data (x,y) size is
+       too small or smoothing parameter s is too small (fp>s)."""},ValueError],
+9                2:[\textcolor{stringliteral}{"""\(\backslash\)}
+10 \textcolor{stringliteral}{    A theoretically impossible results when finding a smoothin spline    with fp = s. Probably causes: s
+       too small. (abs(fp-s)/s>0.001)"""},ValueError],
+11                3:[\textcolor{stringliteral}{"""\(\backslash\)}
+12 \textcolor{stringliteral}{    The maximal number of iterations (20) allowed for finding smoothing    spline with fp=s has been
+       reached. Probably causes: s too small.    (abs(fp-s)/s>0.001)"""},ValueError],
+13                10:[\textcolor{stringliteral}{"""\(\backslash\)}
+14 \textcolor{stringliteral}{    Error on input data"""},ValueError],
+15                \textcolor{stringliteral}{'unknown'}:[\textcolor{stringliteral}{"""\(\backslash\)}
+16 \textcolor{stringliteral}{    An error occurred"""},TypeError]\}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a234ed1709b55f5bbbb71855eb4f4f140}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!\+\_\+iermess2@{\+\_\+iermess2}}
+\index{\+\_\+iermess2@{\+\_\+iermess2}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{\+\_\+iermess2}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+interpolate.\+fitpack.\+\_\+iermess2}\label{namespacescipy_1_1interpolate_1_1fitpack_a234ed1709b55f5bbbb71855eb4f4f140}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{0:[\textcolor{stringliteral}{"""\(\backslash\)}
+2 \textcolor{stringliteral}{    The spline has a residual sum of squares fp such that abs(fp-s)/s<=0.001"""},\textcolor{keywordtype}{None}],
+3             -1:[\textcolor{stringliteral}{"""\(\backslash\)}
+4 \textcolor{stringliteral}{    The spline is an interpolating spline (fp=0)"""},\textcolor{keywordtype}{None}],
+5             -2:[\textcolor{stringliteral}{"""\(\backslash\)}
+6 \textcolor{stringliteral}{    The spline is weighted least-squares polynomial of degree kx and ky.    fp gives the upper bound fp0
+       for the smoothing factor s"""},\textcolor{keywordtype}{None}],
+7             -3:[\textcolor{stringliteral}{"""\(\backslash\)}
+8 \textcolor{stringliteral}{    Warning. The coefficients of the spline have been computed as the minimal    norm least-squares
+       solution of a rank deficient system."""},\textcolor{keywordtype}{None}],
+9             1:[\textcolor{stringliteral}{"""\(\backslash\)}
+10 \textcolor{stringliteral}{    The required storage space exceeds the available storage space.    Probably causes: nxest or nyest too
+       small or s is too small. (fp>s)"""},ValueError],
+11             2:[\textcolor{stringliteral}{"""\(\backslash\)}
+12 \textcolor{stringliteral}{    A theoretically impossible results when finding a smoothin spline    with fp = s. Probably causes: s
+       too small or badly chosen eps.    (abs(fp-s)/s>0.001)"""},ValueError],
+13             3:[\textcolor{stringliteral}{"""\(\backslash\)}
+14 \textcolor{stringliteral}{    The maximal number of iterations (20) allowed for finding smoothing    spline with fp=s has been
+       reached. Probably causes: s too small.    (abs(fp-s)/s>0.001)"""},ValueError],
+15             4:[\textcolor{stringliteral}{"""\(\backslash\)}
+16 \textcolor{stringliteral}{    No more knots can be added because the number of B-spline coefficients    already exceeds the number of
+       data points m. Probably causes: either    s or m too small. (fp>s)"""},ValueError],
+17             5:[\textcolor{stringliteral}{"""\(\backslash\)}
+18 \textcolor{stringliteral}{    No more knots can be added because the additional knot would coincide    with an old one. Probably
+       cause: s too small or too large a weight    to an inaccurate data point. (fp>s)"""},ValueError],
+19             10:[\textcolor{stringliteral}{"""\(\backslash\)}
+20 \textcolor{stringliteral}{    Error on input data"""},ValueError],
+21             11:[\textcolor{stringliteral}{"""\(\backslash\)}
+22 \textcolor{stringliteral}{    rwrk2 too small, i.e. there is not enough workspace for computing    the minimal least-squares solution
+       of a rank deficient system of linear    equations."""},ValueError],
+23             \textcolor{stringliteral}{'unknown'}:[\textcolor{stringliteral}{"""\(\backslash\)}
+24 \textcolor{stringliteral}{    An error occurred"""},TypeError]\}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a3793e6fff4a587159825ea08f6687c8f}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!\+\_\+parcur\+\_\+cache@{\+\_\+parcur\+\_\+cache}}
+\index{\+\_\+parcur\+\_\+cache@{\+\_\+parcur\+\_\+cache}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{\+\_\+parcur\+\_\+cache}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+interpolate.\+fitpack.\+\_\+parcur\+\_\+cache}\label{namespacescipy_1_1interpolate_1_1fitpack_a3793e6fff4a587159825ea08f6687c8f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{\textcolor{stringliteral}{'t'}: array([],float), \textcolor{stringliteral}{'wrk'}: array([],float),
+2                  \textcolor{stringliteral}{'iwrk'}:array([],intc), \textcolor{stringliteral}{'}\textcolor{stringliteral}{u': array([],float),'}ub':0,'ue':1\}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1interpolate_1_1fitpack_addb72cc2d4e6140eb233f29c2d19fc7c}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!\+\_\+surfit\+\_\+cache@{\+\_\+surfit\+\_\+cache}}
+\index{\+\_\+surfit\+\_\+cache@{\+\_\+surfit\+\_\+cache}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{\+\_\+surfit\+\_\+cache}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+interpolate.\+fitpack.\+\_\+surfit\+\_\+cache}\label{namespacescipy_1_1interpolate_1_1fitpack_addb72cc2d4e6140eb233f29c2d19fc7c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{\textcolor{stringliteral}{'tx'}: array([],float),\textcolor{stringliteral}{'ty'}: array([],float),
+2                  \textcolor{stringliteral}{'wrk'}: array([],float), \textcolor{stringliteral}{'iwrk'}:array([],intc)\}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1interpolate_1_1fitpack_a4ad199da16b4d798a68f31962ef1ea64}{}\index{scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}!myasarray@{myasarray}}
+\index{myasarray@{myasarray}!scipy\+::interpolate\+::fitpack@{scipy\+::interpolate\+::fitpack}}
+\subsubsection[{myasarray}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack.\+myasarray = atleast\+\_\+1d}\label{namespacescipy_1_1interpolate_1_1fitpack_a4ad199da16b4d798a68f31962ef1ea64}

@@ -1,0 +1,144 @@
+\hypertarget{dlalsd_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlalsd.f File Reference}
+\label{dlalsd_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlalsd.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlalsd.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlalsd_8f_ad9672df73e817eee614a97daea1341b0}{dlalsd} (U\+P\+L\+O, S\+M\+L\+S\+I\+Z, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, \hyperlink{splinemodule_8c_a3a88bcc63386de30443dacede2e01847}{R\+A\+N\+K}, W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+L\+S\+D} uses the singular value decomposition of \hyperlink{classA}{A} to solve the least squares problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlalsd_8f_ad9672df73e817eee614a97daea1341b0}{}\index{dlalsd.\+f@{dlalsd.\+f}!dlalsd@{dlalsd}}
+\index{dlalsd@{dlalsd}!dlalsd.\+f@{dlalsd.\+f}}
+\subsubsection[{dlalsd}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlalsd (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{S\+M\+L\+S\+I\+Z, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{E, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}}]{R\+C\+O\+N\+D, }
+\item[{integer}]{R\+A\+N\+K, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dlalsd_8f_ad9672df73e817eee614a97daea1341b0}
+
+
+{\bfseries D\+L\+A\+L\+S\+D} uses the singular value decomposition of \hyperlink{classA}{A} to solve the least squares problem. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLALSD uses the singular value decomposition of A to solve the least
+ squares problem of finding X to minimize the Euclidean norm of each
+ column of A*X-B, where A is N-by-N upper bidiagonal, and X and B
+ are N-by-NRHS. The solution X overwrites B.
+
+ The singular values of A smaller than RCOND times the largest
+ singular value are treated as zero in solving the least squares
+ problem; in this case a minimum norm solution is returned.
+ The actual singular values are returned in D in ascending order.
+
+ This code makes very mild assumptions about floating point
+ arithmetic. It will work on machines with a guard digit in
+ add/subtract, or on those binary machines without guard digits
+ which subtract like the Cray XMP, Cray YMP, Cray C 90, or Cray 2.
+ It could conceivably fail on hexadecimal or decimal machines
+ without guard digits, but we know of none.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+         = 'U': D and E define an upper bidiagonal matrix.
+         = 'L': D and E define a  lower bidiagonal matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+M\+L\+S\+I\+Z} & \begin{DoxyVerb}          SMLSIZ is INTEGER
+         The maximum size of the subproblems at the bottom of the
+         computation tree.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+         The dimension of the  bidiagonal matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+         The number of columns of B. NRHS must be at least 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (N)
+         On entry D contains the main diagonal of the bidiagonal
+         matrix. On exit, if INFO = 0, D contains its singular values.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E} & \begin{DoxyVerb}          E is DOUBLE PRECISION array, dimension (N-1)
+         Contains the super-diagonal entries of the bidiagonal matrix.
+         On exit, E has been destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+         On input, B contains the right hand sides of the least
+         squares problem. On output, B contains the solution X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+         The leading dimension of B in the calling subprogram.
+         LDB must be at least max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is DOUBLE PRECISION
+         The singular values of A less than or equal to RCOND times
+         the largest singular value are treated as zero in solving
+         the least squares problem. If RCOND is negative,
+         machine precision is used instead.
+         For example, if diag(S)*X=B were the least squares problem,
+         where diag(S) is a diagonal matrix of singular values, the
+         solution would be X(i) = B(i) / S(i) if S(i) is greater than
+         RCOND*max(S), and X(i) = 0 if S(i) is less than or equal to
+         RCOND*max(S).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+A\+N\+K} & \begin{DoxyVerb}          RANK is INTEGER
+         The number of singular values of A greater than RCOND times
+         the largest singular value.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension at least
+         (9*N + 2*N*SMLSIZ + 8*N*NLVL + N*NRHS + (SMLSIZ+1)**2),
+         where NLVL = max(0, INT(log_2 (N/(SMLSIZ+1))) + 1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension at least
+         (3*N*NLVL + 11*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+         = 0:  successful exit.
+         < 0:  if INFO = -i, the i-th argument had an illegal value.
+         > 0:  The algorithm failed to compute a singular value while
+               working on the submatrix lying in rows and columns
+               INFO/(N+1) through MOD(INFO,N+1).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Ming Gu and Ren-\/\+Cang Li, Computer Science Division, University of California at Berkeley, U\+S\+A ~\newline
+ Osni Marques, L\+B\+N\+L/\+N\+E\+R\+S\+C, U\+S\+A ~\newline
+ 
+\end{DoxyParagraph}

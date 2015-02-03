@@ -1,0 +1,95 @@
+\hypertarget{sdisna_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/sdisna.f File Reference}
+\label{sdisna_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/sdisna.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/sdisna.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{sdisna_8f_a3ad9942af86da7748df8adba289e6e68}{sdisna} (J\+O\+B, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, S\+E\+P, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+D\+I\+S\+N\+A} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{sdisna_8f_a3ad9942af86da7748df8adba289e6e68}{}\index{sdisna.\+f@{sdisna.\+f}!sdisna@{sdisna}}
+\index{sdisna@{sdisna}!sdisna.\+f@{sdisna.\+f}}
+\subsubsection[{sdisna}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sdisna (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{S\+E\+P, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{sdisna_8f_a3ad9942af86da7748df8adba289e6e68}
+
+
+{\bfseries S\+D\+I\+S\+N\+A} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SDISNA computes the reciprocal condition numbers for the eigenvectors
+ of a real symmetric or complex Hermitian matrix or for the left or
+ right singular vectors of a general m-by-n matrix. The reciprocal
+ condition number is the 'gap' between the corresponding eigenvalue or
+ singular value and the nearest other one.
+
+ The bound on the error, measured by angle in radians, in the I-th
+ computed vector is given by
+
+        SLAMCH( 'E' ) * ( ANORM / SEP( I ) )
+
+ where ANORM = 2-norm(A) = max( abs( D(j) ) ).  SEP(I) is not allowed
+ to be smaller than SLAMCH( 'E' )*ANORM in order to limit the size of
+ the error bound.
+
+ SDISNA may also be used to compute error bounds for eigenvectors of
+ the generalized symmetric definite eigenproblem.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B} & \begin{DoxyVerb}          JOB is CHARACTER*1
+          Specifies for which problem the reciprocal condition numbers
+          should be computed:
+          = 'E':  the eigenvectors of a symmetric/Hermitian matrix;
+          = 'L':  the left singular vectors of a general matrix;
+          = 'R':  the right singular vectors of a general matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          If JOB = 'L' or 'R', the number of columns of the matrix,
+          in which case N >= 0. Ignored if JOB = 'E'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (M) if JOB = 'E'
+                              dimension (min(M,N)) if JOB = 'L' or 'R'
+          The eigenvalues (if JOB = 'E') or singular values (if JOB =
+          'L' or 'R') of the matrix, in either increasing or decreasing
+          order. If singular values, they must be non-negative.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+E\+P} & \begin{DoxyVerb}          SEP is REAL array, dimension (M) if JOB = 'E'
+                               dimension (min(M,N)) if JOB = 'L' or 'R'
+          The reciprocal condition numbers of the vectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

@@ -1,0 +1,51 @@
+\hypertarget{fsolve_8c}{}\section{packages/scipy-\/0.14.0/scipy/special/c\+\_\+misc/fsolve.c File Reference}
+\label{fsolve_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/special/c\+\_\+misc/fsolve.\+c@{packages/scipy-\/0.\+14.\+0/scipy/special/c\+\_\+misc/fsolve.\+c}}
+{\ttfamily \#include \char`\"{}misc.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{fsolve_8c_a0a3abbca80bc98e7abcb3ae73abe0f14}{M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+I\+O\+N\+S}~100
+\item 
+\#define \hyperlink{fsolve_8c_af433adc74fcd64f2a2bbae2cc7d1588b}{F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+N\+I\+T\+E\+R}~4
+\item 
+\#define \hyperlink{fsolve_8c_a2095f856bfdbffb939668f7b64cd2936}{F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+W\+I\+D\+T\+H}~4.\+0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{misc_8h_afccc14ee6ecb3db10001531bb9286d8c}{fsolve\+\_\+result\+\_\+t} \hyperlink{fsolve_8c_ad9bda414372e404079cb5acc3168ca3f}{false\+\_\+position} (double $\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, double $\ast$fa, double $\ast$\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}, double $\ast$fb, \hyperlink{misc_8h_a393608598d14d5ad09cfd9626d5b92cb}{objective\+\_\+function} f, void $\ast$f\+\_\+extra, double abserr, double relerr, double bisect\+\_\+til, double $\ast$best\+\_\+x, double $\ast$best\+\_\+f, double $\ast$errest)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{fsolve_8c_af433adc74fcd64f2a2bbae2cc7d1588b}{}\index{fsolve.\+c@{fsolve.\+c}!F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+N\+I\+T\+E\+R@{F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+N\+I\+T\+E\+R}}
+\index{F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+N\+I\+T\+E\+R@{F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+N\+I\+T\+E\+R}!fsolve.\+c@{fsolve.\+c}}
+\subsubsection[{F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+N\+I\+T\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+N\+I\+T\+E\+R~4}\label{fsolve_8c_af433adc74fcd64f2a2bbae2cc7d1588b}
+\hypertarget{fsolve_8c_a2095f856bfdbffb939668f7b64cd2936}{}\index{fsolve.\+c@{fsolve.\+c}!F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+W\+I\+D\+T\+H@{F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+W\+I\+D\+T\+H}}
+\index{F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+W\+I\+D\+T\+H@{F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+W\+I\+D\+T\+H}!fsolve.\+c@{fsolve.\+c}}
+\subsubsection[{F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+W\+I\+D\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+P\+\_\+\+C\+M\+P\+\_\+\+W\+I\+T\+H\+\_\+\+B\+I\+S\+E\+C\+T\+\_\+\+W\+I\+D\+T\+H~4.\+0}\label{fsolve_8c_a2095f856bfdbffb939668f7b64cd2936}
+\hypertarget{fsolve_8c_a0a3abbca80bc98e7abcb3ae73abe0f14}{}\index{fsolve.\+c@{fsolve.\+c}!M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+I\+O\+N\+S@{M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+I\+O\+N\+S}}
+\index{M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+I\+O\+N\+S@{M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+I\+O\+N\+S}!fsolve.\+c@{fsolve.\+c}}
+\subsubsection[{M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+I\+O\+N\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+I\+T\+E\+R\+A\+T\+I\+O\+N\+S~100}\label{fsolve_8c_a0a3abbca80bc98e7abcb3ae73abe0f14}
+
+
+\subsection{Function Documentation}
+\hypertarget{fsolve_8c_ad9bda414372e404079cb5acc3168ca3f}{}\index{fsolve.\+c@{fsolve.\+c}!false\+\_\+position@{false\+\_\+position}}
+\index{false\+\_\+position@{false\+\_\+position}!fsolve.\+c@{fsolve.\+c}}
+\subsubsection[{false\+\_\+position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf fsolve\+\_\+result\+\_\+t} false\+\_\+position (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{a, }
+\item[{double $\ast$}]{fa, }
+\item[{double $\ast$}]{b, }
+\item[{double $\ast$}]{fb, }
+\item[{{\bf objective\+\_\+function}}]{f, }
+\item[{void $\ast$}]{f\+\_\+extra, }
+\item[{double}]{abserr, }
+\item[{double}]{relerr, }
+\item[{double}]{bisect\+\_\+til, }
+\item[{double $\ast$}]{best\+\_\+x, }
+\item[{double $\ast$}]{best\+\_\+f, }
+\item[{double $\ast$}]{errest}
+\end{DoxyParamCaption}
+)}\label{fsolve_8c_ad9bda414372e404079cb5acc3168ca3f}

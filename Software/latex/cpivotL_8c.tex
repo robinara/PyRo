@@ -1,0 +1,94 @@
+\hypertarget{cpivotL_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/cpivot\+L.c File Reference}
+\label{cpivotL_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/cpivot\+L.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/cpivot\+L.\+c}}
+
+
+Performs numerical pivoting.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+cdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{cpivotL_8c_ae6bc95a2710538cc5ce0904f90ef7f05}{cpivot\+L} (const int jcol, const double u, int $\ast$usepr, int $\ast$perm\+\_\+r, int $\ast$iperm\+\_\+r, int $\ast$iperm\+\_\+c, int $\ast$pivrow, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Performs numerical pivoting. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Permission is hereby granted to use or copy this program for any
+purpose, provided the above notices are retained on all copies.
+Permission to modify the code and to distribute modified code is
+granted, provided the above notices are retained, and a notice that
+the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{cpivotL_8c_ae6bc95a2710538cc5ce0904f90ef7f05}{}\index{cpivot\+L.\+c@{cpivot\+L.\+c}!cpivot\+L@{cpivot\+L}}
+\index{cpivot\+L@{cpivot\+L}!cpivot\+L.\+c@{cpivot\+L.\+c}}
+\subsubsection[{cpivot\+L}]{\setlength{\rightskip}{0pt plus 5cm}int cpivot\+L (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const double}]{u, }
+\item[{int $\ast$}]{usepr, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{iperm\+\_\+r, }
+\item[{int $\ast$}]{iperm\+\_\+c, }
+\item[{int $\ast$}]{pivrow, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{cpivotL_8c_ae6bc95a2710538cc5ce0904f90ef7f05}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  Performs the numerical pivoting on the current column of L,
+  and the CDIV operation.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Pivot policy:
+  (1) Compute thresh = u * max\_(i>=j) \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_ij)};
+  (2) IF user specifies pivot row k and \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_kj)} >= thresh THEN
+          pivot row = k;
+      ELSE IF \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_jj)} >= thresh THEN
+          pivot row = j;
+      ELSE
+          pivot row = m;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Note: If you absolutely want to use a given pivot order, then set u=0.0.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Return value: 0      success;
+                i > 0  U(i,i) is exactly zero.
+\end{DoxyPre}
+ 

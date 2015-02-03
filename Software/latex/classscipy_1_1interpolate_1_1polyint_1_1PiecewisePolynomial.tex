@@ -1,0 +1,169 @@
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial}{}\section{scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial Class Reference}
+\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial}\index{scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial@{scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial}}
+Inheritance diagram for scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a3ea5e7d29c3df1aae2b2dacffe61ca6d}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a4be89fa771ebf2ee8addde8a0ee8bc0f}{append}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a6f677757d3eeada3e3dc7eea0dfcfb3f}{extend}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_ac29518f2a5e0acb06080fcde633abb33}{xi}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_aad80e003a0ee7dda3e3df17cfc933e06}{yi}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a68d7ed1c44a281daf3b96c721bbabe98}{n}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a4c04564cf77ee6ab211d849d6062871c}{r}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a7cfa9f2f703890558f49c461df6e0e77}{direction}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_acc1fb2bb9c805d277ffe254b5283eeba}{orders}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a9c397291a13b9c87bd7b2cc1bbe332b4}{polynomials}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Piecewise polynomial curve specified by points and derivatives
+
+This class represents a curve that is a piecewise polynomial. It
+passes through a list of points and has specified derivatives at
+each point. The degree of the polynomial may vary from segment to
+segment, as may the number of derivatives available. The degree
+should not exceed about thirty.
+
+Appending points to the end of the curve is efficient.
+
+Parameters
+----------
+xi : array-like
+    a sorted 1-d array of x-coordinates
+yi : array-like or list of array-likes
+    yi[i][j] is the j-th derivative known at xi[i]   (for axis=0)
+orders : list of integers, or integer
+    a list of polynomial orders, or a single universal order
+direction : {None, 1, -1}
+    indicates whether the xi are increasing or decreasing
+    +1 indicates increasing
+    -1 indicates decreasing
+    None indicates that it should be deduced from the first two xi
+axis : int, optional
+    Axis in the yi array corresponding to the x-coordinate values.
+
+Notes
+-----
+If orders is None, or orders[i] is None, then the degree of the
+polynomial segment is exactly the degree required to match all i
+available derivatives at both endpoints. If orders[i] is not None,
+then some derivatives will be ignored. The code will try to use an
+equal number of derivatives from each end; if the total number of
+derivatives needed is odd, it will prefer the rightmost endpoint. If
+not enough derivatives are available, an exception is raised.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a3ea5e7d29c3df1aae2b2dacffe61ca6d}{}\index{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{xi, }
+\item[{}]{yi, }
+\item[{}]{orders = {\ttfamily None}, }
+\item[{}]{direction = {\ttfamily None}, }
+\item[{}]{axis = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a3ea5e7d29c3df1aae2b2dacffe61ca6d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a4be89fa771ebf2ee8addde8a0ee8bc0f}{}\index{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}!append@{append}}
+\index{append@{append}!scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial.\+append (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{xi, }
+\item[{}]{yi, }
+\item[{}]{order = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a4be89fa771ebf2ee8addde8a0ee8bc0f}
+\begin{DoxyVerb}Append a single point with derivatives to the PiecewisePolynomial
+
+Parameters
+----------
+xi : float
+    Input
+yi : array_like
+    `yi` is the list of derivatives known at `xi`
+order : integer or None
+    a polynomial order, or instructions to use the highest
+    possible order\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a6f677757d3eeada3e3dc7eea0dfcfb3f}{}\index{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}!extend@{extend}}
+\index{extend@{extend}!scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}}
+\subsubsection[{extend}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial.\+extend (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{xi, }
+\item[{}]{yi, }
+\item[{}]{orders = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a6f677757d3eeada3e3dc7eea0dfcfb3f}
+\begin{DoxyVerb}Extend the PiecewisePolynomial by a list of points
+
+Parameters
+----------
+xi : array_like
+    A sorted list of x-coordinates.
+yi : list of lists of length N1
+    ``yi[i]`` (if ``axis == 0``) is the list of derivatives known
+    at ``xi[i]``.
+orders : int or list of ints
+    A list of polynomial orders, or a single universal order.
+direction : {None, 1, -1}
+    Indicates whether the `xi` are increasing or decreasing.
+
++1 indicates increasing
+
+-1 indicates decreasing
+
+    None indicates that it should be deduced from the first two `xi`.\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a7cfa9f2f703890558f49c461df6e0e77}{}\index{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}!direction@{direction}}
+\index{direction@{direction}!scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}}
+\subsubsection[{direction}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial.\+direction}\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a7cfa9f2f703890558f49c461df6e0e77}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a68d7ed1c44a281daf3b96c721bbabe98}{}\index{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}!n@{n}}
+\index{n@{n}!scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial.\+n}\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a68d7ed1c44a281daf3b96c721bbabe98}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_acc1fb2bb9c805d277ffe254b5283eeba}{}\index{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}!orders@{orders}}
+\index{orders@{orders}!scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}}
+\subsubsection[{orders}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial.\+orders}\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_acc1fb2bb9c805d277ffe254b5283eeba}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a9c397291a13b9c87bd7b2cc1bbe332b4}{}\index{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}!polynomials@{polynomials}}
+\index{polynomials@{polynomials}!scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}}
+\subsubsection[{polynomials}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial.\+polynomials}\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a9c397291a13b9c87bd7b2cc1bbe332b4}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a4c04564cf77ee6ab211d849d6062871c}{}\index{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}!r@{r}}
+\index{r@{r}!scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}}
+\subsubsection[{r}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial.\+r}\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_a4c04564cf77ee6ab211d849d6062871c}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_ac29518f2a5e0acb06080fcde633abb33}{}\index{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}!xi@{xi}}
+\index{xi@{xi}!scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}}
+\subsubsection[{xi}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial.\+xi}\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_ac29518f2a5e0acb06080fcde633abb33}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_aad80e003a0ee7dda3e3df17cfc933e06}{}\index{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}!yi@{yi}}
+\index{yi@{yi}!scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial@{scipy\+::interpolate\+::polyint\+::\+Piecewise\+Polynomial}}
+\subsubsection[{yi}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Piecewise\+Polynomial.\+yi}\label{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial_aad80e003a0ee7dda3e3df17cfc933e06}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{polyint_8py}{polyint.\+py}\end{DoxyCompactItemize}

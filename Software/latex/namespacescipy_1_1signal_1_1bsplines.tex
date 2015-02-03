@@ -1,0 +1,209 @@
+\hypertarget{namespacescipy_1_1signal_1_1bsplines}{}\section{scipy.\+signal.\+bsplines Namespace Reference}
+\label{namespacescipy_1_1signal_1_1bsplines}\index{scipy.\+signal.\+bsplines@{scipy.\+signal.\+bsplines}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1bsplines_aff07b3099fbd48c48a07ecd5b141ee64}{factorial}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1bsplines_aa3813dae6525e98d6c1c98ce623b1b11}{spline\+\_\+filter}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1bsplines_a1c2c072de31ef4fe84f6bf174ef0d9df}{bspline}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1bsplines_ac7cae87ca2f19aa5460062b871fc4587}{gauss\+\_\+spline}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1bsplines_a5a92dacd867fa4f97c3d8c597282a0f3}{cubic}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1bsplines_a02da7df6bee0f452e6b657082911851d}{quadratic}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1bsplines_a069f1ba3bbf708a14f60607ba16596f2}{cspline1d}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1bsplines_a2769c05ea6e1a568107e68a89d1cd429}{qspline1d}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1bsplines_a44dabc96958a9ff5b65cdc14f4be4f44}{cspline1d\+\_\+eval}
+\item 
+def \hyperlink{namespacescipy_1_1signal_1_1bsplines_a49fd11e262bc519bdc4b629e6a6fd690}{qspline1d\+\_\+eval}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1signal_1_1bsplines_a245948568a8b033d93b5557b742932c9}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\item 
+\hyperlink{namespacescipy_1_1signal_1_1bsplines_a7f2e8ea608e042f8f0037f248fcd7eac}{gamma} = scipy.\+special.\+gamma
+\item 
+dictionary \hyperlink{namespacescipy_1_1signal_1_1bsplines_aeabca2856d3743b7d306ed99fc524b7d}{\+\_\+splinefunc\+\_\+cache} = \{\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1bsplines_a1c2c072de31ef4fe84f6bf174ef0d9df}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!bspline@{bspline}}
+\index{bspline@{bspline}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{bspline}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+bsplines.\+bspline (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1bsplines_a1c2c072de31ef4fe84f6bf174ef0d9df}
+\begin{DoxyVerb}B-spline basis function of order n.
+
+Notes
+-----
+Uses numpy.piecewise and automatic function-generator.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1bsplines_a069f1ba3bbf708a14f60607ba16596f2}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!cspline1d@{cspline1d}}
+\index{cspline1d@{cspline1d}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{cspline1d}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+bsplines.\+cspline1d (
+\begin{DoxyParamCaption}
+\item[{}]{signal, }
+\item[{}]{lamb = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1bsplines_a069f1ba3bbf708a14f60607ba16596f2}
+\begin{DoxyVerb}Compute cubic spline coefficients for rank-1 array.
+
+Find the cubic spline coefficients for a 1-D signal assuming
+mirror-symmetric boundary conditions.   To obtain the signal back from the
+spline representation mirror-symmetric-convolve these coefficients with a
+length 3 FIR window [1.0, 4.0, 1.0]/ 6.0 .
+
+Parameters
+----------
+signal : ndarray
+    A rank-1 array representing samples of a signal.
+lamb : float, optional
+    Smoothing coefficient, default is 0.0.
+
+Returns
+-------
+c : ndarray
+    Cubic spline coefficients.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1bsplines_a44dabc96958a9ff5b65cdc14f4be4f44}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!cspline1d\+\_\+eval@{cspline1d\+\_\+eval}}
+\index{cspline1d\+\_\+eval@{cspline1d\+\_\+eval}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{cspline1d\+\_\+eval}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+bsplines.\+cspline1d\+\_\+eval (
+\begin{DoxyParamCaption}
+\item[{}]{cj, }
+\item[{}]{newx, }
+\item[{}]{dx = {\ttfamily 1.0}, }
+\item[{}]{x0 = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1bsplines_a44dabc96958a9ff5b65cdc14f4be4f44}
+\begin{DoxyVerb}Evaluate a spline at the new set of points.
+
+`dx` is the old sample-spacing while `x0` was the old origin.  In
+other-words the old-sample points (knot-points) for which the `cj`
+represent spline coefficients were at equally-spaced points of:
+
+  oldx = x0 + j*dx  j=0...N-1, with N=len(cj)
+
+Edges are handled using mirror-symmetric boundary conditions.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1bsplines_a5a92dacd867fa4f97c3d8c597282a0f3}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!cubic@{cubic}}
+\index{cubic@{cubic}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{cubic}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+bsplines.\+cubic (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1bsplines_a5a92dacd867fa4f97c3d8c597282a0f3}
+\begin{DoxyVerb}A cubic B-spline.
+
+This is a special case of `bspline`, and equivalent to ``bspline(x, 3)``.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1bsplines_aff07b3099fbd48c48a07ecd5b141ee64}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!factorial@{factorial}}
+\index{factorial@{factorial}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{factorial}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+bsplines.\+factorial (
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1bsplines_aff07b3099fbd48c48a07ecd5b141ee64}
+\hypertarget{namespacescipy_1_1signal_1_1bsplines_ac7cae87ca2f19aa5460062b871fc4587}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!gauss\+\_\+spline@{gauss\+\_\+spline}}
+\index{gauss\+\_\+spline@{gauss\+\_\+spline}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{gauss\+\_\+spline}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+bsplines.\+gauss\+\_\+spline (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{n}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1bsplines_ac7cae87ca2f19aa5460062b871fc4587}
+\begin{DoxyVerb}Gaussian approximation to B-spline basis function of order n.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1bsplines_a2769c05ea6e1a568107e68a89d1cd429}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!qspline1d@{qspline1d}}
+\index{qspline1d@{qspline1d}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{qspline1d}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+bsplines.\+qspline1d (
+\begin{DoxyParamCaption}
+\item[{}]{signal, }
+\item[{}]{lamb = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1bsplines_a2769c05ea6e1a568107e68a89d1cd429}
+\begin{DoxyVerb}Compute quadratic spline coefficients for rank-1 array.
+
+Find the quadratic spline coefficients for a 1-D signal assuming
+mirror-symmetric boundary conditions.   To obtain the signal back from the
+spline representation mirror-symmetric-convolve these coefficients with a
+length 3 FIR window [1.0, 6.0, 1.0]/ 8.0 .
+
+Parameters
+----------
+signal : ndarray
+    A rank-1 array representing samples of a signal.
+lamb : float, optional
+    Smoothing coefficient (must be zero for now).
+
+Returns
+-------
+c : ndarray
+    Cubic spline coefficients.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1bsplines_a49fd11e262bc519bdc4b629e6a6fd690}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!qspline1d\+\_\+eval@{qspline1d\+\_\+eval}}
+\index{qspline1d\+\_\+eval@{qspline1d\+\_\+eval}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{qspline1d\+\_\+eval}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+bsplines.\+qspline1d\+\_\+eval (
+\begin{DoxyParamCaption}
+\item[{}]{cj, }
+\item[{}]{newx, }
+\item[{}]{dx = {\ttfamily 1.0}, }
+\item[{}]{x0 = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1bsplines_a49fd11e262bc519bdc4b629e6a6fd690}
+\begin{DoxyVerb}Evaluate a quadratic spline at the new set of points.
+
+`dx` is the old sample-spacing while `x0` was the old origin.  In
+other-words the old-sample points (knot-points) for which the `cj`
+represent spline coefficients were at equally-spaced points of::
+
+  oldx = x0 + j*dx  j=0...N-1, with N=len(cj)
+
+Edges are handled using mirror-symmetric boundary conditions.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1bsplines_a02da7df6bee0f452e6b657082911851d}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!quadratic@{quadratic}}
+\index{quadratic@{quadratic}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{quadratic}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+bsplines.\+quadratic (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1bsplines_a02da7df6bee0f452e6b657082911851d}
+\begin{DoxyVerb}A quadratic B-spline.
+
+This is a special case of `bspline`, and equivalent to ``bspline(x, 2)``.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1signal_1_1bsplines_aa3813dae6525e98d6c1c98ce623b1b11}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!spline\+\_\+filter@{spline\+\_\+filter}}
+\index{spline\+\_\+filter@{spline\+\_\+filter}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{spline\+\_\+filter}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+signal.\+bsplines.\+spline\+\_\+filter (
+\begin{DoxyParamCaption}
+\item[{}]{Iin, }
+\item[{}]{lmbda = {\ttfamily 5.0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1signal_1_1bsplines_aa3813dae6525e98d6c1c98ce623b1b11}
+\begin{DoxyVerb}Smoothing spline (cubic) filtering of a rank-2 array.
+
+Filter an input data set, `Iin`, using a (cubic) smoothing spline of
+fall-off `lmbda`.
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1signal_1_1bsplines_a245948568a8b033d93b5557b742932c9}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+signal.\+bsplines.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1signal_1_1bsplines_a245948568a8b033d93b5557b742932c9}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'spline\_filter'}, \textcolor{stringliteral}{'bspline'}, \textcolor{stringliteral}{'gauss\_spline'}, \textcolor{stringliteral}{'cubic'}, \textcolor{stringliteral}{'quadratic'},
+2            \textcolor{stringliteral}{'cspline1d'}, \textcolor{stringliteral}{'qspline1d'}, \textcolor{stringliteral}{'cspline1d\_eval'}, \textcolor{stringliteral}{'qspline1d\_eval'}]
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1signal_1_1bsplines_aeabca2856d3743b7d306ed99fc524b7d}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!\+\_\+splinefunc\+\_\+cache@{\+\_\+splinefunc\+\_\+cache}}
+\index{\+\_\+splinefunc\+\_\+cache@{\+\_\+splinefunc\+\_\+cache}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{\+\_\+splinefunc\+\_\+cache}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+signal.\+bsplines.\+\_\+splinefunc\+\_\+cache = \{\}}\label{namespacescipy_1_1signal_1_1bsplines_aeabca2856d3743b7d306ed99fc524b7d}
+\hypertarget{namespacescipy_1_1signal_1_1bsplines_a7f2e8ea608e042f8f0037f248fcd7eac}{}\index{scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}!gamma@{gamma}}
+\index{gamma@{gamma}!scipy\+::signal\+::bsplines@{scipy\+::signal\+::bsplines}}
+\subsubsection[{gamma}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+signal.\+bsplines.\+gamma = scipy.\+special.\+gamma}\label{namespacescipy_1_1signal_1_1bsplines_a7f2e8ea608e042f8f0037f248fcd7eac}

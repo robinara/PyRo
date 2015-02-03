@@ -1,0 +1,130 @@
+\hypertarget{random_8c}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/random.c File Reference}
+\label{random_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/random.\+c@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/random.\+c}}
+{\ttfamily \#include \char`\"{}libqhull.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{random_8c_ae8068dd473d82c8e02c1d8086a472564}{qh\+\_\+rand\+\_\+a}~16807
+\item 
+\#define \hyperlink{random_8c_ab7b781c7c1b06d09bf546724added05c}{qh\+\_\+rand\+\_\+m}~2147483647
+\item 
+\#define \hyperlink{random_8c_aba43be877dd5c7e0d3a229053ba99e8e}{qh\+\_\+rand\+\_\+q}~127773  /$\ast$ \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m} div \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} $\ast$/
+\item 
+\#define \hyperlink{random_8c_aecefd5462b5fd8246159ea82c77315c6}{qh\+\_\+rand\+\_\+r}~2836    /$\ast$ \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m} mod \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{random_8c_a29195948e615fda39498da2e00381eb2}{qh\+\_\+argv\+\_\+to\+\_\+command} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, char $\ast$command, int max\+\_\+size)
+\item 
+int \hyperlink{random_8c_a2c07e0a07402543ddbea4915d7bcd8ad}{qh\+\_\+argv\+\_\+to\+\_\+command\+\_\+size} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{random_8c_ae9c3da2e7aa44b70657d273e8ca3e832}{qh\+\_\+rand} (void)
+\item 
+void \hyperlink{random_8c_abb43a4c827cd75dc6dafec8160e25246}{qh\+\_\+srand} (int seed)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{random_8c_a6beda682889bebcb2a48dac4ab58d63a}{qh\+\_\+randomfactor} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} scale, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} offset)
+\item 
+void \hyperlink{random_8c_a9adc8778384d3d8650556bfdc37842a1}{qh\+\_\+randommatrix} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$buffer, int dim, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$rows)
+\item 
+double \hyperlink{random_8c_a6c2498357aee27cf37a0bbd97b91be1f}{qh\+\_\+strtod} (const char $\ast$\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s}, char $\ast$$\ast$endp)
+\item 
+int \hyperlink{random_8c_ae7e26754dc4071ce8c5d3a4feacc6e17}{qh\+\_\+strtol} (const char $\ast$\hyperlink{indexexpr_8h_ae024b0db549122b44c349ae28ec990dc}{s}, char $\ast$$\ast$endp)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{random_8c_a15a43a416d5df8f9bab9f186152f8d20}{qh\+\_\+rand\+\_\+seed} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{random_8c_ae8068dd473d82c8e02c1d8086a472564}{}\index{random.\+c@{random.\+c}!qh\+\_\+rand\+\_\+a@{qh\+\_\+rand\+\_\+a}}
+\index{qh\+\_\+rand\+\_\+a@{qh\+\_\+rand\+\_\+a}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+rand\+\_\+a}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+rand\+\_\+a~16807}\label{random_8c_ae8068dd473d82c8e02c1d8086a472564}
+\hypertarget{random_8c_ab7b781c7c1b06d09bf546724added05c}{}\index{random.\+c@{random.\+c}!qh\+\_\+rand\+\_\+m@{qh\+\_\+rand\+\_\+m}}
+\index{qh\+\_\+rand\+\_\+m@{qh\+\_\+rand\+\_\+m}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+rand\+\_\+m}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+rand\+\_\+m~2147483647}\label{random_8c_ab7b781c7c1b06d09bf546724added05c}
+\hypertarget{random_8c_aba43be877dd5c7e0d3a229053ba99e8e}{}\index{random.\+c@{random.\+c}!qh\+\_\+rand\+\_\+q@{qh\+\_\+rand\+\_\+q}}
+\index{qh\+\_\+rand\+\_\+q@{qh\+\_\+rand\+\_\+q}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+rand\+\_\+q}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+rand\+\_\+q~127773  /$\ast$ {\bf m} div {\bf a} $\ast$/}\label{random_8c_aba43be877dd5c7e0d3a229053ba99e8e}
+\hypertarget{random_8c_aecefd5462b5fd8246159ea82c77315c6}{}\index{random.\+c@{random.\+c}!qh\+\_\+rand\+\_\+r@{qh\+\_\+rand\+\_\+r}}
+\index{qh\+\_\+rand\+\_\+r@{qh\+\_\+rand\+\_\+r}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+rand\+\_\+r}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+rand\+\_\+r~2836    /$\ast$ {\bf m} mod {\bf a} $\ast$/}\label{random_8c_aecefd5462b5fd8246159ea82c77315c6}
+
+
+\subsection{Function Documentation}
+\hypertarget{random_8c_a29195948e615fda39498da2e00381eb2}{}\index{random.\+c@{random.\+c}!qh\+\_\+argv\+\_\+to\+\_\+command@{qh\+\_\+argv\+\_\+to\+\_\+command}}
+\index{qh\+\_\+argv\+\_\+to\+\_\+command@{qh\+\_\+argv\+\_\+to\+\_\+command}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+argv\+\_\+to\+\_\+command}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+argv\+\_\+to\+\_\+command (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}, }
+\item[{char $\ast$}]{command, }
+\item[{int}]{max\+\_\+size}
+\end{DoxyParamCaption}
+)}\label{random_8c_a29195948e615fda39498da2e00381eb2}
+\hypertarget{random_8c_a2c07e0a07402543ddbea4915d7bcd8ad}{}\index{random.\+c@{random.\+c}!qh\+\_\+argv\+\_\+to\+\_\+command\+\_\+size@{qh\+\_\+argv\+\_\+to\+\_\+command\+\_\+size}}
+\index{qh\+\_\+argv\+\_\+to\+\_\+command\+\_\+size@{qh\+\_\+argv\+\_\+to\+\_\+command\+\_\+size}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+argv\+\_\+to\+\_\+command\+\_\+size}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+argv\+\_\+to\+\_\+command\+\_\+size (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{random_8c_a2c07e0a07402543ddbea4915d7bcd8ad}
+\hypertarget{random_8c_ae9c3da2e7aa44b70657d273e8ca3e832}{}\index{random.\+c@{random.\+c}!qh\+\_\+rand@{qh\+\_\+rand}}
+\index{qh\+\_\+rand@{qh\+\_\+rand}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+rand}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+rand (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{random_8c_ae9c3da2e7aa44b70657d273e8ca3e832}
+\hypertarget{random_8c_a6beda682889bebcb2a48dac4ab58d63a}{}\index{random.\+c@{random.\+c}!qh\+\_\+randomfactor@{qh\+\_\+randomfactor}}
+\index{qh\+\_\+randomfactor@{qh\+\_\+randomfactor}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+randomfactor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+randomfactor (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T}}]{scale, }
+\item[{{\bf real\+T}}]{offset}
+\end{DoxyParamCaption}
+)}\label{random_8c_a6beda682889bebcb2a48dac4ab58d63a}
+\hypertarget{random_8c_a9adc8778384d3d8650556bfdc37842a1}{}\index{random.\+c@{random.\+c}!qh\+\_\+randommatrix@{qh\+\_\+randommatrix}}
+\index{qh\+\_\+randommatrix@{qh\+\_\+randommatrix}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+randommatrix}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+randommatrix (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$}]{buffer, }
+\item[{int}]{dim, }
+\item[{{\bf real\+T} $\ast$$\ast$}]{rows}
+\end{DoxyParamCaption}
+)}\label{random_8c_a9adc8778384d3d8650556bfdc37842a1}
+\hypertarget{random_8c_abb43a4c827cd75dc6dafec8160e25246}{}\index{random.\+c@{random.\+c}!qh\+\_\+srand@{qh\+\_\+srand}}
+\index{qh\+\_\+srand@{qh\+\_\+srand}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+srand}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+srand (
+\begin{DoxyParamCaption}
+\item[{int}]{seed}
+\end{DoxyParamCaption}
+)}\label{random_8c_abb43a4c827cd75dc6dafec8160e25246}
+\hypertarget{random_8c_a6c2498357aee27cf37a0bbd97b91be1f}{}\index{random.\+c@{random.\+c}!qh\+\_\+strtod@{qh\+\_\+strtod}}
+\index{qh\+\_\+strtod@{qh\+\_\+strtod}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+strtod}]{\setlength{\rightskip}{0pt plus 5cm}double qh\+\_\+strtod (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{s, }
+\item[{char $\ast$$\ast$}]{endp}
+\end{DoxyParamCaption}
+)}\label{random_8c_a6c2498357aee27cf37a0bbd97b91be1f}
+\hypertarget{random_8c_ae7e26754dc4071ce8c5d3a4feacc6e17}{}\index{random.\+c@{random.\+c}!qh\+\_\+strtol@{qh\+\_\+strtol}}
+\index{qh\+\_\+strtol@{qh\+\_\+strtol}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+strtol}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+strtol (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{s, }
+\item[{char $\ast$$\ast$}]{endp}
+\end{DoxyParamCaption}
+)}\label{random_8c_ae7e26754dc4071ce8c5d3a4feacc6e17}
+
+
+\subsection{Variable Documentation}
+\hypertarget{random_8c_a15a43a416d5df8f9bab9f186152f8d20}{}\index{random.\+c@{random.\+c}!qh\+\_\+rand\+\_\+seed@{qh\+\_\+rand\+\_\+seed}}
+\index{qh\+\_\+rand\+\_\+seed@{qh\+\_\+rand\+\_\+seed}!random.\+c@{random.\+c}}
+\subsubsection[{qh\+\_\+rand\+\_\+seed}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+rand\+\_\+seed = 1}\label{random_8c_a15a43a416d5df8f9bab9f186152f8d20}

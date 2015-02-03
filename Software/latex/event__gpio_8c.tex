@@ -1,0 +1,315 @@
+\hypertarget{event__gpio_8c}{}\section{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/event\+\_\+gpio.c File Reference}
+\label{event__gpio_8c}\index{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/event\+\_\+gpio.\+c@{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/event\+\_\+gpio.\+c}}
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
+{\ttfamily \#include $<$sys/epoll.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}event\+\_\+gpio.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{event__gpio_8c_a11354c15bdd67a2106e5da401d595dad}{gpio\+\_\+export} (unsigned int gpio)
+\item 
+void \hyperlink{event__gpio_8c_a51cc09fcc9e9e56542379946eb88f781}{close\+\_\+value\+\_\+fd} (unsigned int gpio)
+\item 
+int \hyperlink{event__gpio_8c_a81a138cd1b2ddb660ff70175c8ca3005}{fd\+\_\+lookup} (unsigned int gpio)
+\item 
+int \hyperlink{event__gpio_8c_a1d75dd1a9a2f3b719a2016b7b5e2aa7e}{add\+\_\+fd\+\_\+list} (unsigned int gpio, int fd)
+\item 
+int \hyperlink{event__gpio_8c_ad1a05a475e2cd6c42c9b117b73340e54}{open\+\_\+value\+\_\+file} (unsigned int gpio)
+\item 
+int \hyperlink{event__gpio_8c_ae56aafdd034937d1c1f51a7a0409a134}{gpio\+\_\+unexport} (unsigned int gpio)
+\item 
+int \hyperlink{event__gpio_8c_a8ddb6a8a1761bc09a26658a152490f2b}{gpio\+\_\+set\+\_\+direction} (unsigned int gpio, unsigned int in\+\_\+flag)
+\item 
+int \hyperlink{event__gpio_8c_a9fd643201e188f5592b9832236a90b88}{gpio\+\_\+get\+\_\+direction} (unsigned int gpio, unsigned int $\ast$value)
+\item 
+int \hyperlink{event__gpio_8c_a6fb36c80e9faf8c57327edab1e06d60b}{gpio\+\_\+set\+\_\+value} (unsigned int gpio, unsigned int value)
+\item 
+int \hyperlink{event__gpio_8c_ab552a3b892429abd61a45f666c7c5a3d}{gpio\+\_\+get\+\_\+value} (unsigned int gpio, unsigned int $\ast$value)
+\item 
+int \hyperlink{event__gpio_8c_af67e5a2bfb3670d939a70466b43e5fac}{gpio\+\_\+set\+\_\+edge} (unsigned int gpio, unsigned int edge)
+\item 
+unsigned int \hyperlink{event__gpio_8c_a2449ffe898b7053b64a16ffa3bda6f2c}{gpio\+\_\+lookup} (int fd)
+\item 
+void \hyperlink{event__gpio_8c_a3f349d7ef4e15856fc36d86e9ad13b33}{exports\+\_\+cleanup} (void)
+\item 
+int \hyperlink{event__gpio_8c_a39fe9862c18e9379799f2f4a6fe86505}{add\+\_\+edge\+\_\+callback} (unsigned int gpio, void($\ast$func)(unsigned int gpio))
+\item 
+void \hyperlink{event__gpio_8c_a096c813e966b3c281e4e12793524f2e2}{run\+\_\+callbacks} (unsigned int gpio)
+\item 
+void \hyperlink{event__gpio_8c_a4a28c4a0a8f8c0065df4c14983de2f01}{remove\+\_\+callbacks} (unsigned int gpio)
+\item 
+void \hyperlink{event__gpio_8c_a3c1975696331378b4df1ed08c990b779}{set\+\_\+initial\+\_\+false} (unsigned int gpio)
+\item 
+int \hyperlink{event__gpio_8c_ac1ebd670a53fb715b2e5675538410496}{gpio\+\_\+initial} (unsigned int gpio)
+\item 
+void $\ast$ \hyperlink{event__gpio_8c_af56508f6d1e247648cde4ed1f7cc39af}{poll\+\_\+thread} (void $\ast$threadarg)
+\item 
+int \hyperlink{event__gpio_8c_a6ca43b252d9d359c5e1ec28d70460801}{gpio\+\_\+is\+\_\+evented} (unsigned int gpio)
+\item 
+int \hyperlink{event__gpio_8c_a5811e89d081d76a1b3f449a0ea802a9c}{gpio\+\_\+event\+\_\+add} (unsigned int gpio)
+\item 
+int \hyperlink{event__gpio_8c_a2070f86994c7cf49bc1d01f881bae235}{gpio\+\_\+event\+\_\+remove} (unsigned int gpio)
+\item 
+int \hyperlink{event__gpio_8c_ac74d9321b383cbb13bd61fe0f71a3fb1}{add\+\_\+edge\+\_\+detect} (unsigned int gpio, unsigned int edge)
+\item 
+void \hyperlink{event__gpio_8c_a6a5c0cb6a25f13da8c9f85634c0e514e}{remove\+\_\+edge\+\_\+detect} (unsigned int gpio)
+\item 
+int \hyperlink{event__gpio_8c_a95117e7434368ed452f47b2dd98b3c8f}{event\+\_\+detected} (unsigned int gpio)
+\item 
+void \hyperlink{event__gpio_8c_a99edcc5d222a1cb09ff4f5c8a74b09da}{event\+\_\+cleanup} (void)
+\item 
+int \hyperlink{event__gpio_8c_add87fed4bf9a603be2a94607a816c5cc}{blocking\+\_\+wait\+\_\+for\+\_\+edge} (unsigned int gpio, unsigned int edge)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{event__gpio_8c_a8c700bab8861d5b5401dd81d37bfad38}{stredge} \mbox{[}4\mbox{]} = \{\char`\"{}none\char`\"{}, \char`\"{}rising\char`\"{}, \char`\"{}falling\char`\"{}, \char`\"{}both\char`\"{}\}
+\item 
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} fdx $\ast$ \hyperlink{event__gpio_8c_ac7c73612157e7fe846b43a5dca18619f}{fd\+\_\+list} = N\+U\+L\+L
+\item 
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} callback $\ast$ \hyperlink{event__gpio_8c_a62ee75cc391ce9e6565e0da143fbe00e}{callbacks} = N\+U\+L\+L
+\item 
+\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} gpio\+\_\+exp $\ast$ \hyperlink{event__gpio_8c_af71ef1dedbda402d5a4a23d87c13a39b}{exported\+\_\+gpios} = N\+U\+L\+L
+\item 
+pthread\+\_\+t \hyperlink{event__gpio_8c_ae0cd81251cf9ccdf87ef907aa049b469}{threads}
+\item 
+int \hyperlink{event__gpio_8c_a090708cf949a4095cb60cebfbef17d03}{event\+\_\+occurred} \mbox{[}120\mbox{]} = \{ 0 \}
+\item 
+int \hyperlink{event__gpio_8c_adbf61a1af6f9211b197dc0d26eaa8c49}{thread\+\_\+running} = 0
+\item 
+int \hyperlink{event__gpio_8c_ad9ea3108c3907d7dedaf4ee7283bef1d}{epfd} = -\/1
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{event__gpio_8c_a39fe9862c18e9379799f2f4a6fe86505}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!add\+\_\+edge\+\_\+callback@{add\+\_\+edge\+\_\+callback}}
+\index{add\+\_\+edge\+\_\+callback@{add\+\_\+edge\+\_\+callback}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{add\+\_\+edge\+\_\+callback}]{\setlength{\rightskip}{0pt plus 5cm}int add\+\_\+edge\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio, }
+\item[{void($\ast$)(unsigned int gpio)}]{func}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a39fe9862c18e9379799f2f4a6fe86505}
+\hypertarget{event__gpio_8c_ac74d9321b383cbb13bd61fe0f71a3fb1}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!add\+\_\+edge\+\_\+detect@{add\+\_\+edge\+\_\+detect}}
+\index{add\+\_\+edge\+\_\+detect@{add\+\_\+edge\+\_\+detect}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{add\+\_\+edge\+\_\+detect}]{\setlength{\rightskip}{0pt plus 5cm}int add\+\_\+edge\+\_\+detect (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio, }
+\item[{unsigned int}]{edge}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_ac74d9321b383cbb13bd61fe0f71a3fb1}
+\hypertarget{event__gpio_8c_a1d75dd1a9a2f3b719a2016b7b5e2aa7e}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!add\+\_\+fd\+\_\+list@{add\+\_\+fd\+\_\+list}}
+\index{add\+\_\+fd\+\_\+list@{add\+\_\+fd\+\_\+list}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{add\+\_\+fd\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}int add\+\_\+fd\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a1d75dd1a9a2f3b719a2016b7b5e2aa7e}
+\hypertarget{event__gpio_8c_add87fed4bf9a603be2a94607a816c5cc}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!blocking\+\_\+wait\+\_\+for\+\_\+edge@{blocking\+\_\+wait\+\_\+for\+\_\+edge}}
+\index{blocking\+\_\+wait\+\_\+for\+\_\+edge@{blocking\+\_\+wait\+\_\+for\+\_\+edge}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{blocking\+\_\+wait\+\_\+for\+\_\+edge}]{\setlength{\rightskip}{0pt plus 5cm}int blocking\+\_\+wait\+\_\+for\+\_\+edge (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio, }
+\item[{unsigned int}]{edge}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_add87fed4bf9a603be2a94607a816c5cc}
+\hypertarget{event__gpio_8c_a51cc09fcc9e9e56542379946eb88f781}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!close\+\_\+value\+\_\+fd@{close\+\_\+value\+\_\+fd}}
+\index{close\+\_\+value\+\_\+fd@{close\+\_\+value\+\_\+fd}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{close\+\_\+value\+\_\+fd}]{\setlength{\rightskip}{0pt plus 5cm}void close\+\_\+value\+\_\+fd (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a51cc09fcc9e9e56542379946eb88f781}
+\hypertarget{event__gpio_8c_a99edcc5d222a1cb09ff4f5c8a74b09da}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!event\+\_\+cleanup@{event\+\_\+cleanup}}
+\index{event\+\_\+cleanup@{event\+\_\+cleanup}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{event\+\_\+cleanup}]{\setlength{\rightskip}{0pt plus 5cm}void event\+\_\+cleanup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a99edcc5d222a1cb09ff4f5c8a74b09da}
+\hypertarget{event__gpio_8c_a95117e7434368ed452f47b2dd98b3c8f}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!event\+\_\+detected@{event\+\_\+detected}}
+\index{event\+\_\+detected@{event\+\_\+detected}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{event\+\_\+detected}]{\setlength{\rightskip}{0pt plus 5cm}int event\+\_\+detected (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a95117e7434368ed452f47b2dd98b3c8f}
+\hypertarget{event__gpio_8c_a3f349d7ef4e15856fc36d86e9ad13b33}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!exports\+\_\+cleanup@{exports\+\_\+cleanup}}
+\index{exports\+\_\+cleanup@{exports\+\_\+cleanup}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{exports\+\_\+cleanup}]{\setlength{\rightskip}{0pt plus 5cm}void exports\+\_\+cleanup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a3f349d7ef4e15856fc36d86e9ad13b33}
+\hypertarget{event__gpio_8c_a81a138cd1b2ddb660ff70175c8ca3005}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!fd\+\_\+lookup@{fd\+\_\+lookup}}
+\index{fd\+\_\+lookup@{fd\+\_\+lookup}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{fd\+\_\+lookup}]{\setlength{\rightskip}{0pt plus 5cm}int fd\+\_\+lookup (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a81a138cd1b2ddb660ff70175c8ca3005}
+\hypertarget{event__gpio_8c_a5811e89d081d76a1b3f449a0ea802a9c}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+event\+\_\+add@{gpio\+\_\+event\+\_\+add}}
+\index{gpio\+\_\+event\+\_\+add@{gpio\+\_\+event\+\_\+add}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+event\+\_\+add}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+event\+\_\+add (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a5811e89d081d76a1b3f449a0ea802a9c}
+\hypertarget{event__gpio_8c_a2070f86994c7cf49bc1d01f881bae235}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+event\+\_\+remove@{gpio\+\_\+event\+\_\+remove}}
+\index{gpio\+\_\+event\+\_\+remove@{gpio\+\_\+event\+\_\+remove}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+event\+\_\+remove}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+event\+\_\+remove (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a2070f86994c7cf49bc1d01f881bae235}
+\hypertarget{event__gpio_8c_a11354c15bdd67a2106e5da401d595dad}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+export@{gpio\+\_\+export}}
+\index{gpio\+\_\+export@{gpio\+\_\+export}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+export}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+export (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a11354c15bdd67a2106e5da401d595dad}
+\hypertarget{event__gpio_8c_a9fd643201e188f5592b9832236a90b88}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+get\+\_\+direction@{gpio\+\_\+get\+\_\+direction}}
+\index{gpio\+\_\+get\+\_\+direction@{gpio\+\_\+get\+\_\+direction}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+get\+\_\+direction}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+get\+\_\+direction (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio, }
+\item[{unsigned int $\ast$}]{value}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a9fd643201e188f5592b9832236a90b88}
+\hypertarget{event__gpio_8c_ab552a3b892429abd61a45f666c7c5a3d}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+get\+\_\+value@{gpio\+\_\+get\+\_\+value}}
+\index{gpio\+\_\+get\+\_\+value@{gpio\+\_\+get\+\_\+value}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+get\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+get\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio, }
+\item[{unsigned int $\ast$}]{value}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_ab552a3b892429abd61a45f666c7c5a3d}
+\hypertarget{event__gpio_8c_ac1ebd670a53fb715b2e5675538410496}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+initial@{gpio\+\_\+initial}}
+\index{gpio\+\_\+initial@{gpio\+\_\+initial}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+initial}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+initial (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_ac1ebd670a53fb715b2e5675538410496}
+\hypertarget{event__gpio_8c_a6ca43b252d9d359c5e1ec28d70460801}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+is\+\_\+evented@{gpio\+\_\+is\+\_\+evented}}
+\index{gpio\+\_\+is\+\_\+evented@{gpio\+\_\+is\+\_\+evented}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+is\+\_\+evented}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+is\+\_\+evented (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a6ca43b252d9d359c5e1ec28d70460801}
+\hypertarget{event__gpio_8c_a2449ffe898b7053b64a16ffa3bda6f2c}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+lookup@{gpio\+\_\+lookup}}
+\index{gpio\+\_\+lookup@{gpio\+\_\+lookup}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+lookup}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int gpio\+\_\+lookup (
+\begin{DoxyParamCaption}
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a2449ffe898b7053b64a16ffa3bda6f2c}
+\hypertarget{event__gpio_8c_a8ddb6a8a1761bc09a26658a152490f2b}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+set\+\_\+direction@{gpio\+\_\+set\+\_\+direction}}
+\index{gpio\+\_\+set\+\_\+direction@{gpio\+\_\+set\+\_\+direction}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+set\+\_\+direction}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+set\+\_\+direction (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio, }
+\item[{unsigned int}]{in\+\_\+flag}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a8ddb6a8a1761bc09a26658a152490f2b}
+\hypertarget{event__gpio_8c_af67e5a2bfb3670d939a70466b43e5fac}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+set\+\_\+edge@{gpio\+\_\+set\+\_\+edge}}
+\index{gpio\+\_\+set\+\_\+edge@{gpio\+\_\+set\+\_\+edge}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+set\+\_\+edge}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+set\+\_\+edge (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio, }
+\item[{unsigned int}]{edge}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_af67e5a2bfb3670d939a70466b43e5fac}
+\hypertarget{event__gpio_8c_a6fb36c80e9faf8c57327edab1e06d60b}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+set\+\_\+value@{gpio\+\_\+set\+\_\+value}}
+\index{gpio\+\_\+set\+\_\+value@{gpio\+\_\+set\+\_\+value}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+set\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+set\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio, }
+\item[{unsigned int}]{value}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a6fb36c80e9faf8c57327edab1e06d60b}
+\hypertarget{event__gpio_8c_ae56aafdd034937d1c1f51a7a0409a134}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!gpio\+\_\+unexport@{gpio\+\_\+unexport}}
+\index{gpio\+\_\+unexport@{gpio\+\_\+unexport}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{gpio\+\_\+unexport}]{\setlength{\rightskip}{0pt plus 5cm}int gpio\+\_\+unexport (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_ae56aafdd034937d1c1f51a7a0409a134}
+\hypertarget{event__gpio_8c_ad1a05a475e2cd6c42c9b117b73340e54}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!open\+\_\+value\+\_\+file@{open\+\_\+value\+\_\+file}}
+\index{open\+\_\+value\+\_\+file@{open\+\_\+value\+\_\+file}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{open\+\_\+value\+\_\+file}]{\setlength{\rightskip}{0pt plus 5cm}int open\+\_\+value\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_ad1a05a475e2cd6c42c9b117b73340e54}
+\hypertarget{event__gpio_8c_af56508f6d1e247648cde4ed1f7cc39af}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!poll\+\_\+thread@{poll\+\_\+thread}}
+\index{poll\+\_\+thread@{poll\+\_\+thread}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{poll\+\_\+thread}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ poll\+\_\+thread (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{threadarg}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_af56508f6d1e247648cde4ed1f7cc39af}
+\hypertarget{event__gpio_8c_a4a28c4a0a8f8c0065df4c14983de2f01}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!remove\+\_\+callbacks@{remove\+\_\+callbacks}}
+\index{remove\+\_\+callbacks@{remove\+\_\+callbacks}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{remove\+\_\+callbacks}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+\_\+callbacks (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a4a28c4a0a8f8c0065df4c14983de2f01}
+\hypertarget{event__gpio_8c_a6a5c0cb6a25f13da8c9f85634c0e514e}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!remove\+\_\+edge\+\_\+detect@{remove\+\_\+edge\+\_\+detect}}
+\index{remove\+\_\+edge\+\_\+detect@{remove\+\_\+edge\+\_\+detect}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{remove\+\_\+edge\+\_\+detect}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+\_\+edge\+\_\+detect (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a6a5c0cb6a25f13da8c9f85634c0e514e}
+\hypertarget{event__gpio_8c_a096c813e966b3c281e4e12793524f2e2}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!run\+\_\+callbacks@{run\+\_\+callbacks}}
+\index{run\+\_\+callbacks@{run\+\_\+callbacks}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{run\+\_\+callbacks}]{\setlength{\rightskip}{0pt plus 5cm}void run\+\_\+callbacks (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a096c813e966b3c281e4e12793524f2e2}
+\hypertarget{event__gpio_8c_a3c1975696331378b4df1ed08c990b779}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!set\+\_\+initial\+\_\+false@{set\+\_\+initial\+\_\+false}}
+\index{set\+\_\+initial\+\_\+false@{set\+\_\+initial\+\_\+false}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{set\+\_\+initial\+\_\+false}]{\setlength{\rightskip}{0pt plus 5cm}void set\+\_\+initial\+\_\+false (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{gpio}
+\end{DoxyParamCaption}
+)}\label{event__gpio_8c_a3c1975696331378b4df1ed08c990b779}
+
+
+\subsection{Variable Documentation}
+\hypertarget{event__gpio_8c_a62ee75cc391ce9e6565e0da143fbe00e}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!callbacks@{callbacks}}
+\index{callbacks@{callbacks}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{callbacks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf struct} callback$\ast$ callbacks = N\+U\+L\+L}\label{event__gpio_8c_a62ee75cc391ce9e6565e0da143fbe00e}
+\hypertarget{event__gpio_8c_ad9ea3108c3907d7dedaf4ee7283bef1d}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!epfd@{epfd}}
+\index{epfd@{epfd}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{epfd}]{\setlength{\rightskip}{0pt plus 5cm}int epfd = -\/1}\label{event__gpio_8c_ad9ea3108c3907d7dedaf4ee7283bef1d}
+\hypertarget{event__gpio_8c_a090708cf949a4095cb60cebfbef17d03}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!event\+\_\+occurred@{event\+\_\+occurred}}
+\index{event\+\_\+occurred@{event\+\_\+occurred}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{event\+\_\+occurred}]{\setlength{\rightskip}{0pt plus 5cm}int event\+\_\+occurred\mbox{[}120\mbox{]} = \{ 0 \}}\label{event__gpio_8c_a090708cf949a4095cb60cebfbef17d03}
+\hypertarget{event__gpio_8c_af71ef1dedbda402d5a4a23d87c13a39b}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!exported\+\_\+gpios@{exported\+\_\+gpios}}
+\index{exported\+\_\+gpios@{exported\+\_\+gpios}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{exported\+\_\+gpios}]{\setlength{\rightskip}{0pt plus 5cm}{\bf struct} gpio\+\_\+exp$\ast$ exported\+\_\+gpios = N\+U\+L\+L}\label{event__gpio_8c_af71ef1dedbda402d5a4a23d87c13a39b}
+\hypertarget{event__gpio_8c_ac7c73612157e7fe846b43a5dca18619f}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!fd\+\_\+list@{fd\+\_\+list}}
+\index{fd\+\_\+list@{fd\+\_\+list}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{fd\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf struct} fdx$\ast$ fd\+\_\+list = N\+U\+L\+L}\label{event__gpio_8c_ac7c73612157e7fe846b43a5dca18619f}
+\hypertarget{event__gpio_8c_a8c700bab8861d5b5401dd81d37bfad38}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!stredge@{stredge}}
+\index{stredge@{stredge}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{stredge}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ stredge\mbox{[}4\mbox{]} = \{\char`\"{}none\char`\"{}, \char`\"{}rising\char`\"{}, \char`\"{}falling\char`\"{}, \char`\"{}both\char`\"{}\}}\label{event__gpio_8c_a8c700bab8861d5b5401dd81d37bfad38}
+\hypertarget{event__gpio_8c_adbf61a1af6f9211b197dc0d26eaa8c49}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!thread\+\_\+running@{thread\+\_\+running}}
+\index{thread\+\_\+running@{thread\+\_\+running}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{thread\+\_\+running}]{\setlength{\rightskip}{0pt plus 5cm}int thread\+\_\+running = 0}\label{event__gpio_8c_adbf61a1af6f9211b197dc0d26eaa8c49}
+\hypertarget{event__gpio_8c_ae0cd81251cf9ccdf87ef907aa049b469}{}\index{event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}!threads@{threads}}
+\index{threads@{threads}!event\+\_\+gpio.\+c@{event\+\_\+gpio.\+c}}
+\subsubsection[{threads}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+t threads}\label{event__gpio_8c_ae0cd81251cf9ccdf87ef907aa049b469}

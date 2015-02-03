@@ -1,0 +1,125 @@
+\hypertarget{dpanel__bmod_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dpanel\+\_\+bmod.c File Reference}
+\label{dpanel__bmod_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dpanel\+\_\+bmod.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dpanel\+\_\+bmod.\+c}}
+
+
+Performs numeric block updates.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{dpanel__bmod_8c_a56d27043eac0282b0d0e4106acedb083}{dlsolve} (int, int, double $\ast$, double $\ast$)
+\item 
+void \hyperlink{dpanel__bmod_8c_a65523602382b3d96c9852545ae24815d}{dmatvec} (int, int, int, double $\ast$, double $\ast$, double $\ast$)
+\item 
+void \hyperlink{dpanel__bmod_8c_a3ffa3b0456b4e2d587556bd0f717315d}{dcheck\+\_\+tempv} ()
+\item 
+void \hyperlink{dpanel__bmod_8c_a192df249a9fc13ad49bf3f2cd79aba65}{dpanel\+\_\+bmod} (const int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, const int w, const int jcol, const int nseg, double $\ast$dense, double $\ast$tempv, int $\ast$segrep, int $\ast$repfnz, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Performs numeric block updates. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Permission is hereby granted to use or copy this program for any
+purpose, provided the above notices are retained on all copies.
+Permission to modify the code and to distribute modified code is
+granted, provided the above notices are retained, and a notice that
+the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{dpanel__bmod_8c_a3ffa3b0456b4e2d587556bd0f717315d}{}\index{dpanel\+\_\+bmod.\+c@{dpanel\+\_\+bmod.\+c}!dcheck\+\_\+tempv@{dcheck\+\_\+tempv}}
+\index{dcheck\+\_\+tempv@{dcheck\+\_\+tempv}!dpanel\+\_\+bmod.\+c@{dpanel\+\_\+bmod.\+c}}
+\subsubsection[{dcheck\+\_\+tempv}]{\setlength{\rightskip}{0pt plus 5cm}void dcheck\+\_\+tempv (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{dpanel__bmod_8c_a3ffa3b0456b4e2d587556bd0f717315d}
+\hypertarget{dpanel__bmod_8c_a56d27043eac0282b0d0e4106acedb083}{}\index{dpanel\+\_\+bmod.\+c@{dpanel\+\_\+bmod.\+c}!dlsolve@{dlsolve}}
+\index{dlsolve@{dlsolve}!dpanel\+\_\+bmod.\+c@{dpanel\+\_\+bmod.\+c}}
+\subsubsection[{dlsolve}]{\setlength{\rightskip}{0pt plus 5cm}void dlsolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{dpanel__bmod_8c_a56d27043eac0282b0d0e4106acedb083}
+\hypertarget{dpanel__bmod_8c_a65523602382b3d96c9852545ae24815d}{}\index{dpanel\+\_\+bmod.\+c@{dpanel\+\_\+bmod.\+c}!dmatvec@{dmatvec}}
+\index{dmatvec@{dmatvec}!dpanel\+\_\+bmod.\+c@{dpanel\+\_\+bmod.\+c}}
+\subsubsection[{dmatvec}]{\setlength{\rightskip}{0pt plus 5cm}void dmatvec (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{dpanel__bmod_8c_a65523602382b3d96c9852545ae24815d}
+\hypertarget{dpanel__bmod_8c_a192df249a9fc13ad49bf3f2cd79aba65}{}\index{dpanel\+\_\+bmod.\+c@{dpanel\+\_\+bmod.\+c}!dpanel\+\_\+bmod@{dpanel\+\_\+bmod}}
+\index{dpanel\+\_\+bmod@{dpanel\+\_\+bmod}!dpanel\+\_\+bmod.\+c@{dpanel\+\_\+bmod.\+c}}
+\subsubsection[{dpanel\+\_\+bmod}]{\setlength{\rightskip}{0pt plus 5cm}void dpanel\+\_\+bmod (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{w, }
+\item[{const int}]{jcol, }
+\item[{const int}]{nseg, }
+\item[{double $\ast$}]{dense, }
+\item[{double $\ast$}]{tempv, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{dpanel__bmod_8c_a192df249a9fc13ad49bf3f2cd79aba65}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   Performs numeric block updates (sup-panel) in topological order.
+   It features: col-col, 2cols-col, 3cols-col, and sup-col updates.
+   Special processing on the supernodal portion of L[*,j]\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   Before entering this routine, the original nonzeros in the panel 
+   were already copied into the spa[m,w].\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   Updated/Output parameters-
+   dense[0:m-1,w]: L[*,j:j+w-1] and U[*,j:j+w-1] are returned 
+   collectively in the m-by-w vector dense[*]. 
+\end{DoxyPre}
+ 

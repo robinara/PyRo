@@ -1,0 +1,380 @@
+\hypertarget{zmemory_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zmemory.c File Reference}
+\label{zmemory_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zmemory.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zmemory.\+c}}
+
+
+Memory details.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+zdefs.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{zmemory_8c_a1ef4d4db4d5e1fe0719416163e0e51ae}{Stack\+Full}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})~( \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x} + Glu-\/$>$stack.\+used $>$= Glu-\/$>$stack.\+size )
+\item 
+\#define \hyperlink{zmemory_8c_ac11b1c3847a3d397e9675de40782134d}{Not\+Double\+Align}(addr)~( (long int)addr \& 7 )
+\item 
+\#define \hyperlink{zmemory_8c_ac8204d321846eb4b23d563eac7e5bfa7}{Double\+Align}(addr)~( ((long int)addr + 7) \& $\sim$7\+L )
+\item 
+\#define \hyperlink{zmemory_8c_a70ca807c578a0c495f7ce5edb0215e2b}{Temp\+Space}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m},  w)
+\item 
+\#define \hyperlink{zmemory_8c_a7b2a35bfd2e6c9d03e2a6ccdba9fa847}{Reduce}(alpha)~((alpha + 1) / 2)  /$\ast$ i.\+e. (alpha-\/1)/2 + 1 $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{zmemory_8c_a67833ee9526cec0b31d0f26e527b97df}{zexpand} (int $\ast$prev\+\_\+len,\hyperlink{superlu__enum__consts_8h_abd31f838aefffa46191d0d7dc36a96b2}{Mem\+Type} \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type},int len\+\_\+to\+\_\+copy,int keep\+\_\+prev,\hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Expand the existing storage to accommodate more fill-\/ins. \end{DoxyCompactList}\item 
+int \hyperlink{zmemory_8c_a882c0544ebe2e000b982820ac583c180}{z\+L\+U\+Work\+Init} (int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int panel\+\_\+size, int $\ast$$\ast$iworkptr, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$$\ast$dworkptr, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Allocate known working storage. Returns 0 if success, otherwise returns the number of bytes allocated so far when failure occurred. \end{DoxyCompactList}\item 
+void \hyperlink{zmemory_8c_aa0ef433984e57ac0dacc29c5e3b53ecf}{copy\+\_\+mem\+\_\+doublecomplex} (int, void $\ast$, void $\ast$)
+\item 
+void \hyperlink{zmemory_8c_a607a863b6fcdf1adb1931dd4c8277ee0}{z\+Stack\+Compress} (\hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Compress the work\mbox{[}\mbox{]} array to remove fragmentation. \end{DoxyCompactList}\item 
+void \hyperlink{zmemory_8c_a0edfb761a3a551bce967037b3e1aa9e2}{z\+Setup\+Space} (void $\ast$work, int lwork, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Setup the memory model to be used for factorization. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{zmemory_8c_a0546ac846872bb77841c8502590dc3e2}{zuser\+\_\+malloc} (int, int, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+void \hyperlink{zmemory_8c_a9568d77c3e1f50a9b000f50a9941300a}{zuser\+\_\+free} (int, int, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+void \hyperlink{zmemory_8c_ab59eea34474da95fb3dc125400a1287e}{copy\+\_\+mem\+\_\+int} (int, void $\ast$, void $\ast$)
+\item 
+void \hyperlink{zmemory_8c_a4c226087c09a94ff40b92b14fa46fc53}{user\+\_\+bcopy} (char $\ast$, char $\ast$, int)
+\item 
+int \hyperlink{zmemory_8c_a286bf5eff2472576ba5fafe9d1daf835}{z\+Query\+Space} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t} $\ast$mem\+\_\+usage)
+\item 
+int \hyperlink{zmemory_8c_adcf560b50ada29ab0807eb50f16c434d}{ilu\+\_\+z\+Query\+Space} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t} $\ast$mem\+\_\+usage)
+\item 
+int \hyperlink{zmemory_8c_a2401dcedab9db9b72801239bcb0dd85d}{z\+L\+U\+Mem\+Init} (\hyperlink{superlu__enum__consts_8h_ac785c8235480e5cfef9848d89c047c0a}{fact\+\_\+t} fact, void $\ast$work, int lwork, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int annz, int panel\+\_\+size, double fill\+\_\+ratio, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, int $\ast$$\ast$iwork, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$$\ast$dwork)
+\begin{DoxyCompactList}\small\item\em Allocate storage for the data structures common to all factor routines. \end{DoxyCompactList}\item 
+void \hyperlink{zmemory_8c_a2d983454dded23484688350acd60d453}{z\+Set\+R\+Work} (int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int panel\+\_\+size, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$dworkptr, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$$\ast$dense, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$$\ast$tempv)
+\begin{DoxyCompactList}\small\item\em Set up pointers for real working arrays. \end{DoxyCompactList}\item 
+void \hyperlink{zmemory_8c_a077a37f8ac3dd3f11b78b70ead445a4a}{z\+L\+U\+Work\+Free} (int $\ast$iwork, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$dwork, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Free the working storage used by factor routines. \end{DoxyCompactList}\item 
+int \hyperlink{zmemory_8c_af10c27072006d8936e0b135a0d0e03ee}{z\+L\+U\+Mem\+Xpand} (int jcol, int next, \hyperlink{superlu__enum__consts_8h_abd31f838aefffa46191d0d7dc36a96b2}{Mem\+Type} mem\+\_\+type, int $\ast$maxlen, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Expand the data structures for L and U during the factorization. \end{DoxyCompactList}\item 
+void \hyperlink{zmemory_8c_a46bbbd9396593820fd01a6d3dea08d31}{zallocate\+A} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nnz, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$$\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, int $\ast$$\ast$asub, int $\ast$$\ast$xa)
+\begin{DoxyCompactList}\small\item\em Allocate storage for original matrix \hyperlink{classA}{A}. \end{DoxyCompactList}\item 
+\hyperlink{structdoublecomplex}{doublecomplex} $\ast$ \hyperlink{zmemory_8c_ad681359ed37ac809cc0e456e05655823}{doublecomplex\+Malloc} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+\hyperlink{structdoublecomplex}{doublecomplex} $\ast$ \hyperlink{zmemory_8c_a7c839d769dd079aab4bf852533d96933}{doublecomplex\+Calloc} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+int \hyperlink{zmemory_8c_a17416eb78c42063624b6859d9f88820b}{zmemory\+\_\+usage} (const int nzlmax, const int nzumax, const int nzlumax, const int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Memory details. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.0) --
+Lawrence Berkeley National Laboratory.
+June 30, 2009
+\end{DoxyPre}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{zmemory_8c_ac8204d321846eb4b23d563eac7e5bfa7}{}\index{zmemory.\+c@{zmemory.\+c}!Double\+Align@{Double\+Align}}
+\index{Double\+Align@{Double\+Align}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{Double\+Align}]{\setlength{\rightskip}{0pt plus 5cm}\#define Double\+Align(
+\begin{DoxyParamCaption}
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)~( ((long int)addr + 7) \& $\sim$7\+L )}\label{zmemory_8c_ac8204d321846eb4b23d563eac7e5bfa7}
+\hypertarget{zmemory_8c_ac11b1c3847a3d397e9675de40782134d}{}\index{zmemory.\+c@{zmemory.\+c}!Not\+Double\+Align@{Not\+Double\+Align}}
+\index{Not\+Double\+Align@{Not\+Double\+Align}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{Not\+Double\+Align}]{\setlength{\rightskip}{0pt plus 5cm}\#define Not\+Double\+Align(
+\begin{DoxyParamCaption}
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)~( (long int)addr \& 7 )}\label{zmemory_8c_ac11b1c3847a3d397e9675de40782134d}
+\hypertarget{zmemory_8c_a7b2a35bfd2e6c9d03e2a6ccdba9fa847}{}\index{zmemory.\+c@{zmemory.\+c}!Reduce@{Reduce}}
+\index{Reduce@{Reduce}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{Reduce}]{\setlength{\rightskip}{0pt plus 5cm}\#define Reduce(
+\begin{DoxyParamCaption}
+\item[{}]{alpha}
+\end{DoxyParamCaption}
+)~((alpha + 1) / 2)  /$\ast$ i.\+e. (alpha-\/1)/2 + 1 $\ast$/}\label{zmemory_8c_a7b2a35bfd2e6c9d03e2a6ccdba9fa847}
+\hypertarget{zmemory_8c_a1ef4d4db4d5e1fe0719416163e0e51ae}{}\index{zmemory.\+c@{zmemory.\+c}!Stack\+Full@{Stack\+Full}}
+\index{Stack\+Full@{Stack\+Full}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{Stack\+Full}]{\setlength{\rightskip}{0pt plus 5cm}\#define Stack\+Full(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~( {\bf x} + Glu-\/$>$stack.\+used $>$= Glu-\/$>$stack.\+size )}\label{zmemory_8c_a1ef4d4db4d5e1fe0719416163e0e51ae}
+\hypertarget{zmemory_8c_a70ca807c578a0c495f7ce5edb0215e2b}{}\index{zmemory.\+c@{zmemory.\+c}!Temp\+Space@{Temp\+Space}}
+\index{Temp\+Space@{Temp\+Space}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{Temp\+Space}]{\setlength{\rightskip}{0pt plus 5cm}\#define Temp\+Space(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf m}, }
+\item[{}]{w}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a70ca807c578a0c495f7ce5edb0215e2b}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+( (2*\hyperlink{namespacewebbrowser_a3ea3a2acb0471880f104d018e68ae648}{w} + 4 + \hyperlink{slu__util_8h_a9b7b2a5116ee487722b0967317ab6360}{NO\_MARKER}) * \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m} * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}) + \(\backslash\)
+                  (\hyperlink{namespacewebbrowser_a3ea3a2acb0471880f104d018e68ae648}{w} + 1) * \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m} * \textcolor{keyword}{sizeof}(\hyperlink{structdoublecomplex}{doublecomplex}) )
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{zmemory_8c_aa0ef433984e57ac0dacc29c5e3b53ecf}{}\index{zmemory.\+c@{zmemory.\+c}!copy\+\_\+mem\+\_\+doublecomplex@{copy\+\_\+mem\+\_\+doublecomplex}}
+\index{copy\+\_\+mem\+\_\+doublecomplex@{copy\+\_\+mem\+\_\+doublecomplex}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{copy\+\_\+mem\+\_\+doublecomplex}]{\setlength{\rightskip}{0pt plus 5cm}void copy\+\_\+mem\+\_\+doublecomplex (
+\begin{DoxyParamCaption}
+\item[{int}]{howmany, }
+\item[{void $\ast$}]{old, }
+\item[{void $\ast$}]{new}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_aa0ef433984e57ac0dacc29c5e3b53ecf}
+\hypertarget{zmemory_8c_ab59eea34474da95fb3dc125400a1287e}{}\index{zmemory.\+c@{zmemory.\+c}!copy\+\_\+mem\+\_\+int@{copy\+\_\+mem\+\_\+int}}
+\index{copy\+\_\+mem\+\_\+int@{copy\+\_\+mem\+\_\+int}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{copy\+\_\+mem\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}void copy\+\_\+mem\+\_\+int (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{void $\ast$}]{, }
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_ab59eea34474da95fb3dc125400a1287e}
+\hypertarget{zmemory_8c_a7c839d769dd079aab4bf852533d96933}{}\index{zmemory.\+c@{zmemory.\+c}!doublecomplex\+Calloc@{doublecomplex\+Calloc}}
+\index{doublecomplex\+Calloc@{doublecomplex\+Calloc}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{doublecomplex\+Calloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf doublecomplex}$\ast$ doublecomplex\+Calloc (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a7c839d769dd079aab4bf852533d96933}
+\hypertarget{zmemory_8c_ad681359ed37ac809cc0e456e05655823}{}\index{zmemory.\+c@{zmemory.\+c}!doublecomplex\+Malloc@{doublecomplex\+Malloc}}
+\index{doublecomplex\+Malloc@{doublecomplex\+Malloc}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{doublecomplex\+Malloc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf doublecomplex}$\ast$ doublecomplex\+Malloc (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_ad681359ed37ac809cc0e456e05655823}
+\hypertarget{zmemory_8c_adcf560b50ada29ab0807eb50f16c434d}{}\index{zmemory.\+c@{zmemory.\+c}!ilu\+\_\+z\+Query\+Space@{ilu\+\_\+z\+Query\+Space}}
+\index{ilu\+\_\+z\+Query\+Space@{ilu\+\_\+z\+Query\+Space}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{ilu\+\_\+z\+Query\+Space}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+z\+Query\+Space (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf mem\+\_\+usage\+\_\+t} $\ast$}]{mem\+\_\+usage}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_adcf560b50ada29ab0807eb50f16c434d}
+
+\begin{DoxyPre}
+mem\_usage consists of the following fields:
+\begin{DoxyItemize}
+\item for\_lu (float)
+     The amount of space used in bytes for the L data structures.
+\item total\_needed (float)
+     The amount of space needed in bytes to perform factorization.
+
+
+\end{DoxyItemize}\end{DoxyPre}
+\hypertarget{zmemory_8c_a4c226087c09a94ff40b92b14fa46fc53}{}\index{zmemory.\+c@{zmemory.\+c}!user\+\_\+bcopy@{user\+\_\+bcopy}}
+\index{user\+\_\+bcopy@{user\+\_\+bcopy}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{user\+\_\+bcopy}]{\setlength{\rightskip}{0pt plus 5cm}void user\+\_\+bcopy (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{char $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a4c226087c09a94ff40b92b14fa46fc53}
+\hypertarget{zmemory_8c_a46bbbd9396593820fd01a6d3dea08d31}{}\index{zmemory.\+c@{zmemory.\+c}!zallocate\+A@{zallocate\+A}}
+\index{zallocate\+A@{zallocate\+A}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{zallocate\+A}]{\setlength{\rightskip}{0pt plus 5cm}void zallocate\+A (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{nnz, }
+\item[{{\bf doublecomplex} $\ast$$\ast$}]{a, }
+\item[{int $\ast$$\ast$}]{asub, }
+\item[{int $\ast$$\ast$}]{xa}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a46bbbd9396593820fd01a6d3dea08d31}
+
+
+Allocate storage for original matrix \hyperlink{classA}{A}. 
+
+\hypertarget{zmemory_8c_a67833ee9526cec0b31d0f26e527b97df}{}\index{zmemory.\+c@{zmemory.\+c}!zexpand@{zexpand}}
+\index{zexpand@{zexpand}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{zexpand}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ zexpand (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{prev\+\_\+len, }
+\item[{{\bf Mem\+Type}}]{type, }
+\item[{int}]{len\+\_\+to\+\_\+copy, }
+\item[{int}]{keep\+\_\+prev, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a67833ee9526cec0b31d0f26e527b97df}
+
+
+Expand the existing storage to accommodate more fill-\/ins. 
+
+\hypertarget{zmemory_8c_a2401dcedab9db9b72801239bcb0dd85d}{}\index{zmemory.\+c@{zmemory.\+c}!z\+L\+U\+Mem\+Init@{z\+L\+U\+Mem\+Init}}
+\index{z\+L\+U\+Mem\+Init@{z\+L\+U\+Mem\+Init}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{z\+L\+U\+Mem\+Init}]{\setlength{\rightskip}{0pt plus 5cm}int z\+L\+U\+Mem\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf fact\+\_\+t}}]{fact, }
+\item[{void $\ast$}]{work, }
+\item[{int}]{lwork, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{annz, }
+\item[{int}]{panel\+\_\+size, }
+\item[{double}]{fill\+\_\+ratio, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{int $\ast$$\ast$}]{iwork, }
+\item[{{\bf doublecomplex} $\ast$$\ast$}]{dwork}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a2401dcedab9db9b72801239bcb0dd85d}
+
+
+Allocate storage for the data structures common to all factor routines. 
+
+Memory-\/related.
+
+
+\begin{DoxyPre}
+For those unpredictable size, estimate as fill\_ratio * nnz(A).
+Return value:
+    If lwork = -1, return the estimated amount of space required, plus n;
+    otherwise, return the amount of space actually allocated when
+    memory allocation failure occurred.
+\end{DoxyPre}
+ \hypertarget{zmemory_8c_af10c27072006d8936e0b135a0d0e03ee}{}\index{zmemory.\+c@{zmemory.\+c}!z\+L\+U\+Mem\+Xpand@{z\+L\+U\+Mem\+Xpand}}
+\index{z\+L\+U\+Mem\+Xpand@{z\+L\+U\+Mem\+Xpand}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{z\+L\+U\+Mem\+Xpand}]{\setlength{\rightskip}{0pt plus 5cm}int z\+L\+U\+Mem\+Xpand (
+\begin{DoxyParamCaption}
+\item[{int}]{jcol, }
+\item[{int}]{next, }
+\item[{{\bf Mem\+Type}}]{mem\+\_\+type, }
+\item[{int $\ast$}]{maxlen, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_af10c27072006d8936e0b135a0d0e03ee}
+
+
+Expand the data structures for L and U during the factorization. 
+
+
+\begin{DoxyPre}
+Return value:   0 - successful return
+              > 0 - number of bytes allocated when run out of space
+\end{DoxyPre}
+ \hypertarget{zmemory_8c_a077a37f8ac3dd3f11b78b70ead445a4a}{}\index{zmemory.\+c@{zmemory.\+c}!z\+L\+U\+Work\+Free@{z\+L\+U\+Work\+Free}}
+\index{z\+L\+U\+Work\+Free@{z\+L\+U\+Work\+Free}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{z\+L\+U\+Work\+Free}]{\setlength{\rightskip}{0pt plus 5cm}void z\+L\+U\+Work\+Free (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{iwork, }
+\item[{{\bf doublecomplex} $\ast$}]{dwork, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a077a37f8ac3dd3f11b78b70ead445a4a}
+
+
+Free the working storage used by factor routines. 
+
+\hypertarget{zmemory_8c_a882c0544ebe2e000b982820ac583c180}{}\index{zmemory.\+c@{zmemory.\+c}!z\+L\+U\+Work\+Init@{z\+L\+U\+Work\+Init}}
+\index{z\+L\+U\+Work\+Init@{z\+L\+U\+Work\+Init}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{z\+L\+U\+Work\+Init}]{\setlength{\rightskip}{0pt plus 5cm}int z\+L\+U\+Work\+Init (
+\begin{DoxyParamCaption}
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{panel\+\_\+size, }
+\item[{int $\ast$$\ast$}]{iworkptr, }
+\item[{{\bf doublecomplex} $\ast$$\ast$}]{dworkptr, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a882c0544ebe2e000b982820ac583c180}
+
+
+Allocate known working storage. Returns 0 if success, otherwise returns the number of bytes allocated so far when failure occurred. 
+
+\hypertarget{zmemory_8c_a17416eb78c42063624b6859d9f88820b}{}\index{zmemory.\+c@{zmemory.\+c}!zmemory\+\_\+usage@{zmemory\+\_\+usage}}
+\index{zmemory\+\_\+usage@{zmemory\+\_\+usage}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{zmemory\+\_\+usage}]{\setlength{\rightskip}{0pt plus 5cm}int zmemory\+\_\+usage (
+\begin{DoxyParamCaption}
+\item[{const int}]{nzlmax, }
+\item[{const int}]{nzumax, }
+\item[{const int}]{nzlumax, }
+\item[{const int}]{n}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a17416eb78c42063624b6859d9f88820b}
+\hypertarget{zmemory_8c_a286bf5eff2472576ba5fafe9d1daf835}{}\index{zmemory.\+c@{zmemory.\+c}!z\+Query\+Space@{z\+Query\+Space}}
+\index{z\+Query\+Space@{z\+Query\+Space}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{z\+Query\+Space}]{\setlength{\rightskip}{0pt plus 5cm}int z\+Query\+Space (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf mem\+\_\+usage\+\_\+t} $\ast$}]{mem\+\_\+usage}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a286bf5eff2472576ba5fafe9d1daf835}
+
+\begin{DoxyPre}
+mem\_usage consists of the following fields:
+\begin{DoxyItemize}
+\item for\_lu (float)
+     The amount of space used in bytes for the L data structures.
+\item total\_needed (float)
+     The amount of space needed in bytes to perform factorization.
+
+
+\end{DoxyItemize}\end{DoxyPre}
+\hypertarget{zmemory_8c_a2d983454dded23484688350acd60d453}{}\index{zmemory.\+c@{zmemory.\+c}!z\+Set\+R\+Work@{z\+Set\+R\+Work}}
+\index{z\+Set\+R\+Work@{z\+Set\+R\+Work}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{z\+Set\+R\+Work}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Set\+R\+Work (
+\begin{DoxyParamCaption}
+\item[{int}]{m, }
+\item[{int}]{panel\+\_\+size, }
+\item[{{\bf doublecomplex} $\ast$}]{dworkptr, }
+\item[{{\bf doublecomplex} $\ast$$\ast$}]{dense, }
+\item[{{\bf doublecomplex} $\ast$$\ast$}]{tempv}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a2d983454dded23484688350acd60d453}
+
+
+Set up pointers for real working arrays. 
+
+\hypertarget{zmemory_8c_a0edfb761a3a551bce967037b3e1aa9e2}{}\index{zmemory.\+c@{zmemory.\+c}!z\+Setup\+Space@{z\+Setup\+Space}}
+\index{z\+Setup\+Space@{z\+Setup\+Space}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{z\+Setup\+Space}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Setup\+Space (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{work, }
+\item[{int}]{lwork, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a0edfb761a3a551bce967037b3e1aa9e2}
+
+
+Setup the memory model to be used for factorization. 
+
+lwork = 0\+: use system malloc; lwork $>$ 0\+: use user-\/supplied work\mbox{[}\mbox{]} space. \hypertarget{zmemory_8c_a607a863b6fcdf1adb1931dd4c8277ee0}{}\index{zmemory.\+c@{zmemory.\+c}!z\+Stack\+Compress@{z\+Stack\+Compress}}
+\index{z\+Stack\+Compress@{z\+Stack\+Compress}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{z\+Stack\+Compress}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Stack\+Compress (
+\begin{DoxyParamCaption}
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a607a863b6fcdf1adb1931dd4c8277ee0}
+
+
+Compress the work\mbox{[}\mbox{]} array to remove fragmentation. 
+
+\hypertarget{zmemory_8c_a9568d77c3e1f50a9b000f50a9941300a}{}\index{zmemory.\+c@{zmemory.\+c}!zuser\+\_\+free@{zuser\+\_\+free}}
+\index{zuser\+\_\+free@{zuser\+\_\+free}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{zuser\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}void zuser\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{int}]{bytes, }
+\item[{int}]{which\+\_\+end, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a9568d77c3e1f50a9b000f50a9941300a}
+\hypertarget{zmemory_8c_a0546ac846872bb77841c8502590dc3e2}{}\index{zmemory.\+c@{zmemory.\+c}!zuser\+\_\+malloc@{zuser\+\_\+malloc}}
+\index{zuser\+\_\+malloc@{zuser\+\_\+malloc}!zmemory.\+c@{zmemory.\+c}}
+\subsubsection[{zuser\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ zuser\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{int}]{bytes, }
+\item[{int}]{which\+\_\+end, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{zmemory_8c_a0546ac846872bb77841c8502590dc3e2}

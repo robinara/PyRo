@@ -1,0 +1,109 @@
+\hypertarget{cpanel__dfs_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/cpanel\+\_\+dfs.c File Reference}
+\label{cpanel__dfs_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/cpanel\+\_\+dfs.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/cpanel\+\_\+dfs.\+c}}
+
+
+Peforms a symbolic factorization on a panel of symbols.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+cdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{cpanel__dfs_8c_a052edfd06c5aeab7a37b5fa558a06602}{cpanel\+\_\+dfs} (const int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, const int w, const int jcol, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int $\ast$perm\+\_\+r, int $\ast$nseg, \hyperlink{structcomplex}{complex} $\ast$dense, int $\ast$panel\+\_\+lsub, int $\ast$segrep, int $\ast$repfnz, int $\ast$xprune, int $\ast$marker, int $\ast$parent, int $\ast$xplore, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Peforms a symbolic factorization on a panel of symbols. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Permission is hereby granted to use or copy this program for any
+purpose, provided the above notices are retained on all copies.
+Permission to modify the code and to distribute modified code is
+granted, provided the above notices are retained, and a notice that
+the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{cpanel__dfs_8c_a052edfd06c5aeab7a37b5fa558a06602}{}\index{cpanel\+\_\+dfs.\+c@{cpanel\+\_\+dfs.\+c}!cpanel\+\_\+dfs@{cpanel\+\_\+dfs}}
+\index{cpanel\+\_\+dfs@{cpanel\+\_\+dfs}!cpanel\+\_\+dfs.\+c@{cpanel\+\_\+dfs.\+c}}
+\subsubsection[{cpanel\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}void cpanel\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{w, }
+\item[{const int}]{jcol, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{nseg, }
+\item[{{\bf complex} $\ast$}]{dense, }
+\item[{int $\ast$}]{panel\+\_\+lsub, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{xprune, }
+\item[{int $\ast$}]{marker, }
+\item[{int $\ast$}]{parent, }
+\item[{int $\ast$}]{xplore, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{cpanel__dfs_8c_a052edfd06c5aeab7a37b5fa558a06602}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Performs a symbolic factorization on a panel of columns [jcol, jcol+w).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A} supernode representative is the last column of a supernode.
+  The nonzeros in U[*,j] are segments that end at supernodal
+  representatives.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  The routine returns one list of the supernodal representatives
+  in topological order of the dfs that generates them. This list is
+  a superset of the topological order of each individual column within
+  the panel. 
+  The location of the first nonzero in each supernodal segment
+  (supernodal entry location) is also returned. Each column has a 
+  separate list for this purpose.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Two marker arrays are used for dfs:
+    marker[i] == jj, if i was visited during dfs of current column jj;
+    marker1[i] >= jcol, if i was visited by earlier columns in this panel;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  marker: A-row --> A-row/col (0/1)
+  repfnz: SuperA-col --> PA-row
+  parent: SuperA-col --> SuperA-col
+  xplore: SuperA-col --> index to L-structure
+\end{DoxyPre}
+ 

@@ -1,0 +1,124 @@
+\hypertarget{dlagv2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlagv2.f File Reference}
+\label{dlagv2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlagv2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlagv2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlagv2_8f_ad9f2277feb511ff205c0caf084e29109}{dlagv2} (\hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, A\+L\+P\+H\+A\+R, A\+L\+P\+H\+A\+I, B\+E\+T\+A, C\+S\+L, S\+N\+L, C\+S\+R, S\+N\+R)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+G\+V2} computes the Generalized Schur factorization of a real 2-\/by-\/2 matrix pencil (\hyperlink{classA}{A},B) where B is upper triangular. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlagv2_8f_ad9f2277feb511ff205c0caf084e29109}{}\index{dlagv2.\+f@{dlagv2.\+f}!dlagv2@{dlagv2}}
+\index{dlagv2@{dlagv2}!dlagv2.\+f@{dlagv2.\+f}}
+\subsubsection[{dlagv2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlagv2 (
+\begin{DoxyParamCaption}
+\item[{double {\bf precision}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}, dimension( 2 )}]{A\+L\+P\+H\+A\+R, }
+\item[{double {\bf precision}, dimension( 2 )}]{A\+L\+P\+H\+A\+I, }
+\item[{double {\bf precision}, dimension( 2 )}]{B\+E\+T\+A, }
+\item[{double {\bf precision}}]{C\+S\+L, }
+\item[{double {\bf precision}}]{S\+N\+L, }
+\item[{double {\bf precision}}]{C\+S\+R, }
+\item[{double {\bf precision}}]{S\+N\+R}
+\end{DoxyParamCaption}
+)}\label{dlagv2_8f_ad9f2277feb511ff205c0caf084e29109}
+
+
+{\bfseries D\+L\+A\+G\+V2} computes the Generalized Schur factorization of a real 2-\/by-\/2 matrix pencil (\hyperlink{classA}{A},B) where B is upper triangular. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLAGV2 computes the Generalized Schur factorization of a real 2-by-2
+ matrix pencil (A,B) where B is upper triangular. This routine
+ computes orthogonal (rotation) matrices given by CSL, SNL and CSR,
+ SNR such that
+
+ 1) if the pencil (A,B) has two real eigenvalues (include 0/0 or 1/0
+    types), then
+
+    [ a11 a12 ] := [  CSL  SNL ] [ a11 a12 ] [  CSR -SNR ]
+    [  0  a22 ]    [ -SNL  CSL ] [ a21 a22 ] [  SNR  CSR ]
+
+    [ b11 b12 ] := [  CSL  SNL ] [ b11 b12 ] [  CSR -SNR ]
+    [  0  b22 ]    [ -SNL  CSL ] [  0  b22 ] [  SNR  CSR ],
+
+ 2) if the pencil (A,B) has a pair of complex conjugate eigenvalues,
+    then
+
+    [ a11 a12 ] := [  CSL  SNL ] [ a11 a12 ] [  CSR -SNR ]
+    [ a21 a22 ]    [ -SNL  CSL ] [ a21 a22 ] [  SNR  CSR ]
+
+    [ b11  0  ] := [  CSL  SNL ] [ b11 b12 ] [  CSR -SNR ]
+    [  0  b22 ]    [ -SNL  CSL ] [  0  b22 ] [  SNR  CSR ]
+
+    where b11 >= b22 > 0.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array, dimension (LDA, 2)
+          On entry, the 2 x 2 matrix A.
+          On exit, A is overwritten by the ``A-part'' of the
+          generalized Schur form.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          THe leading dimension of the array A.  LDA >= 2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB, 2)
+          On entry, the upper triangular 2 x 2 matrix B.
+          On exit, B is overwritten by the ``B-part'' of the
+          generalized Schur form.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          THe leading dimension of the array B.  LDB >= 2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em A\+L\+P\+H\+A\+R} & \begin{DoxyVerb}          ALPHAR is DOUBLE PRECISION array, dimension (2)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em A\+L\+P\+H\+A\+I} & \begin{DoxyVerb}          ALPHAI is DOUBLE PRECISION array, dimension (2)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+T\+A} & \begin{DoxyVerb}          BETA is DOUBLE PRECISION array, dimension (2)
+          (ALPHAR(k)+i*ALPHAI(k))/BETA(k) are the eigenvalues of the
+          pencil (A,B), k=1,2, i = sqrt(-1).  Note that BETA(k) may
+          be zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C\+S\+L} & \begin{DoxyVerb}          CSL is DOUBLE PRECISION
+          The cosine of the left rotation matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+N\+L} & \begin{DoxyVerb}          SNL is DOUBLE PRECISION
+          The sine of the left rotation matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C\+S\+R} & \begin{DoxyVerb}          CSR is DOUBLE PRECISION
+          The cosine of the right rotation matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+N\+R} & \begin{DoxyVerb}          SNR is DOUBLE PRECISION
+          The sine of the right rotation matrix.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Mark Fahey, Department of Mathematics, Univ. of Kentucky, U\+S\+A 
+\end{DoxyParagraph}

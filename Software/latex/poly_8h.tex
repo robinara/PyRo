@@ -1,0 +1,874 @@
+\hypertarget{poly_8h}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/poly.h File Reference}
+\label{poly_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/poly.\+h@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/poly.\+h}}
+{\ttfamily \#include \char`\"{}libqhull.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{poly_8h_a419d16f4707b74db840a57477b888c9a}{qh\+\_\+\+A\+L\+G\+O\+R\+I\+T\+H\+Mfault}~0
+\item 
+\#define \hyperlink{poly_8h_a2a12f20ff2f1b72409f53d8a60e4d4c8}{qh\+\_\+\+D\+A\+T\+Afault}~1
+\item 
+\#define \hyperlink{poly_8h_a227e717645899ed481cefaddcb8c217a}{qh\+\_\+\+D\+U\+P\+L\+I\+C\+A\+T\+Eridge}~(\hyperlink{structfacetT}{facet\+T} $\ast$)1\+L
+\item 
+\#define \hyperlink{poly_8h_aa67082d42a7bd35d7906c76eb16ffc0c}{qh\+\_\+\+M\+E\+R\+G\+Eridge}~(\hyperlink{structfacetT}{facet\+T} $\ast$)2\+L
+\item 
+\#define \hyperlink{poly_8h_a7dd0c404f4487907aee3850acf3d2851}{F\+O\+R\+A\+L\+Lfacet\+\_\+}(facetlist)~\hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} (facetlist ) for ( facet=( facetlist ); facet \&\& facet-\/$>$next; facet= facet-\/$>$next )
+\item 
+\#define \hyperlink{poly_8h_ae909d59dfcaae3f45debb06ffc5cbce3}{F\+O\+R\+A\+L\+Lnew\+\_\+facets}~for ( newfacet=\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} newfacet\+\_\+list;newfacet \&\& newfacet-\/$>$next;newfacet=newfacet-\/$>$next )
+\item 
+\#define \hyperlink{poly_8h_a835591c41324c612e249fd06065f25bb}{F\+O\+R\+A\+L\+Lvertex\+\_\+}(vertexlist)~for (vertex=( vertexlist );vertex \&\& vertex-\/$>$next;vertex= vertex-\/$>$next )
+\item 
+\#define \hyperlink{poly_8h_a3039dcafc46eaf5fb2205cd2e3d5e409}{F\+O\+R\+A\+L\+Lvisible\+\_\+facets}~for (visible=\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} visible\+\_\+list; visible \&\& visible-\/$>$visible; visible= visible-\/$>$next)
+\item 
+\#define \hyperlink{poly_8h_ab6f9eec2ae0795f0c939ad08959f6998}{F\+O\+R\+A\+L\+Lsame\+\_\+}(newfacet)~for (same= newfacet-\/$>$f.\+samecycle; same != newfacet; same= same-\/$>$f.\+samecycle)
+\item 
+\#define \hyperlink{poly_8h_a24544466bc4751e8fd3181e034b9bf94}{F\+O\+R\+A\+L\+Lsame\+\_\+cycle\+\_\+}(newfacet)
+\item 
+\#define \hyperlink{poly_8h_accd4ffc34210b1c3cfb3a3b63db7ef8b}{F\+O\+R\+E\+A\+C\+Hneighbor\+A\+\_\+}(facet)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{structfacetT}{facet\+T}, facet-\/$>$neighbors, neighbor\+A)
+\item 
+\#define \hyperlink{poly_8h_afa04b6bc26a4aefe07e31ae9d08267c4}{F\+O\+R\+E\+A\+C\+Hvisible\+\_\+}(facets)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{structfacetT}{facet\+T}, facets, visible)
+\item 
+\#define \hyperlink{poly_8h_ad510e8fcc42213b24670a7e3d74c2913}{F\+O\+R\+E\+A\+C\+Hnewfacet\+\_\+}(facets)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{structfacetT}{facet\+T}, facets, newfacet)
+\item 
+\#define \hyperlink{poly_8h_a0bbd6f09d83b94d03dd3cb76be1bcb7c}{F\+O\+R\+E\+A\+C\+Hvertex\+A\+\_\+}(vertices)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{structvertexT}{vertex\+T}, vertices, vertex\+A)
+\item 
+\#define \hyperlink{poly_8h_a48fa91aad25f77f31d6cb999640e2f46}{F\+O\+R\+E\+A\+C\+Hvertexreverse12\+\_\+}(vertices)~\hyperlink{qset_8h_abccdb519017515dc5f8ff11fc003fcfe}{F\+O\+R\+E\+A\+C\+Hsetelementreverse12\+\_\+}(\hyperlink{structvertexT}{vertex\+T}, vertices, vertex)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{poly_8h_a6f69818d168936d8ff2125bd5ad1815e}{qh\+\_\+appendfacet} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{poly_8h_a33ace68ba9197d1ff575a1b45ee57139}{qh\+\_\+appendvertex} (\hyperlink{structvertexT}{vertex\+T} $\ast$vertex)
+\item 
+void \hyperlink{poly_8h_afd7219a9c84e700acb4d8ed9fa4f20c8}{qh\+\_\+attachnewfacets} (void)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{poly_8h_a096ce9261e3f7ff0184a37db5ebd0349}{qh\+\_\+checkflipped} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$dist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} allerror)
+\item 
+void \hyperlink{poly_8h_a00ce5faad45e6a00dc4484fe20c23f69}{qh\+\_\+delfacet} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{poly_8h_ac97db85deeca431a7093470bea0facf9}{qh\+\_\+deletevisible} (void)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{poly_8h_a46b2a70801b52f0acef981c621b93483}{qh\+\_\+facetintersect} (\hyperlink{structfacetT}{facet\+T} $\ast$facet\+A, \hyperlink{structfacetT}{facet\+T} $\ast$facet\+B, int $\ast$skip\+Ap, int $\ast$skip\+Bp, int extra)
+\item 
+int \hyperlink{poly_8h_ab06a9e801c49c41d8c2655ee311fc207}{qh\+\_\+gethash} (int hashsize, \hyperlink{structsetT}{set\+T} $\ast$set, int size, int firstindex, void $\ast$skipelem)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{poly_8h_aa8177fdfca6dbdbc6dd7a84f202416b5}{qh\+\_\+makenewfacet} (\hyperlink{structsetT}{set\+T} $\ast$vertices, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} toporient, \hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{poly_8h_a464a4d0b7cd6ecab1a352588f26fcb3d}{qh\+\_\+makenewplanes} (void)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{poly_8h_acc3cd4290f82e0f64146201e9ed60354}{qh\+\_\+makenew\+\_\+nonsimplicial} (\hyperlink{structfacetT}{facet\+T} $\ast$visible, \hyperlink{structvertexT}{vertex\+T} $\ast$apex, int $\ast$numnew)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{poly_8h_aab5f3367c220c1aa2d02ea373dc9b5cf}{qh\+\_\+makenew\+\_\+simplicial} (\hyperlink{structfacetT}{facet\+T} $\ast$visible, \hyperlink{structvertexT}{vertex\+T} $\ast$apex, int $\ast$numnew)
+\item 
+void \hyperlink{poly_8h_aeebe7c81742ee1eb57ca21512906dcea}{qh\+\_\+matchneighbor} (\hyperlink{structfacetT}{facet\+T} $\ast$newfacet, int newskip, int hashsize, int $\ast$hashcount)
+\item 
+void \hyperlink{poly_8h_ac63f96aa57f729f6b8cba0f34a9f134d}{qh\+\_\+matchnewfacets} (void)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{poly_8h_a7e263170e48f22b8164f7256646da4f8}{qh\+\_\+matchvertices} (int firstindex, \hyperlink{structsetT}{set\+T} $\ast$vertices\+A, int skip\+A, \hyperlink{structsetT}{set\+T} $\ast$vertices\+B, int $\ast$skip\+B, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$same)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{poly_8h_a7b29a436468d3ae0c2189031f132caa9}{qh\+\_\+newfacet} (void)
+\item 
+\hyperlink{structridgeT}{ridge\+T} $\ast$ \hyperlink{poly_8h_af1c69f2de946205831665eb9a7588bbd}{qh\+\_\+newridge} (void)
+\item 
+int \hyperlink{poly_8h_a96ca9a1e5768eb072de911e9f2388cad}{qh\+\_\+pointid} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point)
+\item 
+void \hyperlink{poly_8h_acee97c3208218bc8788a3d6bdc61af0e}{qh\+\_\+removefacet} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{poly_8h_a19b3fa816a2745a39f5d4425ce41ed82}{qh\+\_\+removevertex} (\hyperlink{structvertexT}{vertex\+T} $\ast$vertex)
+\item 
+void \hyperlink{poly_8h_aa539cd281e9fc7b1b3ebd5108a5b718f}{qh\+\_\+updatevertices} (void)
+\item 
+void \hyperlink{poly_8h_a69c150d0fec352bc87b6074237fcf9f3}{qh\+\_\+addhash} (void $\ast$newelem, \hyperlink{structsetT}{set\+T} $\ast$hashtable, int hashsize, int hash)
+\item 
+void \hyperlink{poly_8h_ad1c17a9f0765f2dbf59e2489883e0f09}{qh\+\_\+check\+\_\+bestdist} (void)
+\item 
+void \hyperlink{poly_8h_aaf7e6e3d43111ad5fc3260ba611f8835}{qh\+\_\+check\+\_\+maxout} (void)
+\item 
+void \hyperlink{poly_8h_a091e48b85d79251e87a058ca9d6f92e4}{qh\+\_\+check\+\_\+output} (void)
+\item 
+void \hyperlink{poly_8h_aef54f3ce841e7059d07f1342f486e43c}{qh\+\_\+check\+\_\+point} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$maxoutside, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$maxdist, \hyperlink{structfacetT}{facet\+T} $\ast$$\ast$errfacet1, \hyperlink{structfacetT}{facet\+T} $\ast$$\ast$errfacet2)
+\item 
+void \hyperlink{poly_8h_ad6be6c5692921261bea1b68d4cadb849}{qh\+\_\+check\+\_\+points} (void)
+\item 
+void \hyperlink{poly_8h_a88091cfc04c9819ebd96a61f068ee497}{qh\+\_\+checkconvex} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist, int fault)
+\item 
+void \hyperlink{poly_8h_a8d00b1998be8c34e643247630619daf3}{qh\+\_\+checkfacet} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} newmerge, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$waserrorp)
+\item 
+void \hyperlink{poly_8h_a4db23000bc054d60c2ce325f2519d2d4}{qh\+\_\+checkflipped\+\_\+all} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist)
+\item 
+void \hyperlink{poly_8h_a98b0c79acf5f5c020be8c94ce9ee61e0}{qh\+\_\+checkpolygon} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist)
+\item 
+void \hyperlink{poly_8h_a6c42c944c773dff60f20846fda29b919}{qh\+\_\+checkvertex} (\hyperlink{structvertexT}{vertex\+T} $\ast$vertex)
+\item 
+void \hyperlink{poly_8h_ae4b081e73b0927fc17821a4cb5e1e931}{qh\+\_\+clearcenters} (\hyperlink{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cda}{qh\+\_\+\+C\+E\+N\+T\+E\+R} \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type})
+\item 
+void \hyperlink{poly_8h_a32ef96d772244fb5dc1c66d80da7efcb}{qh\+\_\+createsimplex} (\hyperlink{structsetT}{set\+T} $\ast$vertices)
+\item 
+void \hyperlink{poly_8h_abce120f0a897b96be12f72c9e0e683f5}{qh\+\_\+delridge} (\hyperlink{structridgeT}{ridge\+T} $\ast$ridge)
+\item 
+void \hyperlink{poly_8h_ac3fb173798825a1d7d06a3caf6937b34}{qh\+\_\+delvertex} (\hyperlink{structvertexT}{vertex\+T} $\ast$vertex)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{poly_8h_a8f86b69e6f022eb88bfee7c60ac7c304}{qh\+\_\+facet3vertex} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{poly_8h_a1cfa6639f2adfe6d3d52254a69c6e7bb}{qh\+\_\+findbestfacet} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} bestoutside, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$bestdist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$isoutside)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{poly_8h_ab2d284d914bbae9016695b0b16c4c20a}{qh\+\_\+findbestlower} (\hyperlink{structfacetT}{facet\+T} $\ast$upperfacet, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$bestdistp, int $\ast$numpart)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{poly_8h_a4111aa6007e332d0fde01a5ff66baec4}{qh\+\_\+findfacet\+\_\+all} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$bestdist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$isoutside, int $\ast$numpart)
+\item 
+int \hyperlink{poly_8h_ad7807a9ac4dbfd0e0906e52c475e3e05}{qh\+\_\+findgood} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist, int goodhorizon)
+\item 
+void \hyperlink{poly_8h_ab687986cafdb419254bdfb01b43243f7}{qh\+\_\+findgood\+\_\+all} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist)
+\item 
+void \hyperlink{poly_8h_a2cd68ec31c458db423fb89b6d3c20b29}{qh\+\_\+furthestnext} (void)
+\item 
+void \hyperlink{poly_8h_ace42a1dba93f6b3306512ec89c4b61c1}{qh\+\_\+furthestout} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{poly_8h_a24f728fccf720fcfd522cf897499e5cc}{qh\+\_\+infiniteloop} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{poly_8h_af48505f99a1447ec5013ed5766250b50}{qh\+\_\+initbuild} (void)
+\item 
+void \hyperlink{poly_8h_ab60889d9d726b8059e9ebb974e4228e6}{qh\+\_\+initialhull} (\hyperlink{structsetT}{set\+T} $\ast$vertices)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{poly_8h_a9a725800dba93f884b5a0ad802b21665}{qh\+\_\+initialvertices} (int dim, \hyperlink{structsetT}{set\+T} $\ast$maxpoints, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$points, int numpoints)
+\item 
+\hyperlink{structvertexT}{vertex\+T} $\ast$ \hyperlink{poly_8h_adfe9ab8604d568a2603715cba067c24c}{qh\+\_\+isvertex} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structsetT}{set\+T} $\ast$vertices)
+\item 
+\hyperlink{structvertexT}{vertex\+T} $\ast$ \hyperlink{poly_8h_a952e29a4192b42293a9ddcd311f37fd7}{qh\+\_\+makenewfacets} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point)
+\item 
+void \hyperlink{poly_8h_a808dbb1a46992bcc8e97827a5e306f4e}{qh\+\_\+matchduplicates} (\hyperlink{structfacetT}{facet\+T} $\ast$atfacet, int atskip, int hashsize, int $\ast$hashcount)
+\item 
+void \hyperlink{poly_8h_a7b367492f05a78d35541d0b6126fbbff}{qh\+\_\+nearcoplanar} (void)
+\item 
+\hyperlink{structvertexT}{vertex\+T} $\ast$ \hyperlink{poly_8h_a6240e270a6fa93c59782fabcdfbb0001}{qh\+\_\+nearvertex} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$bestdistp)
+\item 
+int \hyperlink{poly_8h_ac493a74913d50181ec217b00de22fefc}{qh\+\_\+newhashtable} (int newsize)
+\item 
+\hyperlink{structvertexT}{vertex\+T} $\ast$ \hyperlink{poly_8h_a2e6614714ee360e354a0001f19171ce2}{qh\+\_\+newvertex} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point)
+\item 
+\hyperlink{structridgeT}{ridge\+T} $\ast$ \hyperlink{poly_8h_ad8e27547b8dcd16c5e1308791a828699}{qh\+\_\+nextridge3d} (\hyperlink{structridgeT}{ridge\+T} $\ast$atridge, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structvertexT}{vertex\+T} $\ast$$\ast$vertexp)
+\item 
+void \hyperlink{poly_8h_a3226cc8846078879cc5248019e74dc82}{qh\+\_\+outcoplanar} (void)
+\item 
+\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$ \hyperlink{poly_8h_aa48c2515ade8cfa5fd778ec25a73fd45}{qh\+\_\+point} (int id)
+\item 
+void \hyperlink{poly_8h_a7326ce16485a12002209e3bb66d80050}{qh\+\_\+point\+\_\+add} (\hyperlink{structsetT}{set\+T} $\ast$set, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, void $\ast$elem)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{poly_8h_a26184539ad14f1481adc8824a956fd55}{qh\+\_\+pointfacet} (void)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{poly_8h_a7045e57f76d9cc806853dc83699da4ab}{qh\+\_\+pointvertex} (void)
+\item 
+void \hyperlink{poly_8h_ae07ffcb94689873ae8198e43076bd197}{qh\+\_\+prependfacet} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structfacetT}{facet\+T} $\ast$$\ast$facetlist)
+\item 
+void \hyperlink{poly_8h_aed4964308525de599566526cd5bbcdf6}{qh\+\_\+printhashtable} (F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{poly_8h_a6570c5a053cf37c618589cab52926ed2}{qh\+\_\+printlists} (void)
+\item 
+void \hyperlink{poly_8h_af5a8376b0b2cebe64369d0e9ea22b6e5}{qh\+\_\+resetlists} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} stats, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} reset\+Visible)
+\item 
+void \hyperlink{poly_8h_ae3ee84aa6d0ab7e03bd33ab38e0e521d}{qh\+\_\+setvoronoi\+\_\+all} (void)
+\item 
+void \hyperlink{poly_8h_aca961447bb52979062f56f66ddf3a499}{qh\+\_\+triangulate} (void)
+\item 
+void \hyperlink{poly_8h_a82b15a1bef9522354d9e7481e5a157f8}{qh\+\_\+triangulate\+\_\+facet} (\hyperlink{structfacetT}{facet\+T} $\ast$facet\+A, \hyperlink{structvertexT}{vertex\+T} $\ast$$\ast$first\+\_\+vertex)
+\item 
+void \hyperlink{poly_8h_abf186a6fcc388ff74b22d30376199920}{qh\+\_\+triangulate\+\_\+link} (\hyperlink{structfacetT}{facet\+T} $\ast$oldfacet\+A, \hyperlink{structfacetT}{facet\+T} $\ast$facet\+A, \hyperlink{structfacetT}{facet\+T} $\ast$oldfacet\+B, \hyperlink{structfacetT}{facet\+T} $\ast$facet\+B)
+\item 
+void \hyperlink{poly_8h_a5d790ba4f9e34d528c5d3d7113889e77}{qh\+\_\+triangulate\+\_\+mirror} (\hyperlink{structfacetT}{facet\+T} $\ast$facet\+A, \hyperlink{structfacetT}{facet\+T} $\ast$facet\+B)
+\item 
+void \hyperlink{poly_8h_a4bb97a2b4efad8c014752d00e8c40b8a}{qh\+\_\+triangulate\+\_\+null} (\hyperlink{structfacetT}{facet\+T} $\ast$facet\+A)
+\item 
+void \hyperlink{poly_8h_ae39e60099a00549df77dca6cc51641bc}{qh\+\_\+vertexintersect} (\hyperlink{structsetT}{set\+T} $\ast$$\ast$vertexset\+A, \hyperlink{structsetT}{set\+T} $\ast$vertexset\+B)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{poly_8h_ad1789c88635c1fdc765e8fc44782d832}{qh\+\_\+vertexintersect\+\_\+new} (\hyperlink{structsetT}{set\+T} $\ast$vertexset\+A, \hyperlink{structsetT}{set\+T} $\ast$vertexset\+B)
+\item 
+void \hyperlink{poly_8h_a7365fdb24e8d7354f5345c28b8b9d8ed}{qh\+\_\+vertexneighbors} (void)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{poly_8h_a63aa65c80e8a8918d526e8579ff1eecd}{qh\+\_\+vertexsubset} (\hyperlink{structsetT}{set\+T} $\ast$vertexset\+A, \hyperlink{structsetT}{set\+T} $\ast$vertexset\+B)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{poly_8h_a7dd0c404f4487907aee3850acf3d2851}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+A\+L\+Lfacet\+\_\+@{F\+O\+R\+A\+L\+Lfacet\+\_\+}}
+\index{F\+O\+R\+A\+L\+Lfacet\+\_\+@{F\+O\+R\+A\+L\+Lfacet\+\_\+}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+A\+L\+Lfacet\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+A\+L\+Lfacet\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{facetlist}
+\end{DoxyParamCaption}
+)~{\bf if} (facetlist ) for ( facet=( facetlist ); facet \&\& facet-\/$>$next; facet= facet-\/$>$next )}\label{poly_8h_a7dd0c404f4487907aee3850acf3d2851}
+\hypertarget{poly_8h_ae909d59dfcaae3f45debb06ffc5cbce3}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+A\+L\+Lnew\+\_\+facets@{F\+O\+R\+A\+L\+Lnew\+\_\+facets}}
+\index{F\+O\+R\+A\+L\+Lnew\+\_\+facets@{F\+O\+R\+A\+L\+Lnew\+\_\+facets}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+A\+L\+Lnew\+\_\+facets}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+A\+L\+Lnew\+\_\+facets~for ( newfacet={\bf qh} newfacet\+\_\+list;newfacet \&\& newfacet-\/$>$next;newfacet=newfacet-\/$>$next )}\label{poly_8h_ae909d59dfcaae3f45debb06ffc5cbce3}
+\hypertarget{poly_8h_ab6f9eec2ae0795f0c939ad08959f6998}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+A\+L\+Lsame\+\_\+@{F\+O\+R\+A\+L\+Lsame\+\_\+}}
+\index{F\+O\+R\+A\+L\+Lsame\+\_\+@{F\+O\+R\+A\+L\+Lsame\+\_\+}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+A\+L\+Lsame\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+A\+L\+Lsame\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{newfacet}
+\end{DoxyParamCaption}
+)~for (same= newfacet-\/$>$f.\+samecycle; same != newfacet; same= same-\/$>$f.\+samecycle)}\label{poly_8h_ab6f9eec2ae0795f0c939ad08959f6998}
+\hypertarget{poly_8h_a24544466bc4751e8fd3181e034b9bf94}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+A\+L\+Lsame\+\_\+cycle\+\_\+@{F\+O\+R\+A\+L\+Lsame\+\_\+cycle\+\_\+}}
+\index{F\+O\+R\+A\+L\+Lsame\+\_\+cycle\+\_\+@{F\+O\+R\+A\+L\+Lsame\+\_\+cycle\+\_\+}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+A\+L\+Lsame\+\_\+cycle\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+A\+L\+Lsame\+\_\+cycle\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{newfacet}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a24544466bc4751e8fd3181e034b9bf94}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} (same= newfacet->f.samecycle; \(\backslash\)
+         same; same= (same == newfacet ?  NULL : same->f.samecycle))
+\end{DoxyCode}
+\hypertarget{poly_8h_a835591c41324c612e249fd06065f25bb}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+A\+L\+Lvertex\+\_\+@{F\+O\+R\+A\+L\+Lvertex\+\_\+}}
+\index{F\+O\+R\+A\+L\+Lvertex\+\_\+@{F\+O\+R\+A\+L\+Lvertex\+\_\+}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+A\+L\+Lvertex\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+A\+L\+Lvertex\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{vertexlist}
+\end{DoxyParamCaption}
+)~for (vertex=( vertexlist );vertex \&\& vertex-\/$>$next;vertex= vertex-\/$>$next )}\label{poly_8h_a835591c41324c612e249fd06065f25bb}
+\hypertarget{poly_8h_a3039dcafc46eaf5fb2205cd2e3d5e409}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+A\+L\+Lvisible\+\_\+facets@{F\+O\+R\+A\+L\+Lvisible\+\_\+facets}}
+\index{F\+O\+R\+A\+L\+Lvisible\+\_\+facets@{F\+O\+R\+A\+L\+Lvisible\+\_\+facets}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+A\+L\+Lvisible\+\_\+facets}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+A\+L\+Lvisible\+\_\+facets~for (visible={\bf qh} visible\+\_\+list; visible \&\& visible-\/$>$visible; visible= visible-\/$>$next)}\label{poly_8h_a3039dcafc46eaf5fb2205cd2e3d5e409}
+\hypertarget{poly_8h_accd4ffc34210b1c3cfb3a3b63db7ef8b}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+E\+A\+C\+Hneighbor\+A\+\_\+@{F\+O\+R\+E\+A\+C\+Hneighbor\+A\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hneighbor\+A\+\_\+@{F\+O\+R\+E\+A\+C\+Hneighbor\+A\+\_\+}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hneighbor\+A\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hneighbor\+A\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{facet}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}({\bf facet\+T}, facet-\/$>$neighbors, neighbor\+A)}\label{poly_8h_accd4ffc34210b1c3cfb3a3b63db7ef8b}
+\hypertarget{poly_8h_ad510e8fcc42213b24670a7e3d74c2913}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+E\+A\+C\+Hnewfacet\+\_\+@{F\+O\+R\+E\+A\+C\+Hnewfacet\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hnewfacet\+\_\+@{F\+O\+R\+E\+A\+C\+Hnewfacet\+\_\+}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hnewfacet\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hnewfacet\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{facets}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}({\bf facet\+T}, facets, newfacet)}\label{poly_8h_ad510e8fcc42213b24670a7e3d74c2913}
+\hypertarget{poly_8h_a0bbd6f09d83b94d03dd3cb76be1bcb7c}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+E\+A\+C\+Hvertex\+A\+\_\+@{F\+O\+R\+E\+A\+C\+Hvertex\+A\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hvertex\+A\+\_\+@{F\+O\+R\+E\+A\+C\+Hvertex\+A\+\_\+}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hvertex\+A\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hvertex\+A\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{vertices}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}({\bf vertex\+T}, vertices, vertex\+A)}\label{poly_8h_a0bbd6f09d83b94d03dd3cb76be1bcb7c}
+\hypertarget{poly_8h_a48fa91aad25f77f31d6cb999640e2f46}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+E\+A\+C\+Hvertexreverse12\+\_\+@{F\+O\+R\+E\+A\+C\+Hvertexreverse12\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hvertexreverse12\+\_\+@{F\+O\+R\+E\+A\+C\+Hvertexreverse12\+\_\+}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hvertexreverse12\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hvertexreverse12\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{vertices}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelementreverse12\+\_\+}({\bf vertex\+T}, vertices, vertex)}\label{poly_8h_a48fa91aad25f77f31d6cb999640e2f46}
+\hypertarget{poly_8h_afa04b6bc26a4aefe07e31ae9d08267c4}{}\index{poly.\+h@{poly.\+h}!F\+O\+R\+E\+A\+C\+Hvisible\+\_\+@{F\+O\+R\+E\+A\+C\+Hvisible\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hvisible\+\_\+@{F\+O\+R\+E\+A\+C\+Hvisible\+\_\+}!poly.\+h@{poly.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hvisible\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hvisible\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{facets}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}({\bf facet\+T}, facets, visible)}\label{poly_8h_afa04b6bc26a4aefe07e31ae9d08267c4}
+\hypertarget{poly_8h_a419d16f4707b74db840a57477b888c9a}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+\+A\+L\+G\+O\+R\+I\+T\+H\+Mfault@{qh\+\_\+\+A\+L\+G\+O\+R\+I\+T\+H\+Mfault}}
+\index{qh\+\_\+\+A\+L\+G\+O\+R\+I\+T\+H\+Mfault@{qh\+\_\+\+A\+L\+G\+O\+R\+I\+T\+H\+Mfault}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+\+A\+L\+G\+O\+R\+I\+T\+H\+Mfault}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+A\+L\+G\+O\+R\+I\+T\+H\+Mfault~0}\label{poly_8h_a419d16f4707b74db840a57477b888c9a}
+\hypertarget{poly_8h_a2a12f20ff2f1b72409f53d8a60e4d4c8}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+\+D\+A\+T\+Afault@{qh\+\_\+\+D\+A\+T\+Afault}}
+\index{qh\+\_\+\+D\+A\+T\+Afault@{qh\+\_\+\+D\+A\+T\+Afault}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+\+D\+A\+T\+Afault}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+D\+A\+T\+Afault~1}\label{poly_8h_a2a12f20ff2f1b72409f53d8a60e4d4c8}
+\hypertarget{poly_8h_a227e717645899ed481cefaddcb8c217a}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+\+D\+U\+P\+L\+I\+C\+A\+T\+Eridge@{qh\+\_\+\+D\+U\+P\+L\+I\+C\+A\+T\+Eridge}}
+\index{qh\+\_\+\+D\+U\+P\+L\+I\+C\+A\+T\+Eridge@{qh\+\_\+\+D\+U\+P\+L\+I\+C\+A\+T\+Eridge}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+\+D\+U\+P\+L\+I\+C\+A\+T\+Eridge}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+D\+U\+P\+L\+I\+C\+A\+T\+Eridge~({\bf facet\+T} $\ast$)1\+L}\label{poly_8h_a227e717645899ed481cefaddcb8c217a}
+\hypertarget{poly_8h_aa67082d42a7bd35d7906c76eb16ffc0c}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+\+M\+E\+R\+G\+Eridge@{qh\+\_\+\+M\+E\+R\+G\+Eridge}}
+\index{qh\+\_\+\+M\+E\+R\+G\+Eridge@{qh\+\_\+\+M\+E\+R\+G\+Eridge}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+\+M\+E\+R\+G\+Eridge}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+M\+E\+R\+G\+Eridge~({\bf facet\+T} $\ast$)2\+L}\label{poly_8h_aa67082d42a7bd35d7906c76eb16ffc0c}
+
+
+\subsection{Function Documentation}
+\hypertarget{poly_8h_a69c150d0fec352bc87b6074237fcf9f3}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+addhash@{qh\+\_\+addhash}}
+\index{qh\+\_\+addhash@{qh\+\_\+addhash}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+addhash}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+addhash (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{newelem, }
+\item[{{\bf set\+T} $\ast$}]{hashtable, }
+\item[{int}]{hashsize, }
+\item[{int}]{hash}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a69c150d0fec352bc87b6074237fcf9f3}
+\hypertarget{poly_8h_a6f69818d168936d8ff2125bd5ad1815e}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+appendfacet@{qh\+\_\+appendfacet}}
+\index{qh\+\_\+appendfacet@{qh\+\_\+appendfacet}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+appendfacet}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+appendfacet (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a6f69818d168936d8ff2125bd5ad1815e}
+\hypertarget{poly_8h_a33ace68ba9197d1ff575a1b45ee57139}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+appendvertex@{qh\+\_\+appendvertex}}
+\index{qh\+\_\+appendvertex@{qh\+\_\+appendvertex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+appendvertex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+appendvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a33ace68ba9197d1ff575a1b45ee57139}
+\hypertarget{poly_8h_afd7219a9c84e700acb4d8ed9fa4f20c8}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+attachnewfacets@{qh\+\_\+attachnewfacets}}
+\index{qh\+\_\+attachnewfacets@{qh\+\_\+attachnewfacets}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+attachnewfacets}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+attachnewfacets (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_afd7219a9c84e700acb4d8ed9fa4f20c8}
+\hypertarget{poly_8h_ad1c17a9f0765f2dbf59e2489883e0f09}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+check\+\_\+bestdist@{qh\+\_\+check\+\_\+bestdist}}
+\index{qh\+\_\+check\+\_\+bestdist@{qh\+\_\+check\+\_\+bestdist}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+check\+\_\+bestdist}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+check\+\_\+bestdist (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ad1c17a9f0765f2dbf59e2489883e0f09}
+\hypertarget{poly_8h_aaf7e6e3d43111ad5fc3260ba611f8835}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+check\+\_\+maxout@{qh\+\_\+check\+\_\+maxout}}
+\index{qh\+\_\+check\+\_\+maxout@{qh\+\_\+check\+\_\+maxout}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+check\+\_\+maxout}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+check\+\_\+maxout (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_aaf7e6e3d43111ad5fc3260ba611f8835}
+\hypertarget{poly_8h_a091e48b85d79251e87a058ca9d6f92e4}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+check\+\_\+output@{qh\+\_\+check\+\_\+output}}
+\index{qh\+\_\+check\+\_\+output@{qh\+\_\+check\+\_\+output}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+check\+\_\+output}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+check\+\_\+output (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a091e48b85d79251e87a058ca9d6f92e4}
+\hypertarget{poly_8h_aef54f3ce841e7059d07f1342f486e43c}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+check\+\_\+point@{qh\+\_\+check\+\_\+point}}
+\index{qh\+\_\+check\+\_\+point@{qh\+\_\+check\+\_\+point}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+check\+\_\+point}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+check\+\_\+point (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf real\+T} $\ast$}]{maxoutside, }
+\item[{{\bf real\+T} $\ast$}]{maxdist, }
+\item[{{\bf facet\+T} $\ast$$\ast$}]{errfacet1, }
+\item[{{\bf facet\+T} $\ast$$\ast$}]{errfacet2}
+\end{DoxyParamCaption}
+)}\label{poly_8h_aef54f3ce841e7059d07f1342f486e43c}
+\hypertarget{poly_8h_ad6be6c5692921261bea1b68d4cadb849}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+check\+\_\+points@{qh\+\_\+check\+\_\+points}}
+\index{qh\+\_\+check\+\_\+points@{qh\+\_\+check\+\_\+points}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+check\+\_\+points}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+check\+\_\+points (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ad6be6c5692921261bea1b68d4cadb849}
+\hypertarget{poly_8h_a88091cfc04c9819ebd96a61f068ee497}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+checkconvex@{qh\+\_\+checkconvex}}
+\index{qh\+\_\+checkconvex@{qh\+\_\+checkconvex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+checkconvex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+checkconvex (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist, }
+\item[{int}]{fault}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a88091cfc04c9819ebd96a61f068ee497}
+\hypertarget{poly_8h_a8d00b1998be8c34e643247630619daf3}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+checkfacet@{qh\+\_\+checkfacet}}
+\index{qh\+\_\+checkfacet@{qh\+\_\+checkfacet}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+checkfacet}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+checkfacet (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf bool\+T}}]{newmerge, }
+\item[{{\bf bool\+T} $\ast$}]{waserrorp}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a8d00b1998be8c34e643247630619daf3}
+\hypertarget{poly_8h_a096ce9261e3f7ff0184a37db5ebd0349}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+checkflipped@{qh\+\_\+checkflipped}}
+\index{qh\+\_\+checkflipped@{qh\+\_\+checkflipped}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+checkflipped}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+checkflipped (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf real\+T} $\ast$}]{dist, }
+\item[{{\bf bool\+T}}]{allerror}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a096ce9261e3f7ff0184a37db5ebd0349}
+\hypertarget{poly_8h_a4db23000bc054d60c2ce325f2519d2d4}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+checkflipped\+\_\+all@{qh\+\_\+checkflipped\+\_\+all}}
+\index{qh\+\_\+checkflipped\+\_\+all@{qh\+\_\+checkflipped\+\_\+all}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+checkflipped\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+checkflipped\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a4db23000bc054d60c2ce325f2519d2d4}
+\hypertarget{poly_8h_a98b0c79acf5f5c020be8c94ce9ee61e0}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+checkpolygon@{qh\+\_\+checkpolygon}}
+\index{qh\+\_\+checkpolygon@{qh\+\_\+checkpolygon}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+checkpolygon}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+checkpolygon (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a98b0c79acf5f5c020be8c94ce9ee61e0}
+\hypertarget{poly_8h_a6c42c944c773dff60f20846fda29b919}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+checkvertex@{qh\+\_\+checkvertex}}
+\index{qh\+\_\+checkvertex@{qh\+\_\+checkvertex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+checkvertex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+checkvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a6c42c944c773dff60f20846fda29b919}
+\hypertarget{poly_8h_ae4b081e73b0927fc17821a4cb5e1e931}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+clearcenters@{qh\+\_\+clearcenters}}
+\index{qh\+\_\+clearcenters@{qh\+\_\+clearcenters}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+clearcenters}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+clearcenters (
+\begin{DoxyParamCaption}
+\item[{{\bf qh\+\_\+\+C\+E\+N\+T\+E\+R}}]{type}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ae4b081e73b0927fc17821a4cb5e1e931}
+\hypertarget{poly_8h_a32ef96d772244fb5dc1c66d80da7efcb}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+createsimplex@{qh\+\_\+createsimplex}}
+\index{qh\+\_\+createsimplex@{qh\+\_\+createsimplex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+createsimplex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+createsimplex (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertices}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a32ef96d772244fb5dc1c66d80da7efcb}
+\hypertarget{poly_8h_ac97db85deeca431a7093470bea0facf9}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+deletevisible@{qh\+\_\+deletevisible}}
+\index{qh\+\_\+deletevisible@{qh\+\_\+deletevisible}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+deletevisible}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+deletevisible (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ac97db85deeca431a7093470bea0facf9}
+\hypertarget{poly_8h_a00ce5faad45e6a00dc4484fe20c23f69}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+delfacet@{qh\+\_\+delfacet}}
+\index{qh\+\_\+delfacet@{qh\+\_\+delfacet}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+delfacet}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+delfacet (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a00ce5faad45e6a00dc4484fe20c23f69}
+\hypertarget{poly_8h_abce120f0a897b96be12f72c9e0e683f5}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+delridge@{qh\+\_\+delridge}}
+\index{qh\+\_\+delridge@{qh\+\_\+delridge}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+delridge}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+delridge (
+\begin{DoxyParamCaption}
+\item[{{\bf ridge\+T} $\ast$}]{ridge}
+\end{DoxyParamCaption}
+)}\label{poly_8h_abce120f0a897b96be12f72c9e0e683f5}
+\hypertarget{poly_8h_ac3fb173798825a1d7d06a3caf6937b34}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+delvertex@{qh\+\_\+delvertex}}
+\index{qh\+\_\+delvertex@{qh\+\_\+delvertex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+delvertex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+delvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ac3fb173798825a1d7d06a3caf6937b34}
+\hypertarget{poly_8h_a8f86b69e6f022eb88bfee7c60ac7c304}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+facet3vertex@{qh\+\_\+facet3vertex}}
+\index{qh\+\_\+facet3vertex@{qh\+\_\+facet3vertex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+facet3vertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+facet3vertex (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a8f86b69e6f022eb88bfee7c60ac7c304}
+\hypertarget{poly_8h_a46b2a70801b52f0acef981c621b93483}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+facetintersect@{qh\+\_\+facetintersect}}
+\index{qh\+\_\+facetintersect@{qh\+\_\+facetintersect}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+facetintersect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+facetintersect (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet\+A, }
+\item[{{\bf facet\+T} $\ast$}]{facet\+B, }
+\item[{int $\ast$}]{skip\+Ap, }
+\item[{int $\ast$}]{skip\+Bp, }
+\item[{int}]{extra}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a46b2a70801b52f0acef981c621b93483}
+\hypertarget{poly_8h_a1cfa6639f2adfe6d3d52254a69c6e7bb}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+findbestfacet@{qh\+\_\+findbestfacet}}
+\index{qh\+\_\+findbestfacet@{qh\+\_\+findbestfacet}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+findbestfacet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findbestfacet (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf bool\+T}}]{bestoutside, }
+\item[{{\bf real\+T} $\ast$}]{bestdist, }
+\item[{{\bf bool\+T} $\ast$}]{isoutside}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a1cfa6639f2adfe6d3d52254a69c6e7bb}
+\hypertarget{poly_8h_ab2d284d914bbae9016695b0b16c4c20a}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+findbestlower@{qh\+\_\+findbestlower}}
+\index{qh\+\_\+findbestlower@{qh\+\_\+findbestlower}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+findbestlower}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findbestlower (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{upperfacet, }
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf real\+T} $\ast$}]{bestdistp, }
+\item[{int $\ast$}]{numpart}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ab2d284d914bbae9016695b0b16c4c20a}
+\hypertarget{poly_8h_a4111aa6007e332d0fde01a5ff66baec4}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+findfacet\+\_\+all@{qh\+\_\+findfacet\+\_\+all}}
+\index{qh\+\_\+findfacet\+\_\+all@{qh\+\_\+findfacet\+\_\+all}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+findfacet\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findfacet\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf real\+T} $\ast$}]{bestdist, }
+\item[{{\bf bool\+T} $\ast$}]{isoutside, }
+\item[{int $\ast$}]{numpart}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a4111aa6007e332d0fde01a5ff66baec4}
+\hypertarget{poly_8h_ad7807a9ac4dbfd0e0906e52c475e3e05}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+findgood@{qh\+\_\+findgood}}
+\index{qh\+\_\+findgood@{qh\+\_\+findgood}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+findgood}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+findgood (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist, }
+\item[{int}]{goodhorizon}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ad7807a9ac4dbfd0e0906e52c475e3e05}
+\hypertarget{poly_8h_ab687986cafdb419254bdfb01b43243f7}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+findgood\+\_\+all@{qh\+\_\+findgood\+\_\+all}}
+\index{qh\+\_\+findgood\+\_\+all@{qh\+\_\+findgood\+\_\+all}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+findgood\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+findgood\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ab687986cafdb419254bdfb01b43243f7}
+\hypertarget{poly_8h_a2cd68ec31c458db423fb89b6d3c20b29}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+furthestnext@{qh\+\_\+furthestnext}}
+\index{qh\+\_\+furthestnext@{qh\+\_\+furthestnext}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+furthestnext}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+furthestnext (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a2cd68ec31c458db423fb89b6d3c20b29}
+\hypertarget{poly_8h_ace42a1dba93f6b3306512ec89c4b61c1}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+furthestout@{qh\+\_\+furthestout}}
+\index{qh\+\_\+furthestout@{qh\+\_\+furthestout}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+furthestout}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+furthestout (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ace42a1dba93f6b3306512ec89c4b61c1}
+\hypertarget{poly_8h_ab06a9e801c49c41d8c2655ee311fc207}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+gethash@{qh\+\_\+gethash}}
+\index{qh\+\_\+gethash@{qh\+\_\+gethash}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+gethash}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+gethash (
+\begin{DoxyParamCaption}
+\item[{int}]{hashsize, }
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{int}]{size, }
+\item[{int}]{firstindex, }
+\item[{void $\ast$}]{skipelem}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ab06a9e801c49c41d8c2655ee311fc207}
+\hypertarget{poly_8h_a24f728fccf720fcfd522cf897499e5cc}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+infiniteloop@{qh\+\_\+infiniteloop}}
+\index{qh\+\_\+infiniteloop@{qh\+\_\+infiniteloop}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+infiniteloop}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+infiniteloop (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a24f728fccf720fcfd522cf897499e5cc}
+\hypertarget{poly_8h_af48505f99a1447ec5013ed5766250b50}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+initbuild@{qh\+\_\+initbuild}}
+\index{qh\+\_\+initbuild@{qh\+\_\+initbuild}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+initbuild}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initbuild (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_af48505f99a1447ec5013ed5766250b50}
+\hypertarget{poly_8h_ab60889d9d726b8059e9ebb974e4228e6}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+initialhull@{qh\+\_\+initialhull}}
+\index{qh\+\_\+initialhull@{qh\+\_\+initialhull}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+initialhull}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initialhull (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertices}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ab60889d9d726b8059e9ebb974e4228e6}
+\hypertarget{poly_8h_a9a725800dba93f884b5a0ad802b21665}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+initialvertices@{qh\+\_\+initialvertices}}
+\index{qh\+\_\+initialvertices@{qh\+\_\+initialvertices}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+initialvertices}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+initialvertices (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf set\+T} $\ast$}]{maxpoints, }
+\item[{{\bf point\+T} $\ast$}]{points, }
+\item[{int}]{numpoints}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a9a725800dba93f884b5a0ad802b21665}
+\hypertarget{poly_8h_adfe9ab8604d568a2603715cba067c24c}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+isvertex@{qh\+\_\+isvertex}}
+\index{qh\+\_\+isvertex@{qh\+\_\+isvertex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+isvertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vertex\+T}$\ast$ qh\+\_\+isvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf set\+T} $\ast$}]{vertices}
+\end{DoxyParamCaption}
+)}\label{poly_8h_adfe9ab8604d568a2603715cba067c24c}
+\hypertarget{poly_8h_acc3cd4290f82e0f64146201e9ed60354}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+makenew\+\_\+nonsimplicial@{qh\+\_\+makenew\+\_\+nonsimplicial}}
+\index{qh\+\_\+makenew\+\_\+nonsimplicial@{qh\+\_\+makenew\+\_\+nonsimplicial}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+makenew\+\_\+nonsimplicial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+makenew\+\_\+nonsimplicial (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{visible, }
+\item[{{\bf vertex\+T} $\ast$}]{apex, }
+\item[{int $\ast$}]{numnew}
+\end{DoxyParamCaption}
+)}\label{poly_8h_acc3cd4290f82e0f64146201e9ed60354}
+\hypertarget{poly_8h_aab5f3367c220c1aa2d02ea373dc9b5cf}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+makenew\+\_\+simplicial@{qh\+\_\+makenew\+\_\+simplicial}}
+\index{qh\+\_\+makenew\+\_\+simplicial@{qh\+\_\+makenew\+\_\+simplicial}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+makenew\+\_\+simplicial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+makenew\+\_\+simplicial (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{visible, }
+\item[{{\bf vertex\+T} $\ast$}]{apex, }
+\item[{int $\ast$}]{numnew}
+\end{DoxyParamCaption}
+)}\label{poly_8h_aab5f3367c220c1aa2d02ea373dc9b5cf}
+\hypertarget{poly_8h_aa8177fdfca6dbdbc6dd7a84f202416b5}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+makenewfacet@{qh\+\_\+makenewfacet}}
+\index{qh\+\_\+makenewfacet@{qh\+\_\+makenewfacet}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+makenewfacet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+makenewfacet (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertices, }
+\item[{{\bf bool\+T}}]{toporient, }
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{poly_8h_aa8177fdfca6dbdbc6dd7a84f202416b5}
+\hypertarget{poly_8h_a952e29a4192b42293a9ddcd311f37fd7}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+makenewfacets@{qh\+\_\+makenewfacets}}
+\index{qh\+\_\+makenewfacets@{qh\+\_\+makenewfacets}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+makenewfacets}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vertex\+T}$\ast$ qh\+\_\+makenewfacets (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a952e29a4192b42293a9ddcd311f37fd7}
+\hypertarget{poly_8h_a464a4d0b7cd6ecab1a352588f26fcb3d}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+makenewplanes@{qh\+\_\+makenewplanes}}
+\index{qh\+\_\+makenewplanes@{qh\+\_\+makenewplanes}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+makenewplanes}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+makenewplanes (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a464a4d0b7cd6ecab1a352588f26fcb3d}
+\hypertarget{poly_8h_a808dbb1a46992bcc8e97827a5e306f4e}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+matchduplicates@{qh\+\_\+matchduplicates}}
+\index{qh\+\_\+matchduplicates@{qh\+\_\+matchduplicates}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+matchduplicates}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+matchduplicates (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{atfacet, }
+\item[{int}]{atskip, }
+\item[{int}]{hashsize, }
+\item[{int $\ast$}]{hashcount}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a808dbb1a46992bcc8e97827a5e306f4e}
+\hypertarget{poly_8h_aeebe7c81742ee1eb57ca21512906dcea}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+matchneighbor@{qh\+\_\+matchneighbor}}
+\index{qh\+\_\+matchneighbor@{qh\+\_\+matchneighbor}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+matchneighbor}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+matchneighbor (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{newfacet, }
+\item[{int}]{newskip, }
+\item[{int}]{hashsize, }
+\item[{int $\ast$}]{hashcount}
+\end{DoxyParamCaption}
+)}\label{poly_8h_aeebe7c81742ee1eb57ca21512906dcea}
+\hypertarget{poly_8h_ac63f96aa57f729f6b8cba0f34a9f134d}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+matchnewfacets@{qh\+\_\+matchnewfacets}}
+\index{qh\+\_\+matchnewfacets@{qh\+\_\+matchnewfacets}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+matchnewfacets}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+matchnewfacets (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ac63f96aa57f729f6b8cba0f34a9f134d}
+\hypertarget{poly_8h_a7e263170e48f22b8164f7256646da4f8}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+matchvertices@{qh\+\_\+matchvertices}}
+\index{qh\+\_\+matchvertices@{qh\+\_\+matchvertices}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+matchvertices}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+matchvertices (
+\begin{DoxyParamCaption}
+\item[{int}]{firstindex, }
+\item[{{\bf set\+T} $\ast$}]{vertices\+A, }
+\item[{int}]{skip\+A, }
+\item[{{\bf set\+T} $\ast$}]{vertices\+B, }
+\item[{int $\ast$}]{skip\+B, }
+\item[{{\bf bool\+T} $\ast$}]{same}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a7e263170e48f22b8164f7256646da4f8}
+\hypertarget{poly_8h_a7b367492f05a78d35541d0b6126fbbff}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+nearcoplanar@{qh\+\_\+nearcoplanar}}
+\index{qh\+\_\+nearcoplanar@{qh\+\_\+nearcoplanar}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+nearcoplanar}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+nearcoplanar (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a7b367492f05a78d35541d0b6126fbbff}
+\hypertarget{poly_8h_a6240e270a6fa93c59782fabcdfbb0001}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+nearvertex@{qh\+\_\+nearvertex}}
+\index{qh\+\_\+nearvertex@{qh\+\_\+nearvertex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+nearvertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vertex\+T}$\ast$ qh\+\_\+nearvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf real\+T} $\ast$}]{bestdistp}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a6240e270a6fa93c59782fabcdfbb0001}
+\hypertarget{poly_8h_a7b29a436468d3ae0c2189031f132caa9}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+newfacet@{qh\+\_\+newfacet}}
+\index{qh\+\_\+newfacet@{qh\+\_\+newfacet}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+newfacet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+newfacet (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a7b29a436468d3ae0c2189031f132caa9}
+\hypertarget{poly_8h_ac493a74913d50181ec217b00de22fefc}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+newhashtable@{qh\+\_\+newhashtable}}
+\index{qh\+\_\+newhashtable@{qh\+\_\+newhashtable}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+newhashtable}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+newhashtable (
+\begin{DoxyParamCaption}
+\item[{int}]{newsize}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ac493a74913d50181ec217b00de22fefc}
+\hypertarget{poly_8h_af1c69f2de946205831665eb9a7588bbd}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+newridge@{qh\+\_\+newridge}}
+\index{qh\+\_\+newridge@{qh\+\_\+newridge}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+newridge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ridge\+T}$\ast$ qh\+\_\+newridge (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_af1c69f2de946205831665eb9a7588bbd}
+\hypertarget{poly_8h_a2e6614714ee360e354a0001f19171ce2}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+newvertex@{qh\+\_\+newvertex}}
+\index{qh\+\_\+newvertex@{qh\+\_\+newvertex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+newvertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vertex\+T}$\ast$ qh\+\_\+newvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a2e6614714ee360e354a0001f19171ce2}
+\hypertarget{poly_8h_ad8e27547b8dcd16c5e1308791a828699}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+nextridge3d@{qh\+\_\+nextridge3d}}
+\index{qh\+\_\+nextridge3d@{qh\+\_\+nextridge3d}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+nextridge3d}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ridge\+T}$\ast$ qh\+\_\+nextridge3d (
+\begin{DoxyParamCaption}
+\item[{{\bf ridge\+T} $\ast$}]{atridge, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf vertex\+T} $\ast$$\ast$}]{vertexp}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ad8e27547b8dcd16c5e1308791a828699}
+\hypertarget{poly_8h_a3226cc8846078879cc5248019e74dc82}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+outcoplanar@{qh\+\_\+outcoplanar}}
+\index{qh\+\_\+outcoplanar@{qh\+\_\+outcoplanar}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+outcoplanar}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+outcoplanar (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a3226cc8846078879cc5248019e74dc82}
+\hypertarget{poly_8h_aa48c2515ade8cfa5fd778ec25a73fd45}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+point@{qh\+\_\+point}}
+\index{qh\+\_\+point@{qh\+\_\+point}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\+T}$\ast$ qh\+\_\+point (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\label{poly_8h_aa48c2515ade8cfa5fd778ec25a73fd45}
+\hypertarget{poly_8h_a7326ce16485a12002209e3bb66d80050}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+point\+\_\+add@{qh\+\_\+point\+\_\+add}}
+\index{qh\+\_\+point\+\_\+add@{qh\+\_\+point\+\_\+add}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+point\+\_\+add}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+point\+\_\+add (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{set, }
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{void $\ast$}]{elem}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a7326ce16485a12002209e3bb66d80050}
+\hypertarget{poly_8h_a26184539ad14f1481adc8824a956fd55}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+pointfacet@{qh\+\_\+pointfacet}}
+\index{qh\+\_\+pointfacet@{qh\+\_\+pointfacet}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+pointfacet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+pointfacet (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a26184539ad14f1481adc8824a956fd55}
+\hypertarget{poly_8h_a96ca9a1e5768eb072de911e9f2388cad}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+pointid@{qh\+\_\+pointid}}
+\index{qh\+\_\+pointid@{qh\+\_\+pointid}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+pointid}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+pointid (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a96ca9a1e5768eb072de911e9f2388cad}
+\hypertarget{poly_8h_a7045e57f76d9cc806853dc83699da4ab}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+pointvertex@{qh\+\_\+pointvertex}}
+\index{qh\+\_\+pointvertex@{qh\+\_\+pointvertex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+pointvertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+pointvertex (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a7045e57f76d9cc806853dc83699da4ab}
+\hypertarget{poly_8h_ae07ffcb94689873ae8198e43076bd197}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+prependfacet@{qh\+\_\+prependfacet}}
+\index{qh\+\_\+prependfacet@{qh\+\_\+prependfacet}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+prependfacet}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+prependfacet (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf facet\+T} $\ast$$\ast$}]{facetlist}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ae07ffcb94689873ae8198e43076bd197}
+\hypertarget{poly_8h_aed4964308525de599566526cd5bbcdf6}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+printhashtable@{qh\+\_\+printhashtable}}
+\index{qh\+\_\+printhashtable@{qh\+\_\+printhashtable}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+printhashtable}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printhashtable (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{poly_8h_aed4964308525de599566526cd5bbcdf6}
+\hypertarget{poly_8h_a6570c5a053cf37c618589cab52926ed2}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+printlists@{qh\+\_\+printlists}}
+\index{qh\+\_\+printlists@{qh\+\_\+printlists}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+printlists}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printlists (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a6570c5a053cf37c618589cab52926ed2}
+\hypertarget{poly_8h_acee97c3208218bc8788a3d6bdc61af0e}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+removefacet@{qh\+\_\+removefacet}}
+\index{qh\+\_\+removefacet@{qh\+\_\+removefacet}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+removefacet}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+removefacet (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{poly_8h_acee97c3208218bc8788a3d6bdc61af0e}
+\hypertarget{poly_8h_a19b3fa816a2745a39f5d4425ce41ed82}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+removevertex@{qh\+\_\+removevertex}}
+\index{qh\+\_\+removevertex@{qh\+\_\+removevertex}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+removevertex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+removevertex (
+\begin{DoxyParamCaption}
+\item[{{\bf vertex\+T} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a19b3fa816a2745a39f5d4425ce41ed82}
+\hypertarget{poly_8h_af5a8376b0b2cebe64369d0e9ea22b6e5}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+resetlists@{qh\+\_\+resetlists}}
+\index{qh\+\_\+resetlists@{qh\+\_\+resetlists}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+resetlists}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+resetlists (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T}}]{stats, }
+\item[{{\bf bool\+T}}]{reset\+Visible}
+\end{DoxyParamCaption}
+)}\label{poly_8h_af5a8376b0b2cebe64369d0e9ea22b6e5}
+\hypertarget{poly_8h_ae3ee84aa6d0ab7e03bd33ab38e0e521d}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+setvoronoi\+\_\+all@{qh\+\_\+setvoronoi\+\_\+all}}
+\index{qh\+\_\+setvoronoi\+\_\+all@{qh\+\_\+setvoronoi\+\_\+all}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+setvoronoi\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setvoronoi\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ae3ee84aa6d0ab7e03bd33ab38e0e521d}
+\hypertarget{poly_8h_aca961447bb52979062f56f66ddf3a499}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+triangulate@{qh\+\_\+triangulate}}
+\index{qh\+\_\+triangulate@{qh\+\_\+triangulate}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+triangulate}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+triangulate (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_aca961447bb52979062f56f66ddf3a499}
+\hypertarget{poly_8h_a82b15a1bef9522354d9e7481e5a157f8}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+triangulate\+\_\+facet@{qh\+\_\+triangulate\+\_\+facet}}
+\index{qh\+\_\+triangulate\+\_\+facet@{qh\+\_\+triangulate\+\_\+facet}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+triangulate\+\_\+facet}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+triangulate\+\_\+facet (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet\+A, }
+\item[{{\bf vertex\+T} $\ast$$\ast$}]{first\+\_\+vertex}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a82b15a1bef9522354d9e7481e5a157f8}
+\hypertarget{poly_8h_abf186a6fcc388ff74b22d30376199920}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+triangulate\+\_\+link@{qh\+\_\+triangulate\+\_\+link}}
+\index{qh\+\_\+triangulate\+\_\+link@{qh\+\_\+triangulate\+\_\+link}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+triangulate\+\_\+link}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+triangulate\+\_\+link (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{oldfacet\+A, }
+\item[{{\bf facet\+T} $\ast$}]{facet\+A, }
+\item[{{\bf facet\+T} $\ast$}]{oldfacet\+B, }
+\item[{{\bf facet\+T} $\ast$}]{facet\+B}
+\end{DoxyParamCaption}
+)}\label{poly_8h_abf186a6fcc388ff74b22d30376199920}
+\hypertarget{poly_8h_a5d790ba4f9e34d528c5d3d7113889e77}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+triangulate\+\_\+mirror@{qh\+\_\+triangulate\+\_\+mirror}}
+\index{qh\+\_\+triangulate\+\_\+mirror@{qh\+\_\+triangulate\+\_\+mirror}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+triangulate\+\_\+mirror}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+triangulate\+\_\+mirror (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet\+A, }
+\item[{{\bf facet\+T} $\ast$}]{facet\+B}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a5d790ba4f9e34d528c5d3d7113889e77}
+\hypertarget{poly_8h_a4bb97a2b4efad8c014752d00e8c40b8a}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+triangulate\+\_\+null@{qh\+\_\+triangulate\+\_\+null}}
+\index{qh\+\_\+triangulate\+\_\+null@{qh\+\_\+triangulate\+\_\+null}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+triangulate\+\_\+null}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+triangulate\+\_\+null (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet\+A}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a4bb97a2b4efad8c014752d00e8c40b8a}
+\hypertarget{poly_8h_aa539cd281e9fc7b1b3ebd5108a5b718f}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+updatevertices@{qh\+\_\+updatevertices}}
+\index{qh\+\_\+updatevertices@{qh\+\_\+updatevertices}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+updatevertices}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+updatevertices (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_aa539cd281e9fc7b1b3ebd5108a5b718f}
+\hypertarget{poly_8h_ae39e60099a00549df77dca6cc51641bc}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+vertexintersect@{qh\+\_\+vertexintersect}}
+\index{qh\+\_\+vertexintersect@{qh\+\_\+vertexintersect}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+vertexintersect}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+vertexintersect (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$$\ast$}]{vertexset\+A, }
+\item[{{\bf set\+T} $\ast$}]{vertexset\+B}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ae39e60099a00549df77dca6cc51641bc}
+\hypertarget{poly_8h_ad1789c88635c1fdc765e8fc44782d832}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+vertexintersect\+\_\+new@{qh\+\_\+vertexintersect\+\_\+new}}
+\index{qh\+\_\+vertexintersect\+\_\+new@{qh\+\_\+vertexintersect\+\_\+new}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+vertexintersect\+\_\+new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+vertexintersect\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertexset\+A, }
+\item[{{\bf set\+T} $\ast$}]{vertexset\+B}
+\end{DoxyParamCaption}
+)}\label{poly_8h_ad1789c88635c1fdc765e8fc44782d832}
+\hypertarget{poly_8h_a7365fdb24e8d7354f5345c28b8b9d8ed}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+vertexneighbors@{qh\+\_\+vertexneighbors}}
+\index{qh\+\_\+vertexneighbors@{qh\+\_\+vertexneighbors}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+vertexneighbors}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+vertexneighbors (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a7365fdb24e8d7354f5345c28b8b9d8ed}
+\hypertarget{poly_8h_a63aa65c80e8a8918d526e8579ff1eecd}{}\index{poly.\+h@{poly.\+h}!qh\+\_\+vertexsubset@{qh\+\_\+vertexsubset}}
+\index{qh\+\_\+vertexsubset@{qh\+\_\+vertexsubset}!poly.\+h@{poly.\+h}}
+\subsubsection[{qh\+\_\+vertexsubset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+vertexsubset (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertexset\+A, }
+\item[{{\bf set\+T} $\ast$}]{vertexset\+B}
+\end{DoxyParamCaption}
+)}\label{poly_8h_a63aa65c80e8a8918d526e8579ff1eecd}

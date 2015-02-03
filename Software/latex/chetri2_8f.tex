@@ -1,0 +1,102 @@
+\hypertarget{chetri2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/chetri2.f File Reference}
+\label{chetri2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chetri2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/chetri2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{chetri2_8f_a465ce5fd883b0d3892a8194638c91e6c}{chetri2} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+P\+I\+V, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+H\+E\+T\+R\+I2} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{chetri2_8f_a465ce5fd883b0d3892a8194638c91e6c}{}\index{chetri2.\+f@{chetri2.\+f}!chetri2@{chetri2}}
+\index{chetri2@{chetri2}!chetri2.\+f@{chetri2.\+f}}
+\subsubsection[{chetri2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine chetri2 (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{chetri2_8f_a465ce5fd883b0d3892a8194638c91e6c}
+
+
+{\bfseries C\+H\+E\+T\+R\+I2} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CHETRI2 computes the inverse of a COMPLEX hermitian indefinite matrix
+ A using the factorization A = U*D*U**T or A = L*D*L**T computed by
+ CHETRF. CHETRI2 set the LEADING DIMENSION of the workspace
+ before calling CHETRI2X that actually computes the inverse.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the details of the factorization are stored
+          as an upper or lower triangular matrix.
+          = 'U':  Upper triangular, form is A = U*D*U**T;
+          = 'L':  Lower triangular, form is A = L*D*L**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          On entry, the NB diagonal matrix D and the multipliers
+          used to obtain the factor U or L as computed by CHETRF.
+
+          On exit, if INFO = 0, the (symmetric) inverse of the original
+          matrix.  If UPLO = 'U', the upper triangular part of the
+          inverse is formed and the part of A below the diagonal is not
+          referenced; if UPLO = 'L' the lower triangular part of the
+          inverse is formed and the part of A above the diagonal is
+          not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          Details of the interchanges and the NB structure of D
+          as determined by CHETRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (N+NB+1)*(NB+3)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The dimension of the array WORK.
+          WORK is size >= (N+NB+1)*(NB+3)
+          If LDWORK = -1, then a workspace query is assumed; the routine
+           calculates:
+              - the optimal size of the WORK array, returns
+          this value as the first entry of the WORK array,
+              - and no error message related to LDWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          > 0: if INFO = i, D(i,i) = 0; the matrix is singular and its
+               inverse could not be computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

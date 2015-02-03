@@ -1,0 +1,87 @@
+\hypertarget{zlat2c_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlat2c.f File Reference}
+\label{zlat2c_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlat2c.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlat2c.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlat2c_8f_a5a68e3f212587ad4b4afa34853c0585c}{zlat2c} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, S\+A, L\+D\+S\+A, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+T2\+C} converts a double complex triangular matrix to a complex triangular matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlat2c_8f_a5a68e3f212587ad4b4afa34853c0585c}{}\index{zlat2c.\+f@{zlat2c.\+f}!zlat2c@{zlat2c}}
+\index{zlat2c@{zlat2c}!zlat2c.\+f@{zlat2c.\+f}}
+\subsubsection[{zlat2c}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlat2c (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}, dimension( ldsa, $\ast$ )}]{S\+A, }
+\item[{integer}]{L\+D\+S\+A, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zlat2c_8f_a5a68e3f212587ad4b4afa34853c0585c}
+
+
+{\bfseries Z\+L\+A\+T2\+C} converts a double complex triangular matrix to a complex triangular matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLAT2C converts a COMPLEX*16 triangular matrix, SA, to a COMPLEX
+ triangular matrix, A.
+
+ RMAX is the overflow for the SINGLE PRECISION arithmetic
+ ZLAT2C checks that all the entries of A are between -RMAX and
+ RMAX. If not the convertion is aborted and a flag is raised.
+
+ This is an auxiliary routine so there is no argument checking.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  A is upper triangular;
+          = 'L':  A is lower triangular.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of rows and columns of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the N-by-N triangular coefficient matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+A} & \begin{DoxyVerb}          SA is COMPLEX array, dimension (LDSA,N)
+          Only the UPLO part of SA is referenced.  On exit, if INFO=0,
+          the N-by-N coefficient matrix SA; if INFO>0, the content of
+          the UPLO part of SA is unspecified.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+S\+A} & \begin{DoxyVerb}          LDSA is INTEGER
+          The leading dimension of the array SA.  LDSA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          = 1:  an entry of the matrix A is greater than the SINGLE
+                PRECISION overflow threshold, in this case, the content
+                of the UPLO part of SA in exit is unspecified.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

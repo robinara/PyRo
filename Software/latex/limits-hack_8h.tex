@@ -1,0 +1,656 @@
+\hypertarget{limits-hack_8h}{}\section{packages/scipy-\/0.14.0/scipy/weave/blitz/blitz/limits-\/hack.h File Reference}
+\label{limits-hack_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/limits-\/hack.\+h@{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/limits-\/hack.\+h}}
+{\ttfamily \#include $<$blitz/wrap-\/climits.\+h$>$}\\*
+{\ttfamily \#include $<$float.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class__Numeric__limits__base}{\+\_\+\+Numeric\+\_\+limits\+\_\+base$<$ \+\_\+\+\_\+number $>$}
+\item 
+class \hyperlink{class__Integer__limits}{\+\_\+\+Integer\+\_\+limits$<$ \+\_\+\+Int, \+\_\+\+\_\+imin, \+\_\+\+\_\+imax, \+\_\+\+\_\+idigits $>$}
+\item 
+class \hyperlink{class__Floating__limits}{\+\_\+\+Floating\+\_\+limits$<$ \+\_\+\+\_\+number, \+\_\+\+\_\+\+Digits, \+\_\+\+\_\+\+Digits10, \+\_\+\+\_\+\+Min\+Exp, \+\_\+\+\_\+\+Max\+Exp, \+\_\+\+\_\+\+Min\+Exp10, \+\_\+\+\_\+\+Max\+Exp10, \+\_\+\+\_\+\+Infinity\+Word, \+\_\+\+\_\+\+Q\+Na\+N\+Word, \+\_\+\+\_\+\+S\+Na\+N\+Word, \+\_\+\+\_\+\+Is\+I\+E\+C559, \+\_\+\+\_\+\+Round\+Style $>$}
+\item 
+class \hyperlink{classnumeric__limits}{numeric\+\_\+limits$<$ T $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01bool_01_4}{numeric\+\_\+limits$<$ bool $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01char_01_4}{numeric\+\_\+limits$<$ char $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01signed_01char_01_4}{numeric\+\_\+limits$<$ signed char $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01unsigned_01char_01_4}{numeric\+\_\+limits$<$ unsigned char $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01short_01_4}{numeric\+\_\+limits$<$ short $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01unsigned_01short_01_4}{numeric\+\_\+limits$<$ unsigned short $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01int_01_4}{numeric\+\_\+limits$<$ int $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01unsigned_01int_01_4}{numeric\+\_\+limits$<$ unsigned int $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01long_01_4}{numeric\+\_\+limits$<$ long $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01unsigned_01long_01_4}{numeric\+\_\+limits$<$ unsigned long $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01float_01_4}{numeric\+\_\+limits$<$ float $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01double_01_4}{numeric\+\_\+limits$<$ double $>$}
+\item 
+class \hyperlink{classnumeric__limits_3_01long_01double_01_4}{numeric\+\_\+limits$<$ long double $>$}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{limits-hack_8h_ac4166fbfe5cf2b90d7512a345e907aba}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}(\+\_\+\+\_\+type,  \+\_\+\+\_\+mem)
+\item 
+\#define \hyperlink{limits-hack_8h_a2a2979764b6fdbdf649a9ce11303e9c6}{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}(\+\_\+\+\_\+type,  \+\_\+\+\_\+mem)
+\item 
+\#define \hyperlink{limits-hack_8h_aea854a84368df7f207f421d4157a55f2}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}(\+\_\+\+\_\+type,  \+\_\+\+\_\+mem)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66}{float\+\_\+round\+\_\+style} \{ \\*
+\hyperlink{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66aef8e73dd0b0f1899790b6ba2bb47be7d}{round\+\_\+indeterminate} = -\/1, 
+\hyperlink{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66a2378935a2849c4d049d5e5a01324e827}{round\+\_\+toward\+\_\+zero} = 0, 
+\hyperlink{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66aae97e229f8502c244371d7f7e3105afc}{round\+\_\+to\+\_\+nearest} = 1, 
+\hyperlink{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66a33f65225750a8f3edc0b6601fa7bcd52}{round\+\_\+toward\+\_\+infinity} = 2, 
+\\*
+\hyperlink{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66ad9c511acb4735515f2402087641e9725}{round\+\_\+toward\+\_\+neg\+\_\+infinity} = 3
+ \}
+\item 
+enum \hyperlink{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6}{float\+\_\+denorm\+\_\+style} \{ \hyperlink{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6ae6e5a92659b76e353da685746ec7a715}{denorm\+\_\+indeterminate} = -\/1, 
+\hyperlink{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6ae1126f121e8e78fad4c2ea93b9154f70}{denorm\+\_\+absent} = 0, 
+\hyperlink{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6ace9911a51bfc23dca58b86c67b0adfac}{denorm\+\_\+present} = 1
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{limits-hack_8h_a4b6b95655fe47f8f248b45eeab2573a8}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, is\+\_\+specialized)
+\item 
+\hyperlink{limits-hack_8h_adb53162703702e90a5df33acc2dff591}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (int, \hyperlink{numinquire_8h_a76a0faf7aefa53527cce92a7a96d8e07}{digits})
+\item 
+\hyperlink{limits-hack_8h_a94208783e83b0f6cada4326f606b90f4}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (int, \hyperlink{numinquire_8h_aba621087a8b1529462d180fa6cac4a5d}{digits10})
+\item 
+\hyperlink{limits-hack_8h_abdd49640fdc5e168e94e1ac20e89f617}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_ae60c5a6ee78f454551ef8a312fb9479c}{is\+\_\+signed})
+\item 
+\hyperlink{limits-hack_8h_ac2c608924500298c998620305bc13954}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_aec09c316d35c523e356e6d34e7f974b6}{is\+\_\+integer})
+\item 
+\hyperlink{limits-hack_8h_addd336dbe817e23ef83e9ad36d722c4f}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a1afdd1269713b8a31cc3cf4558097888}{is\+\_\+exact})
+\item 
+\hyperlink{limits-hack_8h_ad4191e4ea46c0deae688a57f253a5971}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (int, \hyperlink{numinquire_8h_a7f3f274d8e16df7db5fb23c81be22170}{radix})
+\item 
+\hyperlink{limits-hack_8h_a9fe432bcd177c320d4058fecd77c02ab}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (int, \hyperlink{numinquire_8h_ac302226dab4d3e25159a46f68a5d1522}{min\+\_\+exponent})
+\item 
+\hyperlink{limits-hack_8h_a6ef0310969443c4905138ee17565af55}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (int, \hyperlink{numinquire_8h_a0d191d85c06341ded93a22c602f0604b}{max\+\_\+exponent})
+\item 
+\hyperlink{limits-hack_8h_a204aaef3821dcc3feec0693b1b02dd08}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (int, \hyperlink{numinquire_8h_a19a31114f3d5002b21f2f27f64f9cd10}{min\+\_\+exponent10})
+\item 
+\hyperlink{limits-hack_8h_adcbefbc4f1596116be65f85e09675a28}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (int, \hyperlink{numinquire_8h_a901d50aee85856e45aa6c873dfdca1ec}{max\+\_\+exponent10})
+\item 
+\hyperlink{limits-hack_8h_a37ee94c735036e408230f8ffa025b422}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_aee9e37bc852a79d447e9b4b5ede2b9f1}{has\+\_\+infinity})
+\item 
+\hyperlink{limits-hack_8h_a9c57b00fa99736fe0e04af8d18913edd}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a4cb0567bdb12a6477256aff5a3af1430}{has\+\_\+quiet\+\_\+\+Na\+N})
+\item 
+\hyperlink{limits-hack_8h_a54e92a2deb55f76e340d8dfb2093915b}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_aceee39c084782fed018c4b6ba7ba75ca}{has\+\_\+signaling\+\_\+\+Na\+N})
+\item 
+\hyperlink{limits-hack_8h_accde29cc70d5e19ae38e0e5947561ac4}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6}{float\+\_\+denorm\+\_\+style}, \hyperlink{numinquire_8h_aeb5ecb4e92ce1ffdf2af4793cb48cf13}{has\+\_\+denorm})
+\item 
+\hyperlink{limits-hack_8h_a5a20a01343a98030728cdfded0b4f447}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a623bde00cdaac6a34529424b0e8f69af}{has\+\_\+denorm\+\_\+loss})
+\item 
+\hyperlink{limits-hack_8h_a199688d04f55c351e88baf8e18b59036}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_ac68b7a83df5f772e268dca6b69101d2c}{is\+\_\+iec559})
+\item 
+\hyperlink{limits-hack_8h_a5adb69fb3da51ca3f6bb29d64a574dc8}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a76c822eea59ab5dacbd0bc2d94d94928}{is\+\_\+bounded})
+\item 
+\hyperlink{limits-hack_8h_a8a84faa55910782c1b9c41d6129bbf02}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a7fda08f95601cec6a8b3588a5fd0c333}{is\+\_\+modulo})
+\item 
+\hyperlink{limits-hack_8h_aa4a2fe575eebd1f64fb22959ae8fe528}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_af19e27df7997796fb35f917210365468}{traps})
+\item 
+\hyperlink{limits-hack_8h_a6892fafde1ffb71b661c3b4f9c4c1ebe}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_ab169ea37b4fe51cb2aa0f04515c1aa04}{tinyness\+\_\+before})
+\item 
+\hyperlink{limits-hack_8h_ace8749ebd07b9ab4b2cab0d80e46657b}{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member} (\hyperlink{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66}{float\+\_\+round\+\_\+style}, round\+\_\+style)
+\item 
+\hyperlink{limits-hack_8h_af809adc3c0073854e2552d96fb882c0a}{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, is\+\_\+specialized)
+\item 
+\hyperlink{limits-hack_8h_a57061ff354670c97608f4884209174eb}{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member} (int, \hyperlink{numinquire_8h_a76a0faf7aefa53527cce92a7a96d8e07}{digits})
+\item 
+\hyperlink{limits-hack_8h_aea6f6e023668035bd65400f9d4e3c251}{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member} (int, \hyperlink{numinquire_8h_aba621087a8b1529462d180fa6cac4a5d}{digits10})
+\item 
+\hyperlink{limits-hack_8h_a57851efc095a7a776ffe114e1a3b8350}{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_ae60c5a6ee78f454551ef8a312fb9479c}{is\+\_\+signed})
+\item 
+\hyperlink{limits-hack_8h_aedc35532eface0b4c5515a857b06d660}{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_aec09c316d35c523e356e6d34e7f974b6}{is\+\_\+integer})
+\item 
+\hyperlink{limits-hack_8h_a7f507ba4c6a349780390d8e9536aeb86}{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a1afdd1269713b8a31cc3cf4558097888}{is\+\_\+exact})
+\item 
+\hyperlink{limits-hack_8h_a7795ceb08900bb8d9cee023078ecc057}{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member} (int, \hyperlink{numinquire_8h_a7f3f274d8e16df7db5fb23c81be22170}{radix})
+\item 
+\hyperlink{limits-hack_8h_ac80db2f30053194c6ee412a7414d24f5}{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a76c822eea59ab5dacbd0bc2d94d94928}{is\+\_\+bounded})
+\item 
+\hyperlink{limits-hack_8h_aceb97ba235e8cf40c0917e843c35490b}{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a7fda08f95601cec6a8b3588a5fd0c333}{is\+\_\+modulo})
+\item 
+\hyperlink{limits-hack_8h_a69892a29bc51a25fe312a06349312656}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, is\+\_\+specialized)
+\item 
+\hyperlink{limits-hack_8h_a2d7881ef2f7e68fab2244588c8f04e6b}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (int, \hyperlink{numinquire_8h_a76a0faf7aefa53527cce92a7a96d8e07}{digits})
+\item 
+\hyperlink{limits-hack_8h_a583b46dfb1c539a75aa9733243336826}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (int, \hyperlink{numinquire_8h_aba621087a8b1529462d180fa6cac4a5d}{digits10})
+\item 
+\hyperlink{limits-hack_8h_aa794bec873a86435d0e4ec06db9b2c05}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_ae60c5a6ee78f454551ef8a312fb9479c}{is\+\_\+signed})
+\item 
+\hyperlink{limits-hack_8h_ac4592a810988b8789bd2266559fae57d}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (int, \hyperlink{numinquire_8h_a7f3f274d8e16df7db5fb23c81be22170}{radix})
+\item 
+\hyperlink{limits-hack_8h_a8000a6776d985aa7d3a8e255fb88dd92}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (int, \hyperlink{numinquire_8h_ac302226dab4d3e25159a46f68a5d1522}{min\+\_\+exponent})
+\item 
+\hyperlink{limits-hack_8h_aa3e418f27230be8478785601d0efd34d}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (int, \hyperlink{numinquire_8h_a0d191d85c06341ded93a22c602f0604b}{max\+\_\+exponent})
+\item 
+\hyperlink{limits-hack_8h_a22293d115fc3ee5edc5bcd560969f1bb}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (int, \hyperlink{numinquire_8h_a19a31114f3d5002b21f2f27f64f9cd10}{min\+\_\+exponent10})
+\item 
+\hyperlink{limits-hack_8h_aaa76998d36f312c47482fc004e226344}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (int, \hyperlink{numinquire_8h_a901d50aee85856e45aa6c873dfdca1ec}{max\+\_\+exponent10})
+\item 
+\hyperlink{limits-hack_8h_ac1c7eecc4d08dc9041bc588ffe465e1d}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_aee9e37bc852a79d447e9b4b5ede2b9f1}{has\+\_\+infinity})
+\item 
+\hyperlink{limits-hack_8h_aad1e5e7715aef9eeaae13f5c0cc8dfe6}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a4cb0567bdb12a6477256aff5a3af1430}{has\+\_\+quiet\+\_\+\+Na\+N})
+\item 
+\hyperlink{limits-hack_8h_ac58a1601a5a0a28889de478de1921bcc}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_aceee39c084782fed018c4b6ba7ba75ca}{has\+\_\+signaling\+\_\+\+Na\+N})
+\item 
+\hyperlink{limits-hack_8h_a739b797b818ae861b0e09c7e1e5b3cb8}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6}{float\+\_\+denorm\+\_\+style}, \hyperlink{numinquire_8h_aeb5ecb4e92ce1ffdf2af4793cb48cf13}{has\+\_\+denorm})
+\item 
+\hyperlink{limits-hack_8h_a3fcf77a5571b0286e292520174cc97c7}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a623bde00cdaac6a34529424b0e8f69af}{has\+\_\+denorm\+\_\+loss})
+\item 
+\hyperlink{limits-hack_8h_a863f6666319d2a3e9368f94996314bb8}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_ac68b7a83df5f772e268dca6b69101d2c}{is\+\_\+iec559})
+\item 
+\hyperlink{limits-hack_8h_abab9e91e9d8c63389f964a00a58bfac3}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_a76c822eea59ab5dacbd0bc2d94d94928}{is\+\_\+bounded})
+\item 
+\hyperlink{limits-hack_8h_acec79c500d2e8bfb71930e6bbd01cd09}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_af19e27df7997796fb35f917210365468}{traps})
+\item 
+\hyperlink{limits-hack_8h_ae3f040d12c607905323778fa5bc20807}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool}, \hyperlink{numinquire_8h_ab169ea37b4fe51cb2aa0f04515c1aa04}{tinyness\+\_\+before})
+\item 
+\hyperlink{limits-hack_8h_afa37becd4e744aaf52913e30db55b365}{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member} (\hyperlink{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66}{float\+\_\+round\+\_\+style}, round\+\_\+style)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{limits-hack_8h_aea854a84368df7f207f421d4157a55f2}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+\+\_\+type, }
+\item[{}]{\+\_\+\+\_\+mem}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_aea854a84368df7f207f421d4157a55f2}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} \_\_Num, \textcolor{keywordtype}{int} \_\_Dig, \textcolor{keywordtype}{int} \_\_Dig10, \(\backslash\)
+          int \_\_MnX, \textcolor{keywordtype}{int} \_\_MxX, \textcolor{keywordtype}{int} \_\_MnX10, \textcolor{keywordtype}{int} \_\_MxX10, \(\backslash\)
+          unsigned \textcolor{keywordtype}{int} \_\_Inf, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \_\_QNaN, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \_\_SNaN, \hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{\(\backslash\)}
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{          bool} \_\_IsIEEE, \hyperlink{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66}{float\_round\_style} \_\_Sty> \(\backslash\)
+const \_\_type \hyperlink{class__Floating__limits}{\_Floating\_limits}<\_\_Num, \_\_Dig, \_\_Dig10, \(\backslash\)
+                              \_\_MnX, \_\_MxX, \_\_MnX10, \_\_MxX10, \(\backslash\)
+                              \_\_Inf, \_\_QNaN, \_\_SNaN,\_\_IsIEEE, \_\_Sty>:: \_\_mem
+\end{DoxyCode}
+\hypertarget{limits-hack_8h_a2a2979764b6fdbdf649a9ce11303e9c6}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+\+\_\+type, }
+\item[{}]{\+\_\+\+\_\+mem}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a2a2979764b6fdbdf649a9ce11303e9c6}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} \_Int, \_Int \_\_imin, \_Int \_\_imax, \textcolor{keywordtype}{int} \_\_\textcolor{keywordtype}{id}igits> \(\backslash\)
+  const \_\_type \hyperlink{class__Integer__limits}{\_Integer\_limits<\_Int, \_\_imin, \_\_imax, \_\_idigits>}
+      :: \_\_mem
+\end{DoxyCode}
+\hypertarget{limits-hack_8h_ac4166fbfe5cf2b90d7512a345e907aba}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+\+\_\+type, }
+\item[{}]{\+\_\+\+\_\+mem}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_ac4166fbfe5cf2b90d7512a345e907aba}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} \_\_number> \(\backslash\)
+  const \_\_type \hyperlink{class__Numeric__limits__base}{\_Numeric\_limits\_base<\_\_number>}:: \_\_mem
+\end{DoxyCode}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!float\+\_\+denorm\+\_\+style@{float\+\_\+denorm\+\_\+style}}
+\index{float\+\_\+denorm\+\_\+style@{float\+\_\+denorm\+\_\+style}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{float\+\_\+denorm\+\_\+style}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf float\+\_\+denorm\+\_\+style}}\label{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{denorm\+\_\+indeterminate@{denorm\+\_\+indeterminate}!limits-\/hack.\+h@{limits-\/hack.\+h}}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!denorm\+\_\+indeterminate@{denorm\+\_\+indeterminate}}\item[{\em 
+\hypertarget{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6ae6e5a92659b76e353da685746ec7a715}{}denorm\+\_\+indeterminate\label{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6ae6e5a92659b76e353da685746ec7a715}
+}]\index{denorm\+\_\+absent@{denorm\+\_\+absent}!limits-\/hack.\+h@{limits-\/hack.\+h}}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!denorm\+\_\+absent@{denorm\+\_\+absent}}\item[{\em 
+\hypertarget{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6ae1126f121e8e78fad4c2ea93b9154f70}{}denorm\+\_\+absent\label{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6ae1126f121e8e78fad4c2ea93b9154f70}
+}]\index{denorm\+\_\+present@{denorm\+\_\+present}!limits-\/hack.\+h@{limits-\/hack.\+h}}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!denorm\+\_\+present@{denorm\+\_\+present}}\item[{\em 
+\hypertarget{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6ace9911a51bfc23dca58b86c67b0adfac}{}denorm\+\_\+present\label{limits-hack_8h_a592fe78d9bf66455d12aa075f36313b6ace9911a51bfc23dca58b86c67b0adfac}
+}]\end{description}
+\end{Desc}
+\hypertarget{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!float\+\_\+round\+\_\+style@{float\+\_\+round\+\_\+style}}
+\index{float\+\_\+round\+\_\+style@{float\+\_\+round\+\_\+style}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{float\+\_\+round\+\_\+style}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf float\+\_\+round\+\_\+style}}\label{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{round\+\_\+indeterminate@{round\+\_\+indeterminate}!limits-\/hack.\+h@{limits-\/hack.\+h}}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!round\+\_\+indeterminate@{round\+\_\+indeterminate}}\item[{\em 
+\hypertarget{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66aef8e73dd0b0f1899790b6ba2bb47be7d}{}round\+\_\+indeterminate\label{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66aef8e73dd0b0f1899790b6ba2bb47be7d}
+}]\index{round\+\_\+toward\+\_\+zero@{round\+\_\+toward\+\_\+zero}!limits-\/hack.\+h@{limits-\/hack.\+h}}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!round\+\_\+toward\+\_\+zero@{round\+\_\+toward\+\_\+zero}}\item[{\em 
+\hypertarget{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66a2378935a2849c4d049d5e5a01324e827}{}round\+\_\+toward\+\_\+zero\label{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66a2378935a2849c4d049d5e5a01324e827}
+}]\index{round\+\_\+to\+\_\+nearest@{round\+\_\+to\+\_\+nearest}!limits-\/hack.\+h@{limits-\/hack.\+h}}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!round\+\_\+to\+\_\+nearest@{round\+\_\+to\+\_\+nearest}}\item[{\em 
+\hypertarget{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66aae97e229f8502c244371d7f7e3105afc}{}round\+\_\+to\+\_\+nearest\label{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66aae97e229f8502c244371d7f7e3105afc}
+}]\index{round\+\_\+toward\+\_\+infinity@{round\+\_\+toward\+\_\+infinity}!limits-\/hack.\+h@{limits-\/hack.\+h}}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!round\+\_\+toward\+\_\+infinity@{round\+\_\+toward\+\_\+infinity}}\item[{\em 
+\hypertarget{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66a33f65225750a8f3edc0b6601fa7bcd52}{}round\+\_\+toward\+\_\+infinity\label{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66a33f65225750a8f3edc0b6601fa7bcd52}
+}]\index{round\+\_\+toward\+\_\+neg\+\_\+infinity@{round\+\_\+toward\+\_\+neg\+\_\+infinity}!limits-\/hack.\+h@{limits-\/hack.\+h}}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!round\+\_\+toward\+\_\+neg\+\_\+infinity@{round\+\_\+toward\+\_\+neg\+\_\+infinity}}\item[{\em 
+\hypertarget{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66ad9c511acb4735515f2402087641e9725}{}round\+\_\+toward\+\_\+neg\+\_\+infinity\label{limits-hack_8h_a3bdaf6c7e8a65859bf550443989c5a66ad9c511acb4735515f2402087641e9725}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{limits-hack_8h_a69892a29bc51a25fe312a06349312656}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{is\+\_\+specialized}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a69892a29bc51a25fe312a06349312656}
+\hypertarget{limits-hack_8h_a2d7881ef2f7e68fab2244588c8f04e6b}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf digits}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a2d7881ef2f7e68fab2244588c8f04e6b}
+\hypertarget{limits-hack_8h_a583b46dfb1c539a75aa9733243336826}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf digits10}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a583b46dfb1c539a75aa9733243336826}
+\hypertarget{limits-hack_8h_aa794bec873a86435d0e4ec06db9b2c05}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+signed}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_aa794bec873a86435d0e4ec06db9b2c05}
+\hypertarget{limits-hack_8h_ac4592a810988b8789bd2266559fae57d}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf radix}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_ac4592a810988b8789bd2266559fae57d}
+\hypertarget{limits-hack_8h_a8000a6776d985aa7d3a8e255fb88dd92}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf min\+\_\+exponent}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a8000a6776d985aa7d3a8e255fb88dd92}
+\hypertarget{limits-hack_8h_aa3e418f27230be8478785601d0efd34d}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf max\+\_\+exponent}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_aa3e418f27230be8478785601d0efd34d}
+\hypertarget{limits-hack_8h_a22293d115fc3ee5edc5bcd560969f1bb}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf min\+\_\+exponent10}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a22293d115fc3ee5edc5bcd560969f1bb}
+\hypertarget{limits-hack_8h_aaa76998d36f312c47482fc004e226344}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf max\+\_\+exponent10}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_aaa76998d36f312c47482fc004e226344}
+\hypertarget{limits-hack_8h_ac1c7eecc4d08dc9041bc588ffe465e1d}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf has\+\_\+infinity}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_ac1c7eecc4d08dc9041bc588ffe465e1d}
+\hypertarget{limits-hack_8h_aad1e5e7715aef9eeaae13f5c0cc8dfe6}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf has\+\_\+quiet\+\_\+\+Na\+N}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_aad1e5e7715aef9eeaae13f5c0cc8dfe6}
+\hypertarget{limits-hack_8h_ac58a1601a5a0a28889de478de1921bcc}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf has\+\_\+signaling\+\_\+\+Na\+N}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_ac58a1601a5a0a28889de478de1921bcc}
+\hypertarget{limits-hack_8h_a739b797b818ae861b0e09c7e1e5b3cb8}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf float\+\_\+denorm\+\_\+style}}]{, }
+\item[{{\bf has\+\_\+denorm}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a739b797b818ae861b0e09c7e1e5b3cb8}
+\hypertarget{limits-hack_8h_a3fcf77a5571b0286e292520174cc97c7}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf has\+\_\+denorm\+\_\+loss}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a3fcf77a5571b0286e292520174cc97c7}
+\hypertarget{limits-hack_8h_a863f6666319d2a3e9368f94996314bb8}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+iec559}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a863f6666319d2a3e9368f94996314bb8}
+\hypertarget{limits-hack_8h_abab9e91e9d8c63389f964a00a58bfac3}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+bounded}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_abab9e91e9d8c63389f964a00a58bfac3}
+\hypertarget{limits-hack_8h_acec79c500d2e8bfb71930e6bbd01cd09}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf traps}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_acec79c500d2e8bfb71930e6bbd01cd09}
+\hypertarget{limits-hack_8h_ae3f040d12c607905323778fa5bc20807}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf tinyness\+\_\+before}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_ae3f040d12c607905323778fa5bc20807}
+\hypertarget{limits-hack_8h_afa37becd4e744aaf52913e30db55b365}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+float\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf float\+\_\+round\+\_\+style}}]{, }
+\item[{round\+\_\+style}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_afa37becd4e744aaf52913e30db55b365}
+\hypertarget{limits-hack_8h_af809adc3c0073854e2552d96fb882c0a}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{is\+\_\+specialized}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_af809adc3c0073854e2552d96fb882c0a}
+\hypertarget{limits-hack_8h_a57061ff354670c97608f4884209174eb}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf digits}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a57061ff354670c97608f4884209174eb}
+\hypertarget{limits-hack_8h_aea6f6e023668035bd65400f9d4e3c251}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf digits10}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_aea6f6e023668035bd65400f9d4e3c251}
+\hypertarget{limits-hack_8h_a57851efc095a7a776ffe114e1a3b8350}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+signed}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a57851efc095a7a776ffe114e1a3b8350}
+\hypertarget{limits-hack_8h_aedc35532eface0b4c5515a857b06d660}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+integer}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_aedc35532eface0b4c5515a857b06d660}
+\hypertarget{limits-hack_8h_a7f507ba4c6a349780390d8e9536aeb86}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+exact}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a7f507ba4c6a349780390d8e9536aeb86}
+\hypertarget{limits-hack_8h_a7795ceb08900bb8d9cee023078ecc057}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf radix}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a7795ceb08900bb8d9cee023078ecc057}
+\hypertarget{limits-hack_8h_ac80db2f30053194c6ee412a7414d24f5}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+bounded}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_ac80db2f30053194c6ee412a7414d24f5}
+\hypertarget{limits-hack_8h_aceb97ba235e8cf40c0917e843c35490b}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member@{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+integer\+\_\+limits\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+modulo}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_aceb97ba235e8cf40c0917e843c35490b}
+\hypertarget{limits-hack_8h_a4b6b95655fe47f8f248b45eeab2573a8}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{is\+\_\+specialized}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a4b6b95655fe47f8f248b45eeab2573a8}
+\hypertarget{limits-hack_8h_adb53162703702e90a5df33acc2dff591}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf digits}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_adb53162703702e90a5df33acc2dff591}
+\hypertarget{limits-hack_8h_a94208783e83b0f6cada4326f606b90f4}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf digits10}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a94208783e83b0f6cada4326f606b90f4}
+\hypertarget{limits-hack_8h_abdd49640fdc5e168e94e1ac20e89f617}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+signed}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_abdd49640fdc5e168e94e1ac20e89f617}
+\hypertarget{limits-hack_8h_ac2c608924500298c998620305bc13954}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+integer}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_ac2c608924500298c998620305bc13954}
+\hypertarget{limits-hack_8h_addd336dbe817e23ef83e9ad36d722c4f}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+exact}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_addd336dbe817e23ef83e9ad36d722c4f}
+\hypertarget{limits-hack_8h_ad4191e4ea46c0deae688a57f253a5971}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf radix}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_ad4191e4ea46c0deae688a57f253a5971}
+\hypertarget{limits-hack_8h_a9fe432bcd177c320d4058fecd77c02ab}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf min\+\_\+exponent}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a9fe432bcd177c320d4058fecd77c02ab}
+\hypertarget{limits-hack_8h_a6ef0310969443c4905138ee17565af55}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf max\+\_\+exponent}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a6ef0310969443c4905138ee17565af55}
+\hypertarget{limits-hack_8h_a204aaef3821dcc3feec0693b1b02dd08}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf min\+\_\+exponent10}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a204aaef3821dcc3feec0693b1b02dd08}
+\hypertarget{limits-hack_8h_adcbefbc4f1596116be65f85e09675a28}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf max\+\_\+exponent10}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_adcbefbc4f1596116be65f85e09675a28}
+\hypertarget{limits-hack_8h_a37ee94c735036e408230f8ffa025b422}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf has\+\_\+infinity}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a37ee94c735036e408230f8ffa025b422}
+\hypertarget{limits-hack_8h_a9c57b00fa99736fe0e04af8d18913edd}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf has\+\_\+quiet\+\_\+\+Na\+N}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a9c57b00fa99736fe0e04af8d18913edd}
+\hypertarget{limits-hack_8h_a54e92a2deb55f76e340d8dfb2093915b}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf has\+\_\+signaling\+\_\+\+Na\+N}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a54e92a2deb55f76e340d8dfb2093915b}
+\hypertarget{limits-hack_8h_accde29cc70d5e19ae38e0e5947561ac4}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf float\+\_\+denorm\+\_\+style}}]{, }
+\item[{{\bf has\+\_\+denorm}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_accde29cc70d5e19ae38e0e5947561ac4}
+\hypertarget{limits-hack_8h_a5a20a01343a98030728cdfded0b4f447}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf has\+\_\+denorm\+\_\+loss}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a5a20a01343a98030728cdfded0b4f447}
+\hypertarget{limits-hack_8h_a199688d04f55c351e88baf8e18b59036}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+iec559}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a199688d04f55c351e88baf8e18b59036}
+\hypertarget{limits-hack_8h_a5adb69fb3da51ca3f6bb29d64a574dc8}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+bounded}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a5adb69fb3da51ca3f6bb29d64a574dc8}
+\hypertarget{limits-hack_8h_a8a84faa55910782c1b9c41d6129bbf02}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf is\+\_\+modulo}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a8a84faa55910782c1b9c41d6129bbf02}
+\hypertarget{limits-hack_8h_aa4a2fe575eebd1f64fb22959ae8fe528}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf traps}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_aa4a2fe575eebd1f64fb22959ae8fe528}
+\hypertarget{limits-hack_8h_a6892fafde1ffb71b661c3b4f9c4c1ebe}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf bool}}]{, }
+\item[{{\bf tinyness\+\_\+before}}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_a6892fafde1ffb71b661c3b4f9c4c1ebe}
+\hypertarget{limits-hack_8h_ace8749ebd07b9ab4b2cab0d80e46657b}{}\index{limits-\/hack.\+h@{limits-\/hack.\+h}!\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}}
+\index{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member@{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}!limits-\/hack.\+h@{limits-\/hack.\+h}}
+\subsubsection[{\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+declare\+\_\+numeric\+\_\+base\+\_\+member (
+\begin{DoxyParamCaption}
+\item[{{\bf float\+\_\+round\+\_\+style}}]{, }
+\item[{round\+\_\+style}]{}
+\end{DoxyParamCaption}
+)}\label{limits-hack_8h_ace8749ebd07b9ab4b2cab0d80e46657b}

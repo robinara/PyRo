@@ -1,0 +1,70 @@
+\hypertarget{clarscl2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clarscl2.f File Reference}
+\label{clarscl2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarscl2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarscl2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clarscl2_8f_a47f68053dba4cd94cc8b1e5731cc7fca}{clarscl2} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, X, L\+D\+X)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+R\+S\+C\+L2} performs reciprocal diagonal scaling on a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clarscl2_8f_a47f68053dba4cd94cc8b1e5731cc7fca}{}\index{clarscl2.\+f@{clarscl2.\+f}!clarscl2@{clarscl2}}
+\index{clarscl2@{clarscl2}!clarscl2.\+f@{clarscl2.\+f}}
+\subsubsection[{clarscl2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clarscl2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X}
+\end{DoxyParamCaption}
+)}\label{clarscl2_8f_a47f68053dba4cd94cc8b1e5731cc7fca}
+
+
+{\bfseries C\+L\+A\+R\+S\+C\+L2} performs reciprocal diagonal scaling on a vector. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLARSCL2 performs a reciprocal diagonal scaling on an vector:
+   x <-- inv(D) * x
+ where the REAL diagonal matrix D is stored as a vector.
+
+ Eventually to be replaced by BLAS_cge_diag_scale in the new BLAS
+ standard.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+     The number of rows of D and X. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+     The number of columns of D and X. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, length M
+     Diagonal matrix D, stored as a vector of length M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX array, dimension (LDX,N)
+     On entry, the vector X to be scaled by D.
+     On exit, the scaled vector.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+     The leading dimension of the vector X. LDX >= 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

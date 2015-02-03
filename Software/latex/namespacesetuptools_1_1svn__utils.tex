@@ -1,0 +1,130 @@
+\hypertarget{namespacesetuptools_1_1svn__utils}{}\section{setuptools.\+svn\+\_\+utils Namespace Reference}
+\label{namespacesetuptools_1_1svn__utils}\index{setuptools.\+svn\+\_\+utils@{setuptools.\+svn\+\_\+utils}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsetuptools_1_1svn__utils_1_1Svn13Info}{Svn13\+Info}
+\item 
+class \hyperlink{classsetuptools_1_1svn__utils_1_1Svn15Info}{Svn15\+Info}
+\item 
+class \hyperlink{classsetuptools_1_1svn__utils_1_1SVNEntriesFile}{S\+V\+N\+Entries\+File}
+\item 
+class \hyperlink{classsetuptools_1_1svn__utils_1_1SVNEntriesFileText}{S\+V\+N\+Entries\+File\+Text}
+\item 
+class \hyperlink{classsetuptools_1_1svn__utils_1_1SVNEntriesFileXML}{S\+V\+N\+Entries\+File\+X\+M\+L}
+\item 
+class \hyperlink{classsetuptools_1_1svn__utils_1_1SvnFileInfo}{Svn\+File\+Info}
+\item 
+class \hyperlink{classsetuptools_1_1svn__utils_1_1SvnInfo}{Svn\+Info}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacesetuptools_1_1svn__utils_a41753e411f3577b4d80b174fd6add07c}{joinpath}
+\item 
+def \hyperlink{namespacesetuptools_1_1svn__utils_a48521e6474cbbd6f013adc2ea5d4e58f}{determine\+\_\+console\+\_\+encoding}
+\item 
+def \hyperlink{namespacesetuptools_1_1svn__utils_a27ea0c46a4cecc225e7c3d2a185c831a}{decode\+\_\+as\+\_\+string}
+\item 
+def \hyperlink{namespacesetuptools_1_1svn__utils_a96f6dad94b5cc99c4fb965e3fc03a1cc}{parse\+\_\+dir\+\_\+entries}
+\item 
+def \hyperlink{namespacesetuptools_1_1svn__utils_af1eb58dadfa2ec458c26bf66fe026a12}{parse\+\_\+externals\+\_\+xml}
+\item 
+def \hyperlink{namespacesetuptools_1_1svn__utils_aebe8420008d2071f93dfe62e001a600b}{parse\+\_\+external\+\_\+prop}
+\item 
+def \hyperlink{namespacesetuptools_1_1svn__utils_a8847fb41c6f7f8b7497c14cea65f4cac}{parse\+\_\+prop\+\_\+file}
+\item 
+def \hyperlink{namespacesetuptools_1_1svn__utils_a42a3a601d812c7c8d2d9efd9b637da76}{svn\+\_\+finder}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tuple \hyperlink{namespacesetuptools_1_1svn__utils_a967551f62e228131375810ccbd71ecda}{\+\_\+console\+\_\+encoding} = \hyperlink{namespacesetuptools_1_1svn__utils_a48521e6474cbbd6f013adc2ea5d4e58f}{determine\+\_\+console\+\_\+encoding}()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacesetuptools_1_1svn__utils_a27ea0c46a4cecc225e7c3d2a185c831a}{}\index{setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}!decode\+\_\+as\+\_\+string@{decode\+\_\+as\+\_\+string}}
+\index{decode\+\_\+as\+\_\+string@{decode\+\_\+as\+\_\+string}!setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}}
+\subsubsection[{decode\+\_\+as\+\_\+string}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+svn\+\_\+utils.\+decode\+\_\+as\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{}]{text, }
+\item[{}]{encoding = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1svn__utils_a27ea0c46a4cecc225e7c3d2a185c831a}
+\begin{DoxyVerb}Decode the console or file output explicitly using getpreferredencoding.
+The text paraemeter should be a encoded string, if not no decode occurs
+If no encoding is given, getpreferredencoding is used.  If encoding is
+specified, that is used instead.  This would be needed for SVN --xml
+output.  Unicode is explicitly put in composed NFC form.
+
+--xml should be UTF-8 (SVN Issue 2938) the discussion on the Subversion
+DEV List from 2007 seems to indicate the same.
+\end{DoxyVerb}
+ \hypertarget{namespacesetuptools_1_1svn__utils_a48521e6474cbbd6f013adc2ea5d4e58f}{}\index{setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}!determine\+\_\+console\+\_\+encoding@{determine\+\_\+console\+\_\+encoding}}
+\index{determine\+\_\+console\+\_\+encoding@{determine\+\_\+console\+\_\+encoding}!setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}}
+\subsubsection[{determine\+\_\+console\+\_\+encoding}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+svn\+\_\+utils.\+determine\+\_\+console\+\_\+encoding (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1svn__utils_a48521e6474cbbd6f013adc2ea5d4e58f}
+\hypertarget{namespacesetuptools_1_1svn__utils_a41753e411f3577b4d80b174fd6add07c}{}\index{setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}!joinpath@{joinpath}}
+\index{joinpath@{joinpath}!setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}}
+\subsubsection[{joinpath}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+svn\+\_\+utils.\+joinpath (
+\begin{DoxyParamCaption}
+\item[{}]{prefix, }
+\item[{}]{suffix}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1svn__utils_a41753e411f3577b4d80b174fd6add07c}
+\hypertarget{namespacesetuptools_1_1svn__utils_a96f6dad94b5cc99c4fb965e3fc03a1cc}{}\index{setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}!parse\+\_\+dir\+\_\+entries@{parse\+\_\+dir\+\_\+entries}}
+\index{parse\+\_\+dir\+\_\+entries@{parse\+\_\+dir\+\_\+entries}!setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}}
+\subsubsection[{parse\+\_\+dir\+\_\+entries}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+svn\+\_\+utils.\+parse\+\_\+dir\+\_\+entries (
+\begin{DoxyParamCaption}
+\item[{}]{decoded\+\_\+str}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1svn__utils_a96f6dad94b5cc99c4fb965e3fc03a1cc}
+\begin{DoxyVerb}Parse the entries from a recursive info xml\end{DoxyVerb}
+ \hypertarget{namespacesetuptools_1_1svn__utils_aebe8420008d2071f93dfe62e001a600b}{}\index{setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}!parse\+\_\+external\+\_\+prop@{parse\+\_\+external\+\_\+prop}}
+\index{parse\+\_\+external\+\_\+prop@{parse\+\_\+external\+\_\+prop}!setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}}
+\subsubsection[{parse\+\_\+external\+\_\+prop}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+svn\+\_\+utils.\+parse\+\_\+external\+\_\+prop (
+\begin{DoxyParamCaption}
+\item[{}]{lines}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1svn__utils_aebe8420008d2071f93dfe62e001a600b}
+\begin{DoxyVerb}Parse the value of a retrieved svn:externals entry.
+
+possible token setups (with quotng and backscaping in laters versions)
+    URL[@#] EXT_FOLDERNAME
+    [-r#] URL EXT_FOLDERNAME
+    EXT_FOLDERNAME [-r#] URL
+\end{DoxyVerb}
+ \hypertarget{namespacesetuptools_1_1svn__utils_af1eb58dadfa2ec458c26bf66fe026a12}{}\index{setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}!parse\+\_\+externals\+\_\+xml@{parse\+\_\+externals\+\_\+xml}}
+\index{parse\+\_\+externals\+\_\+xml@{parse\+\_\+externals\+\_\+xml}!setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}}
+\subsubsection[{parse\+\_\+externals\+\_\+xml}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+svn\+\_\+utils.\+parse\+\_\+externals\+\_\+xml (
+\begin{DoxyParamCaption}
+\item[{}]{decoded\+\_\+str, }
+\item[{}]{prefix = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1svn__utils_af1eb58dadfa2ec458c26bf66fe026a12}
+\begin{DoxyVerb}Parse a propget svn:externals xml\end{DoxyVerb}
+ \hypertarget{namespacesetuptools_1_1svn__utils_a8847fb41c6f7f8b7497c14cea65f4cac}{}\index{setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}!parse\+\_\+prop\+\_\+file@{parse\+\_\+prop\+\_\+file}}
+\index{parse\+\_\+prop\+\_\+file@{parse\+\_\+prop\+\_\+file}!setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}}
+\subsubsection[{parse\+\_\+prop\+\_\+file}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+svn\+\_\+utils.\+parse\+\_\+prop\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{}]{filename, }
+\item[{}]{key}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1svn__utils_a8847fb41c6f7f8b7497c14cea65f4cac}
+\hypertarget{namespacesetuptools_1_1svn__utils_a42a3a601d812c7c8d2d9efd9b637da76}{}\index{setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}!svn\+\_\+finder@{svn\+\_\+finder}}
+\index{svn\+\_\+finder@{svn\+\_\+finder}!setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}}
+\subsubsection[{svn\+\_\+finder}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+svn\+\_\+utils.\+svn\+\_\+finder (
+\begin{DoxyParamCaption}
+\item[{}]{dirname = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1svn__utils_a42a3a601d812c7c8d2d9efd9b637da76}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacesetuptools_1_1svn__utils_a967551f62e228131375810ccbd71ecda}{}\index{setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}!\+\_\+console\+\_\+encoding@{\+\_\+console\+\_\+encoding}}
+\index{\+\_\+console\+\_\+encoding@{\+\_\+console\+\_\+encoding}!setuptools\+::svn\+\_\+utils@{setuptools\+::svn\+\_\+utils}}
+\subsubsection[{\+\_\+console\+\_\+encoding}]{\setlength{\rightskip}{0pt plus 5cm}tuple setuptools.\+svn\+\_\+utils.\+\_\+console\+\_\+encoding = {\bf determine\+\_\+console\+\_\+encoding}()}\label{namespacesetuptools_1_1svn__utils_a967551f62e228131375810ccbd71ecda}

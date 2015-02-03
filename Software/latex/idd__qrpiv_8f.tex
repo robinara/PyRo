@@ -1,0 +1,92 @@
+\hypertarget{idd__qrpiv_8f}{}\section{packages/scipy-\/0.14.0/scipy/linalg/src/id\+\_\+dist/src/idd\+\_\+qrpiv.f File Reference}
+\label{idd__qrpiv_8f}\index{packages/scipy-\/0.\+14.\+0/scipy/linalg/src/id\+\_\+dist/src/idd\+\_\+qrpiv.\+f@{packages/scipy-\/0.\+14.\+0/scipy/linalg/src/id\+\_\+dist/src/idd\+\_\+qrpiv.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{idd__qrpiv_8f_ae489ab3f860f647c4068ad413bd73470}{idd\+\_\+permmult} (\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, ind, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, indprod)
+\item 
+subroutine \hyperlink{idd__qrpiv_8f_a83ce59bf4a80c5710cac9782b067a11e}{idd\+\_\+qinqr} (\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, krank, \hyperlink{indexexpr_8h_ac886c3584e464b5533390d7440c9dd98}{q})
+\item 
+subroutine \hyperlink{idd__qrpiv_8f_a7dfa9263f8e004a78d6edb009567f371}{idd\+\_\+qmatvec} (iftranspose, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, krank, v)
+\item 
+subroutine \hyperlink{idd__qrpiv_8f_af4508739e9e390c3d3e5a37d1decc222}{idd\+\_\+qmatmat} (iftranspose, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, krank, \hyperlink{indexexpr_8h_a88aacdaa46b76729743ee33ef8b95a58}{l}, \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}, work)
+\item 
+subroutine \hyperlink{idd__qrpiv_8f_ad6e8a830d95c597c7bccae742fffe958}{iddp\+\_\+qrpiv} (eps, \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, krank, ind, ss)
+\item 
+subroutine \hyperlink{idd__qrpiv_8f_ad23c19d247a3e768fdad4428616a9ea2}{iddr\+\_\+qrpiv} (\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, krank, ind, ss)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{idd__qrpiv_8f_ae489ab3f860f647c4068ad413bd73470}{}\index{idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}!idd\+\_\+permmult@{idd\+\_\+permmult}}
+\index{idd\+\_\+permmult@{idd\+\_\+permmult}!idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}}
+\subsubsection[{idd\+\_\+permmult}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idd\+\_\+permmult (
+\begin{DoxyParamCaption}
+\item[{integer}]{m, }
+\item[{integer, dimension({\bf m})}]{ind, }
+\item[{integer}]{n, }
+\item[{integer, dimension({\bf n})}]{indprod}
+\end{DoxyParamCaption}
+)}\label{idd__qrpiv_8f_ae489ab3f860f647c4068ad413bd73470}
+\hypertarget{idd__qrpiv_8f_a83ce59bf4a80c5710cac9782b067a11e}{}\index{idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}!idd\+\_\+qinqr@{idd\+\_\+qinqr}}
+\index{idd\+\_\+qinqr@{idd\+\_\+qinqr}!idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}}
+\subsubsection[{idd\+\_\+qinqr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idd\+\_\+qinqr (
+\begin{DoxyParamCaption}
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{real$\ast$8, dimension({\bf m},{\bf n})}]{a, }
+\item[{integer}]{krank, }
+\item[{real$\ast$8, dimension({\bf m},{\bf m})}]{q}
+\end{DoxyParamCaption}
+)}\label{idd__qrpiv_8f_a83ce59bf4a80c5710cac9782b067a11e}
+\hypertarget{idd__qrpiv_8f_af4508739e9e390c3d3e5a37d1decc222}{}\index{idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}!idd\+\_\+qmatmat@{idd\+\_\+qmatmat}}
+\index{idd\+\_\+qmatmat@{idd\+\_\+qmatmat}!idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}}
+\subsubsection[{idd\+\_\+qmatmat}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idd\+\_\+qmatmat (
+\begin{DoxyParamCaption}
+\item[{integer}]{iftranspose, }
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{real$\ast$8, dimension({\bf m},{\bf n})}]{a, }
+\item[{integer}]{krank, }
+\item[{integer}]{l, }
+\item[{real$\ast$8, dimension({\bf m},{\bf l})}]{b, }
+\item[{real$\ast$8, dimension(krank)}]{work}
+\end{DoxyParamCaption}
+)}\label{idd__qrpiv_8f_af4508739e9e390c3d3e5a37d1decc222}
+\hypertarget{idd__qrpiv_8f_a7dfa9263f8e004a78d6edb009567f371}{}\index{idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}!idd\+\_\+qmatvec@{idd\+\_\+qmatvec}}
+\index{idd\+\_\+qmatvec@{idd\+\_\+qmatvec}!idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}}
+\subsubsection[{idd\+\_\+qmatvec}]{\setlength{\rightskip}{0pt plus 5cm}subroutine idd\+\_\+qmatvec (
+\begin{DoxyParamCaption}
+\item[{integer}]{iftranspose, }
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{real$\ast$8, dimension({\bf m},{\bf n})}]{a, }
+\item[{integer}]{krank, }
+\item[{real$\ast$8, dimension({\bf m})}]{v}
+\end{DoxyParamCaption}
+)}\label{idd__qrpiv_8f_a7dfa9263f8e004a78d6edb009567f371}
+\hypertarget{idd__qrpiv_8f_ad6e8a830d95c597c7bccae742fffe958}{}\index{idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}!iddp\+\_\+qrpiv@{iddp\+\_\+qrpiv}}
+\index{iddp\+\_\+qrpiv@{iddp\+\_\+qrpiv}!idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}}
+\subsubsection[{iddp\+\_\+qrpiv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine iddp\+\_\+qrpiv (
+\begin{DoxyParamCaption}
+\item[{real$\ast$8}]{eps, }
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{real$\ast$8, dimension({\bf m},{\bf n})}]{a, }
+\item[{integer}]{krank, }
+\item[{integer, dimension({\bf n})}]{ind, }
+\item[{real$\ast$8, dimension({\bf n})}]{ss}
+\end{DoxyParamCaption}
+)}\label{idd__qrpiv_8f_ad6e8a830d95c597c7bccae742fffe958}
+\hypertarget{idd__qrpiv_8f_ad23c19d247a3e768fdad4428616a9ea2}{}\index{idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}!iddr\+\_\+qrpiv@{iddr\+\_\+qrpiv}}
+\index{iddr\+\_\+qrpiv@{iddr\+\_\+qrpiv}!idd\+\_\+qrpiv.\+f@{idd\+\_\+qrpiv.\+f}}
+\subsubsection[{iddr\+\_\+qrpiv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine iddr\+\_\+qrpiv (
+\begin{DoxyParamCaption}
+\item[{integer}]{m, }
+\item[{integer}]{n, }
+\item[{real$\ast$8, dimension({\bf m},{\bf n})}]{a, }
+\item[{integer}]{krank, }
+\item[{integer, dimension({\bf n})}]{ind, }
+\item[{real$\ast$8, dimension({\bf n})}]{ss}
+\end{DoxyParamCaption}
+)}\label{idd__qrpiv_8f_ad23c19d247a3e768fdad4428616a9ea2}

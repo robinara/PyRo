@@ -1,0 +1,135 @@
+\hypertarget{dlaqtr_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlaqtr.f File Reference}
+\label{dlaqtr_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaqtr.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaqtr.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlaqtr_8f_a4ddb5f5d3f584b1bb41d99ab13cf44eb}{dlaqtr} (L\+T\+R\+A\+N, L\+R\+E\+A\+L, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, T, L\+D\+T, B, W, S\+C\+A\+L\+E, X, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+Q\+T\+R} solves a real quasi-\/triangular system of equations, or a complex quasi-\/triangular system of special form, in real arithmetic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlaqtr_8f_a4ddb5f5d3f584b1bb41d99ab13cf44eb}{}\index{dlaqtr.\+f@{dlaqtr.\+f}!dlaqtr@{dlaqtr}}
+\index{dlaqtr@{dlaqtr}!dlaqtr.\+f@{dlaqtr.\+f}}
+\subsubsection[{dlaqtr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlaqtr (
+\begin{DoxyParamCaption}
+\item[{{\bf logical}}]{L\+T\+R\+A\+N, }
+\item[{{\bf logical}}]{L\+R\+E\+A\+L, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B, }
+\item[{double {\bf precision}}]{W, }
+\item[{double {\bf precision}}]{S\+C\+A\+L\+E, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{X, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dlaqtr_8f_a4ddb5f5d3f584b1bb41d99ab13cf44eb}
+
+
+{\bfseries D\+L\+A\+Q\+T\+R} solves a real quasi-\/triangular system of equations, or a complex quasi-\/triangular system of special form, in real arithmetic. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLAQTR solves the real quasi-triangular system
+
+              op(T)*p = scale*c,               if LREAL = .TRUE.
+
+ or the complex quasi-triangular systems
+
+            op(T + iB)*(p+iq) = scale*(c+id),  if LREAL = .FALSE.
+
+ in real arithmetic, where T is upper quasi-triangular.
+ If LREAL = .FALSE., then the first diagonal block of T must be
+ 1 by 1, B is the specially structured matrix
+
+                B = [ b(1) b(2) ... b(n) ]
+                    [       w            ]
+                    [           w        ]
+                    [              .     ]
+                    [                 w  ]
+
+ op(A) = A or A**T, A**T denotes the transpose of
+ matrix A.
+
+ On input, X = [ c ].  On output, X = [ p ].
+               [ d ]                  [ q ]
+
+ This subroutine is designed for the condition number estimation
+ in routine DTRSNA.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em L\+T\+R\+A\+N} & \begin{DoxyVerb}          LTRAN is LOGICAL
+          On entry, LTRAN specifies the option of conjugate transpose:
+             = .FALSE.,    op(T+i*B) = T+i*B,
+             = .TRUE.,     op(T+i*B) = (T+i*B)**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+R\+E\+A\+L} & \begin{DoxyVerb}          LREAL is LOGICAL
+          On entry, LREAL specifies the input matrix structure:
+             = .FALSE.,    the input is complex
+             = .TRUE.,     the input is real\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          On entry, N specifies the order of T+i*B. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T} & \begin{DoxyVerb}          T is DOUBLE PRECISION array, dimension (LDT,N)
+          On entry, T contains a matrix in Schur canonical form.
+          If LREAL = .FALSE., then the first diagonal block of T mu
+          be 1 by 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the matrix T. LDT >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (N)
+          On entry, B contains the elements to form the matrix
+          B as described above.
+          If LREAL = .TRUE., B is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W} & \begin{DoxyVerb}          W is DOUBLE PRECISION
+          On entry, W is the diagonal element of the matrix B.
+          If LREAL = .TRUE., W is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+C\+A\+L\+E} & \begin{DoxyVerb}          SCALE is DOUBLE PRECISION
+          On exit, SCALE is the scale factor.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is DOUBLE PRECISION array, dimension (2*N)
+          On entry, X contains the right hand side of the system.
+          On exit, X is overwritten by the solution.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          On exit, INFO is set to
+             0: successful exit.
+               1: the some diagonal 1 by 1 block has been perturbed by
+                  a small number SMIN to keep nonsingularity.
+               2: the some diagonal 2 by 2 block has been perturbed by
+                  a small number in DLALN2 to keep nonsingularity.
+          NOTE: In the interests of speed, this routine does not
+                check the inputs for errors.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

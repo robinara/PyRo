@@ -1,0 +1,128 @@
+\hypertarget{dlag2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlag2.f File Reference}
+\label{dlag2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlag2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlag2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlag2_8f_a4c15bef45ba06e975cc60b7d30bdd2b4}{dlag2} (\hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, S\+A\+F\+M\+I\+N, S\+C\+A\+L\+E1, S\+C\+A\+L\+E2, W\+R1, W\+R2, W\+I)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+G2} computes the eigenvalues of a 2-\/by-\/2 generalized eigenvalue problem, with scaling as necessary to avoid over-\//underflow. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlag2_8f_a4c15bef45ba06e975cc60b7d30bdd2b4}{}\index{dlag2.\+f@{dlag2.\+f}!dlag2@{dlag2}}
+\index{dlag2@{dlag2}!dlag2.\+f@{dlag2.\+f}}
+\subsubsection[{dlag2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlag2 (
+\begin{DoxyParamCaption}
+\item[{double {\bf precision}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{double {\bf precision}}]{S\+A\+F\+M\+I\+N, }
+\item[{double {\bf precision}}]{S\+C\+A\+L\+E1, }
+\item[{double {\bf precision}}]{S\+C\+A\+L\+E2, }
+\item[{double {\bf precision}}]{W\+R1, }
+\item[{double {\bf precision}}]{W\+R2, }
+\item[{double {\bf precision}}]{W\+I}
+\end{DoxyParamCaption}
+)}\label{dlag2_8f_a4c15bef45ba06e975cc60b7d30bdd2b4}
+
+
+{\bfseries D\+L\+A\+G2} computes the eigenvalues of a 2-\/by-\/2 generalized eigenvalue problem, with scaling as necessary to avoid over-\//underflow. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLAG2 computes the eigenvalues of a 2 x 2 generalized eigenvalue
+ problem  A - w B, with scaling as necessary to avoid over-/underflow.
+
+ The scaling factor "s" results in a modified eigenvalue equation
+
+     s A - w B
+
+ where  s  is a non-negative scaling factor chosen so that  w,  w B,
+ and  s A  do not overflow and, if possible, do not underflow, either.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array, dimension (LDA, 2)
+          On entry, the 2 x 2 matrix A.  It is assumed that its 1-norm
+          is less than 1/SAFMIN.  Entries less than
+          sqrt(SAFMIN)*norm(A) are subject to being treated as zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= 2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION array, dimension (LDB, 2)
+          On entry, the 2 x 2 upper triangular matrix B.  It is
+          assumed that the one-norm of B is less than 1/SAFMIN.  The
+          diagonals should be at least sqrt(SAFMIN) times the largest
+          element of B (in absolute value); if a diagonal is smaller
+          than that, then  +/- sqrt(SAFMIN) will be used instead of
+          that diagonal.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= 2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+A\+F\+M\+I\+N} & \begin{DoxyVerb}          SAFMIN is DOUBLE PRECISION
+          The smallest positive number s.t. 1/SAFMIN does not
+          overflow.  (This should always be DLAMCH('S') -- it is an
+          argument in order to avoid having to call DLAMCH frequently.)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+C\+A\+L\+E1} & \begin{DoxyVerb}          SCALE1 is DOUBLE PRECISION
+          A scaling factor used to avoid over-/underflow in the
+          eigenvalue equation which defines the first eigenvalue.  If
+          the eigenvalues are complex, then the eigenvalues are
+          ( WR1  +/-  WI i ) / SCALE1  (which may lie outside the
+          exponent range of the machine), SCALE1=SCALE2, and SCALE1
+          will always be positive.  If the eigenvalues are real, then
+          the first (real) eigenvalue is  WR1 / SCALE1 , but this may
+          overflow or underflow, and in fact, SCALE1 may be zero or
+          less than the underflow threshhold if the exact eigenvalue
+          is sufficiently large.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+C\+A\+L\+E2} & \begin{DoxyVerb}          SCALE2 is DOUBLE PRECISION
+          A scaling factor used to avoid over-/underflow in the
+          eigenvalue equation which defines the second eigenvalue.  If
+          the eigenvalues are complex, then SCALE2=SCALE1.  If the
+          eigenvalues are real, then the second (real) eigenvalue is
+          WR2 / SCALE2 , but this may overflow or underflow, and in
+          fact, SCALE2 may be zero or less than the underflow
+          threshhold if the exact eigenvalue is sufficiently large.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+R1} & \begin{DoxyVerb}          WR1 is DOUBLE PRECISION
+          If the eigenvalue is real, then WR1 is SCALE1 times the
+          eigenvalue closest to the (2,2) element of A B**(-1).  If the
+          eigenvalue is complex, then WR1=WR2 is SCALE1 times the real
+          part of the eigenvalues.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+R2} & \begin{DoxyVerb}          WR2 is DOUBLE PRECISION
+          If the eigenvalue is real, then WR2 is SCALE2 times the
+          other eigenvalue.  If the eigenvalue is complex, then
+          WR1=WR2 is SCALE1 times the real part of the eigenvalues.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+I} & \begin{DoxyVerb}          WI is DOUBLE PRECISION
+          If the eigenvalue is real, then WI is zero.  If the
+          eigenvalue is complex, then WI is SCALE1 times the imaginary
+          part of the eigenvalues.  WI will always be non-negative.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

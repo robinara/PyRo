@@ -1,0 +1,82 @@
+\hypertarget{zlaset_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlaset.f File Reference}
+\label{zlaset_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaset.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaset.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlaset_8f_aa4389d0e0e031c70c351acf7dbad6a85}{zlaset} (U\+P\+L\+O, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, A\+L\+P\+H\+A, B\+E\+T\+A, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A})
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+S\+E\+T} initializes the off-\/diagonal elements and the diagonal elements of a matrix to given values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlaset_8f_aa4389d0e0e031c70c351acf7dbad6a85}{}\index{zlaset.\+f@{zlaset.\+f}!zlaset@{zlaset}}
+\index{zlaset@{zlaset}!zlaset.\+f@{zlaset.\+f}}
+\subsubsection[{zlaset}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlaset (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16}]{A\+L\+P\+H\+A, }
+\item[{{\bf complex}$\ast$16}]{B\+E\+T\+A, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A}
+\end{DoxyParamCaption}
+)}\label{zlaset_8f_aa4389d0e0e031c70c351acf7dbad6a85}
+
+
+{\bfseries Z\+L\+A\+S\+E\+T} initializes the off-\/diagonal elements and the diagonal elements of a matrix to given values. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLASET initializes a 2-D array A to BETA on the diagonal and
+ ALPHA on the offdiagonals.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies the part of the matrix A to be set.
+          = 'U':      Upper triangular part is set. The lower triangle
+                      is unchanged.
+          = 'L':      Lower triangular part is set. The upper triangle
+                      is unchanged.
+          Otherwise:  All of the matrix A is set.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          On entry, M specifies the number of rows of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          On entry, N specifies the number of columns of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+L\+P\+H\+A} & \begin{DoxyVerb}          ALPHA is COMPLEX*16
+          All the offdiagonal array elements are set to ALPHA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B\+E\+T\+A} & \begin{DoxyVerb}          BETA is COMPLEX*16
+          All the diagonal array elements are set to BETA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the m by n matrix A.
+          On exit, A(i,j) = ALPHA, 1 <= i <= m, 1 <= j <= n, i.ne.j;
+                   A(i,i) = BETA , 1 <= i <= min(m,n)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,M).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

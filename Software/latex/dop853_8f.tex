@@ -1,0 +1,120 @@
+\hypertarget{dop853_8f}{}\section{packages/scipy-\/0.14.0/scipy/integrate/dop/dop853.f File Reference}
+\label{dop853_8f}\index{packages/scipy-\/0.\+14.\+0/scipy/integrate/dop/dop853.\+f@{packages/scipy-\/0.\+14.\+0/scipy/integrate/dop/dop853.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dop853_8f_ae1effdf32ed7f23ee4de2a43cf6f7669}{dop853} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, F\+C\+N, X, Y, X\+E\+N\+D, R\+T\+O\+L, A\+T\+O\+L, I\+T\+O\+L, S\+O\+L\+O\+U\+T, I\+O\+U\+T, W\+O\+R\+K, L\+W\+O\+R\+K, I\+W\+O\+R\+K, L\+I\+W\+O\+R\+K, R\+P\+A\+R, I\+P\+A\+R, I\+D\+I\+D)
+\item 
+subroutine \hyperlink{dop853_8f_a290237b1c95ca7241e898ef681a40f97}{dp86co} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, F\+C\+N, X, Y, X\+E\+N\+D, H\+M\+A\+X, H, R\+T\+O\+L, A\+T\+O\+L, I\+T\+O\+L, I\+P\+R\+I\+N\+T, S\+O\+L\+O\+U\+T, I\+O\+U\+T, I\+D\+I\+D, N\+M\+A\+X, U\+R\+O\+U\+N\+D, M\+E\+T\+H, N\+S\+T\+I\+F\+F, S\+A\+F\+E, B\+E\+T\+A, F\+A\+C1, F\+A\+C2, K1, K2, K3, K4, K5, K6, K7, K8, K9, K10, Y1, C\+O\+N\+T, I\+C\+O\+M\+P, N\+R\+D, R\+P\+A\+R, I\+P\+A\+R, N\+F\+C\+N, N\+S\+T\+E\+P, N\+A\+C\+C\+P\+T, N\+R\+E\+J\+C\+T)
+\item 
+\hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{dop853_8f_a24104e7e39ac4849811d07039030bb1a}{hinit853} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, F\+C\+N, X, Y, X\+E\+N\+D, P\+O\+S\+N\+E\+G, F0, F1, Y1, I\+O\+R\+D, H\+M\+A\+X, A\+T\+O\+L, R\+T\+O\+L, I\+T\+O\+L, R\+P\+A\+R, I\+P\+A\+R)
+\item 
+\hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{dop853_8f_a49fabbd701b0e412f92d90218a82bced}{contd8} (I\+I, X, C\+O\+N, I\+C\+O\+M\+P, N\+D)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dop853_8f_a49fabbd701b0e412f92d90218a82bced}{}\index{dop853.\+f@{dop853.\+f}!contd8@{contd8}}
+\index{contd8@{contd8}!dop853.\+f@{dop853.\+f}}
+\subsubsection[{contd8}]{\setlength{\rightskip}{0pt plus 5cm}{\bf function} contd8 (
+\begin{DoxyParamCaption}
+\item[{}]{I\+I, }
+\item[{}]{X, }
+\item[{dimension(8$\ast$nd)}]{C\+O\+N, }
+\item[{dimension(nd)}]{I\+C\+O\+M\+P, }
+\item[{}]{N\+D}
+\end{DoxyParamCaption}
+)}\label{dop853_8f_a49fabbd701b0e412f92d90218a82bced}
+\hypertarget{dop853_8f_ae1effdf32ed7f23ee4de2a43cf6f7669}{}\index{dop853.\+f@{dop853.\+f}!dop853@{dop853}}
+\index{dop853@{dop853}!dop853.\+f@{dop853.\+f}}
+\subsubsection[{dop853}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dop853 (
+\begin{DoxyParamCaption}
+\item[{}]{N, }
+\item[{external}]{F\+C\+N, }
+\item[{}]{X, }
+\item[{dimension({\bf n})}]{Y, }
+\item[{}]{X\+E\+N\+D, }
+\item[{dimension($\ast$)}]{R\+T\+O\+L, }
+\item[{dimension($\ast$)}]{A\+T\+O\+L, }
+\item[{}]{I\+T\+O\+L, }
+\item[{external}]{S\+O\+L\+O\+U\+T, }
+\item[{}]{I\+O\+U\+T, }
+\item[{dimension(lwork)}]{W\+O\+R\+K, }
+\item[{}]{L\+W\+O\+R\+K, }
+\item[{dimension(liwork)}]{I\+W\+O\+R\+K, }
+\item[{}]{L\+I\+W\+O\+R\+K, }
+\item[{dimension($\ast$)}]{R\+P\+A\+R, }
+\item[{dimension($\ast$)}]{I\+P\+A\+R, }
+\item[{}]{I\+D\+I\+D}
+\end{DoxyParamCaption}
+)}\label{dop853_8f_ae1effdf32ed7f23ee4de2a43cf6f7669}
+\hypertarget{dop853_8f_a290237b1c95ca7241e898ef681a40f97}{}\index{dop853.\+f@{dop853.\+f}!dp86co@{dp86co}}
+\index{dp86co@{dp86co}!dop853.\+f@{dop853.\+f}}
+\subsubsection[{dp86co}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dp86co (
+\begin{DoxyParamCaption}
+\item[{}]{N, }
+\item[{external}]{F\+C\+N, }
+\item[{}]{X, }
+\item[{double {\bf precision}, dimension({\bf n})}]{Y, }
+\item[{}]{X\+E\+N\+D, }
+\item[{}]{H\+M\+A\+X, }
+\item[{}]{H, }
+\item[{double {\bf precision}, dimension($\ast$)}]{R\+T\+O\+L, }
+\item[{double {\bf precision}, dimension($\ast$)}]{A\+T\+O\+L, }
+\item[{}]{I\+T\+O\+L, }
+\item[{}]{I\+P\+R\+I\+N\+T, }
+\item[{}]{S\+O\+L\+O\+U\+T, }
+\item[{}]{I\+O\+U\+T, }
+\item[{}]{I\+D\+I\+D, }
+\item[{}]{N\+M\+A\+X, }
+\item[{}]{U\+R\+O\+U\+N\+D, }
+\item[{}]{M\+E\+T\+H, }
+\item[{}]{N\+S\+T\+I\+F\+F, }
+\item[{}]{S\+A\+F\+E, }
+\item[{}]{B\+E\+T\+A, }
+\item[{}]{F\+A\+C1, }
+\item[{}]{F\+A\+C2, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K1, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K2, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K3, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K4, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K5, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K6, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K7, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K8, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K9, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K10, }
+\item[{double {\bf precision}, dimension({\bf n})}]{Y1, }
+\item[{dimension(8$\ast$nrd)}]{C\+O\+N\+T, }
+\item[{dimension(nrd)}]{I\+C\+O\+M\+P, }
+\item[{}]{N\+R\+D, }
+\item[{dimension($\ast$)}]{R\+P\+A\+R, }
+\item[{dimension($\ast$)}]{I\+P\+A\+R, }
+\item[{}]{N\+F\+C\+N, }
+\item[{}]{N\+S\+T\+E\+P, }
+\item[{}]{N\+A\+C\+C\+P\+T, }
+\item[{}]{N\+R\+E\+J\+C\+T}
+\end{DoxyParamCaption}
+)}\label{dop853_8f_a290237b1c95ca7241e898ef681a40f97}
+\hypertarget{dop853_8f_a24104e7e39ac4849811d07039030bb1a}{}\index{dop853.\+f@{dop853.\+f}!hinit853@{hinit853}}
+\index{hinit853@{hinit853}!dop853.\+f@{dop853.\+f}}
+\subsubsection[{hinit853}]{\setlength{\rightskip}{0pt plus 5cm}{\bf function} hinit853 (
+\begin{DoxyParamCaption}
+\item[{}]{N, }
+\item[{}]{F\+C\+N, }
+\item[{}]{X, }
+\item[{dimension({\bf n})}]{Y, }
+\item[{}]{X\+E\+N\+D, }
+\item[{}]{P\+O\+S\+N\+E\+G, }
+\item[{dimension({\bf n})}]{F0, }
+\item[{dimension({\bf n})}]{F1, }
+\item[{dimension({\bf n})}]{Y1, }
+\item[{}]{I\+O\+R\+D, }
+\item[{}]{H\+M\+A\+X, }
+\item[{dimension($\ast$)}]{A\+T\+O\+L, }
+\item[{dimension($\ast$)}]{R\+T\+O\+L, }
+\item[{}]{I\+T\+O\+L, }
+\item[{dimension($\ast$)}]{R\+P\+A\+R, }
+\item[{dimension($\ast$)}]{I\+P\+A\+R}
+\end{DoxyParamCaption}
+)}\label{dop853_8f_a24104e7e39ac4849811d07039030bb1a}

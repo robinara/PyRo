@@ -1,0 +1,123 @@
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator}{}\section{scipy.\+interpolate.\+polyint.\+Krogh\+Interpolator Class Reference}
+\label{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator}\index{scipy.\+interpolate.\+polyint.\+Krogh\+Interpolator@{scipy.\+interpolate.\+polyint.\+Krogh\+Interpolator}}
+Inheritance diagram for scipy.\+interpolate.\+polyint.\+Krogh\+Interpolator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_aba121a8d9f0e3d3356d20ab29e2ff644}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_acc8643d0c76444c98db806722db1d144}{xi}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_a3666892eff7b45b8bbd623bc7760457f}{yi}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_a1f30434de264f2c14bb054764e6efa35}{r}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_ae81db9c3910f0e9fefd72f259e1c07ea}{c}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Interpolating polynomial for a set of points.
+
+The polynomial passes through all the pairs (xi,yi). One may
+additionally specify a number of derivatives at each point xi;
+this is done by repeating the value xi and specifying the
+derivatives as successive yi values.
+
+Allows evaluation of the polynomial and all its derivatives.
+For reasons of numerical stability, this function does not compute
+the coefficients of the polynomial, although they can be obtained
+by evaluating all the derivatives.
+
+Parameters
+----------
+xi : array-like, length N
+    Known x-coordinates. Must be sorted in increasing order.
+yi : array-like
+    Known y-coordinates. When an xi occurs two or more times in
+    a row, the corresponding yi's represent derivative values.
+axis : int, optional
+    Axis in the yi array corresponding to the x-coordinate values.
+
+Notes
+-----
+Be aware that the algorithms implemented here are not necessarily
+the most numerically stable known. Moreover, even in a world of
+exact computation, unless the x coordinates are chosen very
+carefully - Chebyshev zeros (e.g. cos(i*pi/n)) are a good choice -
+polynomial interpolation itself is a very ill-conditioned process
+due to the Runge phenomenon. In general, even with well-chosen
+x values, degrees higher than about thirty cause problems with
+numerical instability in this code.
+
+Based on [1]_.
+
+References
+----------
+.. [1] Krogh, "Efficient Algorithms for Polynomial Interpolation
+    and Numerical Differentiation", 1970.
+
+Examples
+--------
+To produce a polynomial that is zero at 0 and 1 and has
+derivative 2 at 0, call
+
+>>> KroghInterpolator([0,0,1],[0,2,0])
+
+This constructs the quadratic 2*X**2-2*X. The derivative condition
+is indicated by the repeated zero in the xi array; the corresponding
+yi values are 0, the function value, and 2, the derivative value.
+
+For another example, given xi, yi, and a derivative ypi for each
+point, appropriate arrays can be constructed as:
+
+>>> xi_k, yi_k = np.repeat(xi, 2), np.ravel(np.dstack((yi,ypi)))
+>>> KroghInterpolator(xi_k, yi_k)
+
+To produce a vector-valued polynomial, supply a higher-dimensional
+array for yi:
+
+>>> KroghInterpolator([0,1],[[2,3],[4,5]])
+
+This constructs a linear polynomial giving (2,3) at 0 and (4,5) at 1.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_aba121a8d9f0e3d3356d20ab29e2ff644}{}\index{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+Krogh\+Interpolator.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{xi, }
+\item[{}]{yi, }
+\item[{}]{axis = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_aba121a8d9f0e3d3356d20ab29e2ff644}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_ae81db9c3910f0e9fefd72f259e1c07ea}{}\index{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator}!c@{c}}
+\index{c@{c}!scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator}}
+\subsubsection[{c}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Krogh\+Interpolator.\+c}\label{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_ae81db9c3910f0e9fefd72f259e1c07ea}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_a1f30434de264f2c14bb054764e6efa35}{}\index{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator}!r@{r}}
+\index{r@{r}!scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator}}
+\subsubsection[{r}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Krogh\+Interpolator.\+r}\label{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_a1f30434de264f2c14bb054764e6efa35}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_acc8643d0c76444c98db806722db1d144}{}\index{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator}!xi@{xi}}
+\index{xi@{xi}!scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator}}
+\subsubsection[{xi}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Krogh\+Interpolator.\+xi}\label{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_acc8643d0c76444c98db806722db1d144}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_a3666892eff7b45b8bbd623bc7760457f}{}\index{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator}!yi@{yi}}
+\index{yi@{yi}!scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Krogh\+Interpolator}}
+\subsubsection[{yi}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Krogh\+Interpolator.\+yi}\label{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator_a3666892eff7b45b8bbd623bc7760457f}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{polyint_8py}{polyint.\+py}\end{DoxyCompactItemize}

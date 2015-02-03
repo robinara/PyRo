@@ -1,0 +1,95 @@
+\hypertarget{24cXX_8c}{}\section{packages/i2c-\/tools-\/3.1.1/eepromer/24c\+X\+X.c File Reference}
+\label{24cXX_8c}\index{packages/i2c-\/tools-\/3.\+1.\+1/eepromer/24c\+X\+X.\+c@{packages/i2c-\/tools-\/3.\+1.\+1/eepromer/24c\+X\+X.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$linux/fs.\+h$>$}\\*
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}24c\+X\+X.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{24cXX_8c_ae2241868b013b069eaee830085090df5}{C\+H\+E\+C\+K\+\_\+\+I2\+C\+\_\+\+F\+U\+N\+C}(var,  label)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{24cXX_8c_ae2ecccce87cf4337ac2e48a58b110e4c}{eeprom\+\_\+open} (char $\ast$dev\+\_\+fqn, int addr, int \hyperlink{fftw__dct_8c_a7aead736a07eaf25623ad7bfa1f0ee2d}{type}, \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structeeprom}{eeprom} $\ast$e)
+\item 
+int \hyperlink{24cXX_8c_a7c6d33d2e4f79c23f985bd5d133a4214}{eeprom\+\_\+close} (\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structeeprom}{eeprom} $\ast$e)
+\item 
+int \hyperlink{24cXX_8c_a8150d2cc173c7fef05eb19b198ea60eb}{eeprom\+\_\+read\+\_\+current\+\_\+byte} (\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structeeprom}{eeprom} $\ast$e)
+\item 
+int \hyperlink{24cXX_8c_a84d7c818238a4a05a5b3bf5539819cc3}{eeprom\+\_\+read\+\_\+byte} (\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structeeprom}{eeprom} $\ast$e, \+\_\+\+\_\+u16 mem\+\_\+addr)
+\item 
+int \hyperlink{24cXX_8c_aef5869a8c8af610fe9243e90a98dbf83}{eeprom\+\_\+write\+\_\+byte} (\hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structeeprom}{eeprom} $\ast$e, \+\_\+\+\_\+u16 mem\+\_\+addr, \+\_\+\+\_\+u8 data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{24cXX_8c_ae2241868b013b069eaee830085090df5}{}\index{24c\+X\+X.\+c@{24c\+X\+X.\+c}!C\+H\+E\+C\+K\+\_\+\+I2\+C\+\_\+\+F\+U\+N\+C@{C\+H\+E\+C\+K\+\_\+\+I2\+C\+\_\+\+F\+U\+N\+C}}
+\index{C\+H\+E\+C\+K\+\_\+\+I2\+C\+\_\+\+F\+U\+N\+C@{C\+H\+E\+C\+K\+\_\+\+I2\+C\+\_\+\+F\+U\+N\+C}!24c\+X\+X.\+c@{24c\+X\+X.\+c}}
+\subsubsection[{C\+H\+E\+C\+K\+\_\+\+I2\+C\+\_\+\+F\+U\+N\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+H\+E\+C\+K\+\_\+\+I2\+C\+\_\+\+F\+U\+N\+C(
+\begin{DoxyParamCaption}
+\item[{}]{var, }
+\item[{}]{label}
+\end{DoxyParamCaption}
+)}\label{24cXX_8c_ae2241868b013b069eaee830085090df5}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{    \textcolor{keywordflow}{if}(0 == (var & \hyperlink{namespacescipy_1_1ndimage_1_1measurements_a4779cd2460f28fb863d04f22bec5969f}{label})) \{ \(\backslash\)
+        fprintf(stderr, \textcolor{stringliteral}{"\(\backslash\)nError: "} \(\backslash\)
+            #label \textcolor{stringliteral}{" function is required. Program halted.\(\backslash\)n\(\backslash\)n"}); \(\backslash\)
+        exit(1); \} \(\backslash\)
+    \} \textcolor{keywordflow}{while}(0);
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{24cXX_8c_a7c6d33d2e4f79c23f985bd5d133a4214}{}\index{24c\+X\+X.\+c@{24c\+X\+X.\+c}!eeprom\+\_\+close@{eeprom\+\_\+close}}
+\index{eeprom\+\_\+close@{eeprom\+\_\+close}!24c\+X\+X.\+c@{24c\+X\+X.\+c}}
+\subsubsection[{eeprom\+\_\+close}]{\setlength{\rightskip}{0pt plus 5cm}int eeprom\+\_\+close (
+\begin{DoxyParamCaption}
+\item[{{\bf struct} {\bf eeprom} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{24cXX_8c_a7c6d33d2e4f79c23f985bd5d133a4214}
+\hypertarget{24cXX_8c_ae2ecccce87cf4337ac2e48a58b110e4c}{}\index{24c\+X\+X.\+c@{24c\+X\+X.\+c}!eeprom\+\_\+open@{eeprom\+\_\+open}}
+\index{eeprom\+\_\+open@{eeprom\+\_\+open}!24c\+X\+X.\+c@{24c\+X\+X.\+c}}
+\subsubsection[{eeprom\+\_\+open}]{\setlength{\rightskip}{0pt plus 5cm}int eeprom\+\_\+open (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{dev\+\_\+fqn, }
+\item[{int}]{addr, }
+\item[{int}]{type, }
+\item[{{\bf struct} {\bf eeprom} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{24cXX_8c_ae2ecccce87cf4337ac2e48a58b110e4c}
+\hypertarget{24cXX_8c_a84d7c818238a4a05a5b3bf5539819cc3}{}\index{24c\+X\+X.\+c@{24c\+X\+X.\+c}!eeprom\+\_\+read\+\_\+byte@{eeprom\+\_\+read\+\_\+byte}}
+\index{eeprom\+\_\+read\+\_\+byte@{eeprom\+\_\+read\+\_\+byte}!24c\+X\+X.\+c@{24c\+X\+X.\+c}}
+\subsubsection[{eeprom\+\_\+read\+\_\+byte}]{\setlength{\rightskip}{0pt plus 5cm}int eeprom\+\_\+read\+\_\+byte (
+\begin{DoxyParamCaption}
+\item[{{\bf struct} {\bf eeprom} $\ast$}]{e, }
+\item[{\+\_\+\+\_\+u16}]{mem\+\_\+addr}
+\end{DoxyParamCaption}
+)}\label{24cXX_8c_a84d7c818238a4a05a5b3bf5539819cc3}
+\hypertarget{24cXX_8c_a8150d2cc173c7fef05eb19b198ea60eb}{}\index{24c\+X\+X.\+c@{24c\+X\+X.\+c}!eeprom\+\_\+read\+\_\+current\+\_\+byte@{eeprom\+\_\+read\+\_\+current\+\_\+byte}}
+\index{eeprom\+\_\+read\+\_\+current\+\_\+byte@{eeprom\+\_\+read\+\_\+current\+\_\+byte}!24c\+X\+X.\+c@{24c\+X\+X.\+c}}
+\subsubsection[{eeprom\+\_\+read\+\_\+current\+\_\+byte}]{\setlength{\rightskip}{0pt plus 5cm}int eeprom\+\_\+read\+\_\+current\+\_\+byte (
+\begin{DoxyParamCaption}
+\item[{{\bf struct} {\bf eeprom} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{24cXX_8c_a8150d2cc173c7fef05eb19b198ea60eb}
+\hypertarget{24cXX_8c_aef5869a8c8af610fe9243e90a98dbf83}{}\index{24c\+X\+X.\+c@{24c\+X\+X.\+c}!eeprom\+\_\+write\+\_\+byte@{eeprom\+\_\+write\+\_\+byte}}
+\index{eeprom\+\_\+write\+\_\+byte@{eeprom\+\_\+write\+\_\+byte}!24c\+X\+X.\+c@{24c\+X\+X.\+c}}
+\subsubsection[{eeprom\+\_\+write\+\_\+byte}]{\setlength{\rightskip}{0pt plus 5cm}int eeprom\+\_\+write\+\_\+byte (
+\begin{DoxyParamCaption}
+\item[{{\bf struct} {\bf eeprom} $\ast$}]{e, }
+\item[{\+\_\+\+\_\+u16}]{mem\+\_\+addr, }
+\item[{\+\_\+\+\_\+u8}]{data}
+\end{DoxyParamCaption}
+)}\label{24cXX_8c_aef5869a8c8af610fe9243e90a98dbf83}

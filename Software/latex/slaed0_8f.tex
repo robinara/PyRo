@@ -1,0 +1,138 @@
+\hypertarget{slaed0_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slaed0.f File Reference}
+\label{slaed0_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaed0.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaed0.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slaed0_8f_ac684c2e6104ed0b6c5b785e39d034132}{slaed0} (I\+C\+O\+M\+P\+Q, Q\+S\+I\+Z, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, Q, L\+D\+Q, Q\+S\+T\+O\+R\+E, L\+D\+Q\+S, W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+E\+D0} used by sstedc. Computes all eigenvalues and corresponding eigenvectors of an unreduced symmetric tridiagonal matrix using the divide and conquer method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slaed0_8f_ac684c2e6104ed0b6c5b785e39d034132}{}\index{slaed0.\+f@{slaed0.\+f}!slaed0@{slaed0}}
+\index{slaed0@{slaed0}!slaed0.\+f@{slaed0.\+f}}
+\subsubsection[{slaed0}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slaed0 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I\+C\+O\+M\+P\+Q, }
+\item[{integer}]{Q\+S\+I\+Z, }
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{E, }
+\item[{real, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{real, dimension( ldqs, $\ast$ )}]{Q\+S\+T\+O\+R\+E, }
+\item[{integer}]{L\+D\+Q\+S, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{slaed0_8f_ac684c2e6104ed0b6c5b785e39d034132}
+
+
+{\bfseries S\+L\+A\+E\+D0} used by sstedc. Computes all eigenvalues and corresponding eigenvectors of an unreduced symmetric tridiagonal matrix using the divide and conquer method. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLAED0 computes all eigenvalues and corresponding eigenvectors of a
+ symmetric tridiagonal matrix using the divide and conquer method.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I\+C\+O\+M\+P\+Q} & \begin{DoxyVerb}          ICOMPQ is INTEGER
+          = 0:  Compute eigenvalues only.
+          = 1:  Compute eigenvectors of original dense symmetric matrix
+                also.  On entry, Q contains the orthogonal matrix used
+                to reduce the original matrix to tridiagonal form.
+          = 2:  Compute eigenvalues and eigenvectors of tridiagonal
+                matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q\+S\+I\+Z} & \begin{DoxyVerb}          QSIZ is INTEGER
+         The dimension of the orthogonal matrix used to reduce
+         the full matrix to tridiagonal form.  QSIZ >= N if ICOMPQ = 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+         The dimension of the symmetric tridiagonal matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+         On entry, the main diagonal of the tridiagonal matrix.
+         On exit, its eigenvalues.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is REAL array, dimension (N-1)
+         The off-diagonal elements of the tridiagonal matrix.
+         On exit, E has been destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q} & \begin{DoxyVerb}          Q is REAL array, dimension (LDQ, N)
+         On entry, Q must contain an N-by-N orthogonal matrix.
+         If ICOMPQ = 0    Q is not referenced.
+         If ICOMPQ = 1    On entry, Q is a subset of the columns of the
+                          orthogonal matrix used to reduce the full
+                          matrix to tridiagonal form corresponding to
+                          the subset of the full matrix which is being
+                          decomposed at this time.
+         If ICOMPQ = 2    On entry, Q will be the identity matrix.
+                          On exit, Q contains the eigenvectors of the
+                          tridiagonal matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+         The leading dimension of the array Q.  If eigenvectors are
+         desired, then  LDQ >= max(1,N).  In any case,  LDQ >= 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Q\+S\+T\+O\+R\+E} & \begin{DoxyVerb}          QSTORE is REAL array, dimension (LDQS, N)
+         Referenced only when ICOMPQ = 1.  Used to store parts of
+         the eigenvector matrix when the updating matrix multiplies
+         take place.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q\+S} & \begin{DoxyVerb}          LDQS is INTEGER
+         The leading dimension of the array QSTORE.  If ICOMPQ = 1,
+         then  LDQS >= max(1,N).  In any case,  LDQS >= 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array,
+         If ICOMPQ = 0 or 1, the dimension of WORK must be at least
+                     1 + 3*N + 2*N*lg N + 3*N**2
+                     ( lg( N ) = smallest integer k
+                                 such that 2^k >= N )
+         If ICOMPQ = 2, the dimension of WORK must be at least
+                     4*N + N**2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array,
+         If ICOMPQ = 0 or 1, the dimension of IWORK must be at least
+                        6 + 6*N + 5*N*lg N.
+                        ( lg( N ) = smallest integer k
+                                    such that 2^k >= N )
+         If ICOMPQ = 2, the dimension of IWORK must be at least
+                        3 + 5*N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  The algorithm failed to compute an eigenvalue while
+                working on the submatrix lying in rows and columns
+                INFO/(N+1) through mod(INFO,N+1).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Jeff Rutter, Computer Science Division, University of California at Berkeley, U\+S\+A 
+\end{DoxyParagraph}

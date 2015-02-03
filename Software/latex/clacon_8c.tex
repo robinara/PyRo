@@ -1,0 +1,120 @@
+\hypertarget{clacon_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/clacon.c File Reference}
+\label{clacon_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/clacon.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/clacon.\+c}}
+
+
+Estimates the 1-\/norm.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+\+Cnames.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+scomplex.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{clacon_8c_af4536a78f0ee7097ef59278c8cf14295}{clacon\+\_\+} (int $\ast$\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{structcomplex}{complex} $\ast$v, \hyperlink{structcomplex}{complex} $\ast$\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, float $\ast$est, int $\ast$kase)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estimates the 1-\/norm. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{clacon_8c_af4536a78f0ee7097ef59278c8cf14295}{}\index{clacon.\+c@{clacon.\+c}!clacon\+\_\+@{clacon\+\_\+}}
+\index{clacon\+\_\+@{clacon\+\_\+}!clacon.\+c@{clacon.\+c}}
+\subsubsection[{clacon\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int clacon\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{n, }
+\item[{{\bf complex} $\ast$}]{v, }
+\item[{{\bf complex} $\ast$}]{x, }
+\item[{float $\ast$}]{est, }
+\item[{int $\ast$}]{kase}
+\end{DoxyParamCaption}
+)}\label{clacon_8c_af4536a78f0ee7097ef59278c8cf14295}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  CLACON estimates the 1-norm of a square matrix \hyperlink{classA}{A}.   
+  Reverse communication is used for evaluating matrix-vector products.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  N      (input) INT
+         The order of the matrix.  N >= 1.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  V      (workspace) COMPLEX PRECISION array, dimension (N)   
+         On the final return, V = A*W,  where  EST = norm(V)/norm(W)   
+         (W is not returned).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  X      (input/output) COMPLEX PRECISION array, dimension (N)   
+         On an intermediate return, X should be overwritten by   
+               \hyperlink{classA}{A} * X,   if KASE=1,   
+               \hyperlink{classA}{A}' * X,  if KASE=2,
+         where \hyperlink{classA}{A}' is the conjugate transpose of \hyperlink{classA}{A},
+        and CLACON must be re-called with all the other parameters   
+         unchanged.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  EST    (output) FLOAT PRECISION   
+         An estimate (a lower bound) for norm(A).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  KASE   (input/output) INT
+         On the initial call to CLACON, KASE should be 0.   
+         On an intermediate return, KASE will be 1 or 2, indicating   
+         whether X should be overwritten by \hyperlink{classA}{A} * X  or \hyperlink{classA}{A}' * X.   
+         On the final return from CLACON, KASE will again be 0.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Further Details   
+  ======= =======\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Contributed by Nick Higham, University of Manchester.   
+  Originally named CONEST, dated March 16, 1988.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Reference: N.J. Higham, "FORTRAN codes for estimating the one-norm of 
+  a real or complex matrix, with applications to condition estimation", 
+\subsection*{ACM Trans. Math. Soft., vol. 14, no. 4, pp. 381-396, December 1988.   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+\end{DoxyPre}
+ 

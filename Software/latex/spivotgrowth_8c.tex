@@ -1,0 +1,91 @@
+\hypertarget{spivotgrowth_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/spivotgrowth.c File Reference}
+\label{spivotgrowth_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/spivotgrowth.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/spivotgrowth.\+c}}
+
+
+Computes the reciprocal pivot growth factor.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{spivotgrowth_8c_a9079b4ce43557af65fee107bc8f8d66f}{s\+Pivot\+Growth} (int ncols, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int $\ast$perm\+\_\+c, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Computes the reciprocal pivot growth factor. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{spivotgrowth_8c_a9079b4ce43557af65fee107bc8f8d66f}{}\index{spivotgrowth.\+c@{spivotgrowth.\+c}!s\+Pivot\+Growth@{s\+Pivot\+Growth}}
+\index{s\+Pivot\+Growth@{s\+Pivot\+Growth}!spivotgrowth.\+c@{spivotgrowth.\+c}}
+\subsubsection[{s\+Pivot\+Growth}]{\setlength{\rightskip}{0pt plus 5cm}float s\+Pivot\+Growth (
+\begin{DoxyParamCaption}
+\item[{int}]{ncols, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U}
+\end{DoxyParamCaption}
+)}\label{spivotgrowth_8c_a9079b4ce43557af65fee107bc8f8d66f}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Compute the reciprocal pivot growth factor of the leading ncols columns
+of the matrix, using the formula:
+    min\_j ( max\_i(abs(A\_ij)) / max\_i(abs(U\_ij)) )\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}ncols    (input) int
+         The number of columns of matrices \hyperlink{classA}{A}, L and U.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}        (input) SuperMatrix*
+     Original matrix \hyperlink{classA}{A}, permuted by columns, of dimension
+         (A->nrow, A->ncol). The type of \hyperlink{classA}{A} can be:
+         Stype = NC; Dtype = SLU\_S; Mtype = GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L        (output) SuperMatrix*
+         The factor L from the factorization Pr*A=L*U; use compressed row 
+         subscripts storage for supernodes, i.e., L has type: 
+         Stype = SC; Dtype = SLU\_S; Mtype = TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U        (output) SuperMatrix*
+     The factor U from the factorization Pr*A*Pc=L*U. Use column-wise
+         storage scheme, i.e., U has types: Stype = NC;
+         Dtype = SLU\_S; Mtype = TRU.
+\end{DoxyPre}
+ 

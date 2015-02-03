@@ -1,0 +1,180 @@
+\hypertarget{namespacescipy_1_1sparse_1_1extract}{}\section{scipy.\+sparse.\+extract Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1extract}\index{scipy.\+sparse.\+extract@{scipy.\+sparse.\+extract}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1extract_a67a3e79fe5fdbf1882c8585a6bdb139e}{find}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1extract_ad0191f1f2ef15642796db71cea11e9dc}{tril}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1extract_a53b57a1c28df53373531eed3ce413f1f}{triu}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1extract_a5df11b961e462d2e33ae77a27a533128}{\+\_\+\+\_\+docformat\+\_\+\+\_\+} = \char`\"{}restructuredtext en\char`\"{}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1extract_aa3aea85848a333e36eeec638e156d6a1}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1sparse_1_1extract_a67a3e79fe5fdbf1882c8585a6bdb139e}{find}', '\hyperlink{namespacescipy_1_1sparse_1_1extract_ad0191f1f2ef15642796db71cea11e9dc}{tril}', '\hyperlink{namespacescipy_1_1sparse_1_1extract_a53b57a1c28df53373531eed3ce413f1f}{triu}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Functions to extract parts of sparse matrices
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1extract_a67a3e79fe5fdbf1882c8585a6bdb139e}{}\index{scipy\+::sparse\+::extract@{scipy\+::sparse\+::extract}!find@{find}}
+\index{find@{find}!scipy\+::sparse\+::extract@{scipy\+::sparse\+::extract}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+extract.\+find (
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1extract_a67a3e79fe5fdbf1882c8585a6bdb139e}
+\begin{DoxyVerb}Return the indices and values of the nonzero elements of a matrix
+
+Parameters
+----------
+A : dense or sparse matrix
+    Matrix whose nonzero elements are desired.
+
+Returns
+-------
+(I,J,V) : tuple of arrays
+    I,J, and V contain the row indices, column indices, and values
+    of the nonzero matrix entries.
+
+
+Examples
+--------
+>>> from scipy.sparse import csr_matrix
+>>> A = csr_matrix([[7.0, 8.0, 0],[0, 0, 9.0]])
+>>> find(A)
+(array([0, 0, 1], dtype=int32), array([0, 1, 2], dtype=int32), array([ 7.,  8.,  9.]))\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1extract_ad0191f1f2ef15642796db71cea11e9dc}{}\index{scipy\+::sparse\+::extract@{scipy\+::sparse\+::extract}!tril@{tril}}
+\index{tril@{tril}!scipy\+::sparse\+::extract@{scipy\+::sparse\+::extract}}
+\subsubsection[{tril}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+extract.\+tril (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{k = {\ttfamily 0}, }
+\item[{}]{format = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1extract_ad0191f1f2ef15642796db71cea11e9dc}
+\begin{DoxyVerb}Return the lower triangular portion of a matrix in sparse format
+
+Returns the elements on or below the k-th diagonal of the matrix A.
+    - k = 0 corresponds to the main diagonal
+    - k > 0 is above the main diagonal
+    - k < 0 is below the main diagonal
+
+Parameters
+----------
+A : dense or sparse matrix
+    Matrix whose lower trianglar portion is desired.
+k : integer : optional
+    The top-most diagonal of the lower triangle.
+format : string
+    Sparse format of the result, e.g. format="csr", etc.
+
+Returns
+-------
+L : sparse matrix
+    Lower triangular portion of A in sparse format.
+
+See Also
+--------
+triu : upper triangle in sparse format
+
+Examples
+--------
+>>> from scipy.sparse import csr_matrix
+>>> A = csr_matrix( [[1,2,0,0,3],[4,5,0,6,7],[0,0,8,9,0]], dtype='int32' )
+>>> A.todense()
+matrix([[1, 2, 0, 0, 3],
+        [4, 5, 0, 6, 7],
+        [0, 0, 8, 9, 0]])
+>>> tril(A).todense()
+matrix([[1, 0, 0, 0, 0],
+        [4, 5, 0, 0, 0],
+        [0, 0, 8, 0, 0]])
+>>> tril(A).nnz
+4
+>>> tril(A, k=1).todense()
+matrix([[1, 2, 0, 0, 0],
+        [4, 5, 0, 0, 0],
+        [0, 0, 8, 9, 0]])
+>>> tril(A, k=-1).todense()
+matrix([[0, 0, 0, 0, 0],
+        [4, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]])
+>>> tril(A, format='csc')
+<3x5 sparse matrix of type '<type 'numpy.int32'>'
+        with 4 stored elements in Compressed Sparse Column format>\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1extract_a53b57a1c28df53373531eed3ce413f1f}{}\index{scipy\+::sparse\+::extract@{scipy\+::sparse\+::extract}!triu@{triu}}
+\index{triu@{triu}!scipy\+::sparse\+::extract@{scipy\+::sparse\+::extract}}
+\subsubsection[{triu}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+extract.\+triu (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{k = {\ttfamily 0}, }
+\item[{}]{format = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1extract_a53b57a1c28df53373531eed3ce413f1f}
+\begin{DoxyVerb}Return the upper triangular portion of a matrix in sparse format
+
+Returns the elements on or above the k-th diagonal of the matrix A.
+    - k = 0 corresponds to the main diagonal
+    - k > 0 is above the main diagonal
+    - k < 0 is below the main diagonal
+
+Parameters
+----------
+A : dense or sparse matrix
+    Matrix whose upper trianglar portion is desired.
+k : integer : optional
+    The bottom-most diagonal of the upper triangle.
+format : string
+    Sparse format of the result, e.g. format="csr", etc.
+
+Returns
+-------
+L : sparse matrix
+    Upper triangular portion of A in sparse format.
+
+See Also
+--------
+tril : lower triangle in sparse format
+
+Examples
+--------
+>>> from scipy.sparse import csr_matrix
+>>> A = csr_matrix( [[1,2,0,0,3],[4,5,0,6,7],[0,0,8,9,0]], dtype='int32' )
+>>> A.todense()
+matrix([[1, 2, 0, 0, 3],
+        [4, 5, 0, 6, 7],
+        [0, 0, 8, 9, 0]])
+>>> triu(A).todense()
+matrix([[1, 2, 0, 0, 3],
+        [0, 5, 0, 6, 7],
+        [0, 0, 8, 9, 0]])
+>>> triu(A).nnz
+8
+>>> triu(A, k=1).todense()
+matrix([[0, 2, 0, 0, 3],
+        [0, 0, 0, 6, 7],
+        [0, 0, 0, 9, 0]])
+>>> triu(A, k=-1).todense()
+matrix([[1, 2, 0, 0, 3],
+        [4, 5, 0, 6, 7],
+        [0, 0, 8, 9, 0]])
+>>> triu(A, format='csc')
+<3x5 sparse matrix of type '<type 'numpy.int32'>'
+        with 8 stored elements in Compressed Sparse Column format>\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1extract_aa3aea85848a333e36eeec638e156d6a1}{}\index{scipy\+::sparse\+::extract@{scipy\+::sparse\+::extract}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::extract@{scipy\+::sparse\+::extract}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+extract.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf find}', '{\bf tril}', '{\bf triu}'\mbox{]}}\label{namespacescipy_1_1sparse_1_1extract_aa3aea85848a333e36eeec638e156d6a1}
+\hypertarget{namespacescipy_1_1sparse_1_1extract_a5df11b961e462d2e33ae77a27a533128}{}\index{scipy\+::sparse\+::extract@{scipy\+::sparse\+::extract}!\+\_\+\+\_\+docformat\+\_\+\+\_\+@{\+\_\+\+\_\+docformat\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+docformat\+\_\+\+\_\+@{\+\_\+\+\_\+docformat\+\_\+\+\_\+}!scipy\+::sparse\+::extract@{scipy\+::sparse\+::extract}}
+\subsubsection[{\+\_\+\+\_\+docformat\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+extract.\+\_\+\+\_\+docformat\+\_\+\+\_\+ = \char`\"{}restructuredtext en\char`\"{}}\label{namespacescipy_1_1sparse_1_1extract_a5df11b961e462d2e33ae77a27a533128}

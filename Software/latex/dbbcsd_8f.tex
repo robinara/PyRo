@@ -1,0 +1,271 @@
+\hypertarget{dbbcsd_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dbbcsd.f File Reference}
+\label{dbbcsd_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dbbcsd.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dbbcsd.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dbbcsd_8f_a27a367582a76c7b48a8bf3eed068e216}{dbbcsd} (J\+O\+B\+U1, J\+O\+B\+U2, J\+O\+B\+V1\+T, J\+O\+B\+V2\+T, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, M, P, Q, T\+H\+E\+T\+A, P\+H\+I, U1, L\+D\+U1, U2, L\+D\+U2, V1\+T, L\+D\+V1\+T, V2\+T, L\+D\+V2\+T, B11\+D, B11\+E, B12\+D, B12\+E, B21\+D, B21\+E, B22\+D, B22\+E, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+B\+B\+C\+S\+D} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dbbcsd_8f_a27a367582a76c7b48a8bf3eed068e216}{}\index{dbbcsd.\+f@{dbbcsd.\+f}!dbbcsd@{dbbcsd}}
+\index{dbbcsd@{dbbcsd}!dbbcsd.\+f@{dbbcsd.\+f}}
+\subsubsection[{dbbcsd}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dbbcsd (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B\+U1, }
+\item[{character}]{J\+O\+B\+U2, }
+\item[{character}]{J\+O\+B\+V1\+T, }
+\item[{character}]{J\+O\+B\+V2\+T, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{M, }
+\item[{integer}]{P, }
+\item[{integer}]{Q, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{T\+H\+E\+T\+A, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{P\+H\+I, }
+\item[{double {\bf precision}, dimension( ldu1, $\ast$ )}]{U1, }
+\item[{integer}]{L\+D\+U1, }
+\item[{double {\bf precision}, dimension( ldu2, $\ast$ )}]{U2, }
+\item[{integer}]{L\+D\+U2, }
+\item[{double {\bf precision}, dimension( ldv1t, $\ast$ )}]{V1\+T, }
+\item[{integer}]{L\+D\+V1\+T, }
+\item[{double {\bf precision}, dimension( ldv2t, $\ast$ )}]{V2\+T, }
+\item[{integer}]{L\+D\+V2\+T, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B11\+D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B11\+E, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B12\+D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B12\+E, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B21\+D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B21\+E, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B22\+D, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{B22\+E, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dbbcsd_8f_a27a367582a76c7b48a8bf3eed068e216}
+
+
+{\bfseries D\+B\+B\+C\+S\+D} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DBBCSD computes the CS decomposition of an orthogonal matrix in
+ bidiagonal-block form,
+
+
+     [ B11 | B12 0  0 ]
+     [  0  |  0 -I  0 ]
+ X = [----------------]
+     [ B21 | B22 0  0 ]
+     [  0  |  0  0  I ]
+
+                               [  C | -S  0  0 ]
+                   [ U1 |    ] [  0 |  0 -I  0 ] [ V1 |    ]**T
+                 = [---------] [---------------] [---------]   .
+                   [    | U2 ] [  S |  C  0  0 ] [    | V2 ]
+                               [  0 |  0  0  I ]
+
+ X is M-by-M, its top-left block is P-by-Q, and Q must be no larger
+ than P, M-P, or M-Q. (If Q is not the smallest index, then X must be
+ transposed and/or permuted. This can be done in constant time using
+ the TRANS and SIGNS options. See DORCSD for details.)
+
+ The bidiagonal matrices B11, B12, B21, and B22 are represented
+ implicitly by angles THETA(1:Q) and PHI(1:Q-1).
+
+ The orthogonal matrices U1, U2, V1T, and V2T are input/output.
+ The input matrices are pre- or post-multiplied by the appropriate
+ singular vector matrices.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B\+U1} & \begin{DoxyVerb}          JOBU1 is CHARACTER
+          = 'Y':      U1 is updated;
+          otherwise:  U1 is not updated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J\+O\+B\+U2} & \begin{DoxyVerb}          JOBU2 is CHARACTER
+          = 'Y':      U2 is updated;
+          otherwise:  U2 is not updated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J\+O\+B\+V1\+T} & \begin{DoxyVerb}          JOBV1T is CHARACTER
+          = 'Y':      V1T is updated;
+          otherwise:  V1T is not updated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J\+O\+B\+V2\+T} & \begin{DoxyVerb}          JOBV2T is CHARACTER
+          = 'Y':      V2T is updated;
+          otherwise:  V2T is not updated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER
+          = 'T':      X, U1, U2, V1T, and V2T are stored in row-major
+                      order;
+          otherwise:  X, U1, U2, V1T, and V2T are stored in column-
+                      major order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows and columns in X, the orthogonal matrix in
+          bidiagonal-block form.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P} & \begin{DoxyVerb}          P is INTEGER
+          The number of rows in the top-left block of X. 0 <= P <= M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q} & \begin{DoxyVerb}          Q is INTEGER
+          The number of columns in the top-left block of X.
+          0 <= Q <= MIN(P,M-P,M-Q).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em T\+H\+E\+T\+A} & \begin{DoxyVerb}          THETA is DOUBLE PRECISION array, dimension (Q)
+          On entry, the angles THETA(1),...,THETA(Q) that, along with
+          PHI(1), ...,PHI(Q-1), define the matrix in bidiagonal-block
+          form. On exit, the angles whose cosines and sines define the
+          diagonal blocks in the CS decomposition.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em P\+H\+I} & \begin{DoxyVerb}          PHI is DOUBLE PRECISION array, dimension (Q-1)
+          The angles PHI(1),...,PHI(Q-1) that, along with THETA(1),...,
+          THETA(Q), define the matrix in bidiagonal-block form.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em U1} & \begin{DoxyVerb}          U1 is DOUBLE PRECISION array, dimension (LDU1,P)
+          On entry, an LDU1-by-P matrix. On exit, U1 is postmultiplied
+          by the left singular vector matrix common to [ B11 ; 0 ] and
+          [ B12 0 0 ; 0 -I 0 0 ].\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+U1} & \begin{DoxyVerb}          LDU1 is INTEGER
+          The leading dimension of the array U1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em U2} & \begin{DoxyVerb}          U2 is DOUBLE PRECISION array, dimension (LDU2,M-P)
+          On entry, an LDU2-by-(M-P) matrix. On exit, U2 is
+          postmultiplied by the left singular vector matrix common to
+          [ B21 ; 0 ] and [ B22 0 0 ; 0 0 I ].\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+U2} & \begin{DoxyVerb}          LDU2 is INTEGER
+          The leading dimension of the array U2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V1\+T} & \begin{DoxyVerb}          V1T is DOUBLE PRECISION array, dimension (LDV1T,Q)
+          On entry, a LDV1T-by-Q matrix. On exit, V1T is premultiplied
+          by the transpose of the right singular vector
+          matrix common to [ B11 ; 0 ] and [ B21 ; 0 ].\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V1\+T} & \begin{DoxyVerb}          LDV1T is INTEGER
+          The leading dimension of the array V1T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V2\+T} & \begin{DoxyVerb}          V2T is DOUBLE PRECISION array, dimenison (LDV2T,M-Q)
+          On entry, a LDV2T-by-(M-Q) matrix. On exit, V2T is
+          premultiplied by the transpose of the right
+          singular vector matrix common to [ B12 0 0 ; 0 -I 0 ] and
+          [ B22 0 0 ; 0 0 I ].\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V2\+T} & \begin{DoxyVerb}          LDV2T is INTEGER
+          The leading dimension of the array V2T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B11\+D} & \begin{DoxyVerb}          B11D is DOUBLE PRECISION array, dimension (Q)
+          When DBBCSD converges, B11D contains the cosines of THETA(1),
+          ..., THETA(Q). If DBBCSD fails to converge, then B11D
+          contains the diagonal of the partially reduced top-left
+          block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B11\+E} & \begin{DoxyVerb}          B11E is DOUBLE PRECISION array, dimension (Q-1)
+          When DBBCSD converges, B11E contains zeros. If DBBCSD fails
+          to converge, then B11E contains the superdiagonal of the
+          partially reduced top-left block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B12\+D} & \begin{DoxyVerb}          B12D is DOUBLE PRECISION array, dimension (Q)
+          When DBBCSD converges, B12D contains the negative sines of
+          THETA(1), ..., THETA(Q). If DBBCSD fails to converge, then
+          B12D contains the diagonal of the partially reduced top-right
+          block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B12\+E} & \begin{DoxyVerb}          B12E is DOUBLE PRECISION array, dimension (Q-1)
+          When DBBCSD converges, B12E contains zeros. If DBBCSD fails
+          to converge, then B12E contains the subdiagonal of the
+          partially reduced top-right block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B21\+D} & \begin{DoxyVerb}          B21D is DOUBLE PRECISION  array, dimension (Q)
+          When CBBCSD converges, B21D contains the negative sines of
+          THETA(1), ..., THETA(Q). If CBBCSD fails to converge, then
+          B21D contains the diagonal of the partially reduced bottom-left
+          block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B21\+E} & \begin{DoxyVerb}          B21E is DOUBLE PRECISION  array, dimension (Q-1)
+          When CBBCSD converges, B21E contains zeros. If CBBCSD fails
+          to converge, then B21E contains the subdiagonal of the
+          partially reduced bottom-left block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B22\+D} & \begin{DoxyVerb}          B22D is DOUBLE PRECISION  array, dimension (Q)
+          When CBBCSD converges, B22D contains the negative sines of
+          THETA(1), ..., THETA(Q). If CBBCSD fails to converge, then
+          B22D contains the diagonal of the partially reduced bottom-right
+          block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B22\+E} & \begin{DoxyVerb}          B22E is DOUBLE PRECISION  array, dimension (Q-1)
+          When CBBCSD converges, B22E contains zeros. If CBBCSD fails
+          to converge, then B22E contains the subdiagonal of the
+          partially reduced bottom-right block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The dimension of the array WORK. LWORK >= MAX(1,8*Q).
+
+          If LWORK = -1, then a workspace query is assumed; the
+          routine only calculates the optimal size of the WORK array,
+          returns this value as the first entry of the work array, and
+          no error message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if DBBCSD did not converge, INFO specifies the number
+                of nonzero entries in PHI, and B11D, B11E, etc.,
+                contain the partially reduced matrix.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  TOLMUL  DOUBLE PRECISION, default = MAX(10,MIN(100,EPS**(-1/8)))
+          TOLMUL controls the convergence criterion of the QR loop.
+          Angles THETA(i), PHI(i) are rounded to 0 or PI/2 when they
+          are within TOLMUL*EPS of either bound.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{References\+: }
+\mbox{[}1\mbox{]} Brian D. Sutton. Computing the complete C\+S decomposition. Numer. Algorithms, 50(1)\+:33-\/65, 2009. 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2013 
+\end{DoxyDate}

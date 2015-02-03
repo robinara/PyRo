@@ -1,0 +1,167 @@
+\hypertarget{zheevd_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zheevd.f File Reference}
+\label{zheevd_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zheevd.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zheevd.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zheevd_8f_a9b3e110476166e66f2f62fa1fba6344a}{zheevd} (J\+O\+B\+Z, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, W, W\+O\+R\+K, L\+W\+O\+R\+K, R\+W\+O\+R\+K, L\+R\+W\+O\+R\+K, I\+W\+O\+R\+K, L\+I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  Z\+H\+E\+E\+V\+D computes the eigenvalues and, optionally, the left and/or right eigenvectors for H\+E matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zheevd_8f_a9b3e110476166e66f2f62fa1fba6344a}{}\index{zheevd.\+f@{zheevd.\+f}!zheevd@{zheevd}}
+\index{zheevd@{zheevd}!zheevd.\+f@{zheevd.\+f}}
+\subsubsection[{zheevd}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zheevd (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B\+Z, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{L\+R\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{L\+I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zheevd_8f_a9b3e110476166e66f2f62fa1fba6344a}
+
+
+{\bfseries  Z\+H\+E\+E\+V\+D computes the eigenvalues and, optionally, the left and/or right eigenvectors for H\+E matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZHEEVD computes all eigenvalues and, optionally, eigenvectors of a
+ complex Hermitian matrix A.  If eigenvectors are desired, it uses a
+ divide and conquer algorithm.
+
+ The divide and conquer algorithm makes very mild assumptions about
+ floating point arithmetic. It will work on machines with a guard
+ digit in add/subtract, or on those binary machines without guard
+ digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or
+ Cray-2. It could conceivably fail on hexadecimal or decimal machines
+ without guard digits, but we know of none.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B\+Z} & \begin{DoxyVerb}          JOBZ is CHARACTER*1
+          = 'N':  Compute eigenvalues only;
+          = 'V':  Compute eigenvalues and eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA, N)
+          On entry, the Hermitian matrix A.  If UPLO = 'U', the
+          leading N-by-N upper triangular part of A contains the
+          upper triangular part of the matrix A.  If UPLO = 'L',
+          the leading N-by-N lower triangular part of A contains
+          the lower triangular part of the matrix A.
+          On exit, if JOBZ = 'V', then if INFO = 0, A contains the
+          orthonormal eigenvectors of the matrix A.
+          If JOBZ = 'N', then on exit the lower triangle (if UPLO='L')
+          or the upper triangle (if UPLO='U') of A, including the
+          diagonal, is destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W} & \begin{DoxyVerb}          W is DOUBLE PRECISION array, dimension (N)
+          If INFO = 0, the eigenvalues in ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The length of the array WORK.
+          If N <= 1,                LWORK must be at least 1.
+          If JOBZ  = 'N' and N > 1, LWORK must be at least N + 1.
+          If JOBZ  = 'V' and N > 1, LWORK must be at least 2*N + N**2.
+
+          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal sizes of the WORK, RWORK and
+          IWORK arrays, returns these values as the first entries of
+          the WORK, RWORK and IWORK arrays, and no error message
+          related to LWORK or LRWORK or LIWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is DOUBLE PRECISION array,
+                                         dimension (LRWORK)
+          On exit, if INFO = 0, RWORK(1) returns the optimal LRWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+R\+W\+O\+R\+K} & \begin{DoxyVerb}          LRWORK is INTEGER
+          The dimension of the array RWORK.
+          If N <= 1,                LRWORK must be at least 1.
+          If JOBZ  = 'N' and N > 1, LRWORK must be at least N.
+          If JOBZ  = 'V' and N > 1, LRWORK must be at least
+                         1 + 5*N + 2*N**2.
+
+          If LRWORK = -1, then a workspace query is assumed; the
+          routine only calculates the optimal sizes of the WORK, RWORK
+          and IWORK arrays, returns these values as the first entries
+          of the WORK, RWORK and IWORK arrays, and no error message
+          related to LWORK or LRWORK or LIWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (MAX(1,LIWORK))
+          On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+I\+W\+O\+R\+K} & \begin{DoxyVerb}          LIWORK is INTEGER
+          The dimension of the array IWORK.
+          If N <= 1,                LIWORK must be at least 1.
+          If JOBZ  = 'N' and N > 1, LIWORK must be at least 1.
+          If JOBZ  = 'V' and N > 1, LIWORK must be at least 3 + 5*N.
+
+          If LIWORK = -1, then a workspace query is assumed; the
+          routine only calculates the optimal sizes of the WORK, RWORK
+          and IWORK arrays, returns these values as the first entries
+          of the WORK, RWORK and IWORK arrays, and no error message
+          related to LWORK or LRWORK or LIWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i and JOBZ = 'N', then the algorithm failed
+                to converge; i off-diagonal elements of an intermediate
+                tridiagonal form did not converge to zero;
+                if INFO = i and JOBZ = 'V', then the algorithm failed
+                to compute an eigenvalue while working on the submatrix
+                lying in rows and columns INFO/(N+1) through
+                mod(INFO,N+1).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+Modified description of I\+N\+F\+O. Sven, 16 Feb 05. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Contributors\+: }
+Jeff Rutter, Computer Science Division, University of California at Berkeley, U\+S\+A 
+\end{DoxyParagraph}

@@ -1,0 +1,114 @@
+\hypertarget{zcolumn__bmod_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zcolumn\+\_\+bmod.c File Reference}
+\label{zcolumn__bmod_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zcolumn\+\_\+bmod.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zcolumn\+\_\+bmod.\+c}}
+
+
+performs numeric block updates  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+zdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{zcolumn__bmod_8c_ac9798dda11fa387039351d70fa59ce3b}{zusolve} (int, int, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$)
+\item 
+void \hyperlink{zcolumn__bmod_8c_afb6f65890b5348dc1692d01b087be35d}{zlsolve} (int, int, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$)
+\item 
+void \hyperlink{zcolumn__bmod_8c_a1165292a4e2a6c282638868bd503fb7a}{zmatvec} (int, int, int, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$)
+\item 
+int \hyperlink{zcolumn__bmod_8c_aa84a3714b3d55eb721a7a47eb0bcc110}{zcolumn\+\_\+bmod} (const int jcol, const int nseg, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$dense, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$tempv, int $\ast$segrep, int $\ast$repfnz, int fpanelc, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+performs numeric block updates 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} Permission is hereby granted to use or copy this program for any
+ purpose, provided the above notices are retained on all copies.
+ Permission to modify the code and to distribute modified code is
+ granted, provided the above notices are retained, and a notice that
+ the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{zcolumn__bmod_8c_aa84a3714b3d55eb721a7a47eb0bcc110}{}\index{zcolumn\+\_\+bmod.\+c@{zcolumn\+\_\+bmod.\+c}!zcolumn\+\_\+bmod@{zcolumn\+\_\+bmod}}
+\index{zcolumn\+\_\+bmod@{zcolumn\+\_\+bmod}!zcolumn\+\_\+bmod.\+c@{zcolumn\+\_\+bmod.\+c}}
+\subsubsection[{zcolumn\+\_\+bmod}]{\setlength{\rightskip}{0pt plus 5cm}int zcolumn\+\_\+bmod (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const int}]{nseg, }
+\item[{{\bf doublecomplex} $\ast$}]{dense, }
+\item[{{\bf doublecomplex} $\ast$}]{tempv, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int}]{fpanelc, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{zcolumn__bmod_8c_aa84a3714b3d55eb721a7a47eb0bcc110}
+
+\begin{DoxyPre}
+\subsection*{Purpose:
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+Performs numeric block updates (sup-col) in topological order.
+It features: col-col, 2cols-col, 3cols-col, and sup-col updates.
+Special processing on the supernodal portion of L[*,j]
+Return value:   0 - successful return
+              > 0 - number of bytes allocated when run out of space
+\end{DoxyPre}
+ \hypertarget{zcolumn__bmod_8c_afb6f65890b5348dc1692d01b087be35d}{}\index{zcolumn\+\_\+bmod.\+c@{zcolumn\+\_\+bmod.\+c}!zlsolve@{zlsolve}}
+\index{zlsolve@{zlsolve}!zcolumn\+\_\+bmod.\+c@{zcolumn\+\_\+bmod.\+c}}
+\subsubsection[{zlsolve}]{\setlength{\rightskip}{0pt plus 5cm}void zlsolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{zcolumn__bmod_8c_afb6f65890b5348dc1692d01b087be35d}
+\hypertarget{zcolumn__bmod_8c_a1165292a4e2a6c282638868bd503fb7a}{}\index{zcolumn\+\_\+bmod.\+c@{zcolumn\+\_\+bmod.\+c}!zmatvec@{zmatvec}}
+\index{zmatvec@{zmatvec}!zcolumn\+\_\+bmod.\+c@{zcolumn\+\_\+bmod.\+c}}
+\subsubsection[{zmatvec}]{\setlength{\rightskip}{0pt plus 5cm}void zmatvec (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{zcolumn__bmod_8c_a1165292a4e2a6c282638868bd503fb7a}
+\hypertarget{zcolumn__bmod_8c_ac9798dda11fa387039351d70fa59ce3b}{}\index{zcolumn\+\_\+bmod.\+c@{zcolumn\+\_\+bmod.\+c}!zusolve@{zusolve}}
+\index{zusolve@{zusolve}!zcolumn\+\_\+bmod.\+c@{zcolumn\+\_\+bmod.\+c}}
+\subsubsection[{zusolve}]{\setlength{\rightskip}{0pt plus 5cm}void zusolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{, }
+\item[{{\bf doublecomplex} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{zcolumn__bmod_8c_ac9798dda11fa387039351d70fa59ce3b}

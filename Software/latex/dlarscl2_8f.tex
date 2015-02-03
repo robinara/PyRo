@@ -1,0 +1,70 @@
+\hypertarget{dlarscl2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlarscl2.f File Reference}
+\label{dlarscl2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlarscl2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlarscl2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlarscl2_8f_aaa573663b0e79de2061ce4a359488233}{dlarscl2} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, X, L\+D\+X)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+R\+S\+C\+L2} performs reciprocal diagonal scaling on a vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlarscl2_8f_aaa573663b0e79de2061ce4a359488233}{}\index{dlarscl2.\+f@{dlarscl2.\+f}!dlarscl2@{dlarscl2}}
+\index{dlarscl2@{dlarscl2}!dlarscl2.\+f@{dlarscl2.\+f}}
+\subsubsection[{dlarscl2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlarscl2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{D, }
+\item[{double {\bf precision}, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X}
+\end{DoxyParamCaption}
+)}\label{dlarscl2_8f_aaa573663b0e79de2061ce4a359488233}
+
+
+{\bfseries D\+L\+A\+R\+S\+C\+L2} performs reciprocal diagonal scaling on a vector. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLARSCL2 performs a reciprocal diagonal scaling on an vector:
+   x <-- inv(D) * x
+ where the diagonal matrix D is stored as a vector.
+
+ Eventually to be replaced by BLAS_dge_diag_scale in the new BLAS
+ standard.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+     The number of rows of D and X. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+     The number of columns of D and X. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION array, dimension (M)
+     Diagonal matrix D, stored as a vector of length M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is DOUBLE PRECISION array, dimension (LDX,N)
+     On entry, the vector X to be scaled by D.
+     On exit, the scaled vector.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+     The leading dimension of the vector X. LDX >= 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

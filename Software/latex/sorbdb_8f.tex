@@ -1,0 +1,234 @@
+\hypertarget{sorbdb_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/sorbdb.f File Reference}
+\label{sorbdb_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/sorbdb.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/sorbdb.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{sorbdb_8f_aa04a3d67b4fcd7d82261d71816bce03f}{sorbdb} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, S\+I\+G\+N\+S, M, P, Q, X11, L\+D\+X11, X12, L\+D\+X12, X21, L\+D\+X21, X22, L\+D\+X22, T\+H\+E\+T\+A, P\+H\+I, T\+A\+U\+P1, T\+A\+U\+P2, T\+A\+U\+Q1, T\+A\+U\+Q2, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+O\+R\+B\+D\+B} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{sorbdb_8f_aa04a3d67b4fcd7d82261d71816bce03f}{}\index{sorbdb.\+f@{sorbdb.\+f}!sorbdb@{sorbdb}}
+\index{sorbdb@{sorbdb}!sorbdb.\+f@{sorbdb.\+f}}
+\subsubsection[{sorbdb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sorbdb (
+\begin{DoxyParamCaption}
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{character}]{S\+I\+G\+N\+S, }
+\item[{integer}]{M, }
+\item[{integer}]{P, }
+\item[{integer}]{Q, }
+\item[{real, dimension( ldx11, $\ast$ )}]{X11, }
+\item[{integer}]{L\+D\+X11, }
+\item[{real, dimension( ldx12, $\ast$ )}]{X12, }
+\item[{integer}]{L\+D\+X12, }
+\item[{real, dimension( ldx21, $\ast$ )}]{X21, }
+\item[{integer}]{L\+D\+X21, }
+\item[{real, dimension( ldx22, $\ast$ )}]{X22, }
+\item[{integer}]{L\+D\+X22, }
+\item[{real, dimension( $\ast$ )}]{T\+H\+E\+T\+A, }
+\item[{real, dimension( $\ast$ )}]{P\+H\+I, }
+\item[{real, dimension( $\ast$ )}]{T\+A\+U\+P1, }
+\item[{real, dimension( $\ast$ )}]{T\+A\+U\+P2, }
+\item[{real, dimension( $\ast$ )}]{T\+A\+U\+Q1, }
+\item[{real, dimension( $\ast$ )}]{T\+A\+U\+Q2, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{sorbdb_8f_aa04a3d67b4fcd7d82261d71816bce03f}
+
+
+{\bfseries S\+O\+R\+B\+D\+B} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SORBDB simultaneously bidiagonalizes the blocks of an M-by-M
+ partitioned orthogonal matrix X:
+
+                                 [ B11 | B12 0  0 ]
+     [ X11 | X12 ]   [ P1 |    ] [  0  |  0 -I  0 ] [ Q1 |    ]**T
+ X = [-----------] = [---------] [----------------] [---------]   .
+     [ X21 | X22 ]   [    | P2 ] [ B21 | B22 0  0 ] [    | Q2 ]
+                                 [  0  |  0  0  I ]
+
+ X11 is P-by-Q. Q must be no larger than P, M-P, or M-Q. (If this is
+ not the case, then X must be transposed and/or permuted. This can be
+ done in constant time using the TRANS and SIGNS options. See SORCSD
+ for details.)
+
+ The orthogonal matrices P1, P2, Q1, and Q2 are P-by-P, (M-P)-by-
+ (M-P), Q-by-Q, and (M-Q)-by-(M-Q), respectively. They are
+ represented implicitly by Householder vectors.
+
+ B11, B12, B21, and B22 are Q-by-Q bidiagonal matrices represented
+ implicitly by angles THETA, PHI.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER
+          = 'T':      X, U1, U2, V1T, and V2T are stored in row-major
+                      order;
+          otherwise:  X, U1, U2, V1T, and V2T are stored in column-
+                      major order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+I\+G\+N\+S} & \begin{DoxyVerb}          SIGNS is CHARACTER
+          = 'O':      The lower-left block is made nonpositive (the
+                      "other" convention);
+          otherwise:  The upper-right block is made nonpositive (the
+                      "default" convention).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows and columns in X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P} & \begin{DoxyVerb}          P is INTEGER
+          The number of rows in X11 and X12. 0 <= P <= M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Q} & \begin{DoxyVerb}          Q is INTEGER
+          The number of columns in X11 and X21. 0 <= Q <=
+          MIN(P,M-P,M-Q).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X11} & \begin{DoxyVerb}          X11 is REAL array, dimension (LDX11,Q)
+          On entry, the top-left block of the orthogonal matrix to be
+          reduced. On exit, the form depends on TRANS:
+          If TRANS = 'N', then
+             the columns of tril(X11) specify reflectors for P1,
+             the rows of triu(X11,1) specify reflectors for Q1;
+          else TRANS = 'T', and
+             the rows of triu(X11) specify reflectors for P1,
+             the columns of tril(X11,-1) specify reflectors for Q1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X11} & \begin{DoxyVerb}          LDX11 is INTEGER
+          The leading dimension of X11. If TRANS = 'N', then LDX11 >=
+          P; else LDX11 >= Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X12} & \begin{DoxyVerb}          X12 is REAL array, dimension (LDX12,M-Q)
+          On entry, the top-right block of the orthogonal matrix to
+          be reduced. On exit, the form depends on TRANS:
+          If TRANS = 'N', then
+             the rows of triu(X12) specify the first P reflectors for
+             Q2;
+          else TRANS = 'T', and
+             the columns of tril(X12) specify the first P reflectors
+             for Q2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X12} & \begin{DoxyVerb}          LDX12 is INTEGER
+          The leading dimension of X12. If TRANS = 'N', then LDX12 >=
+          P; else LDX11 >= M-Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X21} & \begin{DoxyVerb}          X21 is REAL array, dimension (LDX21,Q)
+          On entry, the bottom-left block of the orthogonal matrix to
+          be reduced. On exit, the form depends on TRANS:
+          If TRANS = 'N', then
+             the columns of tril(X21) specify reflectors for P2;
+          else TRANS = 'T', and
+             the rows of triu(X21) specify reflectors for P2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X21} & \begin{DoxyVerb}          LDX21 is INTEGER
+          The leading dimension of X21. If TRANS = 'N', then LDX21 >=
+          M-P; else LDX21 >= Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X22} & \begin{DoxyVerb}          X22 is REAL array, dimension (LDX22,M-Q)
+          On entry, the bottom-right block of the orthogonal matrix to
+          be reduced. On exit, the form depends on TRANS:
+          If TRANS = 'N', then
+             the rows of triu(X22(Q+1:M-P,P+1:M-Q)) specify the last
+             M-P-Q reflectors for Q2,
+          else TRANS = 'T', and
+             the columns of tril(X22(P+1:M-Q,Q+1:M-P)) specify the last
+             M-P-Q reflectors for P2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X22} & \begin{DoxyVerb}          LDX22 is INTEGER
+          The leading dimension of X22. If TRANS = 'N', then LDX22 >=
+          M-P; else LDX22 >= M-Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+H\+E\+T\+A} & \begin{DoxyVerb}          THETA is REAL array, dimension (Q)
+          The entries of the bidiagonal blocks B11, B12, B21, B22 can
+          be computed from the angles THETA and PHI. See Further
+          Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em P\+H\+I} & \begin{DoxyVerb}          PHI is REAL array, dimension (Q-1)
+          The entries of the bidiagonal blocks B11, B12, B21, B22 can
+          be computed from the angles THETA and PHI. See Further
+          Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U\+P1} & \begin{DoxyVerb}          TAUP1 is REAL array, dimension (P)
+          The scalar factors of the elementary reflectors that define
+          P1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U\+P2} & \begin{DoxyVerb}          TAUP2 is REAL array, dimension (M-P)
+          The scalar factors of the elementary reflectors that define
+          P2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U\+Q1} & \begin{DoxyVerb}          TAUQ1 is REAL array, dimension (Q)
+          The scalar factors of the elementary reflectors that define
+          Q1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U\+Q2} & \begin{DoxyVerb}          TAUQ2 is REAL array, dimension (M-Q)
+          The scalar factors of the elementary reflectors that define
+          Q2.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (LWORK)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The dimension of the array WORK. LWORK >= M-Q.
+
+          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal size of the WORK array, returns
+          this value as the first entry of the WORK array, and no error
+          message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2013 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The bidiagonal blocks B11, B12, B21, and B22 are represented
+  implicitly by angles THETA(1), ..., THETA(Q) and PHI(1), ...,
+  PHI(Q-1). B11 and B21 are upper bidiagonal, while B21 and B22 are
+  lower bidiagonal. Every entry in each bidiagonal band is a product
+  of a sine or cosine of a THETA with a sine or cosine of a PHI. See
+  [1] or SORCSD for details.
+
+  P1, P2, Q1, and Q2 are represented as products of elementary
+  reflectors. See SORCSD for details on generating P1, P2, Q1, and Q2
+  using SORGQR and SORGLQ.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{References\+: }
+\mbox{[}1\mbox{]} Brian D. Sutton. Computing the complete C\+S decomposition. Numer. Algorithms, 50(1)\+:33-\/65, 2009. 
+\end{DoxyParagraph}

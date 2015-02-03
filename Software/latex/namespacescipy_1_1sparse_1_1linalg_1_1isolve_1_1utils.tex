@@ -1,0 +1,100 @@
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils}{}\section{scipy.\+sparse.\+linalg.\+isolve.\+utils Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils}\index{scipy.\+sparse.\+linalg.\+isolve.\+utils@{scipy.\+sparse.\+linalg.\+isolve.\+utils}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a54757949523b337fcd6a6f884b6606f6}{coerce}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_af5631c8c6e1205d4ac7efe128867d6b3}{id}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a1ac40c9540e974d3dbc3e32affb248ec}{make\+\_\+system}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a04412a92342b43fefb2c78efe66c37ec}{\+\_\+\+\_\+docformat\+\_\+\+\_\+} = \char`\"{}restructuredtext en\char`\"{}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a3d4975cee26d5d65ddef9dc4e15191a4}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}$\,$\mbox{]}
+\item 
+dictionary \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_aaf644d3a49be0e1569a8dd3638df915f}{\+\_\+coerce\+\_\+rules}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a54757949523b337fcd6a6f884b6606f6}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}!coerce@{coerce}}
+\index{coerce@{coerce}!scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}}
+\subsubsection[{coerce}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+isolve.\+utils.\+coerce (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a54757949523b337fcd6a6f884b6606f6}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_af5631c8c6e1205d4ac7efe128867d6b3}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}!id@{id}}
+\index{id@{id}!scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+isolve.\+utils.\+id (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_af5631c8c6e1205d4ac7efe128867d6b3}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a1ac40c9540e974d3dbc3e32affb248ec}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}!make\+\_\+system@{make\+\_\+system}}
+\index{make\+\_\+system@{make\+\_\+system}!scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}}
+\subsubsection[{make\+\_\+system}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+isolve.\+utils.\+make\+\_\+system (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{M, }
+\item[{}]{x0, }
+\item[{}]{b, }
+\item[{}]{xtype = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a1ac40c9540e974d3dbc3e32affb248ec}
+\begin{DoxyVerb}Make a linear system Ax=b
+
+Parameters
+----------
+A : LinearOperator
+    sparse or dense matrix (or any valid input to aslinearoperator)
+M : {LinearOperator, Nones}
+    preconditioner
+    sparse or dense matrix (or any valid input to aslinearoperator)
+x0 : {array_like, None}
+    initial guess to iterative method
+b : array_like
+    right hand side
+xtype : {'f', 'd', 'F', 'D', None}
+    dtype of the x vector
+
+Returns
+-------
+(A, M, x, b, postprocess)
+    A : LinearOperator
+        matrix of the linear system
+    M : LinearOperator
+        preconditioner
+    x : rank 1 ndarray
+        initial guess
+    b : rank 1 ndarray
+        right hand side
+    postprocess : function
+        converts the solution vector to the appropriate
+        type and dimensions (e.g. (N,1) matrix)\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a3d4975cee26d5d65ddef9dc4e15191a4}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+isolve.\+utils.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}$\,$\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a3d4975cee26d5d65ddef9dc4e15191a4}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a04412a92342b43fefb2c78efe66c37ec}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}!\+\_\+\+\_\+docformat\+\_\+\+\_\+@{\+\_\+\+\_\+docformat\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+docformat\+\_\+\+\_\+@{\+\_\+\+\_\+docformat\+\_\+\+\_\+}!scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}}
+\subsubsection[{\+\_\+\+\_\+docformat\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+sparse.\+linalg.\+isolve.\+utils.\+\_\+\+\_\+docformat\+\_\+\+\_\+ = \char`\"{}restructuredtext en\char`\"{}}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_a04412a92342b43fefb2c78efe66c37ec}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_aaf644d3a49be0e1569a8dd3638df915f}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}!\+\_\+coerce\+\_\+rules@{\+\_\+coerce\+\_\+rules}}
+\index{\+\_\+coerce\+\_\+rules@{\+\_\+coerce\+\_\+rules}!scipy\+::sparse\+::linalg\+::isolve\+::utils@{scipy\+::sparse\+::linalg\+::isolve\+::utils}}
+\subsubsection[{\+\_\+coerce\+\_\+rules}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+sparse.\+linalg.\+isolve.\+utils.\+\_\+coerce\+\_\+rules}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1utils_aaf644d3a49be0e1569a8dd3638df915f}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{(\textcolor{stringliteral}{'f'},\textcolor{stringliteral}{'f'}):\textcolor{stringliteral}{'f'}, (\textcolor{stringliteral}{'f'},\textcolor{stringliteral}{'d'}):\textcolor{stringliteral}{'d'}, (\textcolor{stringliteral}{'f'},\textcolor{stringliteral}{'F'}):\textcolor{stringliteral}{'F'},
+2                  (\textcolor{stringliteral}{'f'},\textcolor{stringliteral}{'D'}):\textcolor{stringliteral}{'D'}, (\textcolor{stringliteral}{'d'},\textcolor{stringliteral}{'f'}):\textcolor{stringliteral}{'d'}, (\textcolor{stringliteral}{'d'},\textcolor{stringliteral}{'d'}):\textcolor{stringliteral}{'d'},
+3                  (\textcolor{stringliteral}{'d'},\textcolor{stringliteral}{'F'}):\textcolor{stringliteral}{'D'}, (\textcolor{stringliteral}{'d'},\textcolor{stringliteral}{'D'}):\textcolor{stringliteral}{'D'}, (\textcolor{stringliteral}{'F'},\textcolor{stringliteral}{'f'}):\textcolor{stringliteral}{'F'},
+4                  (\textcolor{stringliteral}{'F'},\textcolor{stringliteral}{'d'}):\textcolor{stringliteral}{'D'}, (\textcolor{stringliteral}{'F'},\textcolor{stringliteral}{'F'}):\textcolor{stringliteral}{'F'}, (\textcolor{stringliteral}{'F'},\textcolor{stringliteral}{'D'}):\textcolor{stringliteral}{'D'},
+5                  (\textcolor{stringliteral}{'D'},\textcolor{stringliteral}{'f'}):\textcolor{stringliteral}{'D'}, (\textcolor{stringliteral}{'D'},\textcolor{stringliteral}{'d'}):\textcolor{stringliteral}{'D'}, (\textcolor{stringliteral}{'D'},\textcolor{stringliteral}{'F'}):\textcolor{stringliteral}{'D'},
+6                  (\textcolor{stringliteral}{'D'},\textcolor{stringliteral}{'D'}):\textcolor{stringliteral}{'D'}\}
+\end{DoxyCode}

@@ -1,0 +1,127 @@
+\hypertarget{clatdf_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clatdf.f File Reference}
+\label{clatdf_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clatdf.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clatdf.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clatdf_8f_afbf66d52fc55dd022234b27ea0d3efff}{clatdf} (I\+J\+O\+B, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, Z, L\+D\+Z, R\+H\+S, R\+D\+S\+U\+M, R\+D\+S\+C\+A\+L, I\+P\+I\+V, J\+P\+I\+V)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+T\+D\+F} uses the L\+U factorization of the n-\/by-\/n matrix computed by sgetc2 and computes a contribution to the reciprocal Dif-\/estimate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clatdf_8f_afbf66d52fc55dd022234b27ea0d3efff}{}\index{clatdf.\+f@{clatdf.\+f}!clatdf@{clatdf}}
+\index{clatdf@{clatdf}!clatdf.\+f@{clatdf.\+f}}
+\subsubsection[{clatdf}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clatdf (
+\begin{DoxyParamCaption}
+\item[{integer}]{I\+J\+O\+B, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{R\+H\+S, }
+\item[{real}]{R\+D\+S\+U\+M, }
+\item[{real}]{R\+D\+S\+C\+A\+L, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{integer, dimension( $\ast$ )}]{J\+P\+I\+V}
+\end{DoxyParamCaption}
+)}\label{clatdf_8f_afbf66d52fc55dd022234b27ea0d3efff}
+
+
+{\bfseries C\+L\+A\+T\+D\+F} uses the L\+U factorization of the n-\/by-\/n matrix computed by sgetc2 and computes a contribution to the reciprocal Dif-\/estimate. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLATDF computes the contribution to the reciprocal Dif-estimate
+ by solving for x in Z * x = b, where b is chosen such that the norm
+ of x is as large as possible. It is assumed that LU decomposition
+ of Z has been computed by CGETC2. On entry RHS = f holds the
+ contribution from earlier solved sub-systems, and on return RHS = x.
+
+ The factorization of Z returned by CGETC2 has the form
+ Z = P * L * U * Q, where P and Q are permutation matrices. L is lower
+ triangular with unit diagonal elements and U is upper triangular.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I\+J\+O\+B} & \begin{DoxyVerb}          IJOB is INTEGER
+          IJOB = 2: First compute an approximative null-vector e
+              of Z using CGECON, e is normalized and solve for
+              Zx = +-e - f with the sign giving the greater value of
+              2-norm(x).  About 5 times as expensive as Default.
+          IJOB .ne. 2: Local look ahead strategy where
+              all entries of the r.h.s. b is choosen as either +1 or
+              -1.  Default.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix Z.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Z} & \begin{DoxyVerb}          Z is REAL array, dimension (LDZ, N)
+          On entry, the LU part of the factorization of the n-by-n
+          matrix Z computed by CGETC2:  Z = P * L * U * Q\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDA >= max(1, N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em R\+H\+S} & \begin{DoxyVerb}          RHS is REAL array, dimension (N).
+          On entry, RHS contains contributions from other subsystems.
+          On exit, RHS contains the solution of the subsystem with
+          entries according to the value of IJOB (see above).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em R\+D\+S\+U\+M} & \begin{DoxyVerb}          RDSUM is REAL
+          On entry, the sum of squares of computed contributions to
+          the Dif-estimate under computation by CTGSYL, where the
+          scaling factor RDSCAL (see below) has been factored out.
+          On exit, the corresponding sum of squares updated with the
+          contributions from the current sub-system.
+          If TRANS = 'T' RDSUM is not touched.
+          NOTE: RDSUM only makes sense when CTGSY2 is called by CTGSYL.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em R\+D\+S\+C\+A\+L} & \begin{DoxyVerb}          RDSCAL is REAL
+          On entry, scaling factor used to prevent overflow in RDSUM.
+          On exit, RDSCAL is updated w.r.t. the current contributions
+          in RDSUM.
+          If TRANS = 'T', RDSCAL is not touched.
+          NOTE: RDSCAL only makes sense when CTGSY2 is called by
+          CTGSYL.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N).
+          The pivot indices; for 1 <= i <= N, row i of the
+          matrix has been interchanged with row IPIV(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J\+P\+I\+V} & \begin{DoxyVerb}          JPIV is INTEGER array, dimension (N).
+          The pivot indices; for 1 <= j <= N, column j of the
+          matrix has been interchanged with column JPIV(j).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+This routine is a further developed implementation of algorithm B\+S\+O\+L\+V\+E in \mbox{[}1\mbox{]} using complete pivoting in the L\+U factorization. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Contributors\+: }
+Bo Kagstrom and Peter Poromaa, Department of Computing Science, Umea University, S-\/901 87 Umea, Sweden. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{References\+: }
+\mbox{[}1\mbox{]} Bo Kagstrom and Lars Westin, Generalized Schur Methods with Condition Estimators for Solving the Generalized Sylvester Equation, I\+E\+E\+E Transactions on Automatic Control, Vol. 34, No. 7, July 1989, pp 745-\/751.
+\end{DoxyParagraph}
+\mbox{[}2\mbox{]} Peter Poromaa, On Efficient and Robust Estimators for the Separation between two Regular \hyperlink{classMatrix}{Matrix} Pairs with Applications in Condition Estimation. Report U\+M\+I\+N\+F-\/95.\+05, Department of Computing Science, Umea University, S-\/901 87 Umea, Sweden,
+\begin{DoxyEnumerate}
+\item 
+\end{DoxyEnumerate}

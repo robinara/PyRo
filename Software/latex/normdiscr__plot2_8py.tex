@@ -1,0 +1,56 @@
+\hypertarget{normdiscr__plot2_8py}{}\section{packages/scipy-\/0.14.0/doc/source/tutorial/examples/normdiscr\+\_\+plot2.py File Reference}
+\label{normdiscr__plot2_8py}\index{packages/scipy-\/0.\+14.\+0/doc/source/tutorial/examples/normdiscr\+\_\+plot2.\+py@{packages/scipy-\/0.\+14.\+0/doc/source/tutorial/examples/normdiscr\+\_\+plot2.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacenormdiscr__plot2}{normdiscr\+\_\+plot2}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacenormdiscr__plot2_a5eedafe3a4e06177c196101c8886ba1f}{normdiscr\+\_\+plot2.\+npoints} = 20
+\item 
+int \hyperlink{namespacenormdiscr__plot2_ae9b2c28b1212df96f1a41fd298ad4390}{normdiscr\+\_\+plot2.\+npointsh} = npoints/2
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_abb90b23055cbc2713f40e135104e4a54}{normdiscr\+\_\+plot2.\+npointsf} = float(npoints)
+\item 
+int \hyperlink{namespacenormdiscr__plot2_a75e9153d69cb7c81a7ce8a505f2aa7ae}{normdiscr\+\_\+plot2.\+nbound} = 4
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a1d8a343b3fc043bbc9cd58f5e5649453}{normdiscr\+\_\+plot2.\+normbound} = (1 + 1 / npointsf)
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a62ec823ef29766de66e391bd4a2dc284}{normdiscr\+\_\+plot2.\+grid} = np.\+arange(-\/npointsh, npointsh+2,1)
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a88023cbc8a6175f64d36ce073d725556}{normdiscr\+\_\+plot2.\+gridlimitsnorm} = (grid -\/ 0.\+5)
+\item 
+float \hyperlink{namespacenormdiscr__plot2_a64e64095e5aa8deecc32daac5b046c2a}{normdiscr\+\_\+plot2.\+gridlimits} = grid-\/0.\+5
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a5548df286332e74becd4b4e305f43984}{normdiscr\+\_\+plot2.\+probs} = \hyperlink{nnls_8f_a09a61e17e6534125097a72c24ec1380b}{np.\+diff}(stats.\+truncnorm.\+cdf(gridlimitsnorm, -\/normbound, normbound))
+\item 
+\hyperlink{namespacenormdiscr__plot2_acb33a5c700b9bdb2d94bd5120a53a126}{normdiscr\+\_\+plot2.\+gridint} = grid
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a2441ca073bb0331350476716954626c7}{normdiscr\+\_\+plot2.\+normdiscrete}
+\item 
+int \hyperlink{namespacenormdiscr__plot2_a8c2b3742f5dc406632d71d4e5aa37df7}{normdiscr\+\_\+plot2.\+n\+\_\+sample} = 500
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a1929219debd8806bf017653adc7fc911}{normdiscr\+\_\+plot2.\+rvs} = normdiscrete.\+rvs(size=n\+\_\+sample)
+\item 
+\hyperlink{namespacenormdiscr__plot2_a9138836ed78a0a4ce4046b410560ee6c}{normdiscr\+\_\+plot2.\+rvsnd} = rvs
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a4888d25c27af56764826f51647db471a}{normdiscr\+\_\+plot2.\+sfreq} = np.\+vstack(\mbox{[}gridint,f,probs$\ast$n\+\_\+sample\mbox{]})
+\item 
+list \hyperlink{namespacenormdiscr__plot2_a582805d46fcf8730646fa6cf7ea00b7d}{normdiscr\+\_\+plot2.\+fs} = sfreq\mbox{[}\+:,1\mbox{]}
+\item 
+list \hyperlink{namespacenormdiscr__plot2_aa348b068eff201e8e9175a6f94404112}{normdiscr\+\_\+plot2.\+ft} = sfreq\mbox{[}\+:,2\mbox{]}
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_aa6b0f5d41e331e7549b122192c1db0a0}{normdiscr\+\_\+plot2.\+nd\+\_\+std} = \hyperlink{vecuops_8cc_ac9f82fdb8cd289615247f897852ee5f2}{np.\+sqrt}(normdiscrete.\+stats(moments='v'))
+\item 
+\hyperlink{namespacenormdiscr__plot2_ad3d531a849a128e7a798433179420165}{normdiscr\+\_\+plot2.\+ind} = gridint
+\item 
+float \hyperlink{namespacenormdiscr__plot2_a25df6e806f2a5936e42f0dbb45a6d0ab}{normdiscr\+\_\+plot2.\+width} = 0.\+35
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_ae6ee99a8c52300b90e4de7fc466ebfe9}{normdiscr\+\_\+plot2.\+rects1} = \hyperlink{eepromer_8c_a2924c0b64ca8f0b241891bcc826b5602}{plt.\+bar}(ind, ft, width, color='\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b}')
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_ae0d990d06209b61e3d8b594d36937c72}{normdiscr\+\_\+plot2.\+rects2} = \hyperlink{eepromer_8c_a2924c0b64ca8f0b241891bcc826b5602}{plt.\+bar}(ind+width, fs, width, color='\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}')
+\item 
+tuple \hyperlink{namespacenormdiscr__plot2_a55c7317cc02371eb982a60573ed2a46f}{normdiscr\+\_\+plot2.\+normline}
+\end{DoxyCompactItemize}

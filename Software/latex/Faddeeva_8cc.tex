@@ -1,0 +1,43 @@
+\hypertarget{Faddeeva_8cc}{}\section{packages/scipy-\/0.14.0/scipy/special/\+Faddeeva.cc File Reference}
+\label{Faddeeva_8cc}\index{packages/scipy-\/0.\+14.\+0/scipy/special/\+Faddeeva.\+cc@{packages/scipy-\/0.\+14.\+0/scipy/special/\+Faddeeva.\+cc}}
+{\ttfamily \#include \char`\"{}Faddeeva.\+hh\char`\"{}}\\*
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include $<$numpy/npy\+\_\+math.\+h$>$}\\*
+{\ttfamily \#include $<$cfloat$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Faddeeva_8cc_a69e3f647950a0051ca6522640a958bd9}{my\+\_\+isinf}~npy\+\_\+isinf
+\item 
+\#define \hyperlink{Faddeeva_8cc_a8d378b23825b1b086612eb7c5e0d6496}{my\+\_\+isnan}~npy\+\_\+isnan
+\item 
+\#define \hyperlink{Faddeeva_8cc_a0d11701708bc88fe221ef6f70aae91b3}{my\+\_\+copysign}~npy\+\_\+copysign
+\item 
+\#define \hyperlink{Faddeeva_8cc_a311d23688bfa914e83491178976adab9}{Inf}~N\+P\+Y\+\_\+\+I\+N\+F\+I\+N\+I\+T\+Y
+\item 
+\#define \hyperlink{Faddeeva_8cc_a953f667fb27fb68dd74a487d002b19b5}{Na\+N}~N\+P\+Y\+\_\+\+N\+A\+N
+\item 
+\#define \hyperlink{Faddeeva_8cc_a164b067c74dd1cffc4b85663b6e09c44}{U\+S\+E\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E\+D\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N}~1
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Faddeeva_8cc_a311d23688bfa914e83491178976adab9}{}\index{Faddeeva.\+cc@{Faddeeva.\+cc}!Inf@{Inf}}
+\index{Inf@{Inf}!Faddeeva.\+cc@{Faddeeva.\+cc}}
+\subsubsection[{Inf}]{\setlength{\rightskip}{0pt plus 5cm}\#define Inf~N\+P\+Y\+\_\+\+I\+N\+F\+I\+N\+I\+T\+Y}\label{Faddeeva_8cc_a311d23688bfa914e83491178976adab9}
+\hypertarget{Faddeeva_8cc_a0d11701708bc88fe221ef6f70aae91b3}{}\index{Faddeeva.\+cc@{Faddeeva.\+cc}!my\+\_\+copysign@{my\+\_\+copysign}}
+\index{my\+\_\+copysign@{my\+\_\+copysign}!Faddeeva.\+cc@{Faddeeva.\+cc}}
+\subsubsection[{my\+\_\+copysign}]{\setlength{\rightskip}{0pt plus 5cm}\#define my\+\_\+copysign~npy\+\_\+copysign}\label{Faddeeva_8cc_a0d11701708bc88fe221ef6f70aae91b3}
+\hypertarget{Faddeeva_8cc_a69e3f647950a0051ca6522640a958bd9}{}\index{Faddeeva.\+cc@{Faddeeva.\+cc}!my\+\_\+isinf@{my\+\_\+isinf}}
+\index{my\+\_\+isinf@{my\+\_\+isinf}!Faddeeva.\+cc@{Faddeeva.\+cc}}
+\subsubsection[{my\+\_\+isinf}]{\setlength{\rightskip}{0pt plus 5cm}\#define my\+\_\+isinf~npy\+\_\+isinf}\label{Faddeeva_8cc_a69e3f647950a0051ca6522640a958bd9}
+\hypertarget{Faddeeva_8cc_a8d378b23825b1b086612eb7c5e0d6496}{}\index{Faddeeva.\+cc@{Faddeeva.\+cc}!my\+\_\+isnan@{my\+\_\+isnan}}
+\index{my\+\_\+isnan@{my\+\_\+isnan}!Faddeeva.\+cc@{Faddeeva.\+cc}}
+\subsubsection[{my\+\_\+isnan}]{\setlength{\rightskip}{0pt plus 5cm}\#define my\+\_\+isnan~npy\+\_\+isnan}\label{Faddeeva_8cc_a8d378b23825b1b086612eb7c5e0d6496}
+\hypertarget{Faddeeva_8cc_a953f667fb27fb68dd74a487d002b19b5}{}\index{Faddeeva.\+cc@{Faddeeva.\+cc}!Na\+N@{Na\+N}}
+\index{Na\+N@{Na\+N}!Faddeeva.\+cc@{Faddeeva.\+cc}}
+\subsubsection[{Na\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define Na\+N~N\+P\+Y\+\_\+\+N\+A\+N}\label{Faddeeva_8cc_a953f667fb27fb68dd74a487d002b19b5}
+\hypertarget{Faddeeva_8cc_a164b067c74dd1cffc4b85663b6e09c44}{}\index{Faddeeva.\+cc@{Faddeeva.\+cc}!U\+S\+E\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E\+D\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N@{U\+S\+E\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E\+D\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N}}
+\index{U\+S\+E\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E\+D\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N@{U\+S\+E\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E\+D\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N}!Faddeeva.\+cc@{Faddeeva.\+cc}}
+\subsubsection[{U\+S\+E\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E\+D\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+S\+E\+\_\+\+C\+O\+N\+T\+I\+N\+U\+E\+D\+\_\+\+F\+R\+A\+C\+T\+I\+O\+N~1}\label{Faddeeva_8cc_a164b067c74dd1cffc4b85663b6e09c44}

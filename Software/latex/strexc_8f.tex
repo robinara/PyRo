@@ -1,0 +1,118 @@
+\hypertarget{strexc_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/strexc.f File Reference}
+\label{strexc_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/strexc.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/strexc.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{strexc_8f_aac5dcba926093528530f1c801b6a133f}{strexc} (C\+O\+M\+P\+Q, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, T, L\+D\+T, Q, L\+D\+Q, I\+F\+S\+T, I\+L\+S\+T, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+T\+R\+E\+X\+C} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{strexc_8f_aac5dcba926093528530f1c801b6a133f}{}\index{strexc.\+f@{strexc.\+f}!strexc@{strexc}}
+\index{strexc@{strexc}!strexc.\+f@{strexc.\+f}}
+\subsubsection[{strexc}]{\setlength{\rightskip}{0pt plus 5cm}subroutine strexc (
+\begin{DoxyParamCaption}
+\item[{character}]{C\+O\+M\+P\+Q, }
+\item[{integer}]{N, }
+\item[{real, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{real, dimension( ldq, $\ast$ )}]{Q, }
+\item[{integer}]{L\+D\+Q, }
+\item[{integer}]{I\+F\+S\+T, }
+\item[{integer}]{I\+L\+S\+T, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{strexc_8f_aac5dcba926093528530f1c801b6a133f}
+
+
+{\bfseries S\+T\+R\+E\+X\+C} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} STREXC reorders the real Schur factorization of a real matrix
+ A = Q*T*Q**T, so that the diagonal block of T with row index IFST is
+ moved to row ILST.
+
+ The real Schur form T is reordered by an orthogonal similarity
+ transformation Z**T*T*Z, and optionally the matrix Q of Schur vectors
+ is updated by postmultiplying it with Z.
+
+ T must be in Schur canonical form (as returned by SHSEQR), that is,
+ block upper triangular with 1-by-1 and 2-by-2 diagonal blocks; each
+ 2-by-2 diagonal block has its diagonal elements equal and its
+ off-diagonal elements of opposite sign.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em C\+O\+M\+P\+Q} & \begin{DoxyVerb}          COMPQ is CHARACTER*1
+          = 'V':  update the matrix Q of Schur vectors;
+          = 'N':  do not update Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix T. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em T} & \begin{DoxyVerb}          T is REAL array, dimension (LDT,N)
+          On entry, the upper quasi-triangular matrix T, in Schur
+          Schur canonical form.
+          On exit, the reordered upper quasi-triangular matrix, again
+          in Schur canonical form.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T. LDT >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Q} & \begin{DoxyVerb}          Q is REAL array, dimension (LDQ,N)
+          On entry, if COMPQ = 'V', the matrix Q of Schur vectors.
+          On exit, if COMPQ = 'V', Q has been postmultiplied by the
+          orthogonal transformation matrix Z which reorders T.
+          If COMPQ = 'N', Q is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Q} & \begin{DoxyVerb}          LDQ is INTEGER
+          The leading dimension of the array Q.  LDQ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em I\+F\+S\+T} & \begin{DoxyVerb}          IFST is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em I\+L\+S\+T} & \begin{DoxyVerb}          ILST is INTEGER
+
+          Specify the reordering of the diagonal blocks of T.
+          The block with row index IFST is moved to row ILST, by a
+          sequence of transpositions between adjacent blocks.
+          On exit, if IFST pointed on entry to the second row of a
+          2-by-2 block, it is changed to point to the first row; ILST
+          always points to the first row of the block in its final
+          position (which may differ from its input value by +1 or -1).
+          1 <= IFST <= N; 1 <= ILST <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          = 1:  two adjacent blocks were too close to swap (the problem
+                is very ill-conditioned); T may have been partially
+                reordered, and ILST points to the first row of the
+                current position of the block being moved.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

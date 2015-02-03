@@ -1,0 +1,313 @@
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline}{}\section{scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline Class Reference}
+\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline}\index{scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline@{scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline}}
+Inheritance diagram for scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.600619cm]{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a4dcdebbf33ce222eb8f32f0364eb6edc}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a241cdf6abaa2e61c3bdb612f50122919}{set\+\_\+smoothing\+\_\+factor}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a54c17348ffd515c4c304c3d11fc66de9}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_ac4583ae80b59e2fd6b0c3a87d9fac341}{get\+\_\+knots}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a5cc625cfd0162bb605a656d44f81f633}{get\+\_\+coeffs}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a1a48028d345789a69e69d2e5f16aebf1}{get\+\_\+residual}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a49272a30738ff870abb4dc377736fb32}{integral}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_aea309235b930d91a31694bc181573b63}{derivatives}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a11233207747b516233bb2ce90350f297}{roots}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_af417d14fa8251f8b2830e512bec0804f}{derivative}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a2c82074d8dad3d44f6930cbbaddd7c4a}{antiderivative}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}One-dimensional smoothing spline fit to a given set of data points.
+
+Fits a spline y=s(x) of degree `k` to the provided `x`, `y` data.  `s`
+specifies the number of knots by specifying a smoothing condition.
+
+Parameters
+----------
+x : (N,) array_like
+    1-D array of independent input data. Must be increasing.
+y : (N,) array_like
+    1-D array of dependent input data, of the same length as `x`.
+w : (N,) array_like, optional
+    Weights for spline fitting.  Must be positive.  If None (default),
+    weights are all equal.
+bbox : (2,) array_like, optional
+    2-sequence specifying the boundary of the approximation interval. If
+    None (default), ``bbox=[x[0], x[-1]]``.
+k : int, optional
+    Degree of the smoothing spline.  Must be <= 5.
+s : float or None, optional
+    Positive smoothing factor used to choose the number of knots.  Number
+    of knots will be increased until the smoothing condition is satisfied:
+
+    sum((w[i]*(y[i]-s(x[i])))**2,axis=0) <= s
+
+    If None (default), s=len(w) which should be a good value if 1/w[i] is
+    an estimate of the standard deviation of y[i].  If 0, spline will
+    interpolate through all data points.
+
+See Also
+--------
+InterpolatedUnivariateSpline : Subclass with smoothing forced to 0
+LSQUnivariateSpline : Subclass in which knots are user-selected instead of
+    being set by smoothing condition
+splrep : An older, non object-oriented wrapping of FITPACK
+splev, sproot, splint, spalde
+BivariateSpline : A similar class for two-dimensional spline interpolation
+
+Notes
+-----
+The number of data points must be larger than the spline degree `k`.
+
+Examples
+--------
+>>> from numpy import linspace,exp
+>>> from numpy.random import randn
+>>> import matplotlib.pyplot as plt
+>>> from scipy.interpolate import UnivariateSpline
+>>> x = linspace(-3, 3, 100)
+>>> y = exp(-x**2) + randn(100)/10
+>>> s = UnivariateSpline(x, y, s=1)
+>>> xs = linspace(-3, 3, 1000)
+>>> ys = s(xs)
+>>> plt.plot(x, y, '.-')
+>>> plt.plot(xs, ys)
+>>> plt.show()
+
+xs,ys is now a smoothed, super-sampled version of the noisy gaussian x,y.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a4dcdebbf33ce222eb8f32f0364eb6edc}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{w = {\ttfamily None}, }
+\item[{}]{bbox = {\ttfamily \mbox{[}None\mbox{]}$\ast$2}, }
+\item[{}]{k = {\ttfamily 3}, }
+\item[{}]{s = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a4dcdebbf33ce222eb8f32f0364eb6edc}
+\begin{DoxyVerb}Input:
+  x,y   - 1-d sequences of data points (x must be
+  in strictly ascending order)
+
+Optional input:
+  w          - positive 1-d sequence of weights
+  bbox       - 2-sequence specifying the boundary of
+       the approximation interval.
+       By default, bbox=[x[0],x[-1]]
+  k=3        - degree of the univariate spline.
+  s          - positive smoothing factor defined for
+       estimation condition:
+         sum((w[i]*(y[i]-s(x[i])))**2,axis=0) <= s
+       Default s=len(w) which should be a good value
+       if 1/w[i] is an estimate of the standard
+       deviation of y[i].
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a54c17348ffd515c4c304c3d11fc66de9}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{nu = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a54c17348ffd515c4c304c3d11fc66de9}
+\begin{DoxyVerb}Evaluate spline (or its nu-th derivative) at positions x.
+
+Note: x can be unordered but the evaluation is more efficient
+if x is (partially) ordered.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a2c82074d8dad3d44f6930cbbaddd7c4a}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!antiderivative@{antiderivative}}
+\index{antiderivative@{antiderivative}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{antiderivative}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+antiderivative (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{n = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a2c82074d8dad3d44f6930cbbaddd7c4a}
+\begin{DoxyVerb}Construct a new spline representing the antiderivative of this spline.
+
+.. versionadded:: 0.13.0
+
+Parameters
+----------
+n : int, optional
+    Order of antiderivative to evaluate. Default: 1
+
+Returns
+-------
+spline : UnivariateSpline
+    Spline of order k2=k+n representing the antiderivative of this
+    spline.
+
+See Also
+--------
+splantider, derivative
+
+Examples
+--------
+>>> from scipy.interpolate import UnivariateSpline
+>>> x = np.linspace(0, np.pi/2, 70)
+>>> y = 1 / np.sqrt(1 - 0.8*np.sin(x)**2)
+>>> spl = UnivariateSpline(x, y, s=0)
+
+The derivative is the inverse operation of the antiderivative,
+although some floating point error accumulates:
+
+>>> spl(1.7), spl.antiderivative().derivative()(1.7)
+(array(2.1565429877197317), array(2.1565429877201865))
+
+Antiderivative can be used to evaluate definite integrals:
+
+>>> ispl = spl.antiderivative()
+>>> ispl(np.pi/2) - ispl(0)
+2.2572053588768486
+
+This is indeed an approximation to the complete elliptic integral
+:math:`K(m) = \\int_0^{\\pi/2} [1 - m\\sin^2 x]^{-1/2} dx`:
+
+>>> from scipy.special import ellipk
+>>> ellipk(0.8)
+2.2572053268208538\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_af417d14fa8251f8b2830e512bec0804f}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!derivative@{derivative}}
+\index{derivative@{derivative}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{derivative}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+derivative (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{n = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_af417d14fa8251f8b2830e512bec0804f}
+\begin{DoxyVerb}Construct a new spline representing the derivative of this spline.
+
+.. versionadded:: 0.13.0
+
+Parameters
+----------
+n : int, optional
+    Order of derivative to evaluate. Default: 1
+
+Returns
+-------
+spline : UnivariateSpline
+    Spline of order k2=k-n representing the derivative of this
+    spline.
+
+See Also
+--------
+splder, antiderivative
+
+Examples
+--------
+This can be used for finding maxima of a curve:
+
+>>> from scipy.interpolate import UnivariateSpline
+>>> x = np.linspace(0, 10, 70)
+>>> y = np.sin(x)
+>>> spl = UnivariateSpline(x, y, k=4, s=0)
+
+Now, differentiate the spline and find the zeros of the
+derivative. (NB: `sproot` only works for order 3 splines, so we
+fit an order 4 spline):
+
+>>> spl.derivative().roots() / np.pi
+array([ 0.50000001,  1.5       ,  2.49999998])
+
+This agrees well with roots :math:`\pi/2 + n\pi` of `cos(x) = sin'(x)`.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_aea309235b930d91a31694bc181573b63}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!derivatives@{derivatives}}
+\index{derivatives@{derivatives}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{derivatives}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+derivatives (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_aea309235b930d91a31694bc181573b63}
+\begin{DoxyVerb}Return all derivatives of the spline at the point x.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a5cc625cfd0162bb605a656d44f81f633}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!get\+\_\+coeffs@{get\+\_\+coeffs}}
+\index{get\+\_\+coeffs@{get\+\_\+coeffs}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{get\+\_\+coeffs}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+get\+\_\+coeffs (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a5cc625cfd0162bb605a656d44f81f633}
+\begin{DoxyVerb}Return spline coefficients.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_ac4583ae80b59e2fd6b0c3a87d9fac341}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!get\+\_\+knots@{get\+\_\+knots}}
+\index{get\+\_\+knots@{get\+\_\+knots}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{get\+\_\+knots}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+get\+\_\+knots (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_ac4583ae80b59e2fd6b0c3a87d9fac341}
+\begin{DoxyVerb}Return positions of (boundary and interior) knots of the spline.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a1a48028d345789a69e69d2e5f16aebf1}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!get\+\_\+residual@{get\+\_\+residual}}
+\index{get\+\_\+residual@{get\+\_\+residual}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{get\+\_\+residual}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+get\+\_\+residual (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a1a48028d345789a69e69d2e5f16aebf1}
+\begin{DoxyVerb}Return weighted sum of squared residuals of the spline
+approximation: ``sum((w[i] * (y[i]-s(x[i])))**2, axis=0)``.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a49272a30738ff870abb4dc377736fb32}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!integral@{integral}}
+\index{integral@{integral}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{integral}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+integral (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a49272a30738ff870abb4dc377736fb32}
+\begin{DoxyVerb}Return definite integral of the spline between two given points.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a11233207747b516233bb2ce90350f297}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!roots@{roots}}
+\index{roots@{roots}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{roots}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+roots (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a11233207747b516233bb2ce90350f297}
+\begin{DoxyVerb}Return the zeros of the spline.
+
+Restriction: only cubic splines are supported by fitpack.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a241cdf6abaa2e61c3bdb612f50122919}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}!set\+\_\+smoothing\+\_\+factor@{set\+\_\+smoothing\+\_\+factor}}
+\index{set\+\_\+smoothing\+\_\+factor@{set\+\_\+smoothing\+\_\+factor}!scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Univariate\+Spline}}
+\subsubsection[{set\+\_\+smoothing\+\_\+factor}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Univariate\+Spline.\+set\+\_\+smoothing\+\_\+factor (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1UnivariateSpline_a241cdf6abaa2e61c3bdb612f50122919}
+\begin{DoxyVerb}Continue spline computation with the given smoothing
+factor s and with the knots found at the last call.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{fitpack2_8py}{fitpack2.\+py}\end{DoxyCompactItemize}

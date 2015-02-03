@@ -1,0 +1,4056 @@
+\hypertarget{slu__sdefs_8h}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/slu\+\_\+sdefs.h File Reference}
+\label{slu__sdefs_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/slu\+\_\+sdefs.\+h@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/slu\+\_\+sdefs.\+h}}
+
+
+Header file for real operations.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+\+Cnames.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}supermatrix.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+util.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \hyperlink{slu__sdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{int\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{slu__sdefs_8h_a44bbae3b1218d951ed229c461a5f14b6}{sgssv} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$, int $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$, int $\ast$)
+\begin{DoxyCompactList}\small\item\em Driver routines. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_a4d6a37b565522c7c77a173826588deee}{sgssvx} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$, int $\ast$, int $\ast$, char $\ast$, float $\ast$, float $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, void $\ast$, int, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, float $\ast$, float $\ast$, float $\ast$, float $\ast$, \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$, int $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_aff6cdbb84f0fbd4cbce7a64ea1f7eb20}{sgsisv} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$, int $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$, int $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_ab57375a81b174861bcb68ed11861a4f5}{sgsisx} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$, int $\ast$, int $\ast$, char $\ast$, float $\ast$, float $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, void $\ast$, int, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, float $\ast$, float $\ast$, \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$, int $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_abb3d30eea43abc536793244e7564e70d}{s\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int, int, int, float $\ast$, int $\ast$, int $\ast$, \hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}{Stype\+\_\+t}, \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}{Dtype\+\_\+t}, \hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60}{Mtype\+\_\+t})
+\begin{DoxyCompactList}\small\item\em Supernodal L\+U factor related. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_a77496309d539716f616365a2515aa653}{s\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int, int, int, float $\ast$, int $\ast$, int $\ast$, \hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}{Stype\+\_\+t}, \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}{Dtype\+\_\+t}, \hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60}{Mtype\+\_\+t})
+\item 
+void \hyperlink{slu__sdefs_8h_a7369dba9a8c3e34a27bdc9eba73cbe3e}{s\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\begin{DoxyCompactList}\small\item\em Copy matrix \hyperlink{classA}{A} into matrix B. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_aca98118f5539f098beff0b70c041c2e6}{s\+Create\+\_\+\+Dense\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int, int, float $\ast$, int, \hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}{Stype\+\_\+t}, \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}{Dtype\+\_\+t}, \hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60}{Mtype\+\_\+t})
+\item 
+void \hyperlink{slu__sdefs_8h_af4386b0d87e1c8886b58fcf9d243bc12}{s\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int, int, int, float $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, \hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}{Stype\+\_\+t}, \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}{Dtype\+\_\+t}, \hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60}{Mtype\+\_\+t})
+\item 
+void \hyperlink{slu__sdefs_8h_a5ef26ab4351b4ab39c2ef3d0ff5d6cb5}{s\+Copy\+\_\+\+Dense\+\_\+\+Matrix} (int, int, float $\ast$, int, float $\ast$, int)
+\item 
+void \hyperlink{slu__sdefs_8h_a8086902aa8be3fc7d04c3c82ec3a79dc}{countnz} (const int, int $\ast$, int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Count the total number of nonzeros in factors L and U, and in the symmetrically reduced L. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_aae8eb367a0a2fcdf734738bc9630df85}{ilu\+\_\+countnz} (const int, int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Count the total number of nonzeros in factors L and U. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_a7061332d759d7e4d73c1b2e5cb0bf2bf}{fixup\+L} (const int, const int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Fix up the data storage lsub for L-\/subscripts. It removes the subscript sets for structural pruning, and applies permuation to the remaining subscripts. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_aaef6f98786d0bd76103237385ddbeb9f}{sallocate\+A} (int, int, float $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Allocate storage for original matrix \hyperlink{classA}{A}. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_af006a81b576fffa92a1c848ac3191c70}{sgstrf} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int, int, int $\ast$, void $\ast$, int, int $\ast$, int $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$, int $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_ad9d54c8dfc11f1e034b4b7175be60ffb}{ssnode\+\_\+dfs} (const int, const int, const int $\ast$, const int $\ast$, const int $\ast$, int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_a60e60255360fae0b1458da070690a3a2}{ssnode\+\_\+bmod} (const int, const int, const int, float $\ast$, float $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Performs numeric block updates within the relaxed snode. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_a77baf210393e04fa71d4e73b5e60e556}{spanel\+\_\+dfs} (const int, const int, const int, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$, int $\ast$, float $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_a51486936a9ff5079afed80eb5bf8a3e0}{spanel\+\_\+bmod} (const int, const int, const int, const int, float $\ast$, float $\ast$, int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_a20dc9300377cb7240572ba34a31af3d1}{scolumn\+\_\+dfs} (const int, const int, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_ae21004feb23626f7ea648b46657a257a}{scolumn\+\_\+bmod} (const int, const int, float $\ast$, float $\ast$, int $\ast$, int $\ast$, int, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_a249a312149bcf091fcc8adbd0c536cb2}{scopy\+\_\+to\+\_\+ucol} (int, int, int $\ast$, int $\ast$, int $\ast$, float $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_ad7ddf03faedae25b4d73e0b6b33bf50c}{spivot\+L} (const int, const double, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_acf9da2c45289246ef663fc4a96d1ad78}{sprune\+L} (const int, const int $\ast$, const int, const int, const int $\ast$, const int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_ab345670a95db3f9c4b9c451224db8227}{sreadmt} (int $\ast$, int $\ast$, int $\ast$, float $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_ab79adc3c2d496feb17f359aa303211fc}{s\+Gen\+Xtrue} (int, int, float $\ast$, int)
+\item 
+void \hyperlink{slu__sdefs_8h_ac8b784b5551863e8d50047ee280c34cf}{s\+Fill\+R\+H\+S} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62}{trans\+\_\+t}, int, float $\ast$, int, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\begin{DoxyCompactList}\small\item\em Let rhs\mbox{[}i\mbox{]} = sum of i-\/th row of \hyperlink{classA}{A}, so the solution vector is all 1's. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_aea450a9c52512127d6eaaebf0a65f9ce}{sgstrs} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62}{trans\+\_\+t}, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$, int $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$, int $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_a22204c4186c4412ee33cd16285ee6bb0}{sgsitrf} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int, int, int $\ast$, void $\ast$, int, int $\ast$, int $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$, int $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_a69557d06b4e300aa6aca944561f3bb32}{sldperm} (int, int, int, int\mbox{[}$\,$\mbox{]}, int\mbox{[}$\,$\mbox{]}, float\mbox{[}$\,$\mbox{]}, int\mbox{[}$\,$\mbox{]}, float\mbox{[}$\,$\mbox{]}, float\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{slu__sdefs_8h_a714eccb6cd0fb1fc0920e8a52489f1a5}{ilu\+\_\+ssnode\+\_\+dfs} (const int, const int, const int $\ast$, const int $\ast$, const int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_aa91b3297a15ace9ac5abd65c5e708f2d}{ilu\+\_\+spanel\+\_\+dfs} (const int, const int, const int, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$, int $\ast$, float $\ast$, float $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_aab2366ea3e2cdcbf51b976432fc43616}{ilu\+\_\+scolumn\+\_\+dfs} (const int, const int, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_a35a18be483569110edc1665d13e260e3}{ilu\+\_\+scopy\+\_\+to\+\_\+ucol} (int, int, int $\ast$, int $\ast$, int $\ast$, float $\ast$, int, \hyperlink{superlu__enum__consts_8h_a0cb73c13a7c2390c3a9a0a8913477ff0}{milu\+\_\+t}, double, int, float $\ast$, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$, float $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_ab7f61e0a95c151f53f8a400bc9c6192e}{ilu\+\_\+spivot\+L} (const int, const double, int $\ast$, int $\ast$, int, int $\ast$, int $\ast$, int $\ast$, int $\ast$, double, \hyperlink{superlu__enum__consts_8h_a0cb73c13a7c2390c3a9a0a8913477ff0}{milu\+\_\+t}, float, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_a5f5e67d3b2d715a388ca99bb28387fb9}{ilu\+\_\+sdrop\+\_\+row} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$, int, int, double, int, int $\ast$, double $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$, float $\ast$, float $\ast$, int)
+\item 
+void \hyperlink{slu__sdefs_8h_a3dbdb406f2fb8b186f0f8d3a4cd2d60d}{sgsequ} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, float $\ast$, float $\ast$, float $\ast$, float $\ast$, float $\ast$, int $\ast$)
+\begin{DoxyCompactList}\small\item\em Driver related. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_afe4b556cd9d484f53606d114f83649d4}{slaqgs} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, float $\ast$, float $\ast$, float, float, float, char $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_a1c910cf12639a22a03727ad204575b3b}{sgscon} (char $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, float, float $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$, int $\ast$)
+\item 
+float \hyperlink{slu__sdefs_8h_acb8787465a6296109b9a306d5a315ff8}{s\+Pivot\+Growth} (int, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_ae824bcb507f76ad3053d845352fb6b3d}{sgsrfs} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62}{trans\+\_\+t}, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$, int $\ast$, char $\ast$, float $\ast$, float $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, float $\ast$, float $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$, int $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_aa6d287b6b9bcaf72a692343e614c429c}{sp\+\_\+strsv} (char $\ast$, char $\ast$, char $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, float $\ast$, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$, int $\ast$)
+\begin{DoxyCompactList}\small\item\em Solves one of the systems of equations A$\ast$x = b, or \hyperlink{classA}{A}'$\ast$x = b. \end{DoxyCompactList}\item 
+int \hyperlink{slu__sdefs_8h_a9e543b2d14781b56ef349114012b4fc9}{sp\+\_\+sgemv} (char $\ast$, float, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, float $\ast$, int, float, float $\ast$, int)
+\begin{DoxyCompactList}\small\item\em Performs one of the matrix-\/vector operations y \+:= alpha$\ast$\+A$\ast$x + beta$\ast$y, or y \+:= alpha$\ast$\+A'$\ast$x + beta$\ast$y,. \end{DoxyCompactList}\item 
+int \hyperlink{slu__sdefs_8h_a35b4a0e44c32443df609069021d27812}{sp\+\_\+sgemm} (char $\ast$, char $\ast$, int, int, int, float, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, float $\ast$, int, float, float $\ast$, int)
+\item 
+float \hyperlink{slu__sdefs_8h_a47c1dd1b8332f4366d5c5112219fdb3a}{slamch\+\_\+} (char $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_af68715ec86cde90aa31fec07164d6ea6}{s\+L\+U\+Mem\+Init} (\hyperlink{superlu__enum__consts_8h_ac785c8235480e5cfef9848d89c047c0a}{fact\+\_\+t}, void $\ast$, int, int, int, int, int, float, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$, int $\ast$$\ast$, float $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Memory-\/related. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_ab5b2859bf1ef1900506dfa702574c6ad}{s\+Set\+R\+Work} (int, int, float $\ast$, float $\ast$$\ast$, float $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Set up pointers for real working arrays. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_a9035f0d2a50cf5d8e29287572bd1be83}{s\+L\+U\+Work\+Free} (int $\ast$, float $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Free the working storage used by factor routines. \end{DoxyCompactList}\item 
+int \hyperlink{slu__sdefs_8h_a9af26d0426eb0bb63755880f2e67e7b7}{s\+L\+U\+Mem\+Xpand} (int, int, \hyperlink{superlu__enum__consts_8h_abd31f838aefffa46191d0d7dc36a96b2}{Mem\+Type}, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Expand the data structures for L and U during the factorization. \end{DoxyCompactList}\item 
+float $\ast$ \hyperlink{slu__sdefs_8h_a42361c3ce2ba81d149ffba01fbd6f138}{float\+Malloc} (int)
+\item 
+float $\ast$ \hyperlink{slu__sdefs_8h_a3e1230bff11a9e47c35555299bcdcf1b}{float\+Calloc} (int)
+\item 
+int \hyperlink{slu__sdefs_8h_ab50ebebf3a620086366b6c310d52d681}{smemory\+\_\+usage} (const int, const int, const int, const int)
+\item 
+int \hyperlink{slu__sdefs_8h_a1357f9a3b2ffb9522883ad84affa63e3}{s\+Query\+Space} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t} $\ast$)
+\item 
+int \hyperlink{slu__sdefs_8h_adb260ae3f26e2179b1cf33c3e754d6f1}{ilu\+\_\+s\+Query\+Space} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t} $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_a734dbf3f5d66b2a53d88e69daaad729e}{sreadhb} (int $\ast$, int $\ast$, int $\ast$, float $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Auxiliary routines. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_ad992a573876b4abfe192ec2bc207f6b0}{sreadrb} (int $\ast$, int $\ast$, int $\ast$, float $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_ae99cb18465c8992235a7bc003237f692}{sreadtriple} (int $\ast$, int $\ast$, int $\ast$, float $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_aef4be8ddf6a62ef48ca8dfc3a6992634}{s\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col} (int, int, int, float $\ast$, int $\ast$, int $\ast$, float $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Convert a row compressed storage into a column compressed storage. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_a2d734e40276e89a3ef04bf79bc21acb6}{sfill} (float $\ast$, int, float)
+\begin{DoxyCompactList}\small\item\em Fills a float precision array with a given value. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_aba0eeda28d139bf88878880edd3cca5a}{sinf\+\_\+norm\+\_\+error} (int, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, float $\ast$)
+\begin{DoxyCompactList}\small\item\em Check the inf-\/norm of the error vector. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_adca8047332d0b0c161945583ecb3435d}{Print\+Perf} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t} $\ast$, float, float, float $\ast$, float $\ast$, char $\ast$)
+\item 
+float \hyperlink{slu__sdefs_8h_a98d44fe59660f87330b0172151a76141}{sqselect} (int, float $\ast$, int)
+\item 
+void \hyperlink{slu__sdefs_8h_a5cd6efad9d9fb7aef8a984f5e3cff66b}{s\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix} (char $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\begin{DoxyCompactList}\small\item\em Routines for debugging. \end{DoxyCompactList}\item 
+void \hyperlink{slu__sdefs_8h_aeb289a84407c9cbbb33cdf3dbb1dacbe}{s\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix} (char $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_a25b29c47333295f4aa744e541e277ea0}{s\+Print\+\_\+\+Dense\+\_\+\+Matrix} (char $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_a297455c494a78c098b2bf418edbc6b16}{sprint\+\_\+lu\+\_\+col} (char $\ast$, int, int, int $\ast$, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$)
+\begin{DoxyCompactList}\small\item\em Diagnostic print of column \char`\"{}jcol\char`\"{} in the U/\+L factor. \end{DoxyCompactList}\item 
+int \hyperlink{slu__sdefs_8h_aad0c06e9adc1e29a0ab2e78c38119bb4}{print\+\_\+double\+\_\+vec} (char $\ast$, int, double $\ast$)
+\item 
+void \hyperlink{slu__sdefs_8h_a46e1e8ccffc9a076461dbd042ae91654}{check\+\_\+tempv} (int, float $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for real operations. 
+
+
+\begin{DoxyPre} 
+-- SuperLU routine (version 4.1) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November, 2010\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Global data structures used in LU factorization -\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  nsuper: #supernodes = nsuper + 1, numbered [0, nsuper].
+  (xsup,supno): supno[i] is the supernode no to which i belongs;
+ xsup(s) points to the beginning of the s-th supernode.
+ e.g.   supno 0 1 2 2 3 3 3 4 4 4 4 4   (n=12)
+         xsup 0 1 2 4 7 12
+ Note: dfs will be performed on supernode rep. relative to the new 
+       row pivoting ordering\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  (xlsub,lsub): lsub[*] contains the compressed subscript of
+ rectangular supernodes; xlsub[j] points to the starting
+ location of the j-th column in lsub[*]. Note that xlsub 
+ is indexed by column.
+ Storage: original row subscripts
+\begin{DoxyVerb}During the course of sparse LU factorization, we also use
+\end{DoxyVerb}
+
+ (xlsub,lsub) for the purpose of symmetric pruning. For each
+ supernode \{s,s+1,...,t=s+r\} with first column s and last
+ column t, the subscript set
+    lsub[j], j=xlsub[s], .., xlsub[s+1]-1
+ is the structure of column s (i.e. structure of this supernode).
+ It is used for the storage of numerical values.
+ Furthermore,
+    lsub[j], j=xlsub[t], .., xlsub[t+1]-1
+ is the structure of the last column t of this supernode.
+ It is for the purpose of symmetric pruning. Therefore, the
+ structural subscripts can be rearranged without making physical
+ interchanges among the numerical values.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} However, if the supernode has only one column, then we
+ only keep one set of subscripts. For any subscript interchange
+ performed, similar interchange must be done on the numerical
+ values.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} The last column structures (for pruning) will be removed
+ after the numercial LU factorization phase.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  (xlusup,lusup): lusup[*] contains the numerical values of the
+ rectangular supernodes; xlusup[j] points to the starting
+ location of the j-th column in storage vector lusup[*]
+ Note: xlusup is indexed by column.
+ Each rectangular supernode is stored by column-major
+ scheme, consistent with Fortran 2-dim array storage.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  (xusub,ucol,usub): ucol[*] stores the numerical values of
+ U-columns outside the rectangular supernodes. The row
+ subscript of nonzero ucol[k] is stored in usub[k].
+ xusub[i] points to the starting location of column i in ucol.
+ Storage: new row subscripts; that is subscripts of PA.
+\end{DoxyPre}
+ 
+
+\subsection{Typedef Documentation}
+\hypertarget{slu__sdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!int\+\_\+t@{int\+\_\+t}}
+\index{int\+\_\+t@{int\+\_\+t}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{int\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf int\+\_\+t}}\label{slu__sdefs_8h_ab6fd6105e64ed14a0c9281326f05e623}
+
+
+\subsection{Function Documentation}
+\hypertarget{slu__sdefs_8h_a46e1e8ccffc9a076461dbd042ae91654}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!check\+\_\+tempv@{check\+\_\+tempv}}
+\index{check\+\_\+tempv@{check\+\_\+tempv}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{check\+\_\+tempv}]{\setlength{\rightskip}{0pt plus 5cm}void check\+\_\+tempv (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{float $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a46e1e8ccffc9a076461dbd042ae91654}
+\hypertarget{slu__sdefs_8h_a8086902aa8be3fc7d04c3c82ec3a79dc}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!countnz@{countnz}}
+\index{countnz@{countnz}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{countnz}]{\setlength{\rightskip}{0pt plus 5cm}void countnz (
+\begin{DoxyParamCaption}
+\item[{const int}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a8086902aa8be3fc7d04c3c82ec3a79dc}
+
+
+Count the total number of nonzeros in factors L and U, and in the symmetrically reduced L. 
+
+\hypertarget{slu__sdefs_8h_a7061332d759d7e4d73c1b2e5cb0bf2bf}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!fixup\+L@{fixup\+L}}
+\index{fixup\+L@{fixup\+L}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{fixup\+L}]{\setlength{\rightskip}{0pt plus 5cm}void fixup\+L (
+\begin{DoxyParamCaption}
+\item[{const int}]{, }
+\item[{const int $\ast$}]{, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a7061332d759d7e4d73c1b2e5cb0bf2bf}
+
+
+Fix up the data storage lsub for L-\/subscripts. It removes the subscript sets for structural pruning, and applies permuation to the remaining subscripts. 
+
+\hypertarget{slu__sdefs_8h_a3e1230bff11a9e47c35555299bcdcf1b}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!float\+Calloc@{float\+Calloc}}
+\index{float\+Calloc@{float\+Calloc}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{float\+Calloc}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ float\+Calloc (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a3e1230bff11a9e47c35555299bcdcf1b}
+\hypertarget{slu__sdefs_8h_a42361c3ce2ba81d149ffba01fbd6f138}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!float\+Malloc@{float\+Malloc}}
+\index{float\+Malloc@{float\+Malloc}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{float\+Malloc}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ float\+Malloc (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a42361c3ce2ba81d149ffba01fbd6f138}
+\hypertarget{slu__sdefs_8h_aae8eb367a0a2fcdf734738bc9630df85}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!ilu\+\_\+countnz@{ilu\+\_\+countnz}}
+\index{ilu\+\_\+countnz@{ilu\+\_\+countnz}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{ilu\+\_\+countnz}]{\setlength{\rightskip}{0pt plus 5cm}void ilu\+\_\+countnz (
+\begin{DoxyParamCaption}
+\item[{const int}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aae8eb367a0a2fcdf734738bc9630df85}
+
+
+Count the total number of nonzeros in factors L and U. 
+
+\hypertarget{slu__sdefs_8h_aab2366ea3e2cdcbf51b976432fc43616}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!ilu\+\_\+scolumn\+\_\+dfs@{ilu\+\_\+scolumn\+\_\+dfs}}
+\index{ilu\+\_\+scolumn\+\_\+dfs@{ilu\+\_\+scolumn\+\_\+dfs}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{ilu\+\_\+scolumn\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+scolumn\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{jcol, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{nseg, }
+\item[{int $\ast$}]{lsub\+\_\+col, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{marker, }
+\item[{int $\ast$}]{parent, }
+\item[{int $\ast$}]{xplore, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aab2366ea3e2cdcbf51b976432fc43616}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  ILU\_SCOLUMN\_DFS performs a symbolic factorization on column jcol, and
+  decide the supernode boundary.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  This routine does not use numeric values, but only use the RHS
+  row indices to start the dfs.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A} supernode representative is the last column of a supernode.
+  The nonzeros in U[*,j] are segments that end at supernodal
+  representatives. The routine returns a list of such supernodal
+  representatives in topological order of the dfs that generates them.
+  The location of the first nonzero in each such supernodal segment
+  (supernodal entry location) is also returned.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Local parameters
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  nseg: no of segments in current U[*,j]
+  jsuper: jsuper=EMPTY if column j does not belong to the same
+ supernode as j-1. Otherwise, jsuper=nsuper.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  marker2: A-row --> A-row/col (0/1)
+  repfnz: SuperA-col --> PA-row
+  parent: SuperA-col --> SuperA-col
+  xplore: SuperA-col --> index to L-structure\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Return value
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+    0  success;
+\begin{quote}
+0  number of bytes allocated when run out of space.
+\end{quote}
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a35a18be483569110edc1665d13e260e3}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!ilu\+\_\+scopy\+\_\+to\+\_\+ucol@{ilu\+\_\+scopy\+\_\+to\+\_\+ucol}}
+\index{ilu\+\_\+scopy\+\_\+to\+\_\+ucol@{ilu\+\_\+scopy\+\_\+to\+\_\+ucol}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{ilu\+\_\+scopy\+\_\+to\+\_\+ucol}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+scopy\+\_\+to\+\_\+ucol (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{{\bf milu\+\_\+t}}]{, }
+\item[{double}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{, }
+\item[{float $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a35a18be483569110edc1665d13e260e3}
+\hypertarget{slu__sdefs_8h_a5f5e67d3b2d715a388ca99bb28387fb9}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!ilu\+\_\+sdrop\+\_\+row@{ilu\+\_\+sdrop\+\_\+row}}
+\index{ilu\+\_\+sdrop\+\_\+row@{ilu\+\_\+sdrop\+\_\+row}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{ilu\+\_\+sdrop\+\_\+row}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+sdrop\+\_\+row (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a5f5e67d3b2d715a388ca99bb28387fb9}
+\hypertarget{slu__sdefs_8h_aa91b3297a15ace9ac5abd65c5e708f2d}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!ilu\+\_\+spanel\+\_\+dfs@{ilu\+\_\+spanel\+\_\+dfs}}
+\index{ilu\+\_\+spanel\+\_\+dfs@{ilu\+\_\+spanel\+\_\+dfs}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{ilu\+\_\+spanel\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}void ilu\+\_\+spanel\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{w, }
+\item[{const int}]{jcol, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{nseg, }
+\item[{float $\ast$}]{dense, }
+\item[{float $\ast$}]{amax, }
+\item[{int $\ast$}]{panel\+\_\+lsub, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{marker, }
+\item[{int $\ast$}]{parent, }
+\item[{int $\ast$}]{xplore, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aa91b3297a15ace9ac5abd65c5e708f2d}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Performs a symbolic factorization on a panel of columns [jcol, jcol+w).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A} supernode representative is the last column of a supernode.
+  The nonzeros in U[*,j] are segments that end at supernodal
+  representatives.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  The routine returns one list of the supernodal representatives
+  in topological order of the dfs that generates them. This list is
+  a superset of the topological order of each individual column within
+  the panel.
+  The location of the first nonzero in each supernodal segment
+  (supernodal entry location) is also returned. Each column has a
+  separate list for this purpose.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Two marker arrays are used for dfs:
+    marker[i] == jj, if i was visited during dfs of current column jj;
+    marker1[i] >= jcol, if i was visited by earlier columns in this panel;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  marker: A-row --> A-row/col (0/1)
+  repfnz: SuperA-col --> PA-row
+  parent: SuperA-col --> SuperA-col
+  xplore: SuperA-col --> index to L-structure
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_ab7f61e0a95c151f53f8a400bc9c6192e}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!ilu\+\_\+spivot\+L@{ilu\+\_\+spivot\+L}}
+\index{ilu\+\_\+spivot\+L@{ilu\+\_\+spivot\+L}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{ilu\+\_\+spivot\+L}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+spivot\+L (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const double}]{u, }
+\item[{int $\ast$}]{usepr, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int}]{diagind, }
+\item[{int $\ast$}]{swap, }
+\item[{int $\ast$}]{iswap, }
+\item[{int $\ast$}]{marker, }
+\item[{int $\ast$}]{pivrow, }
+\item[{double}]{fill\+\_\+tol, }
+\item[{{\bf milu\+\_\+t}}]{milu, }
+\item[{float}]{drop\+\_\+sum, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ab7f61e0a95c151f53f8a400bc9c6192e}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  Performs the numerical pivoting on the current column of L,
+  and the CDIV operation.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Pivot policy:
+  (1) Compute thresh = u * max\_(i>=j) \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_ij)};
+  (2) IF user specifies pivot row k and \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_kj)} >= thresh THEN
+      pivot row = k;
+  ELSE IF \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_jj)} >= thresh THEN
+      pivot row = j;
+  ELSE
+      pivot row = m;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Note: If you absolutely want to use a given pivot order, then set u=0.0.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Return value: 0     success;
+       i > 0  U(i,i) is exactly zero.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_adb260ae3f26e2179b1cf33c3e754d6f1}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!ilu\+\_\+s\+Query\+Space@{ilu\+\_\+s\+Query\+Space}}
+\index{ilu\+\_\+s\+Query\+Space@{ilu\+\_\+s\+Query\+Space}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{ilu\+\_\+s\+Query\+Space}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+s\+Query\+Space (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf mem\+\_\+usage\+\_\+t} $\ast$}]{mem\+\_\+usage}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_adb260ae3f26e2179b1cf33c3e754d6f1}
+
+\begin{DoxyPre}
+mem\_usage consists of the following fields:
+\begin{DoxyItemize}
+\item for\_lu (float)
+     The amount of space used in bytes for the L data structures.
+\item total\_needed (float)
+     The amount of space needed in bytes to perform factorization.
+
+
+\end{DoxyItemize}\end{DoxyPre}
+\hypertarget{slu__sdefs_8h_a714eccb6cd0fb1fc0920e8a52489f1a5}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!ilu\+\_\+ssnode\+\_\+dfs@{ilu\+\_\+ssnode\+\_\+dfs}}
+\index{ilu\+\_\+ssnode\+\_\+dfs@{ilu\+\_\+ssnode\+\_\+dfs}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{ilu\+\_\+ssnode\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+ssnode\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const int}]{kcol, }
+\item[{const int $\ast$}]{asub, }
+\item[{const int $\ast$}]{xa\+\_\+begin, }
+\item[{const int $\ast$}]{xa\+\_\+end, }
+\item[{int $\ast$}]{marker, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a714eccb6cd0fb1fc0920e8a52489f1a5}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+   \hyperlink{ilu__ssnode__dfs_8c_a510a9174e442a65aaa83f9ce97390f85}{ilu\_ssnode\_dfs()} - Determine the union of the row structures of those
+   columns within the relaxed snode.
+   Note: The relaxed snodes are leaves of the supernodal etree, therefore,
+   the portion outside the rectangular supernode must be zero.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Return value
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+    0   success;
+   >0   number of bytes allocated when run out of memory.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_aad0c06e9adc1e29a0ab2e78c38119bb4}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!print\+\_\+double\+\_\+vec@{print\+\_\+double\+\_\+vec}}
+\index{print\+\_\+double\+\_\+vec@{print\+\_\+double\+\_\+vec}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{print\+\_\+double\+\_\+vec}]{\setlength{\rightskip}{0pt plus 5cm}int print\+\_\+double\+\_\+vec (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{int}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aad0c06e9adc1e29a0ab2e78c38119bb4}
+\hypertarget{slu__sdefs_8h_adca8047332d0b0c161945583ecb3435d}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!Print\+Perf@{Print\+Perf}}
+\index{Print\+Perf@{Print\+Perf}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{Print\+Perf}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Perf (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{{\bf mem\+\_\+usage\+\_\+t} $\ast$}]{, }
+\item[{float}]{, }
+\item[{float}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{char $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_adca8047332d0b0c161945583ecb3435d}
+\hypertarget{slu__sdefs_8h_aaef6f98786d0bd76103237385ddbeb9f}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sallocate\+A@{sallocate\+A}}
+\index{sallocate\+A@{sallocate\+A}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sallocate\+A}]{\setlength{\rightskip}{0pt plus 5cm}void sallocate\+A (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aaef6f98786d0bd76103237385ddbeb9f}
+
+
+Allocate storage for original matrix \hyperlink{classA}{A}. 
+
+\hypertarget{slu__sdefs_8h_ae21004feb23626f7ea648b46657a257a}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!scolumn\+\_\+bmod@{scolumn\+\_\+bmod}}
+\index{scolumn\+\_\+bmod@{scolumn\+\_\+bmod}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{scolumn\+\_\+bmod}]{\setlength{\rightskip}{0pt plus 5cm}int scolumn\+\_\+bmod (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const int}]{nseg, }
+\item[{float $\ast$}]{dense, }
+\item[{float $\ast$}]{tempv, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int}]{fpanelc, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ae21004feb23626f7ea648b46657a257a}
+
+\begin{DoxyPre}
+\subsection*{Purpose:
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+Performs numeric block updates (sup-col) in topological order.
+It features: col-col, 2cols-col, 3cols-col, and sup-col updates.
+Special processing on the supernodal portion of L[*,j]
+Return value:   0 - successful return
+              > 0 - number of bytes allocated when run out of space
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a20dc9300377cb7240572ba34a31af3d1}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!scolumn\+\_\+dfs@{scolumn\+\_\+dfs}}
+\index{scolumn\+\_\+dfs@{scolumn\+\_\+dfs}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{scolumn\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}int scolumn\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{jcol, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{nseg, }
+\item[{int $\ast$}]{lsub\+\_\+col, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{xprune, }
+\item[{int $\ast$}]{marker, }
+\item[{int $\ast$}]{parent, }
+\item[{int $\ast$}]{xplore, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a20dc9300377cb7240572ba34a31af3d1}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  SCOLUMN\_DFS performs a symbolic factorization on column jcol, and
+  decide the supernode boundary.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  This routine does not use numeric values, but only use the RHS 
+  row indices to start the dfs.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A} supernode representative is the last column of a supernode.
+  The nonzeros in U[*,j] are segments that end at supernodal
+  representatives. The routine returns a list of such supernodal 
+  representatives in topological order of the dfs that generates them.
+  The location of the first nonzero in each such supernodal segment
+  (supernodal entry location) is also returned.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Local parameters
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  nseg: no of segments in current U[*,j]
+  jsuper: jsuper=EMPTY if column j does not belong to the same
+ supernode as j-1. Otherwise, jsuper=nsuper.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  marker2: A-row --> A-row/col (0/1)
+  repfnz: SuperA-col --> PA-row
+  parent: SuperA-col --> SuperA-col
+  xplore: SuperA-col --> index to L-structure\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Return value
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+    0  success;
+\begin{quote}
+0  number of bytes allocated when run out of space.
+\end{quote}
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_aef4be8ddf6a62ef48ca8dfc3a6992634}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col@{s\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col}}
+\index{s\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col@{s\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{float $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aef4be8ddf6a62ef48ca8dfc3a6992634}
+
+
+Convert a row compressed storage into a column compressed storage. 
+
+\hypertarget{slu__sdefs_8h_a7369dba9a8c3e34a27bdc9eba73cbe3e}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix@{s\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix}}
+\index{s\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix@{s\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a7369dba9a8c3e34a27bdc9eba73cbe3e}
+
+
+Copy matrix \hyperlink{classA}{A} into matrix B. 
+
+\hypertarget{slu__sdefs_8h_a5ef26ab4351b4ab39c2ef3d0ff5d6cb5}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Copy\+\_\+\+Dense\+\_\+\+Matrix@{s\+Copy\+\_\+\+Dense\+\_\+\+Matrix}}
+\index{s\+Copy\+\_\+\+Dense\+\_\+\+Matrix@{s\+Copy\+\_\+\+Dense\+\_\+\+Matrix}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Copy\+\_\+\+Dense\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Copy\+\_\+\+Dense\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a5ef26ab4351b4ab39c2ef3d0ff5d6cb5}
+Copies a two-\/dimensional matrix X to another matrix Y.\hypertarget{slu__sdefs_8h_a249a312149bcf091fcc8adbd0c536cb2}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!scopy\+\_\+to\+\_\+ucol@{scopy\+\_\+to\+\_\+ucol}}
+\index{scopy\+\_\+to\+\_\+ucol@{scopy\+\_\+to\+\_\+ucol}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{scopy\+\_\+to\+\_\+ucol}]{\setlength{\rightskip}{0pt plus 5cm}int scopy\+\_\+to\+\_\+ucol (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a249a312149bcf091fcc8adbd0c536cb2}
+\hypertarget{slu__sdefs_8h_abb3d30eea43abc536793244e7564e70d}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix@{s\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix}}
+\index{s\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix@{s\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{{\bf Stype\+\_\+t}}]{, }
+\item[{{\bf Dtype\+\_\+t}}]{, }
+\item[{{\bf Mtype\+\_\+t}}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_abb3d30eea43abc536793244e7564e70d}
+
+
+Supernodal L\+U factor related. 
+
+\hypertarget{slu__sdefs_8h_a77496309d539716f616365a2515aa653}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix@{s\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix}}
+\index{s\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix@{s\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{{\bf Stype\+\_\+t}}]{, }
+\item[{{\bf Dtype\+\_\+t}}]{, }
+\item[{{\bf Mtype\+\_\+t}}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a77496309d539716f616365a2515aa653}
+\hypertarget{slu__sdefs_8h_aca98118f5539f098beff0b70c041c2e6}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Create\+\_\+\+Dense\+\_\+\+Matrix@{s\+Create\+\_\+\+Dense\+\_\+\+Matrix}}
+\index{s\+Create\+\_\+\+Dense\+\_\+\+Matrix@{s\+Create\+\_\+\+Dense\+\_\+\+Matrix}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Create\+\_\+\+Dense\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Create\+\_\+\+Dense\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{{\bf Stype\+\_\+t}}]{, }
+\item[{{\bf Dtype\+\_\+t}}]{, }
+\item[{{\bf Mtype\+\_\+t}}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aca98118f5539f098beff0b70c041c2e6}
+\hypertarget{slu__sdefs_8h_af4386b0d87e1c8886b58fcf9d243bc12}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix@{s\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix}}
+\index{s\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix@{s\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{{\bf Stype\+\_\+t}}]{, }
+\item[{{\bf Dtype\+\_\+t}}]{, }
+\item[{{\bf Mtype\+\_\+t}}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_af4386b0d87e1c8886b58fcf9d243bc12}
+\hypertarget{slu__sdefs_8h_a2d734e40276e89a3ef04bf79bc21acb6}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sfill@{sfill}}
+\index{sfill@{sfill}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sfill}]{\setlength{\rightskip}{0pt plus 5cm}void sfill (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{float}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a2d734e40276e89a3ef04bf79bc21acb6}
+
+
+Fills a float precision array with a given value. 
+
+\hypertarget{slu__sdefs_8h_ac8b784b5551863e8d50047ee280c34cf}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Fill\+R\+H\+S@{s\+Fill\+R\+H\+S}}
+\index{s\+Fill\+R\+H\+S@{s\+Fill\+R\+H\+S}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Fill\+R\+H\+S}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Fill\+R\+H\+S (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\+\_\+t}}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ac8b784b5551863e8d50047ee280c34cf}
+
+
+Let rhs\mbox{[}i\mbox{]} = sum of i-\/th row of \hyperlink{classA}{A}, so the solution vector is all 1's. 
+
+\hypertarget{slu__sdefs_8h_ab79adc3c2d496feb17f359aa303211fc}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Gen\+Xtrue@{s\+Gen\+Xtrue}}
+\index{s\+Gen\+Xtrue@{s\+Gen\+Xtrue}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Gen\+Xtrue}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Gen\+Xtrue (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ab79adc3c2d496feb17f359aa303211fc}
+\hypertarget{slu__sdefs_8h_a1c910cf12639a22a03727ad204575b3b}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sgscon@{sgscon}}
+\index{sgscon@{sgscon}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sgscon}]{\setlength{\rightskip}{0pt plus 5cm}void sgscon (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{norm, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{float}]{anorm, }
+\item[{float $\ast$}]{rcond, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a1c910cf12639a22a03727ad204575b3b}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  SGSCON estimates the reciprocal of the condition number of a general 
+  real matrix \hyperlink{classA}{A}, in either the 1-norm or the infinity-norm, using   
+  the LU factorization computed by SGETRF.   *\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  An estimate is obtained for norm(inv(A)), and the reciprocal of the   
+  condition number is computed as   
+     RCOND = 1 / ( norm(A) * norm(inv(A)) ).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   NORM    (input) char*
+           Specifies whether the 1-norm condition number or the   
+           infinity-norm condition number is required:   
+           = '1' or 'O':  1-norm;   
+           = 'I':         Infinity-norm.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   L       (input) SuperMatrix*
+           The factor L from the factorization Pr*A*Pc=L*U as computed by
+           \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf()}. Use compressed row subscripts storage for supernodes,
+           i.e., L has types: Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   U       (input) SuperMatrix*
+           The factor U from the factorization Pr*A*Pc=L*U as computed by
+           \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf()}. Use column-wise storage scheme, i.e., U has types:
+           Stype = SLU\_NC, Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   ANORM   (input) float
+           If NORM = '1' or 'O', the 1-norm of the original matrix \hyperlink{classA}{A}.   
+           If NORM = 'I', the infinity-norm of the original matrix \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   RCOND   (output) float*
+          The reciprocal of the condition number of the matrix \hyperlink{classA}{A},   
+          computed as RCOND = 1/(norm(A) * norm(inv(A))).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   INFO    (output) int*
+          = 0:  successful exit   
+          < 0:  if INFO = -i, the i-th argument had an illegal value   
+
+
+
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a3dbdb406f2fb8b186f0f8d3a4cd2d60d}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sgsequ@{sgsequ}}
+\index{sgsequ@{sgsequ}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sgsequ}]{\setlength{\rightskip}{0pt plus 5cm}void sgsequ (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{float $\ast$}]{r, }
+\item[{float $\ast$}]{c, }
+\item[{float $\ast$}]{rowcnd, }
+\item[{float $\ast$}]{colcnd, }
+\item[{float $\ast$}]{amax, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a3dbdb406f2fb8b186f0f8d3a4cd2d60d}
+
+
+Driver related. 
+
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  SGSEQU computes row and column scalings intended to equilibrate an   
+  M-by-N sparse matrix \hyperlink{classA}{A} and reduce its condition number. R returns the row
+  scale factors and C the column scale factors, chosen to try to make   
+  the largest element in each row and column of the matrix B with   
+  elements B(i,j)=R(i)*A(i,j)*C(j) have absolute value 1.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  R(i) and C(j) are restricted to be between SMLNUM = smallest safe   
+  number and BIGNUM = largest safe number.  Use of these scaling   
+  factors is not guaranteed to reduce the condition number of \hyperlink{classA}{A} but   
+  works well in practice.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A}       (input) SuperMatrix*
+          The matrix of dimension (A->nrow, A->ncol) whose equilibration
+          factors are to be computed. The type of \hyperlink{classA}{A} can be:
+          Stype = SLU\_NC; Dtype = SLU\_S; Mtype = SLU\_GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  R       (output) float*, size A->nrow
+          If INFO = 0 or INFO > M, R contains the row scale factors   
+          for \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  C       (output) float*, size A->ncol
+          If INFO = 0,  C contains the column scale factors for \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ROWCND  (output) float*
+          If INFO = 0 or INFO > M, ROWCND contains the ratio of the   
+          smallest R(i) to the largest R(i).  If ROWCND >= 0.1 and   
+          AMAX is neither too large nor too small, it is not worth   
+          scaling by R.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  COLCND  (output) float*
+          If INFO = 0, COLCND contains the ratio of the smallest   
+          C(i) to the largest C(i).  If COLCND >= 0.1, it is not   
+          worth scaling by C.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  AMAX    (output) float*
+          Absolute value of largest matrix element.  If AMAX is very   
+          close to overflow or very close to underflow, the matrix   
+          should be scaled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  INFO    (output) int*
+          = 0:  successful exit   
+          < 0:  if INFO = -i, the i-th argument had an illegal value   
+          > 0:  if INFO = i,  and i is   
+                <= A->nrow:  the i-th row of \hyperlink{classA}{A} is exactly zero   
+                >  A->ncol:  the (i-M)-th column of \hyperlink{classA}{A} is exactly zero   
+
+
+
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_aff6cdbb84f0fbd4cbce7a64ea1f7eb20}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sgsisv@{sgsisv}}
+\index{sgsisv@{sgsisv}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sgsisv}]{\setlength{\rightskip}{0pt plus 5cm}void sgsisv (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aff6cdbb84f0fbd4cbce7a64ea1f7eb20}
+\hypertarget{slu__sdefs_8h_ab57375a81b174861bcb68ed11861a4f5}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sgsisx@{sgsisx}}
+\index{sgsisx@{sgsisx}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sgsisx}]{\setlength{\rightskip}{0pt plus 5cm}void sgsisx (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{etree, }
+\item[{char $\ast$}]{equed, }
+\item[{float $\ast$}]{R, }
+\item[{float $\ast$}]{C, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{void $\ast$}]{work, }
+\item[{int}]{lwork, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B, }
+\item[{{\bf Super\+Matrix} $\ast$}]{X, }
+\item[{float $\ast$}]{recip\+\_\+pivot\+\_\+growth, }
+\item[{float $\ast$}]{rcond, }
+\item[{{\bf mem\+\_\+usage\+\_\+t} $\ast$}]{mem\+\_\+usage, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ab57375a81b174861bcb68ed11861a4f5}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}SGSISX computes an approximate solutions of linear equations
+A*X=B or \hyperlink{classA}{A}'*X=B, using the ILU factorization from \hyperlink{sgsitrf_8c_a25788392a605519048cafa995b641fcc}{sgsitrf()}.
+An estimation of the condition number is provided. 
+The routine performs the following steps:\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  1. If \hyperlink{classA}{A} is stored column-wise (A->Stype = SLU\_NC):\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 1.1. If options->Equil = YES or options->RowPerm = LargeDiag, scaling
+      factors are computed to equilibrate the system:
+      options->Trans = NOTRANS:
+     diag(R)*A*diag(C) *inv(diag(C))*X = diag(R)*B
+      options->Trans = TRANS:
+     (diag(R)*A*diag(C))**T *inv(diag(R))*X = diag(C)*B
+      options->Trans = CONJ:
+     (diag(R)*A*diag(C))**H *inv(diag(R))*X = diag(C)*B
+      Whether or not the system will be equilibrated depends on the
+      scaling of the matrix \hyperlink{classA}{A}, but if equilibration is used, \hyperlink{classA}{A} is
+      overwritten by diag(R)*A*diag(C) and B by diag(R)*B
+      (if options->Trans=NOTRANS) or diag(C)*B (if options->Trans
+      = TRANS or CONJ).\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 1.2. Permute columns of \hyperlink{classA}{A}, forming A*Pc, where Pc is a permutation
+      matrix that usually preserves sparsity.
+      For more details of this step, see \hyperlink{sp__preorder_8c}{sp\_preorder.c}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 1.3. If options->Fact != FACTORED, the LU decomposition is used to
+      factor the matrix \hyperlink{classA}{A} (after equilibration if options->Equil = YES)
+      as Pr*A*Pc = L*U, with Pr determined by partial pivoting.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 1.4. Compute the reciprocal pivot growth factor.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 1.5. If some U(i,i) = 0, so that U is exactly singular, then the
+      routine fills a small number on the diagonal entry, that is
+    U(i,i) = ||A(:,i)||\_oo * options->ILU\_FillTol ** (1 - i / n),
+      and info will be increased by 1. The factored form of \hyperlink{classA}{A} is used
+      to estimate the condition number of the preconditioner. If the
+      reciprocal of the condition number is less than machine precision,
+      info = A->ncol+1 is returned as a warning, but the routine still
+      goes on to solve for X.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 1.6. The system of equations is solved for X using the factored form
+      of \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 1.7. options->IterRefine is not used\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 1.8. If equilibration was used, the matrix X is premultiplied by
+      diag(C) (if options->Trans = NOTRANS) or diag(R)
+      (if options->Trans = TRANS or CONJ) so that it solves the
+      original system before equilibration.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 1.9. options for ILU only
+      1) If options->RowPerm = LargeDiag, MC64 is used to scale and
+    permute the matrix to an I-matrix, that is Pr*Dr*A*Dc has
+    entries of modulus 1 on the diagonal and off-diagonal entries
+    of modulus at most 1. If MC64 fails, \hyperlink{dgsequ_8c_aaf22b247cc134fb0ba90285e84ccebb4}{dgsequ()} is used to
+    equilibrate the system.
+             ( Default: LargeDiag )
+      2) options->ILU\_DropTol = tau is the threshold for dropping.
+    For L, it is used directly (for the whole row in a supernode);
+    For U, ||A(:,i)||\_oo * tau is used as the threshold
+         for the    i-th column.
+    If a secondary dropping rule is required, tau will
+         also be used to compute the second threshold.
+             ( Default: 1e-4 )
+      3) options->ILU\_FillFactor = gamma, used as the initial guess
+    of memory growth.
+    If a secondary dropping rule is required, it will also
+             be used as an upper bound of the memory.
+             ( Default: 10 )
+      4) options->ILU\_DropRule specifies the dropping rule.
+    Option        Meaning
+    ======        ===========
+    DROP\_BASIC:   Basic dropping rule, supernodal based ILUTP(tau).
+    DROP\_PROWS:   Supernodal based ILUTP(p,tau), p = gamma*nnz(\hyperlink{classA}{A})/n.
+    DROP\_COLUMN:  Variant of ILUTP(p,tau), for j-th column,
+              p = gamma * nnz(A(:,j)).
+    DROP\_AREA:    Variation of ILUTP, for j-th column, use
+              nnz(F(:,1:j)) / nnz(A(:,1:j)) to control memory.
+    DROP\_DYNAMIC: Modify the threshold tau during factorizaion:
+              If nnz(L(:,1:j)) / nnz(A(:,1:j)) > gamma
+              tau\_L(j) := MIN(tau\_0, tau\_L(j-1) * 2);
+              Otherwise
+              tau\_L(j) := MAX(tau\_0, tau\_L(j-1) / 2);
+              tau\_U(j) uses the similar rule.
+              NOTE: the thresholds used by L and U are separate.
+    DROP\_INTERP:  Compute the second dropping threshold by
+              interpolation instead of sorting (default).
+              In this case, the actual fill ratio is not
+              guaranteed smaller than gamma.
+    DROP\_PROWS, DROP\_COLUMN and DROP\_AREA are mutually exclusive.
+    ( Default: DROP\_BASIC | DROP\_AREA )
+      5) options->ILU\_Norm is the criterion of measuring the magnitude
+    of a row in a supernode of L. ( Default is INF\_NORM )
+    options->ILU\_Norm   RowSize(x[1:n])
+    =================   ===============
+    ONE\_NORM        ||x||\_1 / n
+    TWO\_NORM        ||x||\_2 / sqrt(n)
+    INF\_NORM        max\{|x[i]|\}
+      6) options->ILU\_MILU specifies the type of MILU's variation.
+    = SILU: do not perform Modified ILU;
+    = SMILU\_1 (not recommended):
+        U(i,i) := U(i,i) + sum(dropped entries);
+    = SMILU\_2:
+        U(i,i) := U(i,i) + \hyperlink{ilu__zpivotL_8c_a95ed41486ca0ed53262e4b8934d4afac}{SGN(U(i,i))} * sum(dropped entries);
+    = SMILU\_3:
+        U(i,i) := U(i,i) + \hyperlink{ilu__zpivotL_8c_a95ed41486ca0ed53262e4b8934d4afac}{SGN(U(i,i))} * sum(|dropped entries|);
+    NOTE: Even SMILU\_1 does not preserve the column sum because of
+    late dropping.
+             ( Default: SILU )
+      7) options->ILU\_FillTol is used as the perturbation when
+    encountering zero pivots. If some U(i,i) = 0, so that U is
+    exactly singular, then
+       U(i,i) := ||A(:,i)|| * options->ILU\_FillTol ** (1 - i / n).
+             ( Default: 1e-2 )\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  2. If \hyperlink{classA}{A} is stored row-wise (A->Stype = SLU\_NR), apply the above algorithm
+ to the transpose of \hyperlink{classA}{A}:\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 2.1. If options->Equil = YES or options->RowPerm = LargeDiag, scaling
+      factors are computed to equilibrate the system:
+      options->Trans = NOTRANS:
+     diag(R)*A*diag(C) *inv(diag(C))*X = diag(R)*B
+      options->Trans = TRANS:
+     (diag(R)*A*diag(C))**T *inv(diag(R))*X = diag(C)*B
+      options->Trans = CONJ:
+     (diag(R)*A*diag(C))**H *inv(diag(R))*X = diag(C)*B
+      Whether or not the system will be equilibrated depends on the
+      scaling of the matrix \hyperlink{classA}{A}, but if equilibration is used, \hyperlink{classA}{A}' is
+      overwritten by diag(R)*A'*diag(C) and B by diag(R)*B
+      (if trans='N') or diag(C)*B (if trans = 'T' or 'C').\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 2.2. Permute columns of transpose(A) (rows of \hyperlink{classA}{A}),
+      forming transpose(A)*Pc, where Pc is a permutation matrix that
+      usually preserves sparsity.
+      For more details of this step, see \hyperlink{sp__preorder_8c}{sp\_preorder.c}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 2.3. If options->Fact != FACTORED, the LU decomposition is used to
+      factor the transpose(A) (after equilibration if
+      options->Fact = YES) as Pr*transpose(\hyperlink{classA}{A})*Pc = L*U with the
+      permutation Pr determined by partial pivoting.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 2.4. Compute the reciprocal pivot growth factor.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 2.5. If some U(i,i) = 0, so that U is exactly singular, then the
+      routine fills a small number on the diagonal entry, that is
+     U(i,i) = ||A(:,i)||\_oo * options->ILU\_FillTol ** (1 - i / n).
+      And info will be increased by 1. The factored form of \hyperlink{classA}{A} is used
+      to estimate the condition number of the preconditioner. If the
+      reciprocal of the condition number is less than machine precision,
+      info = A->ncol+1 is returned as a warning, but the routine still
+      goes on to solve for X.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 2.6. The system of equations is solved for X using the factored form
+      of transpose(A).\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 2.7. If options->IterRefine is not used.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} 2.8. If equilibration was used, the matrix X is premultiplied by
+      diag(C) (if options->Trans = NOTRANS) or diag(R)
+      (if options->Trans = TRANS or CONJ) so that it solves the
+      original system before equilibration.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}options (input) superlu\_options\_t*
+    The structure defines the input parameters to control
+    how the LU decomposition will be performed and how the
+    system will be solved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}      (input/output) SuperMatrix*
+    \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} in A*X=B, of dimension (A->nrow, A->ncol). The number
+    of the linear equations is A->nrow. Currently, the type of \hyperlink{classA}{A} can be:
+    Stype = SLU\_NC or SLU\_NR, Dtype = SLU\_S, Mtype = SLU\_GE.
+    In the future, more general \hyperlink{classA}{A} may be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    On entry, If options->Fact = FACTORED and equed is not 'N',
+    then \hyperlink{classA}{A} must have been equilibrated by the scaling factors in
+    R and/or C.
+    On exit, \hyperlink{classA}{A} is not modified
+        if options->Equil = NO, or
+        if options->Equil = YES but equed = 'N' on exit, or
+        if options->RowPerm = NO.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    Otherwise, if options->Equil = YES and equed is not 'N',
+    \hyperlink{classA}{A} is scaled as follows:
+    If A->Stype = SLU\_NC:
+      equed = 'R':  \hyperlink{classA}{A} := diag(R) * \hyperlink{classA}{A}
+      equed = 'C':  \hyperlink{classA}{A} := \hyperlink{classA}{A} * diag(C)
+      equed = 'B':  \hyperlink{classA}{A} := diag(R) * \hyperlink{classA}{A} * diag(C).
+    If A->Stype = SLU\_NR:
+      equed = 'R':  transpose(A) := diag(R) * transpose(A)
+      equed = 'C':  transpose(A) := transpose(A) * diag(C)
+      equed = 'B':  transpose(A) := diag(R) * transpose(A) * diag(C).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        If options->RowPerm = LargeDiag, MC64 is used to scale and permute
+           the matrix to an I-matrix, that is \hyperlink{classA}{A} is modified as follows:
+           P*Dr*A*Dc has entries of modulus 1 on the diagonal and 
+           off-diagonal entries of modulus at most 1. P is a permutation
+           obtained from MC64.
+           If MC64 fails, \hyperlink{sgsequ_8c_ad8a808e807e38c32c08cfbeadb088f08}{sgsequ()} is used to equilibrate the system,
+           and \hyperlink{classA}{A} is scaled as above, but no permutation is involved.
+           On exit, \hyperlink{classA}{A} is restored to the orginal row numbering, so
+           Dr*A*Dc is returned.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (input/output) int*
+    If A->Stype = SLU\_NC, Column permutation vector of size A->ncol,
+    which defines the permutation matrix Pc; perm\_c[i] = j means
+    column i of \hyperlink{classA}{A} is in position j in A*Pc.
+    On exit, perm\_c may be overwritten by the product of the input
+    perm\_c and a permutation that postorders the elimination tree
+    of Pc'*A'*A*Pc; perm\_c is not changed if the elimination tree
+    is already in postorder.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    If A->Stype = SLU\_NR, column permutation vector of size A->nrow,
+    which describes permutation of columns of transpose(A) 
+    (rows of \hyperlink{classA}{A}) as described above.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_r  (input/output) int*
+    If A->Stype = SLU\_NC, row permutation vector of size A->nrow, 
+    which defines the permutation matrix Pr, and is determined
+    by MC64 first then followed by partial pivoting.
+        perm\_r[i] = j means row i of \hyperlink{classA}{A} is in position j in Pr*A.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    If A->Stype = SLU\_NR, permutation vector of size A->ncol, which
+    determines permutation of rows of transpose(A)
+    (columns of \hyperlink{classA}{A}) as described above.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    If options->Fact = SamePattern\_SameRowPerm, the pivoting routine
+    will try to use the input perm\_r, unless a certain threshold
+    criterion is violated. In that case, perm\_r is overwritten by a
+    new permutation determined by partial pivoting or diagonal
+    threshold pivoting.
+    Otherwise, perm\_r is output argument.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}etree   (input/output) int*,  dimension (A->ncol)
+    Elimination tree of Pc'*A'*A*Pc.
+    If options->Fact != FACTORED and options->Fact != DOFACT,
+    etree is an input argument, otherwise it is an output argument.
+    Note: etree is a vector of parent pointers for a forest whose
+    vertices are the integers 0 to A->ncol-1; etree[root]==A->ncol.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}equed   (input/output) char*
+    Specifies the form of equilibration that was done.
+    = 'N': No equilibration.
+    = 'R': Row equilibration, i.e., \hyperlink{classA}{A} was premultiplied by diag(R).
+    = 'C': Column equilibration, i.e., \hyperlink{classA}{A} was postmultiplied by diag(C).
+    = 'B': Both row and column equilibration, i.e., \hyperlink{classA}{A} was replaced 
+      by diag(R)*A*diag(C).
+    If options->Fact = FACTORED, equed is an input argument,
+    otherwise it is an output argument.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}R      (input/output) float*, dimension (A->nrow)
+    The row scale factors for \hyperlink{classA}{A} or transpose(A).
+    If equed = 'R' or 'B', \hyperlink{classA}{A} (if A->Stype = SLU\_NC) or transpose(A)
+        (if A->Stype = SLU\_NR) is multiplied on the left by diag(R).
+    If equed = 'N' or 'C', R is not accessed.
+    If options->Fact = FACTORED, R is an input argument,
+        otherwise, R is output.
+    If options->Fact = FACTORED and equed = 'R' or 'B', each element
+        of R must be positive.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}C      (input/output) float*, dimension (A->ncol)
+    The column scale factors for \hyperlink{classA}{A} or transpose(A).
+    If equed = 'C' or 'B', \hyperlink{classA}{A} (if A->Stype = SLU\_NC) or transpose(A)
+        (if A->Stype = SLU\_NR) is multiplied on the right by diag(C).
+    If equed = 'N' or 'R', C is not accessed.
+    If options->Fact = FACTORED, C is an input argument,
+        otherwise, C is output.
+    If options->Fact = FACTORED and equed = 'C' or 'B', each element
+        of C must be positive.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L      (output) SuperMatrix*
+    The factor L from the factorization
+        Pr*A*Pc=L*U     (if A->Stype SLU\_= NC) or
+        Pr*transpose(\hyperlink{classA}{A})*Pc=L*U  (if A->Stype = SLU\_NR).
+    Uses compressed row subscripts storage for supernodes, i.e.,
+    L has types: Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U      (output) SuperMatrix*
+    The factor U from the factorization
+        Pr*A*Pc=L*U     (if A->Stype = SLU\_NC) or
+        Pr*transpose(\hyperlink{classA}{A})*Pc=L*U  (if A->Stype = SLU\_NR).
+    Uses column-wise storage scheme, i.e., U has types:
+    Stype = SLU\_NC, Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}work    (workspace/output) void*, size (lwork) (in bytes)
+    User supplied workspace, should be large enough
+    to hold data structures for factors L and U.
+    On exit, if fact is not 'F', L and U point to this array.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}lwork   (input) int
+    Specifies the size of work array in bytes.
+    = 0:  allocate space internally by system malloc;
+    > 0:  use user-supplied work array of length lwork in bytes,
+     returns error if space runs out.
+    = -1: the routine guesses the amount of space needed without
+     performing the factorization, and returns it in
+     mem\_usage->total\_needed; no other side effects.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    See argument 'mem\_usage' for memory usage statistics.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}B      (input/output) SuperMatrix*
+    B has types: Stype = SLU\_DN, Dtype = SLU\_S, Mtype = SLU\_GE.
+    On entry, the right hand side matrix.
+    If B->ncol = 0, only LU decomposition is performed, the triangular
+           solve is skipped.
+    On exit,
+       if equed = 'N', B is not modified; otherwise
+       if A->Stype = SLU\_NC:
+     if options->Trans = NOTRANS and equed = 'R' or 'B',
+        B is overwritten by diag(R)*B;
+     if options->Trans = TRANS or CONJ and equed = 'C' of 'B',
+        B is overwritten by diag(C)*B;
+       if A->Stype = SLU\_NR:
+     if options->Trans = NOTRANS and equed = 'C' or 'B',
+        B is overwritten by diag(C)*B;
+     if options->Trans = TRANS or CONJ and equed = 'R' of 'B',
+        B is overwritten by diag(R)*B.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}X      (output) SuperMatrix*
+    X has types: Stype = SLU\_DN, Dtype = SLU\_S, Mtype = SLU\_GE.
+    If info = 0 or info = A->ncol+1, X contains the solution matrix
+    to the original system of equations. Note that \hyperlink{classA}{A} and B are modified
+    on exit if equed is not 'N', and the solution to the equilibrated
+    system is inv(diag(C))*X if options->Trans = NOTRANS and
+    equed = 'C' or 'B', or inv(diag(R))*X if options->Trans = 'T' or 'C'
+    and equed = 'R' or 'B'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}recip\_pivot\_growth (output) float*
+    The reciprocal pivot growth factor max\_j( norm(A\_j)/norm(U\_j) ).
+    The infinity norm is used. If recip\_pivot\_growth is much less
+    than 1, the stability of the LU factorization could be poor.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}rcond   (output) float*
+    The estimate of the reciprocal condition number of the matrix \hyperlink{classA}{A}
+    after equilibration (if done). If rcond is less than the machine
+    precision (in particular, if rcond = 0), the matrix is singular
+    to working precision. This condition is indicated by a return
+    code of info > 0.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}mem\_usage (output) mem\_usage\_t*
+    Record the memory usage statistics, consisting of following fields:
+\begin{DoxyItemize}
+\item for\_lu (float)
+      The amount of space used in bytes for L data structures.
+\item total\_needed (float)
+      The amount of space needed in bytes to perform factorization.
+\item expansions (int)
+      The number of memory expansions during the LU factorization.
+\end{DoxyItemize}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}stat   (output) SuperLUStat\_t*
+   Record the statistics on runtime and floating-point operation count.
+   See \hyperlink{slu__util_8h}{slu\_util.h} for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}info    (output) int*
+    = 0: successful exit
+    < 0: if info = -i, the i-th argument had an illegal value
+    > 0: if info = i, and i is
+    <= A->ncol: number of zero pivots. They are replaced by small
+          entries due to options->ILU\_FillTol.
+    = A->ncol+1: U is nonsingular, but RCOND is less than machine
+          precision, meaning that the matrix is singular to
+          working precision. Nevertheless, the solution and
+          error bounds are computed because there are a number
+          of situations where the computed solution can be more
+          accurate than the value of RCOND would suggest.
+    > A->ncol+1: number of bytes allocated when memory allocation
+          failure occurred, plus A->ncol.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a22204c4186c4412ee33cd16285ee6bb0}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sgsitrf@{sgsitrf}}
+\index{sgsitrf@{sgsitrf}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sgsitrf}]{\setlength{\rightskip}{0pt plus 5cm}void sgsitrf (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int}]{relax, }
+\item[{int}]{panel\+\_\+size, }
+\item[{int $\ast$}]{etree, }
+\item[{void $\ast$}]{work, }
+\item[{int}]{lwork, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a22204c4186c4412ee33cd16285ee6bb0}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}SGSITRF computes an ILU factorization of a general sparse m-by-n
+matrix \hyperlink{classA}{A} using partial pivoting with row interchanges.
+The factorization has the form
+    Pr * \hyperlink{classA}{A} = L * U
+where Pr is a row permutation matrix, L is lower triangular with unit
+diagonal elements (lower trapezoidal if A->nrow > A->ncol), and U is upper
+triangular (upper trapezoidal if A->nrow < A->ncol).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}options (input) superlu\_options\_t*
+    The structure defines the input parameters to control
+    how the ILU decomposition will be performed.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}       (input) SuperMatrix*
+     Original matrix \hyperlink{classA}{A}, permuted by columns, of dimension
+     (A->nrow, A->ncol). The type of \hyperlink{classA}{A} can be:
+     Stype = SLU\_NCP; Dtype = SLU\_S; Mtype = SLU\_GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}relax    (input) int
+     To control degree of relaxing supernodes. If the number
+     of nodes (columns) in a subtree of the elimination tree is less
+     than relax, this subtree is considered as one supernode,
+     regardless of the row structures of those columns.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}panel\_size (input) int
+     \hyperlink{classA}{A} panel consists of at most panel\_size consecutive columns.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}etree    (input) int*, dimension (A->ncol)
+     Elimination tree of \hyperlink{classA}{A}'*A.
+     Note: etree is a vector of parent pointers for a forest whose
+     vertices are the integers 0 to A->ncol-1; etree[root]==A->ncol.
+     On input, the columns of \hyperlink{classA}{A} should be permuted so that the
+     etree is in a certain postorder.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}work     (input/output) void*, size (lwork) (in bytes)
+     User-supplied work space and space for the output data structures.
+     Not referenced if lwork = 0;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}lwork   (input) int
+    Specifies the size of work array in bytes.
+    = 0:  allocate space internally by system malloc;
+    > 0:  use user-supplied work array of length lwork in bytes,
+     returns error if space runs out.
+    = -1: the routine guesses the amount of space needed without
+     performing the factorization, and returns it in
+     *info; no other side effects.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c   (input) int*, dimension (A->ncol)
+     Column permutation vector, which defines the
+     permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is
+     in position j in A*Pc.
+     When searching for diagonal, perm\_c[*] is applied to the
+     row subscripts of \hyperlink{classA}{A}, so that diagonal threshold pivoting
+     can find the diagonal of \hyperlink{classA}{A}, rather than that of A*Pc.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_r   (input/output) int*, dimension (A->nrow)
+     Row permutation vector which defines the permutation matrix Pr,
+     perm\_r[i] = j means row i of \hyperlink{classA}{A} is in position j in Pr*A.
+     If options->Fact = SamePattern\_SameRowPerm, the pivoting routine
+        will try to use the input perm\_r, unless a certain threshold
+        criterion is violated. In that case, perm\_r is overwritten by
+        a new permutation determined by partial pivoting or diagonal
+        threshold pivoting.
+     Otherwise, perm\_r is output argument;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L       (output) SuperMatrix*
+     The factor L from the factorization Pr*A=L*U; use compressed row
+     subscripts storage for supernodes, i.e., L has type:
+     Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U       (output) SuperMatrix*
+     The factor U from the factorization Pr*A*Pc=L*U. Use column-wise
+     storage scheme, i.e., U has types: Stype = SLU\_NC,
+     Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}stat     (output) SuperLUStat\_t*
+     Record the statistics on runtime and floating-point operation count.
+     See \hyperlink{slu__util_8h}{slu\_util.h} for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}info     (output) int*
+     = 0: successful exit
+     < 0: if info = -i, the i-th argument had an illegal value
+     > 0: if info = i, and i is
+        <= A->ncol: number of zero pivots. They are replaced by small
+      entries according to options->ILU\_FillTol.
+        > A->ncol: number of bytes allocated when memory allocation
+      failure occurred, plus A->ncol. If lwork = -1, it is
+      the estimated amount of space needed, plus A->ncol.
+
+
+\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Local Working Arrays:
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  m = number of rows in the matrix
+  n = number of columns in the matrix\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  marker[0:3*m-1]: marker[i] = j means that node i has been
+ reached when working on column j.
+ Storage: relative to original row subscripts
+ NOTE: There are 4 of them:
+       marker/marker1 are used for panel dfs, see (ilu\_)\hyperlink{dpanel__dfs_8c}{dpanel\_dfs.c};
+       marker2 is used for inner-factorization, see (ilu)\_dcolumn\_dfs.c;
+       marker\_relax(has its own space) is used for relaxed supernodes.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  parent[0:m-1]: parent vector used during dfs
+ Storage: relative to new row subscripts\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  xplore[0:m-1]: xplore[i] gives the location of the next (dfs)
+ unexplored neighbor of i in lsub[*]\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  segrep[0:nseg-1]: contains the list of supernodal representatives
+ in topological order of the dfs. \hyperlink{classA}{A} supernode representative is the
+ last column of a supernode.
+ The maximum size of segrep[] is n.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  repfnz[0:W*m-1]: for a nonzero segment U[*,j] that ends at a
+ supernodal representative r, repfnz[r] is the location of the first
+ nonzero in this segment.  It is also used during the dfs: repfnz[r]>0
+ indicates the supernode r has been explored.
+ NOTE: There are W of them, each used for one column of a panel.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  panel\_lsub[0:W*m-1]: temporary for the nonzeros row indices below
+ the panel diagonal. These are filled in during \hyperlink{dpanel__dfs_8c_a2a809488b87d2c1a9b2a574b726e8517}{dpanel\_dfs()}, and are
+ used later in the inner LU factorization within the panel.
+ panel\_lsub[]/dense[] pair forms the SPA data structure.
+ NOTE: There are W of them.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  dense[0:W*m-1]: sparse accumulating (SPA) vector for intermediate values;
+       NOTE: there are W of them.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  tempv[0:*]: real temporary used for dense numeric kernels;
+ The size of this array is defined by \hyperlink{slu__util_8h_a06193b28f40a4779ae7737711642eb45}{NUM\_TEMPV()} in \hyperlink{slu__util_8h}{slu\_util.h}.
+ It is also used by the dropping routine \hyperlink{ilu__ddrop__row_8c_a380317801e05b11930fd1e094db34179}{ilu\_ddrop\_row()}.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_ae824bcb507f76ad3053d845352fb6b3d}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sgsrfs@{sgsrfs}}
+\index{sgsrfs@{sgsrfs}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sgsrfs}]{\setlength{\rightskip}{0pt plus 5cm}void sgsrfs (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\+\_\+t}}]{trans, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{char $\ast$}]{equed, }
+\item[{float $\ast$}]{R, }
+\item[{float $\ast$}]{C, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B, }
+\item[{{\bf Super\+Matrix} $\ast$}]{X, }
+\item[{float $\ast$}]{ferr, }
+\item[{float $\ast$}]{berr, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ae824bcb507f76ad3053d845352fb6b3d}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  SGSRFS improves the computed solution to a system of linear   
+  equations and provides error bounds and backward error estimates for 
+  the solution.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  If equilibration was performed, the system becomes:
+          (diag(R)*A\_original*diag(C)) * X = diag(R)*B\_original.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}trans   (input) trans\_t
+         Specifies the form of the system of equations:
+         = NOTRANS: \hyperlink{classA}{A} * X = B  (No transpose)
+         = TRANS:   \hyperlink{classA}{A}'* X = B  (Transpose)
+         = CONJ:    A**H * X = B  (Conjugate transpose)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A}       (input) SuperMatrix*
+          The original matrix \hyperlink{classA}{A} in the system, or the scaled \hyperlink{classA}{A} if
+          equilibration was done. The type of \hyperlink{classA}{A} can be:
+          Stype = SLU\_NC, Dtype = SLU\_S, Mtype = SLU\_GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  L       (input) SuperMatrix*
+      The factor L from the factorization Pr*A*Pc=L*U. Use
+          compressed row subscripts storage for supernodes, 
+          i.e., L has types: Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  U       (input) SuperMatrix*
+          The factor U from the factorization Pr*A*Pc=L*U as computed by
+          \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf()}. Use column-wise storage scheme, 
+          i.e., U has types: Stype = SLU\_NC, Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  perm\_c  (input) int*, dimension (A->ncol)
+      Column permutation vector, which defines the 
+          permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+          in position j in A*Pc.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  perm\_r  (input) int*, dimension (A->nrow)
+          Row permutation vector, which defines the permutation matrix Pr;
+          perm\_r[i] = j means row i of \hyperlink{classA}{A} is in position j in Pr*A.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  equed   (input) Specifies the form of equilibration that was done.
+          = 'N': No equilibration.
+          = 'R': Row equilibration, i.e., \hyperlink{classA}{A} was premultiplied by diag(R).
+          = 'C': Column equilibration, i.e., \hyperlink{classA}{A} was postmultiplied by
+                 diag(C).
+          = 'B': Both row and column equilibration, i.e., \hyperlink{classA}{A} was replaced 
+                 by diag(R)*A*diag(C).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  R       (input) float*, dimension (A->nrow)
+          The row scale factors for \hyperlink{classA}{A}.
+          If equed = 'R' or 'B', \hyperlink{classA}{A} is premultiplied by diag(R).
+          If equed = 'N' or 'C', R is not accessed.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  C       (input) float*, dimension (A->ncol)
+          The column scale factors for \hyperlink{classA}{A}.
+          If equed = 'C' or 'B', \hyperlink{classA}{A} is postmultiplied by diag(C).
+          If equed = 'N' or 'R', C is not accessed.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  B       (input) SuperMatrix*
+          B has types: Stype = SLU\_DN, Dtype = SLU\_S, Mtype = SLU\_GE.
+          The right hand side matrix B.
+          if equed = 'R' or 'B', B is premultiplied by diag(R).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  X       (input/output) SuperMatrix*
+          X has types: Stype = SLU\_DN, Dtype = SLU\_S, Mtype = SLU\_GE.
+          On entry, the solution matrix X, as computed by \hyperlink{sgstrs_8c_a9b6e1e555af9cf109ef3a584054a91e2}{sgstrs()}.
+          On exit, the improved solution matrix X.
+          if *equed = 'C' or 'B', X should be premultiplied by diag(C)
+              in order to obtain the solution to the original system.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  FERR    (output) float*, dimension (B->ncol)   
+          The estimated forward error bound for each solution vector   
+          X(j) (the j-th column of the solution matrix X).   
+          If XTRUE is the true solution corresponding to X(j), FERR(j) 
+          is an estimated upper bound for the magnitude of the largest 
+          element in (X(j) - XTRUE) divided by the magnitude of the   
+          largest element in X(j).  The estimate is as reliable as   
+          the estimate for RCOND, and is almost always a slight   
+          overestimate of the true error.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  BERR    (output) float*, dimension (B->ncol)   
+          The componentwise relative backward error of each solution   
+          vector X(j) (i.e., the smallest relative change in   
+          any element of \hyperlink{classA}{A} or B that makes X(j) an exact solution).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  stat     (output) SuperLUStat\_t*
+           Record the statistics on runtime and floating-point operation count.
+           See util.h for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  info    (output) int*   
+          = 0:  successful exit   
+           < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Internal Parameters   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   ITMAX is the maximum number of steps of iterative refinement.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a44bbae3b1218d951ed229c461a5f14b6}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sgssv@{sgssv}}
+\index{sgssv@{sgssv}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sgssv}]{\setlength{\rightskip}{0pt plus 5cm}void sgssv (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a44bbae3b1218d951ed229c461a5f14b6}
+
+
+Driver routines. 
+
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}SGSSV solves the system of linear equations A*X=B, using the
+LU factorization from SGSTRF. It performs the following steps:\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  1. If \hyperlink{classA}{A} is stored column-wise (A->Stype = SLU\_NC):\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.1. Permute the columns of \hyperlink{classA}{A}, forming A*Pc, where Pc
+          is a permutation matrix. For more details of this step, 
+          see \hyperlink{sp__preorder_8c}{sp\_preorder.c}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.2. Factor \hyperlink{classA}{A} as Pr*A*Pc=L*U with the permutation Pr determined
+          by Gaussian elimination with partial pivoting.
+          L is unit lower triangular with offdiagonal entries
+          bounded by 1 in magnitude, and U is upper triangular.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.3. Solve the system of equations A*X=B using the factored
+          form of \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  2. If \hyperlink{classA}{A} is stored row-wise (A->Stype = SLU\_NR), apply the
+     above algorithm to the transpose of \hyperlink{classA}{A}:\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.1. Permute columns of transpose(A) (rows of \hyperlink{classA}{A}),
+          forming transpose(A)*Pc, where Pc is a permutation matrix. 
+          For more details of this step, see \hyperlink{sp__preorder_8c}{sp\_preorder.c}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.2. Factor \hyperlink{classA}{A} as Pr*transpose(\hyperlink{classA}{A})*Pc=L*U with the permutation Pr
+          determined by Gaussian elimination with partial pivoting.
+          L is unit lower triangular with offdiagonal entries
+          bounded by 1 in magnitude, and U is upper triangular.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.3. Solve the system of equations A*X=B using the factored
+          form of \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}options (input) superlu\_options\_t*
+        The structure defines the input parameters to control
+        how the LU decomposition will be performed and how the
+        system will be solved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}       (input) SuperMatrix*
+        \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} in A*X=B, of dimension (A->nrow, A->ncol). The number
+        of linear equations is A->nrow. Currently, the type of \hyperlink{classA}{A} can be:
+        Stype = SLU\_NC or SLU\_NR; Dtype = SLU\_S; Mtype = SLU\_GE.
+        In the future, more general \hyperlink{classA}{A} may be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (input/output) int*
+        If A->Stype = SLU\_NC, column permutation vector of size A->ncol
+        which defines the permutation matrix Pc; perm\_c[i] = j means 
+        column i of \hyperlink{classA}{A} is in position j in A*Pc.
+        If A->Stype = SLU\_NR, column permutation vector of size A->nrow
+        which describes permutation of columns of transpose(A) 
+        (rows of \hyperlink{classA}{A}) as described above.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        If options->ColPerm = MY\_PERMC or options->Fact = SamePattern or
+           options->Fact = SamePattern\_SameRowPerm, it is an input argument.
+           On exit, perm\_c may be overwritten by the product of the input
+           perm\_c and a permutation that postorders the elimination tree
+           of Pc'*A'*A*Pc; perm\_c is not changed if the elimination tree
+           is already in postorder.
+        Otherwise, it is an output argument.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_r  (input/output) int*
+        If A->Stype = SLU\_NC, row permutation vector of size A->nrow, 
+        which defines the permutation matrix Pr, and is determined 
+        by partial pivoting.  perm\_r[i] = j means row i of \hyperlink{classA}{A} is in 
+        position j in Pr*A.
+        If A->Stype = SLU\_NR, permutation vector of size A->ncol, which
+        determines permutation of rows of transpose(A)
+        (columns of \hyperlink{classA}{A}) as described above.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        If options->RowPerm = MY\_PERMR or
+           options->Fact = SamePattern\_SameRowPerm, perm\_r is an
+           input argument.
+        otherwise it is an output argument.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L       (output) SuperMatrix*
+        The factor L from the factorization 
+            Pr*A*Pc=L*U              (if A->Stype = SLU\_NC) or
+            Pr*transpose(\hyperlink{classA}{A})*Pc=L*U   (if A->Stype = SLU\_NR).
+        Uses compressed row subscripts storage for supernodes, i.e.,
+        L has types: Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U       (output) SuperMatrix*
+    The factor U from the factorization 
+            Pr*A*Pc=L*U              (if A->Stype = SLU\_NC) or
+            Pr*transpose(\hyperlink{classA}{A})*Pc=L*U   (if A->Stype = SLU\_NR).
+        Uses column-wise storage scheme, i.e., U has types:
+        Stype = SLU\_NC, Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}B       (input/output) SuperMatrix*
+        B has types: Stype = SLU\_DN, Dtype = SLU\_S, Mtype = SLU\_GE.
+        On entry, the right hand side matrix.
+        On exit, the solution matrix if info = 0;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}stat   (output) SuperLUStat\_t*
+       Record the statistics on runtime and floating-point operation count.
+       See util.h for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}info    (output) int*
+    = 0: successful exit
+        > 0: if info = i, and i is
+            <= A->ncol: U(i,i) is exactly zero. The factorization has
+               been completed, but the factor U is exactly singular,
+               so the solution could not be computed.
+            > A->ncol: number of bytes allocated when memory allocation
+               failure occurred, plus A->ncol.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a4d6a37b565522c7c77a173826588deee}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sgssvx@{sgssvx}}
+\index{sgssvx@{sgssvx}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sgssvx}]{\setlength{\rightskip}{0pt plus 5cm}void sgssvx (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{etree, }
+\item[{char $\ast$}]{equed, }
+\item[{float $\ast$}]{R, }
+\item[{float $\ast$}]{C, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{void $\ast$}]{work, }
+\item[{int}]{lwork, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B, }
+\item[{{\bf Super\+Matrix} $\ast$}]{X, }
+\item[{float $\ast$}]{recip\+\_\+pivot\+\_\+growth, }
+\item[{float $\ast$}]{rcond, }
+\item[{float $\ast$}]{ferr, }
+\item[{float $\ast$}]{berr, }
+\item[{{\bf mem\+\_\+usage\+\_\+t} $\ast$}]{mem\+\_\+usage, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a4d6a37b565522c7c77a173826588deee}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}SGSSVX solves the system of linear equations A*X=B or \hyperlink{classA}{A}'*X=B, using
+the LU factorization from \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf()}. Error bounds on the solution and
+a condition estimate are also provided. It performs the following steps:\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  1. If \hyperlink{classA}{A} is stored column-wise (A->Stype = SLU\_NC):\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.1. If options->Equil = YES, scaling factors are computed to
+          equilibrate the system:
+          options->Trans = NOTRANS:
+              diag(R)*A*diag(C) *inv(diag(C))*X = diag(R)*B
+          options->Trans = TRANS:
+              (diag(R)*A*diag(C))**T *inv(diag(R))*X = diag(C)*B
+          options->Trans = CONJ:
+              (diag(R)*A*diag(C))**H *inv(diag(R))*X = diag(C)*B
+          Whether or not the system will be equilibrated depends on the
+          scaling of the matrix \hyperlink{classA}{A}, but if equilibration is used, \hyperlink{classA}{A} is
+          overwritten by diag(R)*A*diag(C) and B by diag(R)*B
+          (if options->Trans=NOTRANS) or diag(C)*B (if options->Trans
+          = TRANS or CONJ).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.2. Permute columns of \hyperlink{classA}{A}, forming A*Pc, where Pc is a permutation
+          matrix that usually preserves sparsity.
+          For more details of this step, see \hyperlink{sp__preorder_8c}{sp\_preorder.c}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.3. If options->Fact != FACTORED, the LU decomposition is used to
+          factor the matrix \hyperlink{classA}{A} (after equilibration if options->Equil = YES)
+          as Pr*A*Pc = L*U, with Pr determined by partial pivoting.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.4. Compute the reciprocal pivot growth factor.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.5. If some U(i,i) = 0, so that U is exactly singular, then the
+          routine returns with info = i. Otherwise, the factored form of 
+          \hyperlink{classA}{A} is used to estimate the condition number of the matrix \hyperlink{classA}{A}. If
+          the reciprocal of the condition number is less than machine
+          precision, info = A->ncol+1 is returned as a warning, but the
+          routine still goes on to solve for X and computes error bounds
+          as described below.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.6. The system of equations is solved for X using the factored form
+          of \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.7. If options->IterRefine != NOREFINE, iterative refinement is
+          applied to improve the computed solution matrix and calculate
+          error bounds and backward error estimates for it.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     1.8. If equilibration was used, the matrix X is premultiplied by
+          diag(C) (if options->Trans = NOTRANS) or diag(R)
+          (if options->Trans = TRANS or CONJ) so that it solves the
+          original system before equilibration.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  2. If \hyperlink{classA}{A} is stored row-wise (A->Stype = SLU\_NR), apply the above algorithm
+     to the transpose of \hyperlink{classA}{A}:\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.1. If options->Equil = YES, scaling factors are computed to
+          equilibrate the system:
+          options->Trans = NOTRANS:
+              diag(R)*A*diag(C) *inv(diag(C))*X = diag(R)*B
+          options->Trans = TRANS:
+              (diag(R)*A*diag(C))**T *inv(diag(R))*X = diag(C)*B
+          options->Trans = CONJ:
+              (diag(R)*A*diag(C))**H *inv(diag(R))*X = diag(C)*B
+          Whether or not the system will be equilibrated depends on the
+          scaling of the matrix \hyperlink{classA}{A}, but if equilibration is used, \hyperlink{classA}{A}' is
+          overwritten by diag(R)*A'*diag(C) and B by diag(R)*B 
+          (if trans='N') or diag(C)*B (if trans = 'T' or 'C').\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.2. Permute columns of transpose(A) (rows of \hyperlink{classA}{A}), 
+          forming transpose(A)*Pc, where Pc is a permutation matrix that 
+          usually preserves sparsity.
+          For more details of this step, see \hyperlink{sp__preorder_8c}{sp\_preorder.c}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.3. If options->Fact != FACTORED, the LU decomposition is used to
+          factor the transpose(A) (after equilibration if 
+          options->Fact = YES) as Pr*transpose(\hyperlink{classA}{A})*Pc = L*U with the
+          permutation Pr determined by partial pivoting.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.4. Compute the reciprocal pivot growth factor.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.5. If some U(i,i) = 0, so that U is exactly singular, then the
+          routine returns with info = i. Otherwise, the factored form 
+          of transpose(A) is used to estimate the condition number of the
+          matrix \hyperlink{classA}{A}. If the reciprocal of the condition number
+          is less than machine precision, info = A->nrow+1 is returned as
+          a warning, but the routine still goes on to solve for X and
+          computes error bounds as described below.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.6. The system of equations is solved for X using the factored form
+          of transpose(A).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.7. If options->IterRefine != NOREFINE, iterative refinement is
+          applied to improve the computed solution matrix and calculate
+          error bounds and backward error estimates for it.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     2.8. If equilibration was used, the matrix X is premultiplied by
+          diag(C) (if options->Trans = NOTRANS) or diag(R) 
+          (if options->Trans = TRANS or CONJ) so that it solves the
+          original system before equilibration.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}options (input) superlu\_options\_t*
+        The structure defines the input parameters to control
+        how the LU decomposition will be performed and how the
+        system will be solved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}       (input/output) SuperMatrix*
+        \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} in A*X=B, of dimension (A->nrow, A->ncol). The number
+        of the linear equations is A->nrow. Currently, the type of \hyperlink{classA}{A} can be:
+        Stype = SLU\_NC or SLU\_NR, Dtype = SLU\_D, Mtype = SLU\_GE.
+        In the future, more general \hyperlink{classA}{A} may be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        On entry, If options->Fact = FACTORED and equed is not 'N', 
+        then \hyperlink{classA}{A} must have been equilibrated by the scaling factors in
+        R and/or C.  
+        On exit, \hyperlink{classA}{A} is not modified if options->Equil = NO, or if 
+        options->Equil = YES but equed = 'N' on exit.
+        Otherwise, if options->Equil = YES and equed is not 'N',
+        \hyperlink{classA}{A} is scaled as follows:
+        If A->Stype = SLU\_NC:
+          equed = 'R':  \hyperlink{classA}{A} := diag(R) * \hyperlink{classA}{A}
+          equed = 'C':  \hyperlink{classA}{A} := \hyperlink{classA}{A} * diag(C)
+          equed = 'B':  \hyperlink{classA}{A} := diag(R) * \hyperlink{classA}{A} * diag(C).
+        If A->Stype = SLU\_NR:
+          equed = 'R':  transpose(A) := diag(R) * transpose(A)
+          equed = 'C':  transpose(A) := transpose(A) * diag(C)
+          equed = 'B':  transpose(A) := diag(R) * transpose(A) * diag(C).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (input/output) int*
+    If A->Stype = SLU\_NC, Column permutation vector of size A->ncol,
+        which defines the permutation matrix Pc; perm\_c[i] = j means
+        column i of \hyperlink{classA}{A} is in position j in A*Pc.
+        On exit, perm\_c may be overwritten by the product of the input
+        perm\_c and a permutation that postorders the elimination tree
+        of Pc'*A'*A*Pc; perm\_c is not changed if the elimination tree
+        is already in postorder.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        If A->Stype = SLU\_NR, column permutation vector of size A->nrow,
+        which describes permutation of columns of transpose(A) 
+        (rows of \hyperlink{classA}{A}) as described above.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_r  (input/output) int*
+        If A->Stype = SLU\_NC, row permutation vector of size A->nrow, 
+        which defines the permutation matrix Pr, and is determined
+        by partial pivoting.  perm\_r[i] = j means row i of \hyperlink{classA}{A} is in 
+        position j in Pr*A.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        If A->Stype = SLU\_NR, permutation vector of size A->ncol, which
+        determines permutation of rows of transpose(A)
+        (columns of \hyperlink{classA}{A}) as described above.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        If options->Fact = SamePattern\_SameRowPerm, the pivoting routine
+        will try to use the input perm\_r, unless a certain threshold
+        criterion is violated. In that case, perm\_r is overwritten by a
+        new permutation determined by partial pivoting or diagonal
+        threshold pivoting.
+        Otherwise, perm\_r is output argument.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}etree   (input/output) int*,  dimension (A->ncol)
+        Elimination tree of Pc'*A'*A*Pc.
+        If options->Fact != FACTORED and options->Fact != DOFACT,
+        etree is an input argument, otherwise it is an output argument.
+        Note: etree is a vector of parent pointers for a forest whose
+        vertices are the integers 0 to A->ncol-1; etree[root]==A->ncol.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}equed   (input/output) char*
+        Specifies the form of equilibration that was done.
+        = 'N': No equilibration.
+        = 'R': Row equilibration, i.e., \hyperlink{classA}{A} was premultiplied by diag(R).
+        = 'C': Column equilibration, i.e., \hyperlink{classA}{A} was postmultiplied by diag(C).
+        = 'B': Both row and column equilibration, i.e., \hyperlink{classA}{A} was replaced 
+               by diag(R)*A*diag(C).
+        If options->Fact = FACTORED, equed is an input argument,
+        otherwise it is an output argument.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}R       (input/output) float*, dimension (A->nrow)
+        The row scale factors for \hyperlink{classA}{A} or transpose(A).
+        If equed = 'R' or 'B', \hyperlink{classA}{A} (if A->Stype = SLU\_NC) or transpose(A)
+            (if A->Stype = SLU\_NR) is multiplied on the left by diag(R).
+        If equed = 'N' or 'C', R is not accessed.
+        If options->Fact = FACTORED, R is an input argument,
+            otherwise, R is output.
+        If options->zFact = FACTORED and equed = 'R' or 'B', each element
+            of R must be positive.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}C       (input/output) float*, dimension (A->ncol)
+        The column scale factors for \hyperlink{classA}{A} or transpose(A).
+        If equed = 'C' or 'B', \hyperlink{classA}{A} (if A->Stype = SLU\_NC) or transpose(A)
+            (if A->Stype = SLU\_NR) is multiplied on the right by diag(C).
+        If equed = 'N' or 'R', C is not accessed.
+        If options->Fact = FACTORED, C is an input argument,
+            otherwise, C is output.
+        If options->Fact = FACTORED and equed = 'C' or 'B', each element
+            of C must be positive.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L       (output) SuperMatrix*
+    The factor L from the factorization
+            Pr*A*Pc=L*U              (if A->Stype SLU\_= NC) or
+            Pr*transpose(\hyperlink{classA}{A})*Pc=L*U   (if A->Stype = SLU\_NR).
+        Uses compressed row subscripts storage for supernodes, i.e.,
+        L has types: Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U       (output) SuperMatrix*
+    The factor U from the factorization
+            Pr*A*Pc=L*U              (if A->Stype = SLU\_NC) or
+            Pr*transpose(\hyperlink{classA}{A})*Pc=L*U   (if A->Stype = SLU\_NR).
+        Uses column-wise storage scheme, i.e., U has types:
+        Stype = SLU\_NC, Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}work    (workspace/output) void*, size (lwork) (in bytes)
+        User supplied workspace, should be large enough
+        to hold data structures for factors L and U.
+        On exit, if fact is not 'F', L and U point to this array.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}lwork   (input) int
+        Specifies the size of work array in bytes.
+        = 0:  allocate space internally by system malloc;
+        > 0:  use user-supplied work array of length lwork in bytes,
+              returns error if space runs out.
+        = -1: the routine guesses the amount of space needed without
+              performing the factorization, and returns it in
+              mem\_usage->total\_needed; no other side effects.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        See argument 'mem\_usage' for memory usage statistics.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}B       (input/output) SuperMatrix*
+        B has types: Stype = SLU\_DN, Dtype = SLU\_S, Mtype = SLU\_GE.
+        On entry, the right hand side matrix.
+        If B->ncol = 0, only LU decomposition is performed, the triangular
+                        solve is skipped.
+        On exit,
+           if equed = 'N', B is not modified; otherwise
+           if A->Stype = SLU\_NC:
+              if options->Trans = NOTRANS and equed = 'R' or 'B',
+                 B is overwritten by diag(R)*B;
+              if options->Trans = TRANS or CONJ and equed = 'C' of 'B',
+                 B is overwritten by diag(C)*B;
+           if A->Stype = SLU\_NR:
+              if options->Trans = NOTRANS and equed = 'C' or 'B',
+                 B is overwritten by diag(C)*B;
+              if options->Trans = TRANS or CONJ and equed = 'R' of 'B',
+                 B is overwritten by diag(R)*B.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}X       (output) SuperMatrix*
+        X has types: Stype = SLU\_DN, Dtype = SLU\_S, Mtype = SLU\_GE. 
+        If info = 0 or info = A->ncol+1, X contains the solution matrix
+        to the original system of equations. Note that \hyperlink{classA}{A} and B are modified
+        on exit if equed is not 'N', and the solution to the equilibrated
+        system is inv(diag(C))*X if options->Trans = NOTRANS and
+        equed = 'C' or 'B', or inv(diag(R))*X if options->Trans = 'T' or 'C'
+        and equed = 'R' or 'B'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}recip\_pivot\_growth (output) float*
+        The reciprocal pivot growth factor max\_j( norm(A\_j)/norm(U\_j) ).
+        The infinity norm is used. If recip\_pivot\_growth is much less
+        than 1, the stability of the LU factorization could be poor.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}rcond   (output) float*
+        The estimate of the reciprocal condition number of the matrix \hyperlink{classA}{A}
+        after equilibration (if done). If rcond is less than the machine
+        precision (in particular, if rcond = 0), the matrix is singular
+        to working precision. This condition is indicated by a return
+        code of info > 0.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}FERR    (output) float*, dimension (B->ncol)   
+        The estimated forward error bound for each solution vector   
+        X(j) (the j-th column of the solution matrix X).   
+        If XTRUE is the true solution corresponding to X(j), FERR(j) 
+        is an estimated upper bound for the magnitude of the largest 
+        element in (X(j) - XTRUE) divided by the magnitude of the   
+        largest element in X(j).  The estimate is as reliable as   
+        the estimate for RCOND, and is almost always a slight   
+        overestimate of the true error.
+        If options->IterRefine = NOREFINE, ferr = 1.0.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}BERR    (output) float*, dimension (B->ncol)
+        The componentwise relative backward error of each solution   
+        vector X(j) (i.e., the smallest relative change in   
+        any element of \hyperlink{classA}{A} or B that makes X(j) an exact solution).
+        If options->IterRefine = NOREFINE, berr = 1.0.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}mem\_usage (output) mem\_usage\_t*
+        Record the memory usage statistics, consisting of following fields:
+\begin{DoxyItemize}
+\item for\_lu (float)
+          The amount of space used in bytes for L data structures.
+\item total\_needed (float)
+          The amount of space needed in bytes to perform factorization.
+\item expansions (int)
+          The number of memory expansions during the LU factorization.
+\end{DoxyItemize}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}stat   (output) SuperLUStat\_t*
+       Record the statistics on runtime and floating-point operation count.
+       See \hyperlink{slu__util_8h}{slu\_util.h} for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}info    (output) int*
+        = 0: successful exit   
+        < 0: if info = -i, the i-th argument had an illegal value   
+        > 0: if info = i, and i is   
+             <= A->ncol: U(i,i) is exactly zero. The factorization has   
+                   been completed, but the factor U is exactly   
+                   singular, so the solution and error bounds   
+                   could not be computed.   
+             = A->ncol+1: U is nonsingular, but RCOND is less than machine
+                   precision, meaning that the matrix is singular to
+                   working precision. Nevertheless, the solution and
+                   error bounds are computed because there are a number
+                   of situations where the computed solution can be more
+                   accurate than the value of RCOND would suggest.   
+             > A->ncol+1: number of bytes allocated when memory allocation
+                   failure occurred, plus A->ncol.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_af006a81b576fffa92a1c848ac3191c70}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sgstrf@{sgstrf}}
+\index{sgstrf@{sgstrf}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sgstrf}]{\setlength{\rightskip}{0pt plus 5cm}void sgstrf (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int}]{relax, }
+\item[{int}]{panel\+\_\+size, }
+\item[{int $\ast$}]{etree, }
+\item[{void $\ast$}]{work, }
+\item[{int}]{lwork, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_af006a81b576fffa92a1c848ac3191c70}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}SGSTRF computes an LU factorization of a general sparse m-by-n
+matrix \hyperlink{classA}{A} using partial pivoting with row interchanges.
+The factorization has the form
+    Pr * \hyperlink{classA}{A} = L * U
+where Pr is a row permutation matrix, L is lower triangular with unit
+diagonal elements (lower trapezoidal if A->nrow > A->ncol), and U is upper 
+triangular (upper trapezoidal if A->nrow < A->ncol).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}options (input) superlu\_options\_t*
+        The structure defines the input parameters to control
+        how the LU decomposition will be performed.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}        (input) SuperMatrix*
+     Original matrix \hyperlink{classA}{A}, permuted by columns, of dimension
+         (A->nrow, A->ncol). The type of \hyperlink{classA}{A} can be:
+         Stype = SLU\_NCP; Dtype = SLU\_S; Mtype = SLU\_GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}relax    (input) int
+         To control degree of relaxing supernodes. If the number
+         of nodes (columns) in a subtree of the elimination tree is less
+         than relax, this subtree is considered as one supernode,
+         regardless of the row structures of those columns.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}panel\_size (input) int
+         \hyperlink{classA}{A} panel consists of at most panel\_size consecutive columns.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}etree    (input) int*, dimension (A->ncol)
+         Elimination tree of \hyperlink{classA}{A}'*A.
+         Note: etree is a vector of parent pointers for a forest whose
+         vertices are the integers 0 to A->ncol-1; etree[root]==A->ncol.
+         On input, the columns of \hyperlink{classA}{A} should be permuted so that the
+         etree is in a certain postorder.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}work     (input/output) void*, size (lwork) (in bytes)
+         User-supplied work space and space for the output data structures.
+         Not referenced if lwork = 0;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}lwork   (input) int
+        Specifies the size of work array in bytes.
+        = 0:  allocate space internally by system malloc;
+        > 0:  use user-supplied work array of length lwork in bytes,
+              returns error if space runs out.
+        = -1: the routine guesses the amount of space needed without
+              performing the factorization, and returns it in
+              *info; no other side effects.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c   (input) int*, dimension (A->ncol)
+     Column permutation vector, which defines the 
+         permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+         in position j in A*Pc.
+         When searching for diagonal, perm\_c[*] is applied to the
+         row subscripts of \hyperlink{classA}{A}, so that diagonal threshold pivoting
+         can find the diagonal of \hyperlink{classA}{A}, rather than that of A*Pc.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_r   (input/output) int*, dimension (A->nrow)
+         Row permutation vector which defines the permutation matrix Pr,
+         perm\_r[i] = j means row i of \hyperlink{classA}{A} is in position j in Pr*A.
+         If options->Fact = SamePattern\_SameRowPerm, the pivoting routine
+            will try to use the input perm\_r, unless a certain threshold
+            criterion is violated. In that case, perm\_r is overwritten by
+            a new permutation determined by partial pivoting or diagonal
+            threshold pivoting.
+         Otherwise, perm\_r is output argument;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L        (output) SuperMatrix*
+         The factor L from the factorization Pr*A=L*U; use compressed row 
+         subscripts storage for supernodes, i.e., L has type: 
+         Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U        (output) SuperMatrix*
+     The factor U from the factorization Pr*A*Pc=L*U. Use column-wise
+         storage scheme, i.e., U has types: Stype = SLU\_NC, 
+         Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}stat     (output) SuperLUStat\_t*
+         Record the statistics on runtime and floating-point operation count.
+         See \hyperlink{slu__util_8h}{slu\_util.h} for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}info     (output) int*
+         = 0: successful exit
+         < 0: if info = -i, the i-th argument had an illegal value
+         > 0: if info = i, and i is
+            <= A->ncol: U(i,i) is exactly zero. The factorization has
+               been completed, but the factor U is exactly singular,
+               and division by zero will occur if it is used to solve a
+               system of equations.
+            > A->ncol: number of bytes allocated when memory allocation
+               failure occurred, plus A->ncol. If lwork = -1, it is
+               the estimated amount of space needed, plus A->ncol.
+
+
+\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Local Working Arrays: 
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  m = number of rows in the matrix
+  n = number of columns in the matrix\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  xprune[0:n-1]: xprune[*] points to locations in subscript 
+ vector lsub[*]. For column i, xprune[i] denotes the point where 
+ structural pruning begins. I.e. only xlsub[i],..,xprune[i]-1 need 
+ to be traversed for symbolic factorization.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  marker[0:3*m-1]: marker[i] = j means that node i has been 
+ reached when working on column j.
+ Storage: relative to original row subscripts
+ NOTE: There are 3 of them: marker/marker1 are used for panel dfs, 
+       see \hyperlink{spanel__dfs_8c}{spanel\_dfs.c}; marker2 is used for inner-factorization,
+           see \hyperlink{scolumn__dfs_8c}{scolumn\_dfs.c}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  parent[0:m-1]: parent vector used during dfs
+     Storage: relative to new row subscripts\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  xplore[0:m-1]: xplore[i] gives the location of the next (dfs) 
+ unexplored neighbor of i in lsub[*]\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  segrep[0:nseg-1]: contains the list of supernodal representatives
+ in topological order of the dfs. \hyperlink{classA}{A} supernode representative is the 
+ last column of a supernode.
+     The maximum size of segrep[] is n.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  repfnz[0:W*m-1]: for a nonzero segment U[*,j] that ends at a 
+ supernodal representative r, repfnz[r] is the location of the first 
+ nonzero in this segment.  It is also used during the dfs: repfnz[r]>0
+ indicates the supernode r has been explored.
+ NOTE: There are W of them, each used for one column of a panel.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  panel\_lsub[0:W*m-1]: temporary for the nonzeros row indices below 
+     the panel diagonal. These are filled in during \hyperlink{slu__sdefs_8h_a77baf210393e04fa71d4e73b5e60e556}{spanel\_dfs()}, and are
+     used later in the inner LU factorization within the panel.
+ panel\_lsub[]/dense[] pair forms the SPA data structure.
+ NOTE: There are W of them.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  dense[0:W*m-1]: sparse accumulating (SPA) vector for intermediate values;
+           NOTE: there are W of them.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  tempv[0:*]: real temporary used for dense numeric kernels;
+ The size of this array is defined by \hyperlink{slu__util_8h_a06193b28f40a4779ae7737711642eb45}{NUM\_TEMPV()} in \hyperlink{slu__sdefs_8h}{slu\_sdefs.h}.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_aea450a9c52512127d6eaaebf0a65f9ce}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sgstrs@{sgstrs}}
+\index{sgstrs@{sgstrs}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sgstrs}]{\setlength{\rightskip}{0pt plus 5cm}void sgstrs (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\+\_\+t}}]{trans, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aea450a9c52512127d6eaaebf0a65f9ce}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}SGSTRS solves a system of linear equations A*X=B or \hyperlink{classA}{A}'*X=B
+with \hyperlink{classA}{A} sparse and B dense, using the LU factorization computed by
+SGSTRF.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}trans   (input) trans\_t
+         Specifies the form of the system of equations:
+         = NOTRANS: \hyperlink{classA}{A} * X = B  (No transpose)
+         = TRANS:   \hyperlink{classA}{A}'* X = B  (Transpose)
+         = CONJ:    A**H * X = B  (Conjugate transpose)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L       (input) SuperMatrix*
+        The factor L from the factorization Pr*A*Pc=L*U as computed by
+        \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf()}. Use compressed row subscripts storage for supernodes,
+        i.e., L has types: Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U       (input) SuperMatrix*
+        The factor U from the factorization Pr*A*Pc=L*U as computed by
+        \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf()}. Use column-wise storage scheme, i.e., U has types:
+        Stype = SLU\_NC, Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (input) int*, dimension (L->ncol)
+    Column permutation vector, which defines the 
+        permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+        in position j in A*Pc.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_r  (input) int*, dimension (L->nrow)
+        Row permutation vector, which defines the permutation matrix Pr; 
+        perm\_r[i] = j means row i of \hyperlink{classA}{A} is in position j in Pr*A.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}B       (input/output) SuperMatrix*
+        B has types: Stype = SLU\_DN, Dtype = SLU\_S, Mtype = SLU\_GE.
+        On entry, the right hand side matrix.
+        On exit, the solution matrix if info = 0;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}stat     (output) SuperLUStat\_t*
+         Record the statistics on runtime and floating-point operation count.
+         See util.h for the definition of '\hyperlink{structSuperLUStat__t}{SuperLUStat\_t}'.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}info    (output) int*
+       = 0: successful exit
+    < 0: if info = -i, the i-th argument had an illegal value
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_aba0eeda28d139bf88878880edd3cca5a}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sinf\+\_\+norm\+\_\+error@{sinf\+\_\+norm\+\_\+error}}
+\index{sinf\+\_\+norm\+\_\+error@{sinf\+\_\+norm\+\_\+error}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sinf\+\_\+norm\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}void sinf\+\_\+norm\+\_\+error (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{, }
+\item[{float $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aba0eeda28d139bf88878880edd3cca5a}
+
+
+Check the inf-\/norm of the error vector. 
+
+\hypertarget{slu__sdefs_8h_a47c1dd1b8332f4366d5c5112219fdb3a}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!slamch\+\_\+@{slamch\+\_\+}}
+\index{slamch\+\_\+@{slamch\+\_\+}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{slamch\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}float slamch\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{cmach}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a47c1dd1b8332f4366d5c5112219fdb3a}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    SLAMCH determines single precision machine parameters.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    CMACH   (input) CHARACTER*1   
+            Specifies the value to be returned by SLAMCH:   
+            = 'E' or 'e',   SLAMCH := eps   
+            = 'S' or 's ,   SLAMCH := sfmin   
+            = 'B' or 'b',   SLAMCH := base   
+            = 'P' or 'p',   SLAMCH := eps*base   
+            = 'N' or 'n',   SLAMCH := t   
+            = 'R' or 'r',   SLAMCH := rnd   
+            = 'M' or 'm',   SLAMCH := emin   
+            = 'U' or 'u',   SLAMCH := rmin   
+            = 'L' or 'l',   SLAMCH := emax   
+            = 'O' or 'o',   SLAMCH := rmax\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            where\end{DoxyPre}
+
+
+
+\begin{DoxyPre}            eps   = relative machine precision   
+            sfmin = safe minimum, such that 1/sfmin does not overflow   
+            base  = base of the machine   
+            prec  = eps*base   
+            t     = number of (base) digits in the mantissa   
+            rnd   = 1.0 when rounding occurs in addition, 0.0 otherwise   
+            emin  = minimum exponent before (gradual) underflow   
+            rmin  = underflow threshold - base**(emin-1)   
+            emax  = largest exponent before overflow   
+            rmax  = overflow threshold  - (base**emax)*(1-eps)   
+
+
+
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_afe4b556cd9d484f53606d114f83649d4}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!slaqgs@{slaqgs}}
+\index{slaqgs@{slaqgs}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{slaqgs}]{\setlength{\rightskip}{0pt plus 5cm}void slaqgs (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{float $\ast$}]{r, }
+\item[{float $\ast$}]{c, }
+\item[{float}]{rowcnd, }
+\item[{float}]{colcnd, }
+\item[{float}]{amax, }
+\item[{char $\ast$}]{equed}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_afe4b556cd9d484f53606d114f83649d4}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  SLAQGS equilibrates a general sparse M by N matrix \hyperlink{classA}{A} using the row and   
+  scaling factors in the vectors R and C.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A}       (input/output) SuperMatrix*
+          On exit, the equilibrated matrix.  See EQUED for the form of 
+          the equilibrated matrix. The type of \hyperlink{classA}{A} can be:
+     Stype = NC; Dtype = SLU\_S; Mtype = GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  R       (input) float*, dimension (A->nrow)
+          The row scale factors for \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  C       (input) float*, dimension (A->ncol)
+          The column scale factors for \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ROWCND  (input) float
+          Ratio of the smallest R(i) to the largest R(i).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  COLCND  (input) float
+          Ratio of the smallest C(i) to the largest C(i).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  AMAX    (input) float
+          Absolute value of largest matrix entry.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  EQUED   (output) char*
+          Specifies the form of equilibration that was done.   
+          = 'N':  No equilibration   
+          = 'R':  Row equilibration, i.e., \hyperlink{classA}{A} has been premultiplied by  
+                  diag(R).   
+          = 'C':  Column equilibration, i.e., \hyperlink{classA}{A} has been postmultiplied  
+                  by diag(C).   
+          = 'B':  Both row and column equilibration, i.e., \hyperlink{classA}{A} has been
+                  replaced by diag(R) * \hyperlink{classA}{A} * diag(C).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Internal Parameters   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  THRESH is a threshold value used to decide if row or column scaling   
+  should be done based on the ratio of the row or column scaling   
+  factors.  If ROWCND < THRESH, row scaling is done, and if   
+  COLCND < THRESH, column scaling is done.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  LARGE and SMALL are threshold values used to decide if row scaling   
+  should be done based on the absolute size of the largest matrix   
+  element.  If AMAX > LARGE or AMAX < SMALL, row scaling is done.   
+
+
+
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a69557d06b4e300aa6aca944561f3bb32}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sldperm@{sldperm}}
+\index{sldperm@{sldperm}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sldperm}]{\setlength{\rightskip}{0pt plus 5cm}int sldperm (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{\mbox{[}$\,$\mbox{]}, }
+\item[{float}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{\mbox{[}$\,$\mbox{]}, }
+\item[{float}]{\mbox{[}$\,$\mbox{]}, }
+\item[{float}]{\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a69557d06b4e300aa6aca944561f3bb32}
+\hypertarget{slu__sdefs_8h_af68715ec86cde90aa31fec07164d6ea6}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+L\+U\+Mem\+Init@{s\+L\+U\+Mem\+Init}}
+\index{s\+L\+U\+Mem\+Init@{s\+L\+U\+Mem\+Init}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+L\+U\+Mem\+Init}]{\setlength{\rightskip}{0pt plus 5cm}int s\+L\+U\+Mem\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf fact\+\_\+t}}]{fact, }
+\item[{void $\ast$}]{work, }
+\item[{int}]{lwork, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{annz, }
+\item[{int}]{panel\+\_\+size, }
+\item[{float}]{fill\+\_\+ratio, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{int $\ast$$\ast$}]{iwork, }
+\item[{float $\ast$$\ast$}]{dwork}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_af68715ec86cde90aa31fec07164d6ea6}
+
+
+Memory-\/related. 
+
+Memory-\/related.
+
+
+\begin{DoxyPre}
+For those unpredictable size, estimate as fill\_ratio * nnz(A).
+Return value:
+    If lwork = -1, return the estimated amount of space required, plus n;
+    otherwise, return the amount of space actually allocated when
+    memory allocation failure occurred.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a9af26d0426eb0bb63755880f2e67e7b7}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+L\+U\+Mem\+Xpand@{s\+L\+U\+Mem\+Xpand}}
+\index{s\+L\+U\+Mem\+Xpand@{s\+L\+U\+Mem\+Xpand}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+L\+U\+Mem\+Xpand}]{\setlength{\rightskip}{0pt plus 5cm}int s\+L\+U\+Mem\+Xpand (
+\begin{DoxyParamCaption}
+\item[{int}]{jcol, }
+\item[{int}]{next, }
+\item[{{\bf Mem\+Type}}]{mem\+\_\+type, }
+\item[{int $\ast$}]{maxlen, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a9af26d0426eb0bb63755880f2e67e7b7}
+
+
+Expand the data structures for L and U during the factorization. 
+
+
+\begin{DoxyPre}
+Return value:   0 - successful return
+              > 0 - number of bytes allocated when run out of space
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a9035f0d2a50cf5d8e29287572bd1be83}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+L\+U\+Work\+Free@{s\+L\+U\+Work\+Free}}
+\index{s\+L\+U\+Work\+Free@{s\+L\+U\+Work\+Free}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+L\+U\+Work\+Free}]{\setlength{\rightskip}{0pt plus 5cm}void s\+L\+U\+Work\+Free (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a9035f0d2a50cf5d8e29287572bd1be83}
+
+
+Free the working storage used by factor routines. 
+
+\hypertarget{slu__sdefs_8h_ab50ebebf3a620086366b6c310d52d681}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!smemory\+\_\+usage@{smemory\+\_\+usage}}
+\index{smemory\+\_\+usage@{smemory\+\_\+usage}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{smemory\+\_\+usage}]{\setlength{\rightskip}{0pt plus 5cm}int smemory\+\_\+usage (
+\begin{DoxyParamCaption}
+\item[{const int}]{, }
+\item[{const int}]{, }
+\item[{const int}]{, }
+\item[{const int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ab50ebebf3a620086366b6c310d52d681}
+\hypertarget{slu__sdefs_8h_a35b4a0e44c32443df609069021d27812}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sp\+\_\+sgemm@{sp\+\_\+sgemm}}
+\index{sp\+\_\+sgemm@{sp\+\_\+sgemm}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sp\+\_\+sgemm}]{\setlength{\rightskip}{0pt plus 5cm}int sp\+\_\+sgemm (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{transa, }
+\item[{char $\ast$}]{transb, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{k, }
+\item[{float}]{alpha, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{float $\ast$}]{b, }
+\item[{int}]{ldb, }
+\item[{float}]{beta, }
+\item[{float $\ast$}]{c, }
+\item[{int}]{ldc}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a35b4a0e44c32443df609069021d27812}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  sp\_s performs one of the matrix-matrix operations\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     C := alpha*op( \hyperlink{classA}{A} )*op( B ) + beta*C,\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  where  op( X ) is one of\end{DoxyPre}
+
+
+
+\begin{DoxyPre}     op( X ) = X   or   op( X ) = X'   or   op( X ) = conjg( X' ),\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  alpha and beta are scalars, and \hyperlink{classA}{A}, B and C are matrices, with op( A ) 
+  an m by k matrix,  op( B )  a  k by n matrix and  C an m by n matrix.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Parameters   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  TRANSA - (input) char*
+           On entry, TRANSA specifies the form of op( A ) to be used in 
+           the matrix multiplication as follows:   
+              TRANSA = 'N' or 'n',  op( A ) = \hyperlink{classA}{A}.   
+              TRANSA = 'T' or 't',  op( A ) = \hyperlink{classA}{A}'.   
+              TRANSA = 'C' or 'c',  op( A ) = conjg( \hyperlink{classA}{A}' ).   
+           Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  TRANSB - (input) char*
+           On entry, TRANSB specifies the form of op( B ) to be used in 
+           the matrix multiplication as follows:   
+              TRANSB = 'N' or 'n',  op( B ) = B.   
+              TRANSB = 'T' or 't',  op( B ) = B'.   
+              TRANSB = 'C' or 'c',  op( B ) = conjg( B' ).   
+           Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  M      - (input) int   
+           On entry,  M  specifies  the number of rows of the matrix 
+      op( A ) and of the matrix C.  M must be at least zero. 
+      Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  N      - (input) int
+           On entry,  N specifies the number of columns of the matrix 
+      op( B ) and the number of columns of the matrix C. N must be 
+      at least zero.
+      Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  K      - (input) int
+           On entry, K specifies the number of columns of the matrix 
+      op( A ) and the number of rows of the matrix op( B ). K must 
+      be at least  zero.   
+          Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ALPHA  - (input) float
+           On entry, ALPHA specifies the scalar alpha.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A}      - (input) SuperMatrix*
+           \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} with a sparse format, of dimension (A->nrow, A->ncol).
+           Currently, the type of \hyperlink{classA}{A} can be:
+               Stype = NC or NCP; Dtype = SLU\_S; Mtype = GE. 
+           In the future, more general \hyperlink{classA}{A} can be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  B      - FLOAT PRECISION array of DIMENSION ( LDB, kb ), where kb is 
+           n when TRANSB = 'N' or 'n',  and is  k otherwise.   
+           Before entry with  TRANSB = 'N' or 'n',  the leading k by n 
+           part of the array B must contain the matrix B, otherwise 
+           the leading n by k part of the array B must contain the 
+           matrix B.   
+           Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  LDB    - (input) int
+           On entry, LDB specifies the first dimension of B as declared 
+           in the calling (sub) program. LDB must be at least \hyperlink{slamch_8c_affe776513b24d84b39af8ab0930fef7f}{max( 1, n )}.  
+           Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  BETA   - (input) float
+           On entry, BETA specifies the scalar beta. When BETA is   
+           supplied as zero then C need not be set on input.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  C      - FLOAT PRECISION array of DIMENSION ( LDC, n ).   
+           Before entry, the leading m by n part of the array C must 
+           contain the matrix C,  except when beta is zero, in which 
+           case C need not be set on entry.   
+           On exit, the array C is overwritten by the m by n matrix 
+      ( alpha*op( \hyperlink{classA}{A} )*B + beta*C ).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  LDC    - (input) int
+           On entry, LDC specifies the first dimension of C as declared 
+           in the calling (sub)program. LDC must be at least \hyperlink{slamch_8c_affe776513b24d84b39af8ab0930fef7f}{max(1,m)}.   
+           Unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ==== Sparse Level 3 Blas routine.   
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a9e543b2d14781b56ef349114012b4fc9}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sp\+\_\+sgemv@{sp\+\_\+sgemv}}
+\index{sp\+\_\+sgemv@{sp\+\_\+sgemv}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sp\+\_\+sgemv}]{\setlength{\rightskip}{0pt plus 5cm}int sp\+\_\+sgemv (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{trans, }
+\item[{float}]{alpha, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{float $\ast$}]{x, }
+\item[{int}]{incx, }
+\item[{float}]{beta, }
+\item[{float $\ast$}]{y, }
+\item[{int}]{incy}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a9e543b2d14781b56ef349114012b4fc9}
+
+
+Performs one of the matrix-\/vector operations y \+:= alpha$\ast$\+A$\ast$x + beta$\ast$y, or y \+:= alpha$\ast$\+A'$\ast$x + beta$\ast$y,. 
+
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{ssp__blas2_8c_a3a14fab0d3fc42c621199aed6962ab3e}{sp\_sgemv()}  performs one of the matrix-vector operations   
+     y := alpha*A*x + beta*y,   or   y := alpha*A'*x + beta*y,   
+  where alpha and beta are scalars, x and y are vectors and \hyperlink{classA}{A} is a
+  sparse A->nrow by A->ncol matrix.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Parameters   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  TRANS  - (input) char*
+           On entry, TRANS specifies the operation to be performed as   
+           follows:   
+              TRANS = 'N' or 'n'   y := alpha*A*x + beta*y.   
+              TRANS = 'T' or 't'   y := alpha*A'*x + beta*y.   
+              TRANS = 'C' or 'c'   y := alpha*A'*x + beta*y.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ALPHA  - (input) float
+           On entry, ALPHA specifies the scalar alpha.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A}      - (input) SuperMatrix*
+           \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} with a sparse format, of dimension (A->nrow, A->ncol).
+           Currently, the type of \hyperlink{classA}{A} can be:
+               Stype = NC or NCP; Dtype = SLU\_S; Mtype = GE. 
+           In the future, more general \hyperlink{classA}{A} can be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  X      - (input) float*, array of DIMENSION at least   
+           ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'   
+           and at least   
+           ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.   
+           Before entry, the incremented array X must contain the   
+           vector x.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  INCX   - (input) int
+           On entry, INCX specifies the increment for the elements of   
+           X. INCX must not be zero.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  BETA   - (input) float
+           On entry, BETA specifies the scalar beta. When BETA is   
+           supplied as zero then Y need not be set on input.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Y      - (output) float*,  array of DIMENSION at least   
+           ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'   
+           and at least   
+           ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.   
+           Before entry with BETA non-zero, the incremented array Y   
+           must contain the vector y. On exit, Y is overwritten by the 
+           updated vector y.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  INCY   - (input) int
+           On entry, INCY specifies the increment for the elements of   
+           Y. INCY must not be zero.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  ==== Sparse Level 2 Blas routine.   
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_aa6d287b6b9bcaf72a692343e614c429c}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sp\+\_\+strsv@{sp\+\_\+strsv}}
+\index{sp\+\_\+strsv@{sp\+\_\+strsv}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sp\+\_\+strsv}]{\setlength{\rightskip}{0pt plus 5cm}int sp\+\_\+strsv (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{uplo, }
+\item[{char $\ast$}]{trans, }
+\item[{char $\ast$}]{diag, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{float $\ast$}]{x, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aa6d287b6b9bcaf72a692343e614c429c}
+
+
+Solves one of the systems of equations A$\ast$x = b, or \hyperlink{classA}{A}'$\ast$x = b. 
+
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{ssp__blas2_8c_ab9e8302d09840e67df27ddd4defaa621}{sp\_strsv()} solves one of the systems of equations   
+      A*x = b,   or   \hyperlink{classA}{A}'*x = b,
+  where b and x are n element vectors and \hyperlink{classA}{A} is a sparse unit , or   
+  non-unit, upper or lower triangular matrix.   
+  No test for singularity or near-singularity is included in this   
+  routine. Such tests must be performed before calling this routine.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Parameters   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  uplo   - (input) char*
+           On entry, uplo specifies whether the matrix is an upper or   
+            lower triangular matrix as follows:   
+               uplo = 'U' or 'u'   \hyperlink{classA}{A} is an upper triangular matrix.   
+               uplo = 'L' or 'l'   \hyperlink{classA}{A} is a lower triangular matrix.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  trans  - (input) char*
+            On entry, trans specifies the equations to be solved as   
+            follows:   
+               trans = 'N' or 'n'   A*x = b.   
+               trans = 'T' or 't'   \hyperlink{classA}{A}'*x = b.
+               trans = 'C' or 'c'   \hyperlink{classA}{A}'*x = b.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  diag   - (input) char*
+            On entry, diag specifies whether or not \hyperlink{classA}{A} is unit   
+            triangular as follows:   
+               diag = 'U' or 'u'   \hyperlink{classA}{A} is assumed to be unit triangular.   
+               diag = 'N' or 'n'   \hyperlink{classA}{A} is not assumed to be unit   
+                                   triangular.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  L       - (input) SuperMatrix*
+        The factor L from the factorization Pr*A*Pc=L*U. Use
+            compressed row subscripts storage for supernodes,
+            i.e., L has types: Stype = SC, Dtype = SLU\_S, Mtype = TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  U       - (input) SuperMatrix*
+         The factor U from the factorization Pr*A*Pc=L*U.
+         U has types: Stype = NC, Dtype = SLU\_S, Mtype = TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  x       - (input/output) float*
+            Before entry, the incremented array X must contain the n   
+            element right-hand side vector b. On exit, X is overwritten 
+            with the solution vector x.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  info    - (output) int*
+            If *info = -i, the i-th argument had an illegal value.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a51486936a9ff5079afed80eb5bf8a3e0}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!spanel\+\_\+bmod@{spanel\+\_\+bmod}}
+\index{spanel\+\_\+bmod@{spanel\+\_\+bmod}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{spanel\+\_\+bmod}]{\setlength{\rightskip}{0pt plus 5cm}void spanel\+\_\+bmod (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{w, }
+\item[{const int}]{jcol, }
+\item[{const int}]{nseg, }
+\item[{float $\ast$}]{dense, }
+\item[{float $\ast$}]{tempv, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a51486936a9ff5079afed80eb5bf8a3e0}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   Performs numeric block updates (sup-panel) in topological order.
+   It features: col-col, 2cols-col, 3cols-col, and sup-col updates.
+   Special processing on the supernodal portion of L[*,j]\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   Before entering this routine, the original nonzeros in the panel 
+   were already copied into the spa[m,w].\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   Updated/Output parameters-
+   dense[0:m-1,w]: L[*,j:j+w-1] and U[*,j:j+w-1] are returned 
+   collectively in the m-by-w vector dense[*]. 
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a77baf210393e04fa71d4e73b5e60e556}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!spanel\+\_\+dfs@{spanel\+\_\+dfs}}
+\index{spanel\+\_\+dfs@{spanel\+\_\+dfs}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{spanel\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}void spanel\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{m, }
+\item[{const int}]{w, }
+\item[{const int}]{jcol, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{nseg, }
+\item[{float $\ast$}]{dense, }
+\item[{int $\ast$}]{panel\+\_\+lsub, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{xprune, }
+\item[{int $\ast$}]{marker, }
+\item[{int $\ast$}]{parent, }
+\item[{int $\ast$}]{xplore, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a77baf210393e04fa71d4e73b5e60e556}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Performs a symbolic factorization on a panel of columns [jcol, jcol+w).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  \hyperlink{classA}{A} supernode representative is the last column of a supernode.
+  The nonzeros in U[*,j] are segments that end at supernodal
+  representatives.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  The routine returns one list of the supernodal representatives
+  in topological order of the dfs that generates them. This list is
+  a superset of the topological order of each individual column within
+  the panel. 
+  The location of the first nonzero in each supernodal segment
+  (supernodal entry location) is also returned. Each column has a 
+  separate list for this purpose.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Two marker arrays are used for dfs:
+    marker[i] == jj, if i was visited during dfs of current column jj;
+    marker1[i] >= jcol, if i was visited by earlier columns in this panel;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  marker: A-row --> A-row/col (0/1)
+  repfnz: SuperA-col --> PA-row
+  parent: SuperA-col --> SuperA-col
+  xplore: SuperA-col --> index to L-structure
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_acb8787465a6296109b9a306d5a315ff8}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Pivot\+Growth@{s\+Pivot\+Growth}}
+\index{s\+Pivot\+Growth@{s\+Pivot\+Growth}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Pivot\+Growth}]{\setlength{\rightskip}{0pt plus 5cm}float s\+Pivot\+Growth (
+\begin{DoxyParamCaption}
+\item[{int}]{ncols, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_acb8787465a6296109b9a306d5a315ff8}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Compute the reciprocal pivot growth factor of the leading ncols columns
+of the matrix, using the formula:
+    min\_j ( max\_i(abs(A\_ij)) / max\_i(abs(U\_ij)) )\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}ncols    (input) int
+         The number of columns of matrices \hyperlink{classA}{A}, L and U.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}        (input) SuperMatrix*
+     Original matrix \hyperlink{classA}{A}, permuted by columns, of dimension
+         (A->nrow, A->ncol). The type of \hyperlink{classA}{A} can be:
+         Stype = NC; Dtype = SLU\_S; Mtype = GE.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}L        (output) SuperMatrix*
+         The factor L from the factorization Pr*A=L*U; use compressed row 
+         subscripts storage for supernodes, i.e., L has type: 
+         Stype = SC; Dtype = SLU\_S; Mtype = TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}U        (output) SuperMatrix*
+     The factor U from the factorization Pr*A*Pc=L*U. Use column-wise
+         storage scheme, i.e., U has types: Stype = NC;
+         Dtype = SLU\_S; Mtype = TRU.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_ad7ddf03faedae25b4d73e0b6b33bf50c}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!spivot\+L@{spivot\+L}}
+\index{spivot\+L@{spivot\+L}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{spivot\+L}]{\setlength{\rightskip}{0pt plus 5cm}int spivot\+L (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const double}]{u, }
+\item[{int $\ast$}]{usepr, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{int $\ast$}]{iperm\+\_\+r, }
+\item[{int $\ast$}]{iperm\+\_\+c, }
+\item[{int $\ast$}]{pivrow, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ad7ddf03faedae25b4d73e0b6b33bf50c}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  Performs the numerical pivoting on the current column of L,
+  and the CDIV operation.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Pivot policy:
+  (1) Compute thresh = u * max\_(i>=j) \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_ij)};
+  (2) IF user specifies pivot row k and \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_kj)} >= thresh THEN
+          pivot row = k;
+      ELSE IF \hyperlink{slamch_8c_a3aa069ac3980707dae1e0530f50d59e4}{abs(A\_jj)} >= thresh THEN
+          pivot row = j;
+      ELSE
+          pivot row = m;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Note: If you absolutely want to use a given pivot order, then set u=0.0.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  Return value: 0      success;
+                i > 0  U(i,i) is exactly zero.
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a5cd6efad9d9fb7aef8a984f5e3cff66b}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix@{s\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix}}
+\index{s\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix@{s\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a5cd6efad9d9fb7aef8a984f5e3cff66b}
+
+
+Routines for debugging. 
+
+\hypertarget{slu__sdefs_8h_a25b29c47333295f4aa744e541e277ea0}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Print\+\_\+\+Dense\+\_\+\+Matrix@{s\+Print\+\_\+\+Dense\+\_\+\+Matrix}}
+\index{s\+Print\+\_\+\+Dense\+\_\+\+Matrix@{s\+Print\+\_\+\+Dense\+\_\+\+Matrix}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Print\+\_\+\+Dense\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Print\+\_\+\+Dense\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a25b29c47333295f4aa744e541e277ea0}
+\hypertarget{slu__sdefs_8h_a297455c494a78c098b2bf418edbc6b16}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sprint\+\_\+lu\+\_\+col@{sprint\+\_\+lu\+\_\+col}}
+\index{sprint\+\_\+lu\+\_\+col@{sprint\+\_\+lu\+\_\+col}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sprint\+\_\+lu\+\_\+col}]{\setlength{\rightskip}{0pt plus 5cm}void sprint\+\_\+lu\+\_\+col (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a297455c494a78c098b2bf418edbc6b16}
+
+
+Diagnostic print of column \char`\"{}jcol\char`\"{} in the U/\+L factor. 
+
+\hypertarget{slu__sdefs_8h_aeb289a84407c9cbbb33cdf3dbb1dacbe}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix@{s\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix}}
+\index{s\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix@{s\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_aeb289a84407c9cbbb33cdf3dbb1dacbe}
+\hypertarget{slu__sdefs_8h_acf9da2c45289246ef663fc4a96d1ad78}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sprune\+L@{sprune\+L}}
+\index{sprune\+L@{sprune\+L}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sprune\+L}]{\setlength{\rightskip}{0pt plus 5cm}void sprune\+L (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const int $\ast$}]{perm\+\_\+r, }
+\item[{const int}]{pivrow, }
+\item[{const int}]{nseg, }
+\item[{const int $\ast$}]{segrep, }
+\item[{const int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{xprune, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_acf9da2c45289246ef663fc4a96d1ad78}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+  Prunes the L-structure of supernodes whose L-structure
+  contains the current pivot row "pivrow"
+\end{DoxyPre}
+ \hypertarget{slu__sdefs_8h_a98d44fe59660f87330b0172151a76141}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sqselect@{sqselect}}
+\index{sqselect@{sqselect}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sqselect}]{\setlength{\rightskip}{0pt plus 5cm}float sqselect (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a98d44fe59660f87330b0172151a76141}
+\hypertarget{slu__sdefs_8h_a1357f9a3b2ffb9522883ad84affa63e3}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Query\+Space@{s\+Query\+Space}}
+\index{s\+Query\+Space@{s\+Query\+Space}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Query\+Space}]{\setlength{\rightskip}{0pt plus 5cm}int s\+Query\+Space (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf mem\+\_\+usage\+\_\+t} $\ast$}]{mem\+\_\+usage}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a1357f9a3b2ffb9522883ad84affa63e3}
+
+\begin{DoxyPre}
+mem\_usage consists of the following fields:
+\begin{DoxyItemize}
+\item for\_lu (float)
+     The amount of space used in bytes for the L data structures.
+\item total\_needed (float)
+     The amount of space needed in bytes to perform factorization.
+
+
+\end{DoxyItemize}\end{DoxyPre}
+\hypertarget{slu__sdefs_8h_a734dbf3f5d66b2a53d88e69daaad729e}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sreadhb@{sreadhb}}
+\index{sreadhb@{sreadhb}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sreadhb}]{\setlength{\rightskip}{0pt plus 5cm}void sreadhb (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{float $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a734dbf3f5d66b2a53d88e69daaad729e}
+
+
+Auxiliary routines. 
+
+\hypertarget{slu__sdefs_8h_ab345670a95db3f9c4b9c451224db8227}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sreadmt@{sreadmt}}
+\index{sreadmt@{sreadmt}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sreadmt}]{\setlength{\rightskip}{0pt plus 5cm}void sreadmt (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{float $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ab345670a95db3f9c4b9c451224db8227}
+\hypertarget{slu__sdefs_8h_ad992a573876b4abfe192ec2bc207f6b0}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sreadrb@{sreadrb}}
+\index{sreadrb@{sreadrb}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sreadrb}]{\setlength{\rightskip}{0pt plus 5cm}void sreadrb (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{float $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ad992a573876b4abfe192ec2bc207f6b0}
+\hypertarget{slu__sdefs_8h_ae99cb18465c8992235a7bc003237f692}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!sreadtriple@{sreadtriple}}
+\index{sreadtriple@{sreadtriple}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{sreadtriple}]{\setlength{\rightskip}{0pt plus 5cm}void sreadtriple (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{float $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ae99cb18465c8992235a7bc003237f692}
+\hypertarget{slu__sdefs_8h_ab5b2859bf1ef1900506dfa702574c6ad}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!s\+Set\+R\+Work@{s\+Set\+R\+Work}}
+\index{s\+Set\+R\+Work@{s\+Set\+R\+Work}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{s\+Set\+R\+Work}]{\setlength{\rightskip}{0pt plus 5cm}void s\+Set\+R\+Work (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$$\ast$}]{, }
+\item[{float $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ab5b2859bf1ef1900506dfa702574c6ad}
+
+
+Set up pointers for real working arrays. 
+
+\hypertarget{slu__sdefs_8h_a60e60255360fae0b1458da070690a3a2}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!ssnode\+\_\+bmod@{ssnode\+\_\+bmod}}
+\index{ssnode\+\_\+bmod@{ssnode\+\_\+bmod}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{ssnode\+\_\+bmod}]{\setlength{\rightskip}{0pt plus 5cm}int ssnode\+\_\+bmod (
+\begin{DoxyParamCaption}
+\item[{const int}]{, }
+\item[{const int}]{, }
+\item[{const int}]{, }
+\item[{float $\ast$}]{, }
+\item[{float $\ast$}]{, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_a60e60255360fae0b1458da070690a3a2}
+
+
+Performs numeric block updates within the relaxed snode. 
+
+\hypertarget{slu__sdefs_8h_ad9d54c8dfc11f1e034b4b7175be60ffb}{}\index{slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}!ssnode\+\_\+dfs@{ssnode\+\_\+dfs}}
+\index{ssnode\+\_\+dfs@{ssnode\+\_\+dfs}!slu\+\_\+sdefs.\+h@{slu\+\_\+sdefs.\+h}}
+\subsubsection[{ssnode\+\_\+dfs}]{\setlength{\rightskip}{0pt plus 5cm}int ssnode\+\_\+dfs (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const int}]{kcol, }
+\item[{const int $\ast$}]{asub, }
+\item[{const int $\ast$}]{xa\+\_\+begin, }
+\item[{const int $\ast$}]{xa\+\_\+end, }
+\item[{int $\ast$}]{xprune, }
+\item[{int $\ast$}]{marker, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{slu__sdefs_8h_ad9d54c8dfc11f1e034b4b7175be60ffb}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+   \hyperlink{ssnode__dfs_8c_a5b66817c89ddf9f74e4773b49dc72872}{ssnode\_dfs()} - Determine the union of the row structures of those 
+   columns within the relaxed snode.
+   Note: The relaxed snodes are leaves of the supernodal etree, therefore, 
+   the portion outside the rectangular supernode must be zero.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Return value
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+    0   success;
+   >0   number of bytes allocated when run out of memory.
+\end{DoxyPre}
+ 

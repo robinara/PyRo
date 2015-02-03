@@ -1,0 +1,1171 @@
+\hypertarget{libqhull_8h}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/libqhull.h File Reference}
+\label{libqhull_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/libqhull.\+h@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/libqhull.\+h}}
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$setjmp.\+h$>$}\\*
+{\ttfamily \#include $<$float.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structfacetT}{facet\+T}
+\item 
+struct \hyperlink{structridgeT}{ridge\+T}
+\item 
+struct \hyperlink{structvertexT}{vertex\+T}
+\item 
+struct \hyperlink{structqhT}{qh\+T}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T}~\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T}
+\item 
+\#define \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T}~\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T}
+\item 
+\#define \hyperlink{libqhull_8h_a0ff81862a2ab15dc96eb3803685cda2d}{flag\+T}~unsigned int
+\item 
+\#define \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T}~unsigned int
+\item 
+\#define \hyperlink{libqhull_8h_a306ebd41c0cd1303b1372c6153f0caf8}{False}~0
+\item 
+\#define \hyperlink{libqhull_8h_add3ca9eefe3b5b754426f51d3043e579}{True}~1
+\item 
+\#define \hyperlink{libqhull_8h_a92f0490c031ac23b93af7593c72377b3}{qh\+\_\+\+False}~0
+\item 
+\#define \hyperlink{libqhull_8h_a405311bc74dd6a9ca31bc62b5de34f75}{qh\+\_\+\+True}~1
+\item 
+\#define \hyperlink{libqhull_8h_a30cf638677fa77d788dc0081665a77af}{qh\+\_\+\+A\+L\+L}~\hyperlink{libqhull_8h_add3ca9eefe3b5b754426f51d3043e579}{True}
+\item 
+\#define \hyperlink{libqhull_8h_ae344a220badb86c5372661a9dcfee46a}{qh\+\_\+\+N\+Oupper}~\hyperlink{libqhull_8h_add3ca9eefe3b5b754426f51d3043e579}{True}     /$\ast$ argument for \hyperlink{libqhull_8h_a8e6fb06b266328363997e899ebddcaec}{qh\+\_\+findbest} $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_a3f5416a4ba58c5474ef3965aa7b47c68}{qh\+\_\+\+I\+Scheckmax}~\hyperlink{libqhull_8h_add3ca9eefe3b5b754426f51d3043e579}{True}     /$\ast$ argument for \hyperlink{geom_8h_a86c8ba6e2c9724db4aea6c610b894a48}{qh\+\_\+findbesthorizon} $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_a7789ca51e70e4a4e4220db93bc6e3d75}{qh\+\_\+\+I\+Snewfacets}~\hyperlink{libqhull_8h_add3ca9eefe3b5b754426f51d3043e579}{True}     /$\ast$ argument for \hyperlink{libqhull_8h_a8e6fb06b266328363997e899ebddcaec}{qh\+\_\+findbest} $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_a5f9692b589f45ad0e6a62a3659dcd379}{qh\+\_\+\+R\+E\+S\+E\+Tvisible}~\hyperlink{libqhull_8h_add3ca9eefe3b5b754426f51d3043e579}{True}     /$\ast$ argument for \hyperlink{poly2_8c_af5a8376b0b2cebe64369d0e9ea22b6e5}{qh\+\_\+resetlists} $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_a5b83b15aaeb25f1a02d4437b57ce0d5f}{qh\+\_\+\+E\+R\+Rnone}~0    /$\ast$ no \hyperlink{specfun_8f_a1606d291e8b683668654c8d4219efa20}{error} occurred during qhull $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_ae526492e69ef68e4cf89a50c65d04585}{qh\+\_\+\+E\+R\+Rinput}~1    /$\ast$ \hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input} inconsistency $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_a4410bfee517ce4b86f3d3dd7d95bfd4a}{qh\+\_\+\+E\+R\+Rsingular}~2 /$\ast$ singular \hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input} data $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_a924190f59c2a82533165d8c2bfc05c87}{qh\+\_\+\+E\+R\+Rprec}~3    /$\ast$ \hyperlink{numinquire_8h_a2c8e616467665d0b2814d4c1589ba74e}{precision} \hyperlink{specfun_8f_a1606d291e8b683668654c8d4219efa20}{error} $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_ae1f3cb26f8ed4e570661727671508ba3}{qh\+\_\+\+E\+R\+Rmem}~4    /$\ast$ insufficient memory, matches mem.\+h $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_a86a79d5376bea81e40b1bfe56248d723}{qh\+\_\+\+E\+R\+Rqhull}~5    /$\ast$ internal \hyperlink{specfun_8f_a1606d291e8b683668654c8d4219efa20}{error} detected, matches mem.\+h $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_a71f86b467e117cc800f6dab9a3a20d13}{qh\+\_\+\+F\+I\+L\+Estderr}~(F\+I\+L\+E$\ast$)1
+\item 
+\#define \hyperlink{libqhull_8h_a80a65aa94d8afc86b78449fa661df329}{D\+E\+Fset\+T}~1
+\item 
+\#define \hyperlink{libqhull_8h_a53753bfe1af51fcedc5df93c67b140b2}{D\+E\+Fqhstat\+T}~1
+\item 
+\#define \hyperlink{libqhull_8h_aba657586f92f568eae7f039e98a51cac}{qh\+\_\+\+M\+A\+Xnummerge}~511 /$\ast$     2$^\wedge$9-\/1, 32 flags total, see \char`\"{}flags\+:\char`\"{} in io.\+c $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_ab0f571b12f383c84a02e2684e8485cea}{M\+A\+X\+\_\+vdim}~15  /$\ast$ Maximum size of vertex-\/$>$dim $\ast$/
+\item 
+\#define \hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh}~qh\+\_\+qh.
+\item 
+\#define \hyperlink{libqhull_8h_a333c577489c16c87e052c5575594d438}{otherfacet\+\_\+}(ridge,  facet)~(((ridge)-\/$>$top == (facet)) ? (ridge)-\/$>$bottom \+: (ridge)-\/$>$top)
+\item 
+\#define \hyperlink{libqhull_8h_a3bbcf5369a222bda4d09b98f9274b9fc}{getid\+\_\+}(\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p})~((\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p}) ? (int)((\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p})-\/$>$id) \+: -\/1)
+\item 
+\#define \hyperlink{libqhull_8h_ad39c3b4103deef3275c691a3bc1ad496}{F\+O\+R\+A\+L\+Lfacets}~for (facet=\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} facet\+\_\+list;facet \&\& facet-\/$>$next;facet=facet-\/$>$next)
+\item 
+\#define \hyperlink{libqhull_8h_af973f221f2653d281bf09915b5bb9b01}{F\+O\+R\+A\+L\+Lpoints}~\hyperlink{libqhull_8h_a884d7598ac49d88db1a41ba8a21d4e85}{F\+O\+R\+A\+L\+Lpoint\+\_\+}(\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} first\+\_\+point, \hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} num\+\_\+points)
+\item 
+\#define \hyperlink{libqhull_8h_a884d7598ac49d88db1a41ba8a21d4e85}{F\+O\+R\+A\+L\+Lpoint\+\_\+}(points,  num)
+\item 
+\#define \hyperlink{libqhull_8h_a974a7cb1f62bff001b42f3102d65a0e1}{F\+O\+R\+A\+L\+Lvertices}~for (vertex=\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} vertex\+\_\+list;vertex \&\& vertex-\/$>$next;vertex= vertex-\/$>$next)
+\item 
+\#define \hyperlink{libqhull_8h_acf886b0a871d9d6e713ed8ea099453f0}{F\+O\+R\+E\+A\+C\+Hfacet\+\_\+}(facets)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{structfacetT}{facet\+T}, facets, facet)
+\item 
+\#define \hyperlink{libqhull_8h_aef9b254e967b8008cce506ab1a6c4790}{F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+}(facet)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{structfacetT}{facet\+T}, facet-\/$>$neighbors, neighbor)
+\item 
+\#define \hyperlink{libqhull_8h_ac1f54285141b47eeed50f28f5b5ae1f5}{F\+O\+R\+E\+A\+C\+Hpoint\+\_\+}(points)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T}, points, point)
+\item 
+\#define \hyperlink{libqhull_8h_aca92c856f1bc38b44fef85965c42b92e}{F\+O\+R\+E\+A\+C\+Hridge\+\_\+}(ridges)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{structridgeT}{ridge\+T}, ridges, ridge)
+\item 
+\#define \hyperlink{libqhull_8h_abc4b58fbb8721ad495b29d506e42676b}{F\+O\+R\+E\+A\+C\+Hvertex\+\_\+}(vertices)~\hyperlink{qset_8h_a37515c127da4992369069ca60768a13a}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}(\hyperlink{structvertexT}{vertex\+T}, vertices,vertex)
+\item 
+\#define \hyperlink{libqhull_8h_afe549804baa1ad56298d08bd7ac1131c}{F\+O\+R\+E\+A\+C\+Hfacet\+\_\+i\+\_\+}(facets)~\hyperlink{qset_8h_a655f34954bee824ad79f34c06353649c}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}(\hyperlink{structfacetT}{facet\+T}, facets, facet)
+\item 
+\#define \hyperlink{libqhull_8h_a45c5cf5a295cd8eb2f9837e90121373f}{F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+i\+\_\+}(facet)~\hyperlink{qset_8h_a655f34954bee824ad79f34c06353649c}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}(\hyperlink{structfacetT}{facet\+T}, facet-\/$>$neighbors, neighbor)
+\item 
+\#define \hyperlink{libqhull_8h_a1a36a496996818e4f7785dbc8a7145ce}{F\+O\+R\+E\+A\+C\+Hpoint\+\_\+i\+\_\+}(points)~\hyperlink{qset_8h_a655f34954bee824ad79f34c06353649c}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}(\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T}, points, point)
+\item 
+\#define \hyperlink{libqhull_8h_a218d831e1d27d560fbc0249596f90151}{F\+O\+R\+E\+A\+C\+Hridge\+\_\+i\+\_\+}(ridges)~\hyperlink{qset_8h_a655f34954bee824ad79f34c06353649c}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}(\hyperlink{structridgeT}{ridge\+T}, ridges, ridge)
+\item 
+\#define \hyperlink{libqhull_8h_a6272655e8ee748684c84086f4cdb3bf8}{F\+O\+R\+E\+A\+C\+Hvertex\+\_\+i\+\_\+}(vertices)~\hyperlink{qset_8h_a655f34954bee824ad79f34c06353649c}{F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}(\hyperlink{structvertexT}{vertex\+T}, vertices,vertex)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structvertexT}{vertex\+T} \hyperlink{libqhull_8h_a3a9b32505116896a4fb42c78880fccdd}{vertex\+T}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structridgeT}{ridge\+T} \hyperlink{libqhull_8h_a2c1b8a3d33a93131eaaaeb6a4bedb338}{ridge\+T}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structfacetT}{facet\+T} \hyperlink{libqhull_8h_aaf9ef38cb6fc87a81256fbe2e7abfb60}{facet\+T}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structsetT}{set\+T} \hyperlink{libqhull_8h_a2234a3aa7efa796357973b9ccfea253a}{set\+T}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structqhstatT}{qhstat\+T} \hyperlink{libqhull_8h_a7401826bdcfd9be2667d7bcea944e5b7}{qhstat\+T}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structqhT}{qh\+T} \hyperlink{libqhull_8h_add530a584b05ca39d1018099d6a20a48}{qh\+T}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cda}{qh\+\_\+\+C\+E\+N\+T\+E\+R} \{ \hyperlink{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cdaa34c4148da6bc472cf5670a99a0d71875}{qh\+\_\+\+A\+Snone} = 0, 
+\hyperlink{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cdaafff1c1e3328cb6eb376d18343cd8a92d}{qh\+\_\+\+A\+Svoronoi}, 
+\hyperlink{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cdaa5d552e866d679996065d9bd954dee96d}{qh\+\_\+\+A\+Scentrum}
+ \}
+\item 
+enum \hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707}{qh\+\_\+\+P\+R\+I\+N\+T} \{ \\*
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a9739254396384549eddd28c1aff1b24d}{qh\+\_\+\+P\+R\+I\+N\+Tnone} = 0, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aa0f354e8a0fc7639b170b5e830771020}{qh\+\_\+\+P\+R\+I\+N\+Tarea}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ab7698eb3fe64ff0423649ea45b3b417a}{qh\+\_\+\+P\+R\+I\+N\+Taverage}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ae513bdc7071f81e2cfea4b1105217a76}{qh\+\_\+\+P\+R\+I\+N\+Tcoplanars}, 
+\\*
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a48897e7ada9a3a6136fb6bee376a9306}{qh\+\_\+\+P\+R\+I\+N\+Tcentrums}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a350641df505a7d29f814a2674a9379c0}{qh\+\_\+\+P\+R\+I\+N\+Tfacets}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707afc3d15efb83095e61fc3799ba3dd4fec}{qh\+\_\+\+P\+R\+I\+N\+Tfacets\+\_\+xridge}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a3069eeb6d26c0702c4ac931d44f8c4c4}{qh\+\_\+\+P\+R\+I\+N\+Tgeom}, 
+\\*
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a45ce000fda16c488d70e87fc8293291b}{qh\+\_\+\+P\+R\+I\+N\+Tids}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a3aad339a32d530d3f08d5fe70079fab9}{qh\+\_\+\+P\+R\+I\+N\+Tinner}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a2b09e83426c31b8b5eed211cdfbb8b1b}{qh\+\_\+\+P\+R\+I\+N\+Tneighbors}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ac7c651cac598e56a7c7837d3035f829a}{qh\+\_\+\+P\+R\+I\+N\+Tnormals}, 
+\\*
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aca9688ccbc5f2966f51d072a34644f7f}{qh\+\_\+\+P\+R\+I\+N\+Touter}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a330414f1ef19641f6ec7f27213e9b372}{qh\+\_\+\+P\+R\+I\+N\+Tmaple}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a2225dbbe86105b978b207c58ba89c05d}{qh\+\_\+\+P\+R\+I\+N\+Tincidences}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ac14da3cda4cb066667b68cd05a38c326}{qh\+\_\+\+P\+R\+I\+N\+Tmathematica}, 
+\\*
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aeac15bf9b9e5622c5daa2ca25351e077}{qh\+\_\+\+P\+R\+I\+N\+Tmerges}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707acb9171ef76929a9358f47effa90b326b}{qh\+\_\+\+P\+R\+I\+N\+Toff}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a9610d02e0f4a758a978502aaab260fcc}{qh\+\_\+\+P\+R\+I\+N\+Toptions}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a6c67e8645dd344c0731b080ddb68de9f}{qh\+\_\+\+P\+R\+I\+N\+Tpointintersect}, 
+\\*
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a6d7a1628672e9008507281fc2452ff81}{qh\+\_\+\+P\+R\+I\+N\+Tpointnearest}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a9b134461b8a03b3df16789fb22f1b527}{qh\+\_\+\+P\+R\+I\+N\+Tpoints}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a15a9656dcacc586fa23ab2e589a98757}{qh\+\_\+\+P\+R\+I\+N\+Tqhull}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707afc8e53b13fec35663b8ad3130167e0fb}{qh\+\_\+\+P\+R\+I\+N\+Tsize}, 
+\\*
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707afcc666840c4f835e04e2e82f0565671b}{qh\+\_\+\+P\+R\+I\+N\+Tsummary}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a232688f5b372cac3db4a79d9e77bd8ad}{qh\+\_\+\+P\+R\+I\+N\+Ttriangles}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a2814a44e76f87c5fc2291d342744ac57}{qh\+\_\+\+P\+R\+I\+N\+Tvertices}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707af5c794874f74ea1cdb9c830aeb5ad66b}{qh\+\_\+\+P\+R\+I\+N\+Tvneighbors}, 
+\\*
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aa79521d28d83c9e974256bb58b0fa4b6}{qh\+\_\+\+P\+R\+I\+N\+Textremes}, 
+\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707acf2fc06ec4558d19401d67bf53dfbf52}{qh\+\_\+\+P\+R\+I\+N\+T\+E\+N\+D}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{libqhull_8h_a66495141e5922b777a5d84a7aec13a32}{qh\+\_\+qhull} (void)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{libqhull_8h_aa3f30b3b9f985fbdf0bd97f594c19eb0}{qh\+\_\+addpoint} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$furthest, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} checkdist)
+\item 
+void \hyperlink{libqhull_8h_a51d73b88702f523ab3f3322f7e45159e}{qh\+\_\+printsummary} (F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{libqhull_8h_a5f9e5bc131c58db28e039707aea6f6dc}{qh\+\_\+errexit} (int exitcode, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structridgeT}{ridge\+T} $\ast$ridge)
+\item 
+void \hyperlink{libqhull_8h_a7903aa238e40e8d6fc4d56e6b46db802}{qh\+\_\+errprint} (const char $\ast$string, \hyperlink{structfacetT}{facet\+T} $\ast$atfacet, \hyperlink{structfacetT}{facet\+T} $\ast$otherfacet, \hyperlink{structridgeT}{ridge\+T} $\ast$atridge, \hyperlink{structvertexT}{vertex\+T} $\ast$atvertex)
+\item 
+int \hyperlink{libqhull_8h_a17c89ec13fba83a683432d79ac0323cd}{qh\+\_\+new\+\_\+qhull} (int dim, int numpoints, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$points, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} ismalloc, char $\ast$qhull\+\_\+cmd, F\+I\+L\+E $\ast$outfile, F\+I\+L\+E $\ast$errfile)
+\item 
+void \hyperlink{libqhull_8h_a9a6b401cf15e1cd536a220d00d041273}{qh\+\_\+printfacetlist} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist, \hyperlink{structsetT}{set\+T} $\ast$facets, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} printall)
+\item 
+void \hyperlink{libqhull_8h_a7a6915f37bb64324a3c7457469ff2481}{qh\+\_\+printhelp\+\_\+degenerate} (F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{libqhull_8h_afeae1613f36f0ebcabecb03c151f6abb}{qh\+\_\+printhelp\+\_\+narrowhull} (F\+I\+L\+E $\ast$fp, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} minangle)
+\item 
+void \hyperlink{libqhull_8h_af5b1d1f8cbeec0187c4b16df2c24a540}{qh\+\_\+printhelp\+\_\+singular} (F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{libqhull_8h_a8ef1422d3893feadd481c11131240d55}{qh\+\_\+user\+\_\+memsizes} (void)
+\item 
+void \hyperlink{libqhull_8h_a0b10c9df60e12aa9251829c10f31f80b}{qh\+\_\+exit} (int exitcode)
+\item 
+void \hyperlink{libqhull_8h_a5b5f2d4219190f044de3f281f4ea4f7c}{qh\+\_\+free} (void $\ast$mem)
+\item 
+void $\ast$ \hyperlink{libqhull_8h_a1f3385c31ec1ba452f3c4fc9aeec1829}{qh\+\_\+malloc} (size\+\_\+t size)
+\item 
+void \hyperlink{libqhull_8h_aca4b59cdb8152b580cb9d258a849288d}{qh\+\_\+fprintf} (F\+I\+L\+E $\ast$fp, int msgcode, const char $\ast$fmt,...)
+\item 
+void \hyperlink{libqhull_8h_a5e6f4aabaa18f8c0316b1a163dc92f87}{qh\+\_\+fprintf\+\_\+rbox} (F\+I\+L\+E $\ast$fp, int msgcode, const char $\ast$fmt,...)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{libqhull_8h_a8e6fb06b266328363997e899ebddcaec}{qh\+\_\+findbest} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$startfacet, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} bestoutside, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} newfacets, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} noupper, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$dist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$isoutside, int $\ast$numpart)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{libqhull_8h_ad52456dc5d0813172727fbcfd5837ac8}{qh\+\_\+findbestnew} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$startfacet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$dist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} bestoutside, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$isoutside, int $\ast$numpart)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{libqhull_8h_a26c15bc3a3ca6cabaeae881dfaac1a3c}{qh\+\_\+gram\+\_\+schmidt} (int dim, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$rows)
+\item 
+void \hyperlink{libqhull_8h_af31cdbacfc4b81863dfaa827c541a84a}{qh\+\_\+outerinner} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$outerplane, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$innerplane)
+\item 
+void \hyperlink{libqhull_8h_a52e5614cd957c4247385f5f5208d4f46}{qh\+\_\+projectinput} (void)
+\item 
+void \hyperlink{libqhull_8h_a6692f61d3639baa77ca39a7ad6ce4fec}{qh\+\_\+randommatrix} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$buffer, int dim, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$row)
+\item 
+void \hyperlink{libqhull_8h_ad0b443b4fa91eeea79ea66f127dcab83}{qh\+\_\+rotateinput} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$rows)
+\item 
+void \hyperlink{libqhull_8h_aa760b44755c26842e70df9ac5bb7620b}{qh\+\_\+scaleinput} (void)
+\item 
+void \hyperlink{libqhull_8h_ab706a3d62bca1525d5be00323751a07f}{qh\+\_\+setdelaunay} (int dim, int \hyperlink{veccount_8cc_ae61b582e808f50a28a8baebd2395ee7d}{count}, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$points)
+\item 
+\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$ \hyperlink{libqhull_8h_acc06bbfd3f14beba08ae7589e890672c}{qh\+\_\+sethalfspace\+\_\+all} (int dim, int \hyperlink{veccount_8cc_ae61b582e808f50a28a8baebd2395ee7d}{count}, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$halfspaces, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$feasible)
+\item 
+unsigned long \hyperlink{libqhull_8h_a6101e12bc3a889bcdff47a702899fcf3}{qh\+\_\+clock} (void)
+\item 
+void \hyperlink{libqhull_8h_a0907b02cb058f620753e839baffa31d4}{qh\+\_\+checkflags} (char $\ast$command, char $\ast$hiddenflags)
+\item 
+void \hyperlink{libqhull_8h_a22c1dbac558b477453852ee4512d40d2}{qh\+\_\+clear\+\_\+outputflags} (void)
+\item 
+void \hyperlink{libqhull_8h_a1409cc23e420113064ff7903cec601d3}{qh\+\_\+freebuffers} (void)
+\item 
+void \hyperlink{libqhull_8h_a5082bea7d4e09154eddf3a1b62f35619}{qh\+\_\+freeqhull} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} allmem)
+\item 
+void \hyperlink{libqhull_8h_ab251b5d47b8df353e87657f66247a918}{qh\+\_\+freeqhull2} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} allmem)
+\item 
+void \hyperlink{libqhull_8h_a48fd220a70d9272cb208a8f7ed792e7d}{qh\+\_\+init\+\_\+\+A} (F\+I\+L\+E $\ast$infile, F\+I\+L\+E $\ast$outfile, F\+I\+L\+E $\ast$errfile, int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{libqhull_8h_af9338c60a3d52cb4f1ecba642c65cfb5}{qh\+\_\+init\+\_\+\+B} (\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$points, int numpoints, int dim, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} ismalloc)
+\item 
+void \hyperlink{libqhull_8h_ad117eb1a809e1ac37ccabff9ab22473a}{qh\+\_\+init\+\_\+qhull\+\_\+command} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{libqhull_8h_a4765f932c94d340ee7a1ec042e11f5d3}{qh\+\_\+initbuffers} (\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$points, int numpoints, int dim, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} ismalloc)
+\item 
+void \hyperlink{libqhull_8h_ad8dcc3d364e1e27c4a75a7270ae7b6f2}{qh\+\_\+initflags} (char $\ast$command)
+\item 
+void \hyperlink{libqhull_8h_a1b3473259fd58f6badf6984f05c6f7fd}{qh\+\_\+initqhull\+\_\+buffers} (void)
+\item 
+void \hyperlink{libqhull_8h_aa382d078748ccf0488a20e71a03c8fae}{qh\+\_\+initqhull\+\_\+globals} (\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$points, int numpoints, int dim, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} ismalloc)
+\item 
+void \hyperlink{libqhull_8h_a85a439bd3995990281a775c7c1c22b6f}{qh\+\_\+initqhull\+\_\+mem} (void)
+\item 
+void \hyperlink{libqhull_8h_abb7ae99eca7bfcf41dbad601a58b40aa}{qh\+\_\+initqhull\+\_\+outputflags} (void)
+\item 
+void \hyperlink{libqhull_8h_a4c92401e21d50806214d720a6535de47}{qh\+\_\+initqhull\+\_\+start} (F\+I\+L\+E $\ast$infile, F\+I\+L\+E $\ast$outfile, F\+I\+L\+E $\ast$errfile)
+\item 
+void \hyperlink{libqhull_8h_a3930182858522738b8e81bb38e7b6e21}{qh\+\_\+initqhull\+\_\+start2} (F\+I\+L\+E $\ast$infile, F\+I\+L\+E $\ast$outfile, F\+I\+L\+E $\ast$errfile)
+\item 
+void \hyperlink{libqhull_8h_ab43467f0d92b9a6667a962e75ed3845a}{qh\+\_\+initthresholds} (char $\ast$command)
+\item 
+void \hyperlink{libqhull_8h_a447ca91c8d2948c171cc907e9d8dc615}{qh\+\_\+option} (const char $\ast$option, int $\ast$\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r})
+\item 
+void \hyperlink{libqhull_8h_a2c4ccc512d4015f0ec8d6d7d86687a86}{dfacet} (unsigned id)
+\item 
+void \hyperlink{libqhull_8h_a76c0d8d1a2041a713190234905f7dfb6}{dvertex} (unsigned id)
+\item 
+void \hyperlink{libqhull_8h_ae562b3f842506b1e04781ee1adabb23f}{qh\+\_\+printneighborhood} (F\+I\+L\+E $\ast$fp, \hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707}{qh\+\_\+\+P\+R\+I\+N\+T} format, \hyperlink{structfacetT}{facet\+T} $\ast$facet\+A, \hyperlink{structfacetT}{facet\+T} $\ast$facet\+B, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} printall)
+\item 
+void \hyperlink{libqhull_8h_a3a9b6591345727ca9306fb0fe73bc044}{qh\+\_\+produce\+\_\+output} (void)
+\item 
+\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$ \hyperlink{libqhull_8h_a520d2eb347e6ead2d2afef54e2242063}{qh\+\_\+readpoints} (int $\ast$numpoints, int $\ast$dimension, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$ismalloc)
+\item 
+void \hyperlink{libqhull_8h_aea93e5a662d536f5a6d756efc5ff5a37}{qh\+\_\+meminit} (F\+I\+L\+E $\ast$ferr)
+\item 
+void \hyperlink{libqhull_8h_a27100399f6671cfe24b9cf4d56fe9b78}{qh\+\_\+memfreeshort} (int $\ast$curlong, int $\ast$totlong)
+\item 
+void \hyperlink{libqhull_8h_a091e48b85d79251e87a058ca9d6f92e4}{qh\+\_\+check\+\_\+output} (void)
+\item 
+void \hyperlink{libqhull_8h_ad6be6c5692921261bea1b68d4cadb849}{qh\+\_\+check\+\_\+points} (void)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{libqhull_8h_a472f94152ad8161f2c99b9687410cb78}{qh\+\_\+facetvertices} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist, \hyperlink{structsetT}{set\+T} $\ast$facets, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} allfacets)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{libqhull_8h_a1cfa6639f2adfe6d3d52254a69c6e7bb}{qh\+\_\+findbestfacet} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} bestoutside, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$bestdist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$isoutside)
+\item 
+\hyperlink{structvertexT}{vertex\+T} $\ast$ \hyperlink{libqhull_8h_a6240e270a6fa93c59782fabcdfbb0001}{qh\+\_\+nearvertex} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$bestdistp)
+\item 
+\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$ \hyperlink{libqhull_8h_aa48c2515ade8cfa5fd778ec25a73fd45}{qh\+\_\+point} (int id)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{libqhull_8h_a26184539ad14f1481adc8824a956fd55}{qh\+\_\+pointfacet} (void)
+\item 
+int \hyperlink{libqhull_8h_a96ca9a1e5768eb072de911e9f2388cad}{qh\+\_\+pointid} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{libqhull_8h_a7045e57f76d9cc806853dc83699da4ab}{qh\+\_\+pointvertex} (void)
+\item 
+void \hyperlink{libqhull_8h_ae3ee84aa6d0ab7e03bd33ab38e0e521d}{qh\+\_\+setvoronoi\+\_\+all} (void)
+\item 
+void \hyperlink{libqhull_8h_aca961447bb52979062f56f66ddf3a499}{qh\+\_\+triangulate} (void)
+\item 
+int \hyperlink{libqhull_8h_a1f9cbd7a40bf1755ccc7c938e5b135b8}{qh\+\_\+rboxpoints} (F\+I\+L\+E $\ast$fout, F\+I\+L\+E $\ast$ferr, char $\ast$rbox\+\_\+command)
+\item 
+void \hyperlink{libqhull_8h_ac7eebc9e171d259176035d00ff6e970e}{qh\+\_\+errexit\+\_\+rbox} (int exitcode)
+\item 
+void \hyperlink{libqhull_8h_a323eaccbfe6576549fbbcc27b1fc0293}{qh\+\_\+collectstatistics} (void)
+\item 
+void \hyperlink{libqhull_8h_ac5705bb4d6269c5c94fa02049c9628c0}{qh\+\_\+printallstatistics} (F\+I\+L\+E $\ast$fp, const char $\ast$string)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{libqhull_8h_a3238bb92a8333d8052f112e7a85176d5}{qh\+\_\+version}
+\item 
+int \hyperlink{libqhull_8h_adc8ea5936012dc3bebd87b6f5ae878e5}{qhull\+\_\+inuse}
+\item 
+\hyperlink{structqhT}{qh\+T} \hyperlink{libqhull_8h_a895ead53e4bf65360b1c04a26c0d4d8f}{qh\+\_\+qh}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{}\index{libqhull.\+h@{libqhull.\+h}!bool\+T@{bool\+T}}
+\index{bool\+T@{bool\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{bool\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define bool\+T~unsigned int}\label{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}
+\hypertarget{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{}\index{libqhull.\+h@{libqhull.\+h}!coord\+T@{coord\+T}}
+\index{coord\+T@{coord\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{coord\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define coord\+T~{\bf real\+T}}\label{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}
+\hypertarget{libqhull_8h_a53753bfe1af51fcedc5df93c67b140b2}{}\index{libqhull.\+h@{libqhull.\+h}!D\+E\+Fqhstat\+T@{D\+E\+Fqhstat\+T}}
+\index{D\+E\+Fqhstat\+T@{D\+E\+Fqhstat\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{D\+E\+Fqhstat\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+Fqhstat\+T~1}\label{libqhull_8h_a53753bfe1af51fcedc5df93c67b140b2}
+\hypertarget{libqhull_8h_a80a65aa94d8afc86b78449fa661df329}{}\index{libqhull.\+h@{libqhull.\+h}!D\+E\+Fset\+T@{D\+E\+Fset\+T}}
+\index{D\+E\+Fset\+T@{D\+E\+Fset\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{D\+E\+Fset\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+Fset\+T~1}\label{libqhull_8h_a80a65aa94d8afc86b78449fa661df329}
+\hypertarget{libqhull_8h_a306ebd41c0cd1303b1372c6153f0caf8}{}\index{libqhull.\+h@{libqhull.\+h}!False@{False}}
+\index{False@{False}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{False}]{\setlength{\rightskip}{0pt plus 5cm}\#define False~0}\label{libqhull_8h_a306ebd41c0cd1303b1372c6153f0caf8}
+\hypertarget{libqhull_8h_a0ff81862a2ab15dc96eb3803685cda2d}{}\index{libqhull.\+h@{libqhull.\+h}!flag\+T@{flag\+T}}
+\index{flag\+T@{flag\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{flag\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define flag\+T~unsigned int}\label{libqhull_8h_a0ff81862a2ab15dc96eb3803685cda2d}
+\hypertarget{libqhull_8h_ad39c3b4103deef3275c691a3bc1ad496}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+A\+L\+Lfacets@{F\+O\+R\+A\+L\+Lfacets}}
+\index{F\+O\+R\+A\+L\+Lfacets@{F\+O\+R\+A\+L\+Lfacets}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+A\+L\+Lfacets}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+A\+L\+Lfacets~for (facet={\bf qh} facet\+\_\+list;facet \&\& facet-\/$>$next;facet=facet-\/$>$next)}\label{libqhull_8h_ad39c3b4103deef3275c691a3bc1ad496}
+\hypertarget{libqhull_8h_a884d7598ac49d88db1a41ba8a21d4e85}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+A\+L\+Lpoint\+\_\+@{F\+O\+R\+A\+L\+Lpoint\+\_\+}}
+\index{F\+O\+R\+A\+L\+Lpoint\+\_\+@{F\+O\+R\+A\+L\+Lpoint\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+A\+L\+Lpoint\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+A\+L\+Lpoint\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{points, }
+\item[{}]{num}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a884d7598ac49d88db1a41ba8a21d4e85}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for} (point= (\hyperlink{namespacetest__qhull_a059d123f6d63161d3a97996b26b13bed}{points}), \(\backslash\)
+      pointtemp= (\hyperlink{namespacetest__qhull_a059d123f6d63161d3a97996b26b13bed}{points})+\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} hull\_dim*(num); point < pointtemp; point += 
+      \hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} hull\_dim)
+\end{DoxyCode}
+\hypertarget{libqhull_8h_af973f221f2653d281bf09915b5bb9b01}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+A\+L\+Lpoints@{F\+O\+R\+A\+L\+Lpoints}}
+\index{F\+O\+R\+A\+L\+Lpoints@{F\+O\+R\+A\+L\+Lpoints}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+A\+L\+Lpoints}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+A\+L\+Lpoints~{\bf F\+O\+R\+A\+L\+Lpoint\+\_\+}({\bf qh} first\+\_\+point, {\bf qh} num\+\_\+points)}\label{libqhull_8h_af973f221f2653d281bf09915b5bb9b01}
+\hypertarget{libqhull_8h_a974a7cb1f62bff001b42f3102d65a0e1}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+A\+L\+Lvertices@{F\+O\+R\+A\+L\+Lvertices}}
+\index{F\+O\+R\+A\+L\+Lvertices@{F\+O\+R\+A\+L\+Lvertices}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+A\+L\+Lvertices}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+A\+L\+Lvertices~for (vertex={\bf qh} vertex\+\_\+list;vertex \&\& vertex-\/$>$next;vertex= vertex-\/$>$next)}\label{libqhull_8h_a974a7cb1f62bff001b42f3102d65a0e1}
+\hypertarget{libqhull_8h_acf886b0a871d9d6e713ed8ea099453f0}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+E\+A\+C\+Hfacet\+\_\+@{F\+O\+R\+E\+A\+C\+Hfacet\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hfacet\+\_\+@{F\+O\+R\+E\+A\+C\+Hfacet\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hfacet\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hfacet\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{facets}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}({\bf facet\+T}, facets, facet)}\label{libqhull_8h_acf886b0a871d9d6e713ed8ea099453f0}
+\hypertarget{libqhull_8h_afe549804baa1ad56298d08bd7ac1131c}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+E\+A\+C\+Hfacet\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hfacet\+\_\+i\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hfacet\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hfacet\+\_\+i\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hfacet\+\_\+i\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hfacet\+\_\+i\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{facets}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}({\bf facet\+T}, facets, facet)}\label{libqhull_8h_afe549804baa1ad56298d08bd7ac1131c}
+\hypertarget{libqhull_8h_aef9b254e967b8008cce506ab1a6c4790}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+@{F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+@{F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{facet}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}({\bf facet\+T}, facet-\/$>$neighbors, neighbor)}\label{libqhull_8h_aef9b254e967b8008cce506ab1a6c4790}
+\hypertarget{libqhull_8h_a45c5cf5a295cd8eb2f9837e90121373f}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+i\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+i\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+i\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hneighbor\+\_\+i\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{facet}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}({\bf facet\+T}, facet-\/$>$neighbors, neighbor)}\label{libqhull_8h_a45c5cf5a295cd8eb2f9837e90121373f}
+\hypertarget{libqhull_8h_ac1f54285141b47eeed50f28f5b5ae1f5}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+E\+A\+C\+Hpoint\+\_\+@{F\+O\+R\+E\+A\+C\+Hpoint\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hpoint\+\_\+@{F\+O\+R\+E\+A\+C\+Hpoint\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hpoint\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hpoint\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{points}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}({\bf point\+T}, points, point)}\label{libqhull_8h_ac1f54285141b47eeed50f28f5b5ae1f5}
+\hypertarget{libqhull_8h_a1a36a496996818e4f7785dbc8a7145ce}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+E\+A\+C\+Hpoint\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hpoint\+\_\+i\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hpoint\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hpoint\+\_\+i\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hpoint\+\_\+i\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hpoint\+\_\+i\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{points}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}({\bf point\+T}, points, point)}\label{libqhull_8h_a1a36a496996818e4f7785dbc8a7145ce}
+\hypertarget{libqhull_8h_aca92c856f1bc38b44fef85965c42b92e}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+E\+A\+C\+Hridge\+\_\+@{F\+O\+R\+E\+A\+C\+Hridge\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hridge\+\_\+@{F\+O\+R\+E\+A\+C\+Hridge\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hridge\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hridge\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{ridges}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}({\bf ridge\+T}, ridges, ridge)}\label{libqhull_8h_aca92c856f1bc38b44fef85965c42b92e}
+\hypertarget{libqhull_8h_a218d831e1d27d560fbc0249596f90151}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+E\+A\+C\+Hridge\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hridge\+\_\+i\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hridge\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hridge\+\_\+i\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hridge\+\_\+i\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hridge\+\_\+i\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{ridges}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}({\bf ridge\+T}, ridges, ridge)}\label{libqhull_8h_a218d831e1d27d560fbc0249596f90151}
+\hypertarget{libqhull_8h_abc4b58fbb8721ad495b29d506e42676b}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+E\+A\+C\+Hvertex\+\_\+@{F\+O\+R\+E\+A\+C\+Hvertex\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hvertex\+\_\+@{F\+O\+R\+E\+A\+C\+Hvertex\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hvertex\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hvertex\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{vertices}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+}({\bf vertex\+T}, vertices,vertex)}\label{libqhull_8h_abc4b58fbb8721ad495b29d506e42676b}
+\hypertarget{libqhull_8h_a6272655e8ee748684c84086f4cdb3bf8}{}\index{libqhull.\+h@{libqhull.\+h}!F\+O\+R\+E\+A\+C\+Hvertex\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hvertex\+\_\+i\+\_\+}}
+\index{F\+O\+R\+E\+A\+C\+Hvertex\+\_\+i\+\_\+@{F\+O\+R\+E\+A\+C\+Hvertex\+\_\+i\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{F\+O\+R\+E\+A\+C\+Hvertex\+\_\+i\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+O\+R\+E\+A\+C\+Hvertex\+\_\+i\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{vertices}
+\end{DoxyParamCaption}
+)~{\bf F\+O\+R\+E\+A\+C\+Hsetelement\+\_\+i\+\_\+}({\bf vertex\+T}, vertices,vertex)}\label{libqhull_8h_a6272655e8ee748684c84086f4cdb3bf8}
+\hypertarget{libqhull_8h_a3bbcf5369a222bda4d09b98f9274b9fc}{}\index{libqhull.\+h@{libqhull.\+h}!getid\+\_\+@{getid\+\_\+}}
+\index{getid\+\_\+@{getid\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{getid\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define getid\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf p}}
+\end{DoxyParamCaption}
+)~(({\bf p}) ? (int)(({\bf p})-\/$>$id) \+: -\/1)}\label{libqhull_8h_a3bbcf5369a222bda4d09b98f9274b9fc}
+\hypertarget{libqhull_8h_ab0f571b12f383c84a02e2684e8485cea}{}\index{libqhull.\+h@{libqhull.\+h}!M\+A\+X\+\_\+vdim@{M\+A\+X\+\_\+vdim}}
+\index{M\+A\+X\+\_\+vdim@{M\+A\+X\+\_\+vdim}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{M\+A\+X\+\_\+vdim}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+vdim~15  /$\ast$ Maximum size of vertex-\/$>$dim $\ast$/}\label{libqhull_8h_ab0f571b12f383c84a02e2684e8485cea}
+\hypertarget{libqhull_8h_a333c577489c16c87e052c5575594d438}{}\index{libqhull.\+h@{libqhull.\+h}!otherfacet\+\_\+@{otherfacet\+\_\+}}
+\index{otherfacet\+\_\+@{otherfacet\+\_\+}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{otherfacet\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define otherfacet\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{ridge, }
+\item[{}]{facet}
+\end{DoxyParamCaption}
+)~(((ridge)-\/$>$top == (facet)) ? (ridge)-\/$>$bottom \+: (ridge)-\/$>$top)}\label{libqhull_8h_a333c577489c16c87e052c5575594d438}
+\hypertarget{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{}\index{libqhull.\+h@{libqhull.\+h}!point\+T@{point\+T}}
+\index{point\+T@{point\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{point\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define point\+T~{\bf coord\+T}}\label{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}
+\hypertarget{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{}\index{libqhull.\+h@{libqhull.\+h}!qh@{qh}}
+\index{qh@{qh}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh~qh\+\_\+qh.}\label{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}
+\hypertarget{libqhull_8h_a30cf638677fa77d788dc0081665a77af}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+A\+L\+L@{qh\+\_\+\+A\+L\+L}}
+\index{qh\+\_\+\+A\+L\+L@{qh\+\_\+\+A\+L\+L}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+A\+L\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+A\+L\+L~{\bf True}}\label{libqhull_8h_a30cf638677fa77d788dc0081665a77af}
+\hypertarget{libqhull_8h_ae526492e69ef68e4cf89a50c65d04585}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+E\+R\+Rinput@{qh\+\_\+\+E\+R\+Rinput}}
+\index{qh\+\_\+\+E\+R\+Rinput@{qh\+\_\+\+E\+R\+Rinput}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+E\+R\+Rinput}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+E\+R\+Rinput~1    /$\ast$ {\bf input} inconsistency $\ast$/}\label{libqhull_8h_ae526492e69ef68e4cf89a50c65d04585}
+\hypertarget{libqhull_8h_ae1f3cb26f8ed4e570661727671508ba3}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+E\+R\+Rmem@{qh\+\_\+\+E\+R\+Rmem}}
+\index{qh\+\_\+\+E\+R\+Rmem@{qh\+\_\+\+E\+R\+Rmem}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+E\+R\+Rmem}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+E\+R\+Rmem~4    /$\ast$ insufficient memory, matches mem.\+h $\ast$/}\label{libqhull_8h_ae1f3cb26f8ed4e570661727671508ba3}
+\hypertarget{libqhull_8h_a5b83b15aaeb25f1a02d4437b57ce0d5f}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+E\+R\+Rnone@{qh\+\_\+\+E\+R\+Rnone}}
+\index{qh\+\_\+\+E\+R\+Rnone@{qh\+\_\+\+E\+R\+Rnone}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+E\+R\+Rnone}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+E\+R\+Rnone~0    /$\ast$ no {\bf error} occurred during qhull $\ast$/}\label{libqhull_8h_a5b83b15aaeb25f1a02d4437b57ce0d5f}
+\hypertarget{libqhull_8h_a924190f59c2a82533165d8c2bfc05c87}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+E\+R\+Rprec@{qh\+\_\+\+E\+R\+Rprec}}
+\index{qh\+\_\+\+E\+R\+Rprec@{qh\+\_\+\+E\+R\+Rprec}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+E\+R\+Rprec}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+E\+R\+Rprec~3    /$\ast$ {\bf precision} {\bf error} $\ast$/}\label{libqhull_8h_a924190f59c2a82533165d8c2bfc05c87}
+\hypertarget{libqhull_8h_a86a79d5376bea81e40b1bfe56248d723}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+E\+R\+Rqhull@{qh\+\_\+\+E\+R\+Rqhull}}
+\index{qh\+\_\+\+E\+R\+Rqhull@{qh\+\_\+\+E\+R\+Rqhull}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+E\+R\+Rqhull}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+E\+R\+Rqhull~5    /$\ast$ internal {\bf error} detected, matches mem.\+h $\ast$/}\label{libqhull_8h_a86a79d5376bea81e40b1bfe56248d723}
+\hypertarget{libqhull_8h_a4410bfee517ce4b86f3d3dd7d95bfd4a}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+E\+R\+Rsingular@{qh\+\_\+\+E\+R\+Rsingular}}
+\index{qh\+\_\+\+E\+R\+Rsingular@{qh\+\_\+\+E\+R\+Rsingular}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+E\+R\+Rsingular}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+E\+R\+Rsingular~2 /$\ast$ singular {\bf input} data $\ast$/}\label{libqhull_8h_a4410bfee517ce4b86f3d3dd7d95bfd4a}
+\hypertarget{libqhull_8h_a92f0490c031ac23b93af7593c72377b3}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+False@{qh\+\_\+\+False}}
+\index{qh\+\_\+\+False@{qh\+\_\+\+False}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+False}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+False~0}\label{libqhull_8h_a92f0490c031ac23b93af7593c72377b3}
+\hypertarget{libqhull_8h_a71f86b467e117cc800f6dab9a3a20d13}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+F\+I\+L\+Estderr@{qh\+\_\+\+F\+I\+L\+Estderr}}
+\index{qh\+\_\+\+F\+I\+L\+Estderr@{qh\+\_\+\+F\+I\+L\+Estderr}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+F\+I\+L\+Estderr}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+F\+I\+L\+Estderr~(F\+I\+L\+E$\ast$)1}\label{libqhull_8h_a71f86b467e117cc800f6dab9a3a20d13}
+\hypertarget{libqhull_8h_a3f5416a4ba58c5474ef3965aa7b47c68}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+I\+Scheckmax@{qh\+\_\+\+I\+Scheckmax}}
+\index{qh\+\_\+\+I\+Scheckmax@{qh\+\_\+\+I\+Scheckmax}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+I\+Scheckmax}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+I\+Scheckmax~{\bf True}     /$\ast$ argument for {\bf qh\+\_\+findbesthorizon} $\ast$/}\label{libqhull_8h_a3f5416a4ba58c5474ef3965aa7b47c68}
+\hypertarget{libqhull_8h_a7789ca51e70e4a4e4220db93bc6e3d75}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+I\+Snewfacets@{qh\+\_\+\+I\+Snewfacets}}
+\index{qh\+\_\+\+I\+Snewfacets@{qh\+\_\+\+I\+Snewfacets}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+I\+Snewfacets}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+I\+Snewfacets~{\bf True}     /$\ast$ argument for {\bf qh\+\_\+findbest} $\ast$/}\label{libqhull_8h_a7789ca51e70e4a4e4220db93bc6e3d75}
+\hypertarget{libqhull_8h_aba657586f92f568eae7f039e98a51cac}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+M\+A\+Xnummerge@{qh\+\_\+\+M\+A\+Xnummerge}}
+\index{qh\+\_\+\+M\+A\+Xnummerge@{qh\+\_\+\+M\+A\+Xnummerge}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+M\+A\+Xnummerge}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+M\+A\+Xnummerge~511 /$\ast$     2$^\wedge$9-\/1, 32 flags total, see \char`\"{}flags\+:\char`\"{} in io.\+c $\ast$/}\label{libqhull_8h_aba657586f92f568eae7f039e98a51cac}
+\hypertarget{libqhull_8h_ae344a220badb86c5372661a9dcfee46a}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+N\+Oupper@{qh\+\_\+\+N\+Oupper}}
+\index{qh\+\_\+\+N\+Oupper@{qh\+\_\+\+N\+Oupper}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+N\+Oupper}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+N\+Oupper~{\bf True}     /$\ast$ argument for {\bf qh\+\_\+findbest} $\ast$/}\label{libqhull_8h_ae344a220badb86c5372661a9dcfee46a}
+\hypertarget{libqhull_8h_a5f9692b589f45ad0e6a62a3659dcd379}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+R\+E\+S\+E\+Tvisible@{qh\+\_\+\+R\+E\+S\+E\+Tvisible}}
+\index{qh\+\_\+\+R\+E\+S\+E\+Tvisible@{qh\+\_\+\+R\+E\+S\+E\+Tvisible}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+R\+E\+S\+E\+Tvisible}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+R\+E\+S\+E\+Tvisible~{\bf True}     /$\ast$ argument for {\bf qh\+\_\+resetlists} $\ast$/}\label{libqhull_8h_a5f9692b589f45ad0e6a62a3659dcd379}
+\hypertarget{libqhull_8h_a405311bc74dd6a9ca31bc62b5de34f75}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+True@{qh\+\_\+\+True}}
+\index{qh\+\_\+\+True@{qh\+\_\+\+True}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+True}]{\setlength{\rightskip}{0pt plus 5cm}\#define qh\+\_\+\+True~1}\label{libqhull_8h_a405311bc74dd6a9ca31bc62b5de34f75}
+\hypertarget{libqhull_8h_add3ca9eefe3b5b754426f51d3043e579}{}\index{libqhull.\+h@{libqhull.\+h}!True@{True}}
+\index{True@{True}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{True}]{\setlength{\rightskip}{0pt plus 5cm}\#define True~1}\label{libqhull_8h_add3ca9eefe3b5b754426f51d3043e579}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{libqhull_8h_aaf9ef38cb6fc87a81256fbe2e7abfb60}{}\index{libqhull.\+h@{libqhull.\+h}!facet\+T@{facet\+T}}
+\index{facet\+T@{facet\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{facet\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf facet\+T} {\bf facet\+T}}\label{libqhull_8h_aaf9ef38cb6fc87a81256fbe2e7abfb60}
+\hypertarget{libqhull_8h_a7401826bdcfd9be2667d7bcea944e5b7}{}\index{libqhull.\+h@{libqhull.\+h}!qhstat\+T@{qhstat\+T}}
+\index{qhstat\+T@{qhstat\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qhstat\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf qhstat\+T} {\bf qhstat\+T}}\label{libqhull_8h_a7401826bdcfd9be2667d7bcea944e5b7}
+\hypertarget{libqhull_8h_add530a584b05ca39d1018099d6a20a48}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+T@{qh\+T}}
+\index{qh\+T@{qh\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf qh\+T} {\bf qh\+T}}\label{libqhull_8h_add530a584b05ca39d1018099d6a20a48}
+\hypertarget{libqhull_8h_a2c1b8a3d33a93131eaaaeb6a4bedb338}{}\index{libqhull.\+h@{libqhull.\+h}!ridge\+T@{ridge\+T}}
+\index{ridge\+T@{ridge\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{ridge\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf ridge\+T} {\bf ridge\+T}}\label{libqhull_8h_a2c1b8a3d33a93131eaaaeb6a4bedb338}
+\hypertarget{libqhull_8h_a2234a3aa7efa796357973b9ccfea253a}{}\index{libqhull.\+h@{libqhull.\+h}!set\+T@{set\+T}}
+\index{set\+T@{set\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{set\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf set\+T} {\bf set\+T}}\label{libqhull_8h_a2234a3aa7efa796357973b9ccfea253a}
+\hypertarget{libqhull_8h_a3a9b32505116896a4fb42c78880fccdd}{}\index{libqhull.\+h@{libqhull.\+h}!vertex\+T@{vertex\+T}}
+\index{vertex\+T@{vertex\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{vertex\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf vertex\+T} {\bf vertex\+T}}\label{libqhull_8h_a3a9b32505116896a4fb42c78880fccdd}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cda}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+C\+E\+N\+T\+E\+R@{qh\+\_\+\+C\+E\+N\+T\+E\+R}}
+\index{qh\+\_\+\+C\+E\+N\+T\+E\+R@{qh\+\_\+\+C\+E\+N\+T\+E\+R}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+C\+E\+N\+T\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf qh\+\_\+\+C\+E\+N\+T\+E\+R}}\label{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cda}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{qh\+\_\+\+A\+Snone@{qh\+\_\+\+A\+Snone}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+A\+Snone@{qh\+\_\+\+A\+Snone}}\item[{\em 
+\hypertarget{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cdaa34c4148da6bc472cf5670a99a0d71875}{}qh\+\_\+\+A\+Snone\label{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cdaa34c4148da6bc472cf5670a99a0d71875}
+}]\index{qh\+\_\+\+A\+Svoronoi@{qh\+\_\+\+A\+Svoronoi}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+A\+Svoronoi@{qh\+\_\+\+A\+Svoronoi}}\item[{\em 
+\hypertarget{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cdaafff1c1e3328cb6eb376d18343cd8a92d}{}qh\+\_\+\+A\+Svoronoi\label{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cdaafff1c1e3328cb6eb376d18343cd8a92d}
+}]\index{qh\+\_\+\+A\+Scentrum@{qh\+\_\+\+A\+Scentrum}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+A\+Scentrum@{qh\+\_\+\+A\+Scentrum}}\item[{\em 
+\hypertarget{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cdaa5d552e866d679996065d9bd954dee96d}{}qh\+\_\+\+A\+Scentrum\label{libqhull_8h_aeeb130d1f0f5738fd06f5e029ea91cdaa5d552e866d679996065d9bd954dee96d}
+}]\end{description}
+\end{Desc}
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+T@{qh\+\_\+\+P\+R\+I\+N\+T}}
+\index{qh\+\_\+\+P\+R\+I\+N\+T@{qh\+\_\+\+P\+R\+I\+N\+T}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+\+P\+R\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf qh\+\_\+\+P\+R\+I\+N\+T}}\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{qh\+\_\+\+P\+R\+I\+N\+Tnone@{qh\+\_\+\+P\+R\+I\+N\+Tnone}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tnone@{qh\+\_\+\+P\+R\+I\+N\+Tnone}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a9739254396384549eddd28c1aff1b24d}{}qh\+\_\+\+P\+R\+I\+N\+Tnone\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a9739254396384549eddd28c1aff1b24d}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tarea@{qh\+\_\+\+P\+R\+I\+N\+Tarea}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tarea@{qh\+\_\+\+P\+R\+I\+N\+Tarea}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aa0f354e8a0fc7639b170b5e830771020}{}qh\+\_\+\+P\+R\+I\+N\+Tarea\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aa0f354e8a0fc7639b170b5e830771020}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Taverage@{qh\+\_\+\+P\+R\+I\+N\+Taverage}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Taverage@{qh\+\_\+\+P\+R\+I\+N\+Taverage}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ab7698eb3fe64ff0423649ea45b3b417a}{}qh\+\_\+\+P\+R\+I\+N\+Taverage\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ab7698eb3fe64ff0423649ea45b3b417a}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tcoplanars@{qh\+\_\+\+P\+R\+I\+N\+Tcoplanars}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tcoplanars@{qh\+\_\+\+P\+R\+I\+N\+Tcoplanars}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ae513bdc7071f81e2cfea4b1105217a76}{}qh\+\_\+\+P\+R\+I\+N\+Tcoplanars\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ae513bdc7071f81e2cfea4b1105217a76}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tcentrums@{qh\+\_\+\+P\+R\+I\+N\+Tcentrums}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tcentrums@{qh\+\_\+\+P\+R\+I\+N\+Tcentrums}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a48897e7ada9a3a6136fb6bee376a9306}{}qh\+\_\+\+P\+R\+I\+N\+Tcentrums\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a48897e7ada9a3a6136fb6bee376a9306}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tfacets@{qh\+\_\+\+P\+R\+I\+N\+Tfacets}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tfacets@{qh\+\_\+\+P\+R\+I\+N\+Tfacets}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a350641df505a7d29f814a2674a9379c0}{}qh\+\_\+\+P\+R\+I\+N\+Tfacets\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a350641df505a7d29f814a2674a9379c0}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tfacets\+\_\+xridge@{qh\+\_\+\+P\+R\+I\+N\+Tfacets\+\_\+xridge}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tfacets\+\_\+xridge@{qh\+\_\+\+P\+R\+I\+N\+Tfacets\+\_\+xridge}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707afc3d15efb83095e61fc3799ba3dd4fec}{}qh\+\_\+\+P\+R\+I\+N\+Tfacets\+\_\+xridge\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707afc3d15efb83095e61fc3799ba3dd4fec}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tgeom@{qh\+\_\+\+P\+R\+I\+N\+Tgeom}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tgeom@{qh\+\_\+\+P\+R\+I\+N\+Tgeom}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a3069eeb6d26c0702c4ac931d44f8c4c4}{}qh\+\_\+\+P\+R\+I\+N\+Tgeom\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a3069eeb6d26c0702c4ac931d44f8c4c4}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tids@{qh\+\_\+\+P\+R\+I\+N\+Tids}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tids@{qh\+\_\+\+P\+R\+I\+N\+Tids}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a45ce000fda16c488d70e87fc8293291b}{}qh\+\_\+\+P\+R\+I\+N\+Tids\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a45ce000fda16c488d70e87fc8293291b}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tinner@{qh\+\_\+\+P\+R\+I\+N\+Tinner}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tinner@{qh\+\_\+\+P\+R\+I\+N\+Tinner}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a3aad339a32d530d3f08d5fe70079fab9}{}qh\+\_\+\+P\+R\+I\+N\+Tinner\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a3aad339a32d530d3f08d5fe70079fab9}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tneighbors@{qh\+\_\+\+P\+R\+I\+N\+Tneighbors}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tneighbors@{qh\+\_\+\+P\+R\+I\+N\+Tneighbors}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a2b09e83426c31b8b5eed211cdfbb8b1b}{}qh\+\_\+\+P\+R\+I\+N\+Tneighbors\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a2b09e83426c31b8b5eed211cdfbb8b1b}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tnormals@{qh\+\_\+\+P\+R\+I\+N\+Tnormals}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tnormals@{qh\+\_\+\+P\+R\+I\+N\+Tnormals}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ac7c651cac598e56a7c7837d3035f829a}{}qh\+\_\+\+P\+R\+I\+N\+Tnormals\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ac7c651cac598e56a7c7837d3035f829a}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Touter@{qh\+\_\+\+P\+R\+I\+N\+Touter}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Touter@{qh\+\_\+\+P\+R\+I\+N\+Touter}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aca9688ccbc5f2966f51d072a34644f7f}{}qh\+\_\+\+P\+R\+I\+N\+Touter\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aca9688ccbc5f2966f51d072a34644f7f}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tmaple@{qh\+\_\+\+P\+R\+I\+N\+Tmaple}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tmaple@{qh\+\_\+\+P\+R\+I\+N\+Tmaple}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a330414f1ef19641f6ec7f27213e9b372}{}qh\+\_\+\+P\+R\+I\+N\+Tmaple\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a330414f1ef19641f6ec7f27213e9b372}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tincidences@{qh\+\_\+\+P\+R\+I\+N\+Tincidences}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tincidences@{qh\+\_\+\+P\+R\+I\+N\+Tincidences}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a2225dbbe86105b978b207c58ba89c05d}{}qh\+\_\+\+P\+R\+I\+N\+Tincidences\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a2225dbbe86105b978b207c58ba89c05d}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tmathematica@{qh\+\_\+\+P\+R\+I\+N\+Tmathematica}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tmathematica@{qh\+\_\+\+P\+R\+I\+N\+Tmathematica}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ac14da3cda4cb066667b68cd05a38c326}{}qh\+\_\+\+P\+R\+I\+N\+Tmathematica\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707ac14da3cda4cb066667b68cd05a38c326}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tmerges@{qh\+\_\+\+P\+R\+I\+N\+Tmerges}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tmerges@{qh\+\_\+\+P\+R\+I\+N\+Tmerges}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aeac15bf9b9e5622c5daa2ca25351e077}{}qh\+\_\+\+P\+R\+I\+N\+Tmerges\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aeac15bf9b9e5622c5daa2ca25351e077}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Toff@{qh\+\_\+\+P\+R\+I\+N\+Toff}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Toff@{qh\+\_\+\+P\+R\+I\+N\+Toff}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707acb9171ef76929a9358f47effa90b326b}{}qh\+\_\+\+P\+R\+I\+N\+Toff\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707acb9171ef76929a9358f47effa90b326b}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Toptions@{qh\+\_\+\+P\+R\+I\+N\+Toptions}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Toptions@{qh\+\_\+\+P\+R\+I\+N\+Toptions}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a9610d02e0f4a758a978502aaab260fcc}{}qh\+\_\+\+P\+R\+I\+N\+Toptions\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a9610d02e0f4a758a978502aaab260fcc}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tpointintersect@{qh\+\_\+\+P\+R\+I\+N\+Tpointintersect}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tpointintersect@{qh\+\_\+\+P\+R\+I\+N\+Tpointintersect}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a6c67e8645dd344c0731b080ddb68de9f}{}qh\+\_\+\+P\+R\+I\+N\+Tpointintersect\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a6c67e8645dd344c0731b080ddb68de9f}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tpointnearest@{qh\+\_\+\+P\+R\+I\+N\+Tpointnearest}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tpointnearest@{qh\+\_\+\+P\+R\+I\+N\+Tpointnearest}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a6d7a1628672e9008507281fc2452ff81}{}qh\+\_\+\+P\+R\+I\+N\+Tpointnearest\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a6d7a1628672e9008507281fc2452ff81}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tpoints@{qh\+\_\+\+P\+R\+I\+N\+Tpoints}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tpoints@{qh\+\_\+\+P\+R\+I\+N\+Tpoints}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a9b134461b8a03b3df16789fb22f1b527}{}qh\+\_\+\+P\+R\+I\+N\+Tpoints\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a9b134461b8a03b3df16789fb22f1b527}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tqhull@{qh\+\_\+\+P\+R\+I\+N\+Tqhull}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tqhull@{qh\+\_\+\+P\+R\+I\+N\+Tqhull}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a15a9656dcacc586fa23ab2e589a98757}{}qh\+\_\+\+P\+R\+I\+N\+Tqhull\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a15a9656dcacc586fa23ab2e589a98757}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tsize@{qh\+\_\+\+P\+R\+I\+N\+Tsize}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tsize@{qh\+\_\+\+P\+R\+I\+N\+Tsize}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707afc8e53b13fec35663b8ad3130167e0fb}{}qh\+\_\+\+P\+R\+I\+N\+Tsize\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707afc8e53b13fec35663b8ad3130167e0fb}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tsummary@{qh\+\_\+\+P\+R\+I\+N\+Tsummary}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tsummary@{qh\+\_\+\+P\+R\+I\+N\+Tsummary}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707afcc666840c4f835e04e2e82f0565671b}{}qh\+\_\+\+P\+R\+I\+N\+Tsummary\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707afcc666840c4f835e04e2e82f0565671b}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Ttriangles@{qh\+\_\+\+P\+R\+I\+N\+Ttriangles}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Ttriangles@{qh\+\_\+\+P\+R\+I\+N\+Ttriangles}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a232688f5b372cac3db4a79d9e77bd8ad}{}qh\+\_\+\+P\+R\+I\+N\+Ttriangles\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a232688f5b372cac3db4a79d9e77bd8ad}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tvertices@{qh\+\_\+\+P\+R\+I\+N\+Tvertices}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tvertices@{qh\+\_\+\+P\+R\+I\+N\+Tvertices}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a2814a44e76f87c5fc2291d342744ac57}{}qh\+\_\+\+P\+R\+I\+N\+Tvertices\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707a2814a44e76f87c5fc2291d342744ac57}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Tvneighbors@{qh\+\_\+\+P\+R\+I\+N\+Tvneighbors}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Tvneighbors@{qh\+\_\+\+P\+R\+I\+N\+Tvneighbors}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707af5c794874f74ea1cdb9c830aeb5ad66b}{}qh\+\_\+\+P\+R\+I\+N\+Tvneighbors\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707af5c794874f74ea1cdb9c830aeb5ad66b}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+Textremes@{qh\+\_\+\+P\+R\+I\+N\+Textremes}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+Textremes@{qh\+\_\+\+P\+R\+I\+N\+Textremes}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aa79521d28d83c9e974256bb58b0fa4b6}{}qh\+\_\+\+P\+R\+I\+N\+Textremes\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707aa79521d28d83c9e974256bb58b0fa4b6}
+}]\index{qh\+\_\+\+P\+R\+I\+N\+T\+E\+N\+D@{qh\+\_\+\+P\+R\+I\+N\+T\+E\+N\+D}!libqhull.\+h@{libqhull.\+h}}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+\+P\+R\+I\+N\+T\+E\+N\+D@{qh\+\_\+\+P\+R\+I\+N\+T\+E\+N\+D}}\item[{\em 
+\hypertarget{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707acf2fc06ec4558d19401d67bf53dfbf52}{}qh\+\_\+\+P\+R\+I\+N\+T\+E\+N\+D\label{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707acf2fc06ec4558d19401d67bf53dfbf52}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{libqhull_8h_a2c4ccc512d4015f0ec8d6d7d86687a86}{}\index{libqhull.\+h@{libqhull.\+h}!dfacet@{dfacet}}
+\index{dfacet@{dfacet}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{dfacet}]{\setlength{\rightskip}{0pt plus 5cm}void dfacet (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{id}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a2c4ccc512d4015f0ec8d6d7d86687a86}
+\hypertarget{libqhull_8h_a76c0d8d1a2041a713190234905f7dfb6}{}\index{libqhull.\+h@{libqhull.\+h}!dvertex@{dvertex}}
+\index{dvertex@{dvertex}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{dvertex}]{\setlength{\rightskip}{0pt plus 5cm}void dvertex (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{id}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a76c0d8d1a2041a713190234905f7dfb6}
+\hypertarget{libqhull_8h_aa3f30b3b9f985fbdf0bd97f594c19eb0}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+addpoint@{qh\+\_\+addpoint}}
+\index{qh\+\_\+addpoint@{qh\+\_\+addpoint}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+addpoint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+addpoint (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{furthest, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf bool\+T}}]{checkdist}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_aa3f30b3b9f985fbdf0bd97f594c19eb0}
+\hypertarget{libqhull_8h_a091e48b85d79251e87a058ca9d6f92e4}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+check\+\_\+output@{qh\+\_\+check\+\_\+output}}
+\index{qh\+\_\+check\+\_\+output@{qh\+\_\+check\+\_\+output}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+check\+\_\+output}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+check\+\_\+output (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a091e48b85d79251e87a058ca9d6f92e4}
+\hypertarget{libqhull_8h_ad6be6c5692921261bea1b68d4cadb849}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+check\+\_\+points@{qh\+\_\+check\+\_\+points}}
+\index{qh\+\_\+check\+\_\+points@{qh\+\_\+check\+\_\+points}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+check\+\_\+points}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+check\+\_\+points (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ad6be6c5692921261bea1b68d4cadb849}
+\hypertarget{libqhull_8h_a0907b02cb058f620753e839baffa31d4}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+checkflags@{qh\+\_\+checkflags}}
+\index{qh\+\_\+checkflags@{qh\+\_\+checkflags}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+checkflags}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+checkflags (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command, }
+\item[{char $\ast$}]{hiddenflags}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a0907b02cb058f620753e839baffa31d4}
+\hypertarget{libqhull_8h_a22c1dbac558b477453852ee4512d40d2}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+clear\+\_\+outputflags@{qh\+\_\+clear\+\_\+outputflags}}
+\index{qh\+\_\+clear\+\_\+outputflags@{qh\+\_\+clear\+\_\+outputflags}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+clear\+\_\+outputflags}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+clear\+\_\+outputflags (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a22c1dbac558b477453852ee4512d40d2}
+\hypertarget{libqhull_8h_a6101e12bc3a889bcdff47a702899fcf3}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+clock@{qh\+\_\+clock}}
+\index{qh\+\_\+clock@{qh\+\_\+clock}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+clock}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long qh\+\_\+clock (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a6101e12bc3a889bcdff47a702899fcf3}
+\hypertarget{libqhull_8h_a323eaccbfe6576549fbbcc27b1fc0293}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+collectstatistics@{qh\+\_\+collectstatistics}}
+\index{qh\+\_\+collectstatistics@{qh\+\_\+collectstatistics}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+collectstatistics}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+collectstatistics (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a323eaccbfe6576549fbbcc27b1fc0293}
+\hypertarget{libqhull_8h_a5f9e5bc131c58db28e039707aea6f6dc}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+errexit@{qh\+\_\+errexit}}
+\index{qh\+\_\+errexit@{qh\+\_\+errexit}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+errexit}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+errexit (
+\begin{DoxyParamCaption}
+\item[{int}]{exitcode, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf ridge\+T} $\ast$}]{ridge}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a5f9e5bc131c58db28e039707aea6f6dc}
+\hypertarget{libqhull_8h_ac7eebc9e171d259176035d00ff6e970e}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+errexit\+\_\+rbox@{qh\+\_\+errexit\+\_\+rbox}}
+\index{qh\+\_\+errexit\+\_\+rbox@{qh\+\_\+errexit\+\_\+rbox}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+errexit\+\_\+rbox}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+errexit\+\_\+rbox (
+\begin{DoxyParamCaption}
+\item[{int}]{exitcode}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ac7eebc9e171d259176035d00ff6e970e}
+\hypertarget{libqhull_8h_a7903aa238e40e8d6fc4d56e6b46db802}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+errprint@{qh\+\_\+errprint}}
+\index{qh\+\_\+errprint@{qh\+\_\+errprint}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+errprint}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+errprint (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{{\bf facet\+T} $\ast$}]{atfacet, }
+\item[{{\bf facet\+T} $\ast$}]{otherfacet, }
+\item[{{\bf ridge\+T} $\ast$}]{atridge, }
+\item[{{\bf vertex\+T} $\ast$}]{atvertex}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a7903aa238e40e8d6fc4d56e6b46db802}
+\hypertarget{libqhull_8h_a0b10c9df60e12aa9251829c10f31f80b}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+exit@{qh\+\_\+exit}}
+\index{qh\+\_\+exit@{qh\+\_\+exit}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+exit}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+exit (
+\begin{DoxyParamCaption}
+\item[{int}]{exitcode}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a0b10c9df60e12aa9251829c10f31f80b}
+\hypertarget{libqhull_8h_a472f94152ad8161f2c99b9687410cb78}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+facetvertices@{qh\+\_\+facetvertices}}
+\index{qh\+\_\+facetvertices@{qh\+\_\+facetvertices}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+facetvertices}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+facetvertices (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist, }
+\item[{{\bf set\+T} $\ast$}]{facets, }
+\item[{{\bf bool\+T}}]{allfacets}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a472f94152ad8161f2c99b9687410cb78}
+\hypertarget{libqhull_8h_a8e6fb06b266328363997e899ebddcaec}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+findbest@{qh\+\_\+findbest}}
+\index{qh\+\_\+findbest@{qh\+\_\+findbest}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+findbest}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findbest (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{startfacet, }
+\item[{{\bf bool\+T}}]{bestoutside, }
+\item[{{\bf bool\+T}}]{newfacets, }
+\item[{{\bf bool\+T}}]{noupper, }
+\item[{{\bf real\+T} $\ast$}]{dist, }
+\item[{{\bf bool\+T} $\ast$}]{isoutside, }
+\item[{int $\ast$}]{numpart}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a8e6fb06b266328363997e899ebddcaec}
+\hypertarget{libqhull_8h_a1cfa6639f2adfe6d3d52254a69c6e7bb}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+findbestfacet@{qh\+\_\+findbestfacet}}
+\index{qh\+\_\+findbestfacet@{qh\+\_\+findbestfacet}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+findbestfacet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findbestfacet (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf bool\+T}}]{bestoutside, }
+\item[{{\bf real\+T} $\ast$}]{bestdist, }
+\item[{{\bf bool\+T} $\ast$}]{isoutside}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a1cfa6639f2adfe6d3d52254a69c6e7bb}
+\hypertarget{libqhull_8h_ad52456dc5d0813172727fbcfd5837ac8}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+findbestnew@{qh\+\_\+findbestnew}}
+\index{qh\+\_\+findbestnew@{qh\+\_\+findbestnew}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+findbestnew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findbestnew (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{startfacet, }
+\item[{{\bf real\+T} $\ast$}]{dist, }
+\item[{{\bf bool\+T}}]{bestoutside, }
+\item[{{\bf bool\+T} $\ast$}]{isoutside, }
+\item[{int $\ast$}]{numpart}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ad52456dc5d0813172727fbcfd5837ac8}
+\hypertarget{libqhull_8h_aca4b59cdb8152b580cb9d258a849288d}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+fprintf@{qh\+\_\+fprintf}}
+\index{qh\+\_\+fprintf@{qh\+\_\+fprintf}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+fprintf}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+fprintf (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{int}]{msgcode, }
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_aca4b59cdb8152b580cb9d258a849288d}
+\hypertarget{libqhull_8h_a5e6f4aabaa18f8c0316b1a163dc92f87}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+fprintf\+\_\+rbox@{qh\+\_\+fprintf\+\_\+rbox}}
+\index{qh\+\_\+fprintf\+\_\+rbox@{qh\+\_\+fprintf\+\_\+rbox}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+fprintf\+\_\+rbox}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+fprintf\+\_\+rbox (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{int}]{msgcode, }
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a5e6f4aabaa18f8c0316b1a163dc92f87}
+\hypertarget{libqhull_8h_a5b5f2d4219190f044de3f281f4ea4f7c}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+free@{qh\+\_\+free}}
+\index{qh\+\_\+free@{qh\+\_\+free}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{mem}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a5b5f2d4219190f044de3f281f4ea4f7c}
+\hypertarget{libqhull_8h_a1409cc23e420113064ff7903cec601d3}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+freebuffers@{qh\+\_\+freebuffers}}
+\index{qh\+\_\+freebuffers@{qh\+\_\+freebuffers}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+freebuffers}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+freebuffers (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a1409cc23e420113064ff7903cec601d3}
+\hypertarget{libqhull_8h_a5082bea7d4e09154eddf3a1b62f35619}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+freeqhull@{qh\+\_\+freeqhull}}
+\index{qh\+\_\+freeqhull@{qh\+\_\+freeqhull}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+freeqhull}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+freeqhull (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T}}]{allmem}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a5082bea7d4e09154eddf3a1b62f35619}
+\hypertarget{libqhull_8h_ab251b5d47b8df353e87657f66247a918}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+freeqhull2@{qh\+\_\+freeqhull2}}
+\index{qh\+\_\+freeqhull2@{qh\+\_\+freeqhull2}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+freeqhull2}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+freeqhull2 (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T}}]{allmem}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ab251b5d47b8df353e87657f66247a918}
+\hypertarget{libqhull_8h_a26c15bc3a3ca6cabaeae881dfaac1a3c}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+gram\+\_\+schmidt@{qh\+\_\+gram\+\_\+schmidt}}
+\index{qh\+\_\+gram\+\_\+schmidt@{qh\+\_\+gram\+\_\+schmidt}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+gram\+\_\+schmidt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+gram\+\_\+schmidt (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf real\+T} $\ast$$\ast$}]{rows}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a26c15bc3a3ca6cabaeae881dfaac1a3c}
+\hypertarget{libqhull_8h_a48fd220a70d9272cb208a8f7ed792e7d}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+init\+\_\+\+A@{qh\+\_\+init\+\_\+\+A}}
+\index{qh\+\_\+init\+\_\+\+A@{qh\+\_\+init\+\_\+\+A}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+init\+\_\+\+A}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+init\+\_\+\+A (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{infile, }
+\item[{F\+I\+L\+E $\ast$}]{outfile, }
+\item[{F\+I\+L\+E $\ast$}]{errfile, }
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a48fd220a70d9272cb208a8f7ed792e7d}
+\hypertarget{libqhull_8h_af9338c60a3d52cb4f1ecba642c65cfb5}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+init\+\_\+\+B@{qh\+\_\+init\+\_\+\+B}}
+\index{qh\+\_\+init\+\_\+\+B@{qh\+\_\+init\+\_\+\+B}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+init\+\_\+\+B}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+init\+\_\+\+B (
+\begin{DoxyParamCaption}
+\item[{{\bf coord\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dim, }
+\item[{{\bf bool\+T}}]{ismalloc}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_af9338c60a3d52cb4f1ecba642c65cfb5}
+\hypertarget{libqhull_8h_ad117eb1a809e1ac37ccabff9ab22473a}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+init\+\_\+qhull\+\_\+command@{qh\+\_\+init\+\_\+qhull\+\_\+command}}
+\index{qh\+\_\+init\+\_\+qhull\+\_\+command@{qh\+\_\+init\+\_\+qhull\+\_\+command}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+init\+\_\+qhull\+\_\+command}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+init\+\_\+qhull\+\_\+command (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ad117eb1a809e1ac37ccabff9ab22473a}
+\hypertarget{libqhull_8h_a4765f932c94d340ee7a1ec042e11f5d3}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+initbuffers@{qh\+\_\+initbuffers}}
+\index{qh\+\_\+initbuffers@{qh\+\_\+initbuffers}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+initbuffers}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initbuffers (
+\begin{DoxyParamCaption}
+\item[{{\bf coord\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dim, }
+\item[{{\bf bool\+T}}]{ismalloc}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a4765f932c94d340ee7a1ec042e11f5d3}
+\hypertarget{libqhull_8h_ad8dcc3d364e1e27c4a75a7270ae7b6f2}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+initflags@{qh\+\_\+initflags}}
+\index{qh\+\_\+initflags@{qh\+\_\+initflags}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+initflags}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initflags (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ad8dcc3d364e1e27c4a75a7270ae7b6f2}
+\hypertarget{libqhull_8h_a1b3473259fd58f6badf6984f05c6f7fd}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+initqhull\+\_\+buffers@{qh\+\_\+initqhull\+\_\+buffers}}
+\index{qh\+\_\+initqhull\+\_\+buffers@{qh\+\_\+initqhull\+\_\+buffers}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+initqhull\+\_\+buffers}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initqhull\+\_\+buffers (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a1b3473259fd58f6badf6984f05c6f7fd}
+\hypertarget{libqhull_8h_aa382d078748ccf0488a20e71a03c8fae}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+initqhull\+\_\+globals@{qh\+\_\+initqhull\+\_\+globals}}
+\index{qh\+\_\+initqhull\+\_\+globals@{qh\+\_\+initqhull\+\_\+globals}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+initqhull\+\_\+globals}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initqhull\+\_\+globals (
+\begin{DoxyParamCaption}
+\item[{{\bf coord\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dim, }
+\item[{{\bf bool\+T}}]{ismalloc}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_aa382d078748ccf0488a20e71a03c8fae}
+\hypertarget{libqhull_8h_a85a439bd3995990281a775c7c1c22b6f}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+initqhull\+\_\+mem@{qh\+\_\+initqhull\+\_\+mem}}
+\index{qh\+\_\+initqhull\+\_\+mem@{qh\+\_\+initqhull\+\_\+mem}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+initqhull\+\_\+mem}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initqhull\+\_\+mem (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a85a439bd3995990281a775c7c1c22b6f}
+\hypertarget{libqhull_8h_abb7ae99eca7bfcf41dbad601a58b40aa}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+initqhull\+\_\+outputflags@{qh\+\_\+initqhull\+\_\+outputflags}}
+\index{qh\+\_\+initqhull\+\_\+outputflags@{qh\+\_\+initqhull\+\_\+outputflags}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+initqhull\+\_\+outputflags}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initqhull\+\_\+outputflags (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_abb7ae99eca7bfcf41dbad601a58b40aa}
+\hypertarget{libqhull_8h_a4c92401e21d50806214d720a6535de47}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+initqhull\+\_\+start@{qh\+\_\+initqhull\+\_\+start}}
+\index{qh\+\_\+initqhull\+\_\+start@{qh\+\_\+initqhull\+\_\+start}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+initqhull\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initqhull\+\_\+start (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{infile, }
+\item[{F\+I\+L\+E $\ast$}]{outfile, }
+\item[{F\+I\+L\+E $\ast$}]{errfile}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a4c92401e21d50806214d720a6535de47}
+\hypertarget{libqhull_8h_a3930182858522738b8e81bb38e7b6e21}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+initqhull\+\_\+start2@{qh\+\_\+initqhull\+\_\+start2}}
+\index{qh\+\_\+initqhull\+\_\+start2@{qh\+\_\+initqhull\+\_\+start2}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+initqhull\+\_\+start2}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initqhull\+\_\+start2 (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{infile, }
+\item[{F\+I\+L\+E $\ast$}]{outfile, }
+\item[{F\+I\+L\+E $\ast$}]{errfile}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a3930182858522738b8e81bb38e7b6e21}
+\hypertarget{libqhull_8h_ab43467f0d92b9a6667a962e75ed3845a}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+initthresholds@{qh\+\_\+initthresholds}}
+\index{qh\+\_\+initthresholds@{qh\+\_\+initthresholds}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+initthresholds}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initthresholds (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{command}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ab43467f0d92b9a6667a962e75ed3845a}
+\hypertarget{libqhull_8h_a1f3385c31ec1ba452f3c4fc9aeec1829}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+malloc@{qh\+\_\+malloc}}
+\index{qh\+\_\+malloc@{qh\+\_\+malloc}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ qh\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a1f3385c31ec1ba452f3c4fc9aeec1829}
+\hypertarget{libqhull_8h_a27100399f6671cfe24b9cf4d56fe9b78}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+memfreeshort@{qh\+\_\+memfreeshort}}
+\index{qh\+\_\+memfreeshort@{qh\+\_\+memfreeshort}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+memfreeshort}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+memfreeshort (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{curlong, }
+\item[{int $\ast$}]{totlong}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a27100399f6671cfe24b9cf4d56fe9b78}
+\hypertarget{libqhull_8h_aea93e5a662d536f5a6d756efc5ff5a37}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+meminit@{qh\+\_\+meminit}}
+\index{qh\+\_\+meminit@{qh\+\_\+meminit}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+meminit}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+meminit (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{ferr}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_aea93e5a662d536f5a6d756efc5ff5a37}
+\hypertarget{libqhull_8h_a6240e270a6fa93c59782fabcdfbb0001}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+nearvertex@{qh\+\_\+nearvertex}}
+\index{qh\+\_\+nearvertex@{qh\+\_\+nearvertex}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+nearvertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vertex\+T}$\ast$ qh\+\_\+nearvertex (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf real\+T} $\ast$}]{bestdistp}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a6240e270a6fa93c59782fabcdfbb0001}
+\hypertarget{libqhull_8h_a17c89ec13fba83a683432d79ac0323cd}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+new\+\_\+qhull@{qh\+\_\+new\+\_\+qhull}}
+\index{qh\+\_\+new\+\_\+qhull@{qh\+\_\+new\+\_\+qhull}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+new\+\_\+qhull}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+new\+\_\+qhull (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{int}]{numpoints, }
+\item[{{\bf coord\+T} $\ast$}]{points, }
+\item[{{\bf bool\+T}}]{ismalloc, }
+\item[{char $\ast$}]{qhull\+\_\+cmd, }
+\item[{F\+I\+L\+E $\ast$}]{outfile, }
+\item[{F\+I\+L\+E $\ast$}]{errfile}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a17c89ec13fba83a683432d79ac0323cd}
+\hypertarget{libqhull_8h_a447ca91c8d2948c171cc907e9d8dc615}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+option@{qh\+\_\+option}}
+\index{qh\+\_\+option@{qh\+\_\+option}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+option}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+option (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{option, }
+\item[{int $\ast$}]{i, }
+\item[{{\bf real\+T} $\ast$}]{r}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a447ca91c8d2948c171cc907e9d8dc615}
+\hypertarget{libqhull_8h_af31cdbacfc4b81863dfaa827c541a84a}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+outerinner@{qh\+\_\+outerinner}}
+\index{qh\+\_\+outerinner@{qh\+\_\+outerinner}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+outerinner}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+outerinner (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf real\+T} $\ast$}]{outerplane, }
+\item[{{\bf real\+T} $\ast$}]{innerplane}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_af31cdbacfc4b81863dfaa827c541a84a}
+\hypertarget{libqhull_8h_aa48c2515ade8cfa5fd778ec25a73fd45}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+point@{qh\+\_\+point}}
+\index{qh\+\_\+point@{qh\+\_\+point}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\+T}$\ast$ qh\+\_\+point (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_aa48c2515ade8cfa5fd778ec25a73fd45}
+\hypertarget{libqhull_8h_a26184539ad14f1481adc8824a956fd55}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+pointfacet@{qh\+\_\+pointfacet}}
+\index{qh\+\_\+pointfacet@{qh\+\_\+pointfacet}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+pointfacet}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+pointfacet (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a26184539ad14f1481adc8824a956fd55}
+\hypertarget{libqhull_8h_a96ca9a1e5768eb072de911e9f2388cad}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+pointid@{qh\+\_\+pointid}}
+\index{qh\+\_\+pointid@{qh\+\_\+pointid}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+pointid}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+pointid (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a96ca9a1e5768eb072de911e9f2388cad}
+\hypertarget{libqhull_8h_a7045e57f76d9cc806853dc83699da4ab}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+pointvertex@{qh\+\_\+pointvertex}}
+\index{qh\+\_\+pointvertex@{qh\+\_\+pointvertex}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+pointvertex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+pointvertex (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a7045e57f76d9cc806853dc83699da4ab}
+\hypertarget{libqhull_8h_ac5705bb4d6269c5c94fa02049c9628c0}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+printallstatistics@{qh\+\_\+printallstatistics}}
+\index{qh\+\_\+printallstatistics@{qh\+\_\+printallstatistics}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+printallstatistics}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printallstatistics (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{const char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ac5705bb4d6269c5c94fa02049c9628c0}
+\hypertarget{libqhull_8h_a9a6b401cf15e1cd536a220d00d041273}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+printfacetlist@{qh\+\_\+printfacetlist}}
+\index{qh\+\_\+printfacetlist@{qh\+\_\+printfacetlist}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+printfacetlist}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printfacetlist (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist, }
+\item[{{\bf set\+T} $\ast$}]{facets, }
+\item[{{\bf bool\+T}}]{printall}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a9a6b401cf15e1cd536a220d00d041273}
+\hypertarget{libqhull_8h_a7a6915f37bb64324a3c7457469ff2481}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+printhelp\+\_\+degenerate@{qh\+\_\+printhelp\+\_\+degenerate}}
+\index{qh\+\_\+printhelp\+\_\+degenerate@{qh\+\_\+printhelp\+\_\+degenerate}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+printhelp\+\_\+degenerate}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printhelp\+\_\+degenerate (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a7a6915f37bb64324a3c7457469ff2481}
+\hypertarget{libqhull_8h_afeae1613f36f0ebcabecb03c151f6abb}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+printhelp\+\_\+narrowhull@{qh\+\_\+printhelp\+\_\+narrowhull}}
+\index{qh\+\_\+printhelp\+\_\+narrowhull@{qh\+\_\+printhelp\+\_\+narrowhull}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+printhelp\+\_\+narrowhull}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printhelp\+\_\+narrowhull (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{{\bf real\+T}}]{minangle}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_afeae1613f36f0ebcabecb03c151f6abb}
+\hypertarget{libqhull_8h_af5b1d1f8cbeec0187c4b16df2c24a540}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+printhelp\+\_\+singular@{qh\+\_\+printhelp\+\_\+singular}}
+\index{qh\+\_\+printhelp\+\_\+singular@{qh\+\_\+printhelp\+\_\+singular}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+printhelp\+\_\+singular}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printhelp\+\_\+singular (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_af5b1d1f8cbeec0187c4b16df2c24a540}
+\hypertarget{libqhull_8h_ae562b3f842506b1e04781ee1adabb23f}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+printneighborhood@{qh\+\_\+printneighborhood}}
+\index{qh\+\_\+printneighborhood@{qh\+\_\+printneighborhood}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+printneighborhood}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printneighborhood (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{{\bf qh\+\_\+\+P\+R\+I\+N\+T}}]{format, }
+\item[{{\bf facet\+T} $\ast$}]{facet\+A, }
+\item[{{\bf facet\+T} $\ast$}]{facet\+B, }
+\item[{{\bf bool\+T}}]{printall}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ae562b3f842506b1e04781ee1adabb23f}
+\hypertarget{libqhull_8h_a51d73b88702f523ab3f3322f7e45159e}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+printsummary@{qh\+\_\+printsummary}}
+\index{qh\+\_\+printsummary@{qh\+\_\+printsummary}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+printsummary}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printsummary (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a51d73b88702f523ab3f3322f7e45159e}
+\hypertarget{libqhull_8h_a3a9b6591345727ca9306fb0fe73bc044}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+produce\+\_\+output@{qh\+\_\+produce\+\_\+output}}
+\index{qh\+\_\+produce\+\_\+output@{qh\+\_\+produce\+\_\+output}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+produce\+\_\+output}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+produce\+\_\+output (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a3a9b6591345727ca9306fb0fe73bc044}
+\hypertarget{libqhull_8h_a52e5614cd957c4247385f5f5208d4f46}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+projectinput@{qh\+\_\+projectinput}}
+\index{qh\+\_\+projectinput@{qh\+\_\+projectinput}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+projectinput}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+projectinput (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a52e5614cd957c4247385f5f5208d4f46}
+\hypertarget{libqhull_8h_a66495141e5922b777a5d84a7aec13a32}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+qhull@{qh\+\_\+qhull}}
+\index{qh\+\_\+qhull@{qh\+\_\+qhull}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+qhull}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+qhull (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a66495141e5922b777a5d84a7aec13a32}
+\hypertarget{libqhull_8h_a6692f61d3639baa77ca39a7ad6ce4fec}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+randommatrix@{qh\+\_\+randommatrix}}
+\index{qh\+\_\+randommatrix@{qh\+\_\+randommatrix}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+randommatrix}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+randommatrix (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$}]{buffer, }
+\item[{int}]{dim, }
+\item[{{\bf real\+T} $\ast$$\ast$}]{row}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a6692f61d3639baa77ca39a7ad6ce4fec}
+\hypertarget{libqhull_8h_a1f9cbd7a40bf1755ccc7c938e5b135b8}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+rboxpoints@{qh\+\_\+rboxpoints}}
+\index{qh\+\_\+rboxpoints@{qh\+\_\+rboxpoints}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+rboxpoints}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+rboxpoints (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fout, }
+\item[{F\+I\+L\+E $\ast$}]{ferr, }
+\item[{char $\ast$}]{rbox\+\_\+command}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a1f9cbd7a40bf1755ccc7c938e5b135b8}
+\hypertarget{libqhull_8h_a520d2eb347e6ead2d2afef54e2242063}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+readpoints@{qh\+\_\+readpoints}}
+\index{qh\+\_\+readpoints@{qh\+\_\+readpoints}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+readpoints}]{\setlength{\rightskip}{0pt plus 5cm}{\bf coord\+T}$\ast$ qh\+\_\+readpoints (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{numpoints, }
+\item[{int $\ast$}]{dimension, }
+\item[{{\bf bool\+T} $\ast$}]{ismalloc}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a520d2eb347e6ead2d2afef54e2242063}
+\hypertarget{libqhull_8h_ad0b443b4fa91eeea79ea66f127dcab83}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+rotateinput@{qh\+\_\+rotateinput}}
+\index{qh\+\_\+rotateinput@{qh\+\_\+rotateinput}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+rotateinput}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+rotateinput (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$$\ast$}]{rows}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ad0b443b4fa91eeea79ea66f127dcab83}
+\hypertarget{libqhull_8h_aa760b44755c26842e70df9ac5bb7620b}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+scaleinput@{qh\+\_\+scaleinput}}
+\index{qh\+\_\+scaleinput@{qh\+\_\+scaleinput}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+scaleinput}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+scaleinput (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_aa760b44755c26842e70df9ac5bb7620b}
+\hypertarget{libqhull_8h_ab706a3d62bca1525d5be00323751a07f}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+setdelaunay@{qh\+\_\+setdelaunay}}
+\index{qh\+\_\+setdelaunay@{qh\+\_\+setdelaunay}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+setdelaunay}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setdelaunay (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{int}]{count, }
+\item[{{\bf point\+T} $\ast$}]{points}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ab706a3d62bca1525d5be00323751a07f}
+\hypertarget{libqhull_8h_acc06bbfd3f14beba08ae7589e890672c}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+sethalfspace\+\_\+all@{qh\+\_\+sethalfspace\+\_\+all}}
+\index{qh\+\_\+sethalfspace\+\_\+all@{qh\+\_\+sethalfspace\+\_\+all}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+sethalfspace\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}{\bf coord\+T}$\ast$ qh\+\_\+sethalfspace\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{int}]{count, }
+\item[{{\bf coord\+T} $\ast$}]{halfspaces, }
+\item[{{\bf point\+T} $\ast$}]{feasible}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_acc06bbfd3f14beba08ae7589e890672c}
+\hypertarget{libqhull_8h_ae3ee84aa6d0ab7e03bd33ab38e0e521d}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+setvoronoi\+\_\+all@{qh\+\_\+setvoronoi\+\_\+all}}
+\index{qh\+\_\+setvoronoi\+\_\+all@{qh\+\_\+setvoronoi\+\_\+all}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+setvoronoi\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setvoronoi\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_ae3ee84aa6d0ab7e03bd33ab38e0e521d}
+\hypertarget{libqhull_8h_aca961447bb52979062f56f66ddf3a499}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+triangulate@{qh\+\_\+triangulate}}
+\index{qh\+\_\+triangulate@{qh\+\_\+triangulate}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+triangulate}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+triangulate (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_aca961447bb52979062f56f66ddf3a499}
+\hypertarget{libqhull_8h_a8ef1422d3893feadd481c11131240d55}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+user\+\_\+memsizes@{qh\+\_\+user\+\_\+memsizes}}
+\index{qh\+\_\+user\+\_\+memsizes@{qh\+\_\+user\+\_\+memsizes}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+user\+\_\+memsizes}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+user\+\_\+memsizes (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8h_a8ef1422d3893feadd481c11131240d55}
+
+
+\subsection{Variable Documentation}
+\hypertarget{libqhull_8h_a895ead53e4bf65360b1c04a26c0d4d8f}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+qh@{qh\+\_\+qh}}
+\index{qh\+\_\+qh@{qh\+\_\+qh}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+qh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf qh\+T} qh\+\_\+qh}\label{libqhull_8h_a895ead53e4bf65360b1c04a26c0d4d8f}
+\hypertarget{libqhull_8h_a3238bb92a8333d8052f112e7a85176d5}{}\index{libqhull.\+h@{libqhull.\+h}!qh\+\_\+version@{qh\+\_\+version}}
+\index{qh\+\_\+version@{qh\+\_\+version}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qh\+\_\+version}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ qh\+\_\+version}\label{libqhull_8h_a3238bb92a8333d8052f112e7a85176d5}
+\hypertarget{libqhull_8h_adc8ea5936012dc3bebd87b6f5ae878e5}{}\index{libqhull.\+h@{libqhull.\+h}!qhull\+\_\+inuse@{qhull\+\_\+inuse}}
+\index{qhull\+\_\+inuse@{qhull\+\_\+inuse}!libqhull.\+h@{libqhull.\+h}}
+\subsubsection[{qhull\+\_\+inuse}]{\setlength{\rightskip}{0pt plus 5cm}int qhull\+\_\+inuse}\label{libqhull_8h_adc8ea5936012dc3bebd87b6f5ae878e5}

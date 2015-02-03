@@ -1,0 +1,481 @@
+\hypertarget{namespacescipy_1_1optimize_1_1zeros}{}\section{scipy.\+optimize.\+zeros Namespace Reference}
+\label{namespacescipy_1_1optimize_1_1zeros}\index{scipy.\+optimize.\+zeros@{scipy.\+optimize.\+zeros}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1optimize_1_1zeros_1_1RootResults}{Root\+Results}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1zeros_aeaa5e32ae93421ba62caeff5fa44380f}{results\+\_\+c}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1zeros_a68360f1b4d04cd5b9b379ad9c9f83d8b}{newton}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1zeros_a83315ba9f5f00391cade4e5d4a5e3a0c}{bisect}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1zeros_a9c9f8fc893c60c2dd83d4f104525a076}{ridder}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1zeros_ad80f0ae5fa1147fe0c77cd6159380b59}{brentq}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1zeros_a46554b03f9304e126d5f4330727cd131}{brenth}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacescipy_1_1optimize_1_1zeros_aaeb208fcd759004ff55061e4ece6af34}{\+\_\+iter} = 100
+\item 
+int \hyperlink{namespacescipy_1_1optimize_1_1zeros_af117e07d5a2cbf80b5dd0a02ff847f77}{\+\_\+xtol} = 1
+\item 
+tuple \hyperlink{namespacescipy_1_1optimize_1_1zeros_a8195c6fae6fc47dcfd8b6a1de741372b}{\+\_\+rtol} = finfo(float)
+\item 
+list \hyperlink{namespacescipy_1_1optimize_1_1zeros_a20bb9fd4594454a268fa8b93df50f0d6}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1optimize_1_1zeros_a68360f1b4d04cd5b9b379ad9c9f83d8b}{newton}', '\hyperlink{namespacescipy_1_1optimize_1_1zeros_a83315ba9f5f00391cade4e5d4a5e3a0c}{bisect}', '\hyperlink{namespacescipy_1_1optimize_1_1zeros_a9c9f8fc893c60c2dd83d4f104525a076}{ridder}', '\hyperlink{namespacescipy_1_1optimize_1_1zeros_ad80f0ae5fa1147fe0c77cd6159380b59}{brentq}', '\hyperlink{namespacescipy_1_1optimize_1_1zeros_a46554b03f9304e126d5f4330727cd131}{brenth}'\mbox{]}
+\item 
+string \hyperlink{namespacescipy_1_1optimize_1_1zeros_ae94fd9b4c3e606a658916b313bbb9c97}{C\+O\+N\+V\+E\+R\+G\+E\+D} = 'converged'
+\item 
+string \hyperlink{namespacescipy_1_1optimize_1_1zeros_aeebed2989815ce89b4efba74926c6d56}{S\+I\+G\+N\+E\+R\+R} = 'sign \hyperlink{specfun_8f_a1606d291e8b683668654c8d4219efa20}{error}'
+\item 
+string \hyperlink{namespacescipy_1_1optimize_1_1zeros_aa4044a77254dd216fb958ece2ae9ded7}{C\+O\+N\+V\+E\+R\+R} = 'convergence \hyperlink{specfun_8f_a1606d291e8b683668654c8d4219efa20}{error}'
+\item 
+dictionary \hyperlink{namespacescipy_1_1optimize_1_1zeros_a7e9cc0583205f6b55a4d523a6a3a02d2}{flag\+\_\+map} = \{0\+: \hyperlink{namespacescipy_1_1optimize_1_1zeros_ae94fd9b4c3e606a658916b313bbb9c97}{C\+O\+N\+V\+E\+R\+G\+E\+D}, -\/1\+: \hyperlink{namespacescipy_1_1optimize_1_1zeros_aeebed2989815ce89b4efba74926c6d56}{S\+I\+G\+N\+E\+R\+R}, -\/2\+: \hyperlink{namespacescipy_1_1optimize_1_1zeros_aa4044a77254dd216fb958ece2ae9ded7}{C\+O\+N\+V\+E\+R\+R}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1zeros_a83315ba9f5f00391cade4e5d4a5e3a0c}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!bisect@{bisect}}
+\index{bisect@{bisect}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{bisect}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+zeros.\+bisect (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{xtol = {\ttfamily \+\_\+xtol}, }
+\item[{}]{rtol = {\ttfamily \+\_\+rtol}, }
+\item[{}]{maxiter = {\ttfamily \+\_\+iter}, }
+\item[{}]{full\+\_\+output = {\ttfamily {\bf False}}, }
+\item[{}]{disp = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1zeros_a83315ba9f5f00391cade4e5d4a5e3a0c}
+\begin{DoxyVerb}Find root of a function within an interval.
+
+Basic bisection routine to find a zero of the function `f` between the
+arguments `a` and `b`. `f(a)` and `f(b)` can not have the same signs.
+Slow but sure.
+
+Parameters
+----------
+f : function
+    Python function returning a number.  `f` must be continuous, and
+    f(a) and f(b) must have opposite signs.
+a : number
+    One end of the bracketing interval [a,b].
+b : number
+    The other end of the bracketing interval [a,b].
+xtol : number, optional
+    The routine converges when a root is known to lie within `xtol` of the
+    value return. Should be >= 0.  The routine modifies this to take into
+    account the relative precision of doubles.
+rtol : number, optional
+    The routine converges when a root is known to lie within `rtol` times
+    the value returned of the value returned. Should be >= 0. Defaults to
+    ``np.finfo(float).eps * 2``.
+maxiter : number, optional
+    if convergence is not achieved in `maxiter` iterations, and error is
+    raised.  Must be >= 0.
+args : tuple, optional
+    containing extra arguments for the function `f`.
+    `f` is called by ``apply(f, (x)+args)``.
+full_output : bool, optional
+    If `full_output` is False, the root is returned.  If `full_output` is
+    True, the return value is ``(x, r)``, where x is the root, and r is
+    a `RootResults` object.
+disp : bool, optional
+    If True, raise RuntimeError if the algorithm didn't converge.
+
+Returns
+-------
+x0 : float
+    Zero of `f` between `a` and `b`.
+r : RootResults (present if ``full_output = True``)
+    Object containing information about the convergence.  In particular,
+    ``r.converged`` is True if the routine converged.
+
+See Also
+--------
+brentq, brenth, bisect, newton
+fixed_point : scalar fixed-point finder
+fsolve : n-dimensional root-finding\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1zeros_a46554b03f9304e126d5f4330727cd131}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!brenth@{brenth}}
+\index{brenth@{brenth}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{brenth}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+zeros.\+brenth (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{xtol = {\ttfamily \+\_\+xtol}, }
+\item[{}]{rtol = {\ttfamily \+\_\+rtol}, }
+\item[{}]{maxiter = {\ttfamily \+\_\+iter}, }
+\item[{}]{full\+\_\+output = {\ttfamily {\bf False}}, }
+\item[{}]{disp = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1zeros_a46554b03f9304e126d5f4330727cd131}
+\begin{DoxyVerb}Find root of f in [a,b].
+
+A variation on the classic Brent routine to find a zero of the function f
+between the arguments a and b that uses hyperbolic extrapolation instead of
+inverse quadratic extrapolation. There was a paper back in the 1980's ...
+f(a) and f(b) can not have the same signs. Generally on a par with the
+brent routine, but not as heavily tested.  It is a safe version of the
+secant method that uses hyperbolic extrapolation. The version here is by
+Chuck Harris.
+
+Parameters
+----------
+f : function
+    Python function returning a number.  f must be continuous, and f(a) and
+    f(b) must have opposite signs.
+a : number
+    One end of the bracketing interval [a,b].
+b : number
+    The other end of the bracketing interval [a,b].
+xtol : number, optional
+    The routine converges when a root is known to lie within xtol of the
+    value return. Should be >= 0.  The routine modifies this to take into
+    account the relative precision of doubles.
+rtol : number, optional
+    The routine converges when a root is known to lie within `rtol` times
+    the value returned of the value returned. Should be >= 0. Defaults to
+    ``np.finfo(float).eps * 2``.
+maxiter : number, optional
+    if convergence is not achieved in maxiter iterations, and error is
+    raised.  Must be >= 0.
+args : tuple, optional
+    containing extra arguments for the function `f`.
+    `f` is called by ``apply(f, (x)+args)``.
+full_output : bool, optional
+    If `full_output` is False, the root is returned.  If `full_output` is
+    True, the return value is ``(x, r)``, where `x` is the root, and `r` is
+    a RootResults object.
+disp : bool, optional
+    If True, raise RuntimeError if the algorithm didn't converge.
+
+Returns
+-------
+x0 : float
+    Zero of `f` between `a` and `b`.
+r : RootResults (present if ``full_output = True``)
+    Object containing information about the convergence.  In particular,
+    ``r.converged`` is True if the routine converged.
+
+See Also
+--------
+fmin, fmin_powell, fmin_cg,
+       fmin_bfgs, fmin_ncg : multivariate local optimizers
+
+leastsq : nonlinear least squares minimizer
+
+fmin_l_bfgs_b, fmin_tnc, fmin_cobyla : constrained multivariate optimizers
+
+anneal, brute : global optimizers
+
+fminbound, brent, golden, bracket : local scalar minimizers
+
+fsolve : n-dimensional root-finding
+
+brentq, brenth, ridder, bisect, newton : one-dimensional root-finding
+
+fixed_point : scalar fixed-point finder\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1zeros_ad80f0ae5fa1147fe0c77cd6159380b59}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!brentq@{brentq}}
+\index{brentq@{brentq}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{brentq}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+zeros.\+brentq (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{xtol = {\ttfamily \+\_\+xtol}, }
+\item[{}]{rtol = {\ttfamily \+\_\+rtol}, }
+\item[{}]{maxiter = {\ttfamily \+\_\+iter}, }
+\item[{}]{full\+\_\+output = {\ttfamily {\bf False}}, }
+\item[{}]{disp = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1zeros_ad80f0ae5fa1147fe0c77cd6159380b59}
+\begin{DoxyVerb}Find a root of a function in given interval.
+
+Return float, a zero of `f` between `a` and `b`.  `f` must be a continuous
+function, and [a,b] must be a sign changing interval.
+
+Description:
+Uses the classic Brent (1973) method to find a zero of the function `f` on
+the sign changing interval [a , b].  Generally considered the best of the
+rootfinding routines here.  It is a safe version of the secant method that
+uses inverse quadratic extrapolation.  Brent's method combines root
+bracketing, interval bisection, and inverse quadratic interpolation.  It is
+sometimes known as the van Wijngaarden-Deker-Brent method.  Brent (1973)
+claims convergence is guaranteed for functions computable within [a,b].
+
+[Brent1973]_ provides the classic description of the algorithm.  Another
+description can be found in a recent edition of Numerical Recipes, including
+[PressEtal1992]_.  Another description is at
+http://mathworld.wolfram.com/BrentsMethod.html.  It should be easy to
+understand the algorithm just by reading our code.  Our code diverges a bit
+from standard presentations: we choose a different formula for the
+extrapolation step.
+
+Parameters
+----------
+f : function
+    Python function returning a number.  f must be continuous, and f(a) and
+    f(b) must have opposite signs.
+a : number
+    One end of the bracketing interval [a,b].
+b : number
+    The other end of the bracketing interval [a,b].
+xtol : number, optional
+    The routine converges when a root is known to lie within xtol of the
+    value return. Should be >= 0.  The routine modifies this to take into
+    account the relative precision of doubles.
+rtol : number, optional
+    The routine converges when a root is known to lie within `rtol` times
+    the value returned of the value returned. Should be >= 0. Defaults to
+    ``np.finfo(float).eps * 2``.
+maxiter : number, optional
+    if convergence is not achieved in maxiter iterations, and error is
+    raised.  Must be >= 0.
+args : tuple, optional
+    containing extra arguments for the function `f`.
+    `f` is called by ``apply(f, (x)+args)``.
+full_output : bool, optional
+    If `full_output` is False, the root is returned.  If `full_output` is
+    True, the return value is ``(x, r)``, where `x` is the root, and `r` is
+    a RootResults object.
+disp : bool, optional
+    If True, raise RuntimeError if the algorithm didn't converge.
+
+Returns
+-------
+x0 : float
+    Zero of `f` between `a` and `b`.
+r : RootResults (present if ``full_output = True``)
+    Object containing information about the convergence.  In particular,
+    ``r.converged`` is True if the routine converged.
+
+See Also
+--------
+multivariate local optimizers
+  `fmin`, `fmin_powell`, `fmin_cg`, `fmin_bfgs`, `fmin_ncg`
+nonlinear least squares minimizer
+  `leastsq`
+constrained multivariate optimizers
+  `fmin_l_bfgs_b`, `fmin_tnc`, `fmin_cobyla`
+global optimizers
+  `anneal`, `basinhopping`, `brute`
+local scalar minimizers
+  `fminbound`, `brent`, `golden`, `bracket`
+n-dimensional root-finding
+  `fsolve`
+one-dimensional root-finding
+  `brentq`, `brenth`, `ridder`, `bisect`, `newton`
+scalar fixed-point finder
+  `fixed_point`
+
+Notes
+-----
+`f` must be continuous.  f(a) and f(b) must have opposite signs.
+
+
+References
+----------
+.. [Brent1973]
+   Brent, R. P.,
+   *Algorithms for Minimization Without Derivatives*.
+   Englewood Cliffs, NJ: Prentice-Hall, 1973. Ch. 3-4.
+
+.. [PressEtal1992]
+   Press, W. H.; Flannery, B. P.; Teukolsky, S. A.; and Vetterling, W. T.
+   *Numerical Recipes in FORTRAN: The Art of Scientific Computing*, 2nd ed.
+   Cambridge, England: Cambridge University Press, pp. 352-355, 1992.
+   Section 9.3:  "Van Wijngaarden-Dekker-Brent Method."\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1zeros_a68360f1b4d04cd5b9b379ad9c9f83d8b}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!newton@{newton}}
+\index{newton@{newton}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{newton}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+zeros.\+newton (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{x0, }
+\item[{}]{fprime = {\ttfamily None}, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{tol = {\ttfamily 1.48e-\/8}, }
+\item[{}]{maxiter = {\ttfamily 50}, }
+\item[{}]{fprime2 = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1zeros_a68360f1b4d04cd5b9b379ad9c9f83d8b}
+\begin{DoxyVerb}Find a zero using the Newton-Raphson or secant method.
+
+Find a zero of the function `func` given a nearby starting point `x0`.
+The Newton-Raphson method is used if the derivative `fprime` of `func`
+is provided, otherwise the secant method is used.  If the second order
+derivate `fprime2` of `func` is provided, parabolic Halley's method
+is used.
+
+Parameters
+----------
+func : function
+    The function whose zero is wanted. It must be a function of a
+    single variable of the form f(x,a,b,c...), where a,b,c... are extra
+    arguments that can be passed in the `args` parameter.
+x0 : float
+    An initial estimate of the zero that should be somewhere near the
+    actual zero.
+fprime : function, optional
+    The derivative of the function when available and convenient. If it
+    is None (default), then the secant method is used.
+args : tuple, optional
+    Extra arguments to be used in the function call.
+tol : float, optional
+    The allowable error of the zero value.
+maxiter : int, optional
+    Maximum number of iterations.
+fprime2 : function, optional
+    The second order derivative of the function when available and
+    convenient. If it is None (default), then the normal Newton-Raphson
+    or the secant method is used. If it is given, parabolic Halley's
+    method is used.
+
+Returns
+-------
+zero : float
+    Estimated location where function is zero.
+
+See Also
+--------
+brentq, brenth, ridder, bisect
+fsolve : find zeroes in n dimensions.
+
+Notes
+-----
+The convergence rate of the Newton-Raphson method is quadratic,
+the Halley method is cubic, and the secant method is
+sub-quadratic.  This means that if the function is well behaved
+the actual error in the estimated zero is approximately the square
+(cube for Halley) of the requested tolerance up to roundoff
+error. However, the stopping criterion used here is the step size
+and there is no guarantee that a zero has been found. Consequently
+the result should be verified. Safer algorithms are brentq,
+brenth, ridder, and bisect, but they all require that the root
+first be bracketed in an interval where the function changes
+sign. The brentq algorithm is recommended for general use in one
+dimensional problems when such an interval has been found.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1zeros_aeaa5e32ae93421ba62caeff5fa44380f}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!results\+\_\+c@{results\+\_\+c}}
+\index{results\+\_\+c@{results\+\_\+c}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{results\+\_\+c}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+zeros.\+results\+\_\+c (
+\begin{DoxyParamCaption}
+\item[{}]{full\+\_\+output, }
+\item[{}]{r}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1zeros_aeaa5e32ae93421ba62caeff5fa44380f}
+\hypertarget{namespacescipy_1_1optimize_1_1zeros_a9c9f8fc893c60c2dd83d4f104525a076}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!ridder@{ridder}}
+\index{ridder@{ridder}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{ridder}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+zeros.\+ridder (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{a, }
+\item[{}]{b, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{xtol = {\ttfamily \+\_\+xtol}, }
+\item[{}]{rtol = {\ttfamily \+\_\+rtol}, }
+\item[{}]{maxiter = {\ttfamily \+\_\+iter}, }
+\item[{}]{full\+\_\+output = {\ttfamily {\bf False}}, }
+\item[{}]{disp = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1zeros_a9c9f8fc893c60c2dd83d4f104525a076}
+\begin{DoxyVerb}Find a root of a function in an interval.
+
+Parameters
+----------
+f : function
+    Python function returning a number.  f must be continuous, and f(a) and
+    f(b) must have opposite signs.
+a : number
+    One end of the bracketing interval [a,b].
+b : number
+    The other end of the bracketing interval [a,b].
+xtol : number, optional
+    The routine converges when a root is known to lie within xtol of the
+    value return. Should be >= 0.  The routine modifies this to take into
+    account the relative precision of doubles.
+rtol : number, optional
+    The routine converges when a root is known to lie within `rtol` times
+    the value returned of the value returned. Should be >= 0. Defaults to
+    ``np.finfo(float).eps * 2``.
+maxiter : number, optional
+    if convergence is not achieved in maxiter iterations, and error is
+    raised.  Must be >= 0.
+args : tuple, optional
+    containing extra arguments for the function `f`.
+    `f` is called by ``apply(f, (x)+args)``.
+full_output : bool, optional
+    If `full_output` is False, the root is returned.  If `full_output` is
+    True, the return value is ``(x, r)``, where `x` is the root, and `r` is
+    a RootResults object.
+disp : bool, optional
+    If True, raise RuntimeError if the algorithm didn't converge.
+
+Returns
+-------
+x0 : float
+    Zero of `f` between `a` and `b`.
+r : RootResults (present if ``full_output = True``)
+    Object containing information about the convergence.
+    In particular, ``r.converged`` is True if the routine converged.
+
+See Also
+--------
+brentq, brenth, bisect, newton : one-dimensional root-finding
+fixed_point : scalar fixed-point finder
+
+Notes
+-----
+Uses [Ridders1979]_ method to find a zero of the function `f` between the
+arguments `a` and `b`. Ridders' method is faster than bisection, but not
+generally as fast as the Brent rountines. [Ridders1979]_ provides the
+classic description and source of the algorithm. A description can also be
+found in any recent edition of Numerical Recipes.
+
+The routine used here diverges slightly from standard presentations in
+order to be a bit more careful of tolerance.
+
+References
+----------
+.. [Ridders1979]
+   Ridders, C. F. J. "A New Algorithm for Computing a
+   Single Root of a Real Continuous Function."
+   IEEE Trans. Circuits Systems 26, 979-980, 1979.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1zeros_a20bb9fd4594454a268fa8b93df50f0d6}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+optimize.\+zeros.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf newton}', '{\bf bisect}', '{\bf ridder}', '{\bf brentq}', '{\bf brenth}'\mbox{]}}\label{namespacescipy_1_1optimize_1_1zeros_a20bb9fd4594454a268fa8b93df50f0d6}
+\hypertarget{namespacescipy_1_1optimize_1_1zeros_aaeb208fcd759004ff55061e4ece6af34}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!\+\_\+iter@{\+\_\+iter}}
+\index{\+\_\+iter@{\+\_\+iter}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{\+\_\+iter}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+optimize.\+zeros.\+\_\+iter = 100}\label{namespacescipy_1_1optimize_1_1zeros_aaeb208fcd759004ff55061e4ece6af34}
+\hypertarget{namespacescipy_1_1optimize_1_1zeros_a8195c6fae6fc47dcfd8b6a1de741372b}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!\+\_\+rtol@{\+\_\+rtol}}
+\index{\+\_\+rtol@{\+\_\+rtol}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{\+\_\+rtol}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+optimize.\+zeros.\+\_\+rtol = finfo(float)}\label{namespacescipy_1_1optimize_1_1zeros_a8195c6fae6fc47dcfd8b6a1de741372b}
+\hypertarget{namespacescipy_1_1optimize_1_1zeros_af117e07d5a2cbf80b5dd0a02ff847f77}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!\+\_\+xtol@{\+\_\+xtol}}
+\index{\+\_\+xtol@{\+\_\+xtol}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{\+\_\+xtol}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+optimize.\+zeros.\+\_\+xtol = 1}\label{namespacescipy_1_1optimize_1_1zeros_af117e07d5a2cbf80b5dd0a02ff847f77}
+\hypertarget{namespacescipy_1_1optimize_1_1zeros_ae94fd9b4c3e606a658916b313bbb9c97}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!C\+O\+N\+V\+E\+R\+G\+E\+D@{C\+O\+N\+V\+E\+R\+G\+E\+D}}
+\index{C\+O\+N\+V\+E\+R\+G\+E\+D@{C\+O\+N\+V\+E\+R\+G\+E\+D}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{C\+O\+N\+V\+E\+R\+G\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+optimize.\+zeros.\+C\+O\+N\+V\+E\+R\+G\+E\+D = 'converged'}\label{namespacescipy_1_1optimize_1_1zeros_ae94fd9b4c3e606a658916b313bbb9c97}
+\hypertarget{namespacescipy_1_1optimize_1_1zeros_aa4044a77254dd216fb958ece2ae9ded7}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!C\+O\+N\+V\+E\+R\+R@{C\+O\+N\+V\+E\+R\+R}}
+\index{C\+O\+N\+V\+E\+R\+R@{C\+O\+N\+V\+E\+R\+R}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{C\+O\+N\+V\+E\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+optimize.\+zeros.\+C\+O\+N\+V\+E\+R\+R = 'convergence {\bf error}'}\label{namespacescipy_1_1optimize_1_1zeros_aa4044a77254dd216fb958ece2ae9ded7}
+\hypertarget{namespacescipy_1_1optimize_1_1zeros_a7e9cc0583205f6b55a4d523a6a3a02d2}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!flag\+\_\+map@{flag\+\_\+map}}
+\index{flag\+\_\+map@{flag\+\_\+map}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{flag\+\_\+map}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+optimize.\+zeros.\+flag\+\_\+map = \{0\+: {\bf C\+O\+N\+V\+E\+R\+G\+E\+D}, -\/1\+: {\bf S\+I\+G\+N\+E\+R\+R}, -\/2\+: {\bf C\+O\+N\+V\+E\+R\+R}\}}\label{namespacescipy_1_1optimize_1_1zeros_a7e9cc0583205f6b55a4d523a6a3a02d2}
+\hypertarget{namespacescipy_1_1optimize_1_1zeros_aeebed2989815ce89b4efba74926c6d56}{}\index{scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}!S\+I\+G\+N\+E\+R\+R@{S\+I\+G\+N\+E\+R\+R}}
+\index{S\+I\+G\+N\+E\+R\+R@{S\+I\+G\+N\+E\+R\+R}!scipy\+::optimize\+::zeros@{scipy\+::optimize\+::zeros}}
+\subsubsection[{S\+I\+G\+N\+E\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+optimize.\+zeros.\+S\+I\+G\+N\+E\+R\+R = 'sign {\bf error}'}\label{namespacescipy_1_1optimize_1_1zeros_aeebed2989815ce89b4efba74926c6d56}

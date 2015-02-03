@@ -1,0 +1,249 @@
+\hypertarget{namespacenumpydoc_1_1plot__directive}{}\section{numpydoc.\+plot\+\_\+directive Namespace Reference}
+\label{namespacenumpydoc_1_1plot__directive}\index{numpydoc.\+plot\+\_\+directive@{numpydoc.\+plot\+\_\+directive}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classnumpydoc_1_1plot__directive_1_1ImageFile}{Image\+File}
+\item 
+class \hyperlink{classnumpydoc_1_1plot__directive_1_1PlotError}{Plot\+Error}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_af9052de7268ee46d32141b97fa2deadb}{setup}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_a30d185f741af75c4d35e2baf8f9d0521}{plot\+\_\+directive}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_af3fc62cfa211787c3b2d646522f6f009}{format\+\_\+template}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_ac7c40115743e00af34fc5377393976d1}{run}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_a04215e4efbb5d5a6970dc3dbfda07a95}{contains\+\_\+doctest}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_ad90fc28901ef394e8c3fb4adcdfef383}{unescape\+\_\+doctest}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_a9947c9a52b8b0c0a978cbcd49be5b63d}{split\+\_\+code\+\_\+at\+\_\+show}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_a464916086122f85caf263d1206e10f4c}{run\+\_\+code}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_a4ace626a42dd67c151e73172d34cf547}{out\+\_\+of\+\_\+date}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_acf7dbd824eccc8aa2e13ea956fc62c7a}{makefig}
+\item 
+def \hyperlink{namespacenumpydoc_1_1plot__directive_a37364d97bfc8ac16b84c3e947a819073}{relpath}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \hyperlink{namespacenumpydoc_1_1plot__directive_a6206bc6678f1dc01750dfab138d5c5a8}{plot\+\_\+directive\+\_\+options}
+\item 
+string \hyperlink{namespacenumpydoc_1_1plot__directive_a3c421da98ea0efafc9a723bd1e00870b}{T\+E\+M\+P\+L\+A\+T\+E}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}A special directive for generating a matplotlib plot.
+
+.. warning::
+
+   This is a hacked version of plot_directive.py from Matplotlib.
+   It's very much subject to change!
+
+
+Usage
+-----
+
+Can be used like this::
+
+    .. plot:: examples/example.py
+
+    .. plot::
+
+       import matplotlib.pyplot as plt
+       plt.plot([1,2,3], [4,5,6])
+
+    .. plot::
+
+       A plotting example:
+
+       >>> import matplotlib.pyplot as plt
+       >>> plt.plot([1,2,3], [4,5,6])
+
+The content is interpreted as doctest formatted if it has a line starting
+with ``>>>``.
+
+The ``plot`` directive supports the options
+
+    format : {'python', 'doctest'}
+        Specify the format of the input
+
+    include-source : bool
+        Whether to display the source code. Default can be changed in conf.py
+
+and the ``image`` directive options ``alt``, ``height``, ``width``,
+``scale``, ``align``, ``class``.
+
+Configuration options
+---------------------
+
+The plot directive has the following configuration options:
+
+    plot_include_source
+        Default value for the include-source option
+
+    plot_pre_code
+        Code that should be executed before each plot.
+
+    plot_basedir
+        Base directory, to which plot:: file names are relative to.
+        (If None or empty, file names are relative to the directoly where
+        the file containing the directive is.)
+
+    plot_formats
+        File formats to generate. List of tuples or strings::
+
+            [(suffix, dpi), suffix, ...]
+
+        that determine the file format and the DPI. For entries whose
+        DPI was omitted, sensible defaults are chosen.
+
+    plot_html_show_formats
+        Whether to show links to the files in HTML.
+
+TODO
+----
+
+* Refactor Latex output; now it's plain images, but it would be nice
+  to make them appear side-by-side, or in floats.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacenumpydoc_1_1plot__directive_a04215e4efbb5d5a6970dc3dbfda07a95}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!contains\+\_\+doctest@{contains\+\_\+doctest}}
+\index{contains\+\_\+doctest@{contains\+\_\+doctest}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{contains\+\_\+doctest}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+contains\+\_\+doctest (
+\begin{DoxyParamCaption}
+\item[{}]{text}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_a04215e4efbb5d5a6970dc3dbfda07a95}
+\hypertarget{namespacenumpydoc_1_1plot__directive_af3fc62cfa211787c3b2d646522f6f009}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!format\+\_\+template@{format\+\_\+template}}
+\index{format\+\_\+template@{format\+\_\+template}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{format\+\_\+template}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+format\+\_\+template (
+\begin{DoxyParamCaption}
+\item[{}]{template, }
+\item[{}]{kw}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_af3fc62cfa211787c3b2d646522f6f009}
+\hypertarget{namespacenumpydoc_1_1plot__directive_acf7dbd824eccc8aa2e13ea956fc62c7a}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!makefig@{makefig}}
+\index{makefig@{makefig}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{makefig}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+makefig (
+\begin{DoxyParamCaption}
+\item[{}]{code, }
+\item[{}]{code\+\_\+path, }
+\item[{}]{output\+\_\+dir, }
+\item[{}]{output\+\_\+base, }
+\item[{}]{config}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_acf7dbd824eccc8aa2e13ea956fc62c7a}
+\begin{DoxyVerb}Run a pyplot script *code* and save the images under *output_dir*
+with file names derived from *output_base*\end{DoxyVerb}
+ \hypertarget{namespacenumpydoc_1_1plot__directive_a4ace626a42dd67c151e73172d34cf547}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!out\+\_\+of\+\_\+date@{out\+\_\+of\+\_\+date}}
+\index{out\+\_\+of\+\_\+date@{out\+\_\+of\+\_\+date}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{out\+\_\+of\+\_\+date}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+out\+\_\+of\+\_\+date (
+\begin{DoxyParamCaption}
+\item[{}]{original, }
+\item[{}]{derived}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_a4ace626a42dd67c151e73172d34cf547}
+\begin{DoxyVerb}Returns True if derivative is out-of-date wrt original,
+both of which are full file paths.
+\end{DoxyVerb}
+ \hypertarget{namespacenumpydoc_1_1plot__directive_a30d185f741af75c4d35e2baf8f9d0521}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!plot\+\_\+directive@{plot\+\_\+directive}}
+\index{plot\+\_\+directive@{plot\+\_\+directive}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{plot\+\_\+directive}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+plot\+\_\+directive (
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{arguments, }
+\item[{}]{options, }
+\item[{}]{content, }
+\item[{}]{lineno, }
+\item[{}]{content\+\_\+offset, }
+\item[{}]{block\+\_\+text, }
+\item[{}]{state, }
+\item[{}]{state\+\_\+machine}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_a30d185f741af75c4d35e2baf8f9d0521}
+\hypertarget{namespacenumpydoc_1_1plot__directive_a37364d97bfc8ac16b84c3e947a819073}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!relpath@{relpath}}
+\index{relpath@{relpath}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{relpath}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+relpath (
+\begin{DoxyParamCaption}
+\item[{}]{path, }
+\item[{}]{start = {\ttfamily os.path.curdir}}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_a37364d97bfc8ac16b84c3e947a819073}
+\begin{DoxyVerb}Return a relative version of a path\end{DoxyVerb}
+ \hypertarget{namespacenumpydoc_1_1plot__directive_ac7c40115743e00af34fc5377393976d1}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!run@{run}}
+\index{run@{run}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+run (
+\begin{DoxyParamCaption}
+\item[{}]{arguments, }
+\item[{}]{content, }
+\item[{}]{options, }
+\item[{}]{state\+\_\+machine, }
+\item[{}]{state, }
+\item[{}]{lineno}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_ac7c40115743e00af34fc5377393976d1}
+\hypertarget{namespacenumpydoc_1_1plot__directive_a464916086122f85caf263d1206e10f4c}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!run\+\_\+code@{run\+\_\+code}}
+\index{run\+\_\+code@{run\+\_\+code}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{run\+\_\+code}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+run\+\_\+code (
+\begin{DoxyParamCaption}
+\item[{}]{code, }
+\item[{}]{code\+\_\+path, }
+\item[{}]{ns = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_a464916086122f85caf263d1206e10f4c}
+\hypertarget{namespacenumpydoc_1_1plot__directive_af9052de7268ee46d32141b97fa2deadb}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!setup@{setup}}
+\index{setup@{setup}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+setup (
+\begin{DoxyParamCaption}
+\item[{}]{app}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_af9052de7268ee46d32141b97fa2deadb}
+\hypertarget{namespacenumpydoc_1_1plot__directive_a9947c9a52b8b0c0a978cbcd49be5b63d}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!split\+\_\+code\+\_\+at\+\_\+show@{split\+\_\+code\+\_\+at\+\_\+show}}
+\index{split\+\_\+code\+\_\+at\+\_\+show@{split\+\_\+code\+\_\+at\+\_\+show}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{split\+\_\+code\+\_\+at\+\_\+show}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+split\+\_\+code\+\_\+at\+\_\+show (
+\begin{DoxyParamCaption}
+\item[{}]{text}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_a9947c9a52b8b0c0a978cbcd49be5b63d}
+\begin{DoxyVerb}Split code at plt.show()\end{DoxyVerb}
+ \hypertarget{namespacenumpydoc_1_1plot__directive_ad90fc28901ef394e8c3fb4adcdfef383}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!unescape\+\_\+doctest@{unescape\+\_\+doctest}}
+\index{unescape\+\_\+doctest@{unescape\+\_\+doctest}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{unescape\+\_\+doctest}]{\setlength{\rightskip}{0pt plus 5cm}def numpydoc.\+plot\+\_\+directive.\+unescape\+\_\+doctest (
+\begin{DoxyParamCaption}
+\item[{}]{text}
+\end{DoxyParamCaption}
+)}\label{namespacenumpydoc_1_1plot__directive_ad90fc28901ef394e8c3fb4adcdfef383}
+\begin{DoxyVerb}Extract code from a piece of text, which contains either Python code
+or doctests.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacenumpydoc_1_1plot__directive_a6206bc6678f1dc01750dfab138d5c5a8}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!plot\+\_\+directive\+\_\+options@{plot\+\_\+directive\+\_\+options}}
+\index{plot\+\_\+directive\+\_\+options@{plot\+\_\+directive\+\_\+options}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{plot\+\_\+directive\+\_\+options}]{\setlength{\rightskip}{0pt plus 5cm}dictionary numpydoc.\+plot\+\_\+directive.\+plot\+\_\+directive\+\_\+options}\label{namespacenumpydoc_1_1plot__directive_a6206bc6678f1dc01750dfab138d5c5a8}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \{\textcolor{stringliteral}{'alt'}: directives.unchanged,
+2                           \textcolor{stringliteral}{'height'}: directives.length\_or\_unitless,
+3                           \textcolor{stringliteral}{'width'}: directives.length\_or\_percentage\_or\_unitless,
+4                           \textcolor{stringliteral}{'scale'}: directives.nonnegative\_int,
+5                           \textcolor{stringliteral}{'align'}: \_option\_align,
+6                           \textcolor{stringliteral}{'class'}: directives.class\_option,
+7                           \textcolor{stringliteral}{'include-source'}: \_option\_boolean,
+8                           \textcolor{stringliteral}{'format'}: \_option\_format,
+9                           \}
+\end{DoxyCode}
+\hypertarget{namespacenumpydoc_1_1plot__directive_a3c421da98ea0efafc9a723bd1e00870b}{}\index{numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}!T\+E\+M\+P\+L\+A\+T\+E@{T\+E\+M\+P\+L\+A\+T\+E}}
+\index{T\+E\+M\+P\+L\+A\+T\+E@{T\+E\+M\+P\+L\+A\+T\+E}!numpydoc\+::plot\+\_\+directive@{numpydoc\+::plot\+\_\+directive}}
+\subsubsection[{T\+E\+M\+P\+L\+A\+T\+E}]{\setlength{\rightskip}{0pt plus 5cm}string numpydoc.\+plot\+\_\+directive.\+T\+E\+M\+P\+L\+A\+T\+E}\label{namespacenumpydoc_1_1plot__directive_a3c421da98ea0efafc9a723bd1e00870b}

@@ -1,0 +1,149 @@
+\hypertarget{libqhull_8c}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/libqhull.c File Reference}
+\label{libqhull_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/libqhull.\+c@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/libqhull.\+c}}
+{\ttfamily \#include \char`\"{}qhull\+\_\+a.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{libqhull_8c_a66495141e5922b777a5d84a7aec13a32}{qh\+\_\+qhull} (void)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{libqhull_8c_aa3f30b3b9f985fbdf0bd97f594c19eb0}{qh\+\_\+addpoint} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$furthest, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} checkdist)
+\item 
+void \hyperlink{libqhull_8c_a1b6838237f7b511f4842607309fc4f28}{qh\+\_\+build\+\_\+withrestart} (void)
+\item 
+void \hyperlink{libqhull_8c_a9dacb98db25f499d3e0416aee4307a80}{qh\+\_\+buildhull} (void)
+\item 
+void \hyperlink{libqhull_8c_a1bf87a9a131c29bac9b04bf20291e0fd}{qh\+\_\+buildtracing} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$furthest, \hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{libqhull_8c_a025fed46941faab29255f53ad86eec68}{qh\+\_\+errexit2} (int exitcode, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structfacetT}{facet\+T} $\ast$otherfacet)
+\item 
+void \hyperlink{libqhull_8c_ad3552375b67dd9d86907b44eb03e338f}{qh\+\_\+findhorizon} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$facet, int $\ast$goodvisible, int $\ast$goodhorizon)
+\item 
+\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$ \hyperlink{libqhull_8c_a10058e086e0712090dd62efc1decee2a}{qh\+\_\+nextfurthest} (\hyperlink{structfacetT}{facet\+T} $\ast$$\ast$visible)
+\item 
+void \hyperlink{libqhull_8c_af9599c8d285c868140183ec24b6ed901}{qh\+\_\+partitionall} (\hyperlink{structsetT}{set\+T} $\ast$vertices, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$points, int numpoints)
+\item 
+void \hyperlink{libqhull_8c_a4dd7273107e26a2308e76690402f424c}{qh\+\_\+partitioncoplanar} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$dist)
+\item 
+void \hyperlink{libqhull_8c_a18f4a2b0d886509d0b7ab788b74866c1}{qh\+\_\+partitionpoint} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{libqhull_8c_a4e5f98f28bbdad2f0647f23a52b50374}{qh\+\_\+partitionvisible} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} allpoints, int $\ast$numoutside)
+\item 
+void \hyperlink{libqhull_8c_a4b053952f0986d2aca8d1952c96b3fbd}{qh\+\_\+precision} (const char $\ast$reason)
+\item 
+void \hyperlink{libqhull_8c_a51d73b88702f523ab3f3322f7e45159e}{qh\+\_\+printsummary} (F\+I\+L\+E $\ast$fp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{libqhull_8c_aa3f30b3b9f985fbdf0bd97f594c19eb0}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+addpoint@{qh\+\_\+addpoint}}
+\index{qh\+\_\+addpoint@{qh\+\_\+addpoint}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+addpoint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+addpoint (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{furthest, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf bool\+T}}]{checkdist}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_aa3f30b3b9f985fbdf0bd97f594c19eb0}
+\hypertarget{libqhull_8c_a1b6838237f7b511f4842607309fc4f28}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+build\+\_\+withrestart@{qh\+\_\+build\+\_\+withrestart}}
+\index{qh\+\_\+build\+\_\+withrestart@{qh\+\_\+build\+\_\+withrestart}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+build\+\_\+withrestart}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+build\+\_\+withrestart (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a1b6838237f7b511f4842607309fc4f28}
+\hypertarget{libqhull_8c_a9dacb98db25f499d3e0416aee4307a80}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+buildhull@{qh\+\_\+buildhull}}
+\index{qh\+\_\+buildhull@{qh\+\_\+buildhull}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+buildhull}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+buildhull (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a9dacb98db25f499d3e0416aee4307a80}
+\hypertarget{libqhull_8c_a1bf87a9a131c29bac9b04bf20291e0fd}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+buildtracing@{qh\+\_\+buildtracing}}
+\index{qh\+\_\+buildtracing@{qh\+\_\+buildtracing}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+buildtracing}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+buildtracing (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{furthest, }
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a1bf87a9a131c29bac9b04bf20291e0fd}
+\hypertarget{libqhull_8c_a025fed46941faab29255f53ad86eec68}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+errexit2@{qh\+\_\+errexit2}}
+\index{qh\+\_\+errexit2@{qh\+\_\+errexit2}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+errexit2}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+errexit2 (
+\begin{DoxyParamCaption}
+\item[{int}]{exitcode, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf facet\+T} $\ast$}]{otherfacet}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a025fed46941faab29255f53ad86eec68}
+\hypertarget{libqhull_8c_ad3552375b67dd9d86907b44eb03e338f}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+findhorizon@{qh\+\_\+findhorizon}}
+\index{qh\+\_\+findhorizon@{qh\+\_\+findhorizon}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+findhorizon}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+findhorizon (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{int $\ast$}]{goodvisible, }
+\item[{int $\ast$}]{goodhorizon}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_ad3552375b67dd9d86907b44eb03e338f}
+\hypertarget{libqhull_8c_a10058e086e0712090dd62efc1decee2a}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+nextfurthest@{qh\+\_\+nextfurthest}}
+\index{qh\+\_\+nextfurthest@{qh\+\_\+nextfurthest}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+nextfurthest}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\+T}$\ast$ qh\+\_\+nextfurthest (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$$\ast$}]{visible}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a10058e086e0712090dd62efc1decee2a}
+\hypertarget{libqhull_8c_af9599c8d285c868140183ec24b6ed901}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+partitionall@{qh\+\_\+partitionall}}
+\index{qh\+\_\+partitionall@{qh\+\_\+partitionall}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+partitionall}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+partitionall (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertices, }
+\item[{{\bf point\+T} $\ast$}]{points, }
+\item[{int}]{numpoints}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_af9599c8d285c868140183ec24b6ed901}
+\hypertarget{libqhull_8c_a4dd7273107e26a2308e76690402f424c}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+partitioncoplanar@{qh\+\_\+partitioncoplanar}}
+\index{qh\+\_\+partitioncoplanar@{qh\+\_\+partitioncoplanar}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+partitioncoplanar}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+partitioncoplanar (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf real\+T} $\ast$}]{dist}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a4dd7273107e26a2308e76690402f424c}
+\hypertarget{libqhull_8c_a18f4a2b0d886509d0b7ab788b74866c1}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+partitionpoint@{qh\+\_\+partitionpoint}}
+\index{qh\+\_\+partitionpoint@{qh\+\_\+partitionpoint}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+partitionpoint}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+partitionpoint (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a18f4a2b0d886509d0b7ab788b74866c1}
+\hypertarget{libqhull_8c_a4e5f98f28bbdad2f0647f23a52b50374}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+partitionvisible@{qh\+\_\+partitionvisible}}
+\index{qh\+\_\+partitionvisible@{qh\+\_\+partitionvisible}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+partitionvisible}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+partitionvisible (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T}}]{allpoints, }
+\item[{int $\ast$}]{numoutside}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a4e5f98f28bbdad2f0647f23a52b50374}
+\hypertarget{libqhull_8c_a4b053952f0986d2aca8d1952c96b3fbd}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+precision@{qh\+\_\+precision}}
+\index{qh\+\_\+precision@{qh\+\_\+precision}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+precision}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+precision (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{reason}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a4b053952f0986d2aca8d1952c96b3fbd}
+\hypertarget{libqhull_8c_a51d73b88702f523ab3f3322f7e45159e}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+printsummary@{qh\+\_\+printsummary}}
+\index{qh\+\_\+printsummary@{qh\+\_\+printsummary}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+printsummary}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printsummary (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a51d73b88702f523ab3f3322f7e45159e}
+\hypertarget{libqhull_8c_a66495141e5922b777a5d84a7aec13a32}{}\index{libqhull.\+c@{libqhull.\+c}!qh\+\_\+qhull@{qh\+\_\+qhull}}
+\index{qh\+\_\+qhull@{qh\+\_\+qhull}!libqhull.\+c@{libqhull.\+c}}
+\subsubsection[{qh\+\_\+qhull}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+qhull (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{libqhull_8c_a66495141e5922b777a5d84a7aec13a32}

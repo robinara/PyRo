@@ -1,0 +1,363 @@
+\hypertarget{classTranslator}{}\section{Translator Class Reference}
+\label{classTranslator}\index{Translator@{Translator}}
+
+
+The \hyperlink{classTranslator}{Translator} class provides internationalization support for text output.  
+
+
+
+
+{\ttfamily \#include $<$translator.\+h$>$}
+
+Inheritance diagram for Translator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTranslator}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classTranslator_aefe656fdfa14952a99d6d25e61749a99}{Save\+Mode} \{ \hyperlink{classTranslator_aefe656fdfa14952a99d6d25e61749a99a3847cfbd6836d9a65ac73fc641bb3085}{Everything}, 
+\hyperlink{classTranslator_aefe656fdfa14952a99d6d25e61749a99a68d586d3f7ea596c2a5d1252fad326d6}{Stripped}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTranslator_adea9a7fabf45b7e89a91f8acf87034ff}{Translator} (Q\+Object $\ast$parent=0)
+\item 
+\hyperlink{classTranslator_a9c262ba866126a6a35e979a64d7e3518}{$\sim$\+Translator} ()
+\item 
+virtual \hyperlink{classTranslatorMessage}{Translator\+Message} \hyperlink{classTranslator_ad8ed775f8a3375e029fc321d85e35de6}{find\+Message} (const char $\ast$context, const char $\ast$source\+Text, const char $\ast$comment=0, const Q\+String \&file\+Name=0, int line\+Number=-\/1) const 
+\item 
+virtual Q\+String \hyperlink{classTranslator_a032376fa349510a324c3e8e785ec8cab}{translate} (const char $\ast$context, const char $\ast$source\+Text, const char $\ast$comment=0) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslator_ae0cc0c124c3c00c87aae603c2ecc3be0}{load} (const Q\+String \&filename, const Q\+String \&directory=Q\+String(), const Q\+String \&search\+\_\+delimiters=Q\+String(), const Q\+String \&suffix=Q\+String())
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslator_af7945fd24f0b03dcaf31c500b09eaf5e}{load} (const uchar $\ast$data, int len)
+\item 
+void \hyperlink{classTranslator_a64ceb9a2ce9ac0a4118136166fd28a00}{clear} ()
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslator_a120c98f6d21bb5ae8787b9479e37c8ef}{save} (const Q\+String \&filename, \hyperlink{classTranslator_aefe656fdfa14952a99d6d25e61749a99}{Save\+Mode} mode=\hyperlink{classTranslator_aefe656fdfa14952a99d6d25e61749a99a3847cfbd6836d9a65ac73fc641bb3085}{Everything})
+\item 
+void \hyperlink{classTranslator_a899fe5210b7f0c9c1aafe3c875be08b4}{insert} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&)
+\item 
+void \hyperlink{classTranslator_ac97cb60f40addc1b01ca21bb7196c4f9}{insert} (const char $\ast$context, const char $\ast$source\+Text, const Q\+String \&file\+Name, int line\+No, const Q\+String\+List \&translations)
+\item 
+void \hyperlink{classTranslator_abeaed252a6d759954efa4de668bea2ad}{remove} (const \hyperlink{classTranslatorMessage}{Translator\+Message} \&)
+\item 
+void \hyperlink{classTranslator_a5352ba6a8c6ebae1d1dcac76ffe38c41}{remove} (const char $\ast$context, const char $\ast$source\+Text)
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslator_a64287b3ed668ce3620548d2e8d5d0d1d}{contains} (const char $\ast$context, const char $\ast$source\+Text, const char $\ast$comment=0) const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslator_ae2382d9461e04937c1cb3bdc324c602e}{contains} (const char $\ast$context, const char $\ast$comment, const Q\+String \&file\+Name, int line\+Number) const 
+\item 
+void \hyperlink{classTranslator_aa8595b69976c3680bf18613ae8510482}{squeeze} (\hyperlink{classTranslator_aefe656fdfa14952a99d6d25e61749a99}{Save\+Mode}=\hyperlink{classTranslator_aefe656fdfa14952a99d6d25e61749a99a3847cfbd6836d9a65ac73fc641bb3085}{Everything})
+\item 
+void \hyperlink{classTranslator_a7f58f925b0955973444c1e60eb2e8ae7}{unsqueeze} ()
+\item 
+\hyperlink{classQList}{Q\+List}$<$ \hyperlink{classTranslatorMessage}{Translator\+Message} $>$ \hyperlink{classTranslator_ad1abe7e46be002819ac15e57c89b8032}{messages} () const 
+\item 
+\hyperlink{compiler_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classTranslator_a41bbb75a0e7bbcfd684efeee60b866c8}{is\+Empty} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classTranslator}{Translator} class provides internationalization support for text output. 
+
+An object of this class contains a set of \hyperlink{classTranslatorMessage}{Translator\+Message} objects, each of which specifies a translation from a source language to a target language. \hyperlink{classTranslator}{Translator} provides functions to look up translations, add new ones, remove them, load and save them, etc.
+
+The most common use of \hyperlink{classTranslator}{Translator} is to\+: load a translator file created with \{Qt Linguist Manual\}, install it using Q\+Core\+Application\+::install\+Translator(), and use it via Q\+Object\+::tr(). For example\+:
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{int} \hyperlink{namespacedriver_1_1LOGITECH__GAMEPAD__DRIVER_aaa658f6556352e0d77c8437b019f41f9}{main}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} ** argv)
+\{
+    QCoreApplication \hyperlink{namespacelang_aa1745a5b4f252cc94c0176918ef4e7a2}{app}(argc, argv);
+
+    \hyperlink{classTranslator}{Translator} translator(0);
+    translator.load(\textcolor{stringliteral}{"french.qm"}, \textcolor{stringliteral}{"."});
+    \hyperlink{namespacelang_aa1745a5b4f252cc94c0176918ef4e7a2}{app}.installTranslator(&translator);
+
+    MyWidget \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m};
+    \hyperlink{namespacelang_aa1745a5b4f252cc94c0176918ef4e7a2}{app}.setMainWidget(&m);
+    m.show();
+
+    \textcolor{keywordflow}{return} \hyperlink{namespacelang_aa1745a5b4f252cc94c0176918ef4e7a2}{app}.exec();
+\}
+\end{DoxyCode}
+ Note that the translator must be created {\itshape before} the application's main window.
+
+Most applications will never need to do anything else with this class. The other functions provided by this class are useful for applications that work on translator files.
+
+We call a translation a \char`\"{}messsage\char`\"{}. For this reason, translation files are sometimes referred to as \char`\"{}message files\char`\"{}.
+
+It is possible to lookup a translation using \hyperlink{classTranslator_ad8ed775f8a3375e029fc321d85e35de6}{find\+Message()} (as tr() and Q\+Core\+Application\+::translate() do) and \hyperlink{classTranslator_a64287b3ed668ce3620548d2e8d5d0d1d}{contains()}, to insert a new translation messsage using \hyperlink{classTranslator_a899fe5210b7f0c9c1aafe3c875be08b4}{insert()}, and to remove one using \hyperlink{classTranslator_abeaed252a6d759954efa4de668bea2ad}{remove()}.
+
+Translation tools often need more information than the bare source text and translation, for example, context information to help the translator. But end-\/user programs that are using translations usually only need lookup. To cater for these different needs, \hyperlink{classTranslator}{Translator} can use stripped translator files that use the minimum of memory and which support little more functionality than \hyperlink{classTranslator_ad8ed775f8a3375e029fc321d85e35de6}{find\+Message()}.
+
+Thus, \hyperlink{classTranslator_ae0cc0c124c3c00c87aae603c2ecc3be0}{load()} may not load enough information to make anything more than \hyperlink{classTranslator_ad8ed775f8a3375e029fc321d85e35de6}{find\+Message()} work. \hyperlink{classTranslator_a120c98f6d21bb5ae8787b9479e37c8ef}{save()} has an argument indicating whether to save just this minimum of information or to save everything.
+
+\char`\"{}\+Everything\char`\"{} means that for each translation item the following information is kept\+:
+
+The {\itshape \{translated} text\} -\/ the return value from tr().  The input key\+:   The {\itshape \{source} text\} -\/ usually the argument to tr().  The {\itshape context} -\/ usually the class name for the tr() caller.  The {\itshape comment} -\/ a comment that helps disambiguate different uses of the same text in the same context.  
+
+The minimum for each item is just the information necessary for \hyperlink{classTranslator_ad8ed775f8a3375e029fc321d85e35de6}{find\+Message()} to return the right text. This may include the source, context and comment, but usually it is just a hash value and the translated text.
+
+For example, the \char`\"{}\+Cancel\char`\"{} in a dialog might have \char`\"{}\+Anuluj\char`\"{} when the program runs in Polish (in this case the source text would be \char`\"{}\+Cancel\char`\"{}). The context would (normally) be the dialog's class name; there would normally be no comment, and the translated text would be \char`\"{}\+Anuluj\char`\"{}.
+
+But it's not always so simple. The Spanish version of a printer dialog with settings for two-\/sided printing and binding would probably require both \char`\"{}\+Activado\char`\"{} and \char`\"{}\+Activada\char`\"{} as translations for \char`\"{}\+Enabled\char`\"{}. In this case the source text would be \char`\"{}\+Enabled\char`\"{} in both cases, and the context would be the dialog's class name, but the two items would have disambiguating comments such as \char`\"{}two-\/sided printing\char`\"{} for one and \char`\"{}binding\char`\"{} for the other. The comment enables the translator to choose the appropriate gender for the Spanish version, and enables Qt to distinguish between translations.
+
+Note that when \hyperlink{classTranslator}{Translator} loads a stripped file, most functions do not work. The functions that do work with stripped files are explicitly documented as such.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslatorMessage}{Translator\+Message} Q\+Core\+Application\+::install\+Translator() Q\+Core\+Application\+::remove\+Translator() Q\+Object\+::tr() Q\+Core\+Application\+::translate() 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classTranslator_aefe656fdfa14952a99d6d25e61749a99}{}\index{Translator@{Translator}!Save\+Mode@{Save\+Mode}}
+\index{Save\+Mode@{Save\+Mode}!Translator@{Translator}}
+\subsubsection[{Save\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Translator\+::\+Save\+Mode}}\label{classTranslator_aefe656fdfa14952a99d6d25e61749a99}
+This enum type defines how \hyperlink{classTranslator}{Translator} writes translation files. There are two modes\+:
+
+Everything files are saved with all available information  Stripped files are saved with just enough information for end-\/user applications
+
+Note that when \hyperlink{classTranslator}{Translator} loads a stripped file, most functions do not work. The functions that do work with stripped files are explicitly documented as such. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Everything@{Everything}!Translator@{Translator}}\index{Translator@{Translator}!Everything@{Everything}}\item[{\em 
+\hypertarget{classTranslator_aefe656fdfa14952a99d6d25e61749a99a3847cfbd6836d9a65ac73fc641bb3085}{}Everything\label{classTranslator_aefe656fdfa14952a99d6d25e61749a99a3847cfbd6836d9a65ac73fc641bb3085}
+}]\index{Stripped@{Stripped}!Translator@{Translator}}\index{Translator@{Translator}!Stripped@{Stripped}}\item[{\em 
+\hypertarget{classTranslator_aefe656fdfa14952a99d6d25e61749a99a68d586d3f7ea596c2a5d1252fad326d6}{}Stripped\label{classTranslator_aefe656fdfa14952a99d6d25e61749a99a68d586d3f7ea596c2a5d1252fad326d6}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTranslator_adea9a7fabf45b7e89a91f8acf87034ff}{}\index{Translator@{Translator}!Translator@{Translator}}
+\index{Translator@{Translator}!Translator@{Translator}}
+\subsubsection[{Translator}]{\setlength{\rightskip}{0pt plus 5cm}Translator\+::\+Translator (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classTranslator_adea9a7fabf45b7e89a91f8acf87034ff}
+Constructs an empty message file object with parent {\itshape parent} that is not connected to any file. \hypertarget{classTranslator_a9c262ba866126a6a35e979a64d7e3518}{}\index{Translator@{Translator}!````~Translator@{$\sim$\+Translator}}
+\index{````~Translator@{$\sim$\+Translator}!Translator@{Translator}}
+\subsubsection[{$\sim$\+Translator}]{\setlength{\rightskip}{0pt plus 5cm}Translator\+::$\sim$\+Translator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTranslator_a9c262ba866126a6a35e979a64d7e3518}
+Destroys the object and frees any allocated resources. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classTranslator_a64ceb9a2ce9ac0a4118136166fd28a00}{}\index{Translator@{Translator}!clear@{clear}}
+\index{clear@{clear}!Translator@{Translator}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTranslator_a64ceb9a2ce9ac0a4118136166fd28a00}
+Empties this translator of all contents.
+
+This function works with stripped translator files. \hypertarget{classTranslator_a64287b3ed668ce3620548d2e8d5d0d1d}{}\index{Translator@{Translator}!contains@{contains}}
+\index{contains@{contains}!Translator@{Translator}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+::contains (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{context, }
+\item[{const char $\ast$}]{source\+Text, }
+\item[{const char $\ast$}]{comment = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}\label{classTranslator_a64287b3ed668ce3620548d2e8d5d0d1d}
+Returns true if this message file contains a message with the key ({\itshape context}, {\itshape source\+Text}, {\itshape comment}); otherwise returns false.
+
+This function works with stripped translator files.
+
+(This is is a one-\/liner that calls \hyperlink{classTranslator_ad8ed775f8a3375e029fc321d85e35de6}{find\+Message()}.) \hypertarget{classTranslator_ae2382d9461e04937c1cb3bdc324c602e}{}\index{Translator@{Translator}!contains@{contains}}
+\index{contains@{contains}!Translator@{Translator}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+::contains (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{context, }
+\item[{const char $\ast$}]{comment, }
+\item[{const Q\+String \&}]{file\+Name, }
+\item[{int}]{line\+Number}
+\end{DoxyParamCaption}
+) const}\label{classTranslator_ae2382d9461e04937c1cb3bdc324c602e}
+\hypertarget{classTranslator_ad8ed775f8a3375e029fc321d85e35de6}{}\index{Translator@{Translator}!find\+Message@{find\+Message}}
+\index{find\+Message@{find\+Message}!Translator@{Translator}}
+\subsubsection[{find\+Message}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Translator\+Message} Translator\+::find\+Message (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{context, }
+\item[{const char $\ast$}]{source\+Text, }
+\item[{const char $\ast$}]{comment = {\ttfamily 0}, }
+\item[{const Q\+String \&}]{file\+Name = {\ttfamily 0}, }
+\item[{int}]{line\+Number = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{classTranslator_ad8ed775f8a3375e029fc321d85e35de6}
+Returns the \hyperlink{classTranslatorMessage}{Translator\+Message} for the key ({\itshape context}, {\itshape source\+Text}, {\itshape comment}). If none is found, also tries ({\itshape context}, {\itshape source\+Text}, \char`\"{}\char`\"{}). \hypertarget{classTranslator_a899fe5210b7f0c9c1aafe3c875be08b4}{}\index{Translator@{Translator}!insert@{insert}}
+\index{insert@{insert}!Translator@{Translator}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+::insert (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{message}
+\end{DoxyParamCaption}
+)}\label{classTranslator_a899fe5210b7f0c9c1aafe3c875be08b4}
+Inserts {\itshape message} into this message file.
+
+This function does {\itshape not} work with stripped translator files. It may appear to, but that is not dependable.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslator_abeaed252a6d759954efa4de668bea2ad}{remove()} 
+\end{DoxySeeAlso}
+\hypertarget{classTranslator_ac97cb60f40addc1b01ca21bb7196c4f9}{}\index{Translator@{Translator}!insert@{insert}}
+\index{insert@{insert}!Translator@{Translator}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+::insert (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{context, }
+\item[{const char $\ast$}]{source\+Text, }
+\item[{const Q\+String \&}]{file\+Name, }
+\item[{int}]{line\+No, }
+\item[{const Q\+String\+List \&}]{translations}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslator_ac97cb60f40addc1b01ca21bb7196c4f9}
+\hypertarget{classTranslator_a41bbb75a0e7bbcfd684efeee60b866c8}{}\index{Translator@{Translator}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Translator@{Translator}}
+\subsubsection[{is\+Empty}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classTranslator_a41bbb75a0e7bbcfd684efeee60b866c8}
+Returns true if this translator is empty, otherwise returns false. This function works with stripped and unstripped translation files. \hypertarget{classTranslator_ae0cc0c124c3c00c87aae603c2ecc3be0}{}\index{Translator@{Translator}!load@{load}}
+\index{load@{load}!Translator@{Translator}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+::load (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{filename, }
+\item[{const Q\+String \&}]{directory = {\ttfamily QString()}, }
+\item[{const Q\+String \&}]{search\+\_\+delimiters = {\ttfamily QString()}, }
+\item[{const Q\+String \&}]{suffix = {\ttfamily QString()}}
+\end{DoxyParamCaption}
+)}\label{classTranslator_ae0cc0c124c3c00c87aae603c2ecc3be0}
+Loads {\itshape filename} + {\itshape suffix} (\char`\"{}.\+qm\char`\"{} if the {\itshape suffix} is not specified), which may be an absolute file name or relative to {\itshape directory}. The previous contents of this translator object is discarded.
+
+If the file name does not exist, other file names are tried in the following order\+:
+
+1  File name without {\itshape suffix} appended.  File name with text after a character in {\itshape search\+\_\+delimiters} stripped (\char`\"{}\+\_\+.\char`\"{} is the default for {\itshape search\+\_\+delimiters} if it is an empty string) and {\itshape suffix}.  File name stripped without {\itshape suffix} appended.  File name stripped further, etc. 
+
+For example, an application running in the fr\+\_\+\+C\+A locale (French-\/speaking Canada) might call load(\char`\"{}foo.\+fr\+\_\+ca\char`\"{}, \char`\"{}/opt/foolib\char`\"{}). \hyperlink{classTranslator_ae0cc0c124c3c00c87aae603c2ecc3be0}{load()} would then try to open the first existing readable file from this list\+:
+
+1  /opt/foolib/foo.fr\+\_\+ca.\+qm  /opt/foolib/foo.fr\+\_\+ca  /opt/foolib/foo.fr.\+qm  /opt/foolib/foo.fr  /opt/foolib/foo.qm  /opt/foolib/foo 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslator_a120c98f6d21bb5ae8787b9479e37c8ef}{save()} 
+\end{DoxySeeAlso}
+\hypertarget{classTranslator_af7945fd24f0b03dcaf31c500b09eaf5e}{}\index{Translator@{Translator}!load@{load}}
+\index{load@{load}!Translator@{Translator}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+::load (
+\begin{DoxyParamCaption}
+\item[{const uchar $\ast$}]{data, }
+\item[{int}]{len}
+\end{DoxyParamCaption}
+)}\label{classTranslator_af7945fd24f0b03dcaf31c500b09eaf5e}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Loads the .qm file data {\itshape data} of length {\itshape len} into the translator.
+
+The data is not copied. The caller must be able to guarantee that {\itshape data} will not be deleted or modified. \hypertarget{classTranslator_ad1abe7e46be002819ac15e57c89b8032}{}\index{Translator@{Translator}!messages@{messages}}
+\index{messages@{messages}!Translator@{Translator}}
+\subsubsection[{messages}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+List}$<$ {\bf Translator\+Message} $>$ Translator\+::messages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classTranslator_ad1abe7e46be002819ac15e57c89b8032}
+Returns a list of the messages in the translator. This function is rather slow. Because it is seldom called, it's optimized for simplicity and small size, rather than speed.
+
+If you want to iterate over the list, you should iterate over a copy, e.\+g. 
+\begin{DoxyCode}
+\hyperlink{classQList}{QList<TranslatorMessage>} list = myTranslator.messages();
+\hyperlink{classQList}{QList<TranslatorMessage>::Iterator} it = list.begin();
+\textcolor{keywordflow}{while} (it != list.end()) \{
+    process\_message(*it);
+    ++it;
+\}
+\end{DoxyCode}
+ \hypertarget{classTranslator_abeaed252a6d759954efa4de668bea2ad}{}\index{Translator@{Translator}!remove@{remove}}
+\index{remove@{remove}!Translator@{Translator}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+::remove (
+\begin{DoxyParamCaption}
+\item[{const {\bf Translator\+Message} \&}]{message}
+\end{DoxyParamCaption}
+)}\label{classTranslator_abeaed252a6d759954efa4de668bea2ad}
+Removes {\itshape message} from this translator.
+
+This function works with stripped translator files.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslator_a899fe5210b7f0c9c1aafe3c875be08b4}{insert()} 
+\end{DoxySeeAlso}
+\hypertarget{classTranslator_a5352ba6a8c6ebae1d1dcac76ffe38c41}{}\index{Translator@{Translator}!remove@{remove}}
+\index{remove@{remove}!Translator@{Translator}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+::remove (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{context, }
+\item[{const char $\ast$}]{source\+Text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classTranslator_a5352ba6a8c6ebae1d1dcac76ffe38c41}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Removes the translation associated to the key ({\itshape context}, {\itshape source\+Text}, \char`\"{}\char`\"{}) from this translator. \hypertarget{classTranslator_a120c98f6d21bb5ae8787b9479e37c8ef}{}\index{Translator@{Translator}!save@{save}}
+\index{save@{save}!Translator@{Translator}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Translator\+::save (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{filename, }
+\item[{{\bf Save\+Mode}}]{mode = {\ttfamily {\bf Everything}}}
+\end{DoxyParamCaption}
+)}\label{classTranslator_a120c98f6d21bb5ae8787b9479e37c8ef}
+Saves this message file to {\itshape filename}, overwriting the previous contents of {\itshape filename}. If {\itshape mode} is {\ttfamily Everything} (the default), all the information is preserved. If {\itshape mode} is {\ttfamily Stripped}, any information that is not necessary for \hyperlink{classTranslator_ad8ed775f8a3375e029fc321d85e35de6}{find\+Message()} is stripped away.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslator_ae0cc0c124c3c00c87aae603c2ecc3be0}{load()} 
+\end{DoxySeeAlso}
+\hypertarget{classTranslator_aa8595b69976c3680bf18613ae8510482}{}\index{Translator@{Translator}!squeeze@{squeeze}}
+\index{squeeze@{squeeze}!Translator@{Translator}}
+\subsubsection[{squeeze}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+::squeeze (
+\begin{DoxyParamCaption}
+\item[{{\bf Save\+Mode}}]{mode = {\ttfamily {\bf Everything}}}
+\end{DoxyParamCaption}
+)}\label{classTranslator_aa8595b69976c3680bf18613ae8510482}
+Converts this message file to the compact format used to store message files on disk.
+
+You should never need to call this directly; \hyperlink{classTranslator_a120c98f6d21bb5ae8787b9479e37c8ef}{save()} and other functions call it as necessary. {\itshape mode} is for internal use.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslator_a120c98f6d21bb5ae8787b9479e37c8ef}{save()} \hyperlink{classTranslator_a7f58f925b0955973444c1e60eb2e8ae7}{unsqueeze()} 
+\end{DoxySeeAlso}
+\hypertarget{classTranslator_a032376fa349510a324c3e8e785ec8cab}{}\index{Translator@{Translator}!translate@{translate}}
+\index{translate@{translate}!Translator@{Translator}}
+\subsubsection[{translate}]{\setlength{\rightskip}{0pt plus 5cm}virtual Q\+String Translator\+::translate (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{context, }
+\item[{const char $\ast$}]{source\+Text, }
+\item[{const char $\ast$}]{comment = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classTranslator_a032376fa349510a324c3e8e785ec8cab}
+\hypertarget{classTranslator_a7f58f925b0955973444c1e60eb2e8ae7}{}\index{Translator@{Translator}!unsqueeze@{unsqueeze}}
+\index{unsqueeze@{unsqueeze}!Translator@{Translator}}
+\subsubsection[{unsqueeze}]{\setlength{\rightskip}{0pt plus 5cm}void Translator\+::unsqueeze (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classTranslator_a7f58f925b0955973444c1e60eb2e8ae7}
+Converts this message file into an easily modifiable data structure, less compact than the format used in the files.
+
+You should never need to call this function; it is called by \hyperlink{classTranslator_a899fe5210b7f0c9c1aafe3c875be08b4}{insert()} and friends as necessary.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classTranslator_aa8595b69976c3680bf18613ae8510482}{squeeze()} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/pylupdate/\hyperlink{translator_8h}{translator.\+h}\item 
+packages/\+Py\+Qt-\/x11-\/gpl-\/4.\+11.\+2/pylupdate/\hyperlink{translator_8cpp}{translator.\+cpp}\end{DoxyCompactItemize}

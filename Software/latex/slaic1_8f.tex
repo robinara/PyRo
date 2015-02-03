@@ -1,0 +1,109 @@
+\hypertarget{slaic1_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slaic1.f File Reference}
+\label{slaic1_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaic1.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slaic1.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slaic1_8f_a80c98fd2b810c4b11de3a58312b5832e}{slaic1} (J\+O\+B, J, X, S\+E\+S\+T, W, G\+A\+M\+M\+A, S\+E\+S\+T\+P\+R, S, C)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+I\+C1} applies one step of incremental condition estimation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slaic1_8f_a80c98fd2b810c4b11de3a58312b5832e}{}\index{slaic1.\+f@{slaic1.\+f}!slaic1@{slaic1}}
+\index{slaic1@{slaic1}!slaic1.\+f@{slaic1.\+f}}
+\subsubsection[{slaic1}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slaic1 (
+\begin{DoxyParamCaption}
+\item[{integer}]{J\+O\+B, }
+\item[{integer}]{J, }
+\item[{real, dimension( {\bf j} )}]{X, }
+\item[{real}]{S\+E\+S\+T, }
+\item[{real, dimension( {\bf j} )}]{W, }
+\item[{real}]{G\+A\+M\+M\+A, }
+\item[{real}]{S\+E\+S\+T\+P\+R, }
+\item[{real}]{S, }
+\item[{real}]{C}
+\end{DoxyParamCaption}
+)}\label{slaic1_8f_a80c98fd2b810c4b11de3a58312b5832e}
+
+
+{\bfseries S\+L\+A\+I\+C1} applies one step of incremental condition estimation. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLAIC1 applies one step of incremental condition estimation in
+ its simplest version:
+
+ Let x, twonorm(x) = 1, be an approximate singular vector of an j-by-j
+ lower triangular matrix L, such that
+          twonorm(L*x) = sest
+ Then SLAIC1 computes sestpr, s, c such that
+ the vector
+                 [ s*x ]
+          xhat = [  c  ]
+ is an approximate singular vector of
+                 [ L      0  ]
+          Lhat = [ w**T gamma ]
+ in the sense that
+          twonorm(Lhat*xhat) = sestpr.
+
+ Depending on JOB, an estimate for the largest or smallest singular
+ value is computed.
+
+ Note that [s c]**T and sestpr**2 is an eigenpair of the system
+
+     diag(sest*sest, 0) + [alpha  gamma] * [ alpha ]
+                                           [ gamma ]
+
+ where  alpha =  x**T*w.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B} & \begin{DoxyVerb}          JOB is INTEGER
+          = 1: an estimate for the largest singular value is computed.
+          = 2: an estimate for the smallest singular value is computed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J} & \begin{DoxyVerb}          J is INTEGER
+          Length of X and W\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em X} & \begin{DoxyVerb}          X is REAL array, dimension (J)
+          The j-vector x.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+E\+S\+T} & \begin{DoxyVerb}          SEST is REAL
+          Estimated singular value of j by j matrix L\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W} & \begin{DoxyVerb}          W is REAL array, dimension (J)
+          The j-vector w.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+A\+M\+M\+A} & \begin{DoxyVerb}          GAMMA is REAL
+          The diagonal element gamma.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+E\+S\+T\+P\+R} & \begin{DoxyVerb}          SESTPR is REAL
+          Estimated singular value of (j+1) by (j+1) matrix Lhat.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S} & \begin{DoxyVerb}          S is REAL
+          Sine needed in forming xhat.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C} & \begin{DoxyVerb}          C is REAL
+          Cosine needed in forming xhat.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

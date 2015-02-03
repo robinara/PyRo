@@ -1,0 +1,316 @@
+\hypertarget{namespacescipy_1_1misc_1_1common}{}\section{scipy.\+misc.\+common Namespace Reference}
+\label{namespacescipy_1_1misc_1_1common}\index{scipy.\+misc.\+common@{scipy.\+misc.\+common}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1common_a92c8a545c3ac958e10a6fb6d9f4155d6}{logsumexp}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1common_a786c6e72f283d33c318fbbfef5716bd6}{central\+\_\+diff\+\_\+weights}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1common_a26484f97dfdfdd1a44d979b97a7c0d0e}{derivative}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1common_af99c9dbd04cec4d8f73dd1e44e391459}{pade}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1common_a3e0a22dda6838093332b90e73f7268d1}{lena}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1common_a11571d3f77f90275f6b2a4fc98ed2f09}{ascent}
+\item 
+def \hyperlink{namespacescipy_1_1misc_1_1common_a8ac8388cbd6e71b400b79b80ef776c67}{face}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1misc_1_1common_af3c8b5b8e4d15979f1d1aa622587cfef}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Functions which are common and require SciPy Base and Level 1 SciPy
+(special, linalg)
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1misc_1_1common_a11571d3f77f90275f6b2a4fc98ed2f09}{}\index{scipy\+::misc\+::common@{scipy\+::misc\+::common}!ascent@{ascent}}
+\index{ascent@{ascent}!scipy\+::misc\+::common@{scipy\+::misc\+::common}}
+\subsubsection[{ascent}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+common.\+ascent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1common_a11571d3f77f90275f6b2a4fc98ed2f09}
+\begin{DoxyVerb}Get an 8-bit grayscale bit-depth, 512 x 512 derived image for easy use in demos
+
+The image is derived from accent-to-the-top.jpg at
+http://www.public-domain-image.com/people-public-domain-images-pictures/
+
+Parameters
+----------
+None
+
+Returns
+-------
+ascent : ndarray
+   convenient image to use for testing and demonstration
+
+Examples
+--------
+>>> import scipy.misc
+>>> ascent = scipy.misc.ascent()
+>>> ascent.shape
+(512, 512)
+>>> ascent.max()
+255
+
+>>> import matplotlib.pyplot as plt
+>>> plt.gray()
+>>> plt.imshow(ascent)
+>>> plt.show()\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1common_a786c6e72f283d33c318fbbfef5716bd6}{}\index{scipy\+::misc\+::common@{scipy\+::misc\+::common}!central\+\_\+diff\+\_\+weights@{central\+\_\+diff\+\_\+weights}}
+\index{central\+\_\+diff\+\_\+weights@{central\+\_\+diff\+\_\+weights}!scipy\+::misc\+::common@{scipy\+::misc\+::common}}
+\subsubsection[{central\+\_\+diff\+\_\+weights}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+common.\+central\+\_\+diff\+\_\+weights (
+\begin{DoxyParamCaption}
+\item[{}]{Np, }
+\item[{}]{ndiv = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1common_a786c6e72f283d33c318fbbfef5716bd6}
+\begin{DoxyVerb}Return weights for an Np-point central derivative.
+
+Assumes equally-spaced function points.
+
+If weights are in the vector w, then
+derivative is w[0] * f(x-ho*dx) + ... + w[-1] * f(x+h0*dx)
+
+Parameters
+----------
+Np : int
+    Number of points for the central derivative.
+ndiv : int, optional
+    Number of divisions.  Default is 1.
+
+Notes
+-----
+Can be inaccurate for large number of points.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1common_a26484f97dfdfdd1a44d979b97a7c0d0e}{}\index{scipy\+::misc\+::common@{scipy\+::misc\+::common}!derivative@{derivative}}
+\index{derivative@{derivative}!scipy\+::misc\+::common@{scipy\+::misc\+::common}}
+\subsubsection[{derivative}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+common.\+derivative (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{x0, }
+\item[{}]{dx = {\ttfamily 1.0}, }
+\item[{}]{n = {\ttfamily 1}, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{order = {\ttfamily 3}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1common_a26484f97dfdfdd1a44d979b97a7c0d0e}
+\begin{DoxyVerb}Find the n-th derivative of a function at a point.
+
+Given a function, use a central difference formula with spacing `dx` to
+compute the `n`-th derivative at `x0`.
+
+Parameters
+----------
+func : function
+    Input function.
+x0 : float
+    The point at which `n`-th derivative is found.
+dx : int, optional
+    Spacing.
+n : int, optional
+    Order of the derivative. Default is 1.
+args : tuple, optional
+    Arguments
+order : int, optional
+    Number of points to use, must be odd.
+
+Notes
+-----
+Decreasing the step size too small can result in round-off error.
+
+Examples
+--------
+>>> def f(x):
+...     return x**3 + x**2
+...
+>>> derivative(f, 1.0, dx=1e-6)
+4.9999999999217337\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1common_a8ac8388cbd6e71b400b79b80ef776c67}{}\index{scipy\+::misc\+::common@{scipy\+::misc\+::common}!face@{face}}
+\index{face@{face}!scipy\+::misc\+::common@{scipy\+::misc\+::common}}
+\subsubsection[{face}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+common.\+face (
+\begin{DoxyParamCaption}
+\item[{}]{gray = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1common_a8ac8388cbd6e71b400b79b80ef776c67}
+\begin{DoxyVerb}Get a 1024 x 768, color image of a raccoon face.
+
+raccoon-procyon-lotor.jpg at http://www.public-domain-image.com
+
+Parameters
+----------
+gray : bool, optional
+    If True then return color image, otherwise return an 8-bit gray-scale
+
+Returns
+-------
+face : ndarray
+    image of a racoon face
+
+Examples
+--------
+>>> import scipy.misc
+>>> face = scipy.misc.face()
+>>> face.shape
+(768, 1024, 3)
+>>> face.max()
+230
+>>> face.dtype
+dtype('uint8')
+
+>>> import matplotlib.pyplot as plt
+>>> plt.gray()
+>>> plt.imshow(face)
+>>> plt.show()\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1common_a3e0a22dda6838093332b90e73f7268d1}{}\index{scipy\+::misc\+::common@{scipy\+::misc\+::common}!lena@{lena}}
+\index{lena@{lena}!scipy\+::misc\+::common@{scipy\+::misc\+::common}}
+\subsubsection[{lena}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+common.\+lena (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1common_a3e0a22dda6838093332b90e73f7268d1}
+\begin{DoxyVerb}Get classic image processing example image, Lena, at 8-bit grayscale
+bit-depth, 512 x 512 size.
+
+Parameters
+----------
+None
+
+Returns
+-------
+lena : ndarray
+    Lena image
+
+Examples
+--------
+>>> import scipy.misc
+>>> lena = scipy.misc.lena()
+>>> lena.shape
+(512, 512)
+>>> lena.max()
+245
+>>> lena.dtype
+dtype('int32')
+
+>>> import matplotlib.pyplot as plt
+>>> plt.gray()
+>>> plt.imshow(lena)
+>>> plt.show()\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1common_a92c8a545c3ac958e10a6fb6d9f4155d6}{}\index{scipy\+::misc\+::common@{scipy\+::misc\+::common}!logsumexp@{logsumexp}}
+\index{logsumexp@{logsumexp}!scipy\+::misc\+::common@{scipy\+::misc\+::common}}
+\subsubsection[{logsumexp}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+common.\+logsumexp (
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{axis = {\ttfamily None}, }
+\item[{}]{b = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1common_a92c8a545c3ac958e10a6fb6d9f4155d6}
+\begin{DoxyVerb}Compute the log of the sum of exponentials of input elements.
+
+Parameters
+----------
+a : array_like
+    Input array.
+axis : int, optional
+    Axis over which the sum is taken. By default `axis` is None,
+    and all elements are summed.
+
+    .. versionadded:: 0.11.0
+b : array-like, optional
+    Scaling factor for exp(`a`) must be of the same shape as `a` or
+    broadcastable to `a`.
+
+    .. versionadded:: 0.12.0
+
+Returns
+-------
+res : ndarray
+    The result, ``np.log(np.sum(np.exp(a)))`` calculated in a numerically
+    more stable way. If `b` is given then ``np.log(np.sum(b*np.exp(a)))``
+    is returned.
+
+See Also
+--------
+numpy.logaddexp, numpy.logaddexp2
+
+Notes
+-----
+Numpy has a logaddexp function which is very similar to `logsumexp`, but
+only handles two arguments. `logaddexp.reduce` is similar to this
+function, but may be less stable.
+
+Examples
+--------
+>>> from scipy.misc import logsumexp
+>>> a = np.arange(10)
+>>> np.log(np.sum(np.exp(a)))
+9.4586297444267107
+>>> logsumexp(a)
+9.4586297444267107
+
+With weights
+
+>>> a = np.arange(10)
+>>> b = np.arange(10, 0, -1)
+>>> logsumexp(a, b=b)
+9.9170178533034665
+>>> np.log(np.sum(b*np.exp(a)))
+9.9170178533034647
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1misc_1_1common_af99c9dbd04cec4d8f73dd1e44e391459}{}\index{scipy\+::misc\+::common@{scipy\+::misc\+::common}!pade@{pade}}
+\index{pade@{pade}!scipy\+::misc\+::common@{scipy\+::misc\+::common}}
+\subsubsection[{pade}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+misc.\+common.\+pade (
+\begin{DoxyParamCaption}
+\item[{}]{an, }
+\item[{}]{m}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1misc_1_1common_af99c9dbd04cec4d8f73dd1e44e391459}
+\begin{DoxyVerb}Return Pade approximation to a polynomial as the ratio of two polynomials.
+
+Parameters
+----------
+an : (N,) array_like
+    Taylor series coefficients.
+m : int
+    The order of the returned approximating polynomials.
+
+Returns
+-------
+p, q : Polynomial class
+    The pade approximation of the polynomial defined by `an` is
+    `p(x)/q(x)`.
+
+Examples
+--------
+>>> from scipy import misc
+>>> e_exp = [1.0, 1.0, 1.0/2.0, 1.0/6.0, 1.0/24.0, 1.0/120.0]
+>>> p, q = misc.pade(e_exp, 2)
+
+>>> e_exp.reverse()
+>>> e_poly = np.poly1d(e_exp)
+
+Compare ``e_poly(x)`` and the pade approximation ``p(x)/q(x)``
+
+>>> e_poly(1)
+2.7166666666666668
+
+>>> p(1)/q(1)
+2.7179487179487181\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1misc_1_1common_af3c8b5b8e4d15979f1d1aa622587cfef}{}\index{scipy\+::misc\+::common@{scipy\+::misc\+::common}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::misc\+::common@{scipy\+::misc\+::common}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+misc.\+common.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1misc_1_1common_af3c8b5b8e4d15979f1d1aa622587cfef}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'logsumexp'}, \textcolor{stringliteral}{'central\_diff\_weights'}, \textcolor{stringliteral}{'derivative'}, \textcolor{stringliteral}{'pade'}, \textcolor{stringliteral}{'lena'},
+2            \textcolor{stringliteral}{'ascent'}, \textcolor{stringliteral}{'face'}]
+\end{DoxyCode}

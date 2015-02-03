@@ -1,0 +1,88 @@
+\hypertarget{dtrti2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dtrti2.f File Reference}
+\label{dtrti2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dtrti2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dtrti2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dtrti2_8f_a6251426a82e7eb6410091403114067f5}{dtrti2} (U\+P\+L\+O, D\+I\+A\+G, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+T\+R\+T\+I2} computes the inverse of a triangular matrix (unblocked algorithm). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dtrti2_8f_a6251426a82e7eb6410091403114067f5}{}\index{dtrti2.\+f@{dtrti2.\+f}!dtrti2@{dtrti2}}
+\index{dtrti2@{dtrti2}!dtrti2.\+f@{dtrti2.\+f}}
+\subsubsection[{dtrti2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dtrti2 (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{character}]{D\+I\+A\+G, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dtrti2_8f_a6251426a82e7eb6410091403114067f5}
+
+
+{\bfseries D\+T\+R\+T\+I2} computes the inverse of a triangular matrix (unblocked algorithm). 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DTRTI2 computes the inverse of a real upper or lower triangular
+ matrix.
+
+ This is the Level 2 BLAS version of the algorithm.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the matrix A is upper or lower triangular.
+          = 'U':  Upper triangular
+          = 'L':  Lower triangular\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+A\+G} & \begin{DoxyVerb}          DIAG is CHARACTER*1
+          Specifies whether or not the matrix A is unit triangular.
+          = 'N':  Non-unit triangular
+          = 'U':  Unit triangular\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the triangular matrix A.  If UPLO = 'U', the
+          leading n by n upper triangular part of the array A contains
+          the upper triangular matrix, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = 'L', the
+          leading n by n lower triangular part of the array A contains
+          the lower triangular matrix, and the strictly upper
+          triangular part of A is not referenced.  If DIAG = 'U', the
+          diagonal elements of A are also not referenced and are
+          assumed to be 1.
+
+          On exit, the (triangular) inverse of the original matrix, in
+          the same storage format.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -k, the k-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

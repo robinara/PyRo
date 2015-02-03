@@ -1,0 +1,128 @@
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres}{}\section{scipy.\+sparse.\+linalg.\+isolve.\+lgmres Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres}\index{scipy.\+sparse.\+linalg.\+isolve.\+lgmres@{scipy.\+sparse.\+linalg.\+isolve.\+lgmres}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres_adfcba7dba79a89000ee37073793542b6}{norm2}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres_a39e6b3de0b8bfcce7a5e87e2d6fa95c5}{lgmres}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres_ae40f4e30790d7296b05fd564e2932cde}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres_a39e6b3de0b8bfcce7a5e87e2d6fa95c5}{lgmres}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres_a39e6b3de0b8bfcce7a5e87e2d6fa95c5}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::lgmres@{scipy\+::sparse\+::linalg\+::isolve\+::lgmres}!lgmres@{lgmres}}
+\index{lgmres@{lgmres}!scipy\+::sparse\+::linalg\+::isolve\+::lgmres@{scipy\+::sparse\+::linalg\+::isolve\+::lgmres}}
+\subsubsection[{lgmres}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+isolve.\+lgmres.\+lgmres (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{b, }
+\item[{}]{x0 = {\ttfamily None}, }
+\item[{}]{tol = {\ttfamily 1e-\/5}, }
+\item[{}]{maxiter = {\ttfamily 1000}, }
+\item[{}]{M = {\ttfamily None}, }
+\item[{}]{callback = {\ttfamily None}, }
+\item[{}]{inner\+\_\+m = {\ttfamily 30}, }
+\item[{}]{outer\+\_\+k = {\ttfamily 3}, }
+\item[{}]{outer\+\_\+v = {\ttfamily None}, }
+\item[{}]{store\+\_\+outer\+\_\+\+Av = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres_a39e6b3de0b8bfcce7a5e87e2d6fa95c5}
+\begin{DoxyVerb}Solve a matrix equation using the LGMRES algorithm.
+
+The LGMRES algorithm [BJM]_ [BPh]_ is designed to avoid some problems
+in the convergence in restarted GMRES, and often converges in fewer
+iterations.
+
+Parameters
+----------
+A : {sparse matrix, dense matrix, LinearOperator}
+    The real or complex N-by-N matrix of the linear system.
+b : {array, matrix}
+    Right hand side of the linear system. Has shape (N,) or (N,1).
+x0  : {array, matrix}
+    Starting guess for the solution.
+tol : float
+    Tolerance to achieve. The algorithm terminates when either the relative
+    or the absolute residual is below `tol`.
+maxiter : int
+    Maximum number of iterations.  Iteration will stop after maxiter
+    steps even if the specified tolerance has not been achieved.
+M : {sparse matrix, dense matrix, LinearOperator}
+    Preconditioner for A.  The preconditioner should approximate the
+    inverse of A.  Effective preconditioning dramatically improves the
+    rate of convergence, which implies that fewer iterations are needed
+    to reach a given error tolerance.
+callback : function
+    User-supplied function to call after each iteration.  It is called
+    as callback(xk), where xk is the current solution vector.
+inner_m : int, optional
+    Number of inner GMRES iterations per each outer iteration.
+outer_k : int, optional
+    Number of vectors to carry between inner GMRES iterations.
+    According to [BJM]_, good values are in the range of 1...3.
+    However, note that if you want to use the additional vectors to
+    accelerate solving multiple similar problems, larger values may
+    be beneficial.
+outer_v : list of tuples, optional
+    List containing tuples ``(v, Av)`` of vectors and corresponding
+    matrix-vector products, used to augment the Krylov subspace, and
+    carried between inner GMRES iterations. The element ``Av`` can
+    be `None` if the matrix-vector product should be re-evaluated.
+    This parameter is modified in-place by `lgmres`, and can be used
+    to pass "guess" vectors in and out of the algorithm when solving
+    similar problems.
+store_outer_Av : bool, optional
+    Whether LGMRES should store also A*v in addition to vectors `v`
+    in the `outer_v` list. Default is True.
+
+Returns
+-------
+x : array or matrix
+    The converged solution.
+info : int
+    Provides convergence information:
+
+        - 0  : successful exit
+        - >0 : convergence to tolerance not achieved, number of iterations
+        - <0 : illegal input or breakdown
+
+Notes
+-----
+The LGMRES algorithm [BJM]_ [BPh]_ is designed to avoid the
+slowing of convergence in restarted GMRES, due to alternating
+residual vectors. Typically, it often outperforms GMRES(m) of
+comparable memory requirements by some measure, or at least is not
+much worse.
+
+Another advantage in this algorithm is that you can supply it with
+'guess' vectors in the `outer_v` argument that augment the Krylov
+subspace. If the solution lies close to the span of these vectors,
+the algorithm converges faster. This can be useful if several very
+similar matrices need to be inverted one after another, such as in
+Newton-Krylov iteration where the Jacobian matrix often changes
+little in the nonlinear steps.
+
+References
+----------
+.. [BJM] A.H. Baker and E.R. Jessup and T. Manteuffel,
+         SIAM J. Matrix Anal. Appl. 26, 962 (2005).
+.. [BPh] A.H. Baker, PhD thesis, University of Colorado (2003).
+         http://amath.colorado.edu/activities/thesis/allisonb/Thesis.ps\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres_adfcba7dba79a89000ee37073793542b6}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::lgmres@{scipy\+::sparse\+::linalg\+::isolve\+::lgmres}!norm2@{norm2}}
+\index{norm2@{norm2}!scipy\+::sparse\+::linalg\+::isolve\+::lgmres@{scipy\+::sparse\+::linalg\+::isolve\+::lgmres}}
+\subsubsection[{norm2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+isolve.\+lgmres.\+norm2 (
+\begin{DoxyParamCaption}
+\item[{}]{q}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres_adfcba7dba79a89000ee37073793542b6}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres_ae40f4e30790d7296b05fd564e2932cde}{}\index{scipy\+::sparse\+::linalg\+::isolve\+::lgmres@{scipy\+::sparse\+::linalg\+::isolve\+::lgmres}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::linalg\+::isolve\+::lgmres@{scipy\+::sparse\+::linalg\+::isolve\+::lgmres}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+isolve.\+lgmres.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf lgmres}'\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1isolve_1_1lgmres_ae40f4e30790d7296b05fd564e2932cde}

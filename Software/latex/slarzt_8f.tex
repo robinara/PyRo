@@ -1,0 +1,154 @@
+\hypertarget{slarzt_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slarzt.f File Reference}
+\label{slarzt_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slarzt.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slarzt.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slarzt_8f_afe3169a7ceed98105ae16706ca293f76}{slarzt} (D\+I\+R\+E\+C\+T, S\+T\+O\+R\+E\+V, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, V, L\+D\+V, T\+A\+U, T, L\+D\+T)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+R\+Z\+T} forms the triangular factor T of a block reflector H = I -\/ vtv\+H. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slarzt_8f_afe3169a7ceed98105ae16706ca293f76}{}\index{slarzt.\+f@{slarzt.\+f}!slarzt@{slarzt}}
+\index{slarzt@{slarzt}!slarzt.\+f@{slarzt.\+f}}
+\subsubsection[{slarzt}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slarzt (
+\begin{DoxyParamCaption}
+\item[{character}]{D\+I\+R\+E\+C\+T, }
+\item[{character}]{S\+T\+O\+R\+E\+V, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{real, dimension( ldv, $\ast$ )}]{V, }
+\item[{integer}]{L\+D\+V, }
+\item[{real, dimension( $\ast$ )}]{T\+A\+U, }
+\item[{real, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T}
+\end{DoxyParamCaption}
+)}\label{slarzt_8f_afe3169a7ceed98105ae16706ca293f76}
+
+
+{\bfseries S\+L\+A\+R\+Z\+T} forms the triangular factor T of a block reflector H = I -\/ vtv\+H. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLARZT forms the triangular factor T of a real block reflector
+ H of order > n, which is defined as a product of k elementary
+ reflectors.
+
+ If DIRECT = 'F', H = H(1) H(2) . . . H(k) and T is upper triangular;
+
+ If DIRECT = 'B', H = H(k) . . . H(2) H(1) and T is lower triangular.
+
+ If STOREV = 'C', the vector which defines the elementary reflector
+ H(i) is stored in the i-th column of the array V, and
+
+    H  =  I - V * T * V**T
+
+ If STOREV = 'R', the vector which defines the elementary reflector
+ H(i) is stored in the i-th row of the array V, and
+
+    H  =  I - V**T * T * V
+
+ Currently, only STOREV = 'R' and DIRECT = 'B' are supported.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em D\+I\+R\+E\+C\+T} & \begin{DoxyVerb}          DIRECT is CHARACTER*1
+          Specifies the order in which the elementary reflectors are
+          multiplied to form the block reflector:
+          = 'F': H = H(1) H(2) . . . H(k) (Forward, not supported yet)
+          = 'B': H = H(k) . . . H(2) H(1) (Backward)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+T\+O\+R\+E\+V} & \begin{DoxyVerb}          STOREV is CHARACTER*1
+          Specifies how the vectors which define the elementary
+          reflectors are stored (see also Further Details):
+          = 'C': columnwise                        (not supported yet)
+          = 'R': rowwise\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the block reflector H. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+          The order of the triangular factor T (= the number of
+          elementary reflectors). K >= 1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V} & \begin{DoxyVerb}          V is REAL array, dimension
+                               (LDV,K) if STOREV = 'C'
+                               (LDV,N) if STOREV = 'R'
+          The matrix V. See further details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V} & \begin{DoxyVerb}          LDV is INTEGER
+          The leading dimension of the array V.
+          If STOREV = 'C', LDV >= max(1,N); if STOREV = 'R', LDV >= K.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is REAL array, dimension (K)
+          TAU(i) must contain the scalar factor of the elementary
+          reflector H(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T} & \begin{DoxyVerb}          T is REAL array, dimension (LDT,K)
+          The k by k triangular factor T of the block reflector.
+          If DIRECT = 'F', T is upper triangular; if DIRECT = 'B', T is
+          lower triangular. The rest of the array is not used.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T. LDT >= K.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+\hyperlink{classA}{A}. Petitet, Computer Science Dept., Univ. of Tenn., Knoxville, U\+S\+A 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The shape of the matrix V and the storage of the vectors which define
+  the H(i) is best illustrated by the following example with n = 5 and
+  k = 3. The elements equal to 1 are not stored; the corresponding
+  array elements are modified but restored on exit. The rest of the
+  array is not used.
+
+  DIRECT = 'F' and STOREV = 'C':         DIRECT = 'F' and STOREV = 'R':
+
+                                              ______V_____
+         ( v1 v2 v3 )                        /            \
+         ( v1 v2 v3 )                      ( v1 v1 v1 v1 v1 . . . . 1 )
+     V = ( v1 v2 v3 )                      ( v2 v2 v2 v2 v2 . . . 1   )
+         ( v1 v2 v3 )                      ( v3 v3 v3 v3 v3 . . 1     )
+         ( v1 v2 v3 )
+            .  .  .
+            .  .  .
+            1  .  .
+               1  .
+                  1
+
+  DIRECT = 'B' and STOREV = 'C':         DIRECT = 'B' and STOREV = 'R':
+
+                                                        ______V_____
+            1                                          /            \
+            .  1                           ( 1 . . . . v1 v1 v1 v1 v1 )
+            .  .  1                        ( . 1 . . . v2 v2 v2 v2 v2 )
+            .  .  .                        ( . . 1 . . v3 v3 v3 v3 v3 )
+            .  .  .
+         ( v1 v2 v3 )
+         ( v1 v2 v3 )
+     V = ( v1 v2 v3 )
+         ( v1 v2 v3 )
+         ( v1 v2 v3 )\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

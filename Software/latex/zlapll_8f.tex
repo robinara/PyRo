@@ -1,0 +1,78 @@
+\hypertarget{zlapll_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlapll.f File Reference}
+\label{zlapll_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlapll.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlapll.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlapll_8f_a6e8170eccea38a203f2e687fd26fdda5}{zlapll} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, X, I\+N\+C\+X, Y, I\+N\+C\+Y, S\+S\+M\+I\+N)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+P\+L\+L} measures the linear dependence of two vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlapll_8f_a6e8170eccea38a203f2e687fd26fdda5}{}\index{zlapll.\+f@{zlapll.\+f}!zlapll@{zlapll}}
+\index{zlapll@{zlapll}!zlapll.\+f@{zlapll.\+f}}
+\subsubsection[{zlapll}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlapll (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{Y, }
+\item[{integer}]{I\+N\+C\+Y, }
+\item[{double {\bf precision}}]{S\+S\+M\+I\+N}
+\end{DoxyParamCaption}
+)}\label{zlapll_8f_a6e8170eccea38a203f2e687fd26fdda5}
+
+
+{\bfseries Z\+L\+A\+P\+L\+L} measures the linear dependence of two vectors. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} Given two column vectors X and Y, let
+
+                      A = ( X Y ).
+
+ The subroutine first computes the QR factorization of A = Q*R,
+ and then computes the SVD of the 2-by-2 upper triangular matrix R.
+ The smaller singular value of R is returned in SSMIN, which is used
+ as the measurement of the linear dependency of the vectors X and Y.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The length of the vectors X and Y.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX*16 array, dimension (1+(N-1)*INCX)
+          On entry, X contains the N-vector X.
+          On exit, X is overwritten.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between successive elements of X. INCX > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Y} & \begin{DoxyVerb}          Y is COMPLEX*16 array, dimension (1+(N-1)*INCY)
+          On entry, Y contains the N-vector Y.
+          On exit, Y is overwritten.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+Y} & \begin{DoxyVerb}          INCY is INTEGER
+          The increment between successive elements of Y. INCY > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+S\+M\+I\+N} & \begin{DoxyVerb}          SSMIN is DOUBLE PRECISION
+          The smallest singular value of the N-by-2 matrix A = ( X Y ).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

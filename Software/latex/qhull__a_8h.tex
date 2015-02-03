@@ -1,0 +1,355 @@
+\hypertarget{qhull__a_8h}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/qhull\+\_\+a.h File Reference}
+\label{qhull__a_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/qhull\+\_\+a.\+h@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/qhull\+\_\+a.\+h}}
+{\ttfamily \#include \char`\"{}libqhull.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stat.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mem.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}qset.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}geom.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}merge.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}poly.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}io.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$setjmp.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$float.\+h$>$}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include $<$ctype.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{qhull__a_8h_a121656dac8afb6581dccbc8e3e0ba9a7}{trace0}(args)~\{\hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} (\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} I\+Stracing) \hyperlink{userprintf_8c_aca4b59cdb8152b580cb9d258a849288d}{qh\+\_\+fprintf} args;\}
+\item 
+\#define \hyperlink{qhull__a_8h_aef5a881e298235a0f5b233629531a998}{trace1}(args)~\{\hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} (\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} I\+Stracing $>$= 1) \hyperlink{userprintf_8c_aca4b59cdb8152b580cb9d258a849288d}{qh\+\_\+fprintf} args;\}
+\item 
+\#define \hyperlink{qhull__a_8h_af2d1bcabf5c225397311de579d7b8a40}{trace2}(args)~\{\hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} (\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} I\+Stracing $>$= 2) \hyperlink{userprintf_8c_aca4b59cdb8152b580cb9d258a849288d}{qh\+\_\+fprintf} args;\}
+\item 
+\#define \hyperlink{qhull__a_8h_a86a67cd32897be0a5ff91ab047c1af6b}{trace3}(args)~\{\hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} (\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} I\+Stracing $>$= 3) \hyperlink{userprintf_8c_aca4b59cdb8152b580cb9d258a849288d}{qh\+\_\+fprintf} args;\}
+\item 
+\#define \hyperlink{qhull__a_8h_a48f03ad0db69a93a332b07b9b3d8b644}{trace4}(args)~\{\hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} (\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} I\+Stracing $>$= 4) \hyperlink{userprintf_8c_aca4b59cdb8152b580cb9d258a849288d}{qh\+\_\+fprintf} args;\}
+\item 
+\#define \hyperlink{qhull__a_8h_af2e0d88bd3d2dce980b82340547bfdbb}{trace5}(args)~\{\hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} (\hyperlink{libqhull_8h_ad56ecde3371e15b350fb32bf25745a84}{qh} I\+Stracing $>$= 5) \hyperlink{userprintf_8c_aca4b59cdb8152b580cb9d258a849288d}{qh\+\_\+fprintf} args;\}
+\item 
+\#define \hyperlink{qhull__a_8h_a9d15c8fc8a2c56633cf27735ae22374b}{Q\+H\+U\+L\+L\+\_\+\+U\+N\+U\+S\+E\+D}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x})~(void)\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x};
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{qhull__a_8h_a66495141e5922b777a5d84a7aec13a32}{qh\+\_\+qhull} (void)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{qhull__a_8h_aa3f30b3b9f985fbdf0bd97f594c19eb0}{qh\+\_\+addpoint} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$furthest, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} checkdist)
+\item 
+void \hyperlink{qhull__a_8h_a9dacb98db25f499d3e0416aee4307a80}{qh\+\_\+buildhull} (void)
+\item 
+void \hyperlink{qhull__a_8h_a1bf87a9a131c29bac9b04bf20291e0fd}{qh\+\_\+buildtracing} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$furthest, \hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{qhull__a_8h_a1b6838237f7b511f4842607309fc4f28}{qh\+\_\+build\+\_\+withrestart} (void)
+\item 
+void \hyperlink{qhull__a_8h_a025fed46941faab29255f53ad86eec68}{qh\+\_\+errexit2} (int exitcode, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structfacetT}{facet\+T} $\ast$otherfacet)
+\item 
+void \hyperlink{qhull__a_8h_ad3552375b67dd9d86907b44eb03e338f}{qh\+\_\+findhorizon} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$facet, int $\ast$goodvisible, int $\ast$goodhorizon)
+\item 
+\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$ \hyperlink{qhull__a_8h_a10058e086e0712090dd62efc1decee2a}{qh\+\_\+nextfurthest} (\hyperlink{structfacetT}{facet\+T} $\ast$$\ast$visible)
+\item 
+void \hyperlink{qhull__a_8h_a366f6f01b0a37e7e941d6b7778657e65}{qh\+\_\+partitionall} (\hyperlink{structsetT}{set\+T} $\ast$vertices, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$points, int npoints)
+\item 
+void \hyperlink{qhull__a_8h_a4dd7273107e26a2308e76690402f424c}{qh\+\_\+partitioncoplanar} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$dist)
+\item 
+void \hyperlink{qhull__a_8h_a18f4a2b0d886509d0b7ab788b74866c1}{qh\+\_\+partitionpoint} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{qhull__a_8h_a07192c8108dbe45a57da7e1ceb4816b0}{qh\+\_\+partitionvisible} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} allpoints, int $\ast$numpoints)
+\item 
+void \hyperlink{qhull__a_8h_a4b053952f0986d2aca8d1952c96b3fbd}{qh\+\_\+precision} (const char $\ast$reason)
+\item 
+void \hyperlink{qhull__a_8h_a51d73b88702f523ab3f3322f7e45159e}{qh\+\_\+printsummary} (F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{qhull__a_8h_ac1a73cb93faf06db59861be77fce455c}{qh\+\_\+appendprint} (\hyperlink{libqhull_8h_a2e3cd31bc028762f1c38935045f6c707}{qh\+\_\+\+P\+R\+I\+N\+T} format)
+\item 
+void \hyperlink{qhull__a_8h_afd71ec8365e8669d9806e1f535c96776}{qh\+\_\+freebuild} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} allmem)
+\item 
+void \hyperlink{qhull__a_8h_a1409cc23e420113064ff7903cec601d3}{qh\+\_\+freebuffers} (void)
+\item 
+void \hyperlink{qhull__a_8h_a4765f932c94d340ee7a1ec042e11f5d3}{qh\+\_\+initbuffers} (\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$points, int numpoints, int dim, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} ismalloc)
+\item 
+void \hyperlink{qhull__a_8h_aa91acc64e500df58e15e971e5fdd751e}{qh\+\_\+allstat\+A} (void)
+\item 
+void \hyperlink{qhull__a_8h_a73e0514790e5eea445b1f47e8e8e6b40}{qh\+\_\+allstat\+B} (void)
+\item 
+void \hyperlink{qhull__a_8h_a0a8d11092a2aab701bb4b2150cdf767c}{qh\+\_\+allstat\+C} (void)
+\item 
+void \hyperlink{qhull__a_8h_ae6f5db825b77e48f138beb54a881e9ee}{qh\+\_\+allstat\+D} (void)
+\item 
+void \hyperlink{qhull__a_8h_a21e4bf74ec7a12cb2ee8998ab517f1eb}{qh\+\_\+allstat\+E} (void)
+\item 
+void \hyperlink{qhull__a_8h_ab42054e3440c14ca78263e51b48b74a7}{qh\+\_\+allstat\+E2} (void)
+\item 
+void \hyperlink{qhull__a_8h_a326c10bb740823d488dfc96e2f9c87ba}{qh\+\_\+allstat\+F} (void)
+\item 
+void \hyperlink{qhull__a_8h_a1a83c440c9b4a9cb5cbc053e39611d9c}{qh\+\_\+allstat\+G} (void)
+\item 
+void \hyperlink{qhull__a_8h_ab3b6af869cbd5b6ef56391c6025e6fe6}{qh\+\_\+allstat\+H} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{qhull__a_8h_a9d15c8fc8a2c56633cf27735ae22374b}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!Q\+H\+U\+L\+L\+\_\+\+U\+N\+U\+S\+E\+D@{Q\+H\+U\+L\+L\+\_\+\+U\+N\+U\+S\+E\+D}}
+\index{Q\+H\+U\+L\+L\+\_\+\+U\+N\+U\+S\+E\+D@{Q\+H\+U\+L\+L\+\_\+\+U\+N\+U\+S\+E\+D}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{Q\+H\+U\+L\+L\+\_\+\+U\+N\+U\+S\+E\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q\+H\+U\+L\+L\+\_\+\+U\+N\+U\+S\+E\+D(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~(void){\bf x};}\label{qhull__a_8h_a9d15c8fc8a2c56633cf27735ae22374b}
+\hypertarget{qhull__a_8h_a121656dac8afb6581dccbc8e3e0ba9a7}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!trace0@{trace0}}
+\index{trace0@{trace0}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{trace0}]{\setlength{\rightskip}{0pt plus 5cm}\#define trace0(
+\begin{DoxyParamCaption}
+\item[{}]{args}
+\end{DoxyParamCaption}
+)~\{{\bf if} ({\bf qh} I\+Stracing) {\bf qh\+\_\+fprintf} args;\}}\label{qhull__a_8h_a121656dac8afb6581dccbc8e3e0ba9a7}
+\hypertarget{qhull__a_8h_aef5a881e298235a0f5b233629531a998}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!trace1@{trace1}}
+\index{trace1@{trace1}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{trace1}]{\setlength{\rightskip}{0pt plus 5cm}\#define trace1(
+\begin{DoxyParamCaption}
+\item[{}]{args}
+\end{DoxyParamCaption}
+)~\{{\bf if} ({\bf qh} I\+Stracing $>$= 1) {\bf qh\+\_\+fprintf} args;\}}\label{qhull__a_8h_aef5a881e298235a0f5b233629531a998}
+\hypertarget{qhull__a_8h_af2d1bcabf5c225397311de579d7b8a40}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!trace2@{trace2}}
+\index{trace2@{trace2}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{trace2}]{\setlength{\rightskip}{0pt plus 5cm}\#define trace2(
+\begin{DoxyParamCaption}
+\item[{}]{args}
+\end{DoxyParamCaption}
+)~\{{\bf if} ({\bf qh} I\+Stracing $>$= 2) {\bf qh\+\_\+fprintf} args;\}}\label{qhull__a_8h_af2d1bcabf5c225397311de579d7b8a40}
+\hypertarget{qhull__a_8h_a86a67cd32897be0a5ff91ab047c1af6b}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!trace3@{trace3}}
+\index{trace3@{trace3}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{trace3}]{\setlength{\rightskip}{0pt plus 5cm}\#define trace3(
+\begin{DoxyParamCaption}
+\item[{}]{args}
+\end{DoxyParamCaption}
+)~\{{\bf if} ({\bf qh} I\+Stracing $>$= 3) {\bf qh\+\_\+fprintf} args;\}}\label{qhull__a_8h_a86a67cd32897be0a5ff91ab047c1af6b}
+\hypertarget{qhull__a_8h_a48f03ad0db69a93a332b07b9b3d8b644}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!trace4@{trace4}}
+\index{trace4@{trace4}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{trace4}]{\setlength{\rightskip}{0pt plus 5cm}\#define trace4(
+\begin{DoxyParamCaption}
+\item[{}]{args}
+\end{DoxyParamCaption}
+)~\{{\bf if} ({\bf qh} I\+Stracing $>$= 4) {\bf qh\+\_\+fprintf} args;\}}\label{qhull__a_8h_a48f03ad0db69a93a332b07b9b3d8b644}
+\hypertarget{qhull__a_8h_af2e0d88bd3d2dce980b82340547bfdbb}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!trace5@{trace5}}
+\index{trace5@{trace5}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{trace5}]{\setlength{\rightskip}{0pt plus 5cm}\#define trace5(
+\begin{DoxyParamCaption}
+\item[{}]{args}
+\end{DoxyParamCaption}
+)~\{{\bf if} ({\bf qh} I\+Stracing $>$= 5) {\bf qh\+\_\+fprintf} args;\}}\label{qhull__a_8h_af2e0d88bd3d2dce980b82340547bfdbb}
+
+
+\subsection{Function Documentation}
+\hypertarget{qhull__a_8h_aa3f30b3b9f985fbdf0bd97f594c19eb0}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+addpoint@{qh\+\_\+addpoint}}
+\index{qh\+\_\+addpoint@{qh\+\_\+addpoint}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+addpoint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+addpoint (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{furthest, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf bool\+T}}]{checkdist}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_aa3f30b3b9f985fbdf0bd97f594c19eb0}
+\hypertarget{qhull__a_8h_aa91acc64e500df58e15e971e5fdd751e}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+allstat\+A@{qh\+\_\+allstat\+A}}
+\index{qh\+\_\+allstat\+A@{qh\+\_\+allstat\+A}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+allstat\+A}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+A (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_aa91acc64e500df58e15e971e5fdd751e}
+\hypertarget{qhull__a_8h_a73e0514790e5eea445b1f47e8e8e6b40}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+allstat\+B@{qh\+\_\+allstat\+B}}
+\index{qh\+\_\+allstat\+B@{qh\+\_\+allstat\+B}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+allstat\+B}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+B (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a73e0514790e5eea445b1f47e8e8e6b40}
+\hypertarget{qhull__a_8h_a0a8d11092a2aab701bb4b2150cdf767c}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+allstat\+C@{qh\+\_\+allstat\+C}}
+\index{qh\+\_\+allstat\+C@{qh\+\_\+allstat\+C}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+allstat\+C}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+C (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a0a8d11092a2aab701bb4b2150cdf767c}
+\hypertarget{qhull__a_8h_ae6f5db825b77e48f138beb54a881e9ee}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+allstat\+D@{qh\+\_\+allstat\+D}}
+\index{qh\+\_\+allstat\+D@{qh\+\_\+allstat\+D}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+allstat\+D}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+D (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_ae6f5db825b77e48f138beb54a881e9ee}
+\hypertarget{qhull__a_8h_a21e4bf74ec7a12cb2ee8998ab517f1eb}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+allstat\+E@{qh\+\_\+allstat\+E}}
+\index{qh\+\_\+allstat\+E@{qh\+\_\+allstat\+E}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+allstat\+E}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+E (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a21e4bf74ec7a12cb2ee8998ab517f1eb}
+\hypertarget{qhull__a_8h_ab42054e3440c14ca78263e51b48b74a7}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+allstat\+E2@{qh\+\_\+allstat\+E2}}
+\index{qh\+\_\+allstat\+E2@{qh\+\_\+allstat\+E2}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+allstat\+E2}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+E2 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_ab42054e3440c14ca78263e51b48b74a7}
+\hypertarget{qhull__a_8h_a326c10bb740823d488dfc96e2f9c87ba}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+allstat\+F@{qh\+\_\+allstat\+F}}
+\index{qh\+\_\+allstat\+F@{qh\+\_\+allstat\+F}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+allstat\+F}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+F (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a326c10bb740823d488dfc96e2f9c87ba}
+\hypertarget{qhull__a_8h_a1a83c440c9b4a9cb5cbc053e39611d9c}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+allstat\+G@{qh\+\_\+allstat\+G}}
+\index{qh\+\_\+allstat\+G@{qh\+\_\+allstat\+G}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+allstat\+G}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+G (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a1a83c440c9b4a9cb5cbc053e39611d9c}
+\hypertarget{qhull__a_8h_ab3b6af869cbd5b6ef56391c6025e6fe6}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+allstat\+H@{qh\+\_\+allstat\+H}}
+\index{qh\+\_\+allstat\+H@{qh\+\_\+allstat\+H}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+allstat\+H}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+allstat\+H (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_ab3b6af869cbd5b6ef56391c6025e6fe6}
+\hypertarget{qhull__a_8h_ac1a73cb93faf06db59861be77fce455c}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+appendprint@{qh\+\_\+appendprint}}
+\index{qh\+\_\+appendprint@{qh\+\_\+appendprint}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+appendprint}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+appendprint (
+\begin{DoxyParamCaption}
+\item[{{\bf qh\+\_\+\+P\+R\+I\+N\+T}}]{format}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_ac1a73cb93faf06db59861be77fce455c}
+\hypertarget{qhull__a_8h_a1b6838237f7b511f4842607309fc4f28}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+build\+\_\+withrestart@{qh\+\_\+build\+\_\+withrestart}}
+\index{qh\+\_\+build\+\_\+withrestart@{qh\+\_\+build\+\_\+withrestart}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+build\+\_\+withrestart}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+build\+\_\+withrestart (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a1b6838237f7b511f4842607309fc4f28}
+\hypertarget{qhull__a_8h_a9dacb98db25f499d3e0416aee4307a80}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+buildhull@{qh\+\_\+buildhull}}
+\index{qh\+\_\+buildhull@{qh\+\_\+buildhull}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+buildhull}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+buildhull (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a9dacb98db25f499d3e0416aee4307a80}
+\hypertarget{qhull__a_8h_a1bf87a9a131c29bac9b04bf20291e0fd}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+buildtracing@{qh\+\_\+buildtracing}}
+\index{qh\+\_\+buildtracing@{qh\+\_\+buildtracing}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+buildtracing}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+buildtracing (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{furthest, }
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a1bf87a9a131c29bac9b04bf20291e0fd}
+\hypertarget{qhull__a_8h_a025fed46941faab29255f53ad86eec68}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+errexit2@{qh\+\_\+errexit2}}
+\index{qh\+\_\+errexit2@{qh\+\_\+errexit2}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+errexit2}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+errexit2 (
+\begin{DoxyParamCaption}
+\item[{int}]{exitcode, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf facet\+T} $\ast$}]{otherfacet}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a025fed46941faab29255f53ad86eec68}
+\hypertarget{qhull__a_8h_ad3552375b67dd9d86907b44eb03e338f}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+findhorizon@{qh\+\_\+findhorizon}}
+\index{qh\+\_\+findhorizon@{qh\+\_\+findhorizon}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+findhorizon}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+findhorizon (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{int $\ast$}]{goodvisible, }
+\item[{int $\ast$}]{goodhorizon}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_ad3552375b67dd9d86907b44eb03e338f}
+\hypertarget{qhull__a_8h_a1409cc23e420113064ff7903cec601d3}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+freebuffers@{qh\+\_\+freebuffers}}
+\index{qh\+\_\+freebuffers@{qh\+\_\+freebuffers}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+freebuffers}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+freebuffers (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a1409cc23e420113064ff7903cec601d3}
+\hypertarget{qhull__a_8h_afd71ec8365e8669d9806e1f535c96776}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+freebuild@{qh\+\_\+freebuild}}
+\index{qh\+\_\+freebuild@{qh\+\_\+freebuild}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+freebuild}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+freebuild (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T}}]{allmem}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_afd71ec8365e8669d9806e1f535c96776}
+\hypertarget{qhull__a_8h_a4765f932c94d340ee7a1ec042e11f5d3}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+initbuffers@{qh\+\_\+initbuffers}}
+\index{qh\+\_\+initbuffers@{qh\+\_\+initbuffers}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+initbuffers}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+initbuffers (
+\begin{DoxyParamCaption}
+\item[{{\bf coord\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dim, }
+\item[{{\bf bool\+T}}]{ismalloc}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a4765f932c94d340ee7a1ec042e11f5d3}
+\hypertarget{qhull__a_8h_a10058e086e0712090dd62efc1decee2a}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+nextfurthest@{qh\+\_\+nextfurthest}}
+\index{qh\+\_\+nextfurthest@{qh\+\_\+nextfurthest}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+nextfurthest}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\+T}$\ast$ qh\+\_\+nextfurthest (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$$\ast$}]{visible}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a10058e086e0712090dd62efc1decee2a}
+\hypertarget{qhull__a_8h_a366f6f01b0a37e7e941d6b7778657e65}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+partitionall@{qh\+\_\+partitionall}}
+\index{qh\+\_\+partitionall@{qh\+\_\+partitionall}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+partitionall}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+partitionall (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertices, }
+\item[{{\bf point\+T} $\ast$}]{points, }
+\item[{int}]{npoints}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a366f6f01b0a37e7e941d6b7778657e65}
+\hypertarget{qhull__a_8h_a4dd7273107e26a2308e76690402f424c}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+partitioncoplanar@{qh\+\_\+partitioncoplanar}}
+\index{qh\+\_\+partitioncoplanar@{qh\+\_\+partitioncoplanar}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+partitioncoplanar}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+partitioncoplanar (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf real\+T} $\ast$}]{dist}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a4dd7273107e26a2308e76690402f424c}
+\hypertarget{qhull__a_8h_a18f4a2b0d886509d0b7ab788b74866c1}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+partitionpoint@{qh\+\_\+partitionpoint}}
+\index{qh\+\_\+partitionpoint@{qh\+\_\+partitionpoint}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+partitionpoint}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+partitionpoint (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a18f4a2b0d886509d0b7ab788b74866c1}
+\hypertarget{qhull__a_8h_a07192c8108dbe45a57da7e1ceb4816b0}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+partitionvisible@{qh\+\_\+partitionvisible}}
+\index{qh\+\_\+partitionvisible@{qh\+\_\+partitionvisible}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+partitionvisible}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+partitionvisible (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T}}]{allpoints, }
+\item[{int $\ast$}]{numpoints}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a07192c8108dbe45a57da7e1ceb4816b0}
+\hypertarget{qhull__a_8h_a4b053952f0986d2aca8d1952c96b3fbd}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+precision@{qh\+\_\+precision}}
+\index{qh\+\_\+precision@{qh\+\_\+precision}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+precision}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+precision (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{reason}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a4b053952f0986d2aca8d1952c96b3fbd}
+\hypertarget{qhull__a_8h_a51d73b88702f523ab3f3322f7e45159e}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+printsummary@{qh\+\_\+printsummary}}
+\index{qh\+\_\+printsummary@{qh\+\_\+printsummary}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+printsummary}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printsummary (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a51d73b88702f523ab3f3322f7e45159e}
+\hypertarget{qhull__a_8h_a66495141e5922b777a5d84a7aec13a32}{}\index{qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}!qh\+\_\+qhull@{qh\+\_\+qhull}}
+\index{qh\+\_\+qhull@{qh\+\_\+qhull}!qhull\+\_\+a.\+h@{qhull\+\_\+a.\+h}}
+\subsubsection[{qh\+\_\+qhull}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+qhull (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{qhull__a_8h_a66495141e5922b777a5d84a7aec13a32}

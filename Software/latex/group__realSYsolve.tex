@@ -1,0 +1,534 @@
+\hypertarget{group__realSYsolve}{}\section{real}
+\label{group__realSYsolve}\index{real@{real}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{group__realSYsolve_gaebb5b9226b808303f3f80ca96cfe9388}{ssysv} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  S\+S\+Y\+S\+V computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for S\+Y matrices} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__realSYsolve_ga25369b37d9691172cc8be6020cc3be69}{ssysv\+\_\+rook} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  S\+S\+Y\+S\+V\+\_\+\+R\+O\+O\+K computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for S\+Y matrices} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__realSYsolve_gad1f335d4ff31c241b17dd714fac2ab60}{ssysvx} (\hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a1b6692b56d378abb85bd49063721d034}{F\+A\+C\+T}, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, A\+F, L\+D\+A\+F, I\+P\+I\+V, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, X, L\+D\+X, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a78fd14d7abebae04095cfbe02928f153}{F\+E\+R\+R}, B\+E\+R\+R, W\+O\+R\+K, L\+W\+O\+R\+K, I\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  S\+S\+Y\+S\+V\+X computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for S\+Y matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of real solve driver functions for S\+Y matrices 
+
+\subsection{Function Documentation}
+\hypertarget{group__realSYsolve_gaebb5b9226b808303f3f80ca96cfe9388}{}\index{real@{real}!ssysv@{ssysv}}
+\index{ssysv@{ssysv}!real@{real}}
+\subsubsection[{ssysv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ssysv (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__realSYsolve_gaebb5b9226b808303f3f80ca96cfe9388}
+
+
+{\bfseries  S\+S\+Y\+S\+V computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for S\+Y matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SSYSV computes the solution to a real system of linear equations
+    A * X = B,
+ where A is an N-by-N symmetric matrix and X and B are N-by-NRHS
+ matrices.
+
+ The diagonal pivoting method is used to factor A as
+    A = U * D * U**T,  if UPLO = 'U', or
+    A = L * D * L**T,  if UPLO = 'L',
+ where U (or L) is a product of permutation and unit upper (lower)
+ triangular matrices, and D is symmetric and block diagonal with
+ 1-by-1 and 2-by-2 diagonal blocks.  The factored form of A is then
+ used to solve the system of equations A * X = B.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of linear equations, i.e., the order of the
+          matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is REAL array, dimension (LDA,N)
+          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+          N-by-N upper triangular part of A contains the upper
+          triangular part of the matrix A, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = 'L', the
+          leading N-by-N lower triangular part of A contains the lower
+          triangular part of the matrix A, and the strictly upper
+          triangular part of A is not referenced.
+
+          On exit, if INFO = 0, the block diagonal matrix D and the
+          multipliers used to obtain the factor U or L from the
+          factorization A = U*D*U**T or A = L*D*L**T as computed by
+          SSYTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          Details of the interchanges and the block structure of D, as
+          determined by SSYTRF.  If IPIV(k) > 0, then rows and columns
+          k and IPIV(k) were interchanged, and D(k,k) is a 1-by-1
+          diagonal block.  If UPLO = 'U' and IPIV(k) = IPIV(k-1) < 0,
+          then rows and columns k-1 and -IPIV(k) were interchanged and
+          D(k-1:k,k-1:k) is a 2-by-2 diagonal block.  If UPLO = 'L' and
+          IPIV(k) = IPIV(k+1) < 0, then rows and columns k+1 and
+          -IPIV(k) were interchanged and D(k:k+1,k:k+1) is a 2-by-2
+          diagonal block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          On entry, the N-by-NRHS right hand side matrix B.
+          On exit, if INFO = 0, the N-by-NRHS solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The length of WORK.  LWORK >= 1, and for best performance
+          LWORK >= max(1,N*NB), where NB is the optimal blocksize for
+          SSYTRF.
+          for LWORK < N, TRS will be done with Level BLAS 2
+          for LWORK >= N, TRS will be done with Level BLAS 3
+
+          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal size of the WORK array, returns
+          this value as the first entry of the WORK array, and no error
+          message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          > 0: if INFO = i, D(i,i) is exactly zero.  The factorization
+               has been completed, but the block diagonal matrix D is
+               exactly singular, so the solution could not be computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}
+\hypertarget{group__realSYsolve_ga25369b37d9691172cc8be6020cc3be69}{}\index{real@{real}!ssysv\+\_\+rook@{ssysv\+\_\+rook}}
+\index{ssysv\+\_\+rook@{ssysv\+\_\+rook}!real@{real}}
+\subsubsection[{ssysv\+\_\+rook}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ssysv\+\_\+rook (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__realSYsolve_ga25369b37d9691172cc8be6020cc3be69}
+
+
+{\bfseries  S\+S\+Y\+S\+V\+\_\+\+R\+O\+O\+K computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for S\+Y matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SSYSV_ROOK computes the solution to a real system of linear
+ equations
+    A * X = B,
+ where A is an N-by-N symmetric matrix and X and B are N-by-NRHS
+ matrices.
+
+ The diagonal pivoting method is used to factor A as
+    A = U * D * U**T,  if UPLO = 'U', or
+    A = L * D * L**T,  if UPLO = 'L',
+ where U (or L) is a product of permutation and unit upper (lower)
+ triangular matrices, and D is symmetric and block diagonal with
+ 1-by-1 and 2-by-2 diagonal blocks.
+
+ SSYTRF_ROOK is called to compute the factorization of a real
+ symmetric matrix A using the bounded Bunch-Kaufman ("rook") diagonal
+ pivoting method.
+
+ The factored form of A is then used to solve the system 
+ of equations A * X = B by calling SSYTRS_ROOK.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of linear equations, i.e., the order of the
+          matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is REAL array, dimension (LDA,N)
+          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+          N-by-N upper triangular part of A contains the upper
+          triangular part of the matrix A, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = 'L', the
+          leading N-by-N lower triangular part of A contains the lower
+          triangular part of the matrix A, and the strictly upper
+          triangular part of A is not referenced.
+
+          On exit, if INFO = 0, the block diagonal matrix D and the
+          multipliers used to obtain the factor U or L from the
+          factorization A = U*D*U**T or A = L*D*L**T as computed by
+          SSYTRF_ROOK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          Details of the interchanges and the block structure of D,
+          as determined by SSYTRF_ROOK.
+
+          If UPLO = 'U':
+               If IPIV(k) > 0, then rows and columns k and IPIV(k)
+               were interchanged and D(k,k) is a 1-by-1 diagonal block.
+
+               If IPIV(k) < 0 and IPIV(k-1) < 0, then rows and
+               columns k and -IPIV(k) were interchanged and rows and
+               columns k-1 and -IPIV(k-1) were inerchaged,
+               D(k-1:k,k-1:k) is a 2-by-2 diagonal block.
+
+          If UPLO = 'L':
+               If IPIV(k) > 0, then rows and columns k and IPIV(k)
+               were interchanged and D(k,k) is a 1-by-1 diagonal block.
+
+               If IPIV(k) < 0 and IPIV(k+1) < 0, then rows and
+               columns k and -IPIV(k) were interchanged and rows and
+               columns k+1 and -IPIV(k+1) were inerchaged,
+               D(k:k+1,k:k+1) is a 2-by-2 diagonal block.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          On entry, the N-by-NRHS right hand side matrix B.
+          On exit, if INFO = 0, the N-by-NRHS solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The length of WORK.  LWORK >= 1, and for best performance
+          LWORK >= max(1,N*NB), where NB is the optimal blocksize for
+          SSYTRF_ROOK.
+          
+          TRS will be done with Level 2 BLAS
+
+          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal size of the WORK array, returns
+          this value as the first entry of the WORK array, and no error
+          message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          > 0: if INFO = i, D(i,i) is exactly zero.  The factorization
+               has been completed, but the block diagonal matrix D is
+               exactly singular, so the solution could not be computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+\begin{DoxyVerb}   April 2012, Igor Kozachenko,
+                  Computer Science Division,
+                  University of California, Berkeley
+
+  September 2007, Sven Hammarling, Nicholas J. Higham, Craig Lucas,
+                  School of Mathematics,
+                  University of Manchester\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\hypertarget{group__realSYsolve_gad1f335d4ff31c241b17dd714fac2ab60}{}\index{real@{real}!ssysvx@{ssysvx}}
+\index{ssysvx@{ssysvx}!real@{real}}
+\subsubsection[{ssysvx}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ssysvx (
+\begin{DoxyParamCaption}
+\item[{character}]{F\+A\+C\+T, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{real, dimension( ldaf, $\ast$ )}]{A\+F, }
+\item[{integer}]{L\+D\+A\+F, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{real, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{real}]{R\+C\+O\+N\+D, }
+\item[{real, dimension( $\ast$ )}]{F\+E\+R\+R, }
+\item[{real, dimension( $\ast$ )}]{B\+E\+R\+R, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__realSYsolve_gad1f335d4ff31c241b17dd714fac2ab60}
+
+
+{\bfseries  S\+S\+Y\+S\+V\+X computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for S\+Y matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SSYSVX uses the diagonal pivoting factorization to compute the
+ solution to a real system of linear equations A * X = B,
+ where A is an N-by-N symmetric matrix and X and B are N-by-NRHS
+ matrices.
+
+ Error bounds on the solution and a condition estimate are also
+ provided.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Description\+: }
+\begin{DoxyVerb} The following steps are performed:
+
+ 1. If FACT = 'N', the diagonal pivoting method is used to factor A.
+    The form of the factorization is
+       A = U * D * U**T,  if UPLO = 'U', or
+       A = L * D * L**T,  if UPLO = 'L',
+    where U (or L) is a product of permutation and unit upper (lower)
+    triangular matrices, and D is symmetric and block diagonal with
+    1-by-1 and 2-by-2 diagonal blocks.
+
+ 2. If some D(i,i)=0, so that D is exactly singular, then the routine
+    returns with INFO = i. Otherwise, the factored form of A is used
+    to estimate the condition number of the matrix A.  If the
+    reciprocal of the condition number is less than machine precision,
+    INFO = N+1 is returned as a warning, but the routine still goes on
+    to solve for X and compute error bounds as described below.
+
+ 3. The system of equations is solved for X using the factored form
+    of A.
+
+ 4. Iterative refinement is applied to improve the computed solution
+    matrix and calculate error bounds and backward error estimates
+    for it.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em F\+A\+C\+T} & \begin{DoxyVerb}          FACT is CHARACTER*1
+          Specifies whether or not the factored form of A has been
+          supplied on entry.
+          = 'F':  On entry, AF and IPIV contain the factored form of
+                  A.  AF and IPIV will not be modified.
+          = 'N':  The matrix A will be copied to AF and factored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of linear equations, i.e., the order of the
+          matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrices B and X.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is REAL array, dimension (LDA,N)
+          The symmetric matrix A.  If UPLO = 'U', the leading N-by-N
+          upper triangular part of A contains the upper triangular part
+          of the matrix A, and the strictly lower triangular part of A
+          is not referenced.  If UPLO = 'L', the leading N-by-N lower
+          triangular part of A contains the lower triangular part of
+          the matrix A, and the strictly upper triangular part of A is
+          not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+F} & \begin{DoxyVerb}          AF is REAL array, dimension (LDAF,N)
+          If FACT = 'F', then AF is an input argument and on entry
+          contains the block diagonal matrix D and the multipliers used
+          to obtain the factor U or L from the factorization
+          A = U*D*U**T or A = L*D*L**T as computed by SSYTRF.
+
+          If FACT = 'N', then AF is an output argument and on exit
+          returns the block diagonal matrix D and the multipliers used
+          to obtain the factor U or L from the factorization
+          A = U*D*U**T or A = L*D*L**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+F} & \begin{DoxyVerb}          LDAF is INTEGER
+          The leading dimension of the array AF.  LDAF >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          If FACT = 'F', then IPIV is an input argument and on entry
+          contains details of the interchanges and the block structure
+          of D, as determined by SSYTRF.
+          If IPIV(k) > 0, then rows and columns k and IPIV(k) were
+          interchanged and D(k,k) is a 1-by-1 diagonal block.
+          If UPLO = 'U' and IPIV(k) = IPIV(k-1) < 0, then rows and
+          columns k-1 and -IPIV(k) were interchanged and D(k-1:k,k-1:k)
+          is a 2-by-2 diagonal block.  If UPLO = 'L' and IPIV(k) =
+          IPIV(k+1) < 0, then rows and columns k+1 and -IPIV(k) were
+          interchanged and D(k:k+1,k:k+1) is a 2-by-2 diagonal block.
+
+          If FACT = 'N', then IPIV is an output argument and on exit
+          contains details of the interchanges and the block structure
+          of D, as determined by SSYTRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          The N-by-NRHS right hand side matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em X} & \begin{DoxyVerb}          X is REAL array, dimension (LDX,NRHS)
+          If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.  LDX >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is REAL
+          The estimate of the reciprocal condition number of the matrix
+          A.  If RCOND is less than the machine precision (in
+          particular, if RCOND = 0), the matrix is singular to working
+          precision.  This condition is indicated by a return code of
+          INFO > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em F\+E\+R\+R} & \begin{DoxyVerb}          FERR is REAL array, dimension (NRHS)
+          The estimated forward error bound for each solution vector
+          X(j) (the j-th column of the solution matrix X).
+          If XTRUE is the true solution corresponding to X(j), FERR(j)
+          is an estimated upper bound for the magnitude of the largest
+          element in (X(j) - XTRUE) divided by the magnitude of the
+          largest element in X(j).  The estimate is as reliable as
+          the estimate for RCOND, and is almost always a slight
+          overestimate of the true error.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+R\+R} & \begin{DoxyVerb}          BERR is REAL array, dimension (NRHS)
+          The componentwise relative backward error of each solution
+          vector X(j) (i.e., the smallest relative change in
+          any element of A or B that makes X(j) an exact solution).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The length of WORK.  LWORK >= max(1,3*N), and for best
+          performance, when FACT = 'N', LWORK >= max(1,3*N,N*NB), where
+          NB is the optimal blocksize for SSYTRF.
+
+          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal size of the WORK array, returns
+          this value as the first entry of the WORK array, and no error
+          message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          > 0: if INFO = i, and i is
+                <= N:  D(i,i) is exactly zero.  The factorization
+                       has been completed but the factor D is exactly
+                       singular, so the solution and error bounds could
+                       not be computed. RCOND = 0 is returned.
+                = N+1: D is nonsingular, but RCOND is less than machine
+                       precision, meaning that the matrix is singular
+                       to working precision.  Nevertheless, the
+                       solution and error bounds are computed because
+                       there are a number of situations where the
+                       computed solution can be more accurate than the
+                       value of RCOND would suggest.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 2012 
+\end{DoxyDate}

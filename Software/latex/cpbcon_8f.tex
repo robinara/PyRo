@@ -1,0 +1,103 @@
+\hypertarget{cpbcon_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/cpbcon.f File Reference}
+\label{cpbcon_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cpbcon.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cpbcon.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{cpbcon_8f_a931ffb4a8bfaec4508a9ab73feaf7326}{cpbcon} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+D, A\+B, L\+D\+A\+B, A\+N\+O\+R\+M, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, W\+O\+R\+K, R\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+P\+B\+C\+O\+N} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{cpbcon_8f_a931ffb4a8bfaec4508a9ab73feaf7326}{}\index{cpbcon.\+f@{cpbcon.\+f}!cpbcon@{cpbcon}}
+\index{cpbcon@{cpbcon}!cpbcon.\+f@{cpbcon.\+f}}
+\subsubsection[{cpbcon}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cpbcon (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+D, }
+\item[{{\bf complex}, dimension( ldab, $\ast$ )}]{A\+B, }
+\item[{integer}]{L\+D\+A\+B, }
+\item[{real}]{A\+N\+O\+R\+M, }
+\item[{real}]{R\+C\+O\+N\+D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{real, dimension( $\ast$ )}]{R\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{cpbcon_8f_a931ffb4a8bfaec4508a9ab73feaf7326}
+
+
+{\bfseries C\+P\+B\+C\+O\+N} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CPBCON estimates the reciprocal of the condition number (in the
+ 1-norm) of a complex Hermitian positive definite band matrix using
+ the Cholesky factorization A = U**H*U or A = L*L**H computed by
+ CPBTRF.
+
+ An estimate is obtained for norm(inv(A)), and the reciprocal of the
+ condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangular factor stored in AB;
+          = 'L':  Lower triangular factor stored in AB.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+D} & \begin{DoxyVerb}          KD is INTEGER
+          The number of superdiagonals of the matrix A if UPLO = 'U',
+          or the number of sub-diagonals if UPLO = 'L'.  KD >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+B} & \begin{DoxyVerb}          AB is COMPLEX array, dimension (LDAB,N)
+          The triangular factor U or L from the Cholesky factorization
+          A = U**H*U or A = L*L**H of the band matrix A, stored in the
+          first KD+1 rows of the array.  The j-th column of U or L is
+          stored in the j-th column of the array AB as follows:
+          if UPLO ='U', AB(kd+1+i-j,j) = U(i,j) for max(1,j-kd)<=i<=j;
+          if UPLO ='L', AB(1+i-j,j)    = L(i,j) for j<=i<=min(n,j+kd).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+B} & \begin{DoxyVerb}          LDAB is INTEGER
+          The leading dimension of the array AB.  LDAB >= KD+1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+N\+O\+R\+M} & \begin{DoxyVerb}          ANORM is REAL
+          The 1-norm (or infinity-norm) of the Hermitian band matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is REAL
+          The reciprocal of the condition number of the matrix A,
+          computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+          estimate of the 1-norm of inv(A) computed in this routine.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (2*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is REAL array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

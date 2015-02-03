@@ -1,0 +1,90 @@
+\hypertarget{zungl2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zungl2.f File Reference}
+\label{zungl2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zungl2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zungl2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zungl2_8f_a3443a424bcf118fc74c25318162aed9a}{zungl2} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, T\+A\+U, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+U\+N\+G\+L2} generates all or part of the unitary matrix Q from an L\+Q factorization determined by cgelqf (unblocked algorithm). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zungl2_8f_a3443a424bcf118fc74c25318162aed9a}{}\index{zungl2.\+f@{zungl2.\+f}!zungl2@{zungl2}}
+\index{zungl2@{zungl2}!zungl2.\+f@{zungl2.\+f}}
+\subsubsection[{zungl2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zungl2 (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{T\+A\+U, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zungl2_8f_a3443a424bcf118fc74c25318162aed9a}
+
+
+{\bfseries Z\+U\+N\+G\+L2} generates all or part of the unitary matrix Q from an L\+Q factorization determined by cgelqf (unblocked algorithm). 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZUNGL2 generates an m-by-n complex matrix Q with orthonormal rows,
+ which is defined as the first m rows of a product of k elementary
+ reflectors of order n
+
+       Q  =  H(k)**H . . . H(2)**H H(1)**H
+
+ as returned by ZGELQF.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix Q. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix Q. N >= M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+          The number of elementary reflectors whose product defines the
+          matrix Q. M >= K >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the i-th row must contain the vector which defines
+          the elementary reflector H(i), for i = 1,2,...,k, as returned
+          by ZGELQF in the first k rows of its array argument A.
+          On exit, the m by n matrix Q.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The first dimension of the array A. LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is COMPLEX*16 array, dimension (K)
+          TAU(i) must contain the scalar factor of the elementary
+          reflector H(i), as returned by ZGELQF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (M)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument has an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

@@ -1,0 +1,345 @@
+\hypertarget{ni__measure_8c}{}\section{packages/scipy-\/0.14.0/scipy/ndimage/src/ni\+\_\+measure.c File Reference}
+\label{ni__measure_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+measure.\+c@{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+measure.\+c}}
+{\ttfamily \#include \char`\"{}ni\+\_\+support.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ni\+\_\+measure.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$float.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ni__measure_8c_a81a4766476d63a50bb7b1da79fce152d}{C\+A\+S\+E\+\_\+\+F\+I\+N\+D\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+P\+O\+I\+N\+T}(\+\_\+pi,  \+\_\+regions,  \+\_\+rank,  \+\_\+dimensions,  \+\_\+max\+\_\+label,  \+\_\+ii,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__measure_8c_a9336fe766e4f3bbeeab4abbe67255b50}{N\+I\+\_\+\+G\+E\+T\+\_\+\+V\+A\+L\+U\+E}(\+\_\+pi,  \+\_\+v,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__measure_8c_ac8e9b2f193b78f71f3bc182006147b0f}{N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L}(\+\_\+pm,  \+\_\+label,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}{W\+S\+\_\+\+G\+E\+T\+\_\+\+I\+N\+D\+E\+X}(\+\_\+index,  \+\_\+c\+\_\+strides,  \+\_\+b\+\_\+strides,  \+\_\+rank,  \+\_\+out,  \+\_\+contiguous,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__measure_8c_a3e038224b054713d8b8e789bca691526}{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T}(\+\_\+ival,  \+\_\+pi,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__measure_8c_ab0dd193d204e0b433c08078ac2b64376}{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L}(\+\_\+label,  \+\_\+pm,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__measure_8c_abfb9e8ba7f5ab2cf0c3fa48ff22f92a4}{C\+A\+S\+E\+\_\+\+P\+U\+T\+\_\+\+L\+A\+B\+E\+L}(\+\_\+label,  \+\_\+pl,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__measure_8c_a34db2d5ce49bcab05677db467a86ceca}{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X1}(\+\_\+v\+\_\+index,  \+\_\+p\+\_\+index,  \+\_\+strides,  \+\_\+istrides,  \+\_\+irank, \+\_\+icont,  \+\_\+p\+\_\+idx,  \+\_\+v\+\_\+idx,  \+\_\+pi,  \+\_\+vval,  \+\_\+pval,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__measure_8c_a84f05626a27b35136b9a07cc36494ed8}{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X2}(\+\_\+v\+\_\+index,  \+\_\+strides,  \+\_\+ostrides,  \+\_\+irank,  \+\_\+idx,  \+\_\+ocont,  \+\_\+label,  \+\_\+pl,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__measure_8c_a1a16ee2a5fde9339de9bf26fd29462f0}{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X3}(\+\_\+p\+\_\+index,  \+\_\+strides,  \+\_\+ostrides,  \+\_\+irank,  \+\_\+idx,  \+\_\+ocont,  \+\_\+label,  \+\_\+pl,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__measure_8c_a82083f13bc006effb3eb10863623a0cf}{D\+O\+N\+E\+\_\+\+T\+Y\+P\+E}~U\+Int8
+\item 
+\#define \hyperlink{ni__measure_8c_a35ab768b4c8f73dd683eda268aef8fd2}{C\+O\+S\+T\+\_\+\+T\+Y\+P\+E}~U\+Int16
+\item 
+\#define \hyperlink{ni__measure_8c_a584c7f8a7aeb2cfbd5494793a3e352b6}{W\+S\+\_\+\+M\+A\+X\+D\+I\+M}~7
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ni__measure_8c_a9c349fdc27c55096e835b555897f65d6}{N\+I\+\_\+\+Find\+Objects} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, npy\+\_\+intp max\+\_\+label, npy\+\_\+intp $\ast$regions)
+\item 
+int \hyperlink{ni__measure_8c_a9303e1ec1ce402faed146ac91f705f95}{N\+I\+\_\+\+Statistics} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$labels, npy\+\_\+intp min\+\_\+label, npy\+\_\+intp max\+\_\+label, npy\+\_\+intp $\ast$indices, npy\+\_\+intp n\+\_\+results, double $\ast$\hyperlink{vecsum_8cc_a208c561460f0b32ffa279a7ed7b7afa4}{sum}, npy\+\_\+intp $\ast$total, double $\ast$variance, double $\ast$\hyperlink{structminimum}{minimum}, double $\ast$maximum, npy\+\_\+intp $\ast$min\+\_\+pos, npy\+\_\+intp $\ast$max\+\_\+pos)
+\item 
+int \hyperlink{ni__measure_8c_a74ca0ccefc41cdd6d00908b578ab93e4}{N\+I\+\_\+\+Center\+Of\+Mass} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$labels, npy\+\_\+intp min\+\_\+label, npy\+\_\+intp max\+\_\+label, npy\+\_\+intp $\ast$indices, npy\+\_\+intp n\+\_\+results, double $\ast$center\+\_\+of\+\_\+mass)
+\item 
+int \hyperlink{ni__measure_8c_a41f8b83f262cd12f8304362346df6a75}{N\+I\+\_\+\+Histogram} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$labels, npy\+\_\+intp min\+\_\+label, npy\+\_\+intp max\+\_\+label, npy\+\_\+intp $\ast$indices, npy\+\_\+intp n\+\_\+results, Py\+Array\+Object $\ast$$\ast$histograms, double \hyperlink{vecbfn_8cc_aa3e27e02424d28adfcf9d2b934e741a1}{min}, double \hyperlink{vecbfn_8cc_a71f214d4a304fdc2089c54dbaf979fe5}{max}, npy\+\_\+intp nbins)
+\item 
+int \hyperlink{ni__measure_8c_a06e6878234974ff6837f03b6c40736fc}{N\+I\+\_\+\+Watershed\+I\+F\+T} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$markers, Py\+Array\+Object $\ast$strct, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ni__measure_8c_a81a4766476d63a50bb7b1da79fce152d}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!C\+A\+S\+E\+\_\+\+F\+I\+N\+D\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+F\+I\+N\+D\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+P\+O\+I\+N\+T}}
+\index{C\+A\+S\+E\+\_\+\+F\+I\+N\+D\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+P\+O\+I\+N\+T@{C\+A\+S\+E\+\_\+\+F\+I\+N\+D\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+P\+O\+I\+N\+T}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+F\+I\+N\+D\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+P\+O\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+F\+I\+N\+D\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+P\+O\+I\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+regions, }
+\item[{}]{\+\_\+rank, }
+\item[{}]{\+\_\+dimensions, }
+\item[{}]{\+\_\+max\+\_\+label, }
+\item[{}]{\+\_\+ii, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a81a4766476d63a50bb7b1da79fce152d}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                  \(\backslash\)
+\{                                                                 \(\backslash\)
+    int \_kk;                                                        \(\backslash\)
+    npy\_intp \_sindex = *(\_type*)\_pi - 1;                            \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} (\_sindex >= 0 && \_sindex < \_max\_label) \{                     \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (\_rank > 0) \{                                              \(\backslash\)
+            \_sindex *= 2 * \_rank;                                       \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{            if} (\_regions[\_sindex] < 0) \{                                \(\backslash\)
+                for(\_kk = 0; \_kk < \_rank; \_kk++) \{                        \(\backslash\)
+                    npy\_intp \_cc = \_ii.coordinates[\_kk];            \(\backslash\)
+                    \_regions[\_sindex + \_kk] = \_cc;                          \(\backslash\)
+                    \_regions[\_sindex + \_kk + \_rank] = \_cc + 1;              \(\backslash\)
+                \}                                                         \(\backslash\)
+            \} \textcolor{keywordflow}{else} \{                                                    \(\backslash\)
+                for(\_kk = 0; \_kk < \_rank; \_kk++) \{                        \(\backslash\)
+                    npy\_intp \_cc = \_ii.coordinates[\_kk];            \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{                    if} (\_cc < \_regions[\_sindex + \_kk])                      \(\backslash\)
+                        \_regions[\_sindex + \_kk] = \_cc;                        \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{                    if} (\_cc + 1 > \_regions[\_sindex + \_kk + \_rank])          \(\backslash\)
+                        \_regions[\_sindex + \_kk + \_rank] = \_cc + 1;            \(\backslash\)
+                \}                                                         \(\backslash\)
+            \}                                                           \(\backslash\)
+        \} \textcolor{keywordflow}{else} \{                                                      \(\backslash\)
+            \_regions[\_sindex] = 1;                                      \(\backslash\)
+        \}                                                             \(\backslash\)
+    \}                                                               \(\backslash\)
+\}                                                                 \(\backslash\)
+break
+\end{DoxyCode}
+\hypertarget{ni__measure_8c_a3e038224b054713d8b8e789bca691526}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T@{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T}}
+\index{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T@{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+I\+N\+P\+U\+T(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+ival, }
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a3e038224b054713d8b8e789bca691526}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                          \(\backslash\)
+    \_ival = *((\_type*)\_pi);                 \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__measure_8c_ab0dd193d204e0b433c08078ac2b64376}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L@{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L}}
+\index{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L@{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+label, }
+\item[{}]{\+\_\+pm, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_ab0dd193d204e0b433c08078ac2b64376}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                           \(\backslash\)
+    \_label = *(\_type*)\_pm;                   \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__measure_8c_abfb9e8ba7f5ab2cf0c3fa48ff22f92a4}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!C\+A\+S\+E\+\_\+\+P\+U\+T\+\_\+\+L\+A\+B\+E\+L@{C\+A\+S\+E\+\_\+\+P\+U\+T\+\_\+\+L\+A\+B\+E\+L}}
+\index{C\+A\+S\+E\+\_\+\+P\+U\+T\+\_\+\+L\+A\+B\+E\+L@{C\+A\+S\+E\+\_\+\+P\+U\+T\+\_\+\+L\+A\+B\+E\+L}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+P\+U\+T\+\_\+\+L\+A\+B\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+P\+U\+T\+\_\+\+L\+A\+B\+E\+L(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+label, }
+\item[{}]{\+\_\+pl, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_abfb9e8ba7f5ab2cf0c3fa48ff22f92a4}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                           \(\backslash\)
+    *((\_type*)\_pl) = \_label;                 \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__measure_8c_a34db2d5ce49bcab05677db467a86ceca}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X1@{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X1}}
+\index{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X1@{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X1}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X1}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X1(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+v\+\_\+index, }
+\item[{}]{\+\_\+p\+\_\+index, }
+\item[{}]{\+\_\+strides, }
+\item[{}]{\+\_\+istrides, }
+\item[{}]{\+\_\+irank, }
+\item[{}]{\+\_\+icont, }
+\item[{}]{\+\_\+p\+\_\+idx, }
+\item[{}]{\+\_\+v\+\_\+idx, }
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+vval, }
+\item[{}]{\+\_\+pval, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a34db2d5ce49bcab05677db467a86ceca}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                       \hyperlink{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}{\(\backslash\)}
+\hyperlink{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}{    WS\_GET\_INDEX}(\_v\_index, \_strides, \_istrides, \_irank, \_p\_idx, \_icont,  \(\backslash\)
+                             \_type);                                                 
+      \hyperlink{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}{\(\backslash\)}
+\hyperlink{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}{    WS\_GET\_INDEX}(\_p\_index, \_strides, \_istrides, \_irank, \_v\_idx, \_icont,  \(\backslash\)
+                             \_type);                                                 \(\backslash\)
+    \_vval = *(\_type*)(\_pi + \_v\_idx);                                     \(\backslash\)
+    \_pval = *(\_type*)(\_pi + \_p\_idx);                                     \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__measure_8c_a84f05626a27b35136b9a07cc36494ed8}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X2@{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X2}}
+\index{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X2@{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X2}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X2}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X2(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+v\+\_\+index, }
+\item[{}]{\+\_\+strides, }
+\item[{}]{\+\_\+ostrides, }
+\item[{}]{\+\_\+irank, }
+\item[{}]{\+\_\+idx, }
+\item[{}]{\+\_\+ocont, }
+\item[{}]{\+\_\+label, }
+\item[{}]{\+\_\+pl, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a84f05626a27b35136b9a07cc36494ed8}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                  \hyperlink{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}{\(\backslash\)}
+\hyperlink{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}{    WS\_GET\_INDEX}(\_v\_index, \_strides, \_ostrides, \_irank, \_idx,       \(\backslash\)
+                             \_ocont, \_type);                                    \(\backslash\)
+    \_label = *(\_type*)(\_pl + \_idx);                                 \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__measure_8c_a1a16ee2a5fde9339de9bf26fd29462f0}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X3@{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X3}}
+\index{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X3@{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X3}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X3}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+W\+I\+N\+D\+E\+X3(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+p\+\_\+index, }
+\item[{}]{\+\_\+strides, }
+\item[{}]{\+\_\+ostrides, }
+\item[{}]{\+\_\+irank, }
+\item[{}]{\+\_\+idx, }
+\item[{}]{\+\_\+ocont, }
+\item[{}]{\+\_\+label, }
+\item[{}]{\+\_\+pl, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a1a16ee2a5fde9339de9bf26fd29462f0}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                  \hyperlink{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}{\(\backslash\)}
+\hyperlink{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}{    WS\_GET\_INDEX}(\_p\_index, \_strides, \_ostrides, \_irank, \_idx,       \(\backslash\)
+                             \_ocont, \_type);                                    \(\backslash\)
+    *(\_type*)(\_pl + \_idx) = \_label;                                 \(\backslash\)
+break
+\end{DoxyCode}
+\hypertarget{ni__measure_8c_a35ab768b4c8f73dd683eda268aef8fd2}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!C\+O\+S\+T\+\_\+\+T\+Y\+P\+E@{C\+O\+S\+T\+\_\+\+T\+Y\+P\+E}}
+\index{C\+O\+S\+T\+\_\+\+T\+Y\+P\+E@{C\+O\+S\+T\+\_\+\+T\+Y\+P\+E}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{C\+O\+S\+T\+\_\+\+T\+Y\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+S\+T\+\_\+\+T\+Y\+P\+E~U\+Int16}\label{ni__measure_8c_a35ab768b4c8f73dd683eda268aef8fd2}
+\hypertarget{ni__measure_8c_a82083f13bc006effb3eb10863623a0cf}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!D\+O\+N\+E\+\_\+\+T\+Y\+P\+E@{D\+O\+N\+E\+\_\+\+T\+Y\+P\+E}}
+\index{D\+O\+N\+E\+\_\+\+T\+Y\+P\+E@{D\+O\+N\+E\+\_\+\+T\+Y\+P\+E}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{D\+O\+N\+E\+\_\+\+T\+Y\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+O\+N\+E\+\_\+\+T\+Y\+P\+E~U\+Int8}\label{ni__measure_8c_a82083f13bc006effb3eb10863623a0cf}
+\hypertarget{ni__measure_8c_ac8e9b2f193b78f71f3bc182006147b0f}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L@{N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L}}
+\index{N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L@{N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+G\+E\+T\+\_\+\+L\+A\+B\+E\+L(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pm, }
+\item[{}]{\+\_\+label, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_ac8e9b2f193b78f71f3bc182006147b0f}
+\hypertarget{ni__measure_8c_a9336fe766e4f3bbeeab4abbe67255b50}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!N\+I\+\_\+\+G\+E\+T\+\_\+\+V\+A\+L\+U\+E@{N\+I\+\_\+\+G\+E\+T\+\_\+\+V\+A\+L\+U\+E}}
+\index{N\+I\+\_\+\+G\+E\+T\+\_\+\+V\+A\+L\+U\+E@{N\+I\+\_\+\+G\+E\+T\+\_\+\+V\+A\+L\+U\+E}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{N\+I\+\_\+\+G\+E\+T\+\_\+\+V\+A\+L\+U\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+I\+\_\+\+G\+E\+T\+\_\+\+V\+A\+L\+U\+E(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+v, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a9336fe766e4f3bbeeab4abbe67255b50}
+\hypertarget{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!W\+S\+\_\+\+G\+E\+T\+\_\+\+I\+N\+D\+E\+X@{W\+S\+\_\+\+G\+E\+T\+\_\+\+I\+N\+D\+E\+X}}
+\index{W\+S\+\_\+\+G\+E\+T\+\_\+\+I\+N\+D\+E\+X@{W\+S\+\_\+\+G\+E\+T\+\_\+\+I\+N\+D\+E\+X}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{W\+S\+\_\+\+G\+E\+T\+\_\+\+I\+N\+D\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+S\+\_\+\+G\+E\+T\+\_\+\+I\+N\+D\+E\+X(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+index, }
+\item[{}]{\+\_\+c\+\_\+strides, }
+\item[{}]{\+\_\+b\+\_\+strides, }
+\item[{}]{\+\_\+rank, }
+\item[{}]{\+\_\+out, }
+\item[{}]{\+\_\+contiguous, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_aa0c4d957a457646aaae79dda037fa25c}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                              \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{    if} (\_contiguous) \{                                              \(\backslash\)
+        \_out = \hyperlink{namespacescipy_1_1weave_1_1__dumbdbm__patched_a53e0ca2099169c9b0a3d1bae9342c1d3}{\_index} * \textcolor{keyword}{sizeof}(\_type);                                \(\backslash\)
+    \} \textcolor{keywordflow}{else} \{                                                        \(\backslash\)
+        int \_qq;                                                      \(\backslash\)
+        npy\_intp \_cc, \_idx = \hyperlink{namespacescipy_1_1weave_1_1__dumbdbm__patched_a53e0ca2099169c9b0a3d1bae9342c1d3}{\_index};                              \(\backslash\)
+        \_out = 0;                                                     \(\backslash\)
+        for (\_qq = 0; \_qq < \_rank; \_qq++) \{                           \(\backslash\)
+            \_cc = \_idx / \_c\_strides[\_qq];                               \(\backslash\)
+            \_idx -= \_cc * \_c\_strides[\_qq];                              \(\backslash\)
+            \_out += \_b\_strides[\_qq] * \_cc;                              \(\backslash\)
+        \}                                                             \(\backslash\)
+    \}                                                               \(\backslash\)
+\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+\hypertarget{ni__measure_8c_a584c7f8a7aeb2cfbd5494793a3e352b6}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!W\+S\+\_\+\+M\+A\+X\+D\+I\+M@{W\+S\+\_\+\+M\+A\+X\+D\+I\+M}}
+\index{W\+S\+\_\+\+M\+A\+X\+D\+I\+M@{W\+S\+\_\+\+M\+A\+X\+D\+I\+M}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{W\+S\+\_\+\+M\+A\+X\+D\+I\+M}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+S\+\_\+\+M\+A\+X\+D\+I\+M~7}\label{ni__measure_8c_a584c7f8a7aeb2cfbd5494793a3e352b6}
+
+
+\subsection{Function Documentation}
+\hypertarget{ni__measure_8c_a74ca0ccefc41cdd6d00908b578ab93e4}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!N\+I\+\_\+\+Center\+Of\+Mass@{N\+I\+\_\+\+Center\+Of\+Mass}}
+\index{N\+I\+\_\+\+Center\+Of\+Mass@{N\+I\+\_\+\+Center\+Of\+Mass}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{N\+I\+\_\+\+Center\+Of\+Mass}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Center\+Of\+Mass (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{labels, }
+\item[{npy\+\_\+intp}]{min\+\_\+label, }
+\item[{npy\+\_\+intp}]{max\+\_\+label, }
+\item[{npy\+\_\+intp $\ast$}]{indices, }
+\item[{npy\+\_\+intp}]{n\+\_\+results, }
+\item[{double $\ast$}]{center\+\_\+of\+\_\+mass}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a74ca0ccefc41cdd6d00908b578ab93e4}
+\hypertarget{ni__measure_8c_a9c349fdc27c55096e835b555897f65d6}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!N\+I\+\_\+\+Find\+Objects@{N\+I\+\_\+\+Find\+Objects}}
+\index{N\+I\+\_\+\+Find\+Objects@{N\+I\+\_\+\+Find\+Objects}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{N\+I\+\_\+\+Find\+Objects}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Find\+Objects (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{npy\+\_\+intp}]{max\+\_\+label, }
+\item[{npy\+\_\+intp $\ast$}]{regions}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a9c349fdc27c55096e835b555897f65d6}
+\hypertarget{ni__measure_8c_a41f8b83f262cd12f8304362346df6a75}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!N\+I\+\_\+\+Histogram@{N\+I\+\_\+\+Histogram}}
+\index{N\+I\+\_\+\+Histogram@{N\+I\+\_\+\+Histogram}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{N\+I\+\_\+\+Histogram}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Histogram (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{labels, }
+\item[{npy\+\_\+intp}]{min\+\_\+label, }
+\item[{npy\+\_\+intp}]{max\+\_\+label, }
+\item[{npy\+\_\+intp $\ast$}]{indices, }
+\item[{npy\+\_\+intp}]{n\+\_\+results, }
+\item[{Py\+Array\+Object $\ast$$\ast$}]{histograms, }
+\item[{double}]{min, }
+\item[{double}]{max, }
+\item[{npy\+\_\+intp}]{nbins}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a41f8b83f262cd12f8304362346df6a75}
+\hypertarget{ni__measure_8c_a9303e1ec1ce402faed146ac91f705f95}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!N\+I\+\_\+\+Statistics@{N\+I\+\_\+\+Statistics}}
+\index{N\+I\+\_\+\+Statistics@{N\+I\+\_\+\+Statistics}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{N\+I\+\_\+\+Statistics}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Statistics (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{labels, }
+\item[{npy\+\_\+intp}]{min\+\_\+label, }
+\item[{npy\+\_\+intp}]{max\+\_\+label, }
+\item[{npy\+\_\+intp $\ast$}]{indices, }
+\item[{npy\+\_\+intp}]{n\+\_\+results, }
+\item[{double $\ast$}]{sum, }
+\item[{npy\+\_\+intp $\ast$}]{total, }
+\item[{double $\ast$}]{variance, }
+\item[{double $\ast$}]{minimum, }
+\item[{double $\ast$}]{maximum, }
+\item[{npy\+\_\+intp $\ast$}]{min\+\_\+pos, }
+\item[{npy\+\_\+intp $\ast$}]{max\+\_\+pos}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a9303e1ec1ce402faed146ac91f705f95}
+\hypertarget{ni__measure_8c_a06e6878234974ff6837f03b6c40736fc}{}\index{ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}!N\+I\+\_\+\+Watershed\+I\+F\+T@{N\+I\+\_\+\+Watershed\+I\+F\+T}}
+\index{N\+I\+\_\+\+Watershed\+I\+F\+T@{N\+I\+\_\+\+Watershed\+I\+F\+T}!ni\+\_\+measure.\+c@{ni\+\_\+measure.\+c}}
+\subsubsection[{N\+I\+\_\+\+Watershed\+I\+F\+T}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Watershed\+I\+F\+T (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{markers, }
+\item[{Py\+Array\+Object $\ast$}]{strct, }
+\item[{Py\+Array\+Object $\ast$}]{output}
+\end{DoxyParamCaption}
+)}\label{ni__measure_8c_a06e6878234974ff6837f03b6c40736fc}

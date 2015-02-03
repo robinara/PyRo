@@ -1,0 +1,274 @@
+\hypertarget{group__realPTsolve}{}\section{real}
+\label{group__realPTsolve}\index{real@{real}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{group__realPTsolve_ga4b54ec5cf63547490c2a0258036b7f72}{sptsv} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  S\+P\+T\+S\+V computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for P\+T matrices} \end{DoxyCompactList}\item 
+subroutine \hyperlink{group__realPTsolve_gab3fbf901ac3c3e7b56d7fd79b6c5b54d}{sptsvx} (\hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a1b6692b56d378abb85bd49063721d034}{F\+A\+C\+T}, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, D\+F, E\+F, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, X, L\+D\+X, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a78fd14d7abebae04095cfbe02928f153}{F\+E\+R\+R}, B\+E\+R\+R, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  S\+P\+T\+S\+V\+X computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for P\+T matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the group of real solve driver functions for P\+T matrices 
+
+\subsection{Function Documentation}
+\hypertarget{group__realPTsolve_ga4b54ec5cf63547490c2a0258036b7f72}{}\index{real@{real}!sptsv@{sptsv}}
+\index{sptsv@{sptsv}!real@{real}}
+\subsubsection[{sptsv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sptsv (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{E, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__realPTsolve_ga4b54ec5cf63547490c2a0258036b7f72}
+
+
+{\bfseries  S\+P\+T\+S\+V computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for P\+T matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SPTSV computes the solution to a real system of linear equations
+ A*X = B, where A is an N-by-N symmetric positive definite tridiagonal
+ matrix, and X and B are N-by-NRHS matrices.
+
+ A is factored as A = L*D*L**T, and the factored form of A is then
+ used to solve the system of equations.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrix B.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          On entry, the n diagonal elements of the tridiagonal matrix
+          A.  On exit, the n diagonal elements of the diagonal matrix
+          D from the factorization A = L*D*L**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E} & \begin{DoxyVerb}          E is REAL array, dimension (N-1)
+          On entry, the (n-1) subdiagonal elements of the tridiagonal
+          matrix A.  On exit, the (n-1) subdiagonal elements of the
+          unit bidiagonal factor L from the L*D*L**T factorization of
+          A.  (E can also be regarded as the superdiagonal of the unit
+          bidiagonal factor U from the U**T*D*U factorization of A.)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          On entry, the N-by-NRHS right hand side matrix B.
+          On exit, if INFO = 0, the N-by-NRHS solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i, the leading minor of order i is not
+                positive definite, and the solution has not been
+                computed.  The factorization has not been completed
+                unless i = N.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\hypertarget{group__realPTsolve_gab3fbf901ac3c3e7b56d7fd79b6c5b54d}{}\index{real@{real}!sptsvx@{sptsvx}}
+\index{sptsvx@{sptsvx}!real@{real}}
+\subsubsection[{sptsvx}]{\setlength{\rightskip}{0pt plus 5cm}subroutine sptsvx (
+\begin{DoxyParamCaption}
+\item[{character}]{F\+A\+C\+T, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{E, }
+\item[{real, dimension( $\ast$ )}]{D\+F, }
+\item[{real, dimension( $\ast$ )}]{E\+F, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{real, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{real}]{R\+C\+O\+N\+D, }
+\item[{real, dimension( $\ast$ )}]{F\+E\+R\+R, }
+\item[{real, dimension( $\ast$ )}]{B\+E\+R\+R, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{group__realPTsolve_gab3fbf901ac3c3e7b56d7fd79b6c5b54d}
+
+
+{\bfseries  S\+P\+T\+S\+V\+X computes the solution to system of linear equations \hyperlink{classA}{A} $\ast$ X = B for P\+T matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SPTSVX uses the factorization A = L*D*L**T to compute the solution
+ to a real system of linear equations A*X = B, where A is an N-by-N
+ symmetric positive definite tridiagonal matrix and X and B are
+ N-by-NRHS matrices.
+
+ Error bounds on the solution and a condition estimate are also
+ provided.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Description\+: }
+\begin{DoxyVerb} The following steps are performed:
+
+ 1. If FACT = 'N', the matrix A is factored as A = L*D*L**T, where L
+    is a unit lower bidiagonal matrix and D is diagonal.  The
+    factorization can also be regarded as having the form
+    A = U**T*D*U.
+
+ 2. If the leading i-by-i principal minor is not positive definite,
+    then the routine returns with INFO = i. Otherwise, the factored
+    form of A is used to estimate the condition number of the matrix
+    A.  If the reciprocal of the condition number is less than machine
+    precision, INFO = N+1 is returned as a warning, but the routine
+    still goes on to solve for X and compute error bounds as
+    described below.
+
+ 3. The system of equations is solved for X using the factored form
+    of A.
+
+ 4. Iterative refinement is applied to improve the computed solution
+    matrix and calculate error bounds and backward error estimates
+    for it.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em F\+A\+C\+T} & \begin{DoxyVerb}          FACT is CHARACTER*1
+          Specifies whether or not the factored form of A has been
+          supplied on entry.
+          = 'F':  On entry, DF and EF contain the factored form of A.
+                  D, E, DF, and EF will not be modified.
+          = 'N':  The matrix A will be copied to DF and EF and
+                  factored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrices B and X.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The n diagonal elements of the tridiagonal matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is REAL array, dimension (N-1)
+          The (n-1) subdiagonal elements of the tridiagonal matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D\+F} & \begin{DoxyVerb}          DF is REAL array, dimension (N)
+          If FACT = 'F', then DF is an input argument and on entry
+          contains the n diagonal elements of the diagonal matrix D
+          from the L*D*L**T factorization of A.
+          If FACT = 'N', then DF is an output argument and on exit
+          contains the n diagonal elements of the diagonal matrix D
+          from the L*D*L**T factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em E\+F} & \begin{DoxyVerb}          EF is REAL array, dimension (N-1)
+          If FACT = 'F', then EF is an input argument and on entry
+          contains the (n-1) subdiagonal elements of the unit
+          bidiagonal factor L from the L*D*L**T factorization of A.
+          If FACT = 'N', then EF is an output argument and on exit
+          contains the (n-1) subdiagonal elements of the unit
+          bidiagonal factor L from the L*D*L**T factorization of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,NRHS)
+          The N-by-NRHS right hand side matrix B.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B.  LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em X} & \begin{DoxyVerb}          X is REAL array, dimension (LDX,NRHS)
+          If INFO = 0 of INFO = N+1, the N-by-NRHS solution matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X.  LDX >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is REAL
+          The reciprocal condition number of the matrix A.  If RCOND
+          is less than the machine precision (in particular, if
+          RCOND = 0), the matrix is singular to working precision.
+          This condition is indicated by a return code of INFO > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em F\+E\+R\+R} & \begin{DoxyVerb}          FERR is REAL array, dimension (NRHS)
+          The forward error bound for each solution vector
+          X(j) (the j-th column of the solution matrix X).
+          If XTRUE is the true solution corresponding to X(j), FERR(j)
+          is an estimated upper bound for the magnitude of the largest
+          element in (X(j) - XTRUE) divided by the magnitude of the
+          largest element in X(j).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+R\+R} & \begin{DoxyVerb}          BERR is REAL array, dimension (NRHS)
+          The componentwise relative backward error of each solution
+          vector X(j) (i.e., the smallest relative change in any
+          element of A or B that makes X(j) an exact solution).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (2*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i, and i is
+                <= N:  the leading minor of order i of A is
+                       not positive definite, so the factorization
+                       could not be completed, and the solution has not
+                       been computed. RCOND = 0 is returned.
+                = N+1: U is nonsingular, but RCOND is less than machine
+                       precision, meaning that the matrix is singular
+                       to working precision.  Nevertheless, the
+                       solution and error bounds are computed because
+                       there are a number of situations where the
+                       computed solution can be more accurate than the
+                       value of RCOND would suggest.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

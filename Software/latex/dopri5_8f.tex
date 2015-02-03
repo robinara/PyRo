@@ -1,0 +1,161 @@
+\hypertarget{dopri5_8f}{}\section{packages/scipy-\/0.14.0/scipy/integrate/dop/dopri5.f File Reference}
+\label{dopri5_8f}\index{packages/scipy-\/0.\+14.\+0/scipy/integrate/dop/dopri5.\+f@{packages/scipy-\/0.\+14.\+0/scipy/integrate/dop/dopri5.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dopri5_8f_ae268581aab440a5d080ac87d6eb01bd8}{dopri5} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, F\+C\+N, X, Y, X\+E\+N\+D, R\+T\+O\+L, A\+T\+O\+L, I\+T\+O\+L, S\+O\+L\+O\+U\+T, I\+O\+U\+T, W\+O\+R\+K, L\+W\+O\+R\+K, I\+W\+O\+R\+K, L\+I\+W\+O\+R\+K, R\+P\+A\+R, I\+P\+A\+R, I\+D\+I\+D)
+\item 
+subroutine \hyperlink{dopri5_8f_ac65591d61bc9c55318e4d90f33726627}{dopcor} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, F\+C\+N, X, Y, X\+E\+N\+D, H\+M\+A\+X, H, R\+T\+O\+L, A\+T\+O\+L, I\+T\+O\+L, I\+P\+R\+I\+N\+T, S\+O\+L\+O\+U\+T, I\+O\+U\+T, I\+D\+I\+D, N\+M\+A\+X, U\+R\+O\+U\+N\+D, M\+E\+T\+H, N\+S\+T\+I\+F\+F, S\+A\+F\+E, B\+E\+T\+A, F\+A\+C1, F\+A\+C2, Y1, K1, K2, K3, K4, K5, K6, Y\+S\+T\+I, C\+O\+N\+T, I\+C\+O\+M\+P, N\+R\+D, R\+P\+A\+R, I\+P\+A\+R, N\+F\+C\+N, N\+S\+T\+E\+P, N\+A\+C\+C\+P\+T, N\+R\+E\+J\+C\+T)
+\item 
+\hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{dopri5_8f_a304e4cdfa078934e9f0c18634a670a79}{hinit} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, F\+C\+N, X, Y, X\+E\+N\+D, P\+O\+S\+N\+E\+G, F0, F1, Y1, I\+O\+R\+D, H\+M\+A\+X, A\+T\+O\+L, R\+T\+O\+L, I\+T\+O\+L, R\+P\+A\+R, I\+P\+A\+R)
+\item 
+\hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{dopri5_8f_a7f29e020f09ac1bafac5e2349c52aa6f}{contd5} (I\+I, X, C\+O\+N, I\+C\+O\+M\+P, N\+D)
+\item 
+subroutine \hyperlink{dopri5_8f_ae160aa9d87e9bc73d4908ae758f26fd7}{cdopri} (C2, C3, C4, C5, E1, E3, E4, E5, E6, E7, A21, A31, A32, A41, A42, A43, A51, A52, A53, A54, A61, A62, A63, A64, A65, A71, A73, A74, A75, A76, D1, D3, D4, D5, D6, D7)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dopri5_8f_ae160aa9d87e9bc73d4908ae758f26fd7}{}\index{dopri5.\+f@{dopri5.\+f}!cdopri@{cdopri}}
+\index{cdopri@{cdopri}!dopri5.\+f@{dopri5.\+f}}
+\subsubsection[{cdopri}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cdopri (
+\begin{DoxyParamCaption}
+\item[{}]{C2, }
+\item[{}]{C3, }
+\item[{}]{C4, }
+\item[{}]{C5, }
+\item[{}]{E1, }
+\item[{}]{E3, }
+\item[{}]{E4, }
+\item[{}]{E5, }
+\item[{}]{E6, }
+\item[{}]{E7, }
+\item[{}]{A21, }
+\item[{}]{A31, }
+\item[{}]{A32, }
+\item[{}]{A41, }
+\item[{}]{A42, }
+\item[{}]{A43, }
+\item[{}]{A51, }
+\item[{}]{A52, }
+\item[{}]{A53, }
+\item[{}]{A54, }
+\item[{}]{A61, }
+\item[{}]{A62, }
+\item[{}]{A63, }
+\item[{}]{A64, }
+\item[{}]{A65, }
+\item[{}]{A71, }
+\item[{}]{A73, }
+\item[{}]{A74, }
+\item[{}]{A75, }
+\item[{}]{A76, }
+\item[{}]{D1, }
+\item[{}]{D3, }
+\item[{}]{D4, }
+\item[{}]{D5, }
+\item[{}]{D6, }
+\item[{}]{D7}
+\end{DoxyParamCaption}
+)}\label{dopri5_8f_ae160aa9d87e9bc73d4908ae758f26fd7}
+\hypertarget{dopri5_8f_a7f29e020f09ac1bafac5e2349c52aa6f}{}\index{dopri5.\+f@{dopri5.\+f}!contd5@{contd5}}
+\index{contd5@{contd5}!dopri5.\+f@{dopri5.\+f}}
+\subsubsection[{contd5}]{\setlength{\rightskip}{0pt plus 5cm}{\bf function} contd5 (
+\begin{DoxyParamCaption}
+\item[{}]{I\+I, }
+\item[{}]{X, }
+\item[{dimension(5$\ast$nd)}]{C\+O\+N, }
+\item[{dimension(nd)}]{I\+C\+O\+M\+P, }
+\item[{}]{N\+D}
+\end{DoxyParamCaption}
+)}\label{dopri5_8f_a7f29e020f09ac1bafac5e2349c52aa6f}
+\hypertarget{dopri5_8f_ac65591d61bc9c55318e4d90f33726627}{}\index{dopri5.\+f@{dopri5.\+f}!dopcor@{dopcor}}
+\index{dopcor@{dopcor}!dopri5.\+f@{dopri5.\+f}}
+\subsubsection[{dopcor}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dopcor (
+\begin{DoxyParamCaption}
+\item[{}]{N, }
+\item[{external}]{F\+C\+N, }
+\item[{}]{X, }
+\item[{dimension({\bf n})}]{Y, }
+\item[{}]{X\+E\+N\+D, }
+\item[{}]{H\+M\+A\+X, }
+\item[{}]{H, }
+\item[{dimension($\ast$)}]{R\+T\+O\+L, }
+\item[{dimension($\ast$)}]{A\+T\+O\+L, }
+\item[{}]{I\+T\+O\+L, }
+\item[{}]{I\+P\+R\+I\+N\+T, }
+\item[{}]{S\+O\+L\+O\+U\+T, }
+\item[{}]{I\+O\+U\+T, }
+\item[{}]{I\+D\+I\+D, }
+\item[{}]{N\+M\+A\+X, }
+\item[{}]{U\+R\+O\+U\+N\+D, }
+\item[{}]{M\+E\+T\+H, }
+\item[{}]{N\+S\+T\+I\+F\+F, }
+\item[{}]{S\+A\+F\+E, }
+\item[{}]{B\+E\+T\+A, }
+\item[{}]{F\+A\+C1, }
+\item[{}]{F\+A\+C2, }
+\item[{dimension({\bf n})}]{Y1, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K1, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K2, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K3, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K4, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K5, }
+\item[{double {\bf precision}, dimension({\bf n})}]{K6, }
+\item[{dimension({\bf n})}]{Y\+S\+T\+I, }
+\item[{dimension(5$\ast$nrd)}]{C\+O\+N\+T, }
+\item[{dimension(nrd)}]{I\+C\+O\+M\+P, }
+\item[{}]{N\+R\+D, }
+\item[{dimension($\ast$)}]{R\+P\+A\+R, }
+\item[{dimension($\ast$)}]{I\+P\+A\+R, }
+\item[{}]{N\+F\+C\+N, }
+\item[{}]{N\+S\+T\+E\+P, }
+\item[{}]{N\+A\+C\+C\+P\+T, }
+\item[{}]{N\+R\+E\+J\+C\+T}
+\end{DoxyParamCaption}
+)}\label{dopri5_8f_ac65591d61bc9c55318e4d90f33726627}
+\hypertarget{dopri5_8f_ae268581aab440a5d080ac87d6eb01bd8}{}\index{dopri5.\+f@{dopri5.\+f}!dopri5@{dopri5}}
+\index{dopri5@{dopri5}!dopri5.\+f@{dopri5.\+f}}
+\subsubsection[{dopri5}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dopri5 (
+\begin{DoxyParamCaption}
+\item[{}]{N, }
+\item[{external}]{F\+C\+N, }
+\item[{}]{X, }
+\item[{dimension({\bf n})}]{Y, }
+\item[{}]{X\+E\+N\+D, }
+\item[{dimension($\ast$)}]{R\+T\+O\+L, }
+\item[{dimension($\ast$)}]{A\+T\+O\+L, }
+\item[{}]{I\+T\+O\+L, }
+\item[{external}]{S\+O\+L\+O\+U\+T, }
+\item[{}]{I\+O\+U\+T, }
+\item[{dimension(lwork)}]{W\+O\+R\+K, }
+\item[{}]{L\+W\+O\+R\+K, }
+\item[{dimension(liwork)}]{I\+W\+O\+R\+K, }
+\item[{}]{L\+I\+W\+O\+R\+K, }
+\item[{dimension($\ast$)}]{R\+P\+A\+R, }
+\item[{dimension($\ast$)}]{I\+P\+A\+R, }
+\item[{}]{I\+D\+I\+D}
+\end{DoxyParamCaption}
+)}\label{dopri5_8f_ae268581aab440a5d080ac87d6eb01bd8}
+\hypertarget{dopri5_8f_a304e4cdfa078934e9f0c18634a670a79}{}\index{dopri5.\+f@{dopri5.\+f}!hinit@{hinit}}
+\index{hinit@{hinit}!dopri5.\+f@{dopri5.\+f}}
+\subsubsection[{hinit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf function} hinit (
+\begin{DoxyParamCaption}
+\item[{}]{N, }
+\item[{}]{F\+C\+N, }
+\item[{}]{X, }
+\item[{dimension({\bf n})}]{Y, }
+\item[{}]{X\+E\+N\+D, }
+\item[{}]{P\+O\+S\+N\+E\+G, }
+\item[{dimension({\bf n})}]{F0, }
+\item[{dimension({\bf n})}]{F1, }
+\item[{dimension({\bf n})}]{Y1, }
+\item[{}]{I\+O\+R\+D, }
+\item[{}]{H\+M\+A\+X, }
+\item[{dimension($\ast$)}]{A\+T\+O\+L, }
+\item[{dimension($\ast$)}]{R\+T\+O\+L, }
+\item[{}]{I\+T\+O\+L, }
+\item[{dimension($\ast$)}]{R\+P\+A\+R, }
+\item[{dimension($\ast$)}]{I\+P\+A\+R}
+\end{DoxyParamCaption}
+)}\label{dopri5_8f_a304e4cdfa078934e9f0c18634a670a79}

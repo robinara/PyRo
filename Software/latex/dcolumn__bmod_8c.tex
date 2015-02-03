@@ -1,0 +1,114 @@
+\hypertarget{dcolumn__bmod_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dcolumn\+\_\+bmod.c File Reference}
+\label{dcolumn__bmod_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dcolumn\+\_\+bmod.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dcolumn\+\_\+bmod.\+c}}
+
+
+performs numeric block updates  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{dcolumn__bmod_8c_aca18e78d81448d99eec840b19de76efd}{dusolve} (int, int, double $\ast$, double $\ast$)
+\item 
+void \hyperlink{dcolumn__bmod_8c_a56d27043eac0282b0d0e4106acedb083}{dlsolve} (int, int, double $\ast$, double $\ast$)
+\item 
+void \hyperlink{dcolumn__bmod_8c_a65523602382b3d96c9852545ae24815d}{dmatvec} (int, int, int, double $\ast$, double $\ast$, double $\ast$)
+\item 
+int \hyperlink{dcolumn__bmod_8c_a5ca322682f98f276feb3c50b31ca56b8}{dcolumn\+\_\+bmod} (const int jcol, const int nseg, double $\ast$dense, double $\ast$tempv, int $\ast$segrep, int $\ast$repfnz, int fpanelc, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+performs numeric block updates 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre} Permission is hereby granted to use or copy this program for any
+ purpose, provided the above notices are retained on all copies.
+ Permission to modify the code and to distribute modified code is
+ granted, provided the above notices are retained, and a notice that
+ the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{dcolumn__bmod_8c_a5ca322682f98f276feb3c50b31ca56b8}{}\index{dcolumn\+\_\+bmod.\+c@{dcolumn\+\_\+bmod.\+c}!dcolumn\+\_\+bmod@{dcolumn\+\_\+bmod}}
+\index{dcolumn\+\_\+bmod@{dcolumn\+\_\+bmod}!dcolumn\+\_\+bmod.\+c@{dcolumn\+\_\+bmod.\+c}}
+\subsubsection[{dcolumn\+\_\+bmod}]{\setlength{\rightskip}{0pt plus 5cm}int dcolumn\+\_\+bmod (
+\begin{DoxyParamCaption}
+\item[{const int}]{jcol, }
+\item[{const int}]{nseg, }
+\item[{double $\ast$}]{dense, }
+\item[{double $\ast$}]{tempv, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int}]{fpanelc, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{dcolumn__bmod_8c_a5ca322682f98f276feb3c50b31ca56b8}
+
+\begin{DoxyPre}
+\subsection*{Purpose:
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+Performs numeric block updates (sup-col) in topological order.
+It features: col-col, 2cols-col, 3cols-col, and sup-col updates.
+Special processing on the supernodal portion of L[*,j]
+Return value:   0 - successful return
+              > 0 - number of bytes allocated when run out of space
+\end{DoxyPre}
+ \hypertarget{dcolumn__bmod_8c_a56d27043eac0282b0d0e4106acedb083}{}\index{dcolumn\+\_\+bmod.\+c@{dcolumn\+\_\+bmod.\+c}!dlsolve@{dlsolve}}
+\index{dlsolve@{dlsolve}!dcolumn\+\_\+bmod.\+c@{dcolumn\+\_\+bmod.\+c}}
+\subsubsection[{dlsolve}]{\setlength{\rightskip}{0pt plus 5cm}void dlsolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{dcolumn__bmod_8c_a56d27043eac0282b0d0e4106acedb083}
+\hypertarget{dcolumn__bmod_8c_a65523602382b3d96c9852545ae24815d}{}\index{dcolumn\+\_\+bmod.\+c@{dcolumn\+\_\+bmod.\+c}!dmatvec@{dmatvec}}
+\index{dmatvec@{dmatvec}!dcolumn\+\_\+bmod.\+c@{dcolumn\+\_\+bmod.\+c}}
+\subsubsection[{dmatvec}]{\setlength{\rightskip}{0pt plus 5cm}void dmatvec (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{dcolumn__bmod_8c_a65523602382b3d96c9852545ae24815d}
+\hypertarget{dcolumn__bmod_8c_aca18e78d81448d99eec840b19de76efd}{}\index{dcolumn\+\_\+bmod.\+c@{dcolumn\+\_\+bmod.\+c}!dusolve@{dusolve}}
+\index{dusolve@{dusolve}!dcolumn\+\_\+bmod.\+c@{dcolumn\+\_\+bmod.\+c}}
+\subsubsection[{dusolve}]{\setlength{\rightskip}{0pt plus 5cm}void dusolve (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{dcolumn__bmod_8c_aca18e78d81448d99eec840b19de76efd}

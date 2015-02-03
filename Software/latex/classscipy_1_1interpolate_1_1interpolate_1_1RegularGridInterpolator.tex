@@ -1,0 +1,152 @@
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator}{}\section{scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator Class Reference}
+\label{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator}\index{scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator@{scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator}}
+Inheritance diagram for scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_aac16adfc2b6e3fa8ec1ad008e80ff0b2}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_acfa5ae110bebc29083d4539056800b52}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_a1c6dfe56b1299842a43ddc43ed6a2b0e}{method}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_aab43f2fd7834b644f30de93b6a8a0155}{bounds\+\_\+error}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_a38ab6f966f9896146ecb5e2b28010e75}{fill\+\_\+value}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_a7944b1767b70979b680e56e692945b91}{grid}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_ae8b5cb5ea1465c66b3d9d6f381775d50}{values}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Interpolation on a regular grid in arbitrary dimensions
+
+The data must be defined on a regular grid; the grid spacing however may be
+uneven.  Linear and nearest-neighbour interpolation are supported. After
+setting up the interpolator object, the interpolation method (*linear* or
+*nearest*) may be chosen at each evaluation.
+
+.. versionadded:: 0.14
+
+Parameters
+----------
+points : tuple of ndarray of float, with shapes (m1, ), ..., (mn, )
+    The points defining the regular grid in n dimensions.
+
+values : array_like, shape (m1, ..., mn, ...)
+    The data on the regular grid in n dimensions.
+
+method : str
+    The method of interpolation to perform. Supported are "linear" and
+    "nearest". This parameter will become the default for the object's
+    ``__call__`` method.
+
+bounds_error : bool, optional
+    If True, when interpolated values are requested outside of the
+    domain of the input data, a ValueError is raised.
+    If False, then `fill_value` is used.
+
+fill_value : number, optional
+    If provided, the value to use for points outside of the
+    interpolation domain. If None, values outside
+    the domain are extrapolated.
+
+Methods
+-------
+__call__
+
+Notes
+-----
+Contrary to LinearNDInterpolator and NearestNDInterpolator, this class
+avoids expensive triangulation of the input data by taking advantage of the
+regular grid structure.
+
+See also
+--------
+NearestNDInterpolator : Nearest neighbour interpolation on unstructured
+                        data in N dimensions
+
+LinearNDInterpolator : Piecewise linear interpolant on unstructured data
+                       in N dimensions
+
+References
+----------
+.. [1] Python package *regulargrid* by Johannes Buchner, see
+       https://pypi.python.org/pypi/regulargrid/
+.. [2] Trilinear interpolation. (2013, January 17). In Wikipedia, The Free
+       Encyclopedia. Retrieved 27 Feb 2013 01:28.
+       http://en.wikipedia.org/w/index.php?title=Trilinear_interpolation&oldid=533448871
+.. [3] Weiser, Alan, and Sergio E. Zarantonello. "A note on piecewise linear
+       and multilinear table interpolation in many dimensions." MATH.
+       COMPUT. 50.181 (1988): 189-196.
+       http://www.ams.org/journals/mcom/1988-50-181/S0025-5718-1988-0917826-0/S0025-5718-1988-0917826-0.pdf\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_aac16adfc2b6e3fa8ec1ad008e80ff0b2}{}\index{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{points, }
+\item[{}]{values, }
+\item[{}]{method = {\ttfamily \char`\"{}linear\char`\"{}}, }
+\item[{}]{bounds\+\_\+error = {\ttfamily {\bf True}}, }
+\item[{}]{fill\+\_\+value = {\ttfamily np.nan}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_aac16adfc2b6e3fa8ec1ad008e80ff0b2}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_acfa5ae110bebc29083d4539056800b52}{}\index{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{xi, }
+\item[{}]{method = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_acfa5ae110bebc29083d4539056800b52}
+\begin{DoxyVerb}Interpolation at coordinates
+
+Parameters
+----------
+xi : ndarray of shape (..., ndim)
+    The coordinates to sample the gridded data at
+
+method : str
+    The method of interpolation to perform. Supported are "linear" and
+    "nearest".\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_aab43f2fd7834b644f30de93b6a8a0155}{}\index{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}!bounds\+\_\+error@{bounds\+\_\+error}}
+\index{bounds\+\_\+error@{bounds\+\_\+error}!scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}}
+\subsubsection[{bounds\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator.\+bounds\+\_\+error}\label{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_aab43f2fd7834b644f30de93b6a8a0155}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_a38ab6f966f9896146ecb5e2b28010e75}{}\index{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}!fill\+\_\+value@{fill\+\_\+value}}
+\index{fill\+\_\+value@{fill\+\_\+value}!scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}}
+\subsubsection[{fill\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator.\+fill\+\_\+value}\label{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_a38ab6f966f9896146ecb5e2b28010e75}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_a7944b1767b70979b680e56e692945b91}{}\index{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}!grid@{grid}}
+\index{grid@{grid}!scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}}
+\subsubsection[{grid}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator.\+grid}\label{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_a7944b1767b70979b680e56e692945b91}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_a1c6dfe56b1299842a43ddc43ed6a2b0e}{}\index{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}!method@{method}}
+\index{method@{method}!scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}}
+\subsubsection[{method}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator.\+method}\label{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_a1c6dfe56b1299842a43ddc43ed6a2b0e}
+\hypertarget{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_ae8b5cb5ea1465c66b3d9d6f381775d50}{}\index{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}!values@{values}}
+\index{values@{values}!scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator@{scipy\+::interpolate\+::interpolate\+::\+Regular\+Grid\+Interpolator}}
+\subsubsection[{values}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+interpolate.\+Regular\+Grid\+Interpolator.\+values}\label{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator_ae8b5cb5ea1465c66b3d9d6f381775d50}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{interpolate_8py}{interpolate.\+py}\end{DoxyCompactItemize}

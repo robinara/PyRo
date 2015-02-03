@@ -1,0 +1,106 @@
+\hypertarget{ddasrt_8f}{}\section{packages/scipy-\/0.14.0/scipy/integrate/odepack/ddasrt.f File Reference}
+\label{ddasrt_8f}\index{packages/scipy-\/0.\+14.\+0/scipy/integrate/odepack/ddasrt.\+f@{packages/scipy-\/0.\+14.\+0/scipy/integrate/odepack/ddasrt.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{ddasrt_8f_adfc3346e603984f58f7cd11c3398bb07}{ddasrt} (R\+E\+S, N\+E\+Q, T, Y, Y\+P\+R\+I\+M\+E, T\+O\+U\+T, I\+N\+F\+O, R\+T\+O\+L, A\+T\+O\+L, I\+D\+I\+D, R\+W\+O\+R\+K, L\+R\+W, I\+W\+O\+R\+K, L\+I\+W, R\+P\+A\+R, I\+P\+A\+R, J\+A\+C, G, N\+G, J\+R\+O\+O\+T)
+\item 
+subroutine \hyperlink{ddasrt_8f_a4cde4bbacb0b416a894b59b0a293c7ea}{drchek} (J\+O\+B, G, N\+G, N\+E\+Q, T\+N, T\+O\+U\+T, Y, Y\+P, P\+H\+I, P\+S\+I, K\+O\+L\+D, G0, G1, G\+X, J\+R\+O\+O\+T, I\+R\+T, U\+R\+O\+U\+N\+D, I\+N\+F\+O3, R\+W\+O\+R\+K, I\+W\+O\+R\+K, R\+P\+A\+R, I\+P\+A\+R)
+\item 
+subroutine \hyperlink{ddasrt_8f_a143b7750ca413bfb317a54a34737d0df}{droots} (N\+G, H\+M\+I\+N, J\+F\+L\+A\+G, X0, X1, G0, G1, G\+X, X, J\+R\+O\+O\+T, I\+M\+A\+X, L\+A\+S\+T, A\+L\+P\+H\+A, X2)
+\item 
+subroutine \hyperlink{ddasrt_8f_a67021eb787c6039db5cee1a98e06b722}{xerrwv} (M\+S\+G, N\+M\+E\+S, N\+E\+R\+R, L\+E\+V\+E\+L, N\+I, I1, I2, N\+R, R1, R2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{ddasrt_8f_adfc3346e603984f58f7cd11c3398bb07}{}\index{ddasrt.\+f@{ddasrt.\+f}!ddasrt@{ddasrt}}
+\index{ddasrt@{ddasrt}!ddasrt.\+f@{ddasrt.\+f}}
+\subsubsection[{ddasrt}]{\setlength{\rightskip}{0pt plus 5cm}subroutine ddasrt (
+\begin{DoxyParamCaption}
+\item[{external}]{R\+E\+S, }
+\item[{}]{N\+E\+Q, }
+\item[{}]{T, }
+\item[{dimension($\ast$)}]{Y, }
+\item[{dimension($\ast$)}]{Y\+P\+R\+I\+M\+E, }
+\item[{}]{T\+O\+U\+T, }
+\item[{dimension(15)}]{I\+N\+F\+O, }
+\item[{dimension($\ast$)}]{R\+T\+O\+L, }
+\item[{dimension($\ast$)}]{A\+T\+O\+L, }
+\item[{}]{I\+D\+I\+D, }
+\item[{dimension($\ast$)}]{R\+W\+O\+R\+K, }
+\item[{}]{L\+R\+W, }
+\item[{dimension($\ast$)}]{I\+W\+O\+R\+K, }
+\item[{}]{L\+I\+W, }
+\item[{dimension($\ast$)}]{R\+P\+A\+R, }
+\item[{dimension($\ast$)}]{I\+P\+A\+R, }
+\item[{external}]{J\+A\+C, }
+\item[{external}]{G, }
+\item[{}]{N\+G, }
+\item[{}]{J\+R\+O\+O\+T}
+\end{DoxyParamCaption}
+)}\label{ddasrt_8f_adfc3346e603984f58f7cd11c3398bb07}
+\hypertarget{ddasrt_8f_a4cde4bbacb0b416a894b59b0a293c7ea}{}\index{ddasrt.\+f@{ddasrt.\+f}!drchek@{drchek}}
+\index{drchek@{drchek}!ddasrt.\+f@{ddasrt.\+f}}
+\subsubsection[{drchek}]{\setlength{\rightskip}{0pt plus 5cm}subroutine drchek (
+\begin{DoxyParamCaption}
+\item[{integer}]{J\+O\+B, }
+\item[{external}]{G, }
+\item[{integer}]{N\+G, }
+\item[{integer}]{N\+E\+Q, }
+\item[{double {\bf precision}}]{T\+N, }
+\item[{double {\bf precision}}]{T\+O\+U\+T, }
+\item[{double {\bf precision}, dimension($\ast$)}]{Y, }
+\item[{double {\bf precision}, dimension($\ast$)}]{Y\+P, }
+\item[{double {\bf precision}, dimension(neq,$\ast$)}]{P\+H\+I, }
+\item[{double {\bf precision}, dimension($\ast$)}]{P\+S\+I, }
+\item[{integer}]{K\+O\+L\+D, }
+\item[{double {\bf precision}, dimension($\ast$)}]{G0, }
+\item[{double {\bf precision}, dimension($\ast$)}]{G1, }
+\item[{double {\bf precision}, dimension($\ast$)}]{G\+X, }
+\item[{integer, dimension($\ast$)}]{J\+R\+O\+O\+T, }
+\item[{integer}]{I\+R\+T, }
+\item[{double {\bf precision}}]{U\+R\+O\+U\+N\+D, }
+\item[{integer}]{I\+N\+F\+O3, }
+\item[{double {\bf precision}, dimension($\ast$)}]{R\+W\+O\+R\+K, }
+\item[{integer, dimension($\ast$)}]{I\+W\+O\+R\+K, }
+\item[{double {\bf precision}}]{R\+P\+A\+R, }
+\item[{integer}]{I\+P\+A\+R}
+\end{DoxyParamCaption}
+)}\label{ddasrt_8f_a4cde4bbacb0b416a894b59b0a293c7ea}
+\hypertarget{ddasrt_8f_a143b7750ca413bfb317a54a34737d0df}{}\index{ddasrt.\+f@{ddasrt.\+f}!droots@{droots}}
+\index{droots@{droots}!ddasrt.\+f@{ddasrt.\+f}}
+\subsubsection[{droots}]{\setlength{\rightskip}{0pt plus 5cm}subroutine droots (
+\begin{DoxyParamCaption}
+\item[{integer}]{N\+G, }
+\item[{double {\bf precision}}]{H\+M\+I\+N, }
+\item[{integer}]{J\+F\+L\+A\+G, }
+\item[{double {\bf precision}}]{X0, }
+\item[{double {\bf precision}}]{X1, }
+\item[{double {\bf precision}, dimension(ng)}]{G0, }
+\item[{double {\bf precision}, dimension(ng)}]{G1, }
+\item[{double {\bf precision}, dimension(ng)}]{G\+X, }
+\item[{double {\bf precision}}]{X, }
+\item[{integer, dimension(ng)}]{J\+R\+O\+O\+T, }
+\item[{integer}]{I\+M\+A\+X, }
+\item[{integer}]{L\+A\+S\+T, }
+\item[{double {\bf precision}}]{A\+L\+P\+H\+A, }
+\item[{double {\bf precision}}]{X2}
+\end{DoxyParamCaption}
+)}\label{ddasrt_8f_a143b7750ca413bfb317a54a34737d0df}
+\hypertarget{ddasrt_8f_a67021eb787c6039db5cee1a98e06b722}{}\index{ddasrt.\+f@{ddasrt.\+f}!xerrwv@{xerrwv}}
+\index{xerrwv@{xerrwv}!ddasrt.\+f@{ddasrt.\+f}}
+\subsubsection[{xerrwv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine xerrwv (
+\begin{DoxyParamCaption}
+\item[{character$\ast$1, dimension(nmes)}]{M\+S\+G, }
+\item[{integer}]{N\+M\+E\+S, }
+\item[{integer}]{N\+E\+R\+R, }
+\item[{integer}]{L\+E\+V\+E\+L, }
+\item[{integer}]{N\+I, }
+\item[{integer}]{I1, }
+\item[{integer}]{I2, }
+\item[{integer}]{N\+R, }
+\item[{double {\bf precision}}]{R1, }
+\item[{double {\bf precision}}]{R2}
+\end{DoxyParamCaption}
+)}\label{ddasrt_8f_a67021eb787c6039db5cee1a98e06b722}

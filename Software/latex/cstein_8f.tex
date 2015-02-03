@@ -1,0 +1,145 @@
+\hypertarget{cstein_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/cstein.f File Reference}
+\label{cstein_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cstein.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cstein.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{cstein_8f_a3f8cdd4e405394843d0b69feeaa19c4a}{cstein} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, E, M, W, I\+B\+L\+O\+C\+K, I\+S\+P\+L\+I\+T, Z, L\+D\+Z, W\+O\+R\+K, I\+W\+O\+R\+K, I\+F\+A\+I\+L, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+S\+T\+E\+I\+N} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{cstein_8f_a3f8cdd4e405394843d0b69feeaa19c4a}{}\index{cstein.\+f@{cstein.\+f}!cstein@{cstein}}
+\index{cstein@{cstein}!cstein.\+f@{cstein.\+f}}
+\subsubsection[{cstein}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cstein (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{real, dimension( $\ast$ )}]{D, }
+\item[{real, dimension( $\ast$ )}]{E, }
+\item[{integer}]{M, }
+\item[{real, dimension( $\ast$ )}]{W, }
+\item[{integer, dimension( $\ast$ )}]{I\+B\+L\+O\+C\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+S\+P\+L\+I\+T, }
+\item[{{\bf complex}, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{real, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+W\+O\+R\+K, }
+\item[{integer, dimension( $\ast$ )}]{I\+F\+A\+I\+L, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{cstein_8f_a3f8cdd4e405394843d0b69feeaa19c4a}
+
+
+{\bfseries C\+S\+T\+E\+I\+N} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CSTEIN computes the eigenvectors of a real symmetric tridiagonal
+ matrix T corresponding to specified eigenvalues, using inverse
+ iteration.
+
+ The maximum number of iterations allowed for each eigenvector is
+ specified by an internal parameter MAXITS (currently set to 5).
+
+ Although the eigenvectors are real, they are stored in a complex
+ array, which may be passed to CUNMTR or CUPMTR for back
+ transformation to the eigenvectors of a complex Hermitian matrix
+ which was reduced to tridiagonal form.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D} & \begin{DoxyVerb}          D is REAL array, dimension (N)
+          The n diagonal elements of the tridiagonal matrix T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em E} & \begin{DoxyVerb}          E is REAL array, dimension (N-1)
+          The (n-1) subdiagonal elements of the tridiagonal matrix
+          T, stored in elements 1 to N-1.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of eigenvectors to be found.  0 <= M <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W} & \begin{DoxyVerb}          W is REAL array, dimension (N)
+          The first M elements of W contain the eigenvalues for
+          which eigenvectors are to be computed.  The eigenvalues
+          should be grouped by split-off block and ordered from
+          smallest to largest within the block.  ( The output array
+          W from SSTEBZ with ORDER = 'B' is expected here. )\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+B\+L\+O\+C\+K} & \begin{DoxyVerb}          IBLOCK is INTEGER array, dimension (N)
+          The submatrix indices associated with the corresponding
+          eigenvalues in W; IBLOCK(i)=1 if eigenvalue W(i) belongs to
+          the first submatrix from the top, =2 if W(i) belongs to
+          the second submatrix, etc.  ( The output array IBLOCK
+          from SSTEBZ is expected here. )\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+S\+P\+L\+I\+T} & \begin{DoxyVerb}          ISPLIT is INTEGER array, dimension (N)
+          The splitting points, at which T breaks up into submatrices.
+          The first submatrix consists of rows/columns 1 to
+          ISPLIT( 1 ), the second of rows/columns ISPLIT( 1 )+1
+          through ISPLIT( 2 ), etc.
+          ( The output array ISPLIT from SSTEBZ is expected here. )\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Z} & \begin{DoxyVerb}          Z is COMPLEX array, dimension (LDZ, M)
+          The computed eigenvectors.  The eigenvector associated
+          with the eigenvalue W(i) is stored in the i-th column of
+          Z.  Any vector which fails to converge is set to its current
+          iterate after MAXITS iterations.
+          The imaginary parts of the eigenvectors are set to zero.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension (5*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+W\+O\+R\+K} & \begin{DoxyVerb}          IWORK is INTEGER array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+F\+A\+I\+L} & \begin{DoxyVerb}          IFAIL is INTEGER array, dimension (M)
+          On normal exit, all elements of IFAIL are zero.
+          If one or more eigenvectors fail to converge after
+          MAXITS iterations, then their indices are stored in
+          array IFAIL.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0: successful exit
+          < 0: if INFO = -i, the i-th argument had an illegal value
+          > 0: if INFO = i, then i eigenvectors failed to converge
+               in MAXITS iterations.  Their indices are stored in
+               array IFAIL.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  MAXITS  INTEGER, default = 5
+          The maximum number of iterations performed.
+
+  EXTRA   INTEGER, default = 2
+          The number of iterations performed after norm growth
+          criterion is satisfied, should be at least 1.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

@@ -1,0 +1,171 @@
+\hypertarget{lapack-3_85_80_2SRC_2slahqr_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slahqr.f File Reference}
+\label{lapack-3_85_80_2SRC_2slahqr_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slahqr.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slahqr.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{lapack-3_85_80_2SRC_2slahqr_8f_ae54e59a2d967d6ea7c589e7211ff0dc5}{slahqr} (W\+A\+N\+T\+T, W\+A\+N\+T\+Z, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, I\+L\+O, I\+H\+I, H, L\+D\+H, W\+R, W\+I, I\+L\+O\+Z, I\+H\+I\+Z, Z, L\+D\+Z, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+H\+Q\+R} computes the eigenvalues and Schur factorization of an upper Hessenberg matrix, using the double-\/shift/single-\/shift Q\+R algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{lapack-3_85_80_2SRC_2slahqr_8f_ae54e59a2d967d6ea7c589e7211ff0dc5}{}\index{lapack-\/3.\+5.\+0/\+S\+R\+C/slahqr.\+f@{lapack-\/3.\+5.\+0/\+S\+R\+C/slahqr.\+f}!slahqr@{slahqr}}
+\index{slahqr@{slahqr}!lapack-\/3.\+5.\+0/\+S\+R\+C/slahqr.\+f@{lapack-\/3.\+5.\+0/\+S\+R\+C/slahqr.\+f}}
+\subsubsection[{slahqr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slahqr (
+\begin{DoxyParamCaption}
+\item[{{\bf logical}}]{W\+A\+N\+T\+T, }
+\item[{{\bf logical}}]{W\+A\+N\+T\+Z, }
+\item[{integer}]{N, }
+\item[{integer}]{I\+L\+O, }
+\item[{integer}]{I\+H\+I, }
+\item[{real, dimension( ldh, $\ast$ )}]{H, }
+\item[{integer}]{L\+D\+H, }
+\item[{real, dimension( $\ast$ )}]{W\+R, }
+\item[{real, dimension( $\ast$ )}]{W\+I, }
+\item[{integer}]{I\+L\+O\+Z, }
+\item[{integer}]{I\+H\+I\+Z, }
+\item[{real, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{lapack-3_85_80_2SRC_2slahqr_8f_ae54e59a2d967d6ea7c589e7211ff0dc5}
+
+
+{\bfseries S\+L\+A\+H\+Q\+R} computes the eigenvalues and Schur factorization of an upper Hessenberg matrix, using the double-\/shift/single-\/shift Q\+R algorithm. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    SLAHQR is an auxiliary routine called by SHSEQR to update the
+    eigenvalues and Schur decomposition already computed by SHSEQR, by
+    dealing with the Hessenberg submatrix in rows and columns ILO to
+    IHI.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em W\+A\+N\+T\+T} & \begin{DoxyVerb}          WANTT is LOGICAL
+          = .TRUE. : the full Schur form T is required;
+          = .FALSE.: only eigenvalues are required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W\+A\+N\+T\+Z} & \begin{DoxyVerb}          WANTZ is LOGICAL
+          = .TRUE. : the matrix of Schur vectors Z is required;
+          = .FALSE.: Schur vectors are not required.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix H.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+L\+O} & \begin{DoxyVerb}          ILO is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+H\+I} & \begin{DoxyVerb}          IHI is INTEGER
+          It is assumed that H is already upper quasi-triangular in
+          rows and columns IHI+1:N, and that H(ILO,ILO-1) = 0 (unless
+          ILO = 1). SLAHQR works primarily with the Hessenberg
+          submatrix in rows and columns ILO to IHI, but applies
+          transformations to all of H if WANTT is .TRUE..
+          1 <= ILO <= max(1,IHI); IHI <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em H} & \begin{DoxyVerb}          H is REAL array, dimension (LDH,N)
+          On entry, the upper Hessenberg matrix H.
+          On exit, if INFO is zero and if WANTT is .TRUE., H is upper
+          quasi-triangular in rows and columns ILO:IHI, with any
+          2-by-2 diagonal blocks in standard form. If INFO is zero
+          and WANTT is .FALSE., the contents of H are unspecified on
+          exit.  The output state of H if INFO is nonzero is given
+          below under the description of INFO.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+H} & \begin{DoxyVerb}          LDH is INTEGER
+          The leading dimension of the array H. LDH >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+R} & \begin{DoxyVerb}          WR is REAL array, dimension (N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+I} & \begin{DoxyVerb}          WI is REAL array, dimension (N)
+          The real and imaginary parts, respectively, of the computed
+          eigenvalues ILO to IHI are stored in the corresponding
+          elements of WR and WI. If two eigenvalues are computed as a
+          complex conjugate pair, they are stored in consecutive
+          elements of WR and WI, say the i-th and (i+1)th, with
+          WI(i) > 0 and WI(i+1) < 0. If WANTT is .TRUE., the
+          eigenvalues are stored in the same order as on the diagonal
+          of the Schur form returned in H, with WR(i) = H(i,i), and, if
+          H(i:i+1,i:i+1) is a 2-by-2 diagonal block,
+          WI(i) = sqrt(H(i+1,i)*H(i,i+1)) and WI(i+1) = -WI(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+L\+O\+Z} & \begin{DoxyVerb}          ILOZ is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+H\+I\+Z} & \begin{DoxyVerb}          IHIZ is INTEGER
+          Specify the rows of Z to which transformations must be
+          applied if WANTZ is .TRUE..
+          1 <= ILOZ <= ILO; IHI <= IHIZ <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Z} & \begin{DoxyVerb}          Z is REAL array, dimension (LDZ,N)
+          If WANTZ is .TRUE., on entry Z must contain the current
+          matrix Z of transformations accumulated by SHSEQR, and on
+          exit Z has been updated; transformations are applied only to
+          the submatrix Z(ILOZ:IHIZ,ILO:IHI).
+          If WANTZ is .FALSE., Z is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z. LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+           =   0: successful exit
+          .GT. 0: If INFO = i, SLAHQR failed to compute all the
+                  eigenvalues ILO to IHI in a total of 30 iterations
+                  per eigenvalue; elements i+1:ihi of WR and WI
+                  contain those eigenvalues which have been
+                  successfully computed.
+
+                  If INFO .GT. 0 and WANTT is .FALSE., then on exit,
+                  the remaining unconverged eigenvalues are the
+                  eigenvalues of the upper Hessenberg matrix rows
+                  and columns ILO thorugh INFO of the final, output
+                  value of H.
+
+                  If INFO .GT. 0 and WANTT is .TRUE., then on exit
+          (*)       (initial value of H)*U  = U*(final value of H)
+                  where U is an orthognal matrix.    The final
+                  value of H is upper Hessenberg and triangular in
+                  rows and columns INFO+1 through IHI.
+
+                  If INFO .GT. 0 and WANTZ is .TRUE., then on exit
+                      (final value of Z)  = (initial value of Z)*U
+                  where U is the orthogonal matrix in (*)
+                  (regardless of the value of WANTT.)\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}     02-96 Based on modifications by
+     David Day, Sandia National Laboratory, USA
+
+     12-04 Further modifications by
+     Ralph Byers, University of Kansas, USA
+     This is a modified version of SLAHQR from LAPACK version 3.0.
+     It is (1) more robust against overflow and underflow and
+     (2) adopts the more conservative Ahues & Tisseur stopping
+     criterion (LAWN 122, 1997).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

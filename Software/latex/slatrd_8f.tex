@@ -1,0 +1,169 @@
+\hypertarget{slatrd_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/slatrd.f File Reference}
+\label{slatrd_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slatrd.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/slatrd.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{slatrd_8f_ac1312699353e70d4e05bb21f60d76e27}{slatrd} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, N\+B, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, E, T\+A\+U, W, L\+D\+W)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+L\+A\+T\+R\+D} reduces the first nb rows and columns of a symmetric/\+Hermitian matrix \hyperlink{classA}{A} to real tridiagonal form by an orthogonal similarity transformation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{slatrd_8f_ac1312699353e70d4e05bb21f60d76e27}{}\index{slatrd.\+f@{slatrd.\+f}!slatrd@{slatrd}}
+\index{slatrd@{slatrd}!slatrd.\+f@{slatrd.\+f}}
+\subsubsection[{slatrd}]{\setlength{\rightskip}{0pt plus 5cm}subroutine slatrd (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{integer}]{N\+B, }
+\item[{real, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{real, dimension( $\ast$ )}]{E, }
+\item[{real, dimension( $\ast$ )}]{T\+A\+U, }
+\item[{real, dimension( ldw, $\ast$ )}]{W, }
+\item[{integer}]{L\+D\+W}
+\end{DoxyParamCaption}
+)}\label{slatrd_8f_ac1312699353e70d4e05bb21f60d76e27}
+
+
+{\bfseries S\+L\+A\+T\+R\+D} reduces the first nb rows and columns of a symmetric/\+Hermitian matrix \hyperlink{classA}{A} to real tridiagonal form by an orthogonal similarity transformation. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} SLATRD reduces NB rows and columns of a real symmetric matrix A to
+ symmetric tridiagonal form by an orthogonal similarity
+ transformation Q**T * A * Q, and returns the matrices V and W which are
+ needed to apply the transformation to the unreduced part of A.
+
+ If UPLO = 'U', SLATRD reduces the last NB rows and columns of a
+ matrix, of which the upper triangle is supplied;
+ if UPLO = 'L', SLATRD reduces the first NB rows and columns of a
+ matrix, of which the lower triangle is supplied.
+
+ This is an auxiliary routine called by SSYTRD.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the upper or lower triangular part of the
+          symmetric matrix A is stored:
+          = 'U': Upper triangular
+          = 'L': Lower triangular\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+B} & \begin{DoxyVerb}          NB is INTEGER
+          The number of rows and columns to be reduced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is REAL array, dimension (LDA,N)
+          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+          n-by-n upper triangular part of A contains the upper
+          triangular part of the matrix A, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = 'L', the
+          leading n-by-n lower triangular part of A contains the lower
+          triangular part of the matrix A, and the strictly upper
+          triangular part of A is not referenced.
+          On exit:
+          if UPLO = 'U', the last NB columns have been reduced to
+            tridiagonal form, with the diagonal elements overwriting
+            the diagonal elements of A; the elements above the diagonal
+            with the array TAU, represent the orthogonal matrix Q as a
+            product of elementary reflectors;
+          if UPLO = 'L', the first NB columns have been reduced to
+            tridiagonal form, with the diagonal elements overwriting
+            the diagonal elements of A; the elements below the diagonal
+            with the array TAU, represent the  orthogonal matrix Q as a
+            product of elementary reflectors.
+          See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= (1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em E} & \begin{DoxyVerb}          E is REAL array, dimension (N-1)
+          If UPLO = 'U', E(n-nb:n-1) contains the superdiagonal
+          elements of the last NB columns of the reduced matrix;
+          if UPLO = 'L', E(1:nb) contains the subdiagonal elements of
+          the first NB columns of the reduced matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is REAL array, dimension (N-1)
+          The scalar factors of the elementary reflectors, stored in
+          TAU(n-nb:n-1) if UPLO = 'U', and in TAU(1:nb) if UPLO = 'L'.
+          See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W} & \begin{DoxyVerb}          W is REAL array, dimension (LDW,NB)
+          The n-by-nb matrix W required to update the unreduced part
+          of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+W} & \begin{DoxyVerb}          LDW is INTEGER
+          The leading dimension of the array W. LDW >= max(1,N).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  If UPLO = 'U', the matrix Q is represented as a product of elementary
+  reflectors
+
+     Q = H(n) H(n-1) . . . H(n-nb+1).
+
+  Each H(i) has the form
+
+     H(i) = I - tau * v * v**T
+
+  where tau is a real scalar, and v is a real vector with
+  v(i:n) = 0 and v(i-1) = 1; v(1:i-1) is stored on exit in A(1:i-1,i),
+  and tau in TAU(i-1).
+
+  If UPLO = 'L', the matrix Q is represented as a product of elementary
+  reflectors
+
+     Q = H(1) H(2) . . . H(nb).
+
+  Each H(i) has the form
+
+     H(i) = I - tau * v * v**T
+
+  where tau is a real scalar, and v is a real vector with
+  v(1:i) = 0 and v(i+1) = 1; v(i+1:n) is stored on exit in A(i+1:n,i),
+  and tau in TAU(i).
+
+  The elements of the vectors v together form the n-by-nb matrix V
+  which is needed, with W, to apply the transformation to the unreduced
+  part of the matrix, using a symmetric rank-2k update of the form:
+  A := A - V*W**T - W*V**T.
+
+  The contents of A on exit are illustrated by the following examples
+  with n = 5 and nb = 2:
+
+  if UPLO = 'U':                       if UPLO = 'L':
+
+    (  a   a   a   v4  v5 )              (  d                  )
+    (      a   a   v4  v5 )              (  1   d              )
+    (          a   1   v5 )              (  v1  1   a          )
+    (              d   1  )              (  v1  v2  a   a      )
+    (                  d  )              (  v1  v2  a   a   a  )
+
+  where d denotes a diagonal element of the reduced matrix, a denotes
+  an element of the original matrix that is unchanged, and vi denotes
+  an element of the vector defining H(i).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

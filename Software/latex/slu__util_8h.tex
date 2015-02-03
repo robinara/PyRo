@@ -1,0 +1,1058 @@
+\hypertarget{slu__util_8h}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/slu\+\_\+util.h File Reference}
+\label{slu__util_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/slu\+\_\+util.\+h@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/slu\+\_\+util.\+h}}
+
+
+Utility header file.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}superlu\+\_\+enum\+\_\+consts.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}scipy\+\_\+slu\+\_\+config.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t}
+\item 
+struct \hyperlink{structe__node}{e\+\_\+node}
+\begin{DoxyCompactList}\small\item\em Headers for 4 types of dynamatically managed memory. \end{DoxyCompactList}\item 
+struct \hyperlink{structLU__stack__t}{L\+U\+\_\+stack\+\_\+t}
+\item 
+struct \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t}
+\item 
+struct \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{slu__util_8h_a745e85e3ef4b1267858c9df86608518c}{F\+I\+R\+S\+T\+C\+O\+L\+\_\+\+O\+F\+\_\+\+S\+N\+O\+D\+E}(\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i})~(xsup\mbox{[}\hyperlink{indexexpr_8h_aabd77643995707c185e95c8cb2782c81}{i}\mbox{]})
+\item 
+\#define \hyperlink{slu__util_8h_a9b7b2a5116ee487722b0967317ab6360}{N\+O\+\_\+\+M\+A\+R\+K\+E\+R}~3
+\item 
+\#define \hyperlink{slu__util_8h_a06193b28f40a4779ae7737711642eb45}{N\+U\+M\+\_\+\+T\+E\+M\+P\+V}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m},  w,  \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~( \hyperlink{slu__util_8h_adca8259e9d345c7cbaaa0608a1acdfd4}{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+X}(\hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, (\hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} + \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})$\ast$w) )
+\item 
+\#define \hyperlink{slu__util_8h_aa4b133a54309e2c6e4ba69f3ff1141c2}{A\+B\+O\+R\+T}(err\+\_\+msg)
+\item 
+\#define \hyperlink{slu__util_8h_a55a5ed83733c30850c14cc7b3f922a54}{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+L\+L\+O\+C}(size)~\hyperlink{scipy__slu__config_8h_a53589e817917d54de5e6441fd72548a2}{U\+S\+E\+R\+\_\+\+M\+A\+L\+L\+O\+C}(size)
+\item 
+\#define \hyperlink{slu__util_8h_a9672c5511c3efd9467e4d375a347c192}{S\+U\+P\+E\+R\+L\+U\+\_\+\+F\+R\+E\+E}(addr)~\hyperlink{scipy__slu__config_8h_aee9e925cd74532dede85c08ace894923}{U\+S\+E\+R\+\_\+\+F\+R\+E\+E}(addr)
+\item 
+\#define \hyperlink{slu__util_8h_a35401f732a50d2a0af33db1ea224b1f6}{C\+H\+E\+C\+K\+\_\+\+M\+A\+L\+L\+O\+C}(\hyperlink{vecwhere_8cc_a6982d902faece8870c9299c3eb52332f}{where})
+\item 
+\#define \hyperlink{slu__util_8h_adca8259e9d345c7cbaaa0608a1acdfd4}{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+X}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x},  y)~( (\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) $>$ (y) ? (\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) \+: (y) )
+\item 
+\#define \hyperlink{slu__util_8h_a7147dd5df1048562cd4ab83e9fd808d9}{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+I\+N}(\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x},  y)~( (\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) $<$ (y) ? (\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}) \+: (y) )
+\item 
+\#define \hyperlink{slu__util_8h_a445a44f88349753bc17f28fbac4df382}{L\+\_\+\+S\+U\+B\+\_\+\+S\+T\+A\+R\+T}(col)~( Lstore-\/$>$rowind\+\_\+colptr\mbox{[}col\mbox{]} )
+\item 
+\#define \hyperlink{slu__util_8h_a8de2450f2d4cf12794954b63a319c423}{L\+\_\+\+S\+U\+B}(\hyperlink{zfftnd_8c_a176b6f11ba11cfee9ae8d20c83e1266b}{ptr})~( Lstore-\/$>$rowind\mbox{[}\hyperlink{zfftnd_8c_a176b6f11ba11cfee9ae8d20c83e1266b}{ptr}\mbox{]} )
+\item 
+\#define \hyperlink{slu__util_8h_a79b13489e4cd00b09633e0c5e0be1b7c}{L\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T}(col)~( Lstore-\/$>$nzval\+\_\+colptr\mbox{[}col\mbox{]} )
+\item 
+\#define \hyperlink{slu__util_8h_a0ea367a3afecd30b570d0a46cc819cdf}{L\+\_\+\+F\+S\+T\+\_\+\+S\+U\+P\+C}(superno)~( Lstore-\/$>$sup\+\_\+to\+\_\+col\mbox{[}superno\mbox{]} )
+\item 
+\#define \hyperlink{slu__util_8h_ac641190b1a047ebcf224372cb3dfec68}{U\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T}(col)~( Ustore-\/$>$colptr\mbox{[}col\mbox{]} )
+\item 
+\#define \hyperlink{slu__util_8h_acbd74ce05240823854ebfcd301f200e8}{U\+\_\+\+S\+U\+B}(\hyperlink{zfftnd_8c_a176b6f11ba11cfee9ae8d20c83e1266b}{ptr})~( Ustore-\/$>$rowind\mbox{[}\hyperlink{zfftnd_8c_a176b6f11ba11cfee9ae8d20c83e1266b}{ptr}\mbox{]} )
+\item 
+\#define \hyperlink{slu__util_8h_a2b7cf2a3641be7b89138615764d60ba3}{E\+M\+P\+T\+Y}~(-\/1)
+\item 
+\#define \hyperlink{slu__util_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+S\+E}~0
+\item 
+\#define \hyperlink{slu__util_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\+R\+U\+E}~1
+\item 
+\#define \hyperlink{slu__util_8h_ab9ccb8b9963ca083d7f36f5d3acc5744}{N\+O\+\_\+\+M\+E\+M\+T\+Y\+P\+E}
+\item 
+\#define \hyperlink{slu__util_8h_ad3754689b2ab3abc8b3afe4facdd76f3}{Glu\+Int\+Array}(\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})~(5 $\ast$ (\hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}) + 5)
+\item 
+\#define \hyperlink{slu__util_8h_aaa1b4d4ec24548decf1f389060a7d878}{N\+O\+D\+R\+O\+P}~( 0x0000 )
+\item 
+\#define \hyperlink{slu__util_8h_afb51a22d4d20fb9e39acd95129344997}{D\+R\+O\+P\+\_\+\+B\+A\+S\+I\+C}~( 0x0001 )  /$\ast$ I\+L\+U(tau) $\ast$/
+\item 
+\#define \hyperlink{slu__util_8h_a34a649fce94fb9a61524f3b18161aef8}{D\+R\+O\+P\+\_\+\+P\+R\+O\+W\+S}~( 0x0002 )  /$\ast$ I\+L\+U\+T\+P\+: keep p maximum rows $\ast$/
+\item 
+\#define \hyperlink{slu__util_8h_a741f1ee3e9529b1384492787d09a0c70}{D\+R\+O\+P\+\_\+\+C\+O\+L\+U\+M\+N}
+\item 
+\#define \hyperlink{slu__util_8h_ae56780c0f0b5afa706231cbe2b1ee82f}{D\+R\+O\+P\+\_\+\+A\+R\+E\+A}
+\item 
+\#define \hyperlink{slu__util_8h_a72349305248ecb540ca43f404884bef5}{D\+R\+O\+P\+\_\+\+S\+E\+C\+O\+N\+D\+A\+R\+Y}~( 0x000\+E )  /$\ast$ P\+R\+O\+W\+S $\vert$ C\+O\+L\+U\+M\+N $\vert$ A\+R\+E\+A $\ast$/
+\item 
+\#define \hyperlink{slu__util_8h_ac6089af2caea8fef6aa343cb16fd1646}{D\+R\+O\+P\+\_\+\+D\+Y\+N\+A\+M\+I\+C}~( 0x0010 )  /$\ast$ adaptive tau $\ast$/
+\item 
+\#define \hyperlink{slu__util_8h_aea78484190db0dd61d91743797bf6bfe}{D\+R\+O\+P\+\_\+\+I\+N\+T\+E\+R\+P}~( 0x0100 )  /$\ast$ use interpolation $\ast$/
+\item 
+\#define \hyperlink{slu__util_8h_a90dea7f830398b8c30be7488e24089bb}{M\+I\+L\+U\+\_\+\+A\+L\+P\+H\+A}~(1.\+0e-\/2) /$\ast$ multiple of drop\+\_\+sum to be added to diagonal $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef float \hyperlink{slu__util_8h_aaae6020bb33e780ff6edbd4e45ce08ac}{flops\+\_\+t}
+\item 
+typedef unsigned char \hyperlink{slu__util_8h_a30f473cd214dc43270f7a4d54b2887d2}{Logical}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structe__node}{e\+\_\+node} \hyperlink{slu__util_8h_ac071de4d8a39e15f13c92a5f60bc16f0}{Exp\+Header}
+\begin{DoxyCompactList}\small\item\em Headers for 4 types of dynamatically managed memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{slu__util_8h_a2c43be55861c6e4ee5b806ac16cc382c}{Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\begin{DoxyCompactList}\small\item\em Deallocate the structure pointing to the actual storage of the matrix. \end{DoxyCompactList}\item 
+void \hyperlink{slu__util_8h_a4257e4d9cca1db286b73154d81ec3880}{Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\item 
+void \hyperlink{slu__util_8h_a98cbb427c29a6be1760288b63857bc12}{Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\item 
+void \hyperlink{slu__util_8h_ade01201644d38ff78cd1824ff2e5022b}{Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\item 
+void \hyperlink{slu__util_8h_a4de38e1c0ef18dd0791cb206c7f5348f}{Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classA}{A} is of type Stype==N\+C\+P. \end{DoxyCompactList}\item 
+void \hyperlink{slu__util_8h_a9f7e658f2e17e08b2d88fadc11f2b437}{Destroy\+\_\+\+Dense\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classA}{A} is of type Stype==D\+N. \end{DoxyCompactList}\item 
+void \hyperlink{slu__util_8h_a263122009c4421188a14285798b7bff7}{get\+\_\+perm\+\_\+c} (int, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$)
+\item 
+void \hyperlink{slu__util_8h_a4792687285a879f7955029421ba99795}{set\+\_\+default\+\_\+options} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Set the default values for the options argument. \end{DoxyCompactList}\item 
+void \hyperlink{slu__util_8h_afce6cba2b855a4b046f6521d5dd1beb4}{ilu\+\_\+set\+\_\+default\+\_\+options} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Set the default values for the options argument for I\+L\+U. \end{DoxyCompactList}\item 
+void \hyperlink{slu__util_8h_adf9c573cbfb4520a5ea820702d27cfa5}{sp\+\_\+preorder} (\hyperlink{structsuperlu__options__t}{superlu\+\_\+options\+\_\+t} $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$, int $\ast$, int $\ast$, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$)
+\item 
+void \hyperlink{slu__util_8h_abd38b081866ed2c3e4959c4c0560913c}{superlu\+\_\+abort\+\_\+and\+\_\+exit} (char $\ast$)
+\begin{DoxyCompactList}\small\item\em Global statistics variale. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{slu__util_8h_a7ec97fcbe08a55ad56048a43919d6843}{superlu\+\_\+malloc} (size\+\_\+t)
+\item 
+int $\ast$ \hyperlink{slu__util_8h_ac5e3eb5cdc6962ab8238dd3e663bea67}{int\+Malloc} (int)
+\item 
+int $\ast$ \hyperlink{slu__util_8h_af7f89277b471647ea6b3581ca11becd3}{int\+Calloc} (int)
+\item 
+void \hyperlink{slu__util_8h_a1745be2114a7b66ea7632292b03cb3ce}{superlu\+\_\+free} (void $\ast$)
+\item 
+void \hyperlink{slu__util_8h_aeaaa4cb43f415698df4f891e1a1afaa4}{Set\+I\+Work} (int, int, int, int $\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$, int $\ast$$\ast$)
+\begin{DoxyCompactList}\small\item\em Set up pointers for integer working arrays. \end{DoxyCompactList}\item 
+int \hyperlink{slu__util_8h_af8198f26bef3c82fbb8601fc5a8e0d9e}{sp\+\_\+coletree} (int $\ast$, int $\ast$, int $\ast$, int, int, int $\ast$)
+\item 
+void \hyperlink{slu__util_8h_aa9dcebe0d2709ff7ab053c3acb8f35af}{relax\+\_\+snode} (const int, int $\ast$, const int, int $\ast$, int $\ast$)
+\item 
+void \hyperlink{slu__util_8h_ade3f23f612ced035318a59623b6925e5}{heap\+\_\+relax\+\_\+snode} (const int, int $\ast$, const int, int $\ast$, int $\ast$)
+\item 
+int \hyperlink{slu__util_8h_a23057ebe27329fd8fc65970c7c3e2b3f}{mark\+\_\+relax} (int, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$, int $\ast$)
+\item 
+void \hyperlink{slu__util_8h_a2212f489d8bb77b74c61e0a7442796a8}{ilu\+\_\+relax\+\_\+snode} (const int, int $\ast$, const int, int $\ast$, int $\ast$, int $\ast$)
+\item 
+void \hyperlink{slu__util_8h_acd37f89f3fd101b2860c26b45bd4c2a1}{ilu\+\_\+heap\+\_\+relax\+\_\+snode} (const int, int $\ast$, const int, int $\ast$, int $\ast$, int $\ast$)
+\item 
+void \hyperlink{slu__util_8h_ab71db926d60d7b8fd739df197b766366}{resetrep\+\_\+col} (const int, const int $\ast$, int $\ast$)
+\begin{DoxyCompactList}\small\item\em Reset repfnz\mbox{[}\mbox{]} for the current column. \end{DoxyCompactList}\item 
+int \hyperlink{slu__util_8h_a0bccee6dda29384503240026c062bfc6}{spcoletree} (int $\ast$, int $\ast$, int $\ast$, int, int, int $\ast$)
+\item 
+int $\ast$ \hyperlink{slu__util_8h_a44084fde835d2ccaa25e9fd942a72b7a}{Tree\+Postorder} (int, int $\ast$)
+\item 
+double \hyperlink{slu__util_8h_a0c6777573bbfe81917cd381e0090d355}{Super\+L\+U\+\_\+timer\+\_\+} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classTimer}{Timer} function. \end{DoxyCompactList}\item 
+int \hyperlink{slu__util_8h_a72be96e75e58564c4322ef9ef73ca65f}{sp\+\_\+ienv} (int)
+\item 
+int \hyperlink{slu__util_8h_a4d9eb0e1ec853020a42e867b4ff3018c}{lsame\+\_\+} (char $\ast$, char $\ast$)
+\item 
+int \hyperlink{slu__util_8h_a8ddc46fddd8c0c53fc9e77fefdf9a456}{xerbla\+\_\+} (char $\ast$, int $\ast$)
+\item 
+void \hyperlink{slu__util_8h_ab0dfb6551008bcad5e758defdbd13006}{ifill} (int $\ast$, int, int)
+\begin{DoxyCompactList}\small\item\em Fills an integer array with a given value. \end{DoxyCompactList}\item 
+void \hyperlink{slu__util_8h_a01ded59744addeefd265dbb22d9f37d0}{snode\+\_\+profile} (int, int $\ast$)
+\item 
+void \hyperlink{slu__util_8h_ac33e407326ae1dc222aee7ff08f322cf}{super\+\_\+stats} (int, int $\ast$)
+\item 
+void \hyperlink{slu__util_8h_a9e29ce75ab694aa7fdb32b7644f9da69}{check\+\_\+repfnz} (int, int, int, int $\ast$)
+\begin{DoxyCompactList}\small\item\em Check whether repfnz\mbox{[}\mbox{]} == E\+M\+P\+T\+Y after reset. \end{DoxyCompactList}\item 
+void \hyperlink{slu__util_8h_a47292875a12f5601efa82a4350656db8}{Print\+Summ} (char $\ast$, int, int, int)
+\begin{DoxyCompactList}\small\item\em Print a summary of the testing results. \end{DoxyCompactList}\item 
+void \hyperlink{slu__util_8h_a3b979ab4f4e75bdc1b89106dde6c8d72}{Stat\+Init} (\hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$)
+\item 
+void \hyperlink{slu__util_8h_aa157fecae472b8ef5ce79bd59876099d}{Stat\+Print} (\hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$)
+\item 
+void \hyperlink{slu__util_8h_ab0fb3345d479a7ac24f75f0e64bdff4b}{Stat\+Free} (\hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$)
+\item 
+void \hyperlink{slu__util_8h_a48208ca68e95c765c0c55c12b196d79e}{print\+\_\+panel\+\_\+seg} (int, int, int, int, int $\ast$, int $\ast$)
+\begin{DoxyCompactList}\small\item\em Diagnostic print of segment info after panel\+\_\+dfs(). \end{DoxyCompactList}\item 
+int \hyperlink{slu__util_8h_a8a3ba6cbe163f9c12f6f10ee8ba98fc7}{print\+\_\+int\+\_\+vec} (char $\ast$, int, int $\ast$)
+\item 
+int \hyperlink{slu__util_8h_ade363dcb4babb66fa0e5f51bd2e6e42c}{slu\+\_\+\+Print\+Int10} (char $\ast$, int, int $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utility header file. 
+
+-- Super\+L\+U routine (version 4.\+1) -- Univ. of California Berkeley, Xerox Palo Alto Research Center, and Lawrence Berkeley National Lab. November, 2010 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{slu__util_8h_aa4b133a54309e2c6e4ba69f3ff1141c2}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!A\+B\+O\+R\+T@{A\+B\+O\+R\+T}}
+\index{A\+B\+O\+R\+T@{A\+B\+O\+R\+T}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{A\+B\+O\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+B\+O\+R\+T(
+\begin{DoxyParamCaption}
+\item[{}]{err\+\_\+msg}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_aa4b133a54309e2c6e4ba69f3ff1141c2}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{ \textcolor{keywordtype}{char} \hyperlink{namespaceping_a546aa4b8583f8e76cd3fa14a84836419}{msg}[256];\(\backslash\)
+   sprintf(msg,\textcolor{stringliteral}{"%s at line %d in file %s\(\backslash\)n"},err\_msg,\_\_LINE\_\_, \_\_FILE\_\_);\hyperlink{scipy__slu__config_8h_a61d97ab2ae88faedc6595173a1c8f4a8}{\(\backslash\)}
+\hyperlink{scipy__slu__config_8h_a61d97ab2ae88faedc6595173a1c8f4a8}{   USER\_ABORT}(msg); \}
+\end{DoxyCode}
+\hypertarget{slu__util_8h_a35401f732a50d2a0af33db1ea224b1f6}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!C\+H\+E\+C\+K\+\_\+\+M\+A\+L\+L\+O\+C@{C\+H\+E\+C\+K\+\_\+\+M\+A\+L\+L\+O\+C}}
+\index{C\+H\+E\+C\+K\+\_\+\+M\+A\+L\+L\+O\+C@{C\+H\+E\+C\+K\+\_\+\+M\+A\+L\+L\+O\+C}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{C\+H\+E\+C\+K\+\_\+\+M\+A\+L\+L\+O\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+H\+E\+C\+K\+\_\+\+M\+A\+L\+L\+O\+C(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf where}}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a35401f732a50d2a0af33db1ea224b1f6}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                 \(\backslash\)
+    extern \textcolor{keywordtype}{int} superlu\_malloc\_total;        \(\backslash\)
+    printf(\textcolor{stringliteral}{"%s: malloc\_total %d Bytes\(\backslash\)n"},     \(\backslash\)
+       \hyperlink{where_8h_a95fd3fced8873daee52bfc2514e9671a}{where}, superlu\_malloc\_total); \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{slu__util_8h_ae56780c0f0b5afa706231cbe2b1ee82f}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!D\+R\+O\+P\+\_\+\+A\+R\+E\+A@{D\+R\+O\+P\+\_\+\+A\+R\+E\+A}}
+\index{D\+R\+O\+P\+\_\+\+A\+R\+E\+A@{D\+R\+O\+P\+\_\+\+A\+R\+E\+A}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{D\+R\+O\+P\+\_\+\+A\+R\+E\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+R\+O\+P\+\_\+\+A\+R\+E\+A}\label{slu__util_8h_ae56780c0f0b5afa706231cbe2b1ee82f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+( 0x0008 )  \textcolor{comment}{/* ILUTP: for j-th column, use}
+\textcolor{comment}{                          nnz(F(:,1:j)) / nnz(A(:,1:j))}
+\textcolor{comment}{                          to limit memory growth  */}
+\end{DoxyCode}
+\hypertarget{slu__util_8h_afb51a22d4d20fb9e39acd95129344997}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!D\+R\+O\+P\+\_\+\+B\+A\+S\+I\+C@{D\+R\+O\+P\+\_\+\+B\+A\+S\+I\+C}}
+\index{D\+R\+O\+P\+\_\+\+B\+A\+S\+I\+C@{D\+R\+O\+P\+\_\+\+B\+A\+S\+I\+C}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{D\+R\+O\+P\+\_\+\+B\+A\+S\+I\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+R\+O\+P\+\_\+\+B\+A\+S\+I\+C~( 0x0001 )  /$\ast$ I\+L\+U(tau) $\ast$/}\label{slu__util_8h_afb51a22d4d20fb9e39acd95129344997}
+\hypertarget{slu__util_8h_a741f1ee3e9529b1384492787d09a0c70}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!D\+R\+O\+P\+\_\+\+C\+O\+L\+U\+M\+N@{D\+R\+O\+P\+\_\+\+C\+O\+L\+U\+M\+N}}
+\index{D\+R\+O\+P\+\_\+\+C\+O\+L\+U\+M\+N@{D\+R\+O\+P\+\_\+\+C\+O\+L\+U\+M\+N}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{D\+R\+O\+P\+\_\+\+C\+O\+L\+U\+M\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+R\+O\+P\+\_\+\+C\+O\+L\+U\+M\+N}\label{slu__util_8h_a741f1ee3e9529b1384492787d09a0c70}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+( 0x0004 )  \textcolor{comment}{/* ILUTP: for j-th column, }
+\textcolor{comment}{                              p = gamma * nnz(A(:,j)) */}
+\end{DoxyCode}
+\hypertarget{slu__util_8h_ac6089af2caea8fef6aa343cb16fd1646}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!D\+R\+O\+P\+\_\+\+D\+Y\+N\+A\+M\+I\+C@{D\+R\+O\+P\+\_\+\+D\+Y\+N\+A\+M\+I\+C}}
+\index{D\+R\+O\+P\+\_\+\+D\+Y\+N\+A\+M\+I\+C@{D\+R\+O\+P\+\_\+\+D\+Y\+N\+A\+M\+I\+C}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{D\+R\+O\+P\+\_\+\+D\+Y\+N\+A\+M\+I\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+R\+O\+P\+\_\+\+D\+Y\+N\+A\+M\+I\+C~( 0x0010 )  /$\ast$ adaptive tau $\ast$/}\label{slu__util_8h_ac6089af2caea8fef6aa343cb16fd1646}
+\hypertarget{slu__util_8h_aea78484190db0dd61d91743797bf6bfe}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!D\+R\+O\+P\+\_\+\+I\+N\+T\+E\+R\+P@{D\+R\+O\+P\+\_\+\+I\+N\+T\+E\+R\+P}}
+\index{D\+R\+O\+P\+\_\+\+I\+N\+T\+E\+R\+P@{D\+R\+O\+P\+\_\+\+I\+N\+T\+E\+R\+P}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{D\+R\+O\+P\+\_\+\+I\+N\+T\+E\+R\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+R\+O\+P\+\_\+\+I\+N\+T\+E\+R\+P~( 0x0100 )  /$\ast$ use interpolation $\ast$/}\label{slu__util_8h_aea78484190db0dd61d91743797bf6bfe}
+\hypertarget{slu__util_8h_a34a649fce94fb9a61524f3b18161aef8}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!D\+R\+O\+P\+\_\+\+P\+R\+O\+W\+S@{D\+R\+O\+P\+\_\+\+P\+R\+O\+W\+S}}
+\index{D\+R\+O\+P\+\_\+\+P\+R\+O\+W\+S@{D\+R\+O\+P\+\_\+\+P\+R\+O\+W\+S}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{D\+R\+O\+P\+\_\+\+P\+R\+O\+W\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+R\+O\+P\+\_\+\+P\+R\+O\+W\+S~( 0x0002 )  /$\ast$ I\+L\+U\+T\+P\+: keep p maximum rows $\ast$/}\label{slu__util_8h_a34a649fce94fb9a61524f3b18161aef8}
+\hypertarget{slu__util_8h_a72349305248ecb540ca43f404884bef5}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!D\+R\+O\+P\+\_\+\+S\+E\+C\+O\+N\+D\+A\+R\+Y@{D\+R\+O\+P\+\_\+\+S\+E\+C\+O\+N\+D\+A\+R\+Y}}
+\index{D\+R\+O\+P\+\_\+\+S\+E\+C\+O\+N\+D\+A\+R\+Y@{D\+R\+O\+P\+\_\+\+S\+E\+C\+O\+N\+D\+A\+R\+Y}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{D\+R\+O\+P\+\_\+\+S\+E\+C\+O\+N\+D\+A\+R\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+R\+O\+P\+\_\+\+S\+E\+C\+O\+N\+D\+A\+R\+Y~( 0x000\+E )  /$\ast$ P\+R\+O\+W\+S $\vert$ C\+O\+L\+U\+M\+N $\vert$ A\+R\+E\+A $\ast$/}\label{slu__util_8h_a72349305248ecb540ca43f404884bef5}
+\hypertarget{slu__util_8h_a2b7cf2a3641be7b89138615764d60ba3}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!E\+M\+P\+T\+Y@{E\+M\+P\+T\+Y}}
+\index{E\+M\+P\+T\+Y@{E\+M\+P\+T\+Y}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{E\+M\+P\+T\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+M\+P\+T\+Y~(-\/1)}\label{slu__util_8h_a2b7cf2a3641be7b89138615764d60ba3}
+\hypertarget{slu__util_8h_aa93f0eb578d23995850d61f7d61c55c1}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!F\+A\+L\+S\+E@{F\+A\+L\+S\+E}}
+\index{F\+A\+L\+S\+E@{F\+A\+L\+S\+E}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{F\+A\+L\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+A\+L\+S\+E~0}\label{slu__util_8h_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{slu__util_8h_a745e85e3ef4b1267858c9df86608518c}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!F\+I\+R\+S\+T\+C\+O\+L\+\_\+\+O\+F\+\_\+\+S\+N\+O\+D\+E@{F\+I\+R\+S\+T\+C\+O\+L\+\_\+\+O\+F\+\_\+\+S\+N\+O\+D\+E}}
+\index{F\+I\+R\+S\+T\+C\+O\+L\+\_\+\+O\+F\+\_\+\+S\+N\+O\+D\+E@{F\+I\+R\+S\+T\+C\+O\+L\+\_\+\+O\+F\+\_\+\+S\+N\+O\+D\+E}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{F\+I\+R\+S\+T\+C\+O\+L\+\_\+\+O\+F\+\_\+\+S\+N\+O\+D\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+I\+R\+S\+T\+C\+O\+L\+\_\+\+O\+F\+\_\+\+S\+N\+O\+D\+E(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf i}}
+\end{DoxyParamCaption}
+)~(xsup\mbox{[}{\bf i}\mbox{]})}\label{slu__util_8h_a745e85e3ef4b1267858c9df86608518c}
+\hypertarget{slu__util_8h_ad3754689b2ab3abc8b3afe4facdd76f3}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Glu\+Int\+Array@{Glu\+Int\+Array}}
+\index{Glu\+Int\+Array@{Glu\+Int\+Array}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Glu\+Int\+Array}]{\setlength{\rightskip}{0pt plus 5cm}\#define Glu\+Int\+Array(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf n}}
+\end{DoxyParamCaption}
+)~(5 $\ast$ ({\bf n}) + 5)}\label{slu__util_8h_ad3754689b2ab3abc8b3afe4facdd76f3}
+\hypertarget{slu__util_8h_a0ea367a3afecd30b570d0a46cc819cdf}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!L\+\_\+\+F\+S\+T\+\_\+\+S\+U\+P\+C@{L\+\_\+\+F\+S\+T\+\_\+\+S\+U\+P\+C}}
+\index{L\+\_\+\+F\+S\+T\+\_\+\+S\+U\+P\+C@{L\+\_\+\+F\+S\+T\+\_\+\+S\+U\+P\+C}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{L\+\_\+\+F\+S\+T\+\_\+\+S\+U\+P\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+\_\+\+F\+S\+T\+\_\+\+S\+U\+P\+C(
+\begin{DoxyParamCaption}
+\item[{}]{superno}
+\end{DoxyParamCaption}
+)~( Lstore-\/$>$sup\+\_\+to\+\_\+col\mbox{[}superno\mbox{]} )}\label{slu__util_8h_a0ea367a3afecd30b570d0a46cc819cdf}
+\hypertarget{slu__util_8h_a79b13489e4cd00b09633e0c5e0be1b7c}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!L\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T@{L\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T}}
+\index{L\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T@{L\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{L\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T(
+\begin{DoxyParamCaption}
+\item[{}]{col}
+\end{DoxyParamCaption}
+)~( Lstore-\/$>$nzval\+\_\+colptr\mbox{[}col\mbox{]} )}\label{slu__util_8h_a79b13489e4cd00b09633e0c5e0be1b7c}
+\hypertarget{slu__util_8h_a8de2450f2d4cf12794954b63a319c423}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!L\+\_\+\+S\+U\+B@{L\+\_\+\+S\+U\+B}}
+\index{L\+\_\+\+S\+U\+B@{L\+\_\+\+S\+U\+B}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{L\+\_\+\+S\+U\+B}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+\_\+\+S\+U\+B(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf ptr}}
+\end{DoxyParamCaption}
+)~( Lstore-\/$>$rowind\mbox{[}{\bf ptr}\mbox{]} )}\label{slu__util_8h_a8de2450f2d4cf12794954b63a319c423}
+\hypertarget{slu__util_8h_a445a44f88349753bc17f28fbac4df382}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!L\+\_\+\+S\+U\+B\+\_\+\+S\+T\+A\+R\+T@{L\+\_\+\+S\+U\+B\+\_\+\+S\+T\+A\+R\+T}}
+\index{L\+\_\+\+S\+U\+B\+\_\+\+S\+T\+A\+R\+T@{L\+\_\+\+S\+U\+B\+\_\+\+S\+T\+A\+R\+T}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{L\+\_\+\+S\+U\+B\+\_\+\+S\+T\+A\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+\_\+\+S\+U\+B\+\_\+\+S\+T\+A\+R\+T(
+\begin{DoxyParamCaption}
+\item[{}]{col}
+\end{DoxyParamCaption}
+)~( Lstore-\/$>$rowind\+\_\+colptr\mbox{[}col\mbox{]} )}\label{slu__util_8h_a445a44f88349753bc17f28fbac4df382}
+\hypertarget{slu__util_8h_a90dea7f830398b8c30be7488e24089bb}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!M\+I\+L\+U\+\_\+\+A\+L\+P\+H\+A@{M\+I\+L\+U\+\_\+\+A\+L\+P\+H\+A}}
+\index{M\+I\+L\+U\+\_\+\+A\+L\+P\+H\+A@{M\+I\+L\+U\+\_\+\+A\+L\+P\+H\+A}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{M\+I\+L\+U\+\_\+\+A\+L\+P\+H\+A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+I\+L\+U\+\_\+\+A\+L\+P\+H\+A~(1.\+0e-\/2) /$\ast$ multiple of drop\+\_\+sum to be added to diagonal $\ast$/}\label{slu__util_8h_a90dea7f830398b8c30be7488e24089bb}
+\hypertarget{slu__util_8h_a9b7b2a5116ee487722b0967317ab6360}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!N\+O\+\_\+\+M\+A\+R\+K\+E\+R@{N\+O\+\_\+\+M\+A\+R\+K\+E\+R}}
+\index{N\+O\+\_\+\+M\+A\+R\+K\+E\+R@{N\+O\+\_\+\+M\+A\+R\+K\+E\+R}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{N\+O\+\_\+\+M\+A\+R\+K\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+\_\+\+M\+A\+R\+K\+E\+R~3}\label{slu__util_8h_a9b7b2a5116ee487722b0967317ab6360}
+\hypertarget{slu__util_8h_ab9ccb8b9963ca083d7f36f5d3acc5744}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!N\+O\+\_\+\+M\+E\+M\+T\+Y\+P\+E@{N\+O\+\_\+\+M\+E\+M\+T\+Y\+P\+E}}
+\index{N\+O\+\_\+\+M\+E\+M\+T\+Y\+P\+E@{N\+O\+\_\+\+M\+E\+M\+T\+Y\+P\+E}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{N\+O\+\_\+\+M\+E\+M\+T\+Y\+P\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+\_\+\+M\+E\+M\+T\+Y\+P\+E}\label{slu__util_8h_ab9ccb8b9963ca083d7f36f5d3acc5744}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+4      \textcolor{comment}{/* 0: lusup;}
+\textcolor{comment}{                  1: ucol;}
+\textcolor{comment}{                  2: lsub;}
+\textcolor{comment}{                  3: usub */}
+\end{DoxyCode}
+\hypertarget{slu__util_8h_aaa1b4d4ec24548decf1f389060a7d878}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!N\+O\+D\+R\+O\+P@{N\+O\+D\+R\+O\+P}}
+\index{N\+O\+D\+R\+O\+P@{N\+O\+D\+R\+O\+P}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{N\+O\+D\+R\+O\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+D\+R\+O\+P~( 0x0000 )}\label{slu__util_8h_aaa1b4d4ec24548decf1f389060a7d878}
+\hypertarget{slu__util_8h_a06193b28f40a4779ae7737711642eb45}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!N\+U\+M\+\_\+\+T\+E\+M\+P\+V@{N\+U\+M\+\_\+\+T\+E\+M\+P\+V}}
+\index{N\+U\+M\+\_\+\+T\+E\+M\+P\+V@{N\+U\+M\+\_\+\+T\+E\+M\+P\+V}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{N\+U\+M\+\_\+\+T\+E\+M\+P\+V}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+U\+M\+\_\+\+T\+E\+M\+P\+V(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf m}, }
+\item[{}]{w, }
+\item[{}]{{\bf t}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~( {\bf S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+X}({\bf m}, ({\bf t} + {\bf b})$\ast$w) )}\label{slu__util_8h_a06193b28f40a4779ae7737711642eb45}
+\hypertarget{slu__util_8h_a9672c5511c3efd9467e4d375a347c192}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!S\+U\+P\+E\+R\+L\+U\+\_\+\+F\+R\+E\+E@{S\+U\+P\+E\+R\+L\+U\+\_\+\+F\+R\+E\+E}}
+\index{S\+U\+P\+E\+R\+L\+U\+\_\+\+F\+R\+E\+E@{S\+U\+P\+E\+R\+L\+U\+\_\+\+F\+R\+E\+E}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{S\+U\+P\+E\+R\+L\+U\+\_\+\+F\+R\+E\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+P\+E\+R\+L\+U\+\_\+\+F\+R\+E\+E(
+\begin{DoxyParamCaption}
+\item[{}]{addr}
+\end{DoxyParamCaption}
+)~{\bf U\+S\+E\+R\+\_\+\+F\+R\+E\+E}(addr)}\label{slu__util_8h_a9672c5511c3efd9467e4d375a347c192}
+\hypertarget{slu__util_8h_a55a5ed83733c30850c14cc7b3f922a54}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+L\+L\+O\+C@{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+L\+L\+O\+C}}
+\index{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+L\+L\+O\+C@{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+L\+L\+O\+C}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+L\+L\+O\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+L\+L\+O\+C(
+\begin{DoxyParamCaption}
+\item[{}]{size}
+\end{DoxyParamCaption}
+)~{\bf U\+S\+E\+R\+\_\+\+M\+A\+L\+L\+O\+C}(size)}\label{slu__util_8h_a55a5ed83733c30850c14cc7b3f922a54}
+\hypertarget{slu__util_8h_adca8259e9d345c7cbaaa0608a1acdfd4}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+X@{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+X}}
+\index{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+X@{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+X}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+A\+X(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~( ({\bf x}) $>$ (y) ? ({\bf x}) \+: (y) )}\label{slu__util_8h_adca8259e9d345c7cbaaa0608a1acdfd4}
+\hypertarget{slu__util_8h_a7147dd5df1048562cd4ab83e9fd808d9}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+I\+N@{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+I\+N}}
+\index{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+I\+N@{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+I\+N}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+P\+E\+R\+L\+U\+\_\+\+M\+I\+N(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)~( ({\bf x}) $<$ (y) ? ({\bf x}) \+: (y) )}\label{slu__util_8h_a7147dd5df1048562cd4ab83e9fd808d9}
+\hypertarget{slu__util_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!T\+R\+U\+E@{T\+R\+U\+E}}
+\index{T\+R\+U\+E@{T\+R\+U\+E}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{T\+R\+U\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+R\+U\+E~1}\label{slu__util_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
+\hypertarget{slu__util_8h_ac641190b1a047ebcf224372cb3dfec68}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!U\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T@{U\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T}}
+\index{U\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T@{U\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{U\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+\_\+\+N\+Z\+\_\+\+S\+T\+A\+R\+T(
+\begin{DoxyParamCaption}
+\item[{}]{col}
+\end{DoxyParamCaption}
+)~( Ustore-\/$>$colptr\mbox{[}col\mbox{]} )}\label{slu__util_8h_ac641190b1a047ebcf224372cb3dfec68}
+\hypertarget{slu__util_8h_acbd74ce05240823854ebfcd301f200e8}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!U\+\_\+\+S\+U\+B@{U\+\_\+\+S\+U\+B}}
+\index{U\+\_\+\+S\+U\+B@{U\+\_\+\+S\+U\+B}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{U\+\_\+\+S\+U\+B}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+\_\+\+S\+U\+B(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf ptr}}
+\end{DoxyParamCaption}
+)~( Ustore-\/$>$rowind\mbox{[}{\bf ptr}\mbox{]} )}\label{slu__util_8h_acbd74ce05240823854ebfcd301f200e8}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{slu__util_8h_ac071de4d8a39e15f13c92a5f60bc16f0}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Exp\+Header@{Exp\+Header}}
+\index{Exp\+Header@{Exp\+Header}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Exp\+Header}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf e\+\_\+node}  {\bf Exp\+Header}}\label{slu__util_8h_ac071de4d8a39e15f13c92a5f60bc16f0}
+
+
+Headers for 4 types of dynamatically managed memory. 
+
+\hypertarget{slu__util_8h_aaae6020bb33e780ff6edbd4e45ce08ac}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!flops\+\_\+t@{flops\+\_\+t}}
+\index{flops\+\_\+t@{flops\+\_\+t}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{flops\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef float {\bf flops\+\_\+t}}\label{slu__util_8h_aaae6020bb33e780ff6edbd4e45ce08ac}
+\hypertarget{slu__util_8h_a30f473cd214dc43270f7a4d54b2887d2}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Logical@{Logical}}
+\index{Logical@{Logical}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Logical}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char {\bf Logical}}\label{slu__util_8h_a30f473cd214dc43270f7a4d54b2887d2}
+
+
+\subsection{Function Documentation}
+\hypertarget{slu__util_8h_a9e29ce75ab694aa7fdb32b7644f9da69}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!check\+\_\+repfnz@{check\+\_\+repfnz}}
+\index{check\+\_\+repfnz@{check\+\_\+repfnz}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{check\+\_\+repfnz}]{\setlength{\rightskip}{0pt plus 5cm}void check\+\_\+repfnz (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a9e29ce75ab694aa7fdb32b7644f9da69}
+
+
+Check whether repfnz\mbox{[}\mbox{]} == E\+M\+P\+T\+Y after reset. 
+
+\hypertarget{slu__util_8h_a4257e4d9cca1db286b73154d81ec3880}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix@{Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix}}
+\index{Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix@{Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Comp\+Col\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a4257e4d9cca1db286b73154d81ec3880}
+\hypertarget{slu__util_8h_a4de38e1c0ef18dd0791cb206c7f5348f}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted@{Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted}}
+\index{Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted@{Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Comp\+Col\+\_\+\+Permuted (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a4de38e1c0ef18dd0791cb206c7f5348f}
+
+
+\hyperlink{classA}{A} is of type Stype==N\+C\+P. 
+
+\hypertarget{slu__util_8h_a98cbb427c29a6be1760288b63857bc12}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix@{Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix}}
+\index{Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix@{Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Comp\+Row\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a98cbb427c29a6be1760288b63857bc12}
+\hypertarget{slu__util_8h_a9f7e658f2e17e08b2d88fadc11f2b437}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Destroy\+\_\+\+Dense\+\_\+\+Matrix@{Destroy\+\_\+\+Dense\+\_\+\+Matrix}}
+\index{Destroy\+\_\+\+Dense\+\_\+\+Matrix@{Destroy\+\_\+\+Dense\+\_\+\+Matrix}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Destroy\+\_\+\+Dense\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Dense\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a9f7e658f2e17e08b2d88fadc11f2b437}
+
+
+\hyperlink{classA}{A} is of type Stype==D\+N. 
+
+\hypertarget{slu__util_8h_a2c43be55861c6e4ee5b806ac16cc382c}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store@{Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store}}
+\index{Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store@{Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Super\+Matrix\+\_\+\+Store (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a2c43be55861c6e4ee5b806ac16cc382c}
+
+
+Deallocate the structure pointing to the actual storage of the matrix. 
+
+\hypertarget{slu__util_8h_ade01201644d38ff78cd1824ff2e5022b}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix@{Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix}}
+\index{Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix@{Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Destroy\+\_\+\+Super\+Node\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_ade01201644d38ff78cd1824ff2e5022b}
+\hypertarget{slu__util_8h_a263122009c4421188a14285798b7bff7}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!get\+\_\+perm\+\_\+c@{get\+\_\+perm\+\_\+c}}
+\index{get\+\_\+perm\+\_\+c@{get\+\_\+perm\+\_\+c}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{get\+\_\+perm\+\_\+c}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+perm\+\_\+c (
+\begin{DoxyParamCaption}
+\item[{int}]{ispec, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+c}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a263122009c4421188a14285798b7bff7}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}GET\_PERM\_C obtains a permutation matrix Pc, by applying the multiple
+minimum degree ordering code by Joseph Liu to matrix \hyperlink{classA}{A}'*A or A+A'.
+or using approximate minimum degree column ordering by Davis et. al.
+The LU factorization of A*Pc tends to have less fill than the LU 
+factorization of \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}ispec   (input) int
+        Specifies the type of column ordering to reduce fill:
+        = 1: minimum degree on the structure of A^T * \hyperlink{classA}{A}
+        = 2: minimum degree on the structure of A^T + \hyperlink{classA}{A}
+        = 3: approximate minimum degree for unsymmetric matrices
+        If ispec == 0, the natural ordering (i.e., Pc = I) is returned.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}       (input) SuperMatrix*
+        \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} in A*X=B, of dimension (A->nrow, A->ncol). The number
+        of the linear equations is A->nrow. Currently, the type of \hyperlink{classA}{A} 
+        can be: Stype = NC; Dtype = \_D; Mtype = GE. In the future,
+        more general \hyperlink{classA}{A} can be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (output) int*
+    Column permutation vector of size A->ncol, which defines the 
+        permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+        in position j in A*Pc.
+\end{DoxyPre}
+ \hypertarget{slu__util_8h_ade3f23f612ced035318a59623b6925e5}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!heap\+\_\+relax\+\_\+snode@{heap\+\_\+relax\+\_\+snode}}
+\index{heap\+\_\+relax\+\_\+snode@{heap\+\_\+relax\+\_\+snode}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{heap\+\_\+relax\+\_\+snode}]{\setlength{\rightskip}{0pt plus 5cm}void heap\+\_\+relax\+\_\+snode (
+\begin{DoxyParamCaption}
+\item[{const int}]{n, }
+\item[{int $\ast$}]{et, }
+\item[{const int}]{relax\+\_\+columns, }
+\item[{int $\ast$}]{descendants, }
+\item[{int $\ast$}]{relax\+\_\+end}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_ade3f23f612ced035318a59623b6925e5}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+   \hyperlink{relax__snode_8c_ad70bc12cb9031ab8aba4a37a18be46e3}{relax\_snode()} - Identify the initial relaxed supernodes, assuming that 
+   the matrix has been reordered according to the postorder of the etree.
+\end{DoxyPre}
+ \hypertarget{slu__util_8h_ab0dfb6551008bcad5e758defdbd13006}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!ifill@{ifill}}
+\index{ifill@{ifill}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{ifill}]{\setlength{\rightskip}{0pt plus 5cm}void ifill (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_ab0dfb6551008bcad5e758defdbd13006}
+
+
+Fills an integer array with a given value. 
+
+\hypertarget{slu__util_8h_acd37f89f3fd101b2860c26b45bd4c2a1}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!ilu\+\_\+heap\+\_\+relax\+\_\+snode@{ilu\+\_\+heap\+\_\+relax\+\_\+snode}}
+\index{ilu\+\_\+heap\+\_\+relax\+\_\+snode@{ilu\+\_\+heap\+\_\+relax\+\_\+snode}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{ilu\+\_\+heap\+\_\+relax\+\_\+snode}]{\setlength{\rightskip}{0pt plus 5cm}void ilu\+\_\+heap\+\_\+relax\+\_\+snode (
+\begin{DoxyParamCaption}
+\item[{const int}]{n, }
+\item[{int $\ast$}]{et, }
+\item[{const int}]{relax\+\_\+columns, }
+\item[{int $\ast$}]{descendants, }
+\item[{int $\ast$}]{relax\+\_\+end, }
+\item[{int $\ast$}]{relax\+\_\+fsupc}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_acd37f89f3fd101b2860c26b45bd4c2a1}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+   \hyperlink{ilu__heap__relax__snode_8c_aac1a978dda622cdb58c3c2eaee4b4030}{ilu\_heap\_relax\_snode()} - Identify the initial relaxed supernodes,
+   assuming that the matrix has been reordered according to the postorder
+   of the etree.
+\end{DoxyPre}
+ \hypertarget{slu__util_8h_a2212f489d8bb77b74c61e0a7442796a8}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!ilu\+\_\+relax\+\_\+snode@{ilu\+\_\+relax\+\_\+snode}}
+\index{ilu\+\_\+relax\+\_\+snode@{ilu\+\_\+relax\+\_\+snode}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{ilu\+\_\+relax\+\_\+snode}]{\setlength{\rightskip}{0pt plus 5cm}void ilu\+\_\+relax\+\_\+snode (
+\begin{DoxyParamCaption}
+\item[{const int}]{n, }
+\item[{int $\ast$}]{et, }
+\item[{const int}]{relax\+\_\+columns, }
+\item[{int $\ast$}]{descendants, }
+\item[{int $\ast$}]{relax\+\_\+end, }
+\item[{int $\ast$}]{relax\+\_\+fsupc}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a2212f489d8bb77b74c61e0a7442796a8}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+   \hyperlink{ilu__relax__snode_8c_ae0e2bbb8507d800766030635a3bd5a7e}{ilu\_relax\_snode()} - Identify the initial relaxed supernodes, assuming
+   that the matrix has been reordered according to the postorder of the
+   etree.
+\end{DoxyPre}
+ \hypertarget{slu__util_8h_afce6cba2b855a4b046f6521d5dd1beb4}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!ilu\+\_\+set\+\_\+default\+\_\+options@{ilu\+\_\+set\+\_\+default\+\_\+options}}
+\index{ilu\+\_\+set\+\_\+default\+\_\+options@{ilu\+\_\+set\+\_\+default\+\_\+options}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{ilu\+\_\+set\+\_\+default\+\_\+options}]{\setlength{\rightskip}{0pt plus 5cm}void ilu\+\_\+set\+\_\+default\+\_\+options (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_afce6cba2b855a4b046f6521d5dd1beb4}
+
+
+Set the default values for the options argument for I\+L\+U. 
+
+\hypertarget{slu__util_8h_af7f89277b471647ea6b3581ca11becd3}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!int\+Calloc@{int\+Calloc}}
+\index{int\+Calloc@{int\+Calloc}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{int\+Calloc}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ int\+Calloc (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_af7f89277b471647ea6b3581ca11becd3}
+\hypertarget{slu__util_8h_ac5e3eb5cdc6962ab8238dd3e663bea67}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!int\+Malloc@{int\+Malloc}}
+\index{int\+Malloc@{int\+Malloc}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{int\+Malloc}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ int\+Malloc (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_ac5e3eb5cdc6962ab8238dd3e663bea67}
+\hypertarget{slu__util_8h_a4d9eb0e1ec853020a42e867b4ff3018c}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!lsame\+\_\+@{lsame\+\_\+}}
+\index{lsame\+\_\+@{lsame\+\_\+}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{lsame\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int lsame\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ca, }
+\item[{char $\ast$}]{cb}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a4d9eb0e1ec853020a42e867b4ff3018c}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    LSAME returns .TRUE. if CA is the same letter as CB regardless of case.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    CA      (input) CHARACTER*1   
+    CB      (input) CHARACTER*1   
+            CA and CB specify the single characters to be compared.   
+
+
+
+\end{DoxyPre}
+ \hypertarget{slu__util_8h_a23057ebe27329fd8fc65970c7c3e2b3f}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!mark\+\_\+relax@{mark\+\_\+relax}}
+\index{mark\+\_\+relax@{mark\+\_\+relax}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{mark\+\_\+relax}]{\setlength{\rightskip}{0pt plus 5cm}int mark\+\_\+relax (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a23057ebe27329fd8fc65970c7c3e2b3f}
+\hypertarget{slu__util_8h_a8a3ba6cbe163f9c12f6f10ee8ba98fc7}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!print\+\_\+int\+\_\+vec@{print\+\_\+int\+\_\+vec}}
+\index{print\+\_\+int\+\_\+vec@{print\+\_\+int\+\_\+vec}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{print\+\_\+int\+\_\+vec}]{\setlength{\rightskip}{0pt plus 5cm}int print\+\_\+int\+\_\+vec (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a8a3ba6cbe163f9c12f6f10ee8ba98fc7}
+\hypertarget{slu__util_8h_a48208ca68e95c765c0c55c12b196d79e}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!print\+\_\+panel\+\_\+seg@{print\+\_\+panel\+\_\+seg}}
+\index{print\+\_\+panel\+\_\+seg@{print\+\_\+panel\+\_\+seg}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{print\+\_\+panel\+\_\+seg}]{\setlength{\rightskip}{0pt plus 5cm}void print\+\_\+panel\+\_\+seg (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a48208ca68e95c765c0c55c12b196d79e}
+
+
+Diagnostic print of segment info after panel\+\_\+dfs(). 
+
+\hypertarget{slu__util_8h_a47292875a12f5601efa82a4350656db8}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Print\+Summ@{Print\+Summ}}
+\index{Print\+Summ@{Print\+Summ}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Print\+Summ}]{\setlength{\rightskip}{0pt plus 5cm}void Print\+Summ (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a47292875a12f5601efa82a4350656db8}
+
+
+Print a summary of the testing results. 
+
+\hypertarget{slu__util_8h_aa9dcebe0d2709ff7ab053c3acb8f35af}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!relax\+\_\+snode@{relax\+\_\+snode}}
+\index{relax\+\_\+snode@{relax\+\_\+snode}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{relax\+\_\+snode}]{\setlength{\rightskip}{0pt plus 5cm}void relax\+\_\+snode (
+\begin{DoxyParamCaption}
+\item[{const int}]{n, }
+\item[{int $\ast$}]{et, }
+\item[{const int}]{relax\+\_\+columns, }
+\item[{int $\ast$}]{descendants, }
+\item[{int $\ast$}]{relax\+\_\+end}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_aa9dcebe0d2709ff7ab053c3acb8f35af}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}
+   \hyperlink{relax__snode_8c_ad70bc12cb9031ab8aba4a37a18be46e3}{relax\_snode()} - Identify the initial relaxed supernodes, assuming that 
+   the matrix has been reordered according to the postorder of the etree.
+\end{DoxyPre}
+ \hypertarget{slu__util_8h_ab71db926d60d7b8fd739df197b766366}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!resetrep\+\_\+col@{resetrep\+\_\+col}}
+\index{resetrep\+\_\+col@{resetrep\+\_\+col}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{resetrep\+\_\+col}]{\setlength{\rightskip}{0pt plus 5cm}void resetrep\+\_\+col (
+\begin{DoxyParamCaption}
+\item[{const int}]{, }
+\item[{const int $\ast$}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_ab71db926d60d7b8fd739df197b766366}
+
+
+Reset repfnz\mbox{[}\mbox{]} for the current column. 
+
+\hypertarget{slu__util_8h_a4792687285a879f7955029421ba99795}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!set\+\_\+default\+\_\+options@{set\+\_\+default\+\_\+options}}
+\index{set\+\_\+default\+\_\+options@{set\+\_\+default\+\_\+options}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{set\+\_\+default\+\_\+options}]{\setlength{\rightskip}{0pt plus 5cm}void set\+\_\+default\+\_\+options (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a4792687285a879f7955029421ba99795}
+
+
+Set the default values for the options argument. 
+
+\hypertarget{slu__util_8h_aeaaa4cb43f415698df4f891e1a1afaa4}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Set\+I\+Work@{Set\+I\+Work}}
+\index{Set\+I\+Work@{Set\+I\+Work}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Set\+I\+Work}]{\setlength{\rightskip}{0pt plus 5cm}void Set\+I\+Work (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{, }
+\item[{int $\ast$$\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_aeaaa4cb43f415698df4f891e1a1afaa4}
+
+
+Set up pointers for integer working arrays. 
+
+\hypertarget{slu__util_8h_ade363dcb4babb66fa0e5f51bd2e6e42c}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!slu\+\_\+\+Print\+Int10@{slu\+\_\+\+Print\+Int10}}
+\index{slu\+\_\+\+Print\+Int10@{slu\+\_\+\+Print\+Int10}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{slu\+\_\+\+Print\+Int10}]{\setlength{\rightskip}{0pt plus 5cm}int slu\+\_\+\+Print\+Int10 (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_ade363dcb4babb66fa0e5f51bd2e6e42c}
+\hypertarget{slu__util_8h_a01ded59744addeefd265dbb22d9f37d0}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!snode\+\_\+profile@{snode\+\_\+profile}}
+\index{snode\+\_\+profile@{snode\+\_\+profile}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{snode\+\_\+profile}]{\setlength{\rightskip}{0pt plus 5cm}void snode\+\_\+profile (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a01ded59744addeefd265dbb22d9f37d0}
+\hypertarget{slu__util_8h_af8198f26bef3c82fbb8601fc5a8e0d9e}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!sp\+\_\+coletree@{sp\+\_\+coletree}}
+\index{sp\+\_\+coletree@{sp\+\_\+coletree}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{sp\+\_\+coletree}]{\setlength{\rightskip}{0pt plus 5cm}int sp\+\_\+coletree (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_af8198f26bef3c82fbb8601fc5a8e0d9e}
+\hypertarget{slu__util_8h_a72be96e75e58564c4322ef9ef73ca65f}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!sp\+\_\+ienv@{sp\+\_\+ienv}}
+\index{sp\+\_\+ienv@{sp\+\_\+ienv}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{sp\+\_\+ienv}]{\setlength{\rightskip}{0pt plus 5cm}int sp\+\_\+ienv (
+\begin{DoxyParamCaption}
+\item[{int}]{ispec}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a72be96e75e58564c4322ef9ef73ca65f}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    \hyperlink{sp__ienv_8c_a21109476f1261abd6b256a393f5fd9e7}{sp\_ienv()} is inquired to choose machine-dependent parameters for the
+    local environment. See ISPEC for a description of the parameters.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    This version provides a set of parameters which should give good,   
+    but not optimal, performance on many of the currently available   
+    computers.  Users are encouraged to modify this subroutine to set   
+    the tuning parameters for their particular machine using the option   
+    and problem size information in the arguments.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}    ISPEC   (input) int
+            Specifies the parameter to be returned as the value of SP\_IENV.   
+            = 1: the panel size w; a panel consists of w consecutive
+             columns of matrix \hyperlink{classA}{A} in the process of Gaussian elimination.
+         The best value depends on machine's cache characters.
+            = 2: the relaxation parameter relax; if the number of
+             nodes (columns) in a subtree of the elimination tree is less
+         than relax, this subtree is considered as one supernode,
+         regardless of their row structures.
+            = 3: the maximum size for a supernode in complete LU;
+        = 4: the minimum row dimension for 2-D blocking to be used;
+        = 5: the minimum column dimension for 2-D blocking to be used;
+        = 6: the estimated fills factor for L and U, compared with \hyperlink{classA}{A};
+        = 7: the maximum size for a supernode in ILU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   (SP\_IENV) (output) int
+            >= 0: the value of the parameter specified by ISPEC   
+            < 0:  if SP\_IENV = -k, the k-th argument had an illegal value. 
+
+
+
+\end{DoxyPre}
+ \hypertarget{slu__util_8h_adf9c573cbfb4520a5ea820702d27cfa5}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!sp\+\_\+preorder@{sp\+\_\+preorder}}
+\index{sp\+\_\+preorder@{sp\+\_\+preorder}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{sp\+\_\+preorder}]{\setlength{\rightskip}{0pt plus 5cm}void sp\+\_\+preorder (
+\begin{DoxyParamCaption}
+\item[{{\bf superlu\+\_\+options\+\_\+t} $\ast$}]{options, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int $\ast$}]{perm\+\_\+c, }
+\item[{int $\ast$}]{etree, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A\+C}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_adf9c573cbfb4520a5ea820702d27cfa5}
+
+\begin{DoxyPre}
+\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{sp__preorder_8c_ad3a9a45f02456022c7eba79e17e215bc}{sp\_preorder()} permutes the columns of the original matrix. It performs
+the following steps:\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   1. Apply column permutation perm\_c[] to \hyperlink{classA}{A}'s column pointers to form AC;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   2. If options->Fact = DOFACT, then
+      (1) Compute column elimination tree etree[] of AC'AC;
+      (2) Post order etree[] to get a postordered elimination tree etree[],
+          and a postorder permutation post[];
+      (3) Apply post[] permutation to columns of AC;
+      (4) Overwrite perm\_c[] with the product perm\_c * post.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}options (input) superlu\_options\_t*
+        Specifies whether or not the elimination tree will be re-used.
+        If options->Fact == DOFACT, this means first time factor \hyperlink{classA}{A}, 
+        etree is computed, postered, and output.
+        Otherwise, re-factor \hyperlink{classA}{A}, etree is input, unchanged on exit.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\hyperlink{classA}{A}       (input) SuperMatrix*
+        \hyperlink{classMatrix}{Matrix} \hyperlink{classA}{A} in A*X=B, of dimension (A->nrow, A->ncol). The number
+        of the linear equations is A->nrow. Currently, the type of \hyperlink{classA}{A} can be:
+        Stype = NC or SLU\_NCP; Mtype = SLU\_GE.
+        In the future, more general \hyperlink{classA}{A} may be handled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}perm\_c  (input/output) int*
+    Column permutation vector of size A->ncol, which defines the 
+        permutation matrix Pc; perm\_c[i] = j means column i of \hyperlink{classA}{A} is 
+        in position j in A*Pc.
+        If options->Fact == DOFACT, perm\_c is both input and output.
+        On output, it is changed according to a postorder of etree.
+        Otherwise, perm\_c is input.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}etree   (input/output) int*
+        Elimination tree of Pc'*A'*A*Pc, dimension A->ncol.
+        If options->Fact == DOFACT, etree is an output argument,
+        otherwise it is an input argument.
+        Note: etree is a vector of parent pointers for a forest whose
+        vertices are the integers 0 to A->ncol-1; etree[root]==A->ncol.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}AC      (output) SuperMatrix*
+        The resulting matrix after applied the column permutation
+        perm\_c[] to matrix \hyperlink{classA}{A}. The type of AC can be:
+        Stype = SLU\_NCP; Dtype = A->Dtype; Mtype = SLU\_GE.
+\end{DoxyPre}
+ \hypertarget{slu__util_8h_a0bccee6dda29384503240026c062bfc6}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!spcoletree@{spcoletree}}
+\index{spcoletree@{spcoletree}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{spcoletree}]{\setlength{\rightskip}{0pt plus 5cm}int spcoletree (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int $\ast$}]{, }
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a0bccee6dda29384503240026c062bfc6}
+\hypertarget{slu__util_8h_ab0fb3345d479a7ac24f75f0e64bdff4b}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Stat\+Free@{Stat\+Free}}
+\index{Stat\+Free@{Stat\+Free}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Stat\+Free}]{\setlength{\rightskip}{0pt plus 5cm}void Stat\+Free (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_ab0fb3345d479a7ac24f75f0e64bdff4b}
+\hypertarget{slu__util_8h_a3b979ab4f4e75bdc1b89106dde6c8d72}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Stat\+Init@{Stat\+Init}}
+\index{Stat\+Init@{Stat\+Init}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Stat\+Init}]{\setlength{\rightskip}{0pt plus 5cm}void Stat\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a3b979ab4f4e75bdc1b89106dde6c8d72}
+\hypertarget{slu__util_8h_aa157fecae472b8ef5ce79bd59876099d}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Stat\+Print@{Stat\+Print}}
+\index{Stat\+Print@{Stat\+Print}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Stat\+Print}]{\setlength{\rightskip}{0pt plus 5cm}void Stat\+Print (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_aa157fecae472b8ef5ce79bd59876099d}
+\hypertarget{slu__util_8h_ac33e407326ae1dc222aee7ff08f322cf}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!super\+\_\+stats@{super\+\_\+stats}}
+\index{super\+\_\+stats@{super\+\_\+stats}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{super\+\_\+stats}]{\setlength{\rightskip}{0pt plus 5cm}void super\+\_\+stats (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_ac33e407326ae1dc222aee7ff08f322cf}
+\hypertarget{slu__util_8h_abd38b081866ed2c3e4959c4c0560913c}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!superlu\+\_\+abort\+\_\+and\+\_\+exit@{superlu\+\_\+abort\+\_\+and\+\_\+exit}}
+\index{superlu\+\_\+abort\+\_\+and\+\_\+exit@{superlu\+\_\+abort\+\_\+and\+\_\+exit}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{superlu\+\_\+abort\+\_\+and\+\_\+exit}]{\setlength{\rightskip}{0pt plus 5cm}void superlu\+\_\+abort\+\_\+and\+\_\+exit (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_abd38b081866ed2c3e4959c4c0560913c}
+
+
+Global statistics variale. 
+
+\hypertarget{slu__util_8h_a1745be2114a7b66ea7632292b03cb3ce}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!superlu\+\_\+free@{superlu\+\_\+free}}
+\index{superlu\+\_\+free@{superlu\+\_\+free}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{superlu\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}void superlu\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a1745be2114a7b66ea7632292b03cb3ce}
+\hypertarget{slu__util_8h_a7ec97fcbe08a55ad56048a43919d6843}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!superlu\+\_\+malloc@{superlu\+\_\+malloc}}
+\index{superlu\+\_\+malloc@{superlu\+\_\+malloc}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{superlu\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ superlu\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a7ec97fcbe08a55ad56048a43919d6843}
+Precision-\/independent memory-\/related routines. (Shared by \mbox{[}sdcz\mbox{]}\hyperlink{memory_8c}{memory.\+c}) \hypertarget{slu__util_8h_a0c6777573bbfe81917cd381e0090d355}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Super\+L\+U\+\_\+timer\+\_\+@{Super\+L\+U\+\_\+timer\+\_\+}}
+\index{Super\+L\+U\+\_\+timer\+\_\+@{Super\+L\+U\+\_\+timer\+\_\+}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Super\+L\+U\+\_\+timer\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}double Super\+L\+U\+\_\+timer\+\_\+ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a0c6777573bbfe81917cd381e0090d355}
+
+
+\hyperlink{classTimer}{Timer} function. 
+
+\hypertarget{slu__util_8h_a44084fde835d2ccaa25e9fd942a72b7a}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!Tree\+Postorder@{Tree\+Postorder}}
+\index{Tree\+Postorder@{Tree\+Postorder}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{Tree\+Postorder}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ Tree\+Postorder (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a44084fde835d2ccaa25e9fd942a72b7a}
+\hypertarget{slu__util_8h_a8ddc46fddd8c0c53fc9e77fefdf9a456}{}\index{slu\+\_\+util.\+h@{slu\+\_\+util.\+h}!xerbla\+\_\+@{xerbla\+\_\+}}
+\index{xerbla\+\_\+@{xerbla\+\_\+}!slu\+\_\+util.\+h@{slu\+\_\+util.\+h}}
+\subsubsection[{xerbla\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}int xerbla\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{slu__util_8h_a8ddc46fddd8c0c53fc9e77fefdf9a456}

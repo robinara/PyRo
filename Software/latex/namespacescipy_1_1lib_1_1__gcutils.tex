@@ -1,0 +1,111 @@
+\hypertarget{namespacescipy_1_1lib_1_1__gcutils}{}\section{scipy.\+lib.\+\_\+gcutils Namespace Reference}
+\label{namespacescipy_1_1lib_1_1__gcutils}\index{scipy.\+lib.\+\_\+gcutils@{scipy.\+lib.\+\_\+gcutils}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1lib_1_1__gcutils_1_1ReferenceError}{Reference\+Error}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1lib_1_1__gcutils_af43ea7b777c2babeb588837327479a05}{set\+\_\+gc\+\_\+state}
+\item 
+def \hyperlink{namespacescipy_1_1lib_1_1__gcutils_a90cd927586a3514714abf103061ffce1}{gc\+\_\+state}
+\item 
+def \hyperlink{namespacescipy_1_1lib_1_1__gcutils_a37813c4cab39f7cf6e4a68e32d954d2a}{assert\+\_\+deallocated}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1lib_1_1__gcutils_afdae5d527a339580a2f00cc483e09aa7}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1lib_1_1__gcutils_af43ea7b777c2babeb588837327479a05}{set\+\_\+gc\+\_\+state}', '\hyperlink{namespacescipy_1_1lib_1_1__gcutils_a90cd927586a3514714abf103061ffce1}{gc\+\_\+state}', '\hyperlink{namespacescipy_1_1lib_1_1__gcutils_a37813c4cab39f7cf6e4a68e32d954d2a}{assert\+\_\+deallocated}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Module for testing automatic garbage collection of objects
+
+.. autosummary::
+   :toctree: generated/
+
+   set_gc_state - enable or disable garbage collection
+   gc_state - context manager for given state of garbage collector
+   assert_deallocated - context manager to check for circular references on object\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1lib_1_1__gcutils_a37813c4cab39f7cf6e4a68e32d954d2a}{}\index{scipy\+::lib\+::\+\_\+gcutils@{scipy\+::lib\+::\+\_\+gcutils}!assert\+\_\+deallocated@{assert\+\_\+deallocated}}
+\index{assert\+\_\+deallocated@{assert\+\_\+deallocated}!scipy\+::lib\+::\+\_\+gcutils@{scipy\+::lib\+::\+\_\+gcutils}}
+\subsubsection[{assert\+\_\+deallocated}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+\_\+gcutils.\+assert\+\_\+deallocated (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{args, }
+\item[{}]{kwargs}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1lib_1_1__gcutils_a37813c4cab39f7cf6e4a68e32d954d2a}
+\begin{DoxyVerb}Context manager to check that object is deallocated
+
+This is useful for checking that an object can be freed directly by
+reference counting, without requiring gc to break reference cycles.
+GC is disabled inside the context manager.
+
+Parameters
+----------
+func : callable
+    Callable to create object to check
+\*args : sequence
+    positional arguments to `func` in order to create object to check
+\*\*kwargs : dict
+    keyword arguments to `func` in order to create object to check
+
+Examples
+--------
+>>> class C(object): pass
+>>> with assert_deallocated(C) as c:
+...     # do something
+...     del c
+
+>>> class C(object):
+...     def __init__(self):
+...         self._circular = self # Make circular reference
+>>> with assert_deallocated(C) as c: #doctest: +IGNORE_EXCEPTION_DETAIL
+...     # do something
+...     del c
+Traceback (most recent call last):
+    ...
+ReferenceError: Remaining reference(s) to object
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1lib_1_1__gcutils_a90cd927586a3514714abf103061ffce1}{}\index{scipy\+::lib\+::\+\_\+gcutils@{scipy\+::lib\+::\+\_\+gcutils}!gc\+\_\+state@{gc\+\_\+state}}
+\index{gc\+\_\+state@{gc\+\_\+state}!scipy\+::lib\+::\+\_\+gcutils@{scipy\+::lib\+::\+\_\+gcutils}}
+\subsubsection[{gc\+\_\+state}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+\_\+gcutils.\+gc\+\_\+state (
+\begin{DoxyParamCaption}
+\item[{}]{state}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1lib_1_1__gcutils_a90cd927586a3514714abf103061ffce1}
+\begin{DoxyVerb}Context manager to set state of garbage collector to `state`
+
+Parameters
+----------
+state : bool
+    True for gc enabled, False for disabled
+
+Examples
+--------
+>>> with gc_state(False):
+...     assert not gc.isenabled()
+>>> with gc_state(True):
+...     assert gc.isenabled()
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1lib_1_1__gcutils_af43ea7b777c2babeb588837327479a05}{}\index{scipy\+::lib\+::\+\_\+gcutils@{scipy\+::lib\+::\+\_\+gcutils}!set\+\_\+gc\+\_\+state@{set\+\_\+gc\+\_\+state}}
+\index{set\+\_\+gc\+\_\+state@{set\+\_\+gc\+\_\+state}!scipy\+::lib\+::\+\_\+gcutils@{scipy\+::lib\+::\+\_\+gcutils}}
+\subsubsection[{set\+\_\+gc\+\_\+state}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+lib.\+\_\+gcutils.\+set\+\_\+gc\+\_\+state (
+\begin{DoxyParamCaption}
+\item[{}]{state}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1lib_1_1__gcutils_af43ea7b777c2babeb588837327479a05}
+\begin{DoxyVerb}Set status of garbage collector \end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1lib_1_1__gcutils_afdae5d527a339580a2f00cc483e09aa7}{}\index{scipy\+::lib\+::\+\_\+gcutils@{scipy\+::lib\+::\+\_\+gcutils}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::lib\+::\+\_\+gcutils@{scipy\+::lib\+::\+\_\+gcutils}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+lib.\+\_\+gcutils.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf set\+\_\+gc\+\_\+state}', '{\bf gc\+\_\+state}', '{\bf assert\+\_\+deallocated}'\mbox{]}}\label{namespacescipy_1_1lib_1_1__gcutils_afdae5d527a339580a2f00cc483e09aa7}

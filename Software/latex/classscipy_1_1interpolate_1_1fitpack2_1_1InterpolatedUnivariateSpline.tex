@@ -1,0 +1,97 @@
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1InterpolatedUnivariateSpline}{}\section{scipy.\+interpolate.\+fitpack2.\+Interpolated\+Univariate\+Spline Class Reference}
+\label{classscipy_1_1interpolate_1_1fitpack2_1_1InterpolatedUnivariateSpline}\index{scipy.\+interpolate.\+fitpack2.\+Interpolated\+Univariate\+Spline@{scipy.\+interpolate.\+fitpack2.\+Interpolated\+Univariate\+Spline}}
+Inheritance diagram for scipy.\+interpolate.\+fitpack2.\+Interpolated\+Univariate\+Spline\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classscipy_1_1interpolate_1_1fitpack2_1_1InterpolatedUnivariateSpline}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1InterpolatedUnivariateSpline_ac9db10bc78deb78578a9fba3459a5aec}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}One-dimensional interpolating spline for a given set of data points.
+
+Fits a spline y=s(x) of degree `k` to the provided `x`, `y` data. Spline
+function passes through all provided points. Equivalent to
+`UnivariateSpline` with  s=0.
+
+Parameters
+----------
+x : (N,) array_like
+    Input dimension of data points -- must be increasing
+y : (N,) array_like
+    input dimension of data points
+w : (N,) array_like, optional
+    Weights for spline fitting.  Must be positive.  If None (default),
+    weights are all equal.
+bbox : (2,) array_like, optional
+    2-sequence specifying the boundary of the approximation interval. If
+    None (default), bbox=[x[0],x[-1]].
+k : int, optional
+    Degree of the smoothing spline.  Must be 1 <= `k` <= 5.
+
+See Also
+--------
+UnivariateSpline : Superclass -- allows knots to be selected by a
+    smoothing condition
+LSQUnivariateSpline : spline for which knots are user-selected
+splrep : An older, non object-oriented wrapping of FITPACK
+splev, sproot, splint, spalde
+BivariateSpline : A similar class for two-dimensional spline interpolation
+
+Notes
+-----
+The number of data points must be larger than the spline degree `k`.
+
+Examples
+--------
+>>> from numpy import linspace,exp
+>>> from numpy.random import randn
+>>> from scipy.interpolate import InterpolatedUnivariateSpline
+>>> import matplotlib.pyplot as plt
+>>> x = linspace(-3, 3, 100)
+>>> y = exp(-x**2) + randn(100)/10
+>>> s = InterpolatedUnivariateSpline(x, y)
+>>> xs = linspace(-3, 3, 1000)
+>>> ys = s(xs)
+>>> plt.plot(x, y, '.-')
+>>> plt.plot(xs, ys)
+>>> plt.show()
+
+xs,ys is now a smoothed, super-sampled version of the noisy gaussian x,y\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1InterpolatedUnivariateSpline_ac9db10bc78deb78578a9fba3459a5aec}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Interpolated\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Interpolated\+Univariate\+Spline}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::fitpack2\+::\+Interpolated\+Univariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Interpolated\+Univariate\+Spline}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Interpolated\+Univariate\+Spline.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{w = {\ttfamily None}, }
+\item[{}]{bbox = {\ttfamily \mbox{[}None\mbox{]}$\ast$2}, }
+\item[{}]{k = {\ttfamily 3}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1InterpolatedUnivariateSpline_ac9db10bc78deb78578a9fba3459a5aec}
+\begin{DoxyVerb}Input:
+  x,y   - 1-d sequences of data points (x must be
+  in strictly ascending order)
+
+Optional input:
+  w          - positive 1-d sequence of weights
+  bbox       - 2-sequence specifying the boundary of
+       the approximation interval.
+       By default, bbox=[x[0],x[-1]]
+  k=3        - degree of the univariate spline.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{fitpack2_8py}{fitpack2.\+py}\end{DoxyCompactItemize}

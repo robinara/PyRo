@@ -1,0 +1,107 @@
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply}{}\section{scipy.\+sparse.\+linalg.\+\_\+expm\+\_\+multiply Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply}\index{scipy.\+sparse.\+linalg.\+\_\+expm\+\_\+multiply@{scipy.\+sparse.\+linalg.\+\_\+expm\+\_\+multiply}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1sparse_1_1linalg_1_1__expm__multiply_1_1LazyOperatorNormInfo}{Lazy\+Operator\+Norm\+Info}
+\item 
+class \hyperlink{classscipy_1_1sparse_1_1linalg_1_1__expm__multiply_1_1MatrixPowerOperator}{Matrix\+Power\+Operator}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply_a2d1ab991a6460f4014b7beedd39629d5}{expm\+\_\+multiply}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply_a8e3a3e9b4bc49291b5005df471e1ca61}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply_a2d1ab991a6460f4014b7beedd39629d5}{expm\+\_\+multiply}'\mbox{]}
+\item 
+dictionary \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply_a725e8a909fe0ab2f58f6a5a71bdc6f0e}{\+\_\+theta}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Compute the action of the matrix exponential.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply_a2d1ab991a6460f4014b7beedd39629d5}{}\index{scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply@{scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply}!expm\+\_\+multiply@{expm\+\_\+multiply}}
+\index{expm\+\_\+multiply@{expm\+\_\+multiply}!scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply@{scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply}}
+\subsubsection[{expm\+\_\+multiply}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+linalg.\+\_\+expm\+\_\+multiply.\+expm\+\_\+multiply (
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{B, }
+\item[{}]{start = {\ttfamily None}, }
+\item[{}]{stop = {\ttfamily None}, }
+\item[{}]{num = {\ttfamily None}, }
+\item[{}]{endpoint = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply_a2d1ab991a6460f4014b7beedd39629d5}
+\begin{DoxyVerb}Compute the action of the matrix exponential of A on B.
+
+Parameters
+----------
+A : transposable linear operator
+    The operator whose exponential is of interest.
+B : ndarray
+    The matrix or vector to be multiplied by the matrix exponential of A.
+start : scalar, optional
+    The starting time point of the sequence.
+stop : scalar, optional
+    The end time point of the sequence, unless `endpoint` is set to False.
+    In that case, the sequence consists of all but the last of ``num + 1``
+    evenly spaced time points, so that `stop` is excluded.
+    Note that the step size changes when `endpoint` is False.
+num : int, optional
+    Number of time points to use.
+endpoint : bool, optional
+    If True, `stop` is the last time point.  Otherwise, it is not included.
+
+Returns
+-------
+expm_A_B : ndarray
+     The result of the action :math:`e^{t_k A} B`.
+
+Notes
+-----
+The optional arguments defining the sequence of evenly spaced time points
+are compatible with the arguments of `numpy.linspace`.
+
+The output ndarray shape is somewhat complicated so I explain it here.
+The ndim of the output could be either 1, 2, or 3.
+It would be 1 if you are computing the expm action on a single vector
+at a single time point.
+It would be 2 if you are computing the expm action on a vector
+at multiple time points, or if you are computing the expm action
+on a matrix at a single time point.
+It would be 3 if you want the action on a matrix with multiple
+columns at multiple time points.
+If multiple time points are requested, expm_A_B[0] will always
+be the action of the expm at the first time point,
+regardless of whether the action is on a vector or a matrix.
+
+References
+----------
+.. [1] Awad H. Al-Mohy and Nicholas J. Higham (2011)
+       "Computing the Action of the Matrix Exponential,
+       with an Application to Exponential Integrators."
+       SIAM Journal on Scientific Computing,
+       33 (2). pp. 488-511. ISSN 1064-8275
+       http://eprints.ma.man.ac.uk/1591/
+
+.. [2] Nicholas J. Higham and Awad H. Al-Mohy (2010)
+       "Computing Matrix Functions."
+       Acta Numerica,
+       19. 159-208. ISSN 0962-4929
+       http://eprints.ma.man.ac.uk/1451/\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply_a8e3a3e9b4bc49291b5005df471e1ca61}{}\index{scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply@{scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply@{scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+sparse.\+linalg.\+\_\+expm\+\_\+multiply.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf expm\+\_\+multiply}'\mbox{]}}\label{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply_a8e3a3e9b4bc49291b5005df471e1ca61}
+\hypertarget{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply_a725e8a909fe0ab2f58f6a5a71bdc6f0e}{}\index{scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply@{scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply}!\+\_\+theta@{\+\_\+theta}}
+\index{\+\_\+theta@{\+\_\+theta}!scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply@{scipy\+::sparse\+::linalg\+::\+\_\+expm\+\_\+multiply}}
+\subsubsection[{\+\_\+theta}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+sparse.\+linalg.\+\_\+expm\+\_\+multiply.\+\_\+theta}\label{namespacescipy_1_1sparse_1_1linalg_1_1__expm__multiply_a725e8a909fe0ab2f58f6a5a71bdc6f0e}

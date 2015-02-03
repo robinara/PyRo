@@ -1,0 +1,124 @@
+\hypertarget{sgscon_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sgscon.c File Reference}
+\label{sgscon_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sgscon.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sgscon.\+c}}
+
+
+Estimates reciprocal of the condition number of a general matrix.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sgscon_8c_a76b21c7561d5bce81821a76c3465601b}{sgscon} (char $\ast$\hyperlink{vecnorm_8cc_a57c51d3f8cc26dd32ade0c9cd6b4997e}{norm}, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, float anorm, float $\ast$rcond, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat, int $\ast$info)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estimates reciprocal of the condition number of a general matrix. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+October 15, 2003\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Modified from lapack routines SGECON.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{sgscon_8c_a76b21c7561d5bce81821a76c3465601b}{}\index{sgscon.\+c@{sgscon.\+c}!sgscon@{sgscon}}
+\index{sgscon@{sgscon}!sgscon.\+c@{sgscon.\+c}}
+\subsubsection[{sgscon}]{\setlength{\rightskip}{0pt plus 5cm}void sgscon (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{norm, }
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{float}]{anorm, }
+\item[{float $\ast$}]{rcond, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat, }
+\item[{int $\ast$}]{info}
+\end{DoxyParamCaption}
+)}\label{sgscon_8c_a76b21c7561d5bce81821a76c3465601b}
+
+\begin{DoxyPre}
+\subsection*{Purpose   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  SGSCON estimates the reciprocal of the condition number of a general 
+  real matrix \hyperlink{classA}{A}, in either the 1-norm or the infinity-norm, using   
+  the LU factorization computed by SGETRF.   *\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  An estimate is obtained for norm(inv(A)), and the reciprocal of the   
+  condition number is computed as   
+     RCOND = 1 / ( norm(A) * norm(inv(A)) ).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}  See \hyperlink{supermatrix_8h}{supermatrix.h} for the definition of '\hyperlink{structSuperMatrix}{SuperMatrix}' structure.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Arguments   
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   NORM    (input) char*
+           Specifies whether the 1-norm condition number or the   
+           infinity-norm condition number is required:   
+           = '1' or 'O':  1-norm;   
+           = 'I':         Infinity-norm.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   L       (input) SuperMatrix*
+           The factor L from the factorization Pr*A*Pc=L*U as computed by
+           \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf()}. Use compressed row subscripts storage for supernodes,
+           i.e., L has types: Stype = SLU\_SC, Dtype = SLU\_S, Mtype = SLU\_TRLU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   U       (input) SuperMatrix*
+           The factor U from the factorization Pr*A*Pc=L*U as computed by
+           \hyperlink{sgstrf_8c_a2428d5d7ef46cf9a08069d9f55901284}{sgstrf()}. Use column-wise storage scheme, i.e., U has types:
+           Stype = SLU\_NC, Dtype = SLU\_S, Mtype = SLU\_TRU.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   ANORM   (input) float
+           If NORM = '1' or 'O', the 1-norm of the original matrix \hyperlink{classA}{A}.   
+           If NORM = 'I', the infinity-norm of the original matrix \hyperlink{classA}{A}.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   RCOND   (output) float*
+          The reciprocal of the condition number of the matrix \hyperlink{classA}{A},   
+          computed as RCOND = 1/(norm(A) * norm(inv(A))).\end{DoxyPre}
+
+
+
+\begin{DoxyPre}   INFO    (output) int*
+          = 0:  successful exit   
+          < 0:  if INFO = -i, the i-th argument had an illegal value   
+
+
+
+\end{DoxyPre}
+ 

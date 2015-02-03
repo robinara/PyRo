@@ -1,0 +1,105 @@
+\hypertarget{zlaqhe_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlaqhe.f File Reference}
+\label{zlaqhe_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaqhe.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaqhe.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlaqhe_8f_aab30acac07bbf74be363c17541d9cd0e}{zlaqhe} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, S, S\+C\+O\+N\+D, A\+M\+A\+X, E\+Q\+U\+E\+D)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+Q\+H\+E} scales a Hermitian matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlaqhe_8f_aab30acac07bbf74be363c17541d9cd0e}{}\index{zlaqhe.\+f@{zlaqhe.\+f}!zlaqhe@{zlaqhe}}
+\index{zlaqhe@{zlaqhe}!zlaqhe.\+f@{zlaqhe.\+f}}
+\subsubsection[{zlaqhe}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlaqhe (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{S, }
+\item[{double {\bf precision}}]{S\+C\+O\+N\+D, }
+\item[{double {\bf precision}}]{A\+M\+A\+X, }
+\item[{character}]{E\+Q\+U\+E\+D}
+\end{DoxyParamCaption}
+)}\label{zlaqhe_8f_aab30acac07bbf74be363c17541d9cd0e}
+
+
+{\bfseries Z\+L\+A\+Q\+H\+E} scales a Hermitian matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLAQHE equilibrates a Hermitian matrix A using the scaling factors
+ in the vector S.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the upper or lower triangular part of the
+          Hermitian matrix A is stored.
+          = 'U':  Upper triangular
+          = 'L':  Lower triangular\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the Hermitian matrix A.  If UPLO = 'U', the leading
+          n by n upper triangular part of A contains the upper
+          triangular part of the matrix A, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = 'L', the
+          leading n by n lower triangular part of A contains the lower
+          triangular part of the matrix A, and the strictly upper
+          triangular part of A is not referenced.
+
+          On exit, if EQUED = 'Y', the equilibrated matrix:
+          diag(S) * A * diag(S).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(N,1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is DOUBLE PRECISION array, dimension (N)
+          The scale factors for A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+C\+O\+N\+D} & \begin{DoxyVerb}          SCOND is DOUBLE PRECISION
+          Ratio of the smallest S(i) to the largest S(i).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+M\+A\+X} & \begin{DoxyVerb}          AMAX is DOUBLE PRECISION
+          Absolute value of largest matrix entry.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em E\+Q\+U\+E\+D} & \begin{DoxyVerb}          EQUED is CHARACTER*1
+          Specifies whether or not equilibration was done.
+          = 'N':  No equilibration.
+          = 'Y':  Equilibration was done, i.e., A has been replaced by
+                  diag(S) * A * diag(S).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Internal Parameters\+: }
+\begin{DoxyVerb}  THRESH is a threshold value used to decide if scaling should be done
+  based on the ratio of the scaling factors.  If SCOND < THRESH,
+  scaling is done.
+
+  LARGE and SMALL are threshold values used to decide if scaling should
+  be done based on the absolute size of the largest matrix element.
+  If AMAX > LARGE or AMAX < SMALL, scaling is done.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

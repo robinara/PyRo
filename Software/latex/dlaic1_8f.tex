@@ -1,0 +1,109 @@
+\hypertarget{dlaic1_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlaic1.f File Reference}
+\label{dlaic1_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaic1.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaic1.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlaic1_8f_a53d62355f41d66eb53f3230e71a869b5}{dlaic1} (J\+O\+B, J, X, S\+E\+S\+T, W, G\+A\+M\+M\+A, S\+E\+S\+T\+P\+R, S, C)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+I\+C1} applies one step of incremental condition estimation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlaic1_8f_a53d62355f41d66eb53f3230e71a869b5}{}\index{dlaic1.\+f@{dlaic1.\+f}!dlaic1@{dlaic1}}
+\index{dlaic1@{dlaic1}!dlaic1.\+f@{dlaic1.\+f}}
+\subsubsection[{dlaic1}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlaic1 (
+\begin{DoxyParamCaption}
+\item[{integer}]{J\+O\+B, }
+\item[{integer}]{J, }
+\item[{double {\bf precision}, dimension( {\bf j} )}]{X, }
+\item[{double {\bf precision}}]{S\+E\+S\+T, }
+\item[{double {\bf precision}, dimension( {\bf j} )}]{W, }
+\item[{double {\bf precision}}]{G\+A\+M\+M\+A, }
+\item[{double {\bf precision}}]{S\+E\+S\+T\+P\+R, }
+\item[{double {\bf precision}}]{S, }
+\item[{double {\bf precision}}]{C}
+\end{DoxyParamCaption}
+)}\label{dlaic1_8f_a53d62355f41d66eb53f3230e71a869b5}
+
+
+{\bfseries D\+L\+A\+I\+C1} applies one step of incremental condition estimation. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLAIC1 applies one step of incremental condition estimation in
+ its simplest version:
+
+ Let x, twonorm(x) = 1, be an approximate singular vector of an j-by-j
+ lower triangular matrix L, such that
+          twonorm(L*x) = sest
+ Then DLAIC1 computes sestpr, s, c such that
+ the vector
+                 [ s*x ]
+          xhat = [  c  ]
+ is an approximate singular vector of
+                 [ L       0  ]
+          Lhat = [ w**T gamma ]
+ in the sense that
+          twonorm(Lhat*xhat) = sestpr.
+
+ Depending on JOB, an estimate for the largest or smallest singular
+ value is computed.
+
+ Note that [s c]**T and sestpr**2 is an eigenpair of the system
+
+     diag(sest*sest, 0) + [alpha  gamma] * [ alpha ]
+                                           [ gamma ]
+
+ where  alpha =  x**T*w.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B} & \begin{DoxyVerb}          JOB is INTEGER
+          = 1: an estimate for the largest singular value is computed.
+          = 2: an estimate for the smallest singular value is computed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em J} & \begin{DoxyVerb}          J is INTEGER
+          Length of X and W\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em X} & \begin{DoxyVerb}          X is DOUBLE PRECISION array, dimension (J)
+          The j-vector x.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+E\+S\+T} & \begin{DoxyVerb}          SEST is DOUBLE PRECISION
+          Estimated singular value of j by j matrix L\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W} & \begin{DoxyVerb}          W is DOUBLE PRECISION array, dimension (J)
+          The j-vector w.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G\+A\+M\+M\+A} & \begin{DoxyVerb}          GAMMA is DOUBLE PRECISION
+          The diagonal element gamma.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+E\+S\+T\+P\+R} & \begin{DoxyVerb}          SESTPR is DOUBLE PRECISION
+          Estimated singular value of (j+1) by (j+1) matrix Lhat.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S} & \begin{DoxyVerb}          S is DOUBLE PRECISION
+          Sine needed in forming xhat.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION
+          Cosine needed in forming xhat.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

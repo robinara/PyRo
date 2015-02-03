@@ -1,0 +1,82 @@
+\hypertarget{claqr1_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/claqr1.f File Reference}
+\label{claqr1_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/claqr1.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/claqr1.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{claqr1_8f_ab9dcc5b451327a609f37b19b8b34d4c9}{claqr1} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, H, L\+D\+H, S1, S2, V)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+Q\+R1} sets a scalar multiple of the first column of the product of 2-\/by-\/2 or 3-\/by-\/3 matrix H and specified shifts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{claqr1_8f_ab9dcc5b451327a609f37b19b8b34d4c9}{}\index{claqr1.\+f@{claqr1.\+f}!claqr1@{claqr1}}
+\index{claqr1@{claqr1}!claqr1.\+f@{claqr1.\+f}}
+\subsubsection[{claqr1}]{\setlength{\rightskip}{0pt plus 5cm}subroutine claqr1 (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( ldh, $\ast$ )}]{H, }
+\item[{integer}]{L\+D\+H, }
+\item[{{\bf complex}}]{S1, }
+\item[{{\bf complex}}]{S2, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{V}
+\end{DoxyParamCaption}
+)}\label{claqr1_8f_ab9dcc5b451327a609f37b19b8b34d4c9}
+
+
+{\bfseries C\+L\+A\+Q\+R1} sets a scalar multiple of the first column of the product of 2-\/by-\/2 or 3-\/by-\/3 matrix H and specified shifts. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}      Given a 2-by-2 or 3-by-3 matrix H, CLAQR1 sets v to a
+      scalar multiple of the first column of the product
+
+      (*)  K = (H - s1*I)*(H - s2*I)
+
+      scaling to avoid overflows and most underflows.
+
+      This is useful for starting double implicit shift bulges
+      in the QR algorithm.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is integer
+              Order of the matrix H. N must be either 2 or 3.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em H} & \begin{DoxyVerb}          H is COMPLEX array of dimension (LDH,N)
+              The 2-by-2 or 3-by-3 matrix H in (*).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+H} & \begin{DoxyVerb}          LDH is integer
+              The leading dimension of H as declared in
+              the calling procedure.  LDH.GE.N\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S1} & \begin{DoxyVerb}          S1 is COMPLEX\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S2} & \begin{DoxyVerb}          S2 is COMPLEX
+
+          S1 and S2 are the shifts defining K in (*) above.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em V} & \begin{DoxyVerb}          V is COMPLEX array of dimension N
+              A scalar multiple of the first column of the
+              matrix K in (*).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Karen Braman and Ralph Byers, Department of Mathematics, University of Kansas, U\+S\+A 
+\end{DoxyParagraph}

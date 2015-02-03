@@ -1,0 +1,86 @@
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline}{}\section{scipy.\+interpolate.\+fitpack2.\+Rect\+Bivariate\+Spline Class Reference}
+\label{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline}\index{scipy.\+interpolate.\+fitpack2.\+Rect\+Bivariate\+Spline@{scipy.\+interpolate.\+fitpack2.\+Rect\+Bivariate\+Spline}}
+Inheritance diagram for scipy.\+interpolate.\+fitpack2.\+Rect\+Bivariate\+Spline\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_aeae531b971d9d7f733e50453e6c15cfd}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_a4ea4dc15ff9b86952c96e7772a73e7d0}{fp}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_ae3d459bb85f77d7b4f866e69ff23f8f1}{tck}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_aa1b4bc4776b2f8bc3796f294288eb875}{degrees}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Bivariate spline approximation over a rectangular mesh.
+
+Can be used for both smoothing and interpolating data.
+
+Parameters
+----------
+x,y : array_like
+    1-D arrays of coordinates in strictly ascending order.
+z : array_like
+    2-D array of data with shape (x.size,y.size).
+bbox : array_like, optional
+    Sequence of length 4 specifying the boundary of the rectangular
+    approximation domain.  By default,
+    ``bbox=[min(x,tx),max(x,tx), min(y,ty),max(y,ty)]``.
+kx, ky : ints, optional
+    Degrees of the bivariate spline. Default is 3.
+s : float, optional
+    Positive smoothing factor defined for estimation condition:
+    ``sum((w[i]*(z[i]-s(x[i], y[i])))**2, axis=0) <= s``
+    Default is ``s=0``, which is for interpolation.
+
+See Also
+--------
+SmoothBivariateSpline : a smoothing bivariate spline for scattered data
+bisplrep : an older wrapping of FITPACK
+bisplev : an older wrapping of FITPACK
+UnivariateSpline : a similar class for univariate spline interpolation\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_aeae531b971d9d7f733e50453e6c15cfd}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Rect\+Bivariate\+Spline.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z, }
+\item[{}]{bbox = {\ttfamily \mbox{[}None\mbox{]}~$\ast$~4}, }
+\item[{}]{kx = {\ttfamily 3}, }
+\item[{}]{ky = {\ttfamily 3}, }
+\item[{}]{s = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_aeae531b971d9d7f733e50453e6c15cfd}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_aa1b4bc4776b2f8bc3796f294288eb875}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline}!degrees@{degrees}}
+\index{degrees@{degrees}!scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline}}
+\subsubsection[{degrees}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+Rect\+Bivariate\+Spline.\+degrees}\label{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_aa1b4bc4776b2f8bc3796f294288eb875}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_a4ea4dc15ff9b86952c96e7772a73e7d0}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline}!fp@{fp}}
+\index{fp@{fp}!scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline}}
+\subsubsection[{fp}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+Rect\+Bivariate\+Spline.\+fp}\label{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_a4ea4dc15ff9b86952c96e7772a73e7d0}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_ae3d459bb85f77d7b4f866e69ff23f8f1}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline}!tck@{tck}}
+\index{tck@{tck}!scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Rect\+Bivariate\+Spline}}
+\subsubsection[{tck}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+fitpack2.\+Rect\+Bivariate\+Spline.\+tck}\label{classscipy_1_1interpolate_1_1fitpack2_1_1RectBivariateSpline_ae3d459bb85f77d7b4f866e69ff23f8f1}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{fitpack2_8py}{fitpack2.\+py}\end{DoxyCompactItemize}

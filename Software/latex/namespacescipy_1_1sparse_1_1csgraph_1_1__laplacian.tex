@@ -1,0 +1,77 @@
+\hypertarget{namespacescipy_1_1sparse_1_1csgraph_1_1__laplacian}{}\section{scipy.\+sparse.\+csgraph.\+\_\+laplacian Namespace Reference}
+\label{namespacescipy_1_1sparse_1_1csgraph_1_1__laplacian}\index{scipy.\+sparse.\+csgraph.\+\_\+laplacian@{scipy.\+sparse.\+csgraph.\+\_\+laplacian}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1sparse_1_1csgraph_1_1__laplacian_a44b4a2e1e49963faf52c2f5bea4152c6}{laplacian}
+\begin{DoxyCompactList}\small\item\em Graph laplacian. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Laplacian of a compressed-sparse graph
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1sparse_1_1csgraph_1_1__laplacian_a44b4a2e1e49963faf52c2f5bea4152c6}{}\index{scipy\+::sparse\+::csgraph\+::\+\_\+laplacian@{scipy\+::sparse\+::csgraph\+::\+\_\+laplacian}!laplacian@{laplacian}}
+\index{laplacian@{laplacian}!scipy\+::sparse\+::csgraph\+::\+\_\+laplacian@{scipy\+::sparse\+::csgraph\+::\+\_\+laplacian}}
+\subsubsection[{laplacian}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+csgraph.\+\_\+laplacian.\+laplacian (
+\begin{DoxyParamCaption}
+\item[{}]{csgraph, }
+\item[{}]{normed = {\ttfamily {\bf False}}, }
+\item[{}]{return\+\_\+diag = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1sparse_1_1csgraph_1_1__laplacian_a44b4a2e1e49963faf52c2f5bea4152c6}
+
+
+Graph laplacian. 
+
+\begin{DoxyVerb}Return the Laplacian matrix of a directed graph.
+
+For non-symmetric graphs the out-degree is used in the computation.
+
+Parameters
+----------
+csgraph : array_like or sparse matrix, 2 dimensions
+    compressed-sparse graph, with shape (N, N).
+normed : bool, optional
+    If True, then compute normalized Laplacian.
+return_diag : bool, optional
+    If True, then return diagonal as well as laplacian.
+
+Returns
+-------
+lap : ndarray
+    The N x N laplacian matrix of graph.
+diag : ndarray
+    The length-N diagonal of the laplacian matrix.
+    diag is returned only if return_diag is True.
+
+Notes
+-----
+The Laplacian matrix of a graph is sometimes referred to as the
+"Kirchoff matrix" or the "admittance matrix", and is useful in many
+parts of spectral graph theory.  In particular, the eigen-decomposition
+of the laplacian matrix can give insight into many properties of the graph.
+
+For non-symmetric directed graphs, the laplacian is computed using the
+out-degree of each node.
+
+Examples
+--------
+>>> from scipy.sparse import csgraph
+>>> G = np.arange(5) * np.arange(5)[:, np.newaxis]
+>>> G
+array([[ 0,  0,  0,  0,  0],
+       [ 0,  1,  2,  3,  4],
+       [ 0,  2,  4,  6,  8],
+       [ 0,  3,  6,  9, 12],
+       [ 0,  4,  8, 12, 16]])
+>>> csgraph.laplacian(G, normed=False)
+array([[  0,   0,   0,   0,   0],
+       [  0,   9,  -2,  -3,  -4],
+       [  0,  -2,  16,  -6,  -8],
+       [  0,  -3,  -6,  21, -12],
+       [  0,  -4,  -8, -12,  24]])
+\end{DoxyVerb}
+ 

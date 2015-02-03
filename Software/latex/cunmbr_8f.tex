@@ -1,0 +1,164 @@
+\hypertarget{cunmbr_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/cunmbr.f File Reference}
+\label{cunmbr_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cunmbr.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cunmbr.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{cunmbr_8f_a26cc37db505d5bc436c415dfbeb5b527}{cunmbr} (V\+E\+C\+T, S\+I\+D\+E, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, T\+A\+U, C, L\+D\+C, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+U\+N\+M\+B\+R} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{cunmbr_8f_a26cc37db505d5bc436c415dfbeb5b527}{}\index{cunmbr.\+f@{cunmbr.\+f}!cunmbr@{cunmbr}}
+\index{cunmbr@{cunmbr}!cunmbr.\+f@{cunmbr.\+f}}
+\subsubsection[{cunmbr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cunmbr (
+\begin{DoxyParamCaption}
+\item[{character}]{V\+E\+C\+T, }
+\item[{character}]{S\+I\+D\+E, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{T\+A\+U, }
+\item[{{\bf complex}, dimension( ldc, $\ast$ )}]{C, }
+\item[{integer}]{L\+D\+C, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{cunmbr_8f_a26cc37db505d5bc436c415dfbeb5b527}
+
+
+{\bfseries C\+U\+N\+M\+B\+R} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} If VECT = 'Q', CUNMBR overwrites the general complex M-by-N matrix C
+ with
+                 SIDE = 'L'     SIDE = 'R'
+ TRANS = 'N':      Q * C          C * Q
+ TRANS = 'C':      Q**H * C       C * Q**H
+
+ If VECT = 'P', CUNMBR overwrites the general complex M-by-N matrix C
+ with
+                 SIDE = 'L'     SIDE = 'R'
+ TRANS = 'N':      P * C          C * P
+ TRANS = 'C':      P**H * C       C * P**H
+
+ Here Q and P**H are the unitary matrices determined by CGEBRD when
+ reducing a complex matrix A to bidiagonal form: A = Q * B * P**H. Q
+ and P**H are defined as products of elementary reflectors H(i) and
+ G(i) respectively.
+
+ Let nq = m if SIDE = 'L' and nq = n if SIDE = 'R'. Thus nq is the
+ order of the unitary matrix Q or P**H that is applied.
+
+ If VECT = 'Q', A is assumed to have been an NQ-by-K matrix:
+ if nq >= k, Q = H(1) H(2) . . . H(k);
+ if nq < k, Q = H(1) H(2) . . . H(nq-1).
+
+ If VECT = 'P', A is assumed to have been a K-by-NQ matrix:
+ if k < nq, P = G(1) G(2) . . . G(k);
+ if k >= nq, P = G(1) G(2) . . . G(nq-1).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em V\+E\+C\+T} & \begin{DoxyVerb}          VECT is CHARACTER*1
+          = 'Q': apply Q or Q**H;
+          = 'P': apply P or P**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+          = 'L': apply Q, Q**H, P or P**H from the Left;
+          = 'R': apply Q, Q**H, P or P**H from the Right.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          = 'N':  No transpose, apply Q or P;
+          = 'C':  Conjugate transpose, apply Q**H or P**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix C. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix C. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+          If VECT = 'Q', the number of columns in the original
+          matrix reduced by CGEBRD.
+          If VECT = 'P', the number of rows in the original
+          matrix reduced by CGEBRD.
+          K >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension
+                                (LDA,min(nq,K)) if VECT = 'Q'
+                                (LDA,nq)        if VECT = 'P'
+          The vectors which define the elementary reflectors H(i) and
+          G(i), whose products determine the matrices Q and P, as
+          returned by CGEBRD.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.
+          If VECT = 'Q', LDA >= max(1,nq);
+          if VECT = 'P', LDA >= max(1,min(nq,K)).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is COMPLEX array, dimension (min(nq,K))
+          TAU(i) must contain the scalar factor of the elementary
+          reflector H(i) or G(i) which determines Q or P, as returned
+          by CGEBRD in the array argument TAUQ or TAUP.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is COMPLEX array, dimension (LDC,N)
+          On entry, the M-by-N matrix C.
+          On exit, C is overwritten by Q*C or Q**H*C or C*Q**H or C*Q
+          or P*C or P**H*C or C*P or C*P**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+          The leading dimension of the array C. LDC >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The dimension of the array WORK.
+          If SIDE = 'L', LWORK >= max(1,N);
+          if SIDE = 'R', LWORK >= max(1,M);
+          if N = 0 or M = 0, LWORK >= 1.
+          For optimum performance LWORK >= max(1,N*NB) if SIDE = 'L',
+          and LWORK >= max(1,M*NB) if SIDE = 'R', where NB is the
+          optimal blocksize. (NB = 0 if M = 0 or N = 0.)
+
+          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal size of the WORK array, returns
+          this value as the first entry of the WORK array, and no error
+          message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

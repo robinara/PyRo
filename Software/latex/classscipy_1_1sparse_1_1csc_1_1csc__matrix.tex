@@ -1,0 +1,191 @@
+\hypertarget{classscipy_1_1sparse_1_1csc_1_1csc__matrix}{}\section{scipy.\+sparse.\+csc.\+csc\+\_\+matrix Class Reference}
+\label{classscipy_1_1sparse_1_1csc_1_1csc__matrix}\index{scipy.\+sparse.\+csc.\+csc\+\_\+matrix@{scipy.\+sparse.\+csc.\+csc\+\_\+matrix}}
+Inheritance diagram for scipy.\+sparse.\+csc.\+csc\+\_\+matrix\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1sparse_1_1csc_1_1csc__matrix}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1csc_1_1csc__matrix_ad397cd26c41600f60fd4660e719fb746}{transpose}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1csc_1_1csc__matrix_a90b7d8af4745730ee208f141fe7760c0}{\+\_\+\+\_\+iter\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1csc_1_1csc__matrix_afb41398b35e7b61cff6dddaa075845a0}{tocsc}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1csc_1_1csc__matrix_aa5b4f4973c068de5e142baee102d4135}{tocsr}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1csc_1_1csc__matrix_a72e02bb6c12358075d6ae6fa69a2ad6d}{\+\_\+\+\_\+getitem\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1csc_1_1csc__matrix_aa4d6714d5d3aa1cabb445f551d25138e}{nonzero}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1csc_1_1csc__matrix_adafb0fd09cb9064f095802f8ce812fd4}{getrow}
+\item 
+def \hyperlink{classscipy_1_1sparse_1_1csc_1_1csc__matrix_a715b3622544c36ae1bd94b1f55a7774e}{getcol}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Compressed Sparse Column matrix
+
+This can be instantiated in several ways:
+
+    csc_matrix(D)
+        with a dense matrix or rank-2 ndarray D
+
+    csc_matrix(S)
+        with another sparse matrix S (equivalent to S.tocsc())
+
+    csc_matrix((M, N), [dtype])
+        to construct an empty matrix with shape (M, N)
+        dtype is optional, defaulting to dtype='d'.
+
+    csc_matrix((data, ij), [shape=(M, N)])
+        where ``data`` and ``ij`` satisfy the relationship
+        ``a[ij[0, k], ij[1, k]] = data[k]``
+
+    csc_matrix((data, indices, indptr), [shape=(M, N)])
+        is the standard CSC representation where the row indices for
+        column i are stored in ``indices[indptr[i]:indptr[i+1]]``
+        and their corresponding values are stored in
+        ``data[indptr[i]:indptr[i+1]]``.  If the shape parameter is
+        not supplied, the matrix dimensions are inferred from
+        the index arrays.
+
+Attributes
+----------
+dtype : dtype
+    Data type of the matrix
+shape : 2-tuple
+    Shape of the matrix
+ndim : int
+    Number of dimensions (this is always 2)
+nnz
+    Number of nonzero elements
+data
+    Data array of the matrix
+indices
+    CSC format index array
+indptr
+    CSC format index pointer array
+has_sorted_indices
+    Whether indices are sorted
+
+Notes
+-----
+
+Sparse matrices can be used in arithmetic operations: they support
+addition, subtraction, multiplication, division, and matrix power.
+
+Advantages of the CSC format
+    - efficient arithmetic operations CSC + CSC, CSC * CSC, etc.
+    - efficient column slicing
+    - fast matrix vector products (CSR, BSR may be faster)
+
+Disadvantages of the CSC format
+  - slow row slicing operations (consider CSR)
+  - changes to the sparsity structure are expensive (consider LIL or DOK)
+
+
+Examples
+--------
+
+>>> from scipy.sparse import *
+>>> from scipy import *
+>>> csc_matrix( (3,4), dtype=int8 ).todense()
+matrix([[0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]], dtype=int8)
+
+>>> row = array([0,2,2,0,1,2])
+>>> col = array([0,0,1,2,2,2])
+>>> data = array([1,2,3,4,5,6])
+>>> csc_matrix( (data,(row,col)), shape=(3,3) ).todense()
+matrix([[1, 0, 4],
+        [0, 0, 5],
+        [2, 3, 6]])
+
+>>> indptr = array([0,2,3,6])
+>>> indices = array([0,2,2,0,1,2])
+>>> data = array([1,2,3,4,5,6])
+>>> csc_matrix( (data,indices,indptr), shape=(3,3) ).todense()
+matrix([[1, 0, 4],
+        [0, 0, 5],
+        [2, 3, 6]])\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1sparse_1_1csc_1_1csc__matrix_a72e02bb6c12358075d6ae6fa69a2ad6d}{}\index{scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}!\+\_\+\+\_\+getitem\+\_\+\+\_\+@{\+\_\+\+\_\+getitem\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+getitem\+\_\+\+\_\+@{\+\_\+\+\_\+getitem\+\_\+\+\_\+}!scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}}
+\subsubsection[{\+\_\+\+\_\+getitem\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+csc.\+csc\+\_\+matrix.\+\_\+\+\_\+getitem\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{key}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1csc_1_1csc__matrix_a72e02bb6c12358075d6ae6fa69a2ad6d}
+\hypertarget{classscipy_1_1sparse_1_1csc_1_1csc__matrix_a90b7d8af4745730ee208f141fe7760c0}{}\index{scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}!\+\_\+\+\_\+iter\+\_\+\+\_\+@{\+\_\+\+\_\+iter\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+iter\+\_\+\+\_\+@{\+\_\+\+\_\+iter\+\_\+\+\_\+}!scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}}
+\subsubsection[{\+\_\+\+\_\+iter\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+csc.\+csc\+\_\+matrix.\+\_\+\+\_\+iter\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1csc_1_1csc__matrix_a90b7d8af4745730ee208f141fe7760c0}
+\hypertarget{classscipy_1_1sparse_1_1csc_1_1csc__matrix_a715b3622544c36ae1bd94b1f55a7774e}{}\index{scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}!getcol@{getcol}}
+\index{getcol@{getcol}!scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}}
+\subsubsection[{getcol}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+csc.\+csc\+\_\+matrix.\+getcol (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1csc_1_1csc__matrix_a715b3622544c36ae1bd94b1f55a7774e}
+\begin{DoxyVerb}Returns a copy of column i of the matrix, as a (m x 1)
+CSC matrix (column vector).
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1sparse_1_1csc_1_1csc__matrix_adafb0fd09cb9064f095802f8ce812fd4}{}\index{scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}!getrow@{getrow}}
+\index{getrow@{getrow}!scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}}
+\subsubsection[{getrow}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+csc.\+csc\+\_\+matrix.\+getrow (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1csc_1_1csc__matrix_adafb0fd09cb9064f095802f8ce812fd4}
+\begin{DoxyVerb}Returns a copy of row i of the matrix, as a (1 x n)
+CSR matrix (row vector).
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1sparse_1_1csc_1_1csc__matrix_aa4d6714d5d3aa1cabb445f551d25138e}{}\index{scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}!nonzero@{nonzero}}
+\index{nonzero@{nonzero}!scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}}
+\subsubsection[{nonzero}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+csc.\+csc\+\_\+matrix.\+nonzero (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1csc_1_1csc__matrix_aa4d6714d5d3aa1cabb445f551d25138e}
+\hypertarget{classscipy_1_1sparse_1_1csc_1_1csc__matrix_afb41398b35e7b61cff6dddaa075845a0}{}\index{scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}!tocsc@{tocsc}}
+\index{tocsc@{tocsc}!scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}}
+\subsubsection[{tocsc}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+csc.\+csc\+\_\+matrix.\+tocsc (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{copy = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1csc_1_1csc__matrix_afb41398b35e7b61cff6dddaa075845a0}
+\hypertarget{classscipy_1_1sparse_1_1csc_1_1csc__matrix_aa5b4f4973c068de5e142baee102d4135}{}\index{scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}!tocsr@{tocsr}}
+\index{tocsr@{tocsr}!scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}}
+\subsubsection[{tocsr}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+csc.\+csc\+\_\+matrix.\+tocsr (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1csc_1_1csc__matrix_aa5b4f4973c068de5e142baee102d4135}
+\hypertarget{classscipy_1_1sparse_1_1csc_1_1csc__matrix_ad397cd26c41600f60fd4660e719fb746}{}\index{scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}!transpose@{transpose}}
+\index{transpose@{transpose}!scipy\+::sparse\+::csc\+::csc\+\_\+matrix@{scipy\+::sparse\+::csc\+::csc\+\_\+matrix}}
+\subsubsection[{transpose}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+sparse.\+csc.\+csc\+\_\+matrix.\+transpose (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{copy = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1sparse_1_1csc_1_1csc__matrix_ad397cd26c41600f60fd4660e719fb746}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/sparse/\hyperlink{csc_8py}{csc.\+py}\end{DoxyCompactItemize}

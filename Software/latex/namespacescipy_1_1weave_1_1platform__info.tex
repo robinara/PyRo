@@ -1,0 +1,148 @@
+\hypertarget{namespacescipy_1_1weave_1_1platform__info}{}\section{scipy.\+weave.\+platform\+\_\+info Namespace Reference}
+\label{namespacescipy_1_1weave_1_1platform__info}\index{scipy.\+weave.\+platform\+\_\+info@{scipy.\+weave.\+platform\+\_\+info}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_ad708615f047b1b67c40442cc38dd6bac}{dummy\+\_\+dist}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_ac34aaa2a4213b48abbe39a245dda1a53}{create\+\_\+compiler\+\_\+instance}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_a93f7cecd1ca62599a014ea7efff47507}{compiler\+\_\+exe\+\_\+name}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_a9fe934c5d2160d7a3666cbb9dbed983e}{compiler\+\_\+exe\+\_\+path}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_a4492a3e8d5b96642d233496acea70cdd}{check\+\_\+sum}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_af1bc39e3e4246048513bfb8c40a19d7c}{get\+\_\+compiler\+\_\+dir}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_a8b62e6f8c95307191373fedc79fadbca}{choose\+\_\+compiler}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_acaf92c71c8c0d28bfa7af77a9a0745a6}{configure\+\_\+sys\+\_\+argv}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_a86ba4eb471e8ca8c45fd98d2c4535acc}{restore\+\_\+sys\+\_\+argv}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_a31731ae7a7723f87375acecd5d98ad0d}{gcc\+\_\+exists}
+\item 
+def \hyperlink{namespacescipy_1_1weave_1_1platform__info_a76ac07d49a791be50b6b305006c4ba60}{msvc\+\_\+exists}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1weave_1_1platform__info_a4ff2a9697146d5bf6efc011bec30017a}{old\+\_\+argv} = \mbox{[}$\,$\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1weave_1_1platform__info_aa5ae33dd1f0756bd777a012b936b2df6}{path} = \hyperlink{namespacescipy_1_1weave_1_1platform__info_af1bc39e3e4246048513bfb8c40a19d7c}{get\+\_\+compiler\+\_\+dir}('gcc')
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Information about platform and python version and compilers
+
+    This information is manly used to build directory names that
+    keep the object files and shared libaries straight when
+    multiple platforms share the same file system.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1weave_1_1platform__info_a4492a3e8d5b96642d233496acea70cdd}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!check\+\_\+sum@{check\+\_\+sum}}
+\index{check\+\_\+sum@{check\+\_\+sum}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{check\+\_\+sum}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+check\+\_\+sum (
+\begin{DoxyParamCaption}
+\item[{}]{file}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_a4492a3e8d5b96642d233496acea70cdd}
+\hypertarget{namespacescipy_1_1weave_1_1platform__info_a8b62e6f8c95307191373fedc79fadbca}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!choose\+\_\+compiler@{choose\+\_\+compiler}}
+\index{choose\+\_\+compiler@{choose\+\_\+compiler}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{choose\+\_\+compiler}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+choose\+\_\+compiler (
+\begin{DoxyParamCaption}
+\item[{}]{compiler\+\_\+name = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_a8b62e6f8c95307191373fedc79fadbca}
+\begin{DoxyVerb}Try and figure out which compiler is gonna be used on windows.
+    On other platforms, it just returns whatever value it is given.
+
+    converts 'gcc' to 'mingw32' on win32
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1platform__info_a93f7cecd1ca62599a014ea7efff47507}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!compiler\+\_\+exe\+\_\+name@{compiler\+\_\+exe\+\_\+name}}
+\index{compiler\+\_\+exe\+\_\+name@{compiler\+\_\+exe\+\_\+name}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{compiler\+\_\+exe\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+compiler\+\_\+exe\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{}]{compiler}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_a93f7cecd1ca62599a014ea7efff47507}
+\hypertarget{namespacescipy_1_1weave_1_1platform__info_a9fe934c5d2160d7a3666cbb9dbed983e}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!compiler\+\_\+exe\+\_\+path@{compiler\+\_\+exe\+\_\+path}}
+\index{compiler\+\_\+exe\+\_\+path@{compiler\+\_\+exe\+\_\+path}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{compiler\+\_\+exe\+\_\+path}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+compiler\+\_\+exe\+\_\+path (
+\begin{DoxyParamCaption}
+\item[{}]{exe\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_a9fe934c5d2160d7a3666cbb9dbed983e}
+\hypertarget{namespacescipy_1_1weave_1_1platform__info_acaf92c71c8c0d28bfa7af77a9a0745a6}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!configure\+\_\+sys\+\_\+argv@{configure\+\_\+sys\+\_\+argv}}
+\index{configure\+\_\+sys\+\_\+argv@{configure\+\_\+sys\+\_\+argv}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{configure\+\_\+sys\+\_\+argv}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+configure\+\_\+sys\+\_\+argv (
+\begin{DoxyParamCaption}
+\item[{}]{compiler\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_acaf92c71c8c0d28bfa7af77a9a0745a6}
+\hypertarget{namespacescipy_1_1weave_1_1platform__info_ac34aaa2a4213b48abbe39a245dda1a53}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!create\+\_\+compiler\+\_\+instance@{create\+\_\+compiler\+\_\+instance}}
+\index{create\+\_\+compiler\+\_\+instance@{create\+\_\+compiler\+\_\+instance}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{create\+\_\+compiler\+\_\+instance}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+create\+\_\+compiler\+\_\+instance (
+\begin{DoxyParamCaption}
+\item[{}]{dist}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_ac34aaa2a4213b48abbe39a245dda1a53}
+\hypertarget{namespacescipy_1_1weave_1_1platform__info_ad708615f047b1b67c40442cc38dd6bac}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!dummy\+\_\+dist@{dummy\+\_\+dist}}
+\index{dummy\+\_\+dist@{dummy\+\_\+dist}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{dummy\+\_\+dist}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+dummy\+\_\+dist (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_ad708615f047b1b67c40442cc38dd6bac}
+\hypertarget{namespacescipy_1_1weave_1_1platform__info_a31731ae7a7723f87375acecd5d98ad0d}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!gcc\+\_\+exists@{gcc\+\_\+exists}}
+\index{gcc\+\_\+exists@{gcc\+\_\+exists}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{gcc\+\_\+exists}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+gcc\+\_\+exists (
+\begin{DoxyParamCaption}
+\item[{}]{name = {\ttfamily 'gcc'}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_a31731ae7a7723f87375acecd5d98ad0d}
+\begin{DoxyVerb}Test to make sure gcc is found
+
+    Does this return correct value on win98???
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1platform__info_af1bc39e3e4246048513bfb8c40a19d7c}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!get\+\_\+compiler\+\_\+dir@{get\+\_\+compiler\+\_\+dir}}
+\index{get\+\_\+compiler\+\_\+dir@{get\+\_\+compiler\+\_\+dir}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{get\+\_\+compiler\+\_\+dir}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+get\+\_\+compiler\+\_\+dir (
+\begin{DoxyParamCaption}
+\item[{}]{compiler\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_af1bc39e3e4246048513bfb8c40a19d7c}
+\begin{DoxyVerb}Try to figure out the compiler directory based on the
+    input compiler name.  This is fragile and really should
+    be done at the distutils level inside the compiler.  I
+    think it is only useful on windows at the moment.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1platform__info_a76ac07d49a791be50b6b305006c4ba60}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!msvc\+\_\+exists@{msvc\+\_\+exists}}
+\index{msvc\+\_\+exists@{msvc\+\_\+exists}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{msvc\+\_\+exists}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+msvc\+\_\+exists (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_a76ac07d49a791be50b6b305006c4ba60}
+\begin{DoxyVerb}Determine whether MSVC is available on the machine.
+\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1weave_1_1platform__info_a86ba4eb471e8ca8c45fd98d2c4535acc}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!restore\+\_\+sys\+\_\+argv@{restore\+\_\+sys\+\_\+argv}}
+\index{restore\+\_\+sys\+\_\+argv@{restore\+\_\+sys\+\_\+argv}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{restore\+\_\+sys\+\_\+argv}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+weave.\+platform\+\_\+info.\+restore\+\_\+sys\+\_\+argv (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1weave_1_1platform__info_a86ba4eb471e8ca8c45fd98d2c4535acc}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1weave_1_1platform__info_a4ff2a9697146d5bf6efc011bec30017a}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!old\+\_\+argv@{old\+\_\+argv}}
+\index{old\+\_\+argv@{old\+\_\+argv}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{old\+\_\+argv}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+weave.\+platform\+\_\+info.\+old\+\_\+argv = \mbox{[}$\,$\mbox{]}}\label{namespacescipy_1_1weave_1_1platform__info_a4ff2a9697146d5bf6efc011bec30017a}
+\hypertarget{namespacescipy_1_1weave_1_1platform__info_aa5ae33dd1f0756bd777a012b936b2df6}{}\index{scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}!path@{path}}
+\index{path@{path}!scipy\+::weave\+::platform\+\_\+info@{scipy\+::weave\+::platform\+\_\+info}}
+\subsubsection[{path}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+weave.\+platform\+\_\+info.\+path = {\bf get\+\_\+compiler\+\_\+dir}('gcc')}\label{namespacescipy_1_1weave_1_1platform__info_aa5ae33dd1f0756bd777a012b936b2df6}

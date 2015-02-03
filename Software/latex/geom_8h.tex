@@ -1,0 +1,763 @@
+\hypertarget{geom_8h}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/geom.h File Reference}
+\label{geom_8h}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/geom.\+h@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/geom.\+h}}
+{\ttfamily \#include \char`\"{}libqhull.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{geom_8h_a1cbe065cae8e8841ad15262bf5c3d769}{fabs\+\_\+}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})~((( \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} ) $<$ 0 ) ? -\/( \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} )\+:( \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} ))
+\item 
+\#define \hyperlink{geom_8h_aed47cfedfb6c33fbbb6cdc35897b8fde}{fmax\+\_\+}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~( ( \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} ) $<$ ( \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b} ) ? ( \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b} ) \+: ( \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} ) )
+\item 
+\#define \hyperlink{geom_8h_ab07421eb4fd30d97f465fc1b9acbf858}{fmin\+\_\+}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a},  \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})~( ( \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} ) $>$ ( \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b} ) ? ( \hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b} ) \+: ( \hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a} ) )
+\item 
+\#define \hyperlink{geom_8h_aaa24a6e244cc65eeabdbd4a3028af4db}{maximize\+\_\+}(maxval,  val)~\{ \hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} (( maxval ) $<$ ( val )) ( maxval )= ( val ); \}
+\item 
+\#define \hyperlink{geom_8h_a62e5a90b8c812260df104e089e8c5a74}{minimize\+\_\+}(minval,  val)~\{ \hyperlink{minmax_8h_a30a0ee9fee303f01d9c5e6f669e0dfe9}{if} (( minval ) $>$ ( val )) ( minval )= ( val ); \}
+\item 
+\#define \hyperlink{geom_8h_a40fa356f39796a332ceb5c3ec3239635}{det2\+\_\+}(a1,  a2,  b1,  b2)~(( a1 )$\ast$( b2 ) -\/ ( a2 )$\ast$( b1 ))
+\item 
+\#define \hyperlink{geom_8h_a05298126eca7960ae26a0652b04e8d5a}{det3\+\_\+}(a1,  a2,  a3,  b1,  b2,  b3,  c1,  c2,  c3)
+\item 
+\#define \hyperlink{geom_8h_a21642f483f20e0beb78ff5d696bf4108}{d\+X}(p1,  p2)~( $\ast$( rows\mbox{[}p1\mbox{]} ) -\/ $\ast$( rows\mbox{[}p2\mbox{]} ))
+\item 
+\#define \hyperlink{geom_8h_a59f30902b1f5e8b86f9215c37e16abcd}{d\+Y}(p1,  p2)~( $\ast$( rows\mbox{[}p1\mbox{]}+1 ) -\/ $\ast$( rows\mbox{[}p2\mbox{]}+1 ))
+\item 
+\#define \hyperlink{geom_8h_a1bd494c91f93366fa4a33576003a8906}{d\+Z}(p1,  p2)~( $\ast$( rows\mbox{[}p1\mbox{]}+2 ) -\/ $\ast$( rows\mbox{[}p2\mbox{]}+2 ))
+\item 
+\#define \hyperlink{geom_8h_a36170150516a2304a3ab92f46bffc8d7}{d\+W}(p1,  p2)~( $\ast$( rows\mbox{[}p1\mbox{]}+3 ) -\/ $\ast$( rows\mbox{[}p2\mbox{]}+3 ))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{geom_8h_aa296222b01ce78211cd476aebb1c9344}{qh\+\_\+backnormal} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$rows, int numrow, int numcol, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} sign, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$normal, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$nearzero)
+\item 
+void \hyperlink{geom_8h_ad6aa8bf49cd3167ae0f73fb43fd4f405}{qh\+\_\+distplane} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$dist)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{geom_8h_a6b898c5771e84d8019b5a3c5c4c7c93c}{qh\+\_\+findbest} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$startfacet, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} bestoutside, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} isnewfacets, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} noupper, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$dist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$isoutside, int $\ast$numpart)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{geom_8h_a86c8ba6e2c9724db4aea6c610b894a48}{qh\+\_\+findbesthorizon} (\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} ischeckmax, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$startfacet, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} noupper, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$bestdist, int $\ast$numpart)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{geom_8h_ad52456dc5d0813172727fbcfd5837ac8}{qh\+\_\+findbestnew} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$startfacet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$dist, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} bestoutside, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$isoutside, int $\ast$numpart)
+\item 
+void \hyperlink{geom_8h_af81dcbeb5f463bec976bf47feb711142}{qh\+\_\+gausselim} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$rows, int numrow, int numcol, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$sign, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$nearzero)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_ad68f11906d7fce991605d05defc18fc3}{qh\+\_\+getangle} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$vect1, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$vect2)
+\item 
+\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$ \hyperlink{geom_8h_ada55211fea15808952afabbb73bb58c9}{qh\+\_\+getcenter} (\hyperlink{structsetT}{set\+T} $\ast$vertices)
+\item 
+\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$ \hyperlink{geom_8h_a4d3e24caaf31f597ac617e5ca3f78983}{qh\+\_\+getcentrum} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_a33b48e7b401220197e69c3138f45d143}{qh\+\_\+getdistance} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{structfacetT}{facet\+T} $\ast$neighbor, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$mindist, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$maxdist)
+\item 
+void \hyperlink{geom_8h_ac828f69e918430659d1fc91a714c10a3}{qh\+\_\+normalize} (\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$normal, int dim, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} toporient)
+\item 
+void \hyperlink{geom_8h_aa7ce7d2ba95688d0f9c5fe447c7f4903}{qh\+\_\+normalize2} (\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$normal, int dim, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} toporient, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$minnorm, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$ismin)
+\item 
+\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$ \hyperlink{geom_8h_ae0e1d410e4f510aff50d7816d72ffe67}{qh\+\_\+projectpoint} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} dist)
+\item 
+void \hyperlink{geom_8h_a09072e3cbd482076f057ead2d7a29c03}{qh\+\_\+setfacetplane} (\hyperlink{structfacetT}{facet\+T} $\ast$newfacets)
+\item 
+void \hyperlink{geom_8h_a5c5d4d64b164ef17fd1ef4cdc48a60a3}{qh\+\_\+sethyperplane\+\_\+det} (int dim, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$$\ast$rows, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$point0, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} toporient, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$normal, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$offset, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$nearzero)
+\item 
+void \hyperlink{geom_8h_a71769c384a5ff96fc3f983d831fee941}{qh\+\_\+sethyperplane\+\_\+gauss} (int dim, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$$\ast$rows, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point0, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} toporient, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$normal, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$offset, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$nearzero)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{geom_8h_adbf4f712c3e3ad7ddf5c72812389cdb4}{qh\+\_\+sharpnewfacets} (void)
+\item 
+\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$ \hyperlink{geom_8h_a06e2d2497ccf56100b312fb18d612d61}{qh\+\_\+copypoints} (\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$points, int numpoints, int dimension)
+\item 
+void \hyperlink{geom_8h_a12bca3b56f268a9078825533aebea319}{qh\+\_\+crossproduct} (int dim, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} vec\+A\mbox{[}3\mbox{]}, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} vec\+B\mbox{[}3\mbox{]}, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} vec\+C\mbox{[}3\mbox{]})
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_a7cb78a1c6760ae7c01318889f25e9c88}{qh\+\_\+determinant} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$rows, int dim, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$nearzero)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_accaef9b06e64be02d0b9b56c2d26e332}{qh\+\_\+detjoggle} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$points, int numpoints, int dimension)
+\item 
+void \hyperlink{geom_8h_ab599da692c8b144256a8e6d25f77157d}{qh\+\_\+detroundoff} (void)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_af3ea4402f1988fbec3b3636dc0c594a3}{qh\+\_\+detsimplex} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$apex, \hyperlink{structsetT}{set\+T} $\ast$points, int dim, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$nearzero)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_a4b5fd020f3e48bfa80befaab03d3e08f}{qh\+\_\+distnorm} (int dim, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$normal, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$offsetp)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_a5fef2ca0d3db8b70438d86456eac5dae}{qh\+\_\+distround} (int dimension, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} maxabs, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} maxsumabs)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_a7a5ca3b28a14c714a2eddc8c7360e17d}{qh\+\_\+divzero} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} numer, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} denom, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} mindenom1, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} $\ast$zerodiv)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_a471a31d36b389d4c55b2a1f5ae75b21d}{qh\+\_\+facetarea} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_a13eef3b0a53631c22696be0e4d26f9af}{qh\+\_\+facetarea\+\_\+simplex} (int dim, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$apex, \hyperlink{structsetT}{set\+T} $\ast$vertices, \hyperlink{structvertexT}{vertex\+T} $\ast$notvertex, \hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} toporient, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$normal, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$offset)
+\item 
+\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$ \hyperlink{geom_8h_aebf1636c27f6483b65bc1bb81a230024}{qh\+\_\+facetcenter} (\hyperlink{structsetT}{set\+T} $\ast$vertices)
+\item 
+\hyperlink{structfacetT}{facet\+T} $\ast$ \hyperlink{geom_8h_a62fd482d44607ae8192e88207b2170ee}{qh\+\_\+findgooddist} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point, \hyperlink{structfacetT}{facet\+T} $\ast$facet\+A, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$distp, \hyperlink{structfacetT}{facet\+T} $\ast$$\ast$facetlist)
+\item 
+void \hyperlink{geom_8h_a4a95cdcebe6fc67c102ad8d57ab552f9}{qh\+\_\+getarea} (\hyperlink{structfacetT}{facet\+T} $\ast$facetlist)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{geom_8h_a26c15bc3a3ca6cabaeae881dfaac1a3c}{qh\+\_\+gram\+\_\+schmidt} (int dim, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$rows)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{geom_8h_a40d28a4032e31ead54f10055d2a3b20f}{qh\+\_\+inthresholds} (\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$normal, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$angle)
+\item 
+void \hyperlink{geom_8h_ab48fcbc817df5212a2488e9dff34579a}{qh\+\_\+joggleinput} (void)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$ \hyperlink{geom_8h_ac600773e2752d67405e125279a27b5b1}{qh\+\_\+maxabsval} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$normal, int dim)
+\item 
+\hyperlink{structsetT}{set\+T} $\ast$ \hyperlink{geom_8h_abf8c66df80868671030ea5965be255ce}{qh\+\_\+maxmin} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$points, int numpoints, int dimension)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_a445826157c02bd278d5f880a631d4ff9}{qh\+\_\+maxouter} (void)
+\item 
+void \hyperlink{geom_8h_ad8e9fadd7996b1dbc92981d2166a8051}{qh\+\_\+maxsimplex} (int dim, \hyperlink{structsetT}{set\+T} $\ast$maxpoints, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$points, int numpoints, \hyperlink{structsetT}{set\+T} $\ast$$\ast$simplex)
+\item 
+\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} \hyperlink{geom_8h_a5e52db0836753e9aa8870d681ea7d340}{qh\+\_\+minabsval} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$normal, int dim)
+\item 
+int \hyperlink{geom_8h_a34759caaf9d9b41fd4964ba1fcb324ab}{qh\+\_\+mindiff} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$vec\+A, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$vec\+B, int dim)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{geom_8h_a9ccd14af4469b35c90befd1cc5a063f3}{qh\+\_\+orientoutside} (\hyperlink{structfacetT}{facet\+T} $\ast$facet)
+\item 
+void \hyperlink{geom_8h_af31cdbacfc4b81863dfaa827c541a84a}{qh\+\_\+outerinner} (\hyperlink{structfacetT}{facet\+T} $\ast$facet, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$outerplane, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$innerplane)
+\item 
+\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} \hyperlink{geom_8h_a2bf09664ffc4c316b0f0975653a310eb}{qh\+\_\+pointdist} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point1, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$point2, int dim)
+\item 
+void \hyperlink{geom_8h_ac7df2f1d0d3d5fd196b669210d30465c}{qh\+\_\+printmatrix} (F\+I\+L\+E $\ast$fp, const char $\ast$string, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$rows, int numrow, int numcol)
+\item 
+void \hyperlink{geom_8h_a752bf1a51f4f00e2764aba6cb1ebc5ca}{qh\+\_\+printpoints} (F\+I\+L\+E $\ast$fp, const char $\ast$string, \hyperlink{structsetT}{set\+T} $\ast$points)
+\item 
+void \hyperlink{geom_8h_a52e5614cd957c4247385f5f5208d4f46}{qh\+\_\+projectinput} (void)
+\item 
+void \hyperlink{geom_8h_ad9eb276ad162e1c3a1fc504039050df7}{qh\+\_\+projectpoints} (signed char $\ast$project, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$points, int numpoints, int dim, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$newpoints, int newdim)
+\item 
+void \hyperlink{geom_8h_ad0b443b4fa91eeea79ea66f127dcab83}{qh\+\_\+rotateinput} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$rows)
+\item 
+void \hyperlink{geom_8h_a4ebde0743f5d30c82b6faf12a93b1794}{qh\+\_\+rotatepoints} (\hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$points, int numpoints, int dim, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$$\ast$rows)
+\item 
+void \hyperlink{geom_8h_aa760b44755c26842e70df9ac5bb7620b}{qh\+\_\+scaleinput} (void)
+\item 
+void \hyperlink{geom_8h_a49ee6babb9631a44eec7929d5dd47a3a}{qh\+\_\+scalelast} (\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$points, int numpoints, int dim, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} \hyperlink{constants_8h_a2f13f92cd23d69a695f629d173e191b7}{low}, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} \hyperlink{constants_8h_ae74c9011680d5f172ff82efa9c482283}{high}, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} newhigh)
+\item 
+void \hyperlink{geom_8h_a321a818df5b179430f0d8f166fac4cd7}{qh\+\_\+scalepoints} (\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$points, int numpoints, int dim, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$newlows, \hyperlink{user_8h_ad6fe71dff955732ea8682263e9540bb7}{real\+T} $\ast$newhighs)
+\item 
+\hyperlink{libqhull_8h_ab1a924b550e00cabe8c367e76b207ea5}{bool\+T} \hyperlink{geom_8h_acc35c82694aab63196e0ea4ee9e1167e}{qh\+\_\+sethalfspace} (int dim, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$coords, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$$\ast$nextp, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$normal, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$offset, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$feasible)
+\item 
+\hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$ \hyperlink{geom_8h_acc06bbfd3f14beba08ae7589e890672c}{qh\+\_\+sethalfspace\+\_\+all} (int dim, int \hyperlink{veccount_8cc_ae61b582e808f50a28a8baebd2395ee7d}{count}, \hyperlink{libqhull_8h_ada1b5d65f4fb1648eef2fa3684de1766}{coord\+T} $\ast$halfspaces, \hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$feasible)
+\item 
+\hyperlink{libqhull_8h_a255fb21ed55a989ae9e4913f15015a97}{point\+T} $\ast$ \hyperlink{geom_8h_a82091ffc060de3a8471615bb2c55b6c5}{qh\+\_\+voronoi\+\_\+center} (int dim, \hyperlink{structsetT}{set\+T} $\ast$points)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{geom_8h_a40fa356f39796a332ceb5c3ec3239635}{}\index{geom.\+h@{geom.\+h}!det2\+\_\+@{det2\+\_\+}}
+\index{det2\+\_\+@{det2\+\_\+}!geom.\+h@{geom.\+h}}
+\subsubsection[{det2\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define det2\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{a1, }
+\item[{}]{a2, }
+\item[{}]{b1, }
+\item[{}]{b2}
+\end{DoxyParamCaption}
+)~(( a1 )$\ast$( b2 ) -\/ ( a2 )$\ast$( b1 ))}\label{geom_8h_a40fa356f39796a332ceb5c3ec3239635}
+\hypertarget{geom_8h_a05298126eca7960ae26a0652b04e8d5a}{}\index{geom.\+h@{geom.\+h}!det3\+\_\+@{det3\+\_\+}}
+\index{det3\+\_\+@{det3\+\_\+}!geom.\+h@{geom.\+h}}
+\subsubsection[{det3\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define det3\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{a1, }
+\item[{}]{a2, }
+\item[{}]{a3, }
+\item[{}]{b1, }
+\item[{}]{b2, }
+\item[{}]{b3, }
+\item[{}]{c1, }
+\item[{}]{c2, }
+\item[{}]{c3}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a05298126eca7960ae26a0652b04e8d5a}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+( ( a1 )*\hyperlink{geom_8h_a40fa356f39796a332ceb5c3ec3239635}{det2\_}( b2,b3,c2,c3 ) \(\backslash\)
+                - ( b1 )*\hyperlink{geom_8h_a40fa356f39796a332ceb5c3ec3239635}{det2\_}( a2,a3,c2,c3 ) + ( c1 )*\hyperlink{geom_8h_a40fa356f39796a332ceb5c3ec3239635}{det2\_}( a2,a3,b2,b3 ) )
+\end{DoxyCode}
+\hypertarget{geom_8h_a36170150516a2304a3ab92f46bffc8d7}{}\index{geom.\+h@{geom.\+h}!d\+W@{d\+W}}
+\index{d\+W@{d\+W}!geom.\+h@{geom.\+h}}
+\subsubsection[{d\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define d\+W(
+\begin{DoxyParamCaption}
+\item[{}]{p1, }
+\item[{}]{p2}
+\end{DoxyParamCaption}
+)~( $\ast$( rows\mbox{[}p1\mbox{]}+3 ) -\/ $\ast$( rows\mbox{[}p2\mbox{]}+3 ))}\label{geom_8h_a36170150516a2304a3ab92f46bffc8d7}
+\hypertarget{geom_8h_a21642f483f20e0beb78ff5d696bf4108}{}\index{geom.\+h@{geom.\+h}!d\+X@{d\+X}}
+\index{d\+X@{d\+X}!geom.\+h@{geom.\+h}}
+\subsubsection[{d\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define d\+X(
+\begin{DoxyParamCaption}
+\item[{}]{p1, }
+\item[{}]{p2}
+\end{DoxyParamCaption}
+)~( $\ast$( rows\mbox{[}p1\mbox{]} ) -\/ $\ast$( rows\mbox{[}p2\mbox{]} ))}\label{geom_8h_a21642f483f20e0beb78ff5d696bf4108}
+\hypertarget{geom_8h_a59f30902b1f5e8b86f9215c37e16abcd}{}\index{geom.\+h@{geom.\+h}!d\+Y@{d\+Y}}
+\index{d\+Y@{d\+Y}!geom.\+h@{geom.\+h}}
+\subsubsection[{d\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define d\+Y(
+\begin{DoxyParamCaption}
+\item[{}]{p1, }
+\item[{}]{p2}
+\end{DoxyParamCaption}
+)~( $\ast$( rows\mbox{[}p1\mbox{]}+1 ) -\/ $\ast$( rows\mbox{[}p2\mbox{]}+1 ))}\label{geom_8h_a59f30902b1f5e8b86f9215c37e16abcd}
+\hypertarget{geom_8h_a1bd494c91f93366fa4a33576003a8906}{}\index{geom.\+h@{geom.\+h}!d\+Z@{d\+Z}}
+\index{d\+Z@{d\+Z}!geom.\+h@{geom.\+h}}
+\subsubsection[{d\+Z}]{\setlength{\rightskip}{0pt plus 5cm}\#define d\+Z(
+\begin{DoxyParamCaption}
+\item[{}]{p1, }
+\item[{}]{p2}
+\end{DoxyParamCaption}
+)~( $\ast$( rows\mbox{[}p1\mbox{]}+2 ) -\/ $\ast$( rows\mbox{[}p2\mbox{]}+2 ))}\label{geom_8h_a1bd494c91f93366fa4a33576003a8906}
+\hypertarget{geom_8h_a1cbe065cae8e8841ad15262bf5c3d769}{}\index{geom.\+h@{geom.\+h}!fabs\+\_\+@{fabs\+\_\+}}
+\index{fabs\+\_\+@{fabs\+\_\+}!geom.\+h@{geom.\+h}}
+\subsubsection[{fabs\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define fabs\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)~((( {\bf a} ) $<$ 0 ) ? -\/( {\bf a} )\+:( {\bf a} ))}\label{geom_8h_a1cbe065cae8e8841ad15262bf5c3d769}
+\hypertarget{geom_8h_aed47cfedfb6c33fbbb6cdc35897b8fde}{}\index{geom.\+h@{geom.\+h}!fmax\+\_\+@{fmax\+\_\+}}
+\index{fmax\+\_\+@{fmax\+\_\+}!geom.\+h@{geom.\+h}}
+\subsubsection[{fmax\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define fmax\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~( ( {\bf a} ) $<$ ( {\bf b} ) ? ( {\bf b} ) \+: ( {\bf a} ) )}\label{geom_8h_aed47cfedfb6c33fbbb6cdc35897b8fde}
+\hypertarget{geom_8h_ab07421eb4fd30d97f465fc1b9acbf858}{}\index{geom.\+h@{geom.\+h}!fmin\+\_\+@{fmin\+\_\+}}
+\index{fmin\+\_\+@{fmin\+\_\+}!geom.\+h@{geom.\+h}}
+\subsubsection[{fmin\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define fmin\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~( ( {\bf a} ) $>$ ( {\bf b} ) ? ( {\bf b} ) \+: ( {\bf a} ) )}\label{geom_8h_ab07421eb4fd30d97f465fc1b9acbf858}
+\hypertarget{geom_8h_aaa24a6e244cc65eeabdbd4a3028af4db}{}\index{geom.\+h@{geom.\+h}!maximize\+\_\+@{maximize\+\_\+}}
+\index{maximize\+\_\+@{maximize\+\_\+}!geom.\+h@{geom.\+h}}
+\subsubsection[{maximize\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define maximize\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{maxval, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{ {\bf if} (( maxval ) $<$ ( val )) ( maxval )= ( val ); \}}\label{geom_8h_aaa24a6e244cc65eeabdbd4a3028af4db}
+\hypertarget{geom_8h_a62e5a90b8c812260df104e089e8c5a74}{}\index{geom.\+h@{geom.\+h}!minimize\+\_\+@{minimize\+\_\+}}
+\index{minimize\+\_\+@{minimize\+\_\+}!geom.\+h@{geom.\+h}}
+\subsubsection[{minimize\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}\#define minimize\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{minval, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~\{ {\bf if} (( minval ) $>$ ( val )) ( minval )= ( val ); \}}\label{geom_8h_a62e5a90b8c812260df104e089e8c5a74}
+
+
+\subsection{Function Documentation}
+\hypertarget{geom_8h_aa296222b01ce78211cd476aebb1c9344}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+backnormal@{qh\+\_\+backnormal}}
+\index{qh\+\_\+backnormal@{qh\+\_\+backnormal}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+backnormal}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+backnormal (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$$\ast$}]{rows, }
+\item[{int}]{numrow, }
+\item[{int}]{numcol, }
+\item[{{\bf bool\+T}}]{sign, }
+\item[{{\bf coord\+T} $\ast$}]{normal, }
+\item[{{\bf bool\+T} $\ast$}]{nearzero}
+\end{DoxyParamCaption}
+)}\label{geom_8h_aa296222b01ce78211cd476aebb1c9344}
+\hypertarget{geom_8h_a06e2d2497ccf56100b312fb18d612d61}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+copypoints@{qh\+\_\+copypoints}}
+\index{qh\+\_\+copypoints@{qh\+\_\+copypoints}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+copypoints}]{\setlength{\rightskip}{0pt plus 5cm}{\bf coord\+T}$\ast$ qh\+\_\+copypoints (
+\begin{DoxyParamCaption}
+\item[{{\bf coord\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dimension}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a06e2d2497ccf56100b312fb18d612d61}
+\hypertarget{geom_8h_a12bca3b56f268a9078825533aebea319}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+crossproduct@{qh\+\_\+crossproduct}}
+\index{qh\+\_\+crossproduct@{qh\+\_\+crossproduct}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+crossproduct}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+crossproduct (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf real\+T}}]{vec\+A\mbox{[}3\mbox{]}, }
+\item[{{\bf real\+T}}]{vec\+B\mbox{[}3\mbox{]}, }
+\item[{{\bf real\+T}}]{vec\+C\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a12bca3b56f268a9078825533aebea319}
+\hypertarget{geom_8h_a7cb78a1c6760ae7c01318889f25e9c88}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+determinant@{qh\+\_\+determinant}}
+\index{qh\+\_\+determinant@{qh\+\_\+determinant}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+determinant}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+determinant (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$$\ast$}]{rows, }
+\item[{int}]{dim, }
+\item[{{\bf bool\+T} $\ast$}]{nearzero}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a7cb78a1c6760ae7c01318889f25e9c88}
+\hypertarget{geom_8h_accaef9b06e64be02d0b9b56c2d26e332}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+detjoggle@{qh\+\_\+detjoggle}}
+\index{qh\+\_\+detjoggle@{qh\+\_\+detjoggle}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+detjoggle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+detjoggle (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dimension}
+\end{DoxyParamCaption}
+)}\label{geom_8h_accaef9b06e64be02d0b9b56c2d26e332}
+\hypertarget{geom_8h_ab599da692c8b144256a8e6d25f77157d}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+detroundoff@{qh\+\_\+detroundoff}}
+\index{qh\+\_\+detroundoff@{qh\+\_\+detroundoff}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+detroundoff}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+detroundoff (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ab599da692c8b144256a8e6d25f77157d}
+\hypertarget{geom_8h_af3ea4402f1988fbec3b3636dc0c594a3}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+detsimplex@{qh\+\_\+detsimplex}}
+\index{qh\+\_\+detsimplex@{qh\+\_\+detsimplex}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+detsimplex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+detsimplex (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{apex, }
+\item[{{\bf set\+T} $\ast$}]{points, }
+\item[{int}]{dim, }
+\item[{{\bf bool\+T} $\ast$}]{nearzero}
+\end{DoxyParamCaption}
+)}\label{geom_8h_af3ea4402f1988fbec3b3636dc0c594a3}
+\hypertarget{geom_8h_a4b5fd020f3e48bfa80befaab03d3e08f}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+distnorm@{qh\+\_\+distnorm}}
+\index{qh\+\_\+distnorm@{qh\+\_\+distnorm}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+distnorm}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+distnorm (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf point\+T} $\ast$}]{normal, }
+\item[{{\bf real\+T} $\ast$}]{offsetp}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a4b5fd020f3e48bfa80befaab03d3e08f}
+\hypertarget{geom_8h_ad6aa8bf49cd3167ae0f73fb43fd4f405}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+distplane@{qh\+\_\+distplane}}
+\index{qh\+\_\+distplane@{qh\+\_\+distplane}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+distplane}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+distplane (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf real\+T} $\ast$}]{dist}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ad6aa8bf49cd3167ae0f73fb43fd4f405}
+\hypertarget{geom_8h_a5fef2ca0d3db8b70438d86456eac5dae}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+distround@{qh\+\_\+distround}}
+\index{qh\+\_\+distround@{qh\+\_\+distround}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+distround}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+distround (
+\begin{DoxyParamCaption}
+\item[{int}]{dimension, }
+\item[{{\bf real\+T}}]{maxabs, }
+\item[{{\bf real\+T}}]{maxsumabs}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a5fef2ca0d3db8b70438d86456eac5dae}
+\hypertarget{geom_8h_a7a5ca3b28a14c714a2eddc8c7360e17d}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+divzero@{qh\+\_\+divzero}}
+\index{qh\+\_\+divzero@{qh\+\_\+divzero}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+divzero}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+divzero (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T}}]{numer, }
+\item[{{\bf real\+T}}]{denom, }
+\item[{{\bf real\+T}}]{mindenom1, }
+\item[{{\bf bool\+T} $\ast$}]{zerodiv}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a7a5ca3b28a14c714a2eddc8c7360e17d}
+\hypertarget{geom_8h_a471a31d36b389d4c55b2a1f5ae75b21d}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+facetarea@{qh\+\_\+facetarea}}
+\index{qh\+\_\+facetarea@{qh\+\_\+facetarea}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+facetarea}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+facetarea (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a471a31d36b389d4c55b2a1f5ae75b21d}
+\hypertarget{geom_8h_a13eef3b0a53631c22696be0e4d26f9af}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+facetarea\+\_\+simplex@{qh\+\_\+facetarea\+\_\+simplex}}
+\index{qh\+\_\+facetarea\+\_\+simplex@{qh\+\_\+facetarea\+\_\+simplex}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+facetarea\+\_\+simplex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+facetarea\+\_\+simplex (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf coord\+T} $\ast$}]{apex, }
+\item[{{\bf set\+T} $\ast$}]{vertices, }
+\item[{{\bf vertex\+T} $\ast$}]{notvertex, }
+\item[{{\bf bool\+T}}]{toporient, }
+\item[{{\bf coord\+T} $\ast$}]{normal, }
+\item[{{\bf real\+T} $\ast$}]{offset}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a13eef3b0a53631c22696be0e4d26f9af}
+\hypertarget{geom_8h_aebf1636c27f6483b65bc1bb81a230024}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+facetcenter@{qh\+\_\+facetcenter}}
+\index{qh\+\_\+facetcenter@{qh\+\_\+facetcenter}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+facetcenter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\+T}$\ast$ qh\+\_\+facetcenter (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertices}
+\end{DoxyParamCaption}
+)}\label{geom_8h_aebf1636c27f6483b65bc1bb81a230024}
+\hypertarget{geom_8h_a6b898c5771e84d8019b5a3c5c4c7c93c}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+findbest@{qh\+\_\+findbest}}
+\index{qh\+\_\+findbest@{qh\+\_\+findbest}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+findbest}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findbest (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{startfacet, }
+\item[{{\bf bool\+T}}]{bestoutside, }
+\item[{{\bf bool\+T}}]{isnewfacets, }
+\item[{{\bf bool\+T}}]{noupper, }
+\item[{{\bf real\+T} $\ast$}]{dist, }
+\item[{{\bf bool\+T} $\ast$}]{isoutside, }
+\item[{int $\ast$}]{numpart}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a6b898c5771e84d8019b5a3c5c4c7c93c}
+\hypertarget{geom_8h_a86c8ba6e2c9724db4aea6c610b894a48}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+findbesthorizon@{qh\+\_\+findbesthorizon}}
+\index{qh\+\_\+findbesthorizon@{qh\+\_\+findbesthorizon}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+findbesthorizon}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findbesthorizon (
+\begin{DoxyParamCaption}
+\item[{{\bf bool\+T}}]{ischeckmax, }
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{startfacet, }
+\item[{{\bf bool\+T}}]{noupper, }
+\item[{{\bf real\+T} $\ast$}]{bestdist, }
+\item[{int $\ast$}]{numpart}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a86c8ba6e2c9724db4aea6c610b894a48}
+\hypertarget{geom_8h_ad52456dc5d0813172727fbcfd5837ac8}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+findbestnew@{qh\+\_\+findbestnew}}
+\index{qh\+\_\+findbestnew@{qh\+\_\+findbestnew}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+findbestnew}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findbestnew (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{startfacet, }
+\item[{{\bf real\+T} $\ast$}]{dist, }
+\item[{{\bf bool\+T}}]{bestoutside, }
+\item[{{\bf bool\+T} $\ast$}]{isoutside, }
+\item[{int $\ast$}]{numpart}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ad52456dc5d0813172727fbcfd5837ac8}
+\hypertarget{geom_8h_a62fd482d44607ae8192e88207b2170ee}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+findgooddist@{qh\+\_\+findgooddist}}
+\index{qh\+\_\+findgooddist@{qh\+\_\+findgooddist}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+findgooddist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf facet\+T}$\ast$ qh\+\_\+findgooddist (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{facet\+A, }
+\item[{{\bf real\+T} $\ast$}]{distp, }
+\item[{{\bf facet\+T} $\ast$$\ast$}]{facetlist}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a62fd482d44607ae8192e88207b2170ee}
+\hypertarget{geom_8h_af81dcbeb5f463bec976bf47feb711142}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+gausselim@{qh\+\_\+gausselim}}
+\index{qh\+\_\+gausselim@{qh\+\_\+gausselim}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+gausselim}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+gausselim (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$$\ast$}]{rows, }
+\item[{int}]{numrow, }
+\item[{int}]{numcol, }
+\item[{{\bf bool\+T} $\ast$}]{sign, }
+\item[{{\bf bool\+T} $\ast$}]{nearzero}
+\end{DoxyParamCaption}
+)}\label{geom_8h_af81dcbeb5f463bec976bf47feb711142}
+\hypertarget{geom_8h_ad68f11906d7fce991605d05defc18fc3}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+getangle@{qh\+\_\+getangle}}
+\index{qh\+\_\+getangle@{qh\+\_\+getangle}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+getangle}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+getangle (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{vect1, }
+\item[{{\bf point\+T} $\ast$}]{vect2}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ad68f11906d7fce991605d05defc18fc3}
+\hypertarget{geom_8h_a4a95cdcebe6fc67c102ad8d57ab552f9}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+getarea@{qh\+\_\+getarea}}
+\index{qh\+\_\+getarea@{qh\+\_\+getarea}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+getarea}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+getarea (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facetlist}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a4a95cdcebe6fc67c102ad8d57ab552f9}
+\hypertarget{geom_8h_ada55211fea15808952afabbb73bb58c9}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+getcenter@{qh\+\_\+getcenter}}
+\index{qh\+\_\+getcenter@{qh\+\_\+getcenter}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+getcenter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\+T}$\ast$ qh\+\_\+getcenter (
+\begin{DoxyParamCaption}
+\item[{{\bf set\+T} $\ast$}]{vertices}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ada55211fea15808952afabbb73bb58c9}
+\hypertarget{geom_8h_a4d3e24caaf31f597ac617e5ca3f78983}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+getcentrum@{qh\+\_\+getcentrum}}
+\index{qh\+\_\+getcentrum@{qh\+\_\+getcentrum}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+getcentrum}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\+T}$\ast$ qh\+\_\+getcentrum (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a4d3e24caaf31f597ac617e5ca3f78983}
+\hypertarget{geom_8h_a33b48e7b401220197e69c3138f45d143}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+getdistance@{qh\+\_\+getdistance}}
+\index{qh\+\_\+getdistance@{qh\+\_\+getdistance}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+getdistance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+getdistance (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf facet\+T} $\ast$}]{neighbor, }
+\item[{{\bf real\+T} $\ast$}]{mindist, }
+\item[{{\bf real\+T} $\ast$}]{maxdist}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a33b48e7b401220197e69c3138f45d143}
+\hypertarget{geom_8h_a26c15bc3a3ca6cabaeae881dfaac1a3c}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+gram\+\_\+schmidt@{qh\+\_\+gram\+\_\+schmidt}}
+\index{qh\+\_\+gram\+\_\+schmidt@{qh\+\_\+gram\+\_\+schmidt}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+gram\+\_\+schmidt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+gram\+\_\+schmidt (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf real\+T} $\ast$$\ast$}]{rows}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a26c15bc3a3ca6cabaeae881dfaac1a3c}
+\hypertarget{geom_8h_a40d28a4032e31ead54f10055d2a3b20f}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+inthresholds@{qh\+\_\+inthresholds}}
+\index{qh\+\_\+inthresholds@{qh\+\_\+inthresholds}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+inthresholds}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+inthresholds (
+\begin{DoxyParamCaption}
+\item[{{\bf coord\+T} $\ast$}]{normal, }
+\item[{{\bf real\+T} $\ast$}]{angle}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a40d28a4032e31ead54f10055d2a3b20f}
+\hypertarget{geom_8h_ab48fcbc817df5212a2488e9dff34579a}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+joggleinput@{qh\+\_\+joggleinput}}
+\index{qh\+\_\+joggleinput@{qh\+\_\+joggleinput}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+joggleinput}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+joggleinput (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ab48fcbc817df5212a2488e9dff34579a}
+\hypertarget{geom_8h_ac600773e2752d67405e125279a27b5b1}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+maxabsval@{qh\+\_\+maxabsval}}
+\index{qh\+\_\+maxabsval@{qh\+\_\+maxabsval}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+maxabsval}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T}$\ast$ qh\+\_\+maxabsval (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$}]{normal, }
+\item[{int}]{dim}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ac600773e2752d67405e125279a27b5b1}
+\hypertarget{geom_8h_abf8c66df80868671030ea5965be255ce}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+maxmin@{qh\+\_\+maxmin}}
+\index{qh\+\_\+maxmin@{qh\+\_\+maxmin}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+maxmin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf set\+T}$\ast$ qh\+\_\+maxmin (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dimension}
+\end{DoxyParamCaption}
+)}\label{geom_8h_abf8c66df80868671030ea5965be255ce}
+\hypertarget{geom_8h_a445826157c02bd278d5f880a631d4ff9}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+maxouter@{qh\+\_\+maxouter}}
+\index{qh\+\_\+maxouter@{qh\+\_\+maxouter}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+maxouter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+maxouter (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a445826157c02bd278d5f880a631d4ff9}
+\hypertarget{geom_8h_ad8e9fadd7996b1dbc92981d2166a8051}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+maxsimplex@{qh\+\_\+maxsimplex}}
+\index{qh\+\_\+maxsimplex@{qh\+\_\+maxsimplex}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+maxsimplex}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+maxsimplex (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf set\+T} $\ast$}]{maxpoints, }
+\item[{{\bf point\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{{\bf set\+T} $\ast$$\ast$}]{simplex}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ad8e9fadd7996b1dbc92981d2166a8051}
+\hypertarget{geom_8h_a5e52db0836753e9aa8870d681ea7d340}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+minabsval@{qh\+\_\+minabsval}}
+\index{qh\+\_\+minabsval@{qh\+\_\+minabsval}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+minabsval}]{\setlength{\rightskip}{0pt plus 5cm}{\bf real\+T} qh\+\_\+minabsval (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$}]{normal, }
+\item[{int}]{dim}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a5e52db0836753e9aa8870d681ea7d340}
+\hypertarget{geom_8h_a34759caaf9d9b41fd4964ba1fcb324ab}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+mindiff@{qh\+\_\+mindiff}}
+\index{qh\+\_\+mindiff@{qh\+\_\+mindiff}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+mindiff}]{\setlength{\rightskip}{0pt plus 5cm}int qh\+\_\+mindiff (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$}]{vec\+A, }
+\item[{{\bf real\+T} $\ast$}]{vec\+B, }
+\item[{int}]{dim}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a34759caaf9d9b41fd4964ba1fcb324ab}
+\hypertarget{geom_8h_ac828f69e918430659d1fc91a714c10a3}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+normalize@{qh\+\_\+normalize}}
+\index{qh\+\_\+normalize@{qh\+\_\+normalize}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+normalize}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+normalize (
+\begin{DoxyParamCaption}
+\item[{{\bf coord\+T} $\ast$}]{normal, }
+\item[{int}]{dim, }
+\item[{{\bf bool\+T}}]{toporient}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ac828f69e918430659d1fc91a714c10a3}
+\hypertarget{geom_8h_aa7ce7d2ba95688d0f9c5fe447c7f4903}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+normalize2@{qh\+\_\+normalize2}}
+\index{qh\+\_\+normalize2@{qh\+\_\+normalize2}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+normalize2}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+normalize2 (
+\begin{DoxyParamCaption}
+\item[{{\bf coord\+T} $\ast$}]{normal, }
+\item[{int}]{dim, }
+\item[{{\bf bool\+T}}]{toporient, }
+\item[{{\bf real\+T} $\ast$}]{minnorm, }
+\item[{{\bf bool\+T} $\ast$}]{ismin}
+\end{DoxyParamCaption}
+)}\label{geom_8h_aa7ce7d2ba95688d0f9c5fe447c7f4903}
+\hypertarget{geom_8h_a9ccd14af4469b35c90befd1cc5a063f3}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+orientoutside@{qh\+\_\+orientoutside}}
+\index{qh\+\_\+orientoutside@{qh\+\_\+orientoutside}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+orientoutside}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+orientoutside (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a9ccd14af4469b35c90befd1cc5a063f3}
+\hypertarget{geom_8h_af31cdbacfc4b81863dfaa827c541a84a}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+outerinner@{qh\+\_\+outerinner}}
+\index{qh\+\_\+outerinner@{qh\+\_\+outerinner}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+outerinner}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+outerinner (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf real\+T} $\ast$}]{outerplane, }
+\item[{{\bf real\+T} $\ast$}]{innerplane}
+\end{DoxyParamCaption}
+)}\label{geom_8h_af31cdbacfc4b81863dfaa827c541a84a}
+\hypertarget{geom_8h_a2bf09664ffc4c316b0f0975653a310eb}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+pointdist@{qh\+\_\+pointdist}}
+\index{qh\+\_\+pointdist@{qh\+\_\+pointdist}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+pointdist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf coord\+T} qh\+\_\+pointdist (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point1, }
+\item[{{\bf point\+T} $\ast$}]{point2, }
+\item[{int}]{dim}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a2bf09664ffc4c316b0f0975653a310eb}
+\hypertarget{geom_8h_ac7df2f1d0d3d5fd196b669210d30465c}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+printmatrix@{qh\+\_\+printmatrix}}
+\index{qh\+\_\+printmatrix@{qh\+\_\+printmatrix}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+printmatrix}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printmatrix (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{const char $\ast$}]{string, }
+\item[{{\bf real\+T} $\ast$$\ast$}]{rows, }
+\item[{int}]{numrow, }
+\item[{int}]{numcol}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ac7df2f1d0d3d5fd196b669210d30465c}
+\hypertarget{geom_8h_a752bf1a51f4f00e2764aba6cb1ebc5ca}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+printpoints@{qh\+\_\+printpoints}}
+\index{qh\+\_\+printpoints@{qh\+\_\+printpoints}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+printpoints}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+printpoints (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{const char $\ast$}]{string, }
+\item[{{\bf set\+T} $\ast$}]{points}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a752bf1a51f4f00e2764aba6cb1ebc5ca}
+\hypertarget{geom_8h_a52e5614cd957c4247385f5f5208d4f46}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+projectinput@{qh\+\_\+projectinput}}
+\index{qh\+\_\+projectinput@{qh\+\_\+projectinput}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+projectinput}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+projectinput (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a52e5614cd957c4247385f5f5208d4f46}
+\hypertarget{geom_8h_ae0e1d410e4f510aff50d7816d72ffe67}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+projectpoint@{qh\+\_\+projectpoint}}
+\index{qh\+\_\+projectpoint@{qh\+\_\+projectpoint}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+projectpoint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\+T}$\ast$ qh\+\_\+projectpoint (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{point, }
+\item[{{\bf facet\+T} $\ast$}]{facet, }
+\item[{{\bf real\+T}}]{dist}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ae0e1d410e4f510aff50d7816d72ffe67}
+\hypertarget{geom_8h_ad9eb276ad162e1c3a1fc504039050df7}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+projectpoints@{qh\+\_\+projectpoints}}
+\index{qh\+\_\+projectpoints@{qh\+\_\+projectpoints}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+projectpoints}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+projectpoints (
+\begin{DoxyParamCaption}
+\item[{signed char $\ast$}]{project, }
+\item[{int}]{n, }
+\item[{{\bf real\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dim, }
+\item[{{\bf real\+T} $\ast$}]{newpoints, }
+\item[{int}]{newdim}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ad9eb276ad162e1c3a1fc504039050df7}
+\hypertarget{geom_8h_ad0b443b4fa91eeea79ea66f127dcab83}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+rotateinput@{qh\+\_\+rotateinput}}
+\index{qh\+\_\+rotateinput@{qh\+\_\+rotateinput}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+rotateinput}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+rotateinput (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$$\ast$}]{rows}
+\end{DoxyParamCaption}
+)}\label{geom_8h_ad0b443b4fa91eeea79ea66f127dcab83}
+\hypertarget{geom_8h_a4ebde0743f5d30c82b6faf12a93b1794}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+rotatepoints@{qh\+\_\+rotatepoints}}
+\index{qh\+\_\+rotatepoints@{qh\+\_\+rotatepoints}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+rotatepoints}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+rotatepoints (
+\begin{DoxyParamCaption}
+\item[{{\bf real\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dim, }
+\item[{{\bf real\+T} $\ast$$\ast$}]{rows}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a4ebde0743f5d30c82b6faf12a93b1794}
+\hypertarget{geom_8h_aa760b44755c26842e70df9ac5bb7620b}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+scaleinput@{qh\+\_\+scaleinput}}
+\index{qh\+\_\+scaleinput@{qh\+\_\+scaleinput}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+scaleinput}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+scaleinput (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{geom_8h_aa760b44755c26842e70df9ac5bb7620b}
+\hypertarget{geom_8h_a49ee6babb9631a44eec7929d5dd47a3a}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+scalelast@{qh\+\_\+scalelast}}
+\index{qh\+\_\+scalelast@{qh\+\_\+scalelast}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+scalelast}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+scalelast (
+\begin{DoxyParamCaption}
+\item[{{\bf coord\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dim, }
+\item[{{\bf coord\+T}}]{low, }
+\item[{{\bf coord\+T}}]{high, }
+\item[{{\bf coord\+T}}]{newhigh}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a49ee6babb9631a44eec7929d5dd47a3a}
+\hypertarget{geom_8h_a321a818df5b179430f0d8f166fac4cd7}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+scalepoints@{qh\+\_\+scalepoints}}
+\index{qh\+\_\+scalepoints@{qh\+\_\+scalepoints}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+scalepoints}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+scalepoints (
+\begin{DoxyParamCaption}
+\item[{{\bf point\+T} $\ast$}]{points, }
+\item[{int}]{numpoints, }
+\item[{int}]{dim, }
+\item[{{\bf real\+T} $\ast$}]{newlows, }
+\item[{{\bf real\+T} $\ast$}]{newhighs}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a321a818df5b179430f0d8f166fac4cd7}
+\hypertarget{geom_8h_a09072e3cbd482076f057ead2d7a29c03}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+setfacetplane@{qh\+\_\+setfacetplane}}
+\index{qh\+\_\+setfacetplane@{qh\+\_\+setfacetplane}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+setfacetplane}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+setfacetplane (
+\begin{DoxyParamCaption}
+\item[{{\bf facet\+T} $\ast$}]{newfacets}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a09072e3cbd482076f057ead2d7a29c03}
+\hypertarget{geom_8h_acc35c82694aab63196e0ea4ee9e1167e}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+sethalfspace@{qh\+\_\+sethalfspace}}
+\index{qh\+\_\+sethalfspace@{qh\+\_\+sethalfspace}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+sethalfspace}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+sethalfspace (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf coord\+T} $\ast$}]{coords, }
+\item[{{\bf coord\+T} $\ast$$\ast$}]{nextp, }
+\item[{{\bf coord\+T} $\ast$}]{normal, }
+\item[{{\bf coord\+T} $\ast$}]{offset, }
+\item[{{\bf coord\+T} $\ast$}]{feasible}
+\end{DoxyParamCaption}
+)}\label{geom_8h_acc35c82694aab63196e0ea4ee9e1167e}
+\hypertarget{geom_8h_acc06bbfd3f14beba08ae7589e890672c}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+sethalfspace\+\_\+all@{qh\+\_\+sethalfspace\+\_\+all}}
+\index{qh\+\_\+sethalfspace\+\_\+all@{qh\+\_\+sethalfspace\+\_\+all}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+sethalfspace\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}{\bf coord\+T}$\ast$ qh\+\_\+sethalfspace\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{int}]{count, }
+\item[{{\bf coord\+T} $\ast$}]{halfspaces, }
+\item[{{\bf point\+T} $\ast$}]{feasible}
+\end{DoxyParamCaption}
+)}\label{geom_8h_acc06bbfd3f14beba08ae7589e890672c}
+\hypertarget{geom_8h_a5c5d4d64b164ef17fd1ef4cdc48a60a3}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+sethyperplane\+\_\+det@{qh\+\_\+sethyperplane\+\_\+det}}
+\index{qh\+\_\+sethyperplane\+\_\+det@{qh\+\_\+sethyperplane\+\_\+det}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+sethyperplane\+\_\+det}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+sethyperplane\+\_\+det (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf coord\+T} $\ast$$\ast$}]{rows, }
+\item[{{\bf coord\+T} $\ast$}]{point0, }
+\item[{{\bf bool\+T}}]{toporient, }
+\item[{{\bf coord\+T} $\ast$}]{normal, }
+\item[{{\bf real\+T} $\ast$}]{offset, }
+\item[{{\bf bool\+T} $\ast$}]{nearzero}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a5c5d4d64b164ef17fd1ef4cdc48a60a3}
+\hypertarget{geom_8h_a71769c384a5ff96fc3f983d831fee941}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+sethyperplane\+\_\+gauss@{qh\+\_\+sethyperplane\+\_\+gauss}}
+\index{qh\+\_\+sethyperplane\+\_\+gauss@{qh\+\_\+sethyperplane\+\_\+gauss}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+sethyperplane\+\_\+gauss}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+sethyperplane\+\_\+gauss (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf coord\+T} $\ast$$\ast$}]{rows, }
+\item[{{\bf point\+T} $\ast$}]{point0, }
+\item[{{\bf bool\+T}}]{toporient, }
+\item[{{\bf coord\+T} $\ast$}]{normal, }
+\item[{{\bf coord\+T} $\ast$}]{offset, }
+\item[{{\bf bool\+T} $\ast$}]{nearzero}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a71769c384a5ff96fc3f983d831fee941}
+\hypertarget{geom_8h_adbf4f712c3e3ad7ddf5c72812389cdb4}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+sharpnewfacets@{qh\+\_\+sharpnewfacets}}
+\index{qh\+\_\+sharpnewfacets@{qh\+\_\+sharpnewfacets}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+sharpnewfacets}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool\+T} qh\+\_\+sharpnewfacets (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{geom_8h_adbf4f712c3e3ad7ddf5c72812389cdb4}
+\hypertarget{geom_8h_a82091ffc060de3a8471615bb2c55b6c5}{}\index{geom.\+h@{geom.\+h}!qh\+\_\+voronoi\+\_\+center@{qh\+\_\+voronoi\+\_\+center}}
+\index{qh\+\_\+voronoi\+\_\+center@{qh\+\_\+voronoi\+\_\+center}!geom.\+h@{geom.\+h}}
+\subsubsection[{qh\+\_\+voronoi\+\_\+center}]{\setlength{\rightskip}{0pt plus 5cm}{\bf point\+T}$\ast$ qh\+\_\+voronoi\+\_\+center (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{{\bf set\+T} $\ast$}]{points}
+\end{DoxyParamCaption}
+)}\label{geom_8h_a82091ffc060de3a8471615bb2c55b6c5}

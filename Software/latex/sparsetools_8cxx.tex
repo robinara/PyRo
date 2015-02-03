@@ -1,0 +1,109 @@
+\hypertarget{sparsetools_8cxx}{}\section{packages/scipy-\/0.14.0/scipy/sparse/sparsetools/sparsetools.cxx File Reference}
+\label{sparsetools_8cxx}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/sparsetools/sparsetools.\+cxx@{packages/scipy-\/0.\+14.\+0/scipy/sparse/sparsetools/sparsetools.\+cxx}}
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$stdexcept$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include \char`\"{}numpy/ndarrayobject.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sparsetools.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sparsetools\+\_\+impl.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sparsetools_8cxx_a7d399fcbebb74300921248d831d6ab6f}{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}~\+\_\+scipy\+\_\+sparse\+\_\+sparsetools\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+P\+I
+\item 
+\#define \hyperlink{sparsetools_8cxx_a29b7451465deac204c5f7cb1f9c6e1fc}{M\+A\+X\+\_\+\+A\+R\+G\+S}~16
+\item 
+\#define \hyperlink{sparsetools_8cxx_acce9729c6e613c21fcfdcaabb9055b73}{P\+R\+O\+C\+E\+S\+S}(ntype,  ctype)
+\item 
+\#define \hyperlink{sparsetools_8cxx_acce9729c6e613c21fcfdcaabb9055b73}{P\+R\+O\+C\+E\+S\+S}(ntype,  ctype)
+\item 
+\#define \hyperlink{sparsetools_8cxx_acce9729c6e613c21fcfdcaabb9055b73}{P\+R\+O\+C\+E\+S\+S}(ntype,  ctype)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+N\+P\+Y\+\_\+\+V\+I\+S\+I\+B\+I\+L\+I\+T\+Y\+\_\+\+H\+I\+D\+D\+E\+N Py\+Object $\ast$ \hyperlink{sparsetools_8cxx_ac19f5a17b8af65e68d87ad1d91488632}{call\+\_\+thunk} (char ret\+\_\+spec, const char $\ast$spec, \hyperlink{sparsetools_8h_abf2b8aa81544a0eee24480e71f6e0f58}{thunk\+\_\+t} $\ast$thunk, Py\+Object $\ast$args)
+\item 
+\hyperlink{smbusmodule_8c_a75c7c5d977b65e67c0b0d80fc079004f}{Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} \hyperlink{sparsetools_8cxx_aba4d86ab8dc37f3d9b1c63dcb7823f28}{init\+\_\+sparsetools} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{sparsetools_8cxx_a29b7451465deac204c5f7cb1f9c6e1fc}{}\index{sparsetools.\+cxx@{sparsetools.\+cxx}!M\+A\+X\+\_\+\+A\+R\+G\+S@{M\+A\+X\+\_\+\+A\+R\+G\+S}}
+\index{M\+A\+X\+\_\+\+A\+R\+G\+S@{M\+A\+X\+\_\+\+A\+R\+G\+S}!sparsetools.\+cxx@{sparsetools.\+cxx}}
+\subsubsection[{M\+A\+X\+\_\+\+A\+R\+G\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+A\+R\+G\+S~16}\label{sparsetools_8cxx_a29b7451465deac204c5f7cb1f9c6e1fc}
+\hypertarget{sparsetools_8cxx_acce9729c6e613c21fcfdcaabb9055b73}{}\index{sparsetools.\+cxx@{sparsetools.\+cxx}!P\+R\+O\+C\+E\+S\+S@{P\+R\+O\+C\+E\+S\+S}}
+\index{P\+R\+O\+C\+E\+S\+S@{P\+R\+O\+C\+E\+S\+S}!sparsetools.\+cxx@{sparsetools.\+cxx}}
+\subsubsection[{P\+R\+O\+C\+E\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+O\+C\+E\+S\+S(
+\begin{DoxyParamCaption}
+\item[{}]{ntype, }
+\item[{}]{ctype}
+\end{DoxyParamCaption}
+)}\label{sparsetools_8cxx_acce9729c6e613c21fcfdcaabb9055b73}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (PyArray\_EquivTypenums(typenum, ntype)) \{                \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{        return} (\textcolor{keywordtype}{void}*)(\textcolor{keyword}{new} std::vector<ctype>());               \(\backslash\)
+    \}
+\end{DoxyCode}
+\hypertarget{sparsetools_8cxx_acce9729c6e613c21fcfdcaabb9055b73}{}\index{sparsetools.\+cxx@{sparsetools.\+cxx}!P\+R\+O\+C\+E\+S\+S@{P\+R\+O\+C\+E\+S\+S}}
+\index{P\+R\+O\+C\+E\+S\+S@{P\+R\+O\+C\+E\+S\+S}!sparsetools.\+cxx@{sparsetools.\+cxx}}
+\subsubsection[{P\+R\+O\+C\+E\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+O\+C\+E\+S\+S(
+\begin{DoxyParamCaption}
+\item[{}]{ntype, }
+\item[{}]{ctype}
+\end{DoxyParamCaption}
+)}\label{sparsetools_8cxx_acce9729c6e613c21fcfdcaabb9055b73}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (PyArray\_EquivTypenums(typenum, ntype)) \{                \(\backslash\)
+        delete ((std::vector<ctype>*)\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p});                        \(\backslash\)
+    \}
+\end{DoxyCode}
+\hypertarget{sparsetools_8cxx_acce9729c6e613c21fcfdcaabb9055b73}{}\index{sparsetools.\+cxx@{sparsetools.\+cxx}!P\+R\+O\+C\+E\+S\+S@{P\+R\+O\+C\+E\+S\+S}}
+\index{P\+R\+O\+C\+E\+S\+S@{P\+R\+O\+C\+E\+S\+S}!sparsetools.\+cxx@{sparsetools.\+cxx}}
+\subsubsection[{P\+R\+O\+C\+E\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+R\+O\+C\+E\+S\+S(
+\begin{DoxyParamCaption}
+\item[{}]{ntype, }
+\item[{}]{ctype}
+\end{DoxyParamCaption}
+)}\label{sparsetools_8cxx_acce9729c6e613c21fcfdcaabb9055b73}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (PyArray\_EquivTypenums(typenum, ntype)) \{                \(\backslash\)
+        std::vector<ctype> *\hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a257dfe1f781c7cec50d1e3bb811059fe}{v} = (std::vector<ctype>*)\hyperlink{indexexpr_8h_a2b8c103eb5bfc196fbc3d29923e28ac1}{p};         \(\backslash\)
+        npy\_intp length = v->size();                            \(\backslash\)
+        PyObject *\hyperlink{namespaceobject_a25711dde7eabb29a638a5a93177fe5c5}{obj} = PyArray\_SimpleNew(1, &length, typenum); \hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{\(\backslash\)}
+\hyperlink{minmax_8h_ab8862793a58f7228479c906d515c6da9}{        if} (length > 0) \{                                       \(\backslash\)
+            memcpy(PyArray\_DATA(obj), &((*v)[0]),               \(\backslash\)
+                   \textcolor{keyword}{sizeof}(ctype)*length);                       \(\backslash\)
+        \}                                                       \(\backslash\)
+        delete \hyperlink{namespacescipy_1_1sparse_1_1linalg_1_1eigen_1_1lobpcg_1_1lobpcg_a257dfe1f781c7cec50d1e3bb811059fe}{v};                                               \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{        return} \hyperlink{namespaceobject_a25711dde7eabb29a638a5a93177fe5c5}{obj};                                             \(\backslash\)
+    \}
+\end{DoxyCode}
+\hypertarget{sparsetools_8cxx_a7d399fcbebb74300921248d831d6ab6f}{}\index{sparsetools.\+cxx@{sparsetools.\+cxx}!P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L@{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}}
+\index{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L@{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}!sparsetools.\+cxx@{sparsetools.\+cxx}}
+\subsubsection[{P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+Y\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+U\+N\+I\+Q\+U\+E\+\_\+\+S\+Y\+M\+B\+O\+L~\+\_\+scipy\+\_\+sparse\+\_\+sparsetools\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+A\+P\+I}\label{sparsetools_8cxx_a7d399fcbebb74300921248d831d6ab6f}
+
+
+\subsection{Function Documentation}
+\hypertarget{sparsetools_8cxx_ac19f5a17b8af65e68d87ad1d91488632}{}\index{sparsetools.\+cxx@{sparsetools.\+cxx}!call\+\_\+thunk@{call\+\_\+thunk}}
+\index{call\+\_\+thunk@{call\+\_\+thunk}!sparsetools.\+cxx@{sparsetools.\+cxx}}
+\subsubsection[{call\+\_\+thunk}]{\setlength{\rightskip}{0pt plus 5cm}N\+P\+Y\+\_\+\+V\+I\+S\+I\+B\+I\+L\+I\+T\+Y\+\_\+\+H\+I\+D\+D\+E\+N Py\+Object$\ast$ call\+\_\+thunk (
+\begin{DoxyParamCaption}
+\item[{char}]{ret\+\_\+spec, }
+\item[{const char $\ast$}]{spec, }
+\item[{{\bf thunk\+\_\+t} $\ast$}]{thunk, }
+\item[{Py\+Object $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{sparsetools_8cxx_ac19f5a17b8af65e68d87ad1d91488632}
+\hypertarget{sparsetools_8cxx_aba4d86ab8dc37f3d9b1c63dcb7823f28}{}\index{sparsetools.\+cxx@{sparsetools.\+cxx}!init\+\_\+sparsetools@{init\+\_\+sparsetools}}
+\index{init\+\_\+sparsetools@{init\+\_\+sparsetools}!sparsetools.\+cxx@{sparsetools.\+cxx}}
+\subsubsection[{init\+\_\+sparsetools}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Py\+M\+O\+D\+I\+N\+I\+T\+\_\+\+F\+U\+N\+C} init\+\_\+sparsetools (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{sparsetools_8cxx_aba4d86ab8dc37f3d9b1c63dcb7823f28}

@@ -1,0 +1,80 @@
+\hypertarget{namespacekde__plot4}{}\section{kde\+\_\+plot4 Namespace Reference}
+\label{namespacekde__plot4}\index{kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacekde__plot4_a907cf90ce6515ae18c2bd01c3f347e8b}{my\+\_\+kde\+\_\+bandwidth}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tuple \hyperlink{namespacekde__plot4_a5685a6f3a65c974be74b68de043b0cb1}{x2}
+\item 
+tuple \hyperlink{namespacekde__plot4_a5da9f162e7d9d864ade43526c1123302}{x\+\_\+eval} = np.\+linspace(\hyperlink{vecbfn_8cc_aa3e27e02424d28adfcf9d2b934e741a1}{x2.\+min}() -\/ 1, \hyperlink{vecbfn_8cc_a71f214d4a304fdc2089c54dbaf979fe5}{x2.\+max}() + 1, 500)
+\item 
+tuple \hyperlink{namespacekde__plot4_ab68409392bf7a42c940367c17a97a3a2}{kde} = stats.\+gaussian\+\_\+kde(\hyperlink{namespacekde__plot4_a5685a6f3a65c974be74b68de043b0cb1}{x2})
+\item 
+tuple \hyperlink{namespacekde__plot4_a13f4c30d2bd26c7baabd8a9d2df00eda}{kde2} = stats.\+gaussian\+\_\+kde(\hyperlink{namespacekde__plot4_a5685a6f3a65c974be74b68de043b0cb1}{x2}, bw\+\_\+method='silverman')
+\item 
+tuple \hyperlink{namespacekde__plot4_a4da0f8c149097a740bafcf2919314a5a}{kde3} = stats.\+gaussian\+\_\+kde(\hyperlink{namespacekde__plot4_a5685a6f3a65c974be74b68de043b0cb1}{x2}, bw\+\_\+method=partial(\hyperlink{namespacekde__plot4_a907cf90ce6515ae18c2bd01c3f347e8b}{my\+\_\+kde\+\_\+bandwidth}, \hyperlink{protos_8h_abc0aa000e7fe04b5142d65d7e628f79a}{fac}=0.\+2))
+\item 
+tuple \hyperlink{namespacekde__plot4_aa099442190379cc2a276bf2f0775cabf}{kde4} = stats.\+gaussian\+\_\+kde(\hyperlink{namespacekde__plot4_a5685a6f3a65c974be74b68de043b0cb1}{x2}, bw\+\_\+method=partial(\hyperlink{namespacekde__plot4_a907cf90ce6515ae18c2bd01c3f347e8b}{my\+\_\+kde\+\_\+bandwidth}, \hyperlink{protos_8h_abc0aa000e7fe04b5142d65d7e628f79a}{fac}=0.\+5))
+\item 
+\hyperlink{namespacekde__plot4_a3fcf50e40bf645f4cdd0418766bc77ae}{pdf} = stats.\+norm.\+pdf
+\item 
+tuple \hyperlink{namespacekde__plot4_aaeb40d1c5448587c1d295590cc15c4dc}{bimodal\+\_\+pdf} = \hyperlink{namespacekde__plot4_a3fcf50e40bf645f4cdd0418766bc77ae}{pdf}(\hyperlink{namespacekde__plot4_a5da9f162e7d9d864ade43526c1123302}{x\+\_\+eval}, loc=loc1, scale=scale1)
+\item 
+tuple \hyperlink{namespacekde__plot4_a3f175e7060761b2d6fc3cc1df78b3e95}{fig} = plt.\+figure(figsize=(8, 6))
+\item 
+tuple \hyperlink{namespacekde__plot4_a67ef57ca709f93166930472320aeea36}{ax} = fig.\+add\+\_\+subplot(111)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacekde__plot4_a907cf90ce6515ae18c2bd01c3f347e8b}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!my\+\_\+kde\+\_\+bandwidth@{my\+\_\+kde\+\_\+bandwidth}}
+\index{my\+\_\+kde\+\_\+bandwidth@{my\+\_\+kde\+\_\+bandwidth}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{my\+\_\+kde\+\_\+bandwidth}]{\setlength{\rightskip}{0pt plus 5cm}def kde\+\_\+plot4.\+my\+\_\+kde\+\_\+bandwidth (
+\begin{DoxyParamCaption}
+\item[{}]{obj, }
+\item[{}]{fac = {\ttfamily 1./5}}
+\end{DoxyParamCaption}
+)}\label{namespacekde__plot4_a907cf90ce6515ae18c2bd01c3f347e8b}
+\begin{DoxyVerb}We use Scott's Rule, multiplied by a constant factor.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacekde__plot4_a67ef57ca709f93166930472320aeea36}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!ax@{ax}}
+\index{ax@{ax}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{ax}]{\setlength{\rightskip}{0pt plus 5cm}tuple kde\+\_\+plot4.\+ax = fig.\+add\+\_\+subplot(111)}\label{namespacekde__plot4_a67ef57ca709f93166930472320aeea36}
+\hypertarget{namespacekde__plot4_aaeb40d1c5448587c1d295590cc15c4dc}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!bimodal\+\_\+pdf@{bimodal\+\_\+pdf}}
+\index{bimodal\+\_\+pdf@{bimodal\+\_\+pdf}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{bimodal\+\_\+pdf}]{\setlength{\rightskip}{0pt plus 5cm}tuple kde\+\_\+plot4.\+bimodal\+\_\+pdf = {\bf pdf}({\bf x\+\_\+eval}, loc=loc1, scale=scale1)}\label{namespacekde__plot4_aaeb40d1c5448587c1d295590cc15c4dc}
+\hypertarget{namespacekde__plot4_a3f175e7060761b2d6fc3cc1df78b3e95}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!fig@{fig}}
+\index{fig@{fig}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{fig}]{\setlength{\rightskip}{0pt plus 5cm}tuple kde\+\_\+plot4.\+fig = plt.\+figure(figsize=(8, 6))}\label{namespacekde__plot4_a3f175e7060761b2d6fc3cc1df78b3e95}
+\hypertarget{namespacekde__plot4_ab68409392bf7a42c940367c17a97a3a2}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!kde@{kde}}
+\index{kde@{kde}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{kde}]{\setlength{\rightskip}{0pt plus 5cm}tuple kde\+\_\+plot4.\+kde = stats.\+gaussian\+\_\+kde({\bf x2})}\label{namespacekde__plot4_ab68409392bf7a42c940367c17a97a3a2}
+\hypertarget{namespacekde__plot4_a13f4c30d2bd26c7baabd8a9d2df00eda}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!kde2@{kde2}}
+\index{kde2@{kde2}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{kde2}]{\setlength{\rightskip}{0pt plus 5cm}tuple kde\+\_\+plot4.\+kde2 = stats.\+gaussian\+\_\+kde({\bf x2}, bw\+\_\+method='silverman')}\label{namespacekde__plot4_a13f4c30d2bd26c7baabd8a9d2df00eda}
+\hypertarget{namespacekde__plot4_a4da0f8c149097a740bafcf2919314a5a}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!kde3@{kde3}}
+\index{kde3@{kde3}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{kde3}]{\setlength{\rightskip}{0pt plus 5cm}tuple kde\+\_\+plot4.\+kde3 = stats.\+gaussian\+\_\+kde({\bf x2}, bw\+\_\+method=partial({\bf my\+\_\+kde\+\_\+bandwidth}, {\bf fac}=0.\+2))}\label{namespacekde__plot4_a4da0f8c149097a740bafcf2919314a5a}
+\hypertarget{namespacekde__plot4_aa099442190379cc2a276bf2f0775cabf}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!kde4@{kde4}}
+\index{kde4@{kde4}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{kde4}]{\setlength{\rightskip}{0pt plus 5cm}tuple kde\+\_\+plot4.\+kde4 = stats.\+gaussian\+\_\+kde({\bf x2}, bw\+\_\+method=partial({\bf my\+\_\+kde\+\_\+bandwidth}, {\bf fac}=0.\+5))}\label{namespacekde__plot4_aa099442190379cc2a276bf2f0775cabf}
+\hypertarget{namespacekde__plot4_a3fcf50e40bf645f4cdd0418766bc77ae}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!pdf@{pdf}}
+\index{pdf@{pdf}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{pdf}]{\setlength{\rightskip}{0pt plus 5cm}kde\+\_\+plot4.\+pdf = stats.\+norm.\+pdf}\label{namespacekde__plot4_a3fcf50e40bf645f4cdd0418766bc77ae}
+\hypertarget{namespacekde__plot4_a5685a6f3a65c974be74b68de043b0cb1}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!x2@{x2}}
+\index{x2@{x2}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{x2}]{\setlength{\rightskip}{0pt plus 5cm}tuple kde\+\_\+plot4.\+x2}\label{namespacekde__plot4_a5685a6f3a65c974be74b68de043b0cb1}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = np.concatenate([np.random.normal(loc=loc1, scale=scale1, size=size1),
+2                      np.random.normal(loc=loc2, scale=scale2, size=size2)])
+\end{DoxyCode}
+\hypertarget{namespacekde__plot4_a5da9f162e7d9d864ade43526c1123302}{}\index{kde\+\_\+plot4@{kde\+\_\+plot4}!x\+\_\+eval@{x\+\_\+eval}}
+\index{x\+\_\+eval@{x\+\_\+eval}!kde\+\_\+plot4@{kde\+\_\+plot4}}
+\subsubsection[{x\+\_\+eval}]{\setlength{\rightskip}{0pt plus 5cm}tuple kde\+\_\+plot4.\+x\+\_\+eval = np.\+linspace({\bf x2.\+min}() -\/ 1, {\bf x2.\+max}() + 1, 500)}\label{namespacekde__plot4_a5da9f162e7d9d864ade43526c1123302}

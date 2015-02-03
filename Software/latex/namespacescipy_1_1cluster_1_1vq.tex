@@ -1,0 +1,448 @@
+\hypertarget{namespacescipy_1_1cluster_1_1vq}{}\section{scipy.\+cluster.\+vq Namespace Reference}
+\label{namespacescipy_1_1cluster_1_1vq}\index{scipy.\+cluster.\+vq@{scipy.\+cluster.\+vq}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1cluster_1_1vq_1_1ClusterError}{Cluster\+Error}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1cluster_1_1vq_ae5054f4f6a85a7626ef46afd302cf8d0}{whiten}
+\item 
+def \hyperlink{namespacescipy_1_1cluster_1_1vq_a617d8953ae056de229338f05e8c0c9ef}{vq}
+\item 
+def \hyperlink{namespacescipy_1_1cluster_1_1vq_a9b7d7659bff189e532c4566fac1b44bd}{py\+\_\+vq}
+\item 
+def \hyperlink{namespacescipy_1_1cluster_1_1vq_a65128ab172a61aefaf65322e25e394bc}{py\+\_\+vq2}
+\item 
+def \hyperlink{namespacescipy_1_1cluster_1_1vq_af4bfedf7fde3d48032d839db0477faa1}{kmeans}
+\item 
+def \hyperlink{namespacescipy_1_1cluster_1_1vq_a714311c102593f06182b0fa9f187b20f}{kmeans2}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacescipy_1_1cluster_1_1vq_a269068c9eec58420eecf07db13f0e5d5}{\+\_\+\+\_\+docformat\+\_\+\+\_\+} = 'restructuredtext'
+\item 
+list \hyperlink{namespacescipy_1_1cluster_1_1vq_aa44e5d52c843bc7d5966796bf5abb506}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1cluster_1_1vq_ae5054f4f6a85a7626ef46afd302cf8d0}{whiten}', '\hyperlink{namespacescipy_1_1cluster_1_1vq_a617d8953ae056de229338f05e8c0c9ef}{vq}', '\hyperlink{namespacescipy_1_1cluster_1_1vq_af4bfedf7fde3d48032d839db0477faa1}{kmeans}', '\hyperlink{namespacescipy_1_1cluster_1_1vq_a714311c102593f06182b0fa9f187b20f}{kmeans2}'\mbox{]}
+\item 
+dictionary \hyperlink{namespacescipy_1_1cluster_1_1vq_a16f327fb1e0d050f586f210c9e285727}{\+\_\+valid\+\_\+init\+\_\+meth} = \{'random'\+: \+\_\+krandinit, 'points'\+: \+\_\+kpoints\}
+\item 
+dictionary \hyperlink{namespacescipy_1_1cluster_1_1vq_abbc099b68b254c57a0c261d94f38b432}{\+\_\+valid\+\_\+miss\+\_\+meth} = \{'\hyperlink{eepromer_8c_acc421dc81e5dbb4c9cc2f0709f71b861}{warn}'\+: \+\_\+missing\+\_\+warn, 'raise'\+: \+\_\+missing\+\_\+raise\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}====================================================================
+K-means clustering and vector quantization (:mod:`scipy.cluster.vq`)
+====================================================================
+
+Provides routines for k-means clustering, generating code books
+from k-means models, and quantizing vectors by comparing them with
+centroids in a code book.
+
+.. autosummary::
+   :toctree: generated/
+
+   whiten -- Normalize a group of observations so each feature has unit variance
+   vq -- Calculate code book membership of a set of observation vectors
+   kmeans -- Performs k-means on a set of observation vectors forming k clusters
+   kmeans2 -- A different implementation of k-means with more methods
+       -- for initializing centroids
+
+Background information
+======================
+The k-means algorithm takes as input the number of clusters to
+generate, k, and a set of observation vectors to cluster.  It
+returns a set of centroids, one for each of the k clusters.  An
+observation vector is classified with the cluster number or
+centroid index of the centroid closest to it.
+
+A vector v belongs to cluster i if it is closer to centroid i than
+any other centroids. If v belongs to i, we say centroid i is the
+dominating centroid of v. The k-means algorithm tries to
+minimize distortion, which is defined as the sum of the squared distances
+between each observation vector and its dominating centroid.  Each
+step of the k-means algorithm refines the choices of centroids to
+reduce distortion. The change in distortion is used as a
+stopping criterion: when the change is lower than a threshold, the
+k-means algorithm is not making sufficient progress and
+terminates. One can also define a maximum number of iterations.
+
+Since vector quantization is a natural application for k-means,
+information theory terminology is often used.  The centroid index
+or cluster index is also referred to as a "code" and the table
+mapping codes to centroids and vice versa is often referred as a
+"code book". The result of k-means, a set of centroids, can be
+used to quantize vectors. Quantization aims to find an encoding of
+vectors that reduces the expected distortion.
+
+All routines expect obs to be a M by N array where the rows are
+the observation vectors. The codebook is a k by N array where the
+i'th row is the centroid of code word i. The observation vectors
+and centroids have the same feature dimension.
+
+As an example, suppose we wish to compress a 24-bit color image
+(each pixel is represented by one byte for red, one for blue, and
+one for green) before sending it over the web.  By using a smaller
+8-bit encoding, we can reduce the amount of data by two
+thirds. Ideally, the colors for each of the 256 possible 8-bit
+encoding values should be chosen to minimize distortion of the
+color. Running k-means with k=256 generates a code book of 256
+codes, which fills up all possible 8-bit sequences.  Instead of
+sending a 3-byte value for each pixel, the 8-bit centroid index
+(or code word) of the dominating centroid is transmitted. The code
+book is also sent over the wire so each 8-bit code can be
+translated back to a 24-bit pixel value representation. If the
+image of interest was of an ocean, we would expect many 24-bit
+blues to be represented by 8-bit codes. If it was an image of a
+human face, more flesh tone colors would be represented in the
+code book.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1cluster_1_1vq_af4bfedf7fde3d48032d839db0477faa1}{}\index{scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}!kmeans@{kmeans}}
+\index{kmeans@{kmeans}!scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}}
+\subsubsection[{kmeans}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+vq.\+kmeans (
+\begin{DoxyParamCaption}
+\item[{}]{obs, }
+\item[{}]{k\+\_\+or\+\_\+guess, }
+\item[{}]{iter = {\ttfamily 20}, }
+\item[{}]{thresh = {\ttfamily 1e-\/5}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1cluster_1_1vq_af4bfedf7fde3d48032d839db0477faa1}
+\begin{DoxyVerb}Performs k-means on a set of observation vectors forming k clusters.
+
+The k-means algorithm adjusts the centroids until sufficient
+progress cannot be made, i.e. the change in distortion since
+the last iteration is less than some threshold. This yields
+a code book mapping centroids to codes and vice versa.
+
+Distortion is defined as the sum of the squared differences
+between the observations and the corresponding centroid.
+
+Parameters
+----------
+obs : ndarray
+   Each row of the M by N array is an observation vector. The
+   columns are the features seen during each observation.
+   The features must be whitened first with the `whiten` function.
+
+k_or_guess : int or ndarray
+   The number of centroids to generate. A code is assigned to
+   each centroid, which is also the row index of the centroid
+   in the code_book matrix generated.
+
+   The initial k centroids are chosen by randomly selecting
+   observations from the observation matrix. Alternatively,
+   passing a k by N array specifies the initial k centroids.
+
+iter : int, optional
+   The number of times to run k-means, returning the codebook
+   with the lowest distortion. This argument is ignored if
+   initial centroids are specified with an array for the
+   ``k_or_guess`` parameter. This parameter does not represent the
+   number of iterations of the k-means algorithm.
+
+thresh : float, optional
+   Terminates the k-means algorithm if the change in
+   distortion since the last k-means iteration is less than
+   or equal to thresh.
+
+Returns
+-------
+codebook : ndarray
+   A k by N array of k centroids. The i'th centroid
+   codebook[i] is represented with the code i. The centroids
+   and codes generated represent the lowest distortion seen,
+   not necessarily the globally minimal distortion.
+
+distortion : float
+   The distortion between the observations passed and the
+   centroids generated.
+
+See Also
+--------
+kmeans2 : a different implementation of k-means clustering
+   with more methods for generating initial centroids but without
+   using a distortion change threshold as a stopping criterion.
+
+whiten : must be called prior to passing an observation matrix
+   to kmeans.
+
+Examples
+--------
+>>> from numpy import array
+>>> from scipy.cluster.vq import vq, kmeans, whiten
+>>> features  = array([[ 1.9,2.3],
+...                    [ 1.5,2.5],
+...                    [ 0.8,0.6],
+...                    [ 0.4,1.8],
+...                    [ 0.1,0.1],
+...                    [ 0.2,1.8],
+...                    [ 2.0,0.5],
+...                    [ 0.3,1.5],
+...                    [ 1.0,1.0]])
+>>> whitened = whiten(features)
+>>> book = array((whitened[0],whitened[2]))
+>>> kmeans(whitened,book)
+(array([[ 2.3110306 ,  2.86287398],
+       [ 0.93218041,  1.24398691]]), 0.85684700941625547)
+
+>>> from numpy import random
+>>> random.seed((1000,2000))
+>>> codes = 3
+>>> kmeans(whitened,codes)
+(array([[ 2.3110306 ,  2.86287398],
+       [ 1.32544402,  0.65607529],
+       [ 0.40782893,  2.02786907]]), 0.5196582527686241)\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1cluster_1_1vq_a714311c102593f06182b0fa9f187b20f}{}\index{scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}!kmeans2@{kmeans2}}
+\index{kmeans2@{kmeans2}!scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}}
+\subsubsection[{kmeans2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+vq.\+kmeans2 (
+\begin{DoxyParamCaption}
+\item[{}]{data, }
+\item[{}]{k, }
+\item[{}]{iter = {\ttfamily 10}, }
+\item[{}]{thresh = {\ttfamily 1e-\/5}, }
+\item[{}]{minit = {\ttfamily 'random'}, }
+\item[{}]{missing = {\ttfamily '{\bf warn}'}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1cluster_1_1vq_a714311c102593f06182b0fa9f187b20f}
+\begin{DoxyVerb}Classify a set of observations into k clusters using the k-means algorithm.
+
+The algorithm attempts to minimize the Euclidian distance between
+observations and centroids. Several initialization methods are
+included.
+
+Parameters
+----------
+data : ndarray
+    A 'M' by 'N' array of 'M' observations in 'N' dimensions or a length
+    'M' array of 'M' one-dimensional observations.
+k : int or ndarray
+    The number of clusters to form as well as the number of
+    centroids to generate. If `minit` initialization string is
+    'matrix', or if a ndarray is given instead, it is
+    interpreted as initial cluster to use instead.
+iter : int
+    Number of iterations of the k-means algrithm to run. Note
+    that this differs in meaning from the iters parameter to
+    the kmeans function.
+thresh : float
+    (not used yet)
+minit : string
+    Method for initialization. Available methods are 'random',
+    'points', 'uniform', and 'matrix':
+
+    'random': generate k centroids from a Gaussian with mean and
+    variance estimated from the data.
+
+    'points': choose k observations (rows) at random from data for
+    the initial centroids.
+
+    'uniform': generate k observations from the data from a uniform
+    distribution defined by the data set (unsupported).
+
+    'matrix': interpret the k parameter as a k by M (or length k
+    array for one-dimensional data) array of initial centroids.
+
+Returns
+-------
+centroid : ndarray
+    A 'k' by 'N' array of centroids found at the last iteration of
+    k-means.
+label : ndarray
+    label[i] is the code or index of the centroid the
+    i'th observation is closest to.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1cluster_1_1vq_a9b7d7659bff189e532c4566fac1b44bd}{}\index{scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}!py\+\_\+vq@{py\+\_\+vq}}
+\index{py\+\_\+vq@{py\+\_\+vq}!scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}}
+\subsubsection[{py\+\_\+vq}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+vq.\+py\+\_\+vq (
+\begin{DoxyParamCaption}
+\item[{}]{obs, }
+\item[{}]{code\+\_\+book}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1cluster_1_1vq_a9b7d7659bff189e532c4566fac1b44bd}
+\begin{DoxyVerb}Python version of vq algorithm.
+
+The algorithm computes the euclidian distance between each
+observation and every frame in the code_book.
+
+Parameters
+----------
+obs : ndarray
+    Expects a rank 2 array. Each row is one observation.
+code_book : ndarray
+    Code book to use. Same format than obs. Should have same number of
+    features (eg columns) than obs.
+
+Returns
+-------
+code : ndarray
+    code[i] gives the label of the ith obversation, that its code is
+    code_book[code[i]].
+mind_dist : ndarray
+    min_dist[i] gives the distance between the ith observation and its
+    corresponding code.
+
+Notes
+-----
+This function is slower than the C version but works for
+all input types.  If the inputs have the wrong types for the
+C versions of the function, this one is called as a last resort.
+
+It is about 20 times slower than the C version.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1cluster_1_1vq_a65128ab172a61aefaf65322e25e394bc}{}\index{scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}!py\+\_\+vq2@{py\+\_\+vq2}}
+\index{py\+\_\+vq2@{py\+\_\+vq2}!scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}}
+\subsubsection[{py\+\_\+vq2}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+vq.\+py\+\_\+vq2 (
+\begin{DoxyParamCaption}
+\item[{}]{obs, }
+\item[{}]{code\+\_\+book}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1cluster_1_1vq_a65128ab172a61aefaf65322e25e394bc}
+\begin{DoxyVerb}2nd Python version of vq algorithm.
+
+The algorithm simply computes the euclidian distance between each
+observation and every frame in the code_book/
+
+Parameters
+----------
+obs : ndarray
+    Expect a rank 2 array. Each row is one observation.
+code_book : ndarray
+    Code book to use. Same format than obs. Should have same number of
+    features (eg columns) than obs.
+
+Returns
+-------
+code : ndarray
+    code[i] gives the label of the ith obversation, that its code is
+    code_book[code[i]].
+mind_dist : ndarray
+    min_dist[i] gives the distance between the ith observation and its
+    corresponding code.
+
+Notes
+-----
+This could be faster when number of codebooks is small, but it
+becomes a real memory hog when codebook is large. It requires
+N by M by O storage where N=number of obs, M = number of
+features, and O = number of codes.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1cluster_1_1vq_a617d8953ae056de229338f05e8c0c9ef}{}\index{scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}!vq@{vq}}
+\index{vq@{vq}!scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}}
+\subsubsection[{vq}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+vq.\+vq (
+\begin{DoxyParamCaption}
+\item[{}]{obs, }
+\item[{}]{code\+\_\+book}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1cluster_1_1vq_a617d8953ae056de229338f05e8c0c9ef}
+\begin{DoxyVerb}Assign codes from a code book to observations.
+
+Assigns a code from a code book to each observation. Each
+observation vector in the 'M' by 'N' `obs` array is compared with the
+centroids in the code book and assigned the code of the closest
+centroid.
+
+The features in `obs` should have unit variance, which can be
+achieved by passing them through the whiten function.  The code
+book can be created with the k-means algorithm or a different
+encoding algorithm.
+
+Parameters
+----------
+obs : ndarray
+    Each row of the 'N' x 'M' array is an observation.  The columns are
+    the "features" seen during each observation. The features must be
+    whitened first using the whiten function or something equivalent.
+code_book : ndarray
+    The code book is usually generated using the k-means algorithm.
+    Each row of the array holds a different code, and the columns are
+    the features of the code.
+
+     >>> #              f0    f1    f2   f3
+     >>> code_book = [
+     ...             [  1.,   2.,   3.,   4.],  #c0
+     ...             [  1.,   2.,   3.,   4.],  #c1
+     ...             [  1.,   2.,   3.,   4.]]) #c2
+
+Returns
+-------
+code : ndarray
+    A length N array holding the code book index for each observation.
+dist : ndarray
+    The distortion (distance) between the observation and its nearest
+    code.
+
+Notes
+-----
+This currently forces 32-bit math precision for speed.  Anyone know
+of a situation where this undermines the accuracy of the algorithm?
+
+Examples
+--------
+>>> from numpy import array
+>>> from scipy.cluster.vq import vq
+>>> code_book = array([[1.,1.,1.],
+...                    [2.,2.,2.]])
+>>> features  = array([[  1.9,2.3,1.7],
+...                    [  1.5,2.5,2.2],
+...                    [  0.8,0.6,1.7]])
+>>> vq(features,code_book)
+(array([1, 1, 0],'i'), array([ 0.43588989,  0.73484692,  0.83066239]))\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1cluster_1_1vq_ae5054f4f6a85a7626ef46afd302cf8d0}{}\index{scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}!whiten@{whiten}}
+\index{whiten@{whiten}!scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}}
+\subsubsection[{whiten}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+cluster.\+vq.\+whiten (
+\begin{DoxyParamCaption}
+\item[{}]{obs}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1cluster_1_1vq_ae5054f4f6a85a7626ef46afd302cf8d0}
+\begin{DoxyVerb}Normalize a group of observations on a per feature basis.
+
+Before running k-means, it is beneficial to rescale each feature
+dimension of the observation set with whitening. Each feature is
+divided by its standard deviation across all observations to give
+it unit variance.
+
+Parameters
+----------
+obs : ndarray
+    Each row of the array is an observation.  The
+    columns are the features seen during each observation.
+
+    >>> #         f0    f1    f2
+    >>> obs = [[  1.,   1.,   1.],  #o0
+    ...        [  2.,   2.,   2.],  #o1
+    ...        [  3.,   3.,   3.],  #o2
+    ...        [  4.,   4.,   4.]]) #o3
+
+Returns
+-------
+result : ndarray
+    Contains the values in `obs` scaled by the standard deviation
+    of each column.
+
+Examples
+--------
+>>> from scipy.cluster.vq import whiten
+>>> features  = np.array([[1.9, 2.3, 1.7],
+...                       [1.5, 2.5, 2.2],
+...                       [0.8, 0.6, 1.7,]])
+>>> whiten(features)
+array([[ 4.17944278,  2.69811351,  7.21248917],
+       [ 3.29956009,  2.93273208,  9.33380951],
+       [ 1.75976538,  0.7038557 ,  7.21248917]])\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1cluster_1_1vq_aa44e5d52c843bc7d5966796bf5abb506}{}\index{scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+cluster.\+vq.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf whiten}', '{\bf vq}', '{\bf kmeans}', '{\bf kmeans2}'\mbox{]}}\label{namespacescipy_1_1cluster_1_1vq_aa44e5d52c843bc7d5966796bf5abb506}
+\hypertarget{namespacescipy_1_1cluster_1_1vq_a269068c9eec58420eecf07db13f0e5d5}{}\index{scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}!\+\_\+\+\_\+docformat\+\_\+\+\_\+@{\+\_\+\+\_\+docformat\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+docformat\+\_\+\+\_\+@{\+\_\+\+\_\+docformat\+\_\+\+\_\+}!scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}}
+\subsubsection[{\+\_\+\+\_\+docformat\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+cluster.\+vq.\+\_\+\+\_\+docformat\+\_\+\+\_\+ = 'restructuredtext'}\label{namespacescipy_1_1cluster_1_1vq_a269068c9eec58420eecf07db13f0e5d5}
+\hypertarget{namespacescipy_1_1cluster_1_1vq_a16f327fb1e0d050f586f210c9e285727}{}\index{scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}!\+\_\+valid\+\_\+init\+\_\+meth@{\+\_\+valid\+\_\+init\+\_\+meth}}
+\index{\+\_\+valid\+\_\+init\+\_\+meth@{\+\_\+valid\+\_\+init\+\_\+meth}!scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}}
+\subsubsection[{\+\_\+valid\+\_\+init\+\_\+meth}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+cluster.\+vq.\+\_\+valid\+\_\+init\+\_\+meth = \{'random'\+: \+\_\+krandinit, 'points'\+: \+\_\+kpoints\}}\label{namespacescipy_1_1cluster_1_1vq_a16f327fb1e0d050f586f210c9e285727}
+\hypertarget{namespacescipy_1_1cluster_1_1vq_abbc099b68b254c57a0c261d94f38b432}{}\index{scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}!\+\_\+valid\+\_\+miss\+\_\+meth@{\+\_\+valid\+\_\+miss\+\_\+meth}}
+\index{\+\_\+valid\+\_\+miss\+\_\+meth@{\+\_\+valid\+\_\+miss\+\_\+meth}!scipy\+::cluster\+::vq@{scipy\+::cluster\+::vq}}
+\subsubsection[{\+\_\+valid\+\_\+miss\+\_\+meth}]{\setlength{\rightskip}{0pt plus 5cm}dictionary scipy.\+cluster.\+vq.\+\_\+valid\+\_\+miss\+\_\+meth = \{'{\bf warn}'\+: \+\_\+missing\+\_\+warn, 'raise'\+: \+\_\+missing\+\_\+raise\}}\label{namespacescipy_1_1cluster_1_1vq_abbc099b68b254c57a0c261d94f38b432}

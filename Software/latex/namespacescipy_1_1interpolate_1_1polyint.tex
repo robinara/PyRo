@@ -1,0 +1,248 @@
+\hypertarget{namespacescipy_1_1interpolate_1_1polyint}{}\section{scipy.\+interpolate.\+polyint Namespace Reference}
+\label{namespacescipy_1_1interpolate_1_1polyint}\index{scipy.\+interpolate.\+polyint@{scipy.\+interpolate.\+polyint}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1D}{\+\_\+\+Interpolator1\+D}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1__Interpolator1DWithDerivatives}{\+\_\+\+Interpolator1\+D\+With\+Derivatives}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator}{Barycentric\+Interpolator}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1KroghInterpolator}{Krogh\+Interpolator}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1PiecewisePolynomial}{Piecewise\+Polynomial}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1polyint_abe6652712f6fbc1b9a509c5f4f6b5fb6}{krogh\+\_\+interpolate}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1polyint_ad7b8573dc762bf3c678bf3dcd6b721bc}{approximate\+\_\+taylor\+\_\+polynomial}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1polyint_a9a56ff9787749389b7c117a66bbc5635}{barycentric\+\_\+interpolate}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1polyint_ab6386a8c0735800e49d5c52c5531b178}{piecewise\+\_\+polynomial\+\_\+interpolate}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1interpolate_1_1polyint_a2c5c933c7cc4ed4182fdfc30a752b009}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1polyint_ad7b8573dc762bf3c678bf3dcd6b721bc}{}\index{scipy\+::interpolate\+::polyint@{scipy\+::interpolate\+::polyint}!approximate\+\_\+taylor\+\_\+polynomial@{approximate\+\_\+taylor\+\_\+polynomial}}
+\index{approximate\+\_\+taylor\+\_\+polynomial@{approximate\+\_\+taylor\+\_\+polynomial}!scipy\+::interpolate\+::polyint@{scipy\+::interpolate\+::polyint}}
+\subsubsection[{approximate\+\_\+taylor\+\_\+polynomial}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+approximate\+\_\+taylor\+\_\+polynomial (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{x, }
+\item[{}]{degree, }
+\item[{}]{scale, }
+\item[{}]{order = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1polyint_ad7b8573dc762bf3c678bf3dcd6b721bc}
+\begin{DoxyVerb}Estimate the Taylor polynomial of f at x by polynomial fitting.
+
+Parameters
+----------
+f : callable
+    The function whose Taylor polynomial is sought. Should accept
+    a vector of `x` values.
+x : scalar
+    The point at which the polynomial is to be evaluated.
+degree : int
+    The degree of the Taylor polynomial
+scale : scalar
+    The width of the interval to use to evaluate the Taylor polynomial.
+    Function values spread over a range this wide are used to fit the
+    polynomial. Must be chosen carefully.
+order : int or None, optional
+    The order of the polynomial to be used in the fitting; `f` will be
+    evaluated ``order+1`` times. If None, use `degree`.
+
+Returns
+-------
+p : poly1d instance
+    The Taylor polynomial (translated to the origin, so that
+    for example p(0)=f(x)).
+
+Notes
+-----
+The appropriate choice of "scale" is a trade-off; too large and the
+function differs from its Taylor polynomial too much to get a good
+answer, too small and round-off errors overwhelm the higher-order terms.
+The algorithm used becomes numerically unstable around order 30 even
+under ideal circumstances.
+
+Choosing order somewhat larger than degree may improve the higher-order
+terms.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1polyint_a9a56ff9787749389b7c117a66bbc5635}{}\index{scipy\+::interpolate\+::polyint@{scipy\+::interpolate\+::polyint}!barycentric\+\_\+interpolate@{barycentric\+\_\+interpolate}}
+\index{barycentric\+\_\+interpolate@{barycentric\+\_\+interpolate}!scipy\+::interpolate\+::polyint@{scipy\+::interpolate\+::polyint}}
+\subsubsection[{barycentric\+\_\+interpolate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+barycentric\+\_\+interpolate (
+\begin{DoxyParamCaption}
+\item[{}]{xi, }
+\item[{}]{yi, }
+\item[{}]{x, }
+\item[{}]{axis = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1polyint_a9a56ff9787749389b7c117a66bbc5635}
+\begin{DoxyVerb}Convenience function for polynomial interpolation.
+
+Constructs a polynomial that passes through a given set of points,
+then evaluates the polynomial. For reasons of numerical stability,
+this function does not compute the coefficients of the polynomial.
+
+This function uses a "barycentric interpolation" method that treats
+the problem as a special case of rational function interpolation.
+This algorithm is quite stable, numerically, but even in a world of
+exact computation, unless the `x` coordinates are chosen very
+carefully - Chebyshev zeros (e.g. cos(i*pi/n)) are a good choice -
+polynomial interpolation itself is a very ill-conditioned process
+due to the Runge phenomenon.
+
+Parameters
+----------
+xi : array_like
+    1-d array of x coordinates of the points the polynomial should
+    pass through
+yi : array_like
+    The y coordinates of the points the polynomial should pass through.
+x : scalar or array_like
+    Points to evaluate the interpolator at.
+axis : int, optional
+    Axis in the yi array corresponding to the x-coordinate values.
+
+Returns
+-------
+y : scalar or array_like
+    Interpolated values. Shape is determined by replacing
+    the interpolation axis in the original array with the shape of x.
+
+See Also
+--------
+BarycentricInterpolator
+
+Notes
+-----
+Construction of the interpolation weights is a relatively slow process.
+If you want to call this many times with the same xi (but possibly
+varying yi or x) you should use the class `BarycentricInterpolator`.
+This is what this function uses internally.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1polyint_abe6652712f6fbc1b9a509c5f4f6b5fb6}{}\index{scipy\+::interpolate\+::polyint@{scipy\+::interpolate\+::polyint}!krogh\+\_\+interpolate@{krogh\+\_\+interpolate}}
+\index{krogh\+\_\+interpolate@{krogh\+\_\+interpolate}!scipy\+::interpolate\+::polyint@{scipy\+::interpolate\+::polyint}}
+\subsubsection[{krogh\+\_\+interpolate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+krogh\+\_\+interpolate (
+\begin{DoxyParamCaption}
+\item[{}]{xi, }
+\item[{}]{yi, }
+\item[{}]{x, }
+\item[{}]{der = {\ttfamily 0}, }
+\item[{}]{axis = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1polyint_abe6652712f6fbc1b9a509c5f4f6b5fb6}
+\begin{DoxyVerb}Convenience function for polynomial interpolation.
+
+See `KroghInterpolator` for more details.
+
+Parameters
+----------
+xi : array_like
+    Known x-coordinates.
+yi : array_like
+    Known y-coordinates, of shape ``(xi.size, R)``.  Interpreted as
+    vectors of length R, or scalars if R=1.
+x : array_like
+    Point or points at which to evaluate the derivatives.
+der : int or list
+    How many derivatives to extract; None for all potentially
+    nonzero derivatives (that is a number equal to the number
+    of points), or a list of derivatives to extract. This number
+    includes the function value as 0th derivative.
+axis : int, optional
+    Axis in the yi array corresponding to the x-coordinate values.
+
+Returns
+-------
+d : ndarray
+    If the interpolator's values are R-dimensional then the
+    returned array will be the number of derivatives by N by R.
+    If `x` is a scalar, the middle dimension will be dropped; if
+    the `yi` are scalars then the last dimension will be dropped.
+
+See Also
+--------
+KroghInterpolator
+
+Notes
+-----
+Construction of the interpolating polynomial is a relatively expensive
+process. If you want to evaluate it repeatedly consider using the class
+KroghInterpolator (which is what this function uses).\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1polyint_ab6386a8c0735800e49d5c52c5531b178}{}\index{scipy\+::interpolate\+::polyint@{scipy\+::interpolate\+::polyint}!piecewise\+\_\+polynomial\+\_\+interpolate@{piecewise\+\_\+polynomial\+\_\+interpolate}}
+\index{piecewise\+\_\+polynomial\+\_\+interpolate@{piecewise\+\_\+polynomial\+\_\+interpolate}!scipy\+::interpolate\+::polyint@{scipy\+::interpolate\+::polyint}}
+\subsubsection[{piecewise\+\_\+polynomial\+\_\+interpolate}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+piecewise\+\_\+polynomial\+\_\+interpolate (
+\begin{DoxyParamCaption}
+\item[{}]{xi, }
+\item[{}]{yi, }
+\item[{}]{x, }
+\item[{}]{orders = {\ttfamily None}, }
+\item[{}]{der = {\ttfamily 0}, }
+\item[{}]{axis = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1polyint_ab6386a8c0735800e49d5c52c5531b178}
+\begin{DoxyVerb}Convenience function for piecewise polynomial interpolation.
+
+Parameters
+----------
+xi : array_like
+    A sorted list of x-coordinates.
+yi : list of lists
+    ``yi[i]`` is the list of derivatives known at ``xi[i]``.
+x : scalar or array_like
+    Coordinates at which to evalualte the polynomial.
+orders : int or list of ints, optional
+    A list of polynomial orders, or a single universal order.
+der : int or list
+    How many derivatives to extract; None for all potentially
+    nonzero derivatives (that is a number equal to the number
+    of points), or a list of derivatives to extract. This number
+    includes the function value as 0th derivative.
+axis : int, optional
+    Axis in the `yi` array corresponding to the x-coordinate values.
+
+Returns
+-------
+y : ndarray
+    Interpolated values or derivatives. If multiple derivatives
+    were requested, these are given along the first axis.
+
+See Also
+--------
+PiecewisePolynomial
+
+Notes
+-----
+If `orders` is None, or ``orders[i]`` is None, then the degree of the
+polynomial segment is exactly the degree required to match all i
+available derivatives at both endpoints.  If ``orders[i]`` is not None,
+then some derivatives will be ignored.  The code will try to use an
+equal number of derivatives from each end; if the total number of
+derivatives needed is odd, it will prefer the rightmost endpoint. If
+not enough derivatives are available, an exception is raised.
+
+Construction of these piecewise polynomials can be an expensive process;
+if you repeatedly evaluate the same polynomial, consider using the class
+PiecewisePolynomial (which is what this function does).\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1polyint_a2c5c933c7cc4ed4182fdfc30a752b009}{}\index{scipy\+::interpolate\+::polyint@{scipy\+::interpolate\+::polyint}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::interpolate\+::polyint@{scipy\+::interpolate\+::polyint}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+interpolate.\+polyint.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1interpolate_1_1polyint_a2c5c933c7cc4ed4182fdfc30a752b009}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{"KroghInterpolator"}, \textcolor{stringliteral}{"krogh\_interpolate"}, \textcolor{stringliteral}{"BarycentricInterpolator"},
+2            \textcolor{stringliteral}{"barycentric\_interpolate"}, \textcolor{stringliteral}{"PiecewisePolynomial"},
+3            \textcolor{stringliteral}{"piecewise\_polynomial\_interpolate"}, \textcolor{stringliteral}{"approximate\_taylor\_polynomial"}]
+\end{DoxyCode}

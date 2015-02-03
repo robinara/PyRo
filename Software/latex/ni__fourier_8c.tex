@@ -1,0 +1,231 @@
+\hypertarget{ni__fourier_8c}{}\section{packages/scipy-\/0.14.0/scipy/ndimage/src/ni\+\_\+fourier.c File Reference}
+\label{ni__fourier_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+fourier.\+c@{packages/scipy-\/0.\+14.\+0/scipy/ndimage/src/ni\+\_\+fourier.\+c}}
+{\ttfamily \#include \char`\"{}ni\+\_\+support.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ni__fourier_8c_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+P\+I}~3.\+14159265358979323846
+\item 
+\#define \hyperlink{ni__fourier_8c_a2310aaf93d8b35ff9d2994b88cc79d23}{\+\_\+\+N\+I\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N}~0
+\item 
+\#define \hyperlink{ni__fourier_8c_adde4f73fc20031295004b1c1ad2b1a54}{\+\_\+\+N\+I\+\_\+\+U\+N\+I\+F\+O\+R\+M}~1
+\item 
+\#define \hyperlink{ni__fourier_8c_a4a6966395044e93217b2b05b8911fd5a}{\+\_\+\+N\+I\+\_\+\+E\+L\+L\+I\+P\+S\+O\+I\+D}~2
+\item 
+\#define \hyperlink{ni__fourier_8c_a20a4807086127947405e8c71586977e5}{T\+H\+P\+I\+O4}~2.\+35619449019234492885
+\item 
+\#define \hyperlink{ni__fourier_8c_a7a5ab7200608edc6370cf0aee93ee6b1}{S\+Q2\+O\+P\+I}~.\+79788456080286535588
+\item 
+\#define \hyperlink{ni__fourier_8c_a497883135e16147a29670e304793bef4}{Z1}~1.\+46819706421238932572\+E1
+\item 
+\#define \hyperlink{ni__fourier_8c_a3550f7bd3eb3a1d5d589bcd8482a1e28}{Z2}~4.\+92184563216946036703\+E1
+\item 
+\#define \hyperlink{ni__fourier_8c_a2b35c6a5c1e1a1ac957b6b7e1edb98bd}{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+R}(\+\_\+po,  \+\_\+tmp,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__fourier_8c_ac6485b810c94515b41a110bbb1e2fffe}{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+C}(\+\_\+po,  \+\_\+tmp,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__fourier_8c_a4f3bbf578ffbc599a966e1ca43703993}{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+C\+C}(\+\_\+po,  \+\_\+tmp\+\_\+r,  \+\_\+tmp\+\_\+i,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__fourier_8c_adc2bd8e56ac1107a3d7402ab5a0c0205}{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+C}(\+\_\+pi,  \+\_\+tmp,  \+\_\+tmp\+\_\+r,  \+\_\+tmp\+\_\+i,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__fourier_8c_af08985ed391447d3cdb1388302e136c1}{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+R}(\+\_\+pi,  \+\_\+tmp,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__fourier_8c_a6edb6a74410340d31cb085e489743a2b}{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+R}(\+\_\+pi,  \+\_\+tmp,  \+\_\+r,  \+\_\+i,  \+\_\+cost,  \+\_\+sint,  \+\_\+type)
+\item 
+\#define \hyperlink{ni__fourier_8c_a74c23bbe9462d41d34223a05a304b94e}{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C}(\+\_\+pi,  \+\_\+r,  \+\_\+i,  \+\_\+cost,  \+\_\+sint,  \+\_\+type)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{ni__fourier_8c_ac700c76cd438a5c475e8c6f59a8d2f11}{p1evl} (double \hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, const double coef\mbox{[}$\,$\mbox{]}, int \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N})
+\item 
+int \hyperlink{ni__fourier_8c_a1063890f4a6edcfcef65b06e08f4d981}{N\+I\+\_\+\+Fourier\+Filter} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$parameter\+\_\+array, npy\+\_\+intp \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int axis, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output}, int filter\+\_\+type)
+\item 
+int \hyperlink{ni__fourier_8c_a851459958be97a2b901115a3f86f7c3e}{N\+I\+\_\+\+Fourier\+Shift} (Py\+Array\+Object $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, Py\+Array\+Object $\ast$shift\+\_\+array, npy\+\_\+intp \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int axis, Py\+Array\+Object $\ast$\hyperlink{constants_8h_aab432d5fa93017367867c98ae8f78051}{output})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ni__fourier_8c_a4a6966395044e93217b2b05b8911fd5a}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!\+\_\+\+N\+I\+\_\+\+E\+L\+L\+I\+P\+S\+O\+I\+D@{\+\_\+\+N\+I\+\_\+\+E\+L\+L\+I\+P\+S\+O\+I\+D}}
+\index{\+\_\+\+N\+I\+\_\+\+E\+L\+L\+I\+P\+S\+O\+I\+D@{\+\_\+\+N\+I\+\_\+\+E\+L\+L\+I\+P\+S\+O\+I\+D}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{\+\_\+\+N\+I\+\_\+\+E\+L\+L\+I\+P\+S\+O\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+N\+I\+\_\+\+E\+L\+L\+I\+P\+S\+O\+I\+D~2}\label{ni__fourier_8c_a4a6966395044e93217b2b05b8911fd5a}
+\hypertarget{ni__fourier_8c_a2310aaf93d8b35ff9d2994b88cc79d23}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!\+\_\+\+N\+I\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N@{\+\_\+\+N\+I\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N}}
+\index{\+\_\+\+N\+I\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N@{\+\_\+\+N\+I\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{\+\_\+\+N\+I\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+N\+I\+\_\+\+G\+A\+U\+S\+S\+I\+A\+N~0}\label{ni__fourier_8c_a2310aaf93d8b35ff9d2994b88cc79d23}
+\hypertarget{ni__fourier_8c_adde4f73fc20031295004b1c1ad2b1a54}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!\+\_\+\+N\+I\+\_\+\+U\+N\+I\+F\+O\+R\+M@{\+\_\+\+N\+I\+\_\+\+U\+N\+I\+F\+O\+R\+M}}
+\index{\+\_\+\+N\+I\+\_\+\+U\+N\+I\+F\+O\+R\+M@{\+\_\+\+N\+I\+\_\+\+U\+N\+I\+F\+O\+R\+M}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{\+\_\+\+N\+I\+\_\+\+U\+N\+I\+F\+O\+R\+M}]{\setlength{\rightskip}{0pt plus 5cm}\#define \+\_\+\+N\+I\+\_\+\+U\+N\+I\+F\+O\+R\+M~1}\label{ni__fourier_8c_adde4f73fc20031295004b1c1ad2b1a54}
+\hypertarget{ni__fourier_8c_adc2bd8e56ac1107a3d7402ab5a0c0205}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+C@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+C}}
+\index{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+C@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+C}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+C(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+tmp, }
+\item[{}]{\+\_\+tmp\+\_\+r, }
+\item[{}]{\+\_\+tmp\+\_\+i, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__fourier_8c_adc2bd8e56ac1107a3d7402ab5a0c0205}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                 \(\backslash\)
+    \_tmp\_r = (*(\_type*)\_pi).real * \_tmp;                           \(\backslash\)
+    \_tmp\_i = (*(\_type*)\_pi).imag * \_tmp;                           \(\backslash\)
+    break;
+\end{DoxyCode}
+\hypertarget{ni__fourier_8c_af08985ed391447d3cdb1388302e136c1}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+R@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+R}}
+\index{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+R@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+R}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+R(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+tmp, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__fourier_8c_af08985ed391447d3cdb1388302e136c1}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                 \(\backslash\)
+    \_tmp *= *(\_type*)\_pi;                          \(\backslash\)
+    break;
+\end{DoxyCode}
+\hypertarget{ni__fourier_8c_a4f3bbf578ffbc599a966e1ca43703993}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+C\+C@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+C\+C}}
+\index{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+C\+C@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+C\+C}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+C\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+C\+C(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+po, }
+\item[{}]{\+\_\+tmp\+\_\+r, }
+\item[{}]{\+\_\+tmp\+\_\+i, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__fourier_8c_a4f3bbf578ffbc599a966e1ca43703993}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                        \(\backslash\)
+    (*(\_type*)\_po).real = \_tmp\_r;                         \(\backslash\)
+    (*(\_type*)\_po).imag = \_tmp\_i;                         \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__fourier_8c_ac6485b810c94515b41a110bbb1e2fffe}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+C@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+C}}
+\index{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+C@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+C}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+C(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+po, }
+\item[{}]{\+\_\+tmp, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__fourier_8c_ac6485b810c94515b41a110bbb1e2fffe}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                              \(\backslash\)
+    (*(\_type*)\_po).real = tmp;                  \(\backslash\)
+    (*(\_type*)\_po).imag = 0.0;                  \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__fourier_8c_a2b35c6a5c1e1a1ac957b6b7e1edb98bd}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+R@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+R}}
+\index{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+R@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+R}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+O\+U\+T\+\_\+\+R\+R(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+po, }
+\item[{}]{\+\_\+tmp, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__fourier_8c_a2b35c6a5c1e1a1ac957b6b7e1edb98bd}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                              \(\backslash\)
+    *(\_type*)\_po = \_tmp;                        \(\backslash\)
+    break
+\end{DoxyCode}
+\hypertarget{ni__fourier_8c_a74c23bbe9462d41d34223a05a304b94e}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C}}
+\index{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+C(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+r, }
+\item[{}]{\+\_\+i, }
+\item[{}]{\+\_\+cost, }
+\item[{}]{\+\_\+sint, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__fourier_8c_a74c23bbe9462d41d34223a05a304b94e}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                   \(\backslash\)
+    \_r = (*(\_type*)\_pi).real * \_cost - (*(\_type*)\_pi).imag * \_sint;  \(\backslash\)
+    \_i = (*(\_type*)\_pi).real * \_sint + (*(\_type*)\_pi).imag * \_cost;  \(\backslash\)
+    break;
+\end{DoxyCode}
+\hypertarget{ni__fourier_8c_a6edb6a74410340d31cb085e489743a2b}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+R@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+R}}
+\index{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+R@{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+R}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+A\+S\+E\+\_\+\+F\+O\+U\+R\+I\+E\+R\+\_\+\+S\+H\+I\+F\+T\+\_\+\+R(
+\begin{DoxyParamCaption}
+\item[{}]{\+\_\+pi, }
+\item[{}]{\+\_\+tmp, }
+\item[{}]{\+\_\+r, }
+\item[{}]{\+\_\+i, }
+\item[{}]{\+\_\+cost, }
+\item[{}]{\+\_\+sint, }
+\item[{}]{\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__fourier_8c_a6edb6a74410340d31cb085e489743a2b}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{case} \hyperlink{indexexpr_8h_a01709998b82be3f34e0412206618d09d}{t} ## \_type:                                                     \(\backslash\)
+    \_tmp = *(\_type*)\_pi;                                               \(\backslash\)
+    \_r = \_tmp * \_cost;                                                 \(\backslash\)
+    \_i = \_tmp * \_sint;                                                 \(\backslash\)
+    break;
+\end{DoxyCode}
+\hypertarget{ni__fourier_8c_ae71449b1cc6e6250b91f539153a7a0d3}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!M\+\_\+\+P\+I@{M\+\_\+\+P\+I}}
+\index{M\+\_\+\+P\+I@{M\+\_\+\+P\+I}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{M\+\_\+\+P\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+\_\+\+P\+I~3.\+14159265358979323846}\label{ni__fourier_8c_ae71449b1cc6e6250b91f539153a7a0d3}
+\hypertarget{ni__fourier_8c_a7a5ab7200608edc6370cf0aee93ee6b1}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!S\+Q2\+O\+P\+I@{S\+Q2\+O\+P\+I}}
+\index{S\+Q2\+O\+P\+I@{S\+Q2\+O\+P\+I}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{S\+Q2\+O\+P\+I}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Q2\+O\+P\+I~.\+79788456080286535588}\label{ni__fourier_8c_a7a5ab7200608edc6370cf0aee93ee6b1}
+\hypertarget{ni__fourier_8c_a20a4807086127947405e8c71586977e5}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!T\+H\+P\+I\+O4@{T\+H\+P\+I\+O4}}
+\index{T\+H\+P\+I\+O4@{T\+H\+P\+I\+O4}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{T\+H\+P\+I\+O4}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+H\+P\+I\+O4~2.\+35619449019234492885}\label{ni__fourier_8c_a20a4807086127947405e8c71586977e5}
+\hypertarget{ni__fourier_8c_a497883135e16147a29670e304793bef4}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!Z1@{Z1}}
+\index{Z1@{Z1}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{Z1}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z1~1.\+46819706421238932572\+E1}\label{ni__fourier_8c_a497883135e16147a29670e304793bef4}
+\hypertarget{ni__fourier_8c_a3550f7bd3eb3a1d5d589bcd8482a1e28}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!Z2@{Z2}}
+\index{Z2@{Z2}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{Z2}]{\setlength{\rightskip}{0pt plus 5cm}\#define Z2~4.\+92184563216946036703\+E1}\label{ni__fourier_8c_a3550f7bd3eb3a1d5d589bcd8482a1e28}
+
+
+\subsection{Function Documentation}
+\hypertarget{ni__fourier_8c_a1063890f4a6edcfcef65b06e08f4d981}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!N\+I\+\_\+\+Fourier\+Filter@{N\+I\+\_\+\+Fourier\+Filter}}
+\index{N\+I\+\_\+\+Fourier\+Filter@{N\+I\+\_\+\+Fourier\+Filter}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{N\+I\+\_\+\+Fourier\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Fourier\+Filter (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{parameter\+\_\+array, }
+\item[{npy\+\_\+intp}]{n, }
+\item[{int}]{axis, }
+\item[{Py\+Array\+Object $\ast$}]{output, }
+\item[{int}]{filter\+\_\+type}
+\end{DoxyParamCaption}
+)}\label{ni__fourier_8c_a1063890f4a6edcfcef65b06e08f4d981}
+\hypertarget{ni__fourier_8c_a851459958be97a2b901115a3f86f7c3e}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!N\+I\+\_\+\+Fourier\+Shift@{N\+I\+\_\+\+Fourier\+Shift}}
+\index{N\+I\+\_\+\+Fourier\+Shift@{N\+I\+\_\+\+Fourier\+Shift}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{N\+I\+\_\+\+Fourier\+Shift}]{\setlength{\rightskip}{0pt plus 5cm}int N\+I\+\_\+\+Fourier\+Shift (
+\begin{DoxyParamCaption}
+\item[{Py\+Array\+Object $\ast$}]{input, }
+\item[{Py\+Array\+Object $\ast$}]{shift\+\_\+array, }
+\item[{npy\+\_\+intp}]{n, }
+\item[{int}]{axis, }
+\item[{Py\+Array\+Object $\ast$}]{output}
+\end{DoxyParamCaption}
+)}\label{ni__fourier_8c_a851459958be97a2b901115a3f86f7c3e}
+\hypertarget{ni__fourier_8c_ac700c76cd438a5c475e8c6f59a8d2f11}{}\index{ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}!p1evl@{p1evl}}
+\index{p1evl@{p1evl}!ni\+\_\+fourier.\+c@{ni\+\_\+fourier.\+c}}
+\subsubsection[{p1evl}]{\setlength{\rightskip}{0pt plus 5cm}double p1evl (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{const double}]{coef\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{N}
+\end{DoxyParamCaption}
+)}\label{ni__fourier_8c_ac700c76cd438a5c475e8c6f59a8d2f11}

@@ -1,0 +1,81 @@
+\hypertarget{zlartg_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlartg.f File Reference}
+\label{zlartg_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlartg.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlartg.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlartg_8f_a41136bf0e4dbf596cf2c8b560b52b60e}{zlartg} (F, G, C\+S, S\+N, R)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+R\+T\+G} generates a plane rotation with real cosine and complex sine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlartg_8f_a41136bf0e4dbf596cf2c8b560b52b60e}{}\index{zlartg.\+f@{zlartg.\+f}!zlartg@{zlartg}}
+\index{zlartg@{zlartg}!zlartg.\+f@{zlartg.\+f}}
+\subsubsection[{zlartg}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlartg (
+\begin{DoxyParamCaption}
+\item[{{\bf complex}$\ast$16}]{F, }
+\item[{{\bf complex}$\ast$16}]{G, }
+\item[{double {\bf precision}}]{C\+S, }
+\item[{{\bf complex}$\ast$16}]{S\+N, }
+\item[{{\bf complex}$\ast$16}]{R}
+\end{DoxyParamCaption}
+)}\label{zlartg_8f_a41136bf0e4dbf596cf2c8b560b52b60e}
+
+
+{\bfseries Z\+L\+A\+R\+T\+G} generates a plane rotation with real cosine and complex sine. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLARTG generates a plane rotation so that
+
+    [  CS  SN  ]     [ F ]     [ R ]
+    [  __      ]  .  [   ]  =  [   ]   where CS**2 + |SN|**2 = 1.
+    [ -SN  CS  ]     [ G ]     [ 0 ]
+
+ This is a faster version of the BLAS1 routine ZROTG, except for
+ the following differences:
+    F and G are unchanged on return.
+    If G=0, then CS=1 and SN=0.
+    If F=0, then CS=0 and SN is chosen so that R is real.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em F} & \begin{DoxyVerb}          F is COMPLEX*16
+          The first component of vector to be rotated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em G} & \begin{DoxyVerb}          G is COMPLEX*16
+          The second component of vector to be rotated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C\+S} & \begin{DoxyVerb}          CS is DOUBLE PRECISION
+          The cosine of the rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+N} & \begin{DoxyVerb}          SN is COMPLEX*16
+          The sine of the rotation.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R} & \begin{DoxyVerb}          R is COMPLEX*16
+          The nonzero component of the rotated vector.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2013 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  3-5-96 - Modified with a new algorithm by W. Kahan and J. Demmel
+
+  This version has a few statements commented out for thread safety
+  (machine parameters are computed on each entry). 10 feb 03, SJH.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

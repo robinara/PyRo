@@ -1,0 +1,132 @@
+\hypertarget{dlaqps_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlaqps.f File Reference}
+\label{dlaqps_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaqps.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlaqps.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlaqps_8f_ae9390b8aa28d639a2e67f2aa33583e97}{dlaqps} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, O\+F\+F\+S\+E\+T, N\+B, K\+B, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, J\+P\+V\+T, T\+A\+U, V\+N1, V\+N2, A\+U\+X\+V, F, L\+D\+F)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+Q\+P\+S} computes a step of Q\+R factorization with column pivoting of a real m-\/by-\/n matrix \hyperlink{classA}{A} by using B\+L\+A\+S level 3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlaqps_8f_ae9390b8aa28d639a2e67f2aa33583e97}{}\index{dlaqps.\+f@{dlaqps.\+f}!dlaqps@{dlaqps}}
+\index{dlaqps@{dlaqps}!dlaqps.\+f@{dlaqps.\+f}}
+\subsubsection[{dlaqps}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlaqps (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{O\+F\+F\+S\+E\+T, }
+\item[{integer}]{N\+B, }
+\item[{integer}]{K\+B, }
+\item[{double {\bf precision}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( $\ast$ )}]{J\+P\+V\+T, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{T\+A\+U, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{V\+N1, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{V\+N2, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{A\+U\+X\+V, }
+\item[{double {\bf precision}, dimension( ldf, $\ast$ )}]{F, }
+\item[{integer}]{L\+D\+F}
+\end{DoxyParamCaption}
+)}\label{dlaqps_8f_ae9390b8aa28d639a2e67f2aa33583e97}
+
+
+{\bfseries D\+L\+A\+Q\+P\+S} computes a step of Q\+R factorization with column pivoting of a real m-\/by-\/n matrix \hyperlink{classA}{A} by using B\+L\+A\+S level 3. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLAQPS computes a step of QR factorization with column pivoting
+ of a real M-by-N matrix A by using Blas-3.  It tries to factorize
+ NB columns from A starting from the row OFFSET+1, and updates all
+ of the matrix with Blas-3 xGEMM.
+
+ In some cases, due to catastrophic cancellations, it cannot
+ factorize NB columns.  Hence, the actual number of factorized
+ columns is returned in KB.
+
+ Block A(1:OFFSET,1:N) is accordingly pivoted, but not factorized.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A. N >= 0\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em O\+F\+F\+S\+E\+T} & \begin{DoxyVerb}          OFFSET is INTEGER
+          The number of rows of A that have been factorized in
+          previous steps.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+B} & \begin{DoxyVerb}          NB is INTEGER
+          The number of columns to factorize.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em K\+B} & \begin{DoxyVerb}          KB is INTEGER
+          The number of columns actually factorized.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the M-by-N matrix A.
+          On exit, block A(OFFSET+1:M,1:KB) is the triangular
+          factor obtained and block A(1:OFFSET,1:N) has been
+          accordingly pivoted, but no factorized.
+          The rest of the matrix, block A(OFFSET+1:M,KB+1:N) has
+          been updated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A. LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em J\+P\+V\+T} & \begin{DoxyVerb}          JPVT is INTEGER array, dimension (N)
+          JPVT(I) = K <==> Column K of the full matrix A has been
+          permuted into position I in AP.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is DOUBLE PRECISION array, dimension (KB)
+          The scalar factors of the elementary reflectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V\+N1} & \begin{DoxyVerb}          VN1 is DOUBLE PRECISION array, dimension (N)
+          The vector with the partial column norms.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em V\+N2} & \begin{DoxyVerb}          VN2 is DOUBLE PRECISION array, dimension (N)
+          The vector with the exact column norms.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+U\+X\+V} & \begin{DoxyVerb}          AUXV is DOUBLE PRECISION array, dimension (NB)
+          Auxiliar vector.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em F} & \begin{DoxyVerb}          F is DOUBLE PRECISION array, dimension (LDF,NB)
+          Matrix F**T = L*Y**T*A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+F} & \begin{DoxyVerb}          LDF is INTEGER
+          The leading dimension of the array F. LDF >= max(1,N).\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+G. Quintana-\/\+Orti, Depto. de Informatica, Universidad Jaime I, Spain X. Sun, Computer Science Dept., Duke University, U\+S\+A ~\newline
+ Partial column norm updating strategy modified on April 2011 Z. Drmac and Z. Bujanovic, Dept. of Mathematics, University of Zagreb, Croatia. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{References\+: }
+L\+A\+P\+A\+C\+K Working Note 176  
+\end{DoxyParagraph}

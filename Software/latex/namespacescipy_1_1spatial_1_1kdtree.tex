@@ -1,0 +1,126 @@
+\hypertarget{namespacescipy_1_1spatial_1_1kdtree}{}\section{scipy.\+spatial.\+kdtree Namespace Reference}
+\label{namespacescipy_1_1spatial_1_1kdtree}\index{scipy.\+spatial.\+kdtree@{scipy.\+spatial.\+kdtree}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1KDTree}{K\+D\+Tree}
+\item 
+class \hyperlink{classscipy_1_1spatial_1_1kdtree_1_1Rectangle}{Rectangle}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1spatial_1_1kdtree_adfe086e44875d7459d774001e23609e2}{minkowski\+\_\+distance\+\_\+p}
+\item 
+def \hyperlink{namespacescipy_1_1spatial_1_1kdtree_a5fc1c824c3394b77a19d9391befc41b5}{minkowski\+\_\+distance}
+\item 
+def \hyperlink{namespacescipy_1_1spatial_1_1kdtree_aac7bf1f294f457699f05da96f013d09e}{distance\+\_\+matrix}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1spatial_1_1kdtree_a291214a57c5670eae356fc5e16b85247}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1spatial_1_1kdtree_aac7bf1f294f457699f05da96f013d09e}{}\index{scipy\+::spatial\+::kdtree@{scipy\+::spatial\+::kdtree}!distance\+\_\+matrix@{distance\+\_\+matrix}}
+\index{distance\+\_\+matrix@{distance\+\_\+matrix}!scipy\+::spatial\+::kdtree@{scipy\+::spatial\+::kdtree}}
+\subsubsection[{distance\+\_\+matrix}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+spatial.\+kdtree.\+distance\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{p = {\ttfamily 2}, }
+\item[{}]{threshold = {\ttfamily 1000000}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1spatial_1_1kdtree_aac7bf1f294f457699f05da96f013d09e}
+\begin{DoxyVerb}Compute the distance matrix.
+
+Returns the matrix of all pair-wise distances.
+
+Parameters
+----------
+x : (M, K) array_like
+    TODO: description needed
+y : (N, K) array_like
+    TODO: description needed
+p : float, 1 <= p <= infinity
+    Which Minkowski p-norm to use.
+threshold : positive int
+    If ``M * N * K`` > `threshold`, algorithm uses a Python loop instead
+    of large temporary arrays.
+
+Returns
+-------
+result : (M, N) ndarray
+    Distance matrix.
+
+Examples
+--------
+>>> distance_matrix([[0,0],[0,1]], [[1,0],[1,1]])
+array([[ 1.        ,  1.41421356],
+       [ 1.41421356,  1.        ]])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1spatial_1_1kdtree_a5fc1c824c3394b77a19d9391befc41b5}{}\index{scipy\+::spatial\+::kdtree@{scipy\+::spatial\+::kdtree}!minkowski\+\_\+distance@{minkowski\+\_\+distance}}
+\index{minkowski\+\_\+distance@{minkowski\+\_\+distance}!scipy\+::spatial\+::kdtree@{scipy\+::spatial\+::kdtree}}
+\subsubsection[{minkowski\+\_\+distance}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+spatial.\+kdtree.\+minkowski\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{p = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1spatial_1_1kdtree_a5fc1c824c3394b77a19d9391befc41b5}
+\begin{DoxyVerb}Compute the L**p distance between two arrays.
+
+Parameters
+----------
+x : (M, K) array_like
+    Input array.
+y : (N, K) array_like
+    Input array.
+p : float, 1 <= p <= infinity
+    Which Minkowski p-norm to use.
+
+Examples
+--------
+>>> minkowski_distance([[0,0],[0,0]], [[1,1],[0,1]])
+array([ 1.41421356,  1.        ])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1spatial_1_1kdtree_adfe086e44875d7459d774001e23609e2}{}\index{scipy\+::spatial\+::kdtree@{scipy\+::spatial\+::kdtree}!minkowski\+\_\+distance\+\_\+p@{minkowski\+\_\+distance\+\_\+p}}
+\index{minkowski\+\_\+distance\+\_\+p@{minkowski\+\_\+distance\+\_\+p}!scipy\+::spatial\+::kdtree@{scipy\+::spatial\+::kdtree}}
+\subsubsection[{minkowski\+\_\+distance\+\_\+p}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+spatial.\+kdtree.\+minkowski\+\_\+distance\+\_\+p (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{p = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1spatial_1_1kdtree_adfe086e44875d7459d774001e23609e2}
+\begin{DoxyVerb}Compute the p-th power of the L**p distance between two arrays.
+
+For efficiency, this function computes the L**p distance but does
+not extract the pth root. If `p` is 1 or infinity, this is equal to
+the actual L**p distance.
+
+Parameters
+----------
+x : (M, K) array_like
+    Input array.
+y : (N, K) array_like
+    Input array.
+p : float, 1 <= p <= infinity
+    Which Minkowski p-norm to use.
+
+Examples
+--------
+>>> minkowski_distance_p([[0,0],[0,0]], [[1,1],[0,1]])
+array([2, 1])\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1spatial_1_1kdtree_a291214a57c5670eae356fc5e16b85247}{}\index{scipy\+::spatial\+::kdtree@{scipy\+::spatial\+::kdtree}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::spatial\+::kdtree@{scipy\+::spatial\+::kdtree}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+spatial.\+kdtree.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1spatial_1_1kdtree_a291214a57c5670eae356fc5e16b85247}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'minkowski\_distance\_p'}, \textcolor{stringliteral}{'minkowski\_distance'},
+2            \textcolor{stringliteral}{'distance\_matrix'},
+3            \textcolor{stringliteral}{'Rectangle'}, \textcolor{stringliteral}{'KDTree'}]
+\end{DoxyCode}

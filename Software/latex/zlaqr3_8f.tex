@@ -1,0 +1,216 @@
+\hypertarget{zlaqr3_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlaqr3.f File Reference}
+\label{zlaqr3_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaqr3.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlaqr3.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlaqr3_8f_aa3585465a2ddb0ab5072a9b2a38f1338}{zlaqr3} (W\+A\+N\+T\+T, W\+A\+N\+T\+Z, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K\+T\+O\+P, K\+B\+O\+T, N\+W, H, L\+D\+H, I\+L\+O\+Z, I\+H\+I\+Z, Z, L\+D\+Z, N\+S, N\+D, S\+H, V, L\+D\+V, N\+H, T, L\+D\+T, N\+V, W\+V, L\+D\+W\+V, W\+O\+R\+K, L\+W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+Q\+R3} performs the unitary similarity transformation of a Hessenberg matrix to detect and deflate fully converged eigenvalues from a trailing principal submatrix (aggressive early deflation). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlaqr3_8f_aa3585465a2ddb0ab5072a9b2a38f1338}{}\index{zlaqr3.\+f@{zlaqr3.\+f}!zlaqr3@{zlaqr3}}
+\index{zlaqr3@{zlaqr3}!zlaqr3.\+f@{zlaqr3.\+f}}
+\subsubsection[{zlaqr3}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlaqr3 (
+\begin{DoxyParamCaption}
+\item[{{\bf logical}}]{W\+A\+N\+T\+T, }
+\item[{{\bf logical}}]{W\+A\+N\+T\+Z, }
+\item[{integer}]{N, }
+\item[{integer}]{K\+T\+O\+P, }
+\item[{integer}]{K\+B\+O\+T, }
+\item[{integer}]{N\+W, }
+\item[{{\bf complex}$\ast$16, dimension( ldh, $\ast$ )}]{H, }
+\item[{integer}]{L\+D\+H, }
+\item[{integer}]{I\+L\+O\+Z, }
+\item[{integer}]{I\+H\+I\+Z, }
+\item[{{\bf complex}$\ast$16, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{integer}]{N\+S, }
+\item[{integer}]{N\+D, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{S\+H, }
+\item[{{\bf complex}$\ast$16, dimension( ldv, $\ast$ )}]{V, }
+\item[{integer}]{L\+D\+V, }
+\item[{integer}]{N\+H, }
+\item[{{\bf complex}$\ast$16, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{integer}]{N\+V, }
+\item[{{\bf complex}$\ast$16, dimension( ldwv, $\ast$ )}]{W\+V, }
+\item[{integer}]{L\+D\+W\+V, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{zlaqr3_8f_aa3585465a2ddb0ab5072a9b2a38f1338}
+
+
+{\bfseries Z\+L\+A\+Q\+R3} performs the unitary similarity transformation of a Hessenberg matrix to detect and deflate fully converged eigenvalues from a trailing principal submatrix (aggressive early deflation). 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    Aggressive early deflation:
+
+    ZLAQR3 accepts as input an upper Hessenberg matrix
+    H and performs an unitary similarity transformation
+    designed to detect and deflate fully converged eigenvalues from
+    a trailing principal submatrix.  On output H has been over-
+    written by a new Hessenberg matrix that is a perturbation of
+    an unitary similarity transformation of H.  It is to be
+    hoped that the final version of H has many zero subdiagonal
+    entries.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em W\+A\+N\+T\+T} & \begin{DoxyVerb}          WANTT is LOGICAL
+          If .TRUE., then the Hessenberg matrix H is fully updated
+          so that the triangular Schur factor may be
+          computed (in cooperation with the calling subroutine).
+          If .FALSE., then only enough of H is updated to preserve
+          the eigenvalues.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W\+A\+N\+T\+Z} & \begin{DoxyVerb}          WANTZ is LOGICAL
+          If .TRUE., then the unitary matrix Z is updated so
+          so that the unitary Schur factor may be computed
+          (in cooperation with the calling subroutine).
+          If .FALSE., then Z is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix H and (if WANTZ is .TRUE.) the
+          order of the unitary matrix Z.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+T\+O\+P} & \begin{DoxyVerb}          KTOP is INTEGER
+          It is assumed that either KTOP = 1 or H(KTOP,KTOP-1)=0.
+          KBOT and KTOP together determine an isolated block
+          along the diagonal of the Hessenberg matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K\+B\+O\+T} & \begin{DoxyVerb}          KBOT is INTEGER
+          It is assumed without a check that either
+          KBOT = N or H(KBOT+1,KBOT)=0.  KBOT and KTOP together
+          determine an isolated block along the diagonal of the
+          Hessenberg matrix.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+W} & \begin{DoxyVerb}          NW is INTEGER
+          Deflation window size.  1 .LE. NW .LE. (KBOT-KTOP+1).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em H} & \begin{DoxyVerb}          H is COMPLEX*16 array, dimension (LDH,N)
+          On input the initial N-by-N section of H stores the
+          Hessenberg matrix undergoing aggressive early deflation.
+          On output H has been transformed by a unitary
+          similarity transformation, perturbed, and the returned
+          to Hessenberg form that (it is to be hoped) has some
+          zero subdiagonal entries.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+H} & \begin{DoxyVerb}          LDH is integer
+          Leading dimension of H just as declared in the calling
+          subroutine.  N .LE. LDH\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+L\+O\+Z} & \begin{DoxyVerb}          ILOZ is INTEGER\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+H\+I\+Z} & \begin{DoxyVerb}          IHIZ is INTEGER
+          Specify the rows of Z to which transformations must be
+          applied if WANTZ is .TRUE.. 1 .LE. ILOZ .LE. IHIZ .LE. N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Z} & \begin{DoxyVerb}          Z is COMPLEX*16 array, dimension (LDZ,N)
+          IF WANTZ is .TRUE., then on output, the unitary
+          similarity transformation mentioned above has been
+          accumulated into Z(ILOZ:IHIZ,ILO:IHI) from the right.
+          If WANTZ is .FALSE., then Z is unreferenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is integer
+          The leading dimension of Z just as declared in the
+          calling subroutine.  1 .LE. LDZ.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em N\+S} & \begin{DoxyVerb}          NS is integer
+          The number of unconverged (ie approximate) eigenvalues
+          returned in SR and SI that may be used as shifts by the
+          calling subroutine.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em N\+D} & \begin{DoxyVerb}          ND is integer
+          The number of converged eigenvalues uncovered by this
+          subroutine.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+H} & \begin{DoxyVerb}          SH is COMPLEX*16 array, dimension KBOT
+          On output, approximate eigenvalues that may
+          be used for shifts are stored in SH(KBOT-ND-NS+1)
+          through SR(KBOT-ND).  Converged eigenvalues are
+          stored in SH(KBOT-ND+1) through SH(KBOT).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em V} & \begin{DoxyVerb}          V is COMPLEX*16 array, dimension (LDV,NW)
+          An NW-by-NW work array.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V} & \begin{DoxyVerb}          LDV is integer scalar
+          The leading dimension of V just as declared in the
+          calling subroutine.  NW .LE. LDV\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+H} & \begin{DoxyVerb}          NH is integer scalar
+          The number of columns of T.  NH.GE.NW.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T} & \begin{DoxyVerb}          T is COMPLEX*16 array, dimension (LDT,NW)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is integer
+          The leading dimension of T just as declared in the
+          calling subroutine.  NW .LE. LDT\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+V} & \begin{DoxyVerb}          NV is integer
+          The number of rows of work array WV available for
+          workspace.  NV.GE.NW.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+V} & \begin{DoxyVerb}          WV is COMPLEX*16 array, dimension (LDWV,NW)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+W\+V} & \begin{DoxyVerb}          LDWV is integer
+          The leading dimension of W just as declared in the
+          calling subroutine.  NW .LE. LDV\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension LWORK.
+          On exit, WORK(1) is set to an estimate of the optimal value
+          of LWORK for the given values of N, NW, KTOP and KBOT.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is integer
+          The dimension of the work array WORK.  LWORK = 2*NW
+          suffices, but greater efficiency may result from larger
+          values of LWORK.
+
+          If LWORK = -1, then a workspace query is assumed; ZLAQR3
+          only estimates the optimal workspace size for the given
+          values of N, NW, KTOP and KBOT.  The estimate is returned
+          in WORK(1).  No error message related to LWORK is issued
+          by XERBLA.  Neither H nor Z are accessed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+Karen Braman and Ralph Byers, Department of Mathematics, University of Kansas, U\+S\+A 
+\end{DoxyParagraph}

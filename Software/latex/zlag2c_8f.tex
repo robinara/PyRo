@@ -1,0 +1,84 @@
+\hypertarget{zlag2c_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlag2c.f File Reference}
+\label{zlag2c_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlag2c.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlag2c.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlag2c_8f_a8674f98714d93ed261aa696e534e8e2b}{zlag2c} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, S\+A, L\+D\+S\+A, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+G2\+C} converts a complex double precision matrix to a complex single precision matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlag2c_8f_a8674f98714d93ed261aa696e534e8e2b}{}\index{zlag2c.\+f@{zlag2c.\+f}!zlag2c@{zlag2c}}
+\index{zlag2c@{zlag2c}!zlag2c.\+f@{zlag2c.\+f}}
+\subsubsection[{zlag2c}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlag2c (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}, dimension( ldsa, $\ast$ )}]{S\+A, }
+\item[{integer}]{L\+D\+S\+A, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zlag2c_8f_a8674f98714d93ed261aa696e534e8e2b}
+
+
+{\bfseries Z\+L\+A\+G2\+C} converts a complex double precision matrix to a complex single precision matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLAG2C converts a COMPLEX*16 matrix, SA, to a COMPLEX matrix, A.
+
+ RMAX is the overflow for the SINGLE PRECISION arithmetic
+ ZLAG2C checks that all the entries of A are between -RMAX and
+ RMAX. If not the convertion is aborted and a flag is raised.
+
+ This is an auxiliary routine so there is no argument checking.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of lines of the matrix A.  M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          On entry, the M-by-N coefficient matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+A} & \begin{DoxyVerb}          SA is COMPLEX array, dimension (LDSA,N)
+          On exit, if INFO=0, the M-by-N coefficient matrix SA; if
+          INFO>0, the content of SA is unspecified.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+S\+A} & \begin{DoxyVerb}          LDSA is INTEGER
+          The leading dimension of the array SA.  LDSA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          = 1:  an entry of the matrix A is greater than the SINGLE
+                PRECISION overflow threshold, in this case, the content
+                of SA in exit is unspecified.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

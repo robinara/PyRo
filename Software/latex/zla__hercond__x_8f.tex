@@ -1,0 +1,100 @@
+\hypertarget{zla__hercond__x_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zla\+\_\+hercond\+\_\+x.f File Reference}
+\label{zla__hercond__x_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zla\+\_\+hercond\+\_\+x.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zla\+\_\+hercond\+\_\+x.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{numinquire_8h_a2c8e616467665d0b2814d4c1589ba74e}{precision} \hyperlink{afunc_8m_a7b5e596df91eadea6c537c0825e894a7}{function} \hyperlink{zla__hercond__x_8f_a57cd8e6f24c459a2de30a40e6ab78bd6}{zla\+\_\+hercond\+\_\+x} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, A\+F, L\+D\+A\+F, I\+P\+I\+V, X, I\+N\+F\+O, W\+O\+R\+K, R\+W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+\_\+\+H\+E\+R\+C\+O\+N\+D\+\_\+\+X} computes the infinity norm condition number of op(\+A)$\ast$diag(x) for Hermitian indefinite matrices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zla__hercond__x_8f_a57cd8e6f24c459a2de30a40e6ab78bd6}{}\index{zla\+\_\+hercond\+\_\+x.\+f@{zla\+\_\+hercond\+\_\+x.\+f}!zla\+\_\+hercond\+\_\+x@{zla\+\_\+hercond\+\_\+x}}
+\index{zla\+\_\+hercond\+\_\+x@{zla\+\_\+hercond\+\_\+x}!zla\+\_\+hercond\+\_\+x.\+f@{zla\+\_\+hercond\+\_\+x.\+f}}
+\subsubsection[{zla\+\_\+hercond\+\_\+x}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf precision} {\bf function} zla\+\_\+hercond\+\_\+x (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}$\ast$16, dimension( ldaf, $\ast$ )}]{A\+F, }
+\item[{integer}]{L\+D\+A\+F, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{X, }
+\item[{integer}]{I\+N\+F\+O, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{R\+W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{zla__hercond__x_8f_a57cd8e6f24c459a2de30a40e6ab78bd6}
+
+
+{\bfseries Z\+L\+A\+\_\+\+H\+E\+R\+C\+O\+N\+D\+\_\+\+X} computes the infinity norm condition number of op(\+A)$\ast$diag(x) for Hermitian indefinite matrices. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    ZLA_HERCOND_X computes the infinity norm condition number of
+    op(A) * diag(X) where X is a COMPLEX*16 vector.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+       = 'U':  Upper triangle of A is stored;
+       = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+     The number of linear equations, i.e., the order of the
+     matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+     On entry, the N-by-N matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+     The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+F} & \begin{DoxyVerb}          AF is COMPLEX*16 array, dimension (LDAF,N)
+     The block diagonal matrix D and the multipliers used to
+     obtain the factor U or L as computed by ZHETRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A\+F} & \begin{DoxyVerb}          LDAF is INTEGER
+     The leading dimension of the array AF.  LDAF >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+     Details of the interchanges and the block structure of D
+     as determined by CHETRF.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX*16 array, dimension (N)
+     The vector X in the formula op(A) * diag(X).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+       = 0:  Successful exit.
+     i > 0:  The ith argument is invalid.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (2*N).
+     Workspace.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+W\+O\+R\+K} & \begin{DoxyVerb}          RWORK is DOUBLE PRECISION array, dimension (N).
+     Workspace.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

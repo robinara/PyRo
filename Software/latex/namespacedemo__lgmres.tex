@@ -1,0 +1,93 @@
+\hypertarget{namespacedemo__lgmres}{}\section{demo\+\_\+lgmres Namespace Reference}
+\label{namespacedemo__lgmres}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacedemo__lgmres_a0b933f4e768a500950c8f0e736826307}{matvec}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacedemo__lgmres_a5ed74fb00faa6f503aba95750d375bea}{problem} = \char`\"{}S\+P\+A\+R\+S\+K\+I\+T/drivcav/e05r0200\char`\"{}
+\item 
+tuple \hyperlink{namespacedemo__lgmres_aab755b9e30b356805a0987d4628145e6}{mm} = np.\+lib.\+\_\+datasource.\+Repository('ftp\+://math.\+nist.\+gov/pub/Matrix\+Market2/')
+\item 
+tuple \hyperlink{namespacedemo__lgmres_acf69589796371cd6bf3c673ea0ab23ac}{f} = mm.\+open('\%s.\+mtx.\+gz' \% \hyperlink{namespacedemo__lgmres_a5ed74fb00faa6f503aba95750d375bea}{problem})
+\item 
+tuple \hyperlink{namespacedemo__lgmres_afc20f9e38da2eac6a55e8a2d6e4ea957}{Am} = io.\+mmread(\hyperlink{namespacedemo__lgmres_acf69589796371cd6bf3c673ea0ab23ac}{f})
+\item 
+tuple \hyperlink{namespacedemo__lgmres_ad5208339e2d70ebaceb6d7dfaa870ae6}{b} = np.\+array(io.\+mmread(\hyperlink{namespacedemo__lgmres_acf69589796371cd6bf3c673ea0ab23ac}{f}))
+\item 
+list \hyperlink{namespacedemo__lgmres_ac9e673dc62252034a7fe574079efd706}{count} = \mbox{[}0\mbox{]}
+\item 
+tuple \hyperlink{namespacedemo__lgmres_a29e83fa149c2f8266e6129af1741a67f}{A} = la.\+Linear\+Operator(\hyperlink{namespacedemo__lgmres_a0b933f4e768a500950c8f0e736826307}{matvec}=\hyperlink{namespacedemo__lgmres_a0b933f4e768a500950c8f0e736826307}{matvec}, \hyperlink{shape_8h_a9d9da3dcaecbbde6cf1961063f2e838b}{shape}=\hyperlink{shape_8h_a9d9da3dcaecbbde6cf1961063f2e838b}{Am.\+shape}, dtype=Am.\+dtype)
+\item 
+int \hyperlink{namespacedemo__lgmres_a2ec1c24106943f3ecb84af982a6fee3f}{M} = 100
+\item 
+list \hyperlink{namespacedemo__lgmres_a79b07e79e94a879b1e523ece055df7fe}{count\+\_\+0} = \hyperlink{namespacedemo__lgmres_ac9e673dc62252034a7fe574079efd706}{count}\mbox{[}0\mbox{]}
+\item 
+tuple \hyperlink{namespacedemo__lgmres_a857086fbd9bf98d9f6f130668505c223}{err0} = \hyperlink{vecnorm_8cc_a57c51d3f8cc26dd32ade0c9cd6b4997e}{np.\+linalg.\+norm}(\hyperlink{namespacedemo__lgmres_afc20f9e38da2eac6a55e8a2d6e4ea957}{Am}$\ast$\hyperlink{gendata_8m_aa48da42c617fdb7cf84e9a3f80aa04e8}{x0} -\/ \hyperlink{namespacedemo__lgmres_ad5208339e2d70ebaceb6d7dfaa870ae6}{b})
+\item 
+list \hyperlink{namespacedemo__lgmres_ad3fa23497c9b75adefbbec0118ca48c0}{count\+\_\+1} = \hyperlink{namespacedemo__lgmres_ac9e673dc62252034a7fe574079efd706}{count}\mbox{[}0\mbox{]}
+\item 
+tuple \hyperlink{namespacedemo__lgmres_a2f863624b97cb465b89e233597552785}{err1} = \hyperlink{vecnorm_8cc_a57c51d3f8cc26dd32ade0c9cd6b4997e}{np.\+linalg.\+norm}(\hyperlink{namespacedemo__lgmres_afc20f9e38da2eac6a55e8a2d6e4ea957}{Am}$\ast$\hyperlink{gendata_8m_ac39b33361203e68d7820336db48d45e6}{x1} -\/ \hyperlink{namespacedemo__lgmres_ad5208339e2d70ebaceb6d7dfaa870ae6}{b})
+\item 
+list \hyperlink{namespacedemo__lgmres_a0b2db09bcc33bd61438fb32ca0a26a40}{count\+\_\+2} = \hyperlink{namespacedemo__lgmres_ac9e673dc62252034a7fe574079efd706}{count}\mbox{[}0\mbox{]}
+\item 
+tuple \hyperlink{namespacedemo__lgmres_ad5543132fd6bde236c12e53d812dc2ff}{err2} = \hyperlink{vecnorm_8cc_a57c51d3f8cc26dd32ade0c9cd6b4997e}{np.\+linalg.\+norm}(\hyperlink{namespacedemo__lgmres_afc20f9e38da2eac6a55e8a2d6e4ea957}{Am}$\ast$\hyperlink{gendata_8m_aab2463cd078f7c5368f6eb80f5a549b8}{x2} -\/ \hyperlink{namespacedemo__lgmres_ad5208339e2d70ebaceb6d7dfaa870ae6}{b})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacedemo__lgmres_a0b933f4e768a500950c8f0e736826307}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!matvec@{matvec}}
+\index{matvec@{matvec}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{matvec}]{\setlength{\rightskip}{0pt plus 5cm}def demo\+\_\+lgmres.\+matvec (
+\begin{DoxyParamCaption}
+\item[{}]{v}
+\end{DoxyParamCaption}
+)}\label{namespacedemo__lgmres_a0b933f4e768a500950c8f0e736826307}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacedemo__lgmres_a29e83fa149c2f8266e6129af1741a67f}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!A@{A}}
+\index{A@{A}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{A}]{\setlength{\rightskip}{0pt plus 5cm}tuple demo\+\_\+lgmres.\+A = la.\+Linear\+Operator({\bf matvec}={\bf matvec}, {\bf shape}={\bf Am.\+shape}, dtype=Am.\+dtype)}\label{namespacedemo__lgmres_a29e83fa149c2f8266e6129af1741a67f}
+\hypertarget{namespacedemo__lgmres_afc20f9e38da2eac6a55e8a2d6e4ea957}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!Am@{Am}}
+\index{Am@{Am}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{Am}]{\setlength{\rightskip}{0pt plus 5cm}tuple demo\+\_\+lgmres.\+Am = io.\+mmread({\bf f})}\label{namespacedemo__lgmres_afc20f9e38da2eac6a55e8a2d6e4ea957}
+\hypertarget{namespacedemo__lgmres_ad5208339e2d70ebaceb6d7dfaa870ae6}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!b@{b}}
+\index{b@{b}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{b}]{\setlength{\rightskip}{0pt plus 5cm}tuple demo\+\_\+lgmres.\+b = np.\+array(io.\+mmread({\bf f}))}\label{namespacedemo__lgmres_ad5208339e2d70ebaceb6d7dfaa870ae6}
+\hypertarget{namespacedemo__lgmres_ac9e673dc62252034a7fe574079efd706}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!count@{count}}
+\index{count@{count}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}list demo\+\_\+lgmres.\+count = \mbox{[}0\mbox{]}}\label{namespacedemo__lgmres_ac9e673dc62252034a7fe574079efd706}
+\hypertarget{namespacedemo__lgmres_a79b07e79e94a879b1e523ece055df7fe}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!count\+\_\+0@{count\+\_\+0}}
+\index{count\+\_\+0@{count\+\_\+0}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{count\+\_\+0}]{\setlength{\rightskip}{0pt plus 5cm}list demo\+\_\+lgmres.\+count\+\_\+0 = {\bf count}\mbox{[}0\mbox{]}}\label{namespacedemo__lgmres_a79b07e79e94a879b1e523ece055df7fe}
+\hypertarget{namespacedemo__lgmres_ad3fa23497c9b75adefbbec0118ca48c0}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!count\+\_\+1@{count\+\_\+1}}
+\index{count\+\_\+1@{count\+\_\+1}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{count\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}list demo\+\_\+lgmres.\+count\+\_\+1 = {\bf count}\mbox{[}0\mbox{]}}\label{namespacedemo__lgmres_ad3fa23497c9b75adefbbec0118ca48c0}
+\hypertarget{namespacedemo__lgmres_a0b2db09bcc33bd61438fb32ca0a26a40}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!count\+\_\+2@{count\+\_\+2}}
+\index{count\+\_\+2@{count\+\_\+2}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{count\+\_\+2}]{\setlength{\rightskip}{0pt plus 5cm}list demo\+\_\+lgmres.\+count\+\_\+2 = {\bf count}\mbox{[}0\mbox{]}}\label{namespacedemo__lgmres_a0b2db09bcc33bd61438fb32ca0a26a40}
+\hypertarget{namespacedemo__lgmres_a857086fbd9bf98d9f6f130668505c223}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!err0@{err0}}
+\index{err0@{err0}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{err0}]{\setlength{\rightskip}{0pt plus 5cm}tuple demo\+\_\+lgmres.\+err0 = {\bf np.\+linalg.\+norm}({\bf Am}$\ast${\bf x0} -\/ {\bf b})}\label{namespacedemo__lgmres_a857086fbd9bf98d9f6f130668505c223}
+\hypertarget{namespacedemo__lgmres_a2f863624b97cb465b89e233597552785}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!err1@{err1}}
+\index{err1@{err1}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{err1}]{\setlength{\rightskip}{0pt plus 5cm}tuple demo\+\_\+lgmres.\+err1 = {\bf np.\+linalg.\+norm}({\bf Am}$\ast${\bf x1} -\/ {\bf b})}\label{namespacedemo__lgmres_a2f863624b97cb465b89e233597552785}
+\hypertarget{namespacedemo__lgmres_ad5543132fd6bde236c12e53d812dc2ff}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!err2@{err2}}
+\index{err2@{err2}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{err2}]{\setlength{\rightskip}{0pt plus 5cm}tuple demo\+\_\+lgmres.\+err2 = {\bf np.\+linalg.\+norm}({\bf Am}$\ast${\bf x2} -\/ {\bf b})}\label{namespacedemo__lgmres_ad5543132fd6bde236c12e53d812dc2ff}
+\hypertarget{namespacedemo__lgmres_acf69589796371cd6bf3c673ea0ab23ac}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!f@{f}}
+\index{f@{f}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{f}]{\setlength{\rightskip}{0pt plus 5cm}tuple demo\+\_\+lgmres.\+f = mm.\+open('\%s.\+mtx.\+gz' \% {\bf problem})}\label{namespacedemo__lgmres_acf69589796371cd6bf3c673ea0ab23ac}
+\hypertarget{namespacedemo__lgmres_a2ec1c24106943f3ecb84af982a6fee3f}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!M@{M}}
+\index{M@{M}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{M}]{\setlength{\rightskip}{0pt plus 5cm}int demo\+\_\+lgmres.\+M = 100}\label{namespacedemo__lgmres_a2ec1c24106943f3ecb84af982a6fee3f}
+\hypertarget{namespacedemo__lgmres_aab755b9e30b356805a0987d4628145e6}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!mm@{mm}}
+\index{mm@{mm}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{mm}]{\setlength{\rightskip}{0pt plus 5cm}tuple demo\+\_\+lgmres.\+mm = np.\+lib.\+\_\+datasource.\+Repository('ftp\+://math.\+nist.\+gov/pub/Matrix\+Market2/')}\label{namespacedemo__lgmres_aab755b9e30b356805a0987d4628145e6}
+\hypertarget{namespacedemo__lgmres_a5ed74fb00faa6f503aba95750d375bea}{}\index{demo\+\_\+lgmres@{demo\+\_\+lgmres}!problem@{problem}}
+\index{problem@{problem}!demo\+\_\+lgmres@{demo\+\_\+lgmres}}
+\subsubsection[{problem}]{\setlength{\rightskip}{0pt plus 5cm}string demo\+\_\+lgmres.\+problem = \char`\"{}S\+P\+A\+R\+S\+K\+I\+T/drivcav/e05r0200\char`\"{}}\label{namespacedemo__lgmres_a5ed74fb00faa6f503aba95750d375bea}

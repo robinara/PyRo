@@ -1,0 +1,64 @@
+\hypertarget{classsetuptools_1_1PackageFinder}{}\section{setuptools.\+Package\+Finder Class Reference}
+\label{classsetuptools_1_1PackageFinder}\index{setuptools.\+Package\+Finder@{setuptools.\+Package\+Finder}}
+Inheritance diagram for setuptools.\+Package\+Finder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classsetuptools_1_1PackageFinder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classsetuptools_1_1PackageFinder_a5beee00ee08abffe24ff500f359389f7}{find}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classsetuptools_1_1PackageFinder_a07485f09992810c8346d0743936216b3}{require\+\_\+parents}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsetuptools_1_1PackageFinder_a5beee00ee08abffe24ff500f359389f7}{}\index{setuptools\+::\+Package\+Finder@{setuptools\+::\+Package\+Finder}!find@{find}}
+\index{find@{find}!setuptools\+::\+Package\+Finder@{setuptools\+::\+Package\+Finder}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+Package\+Finder.\+find (
+\begin{DoxyParamCaption}
+\item[{}]{cls, }
+\item[{}]{where = {\ttfamily '.'}, }
+\item[{}]{exclude = {\ttfamily ()}, }
+\item[{}]{include = {\ttfamily ('$\ast$',}}
+\end{DoxyParamCaption}
+)}\label{classsetuptools_1_1PackageFinder_a5beee00ee08abffe24ff500f359389f7}
+\begin{DoxyVerb}Return a list all Python packages found within directory 'where'
+
+'where' should be supplied as a "cross-platform" (i.e. URL-style)
+path; it will be converted to the appropriate local path syntax.
+'exclude' is a sequence of package names to exclude; '*' can be used
+as a wildcard in the names, such that 'foo.*' will exclude all
+subpackages of 'foo' (but not 'foo' itself).
+
+'include' is a sequence of package names to include.  If it's
+specified, only the named packages will be included.  If it's not
+specified, all found packages will be included.  'include' can contain
+shell style wildcard patterns just like 'exclude'.
+
+The list of included packages is built up first and then any
+explicitly excluded packages are removed from it.
+\end{DoxyVerb}
+ \hypertarget{classsetuptools_1_1PackageFinder_a07485f09992810c8346d0743936216b3}{}\index{setuptools\+::\+Package\+Finder@{setuptools\+::\+Package\+Finder}!require\+\_\+parents@{require\+\_\+parents}}
+\index{require\+\_\+parents@{require\+\_\+parents}!setuptools\+::\+Package\+Finder@{setuptools\+::\+Package\+Finder}}
+\subsubsection[{require\+\_\+parents}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+Package\+Finder.\+require\+\_\+parents (
+\begin{DoxyParamCaption}
+\item[{}]{packages}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classsetuptools_1_1PackageFinder_a07485f09992810c8346d0743936216b3}
+\begin{DoxyVerb}Exclude any apparent package that apparently doesn't include its
+parent.
+
+For example, exclude 'foo.bar' if 'foo' is not present.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/pypa-\/setuptools-\/f35c107404b4/setuptools/\hyperlink{packages_2pypa-setuptools-f35c107404b4_2setuptools_2____init_____8py}{\+\_\+\+\_\+init\+\_\+\+\_\+.\+py}\end{DoxyCompactItemize}

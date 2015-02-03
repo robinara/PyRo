@@ -1,0 +1,394 @@
+\hypertarget{namespacescipy_1_1optimize_1_1minpack}{}\section{scipy.\+optimize.\+minpack Namespace Reference}
+\label{namespacescipy_1_1optimize_1_1minpack}\index{scipy.\+optimize.\+minpack@{scipy.\+optimize.\+minpack}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1minpack_ac9bbc04a1a6c71c7c20a7d4585930ede}{fsolve}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1minpack_a557a87aac1b0023834a8b6dc1ed736c3}{leastsq}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1minpack_aac476bc8d680f5724391c218fdc113e4}{curve\+\_\+fit}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1minpack_a7e64883f9c92f8cc5ac4ded7b518ed1b}{check\+\_\+gradient}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1minpack_adc6af5788c88efbd1c0858ba1f9ec807}{fixed\+\_\+point}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacescipy_1_1optimize_1_1minpack_a2e3b2c63236fc8b37929ddbd17b69d7e}{error} = \+\_\+minpack.\+error
+\item 
+list \hyperlink{namespacescipy_1_1optimize_1_1minpack_aa93b4148ea95eb00585881c3bab37888}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1optimize_1_1minpack_ac9bbc04a1a6c71c7c20a7d4585930ede}{fsolve}', '\hyperlink{namespacescipy_1_1optimize_1_1minpack_a557a87aac1b0023834a8b6dc1ed736c3}{leastsq}', '\hyperlink{namespacescipy_1_1optimize_1_1minpack_adc6af5788c88efbd1c0858ba1f9ec807}{fixed\+\_\+point}', '\hyperlink{namespacescipy_1_1optimize_1_1minpack_aac476bc8d680f5724391c218fdc113e4}{curve\+\_\+fit}'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1minpack_a7e64883f9c92f8cc5ac4ded7b518ed1b}{}\index{scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}!check\+\_\+gradient@{check\+\_\+gradient}}
+\index{check\+\_\+gradient@{check\+\_\+gradient}!scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}}
+\subsubsection[{check\+\_\+gradient}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+minpack.\+check\+\_\+gradient (
+\begin{DoxyParamCaption}
+\item[{}]{fcn, }
+\item[{}]{Dfcn, }
+\item[{}]{x0, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{col\+\_\+deriv = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1minpack_a7e64883f9c92f8cc5ac4ded7b518ed1b}
+\begin{DoxyVerb}Perform a simple check on the gradient for correctness.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1minpack_aac476bc8d680f5724391c218fdc113e4}{}\index{scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}!curve\+\_\+fit@{curve\+\_\+fit}}
+\index{curve\+\_\+fit@{curve\+\_\+fit}!scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}}
+\subsubsection[{curve\+\_\+fit}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+minpack.\+curve\+\_\+fit (
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{xdata, }
+\item[{}]{ydata, }
+\item[{}]{p0 = {\ttfamily None}, }
+\item[{}]{sigma = {\ttfamily None}, }
+\item[{}]{absolute\+\_\+sigma = {\ttfamily {\bf False}}, }
+\item[{}]{kw}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1minpack_aac476bc8d680f5724391c218fdc113e4}
+\begin{DoxyVerb}Use non-linear least squares to fit a function, f, to data.
+
+Assumes ``ydata = f(xdata, *params) + eps``
+
+Parameters
+----------
+f : callable
+    The model function, f(x, ...).  It must take the independent
+    variable as the first argument and the parameters to fit as
+    separate remaining arguments.
+xdata : An M-length sequence or an (k,M)-shaped array
+    for functions with k predictors.
+    The independent variable where the data is measured.
+ydata : M-length sequence
+    The dependent data --- nominally f(xdata, ...)
+p0 : None, scalar, or N-length sequence
+    Initial guess for the parameters.  If None, then the initial
+    values will all be 1 (if the number of parameters for the function
+    can be determined using introspection, otherwise a ValueError
+    is raised).
+sigma : None or M-length sequence, optional
+    If not None, these values are used as weights in the
+    least-squares problem.
+absolute_sigma : bool, optional
+    If False, `sigma` denotes relative weights of the data points.
+    The returned covariance matrix `pcov` is based on *estimated*
+    errors in the data, and is not affected by the overall
+    magnitude of the values in `sigma`. Only the relative
+    magnitudes of the `sigma` values matter.
+
+    If True, `sigma` describes one standard deviation errors of
+    the input data points. The estimated covariance in `pcov` is
+    based on these values.
+
+Returns
+-------
+popt : array
+    Optimal values for the parameters so that the sum of the squared error
+    of ``f(xdata, *popt) - ydata`` is minimized
+pcov : 2d array
+    The estimated covariance of popt. The diagonals provide the variance
+    of the parameter estimate. To compute one standard deviation errors
+    on the parameters use ``perr = np.sqrt(np.diag(pcov))``.
+
+    How the `sigma` parameter affects the estimated covariance
+    depends on `absolute_sigma` argument, as described above.
+
+See Also
+--------
+leastsq
+
+Notes
+-----
+The algorithm uses the Levenberg-Marquardt algorithm through `leastsq`.
+Additional keyword arguments are passed directly to that algorithm.
+
+Examples
+--------
+>>> import numpy as np
+>>> from scipy.optimize import curve_fit
+>>> def func(x, a, b, c):
+...     return a * np.exp(-b * x) + c
+
+>>> xdata = np.linspace(0, 4, 50)
+>>> y = func(xdata, 2.5, 1.3, 0.5)
+>>> ydata = y + 0.2 * np.random.normal(size=len(xdata))
+
+>>> popt, pcov = curve_fit(func, xdata, ydata)\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1minpack_adc6af5788c88efbd1c0858ba1f9ec807}{}\index{scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}!fixed\+\_\+point@{fixed\+\_\+point}}
+\index{fixed\+\_\+point@{fixed\+\_\+point}!scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}}
+\subsubsection[{fixed\+\_\+point}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+minpack.\+fixed\+\_\+point (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{x0, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{xtol = {\ttfamily 1e-\/8}, }
+\item[{}]{maxiter = {\ttfamily 500}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1minpack_adc6af5788c88efbd1c0858ba1f9ec807}
+\begin{DoxyVerb}Find a fixed point of the function.
+
+Given a function of one or more variables and a starting point, find a
+fixed-point of the function: i.e. where ``func(x0) == x0``.
+
+Parameters
+----------
+func : function
+    Function to evaluate.
+x0 : array_like
+    Fixed point of function.
+args : tuple, optional
+    Extra arguments to `func`.
+xtol : float, optional
+    Convergence tolerance, defaults to 1e-08.
+maxiter : int, optional
+    Maximum number of iterations, defaults to 500.
+
+Notes
+-----
+Uses Steffensen's Method using Aitken's ``Del^2`` convergence acceleration.
+See Burden, Faires, "Numerical Analysis", 5th edition, pg. 80
+
+Examples
+--------
+>>> from scipy import optimize
+>>> def func(x, c1, c2):
+....    return np.sqrt(c1/(x+c2))
+>>> c1 = np.array([10,12.])
+>>> c2 = np.array([3, 5.])
+>>> optimize.fixed_point(func, [1.2, 1.3], args=(c1,c2))
+array([ 1.4920333 ,  1.37228132])\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1minpack_ac9bbc04a1a6c71c7c20a7d4585930ede}{}\index{scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}!fsolve@{fsolve}}
+\index{fsolve@{fsolve}!scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}}
+\subsubsection[{fsolve}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+minpack.\+fsolve (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{x0, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{fprime = {\ttfamily None}, }
+\item[{}]{full\+\_\+output = {\ttfamily 0}, }
+\item[{}]{col\+\_\+deriv = {\ttfamily 0}, }
+\item[{}]{xtol = {\ttfamily 1.49012e-\/8}, }
+\item[{}]{maxfev = {\ttfamily 0}, }
+\item[{}]{band = {\ttfamily None}, }
+\item[{}]{epsfcn = {\ttfamily None}, }
+\item[{}]{factor = {\ttfamily 100}, }
+\item[{}]{diag = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1minpack_ac9bbc04a1a6c71c7c20a7d4585930ede}
+\begin{DoxyVerb}Find the roots of a function.
+
+Return the roots of the (non-linear) equations defined by
+``func(x) = 0`` given a starting estimate.
+
+Parameters
+----------
+func : callable ``f(x, *args)``
+    A function that takes at least one (possibly vector) argument.
+x0 : ndarray
+    The starting estimate for the roots of ``func(x) = 0``.
+args : tuple, optional
+    Any extra arguments to `func`.
+fprime : callable(x), optional
+    A function to compute the Jacobian of `func` with derivatives
+    across the rows. By default, the Jacobian will be estimated.
+full_output : bool, optional
+    If True, return optional outputs.
+col_deriv : bool, optional
+    Specify whether the Jacobian function computes derivatives down
+    the columns (faster, because there is no transpose operation).
+xtol : float
+    The calculation will terminate if the relative error between two
+    consecutive iterates is at most `xtol`.
+maxfev : int, optional
+    The maximum number of calls to the function. If zero, then
+    ``100*(N+1)`` is the maximum where N is the number of elements
+    in `x0`.
+band : tuple, optional
+    If set to a two-sequence containing the number of sub- and
+    super-diagonals within the band of the Jacobi matrix, the
+    Jacobi matrix is considered banded (only for ``fprime=None``).
+epsfcn : float, optional
+    A suitable step length for the forward-difference
+    approximation of the Jacobian (for ``fprime=None``). If
+    `epsfcn` is less than the machine precision, it is assumed
+    that the relative errors in the functions are of the order of
+    the machine precision.
+factor : float, optional
+    A parameter determining the initial step bound
+    (``factor * || diag * x||``).  Should be in the interval
+    ``(0.1, 100)``.
+diag : sequence, optional
+    N positive entries that serve as a scale factors for the
+    variables.
+
+Returns
+-------
+x : ndarray
+    The solution (or the result of the last iteration for
+    an unsuccessful call).
+infodict : dict
+    A dictionary of optional outputs with the keys:
+
+    ``nfev``
+        number of function calls
+    ``njev``
+        number of Jacobian calls
+    ``fvec``
+        function evaluated at the output
+    ``fjac``
+        the orthogonal matrix, q, produced by the QR
+        factorization of the final approximate Jacobian
+        matrix, stored column wise
+    ``r``
+        upper triangular matrix produced by QR factorization
+        of the same matrix
+    ``qtf``
+        the vector ``(transpose(q) * fvec)``
+
+ier : int
+    An integer flag.  Set to 1 if a solution was found, otherwise refer
+    to `mesg` for more information.
+mesg : str
+    If no solution is found, `mesg` details the cause of failure.
+
+See Also
+--------
+root : Interface to root finding algorithms for multivariate
+functions. See the 'hybr' `method` in particular.
+
+Notes
+-----
+``fsolve`` is a wrapper around MINPACK's hybrd and hybrj algorithms.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1minpack_a557a87aac1b0023834a8b6dc1ed736c3}{}\index{scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}!leastsq@{leastsq}}
+\index{leastsq@{leastsq}!scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}}
+\subsubsection[{leastsq}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+minpack.\+leastsq (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{x0, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{Dfun = {\ttfamily None}, }
+\item[{}]{full\+\_\+output = {\ttfamily 0}, }
+\item[{}]{col\+\_\+deriv = {\ttfamily 0}, }
+\item[{}]{ftol = {\ttfamily 1.49012e-\/8}, }
+\item[{}]{xtol = {\ttfamily 1.49012e-\/8}, }
+\item[{}]{gtol = {\ttfamily 0.0}, }
+\item[{}]{maxfev = {\ttfamily 0}, }
+\item[{}]{epsfcn = {\ttfamily None}, }
+\item[{}]{factor = {\ttfamily 100}, }
+\item[{}]{diag = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1minpack_a557a87aac1b0023834a8b6dc1ed736c3}
+\begin{DoxyVerb}Minimize the sum of squares of a set of equations.
+
+::
+
+    x = arg min(sum(func(y)**2,axis=0))
+             y
+
+Parameters
+----------
+func : callable
+    should take at least one (possibly length N vector) argument and
+    returns M floating point numbers.
+x0 : ndarray
+    The starting estimate for the minimization.
+args : tuple
+    Any extra arguments to func are placed in this tuple.
+Dfun : callable
+    A function or method to compute the Jacobian of func with derivatives
+    across the rows. If this is None, the Jacobian will be estimated.
+full_output : bool
+    non-zero to return all optional outputs.
+col_deriv : bool
+    non-zero to specify that the Jacobian function computes derivatives
+    down the columns (faster, because there is no transpose operation).
+ftol : float
+    Relative error desired in the sum of squares.
+xtol : float
+    Relative error desired in the approximate solution.
+gtol : float
+    Orthogonality desired between the function vector and the columns of
+    the Jacobian.
+maxfev : int
+    The maximum number of calls to the function. If zero, then 100*(N+1) is
+    the maximum where N is the number of elements in x0.
+epsfcn : float
+    A suitable step length for the forward-difference approximation of the
+    Jacobian (for Dfun=None). If epsfcn is less than the machine precision,
+    it is assumed that the relative errors in the functions are of the
+    order of the machine precision.
+factor : float
+    A parameter determining the initial step bound
+    (``factor * || diag * x||``). Should be in interval ``(0.1, 100)``.
+diag : sequence
+    N positive entries that serve as a scale factors for the variables.
+
+Returns
+-------
+x : ndarray
+    The solution (or the result of the last iteration for an unsuccessful
+    call).
+cov_x : ndarray
+    Uses the fjac and ipvt optional outputs to construct an
+    estimate of the jacobian around the solution. None if a
+    singular matrix encountered (indicates very flat curvature in
+    some direction).  This matrix must be multiplied by the
+    residual variance to get the covariance of the
+    parameter estimates -- see curve_fit.
+infodict : dict
+    a dictionary of optional outputs with the key s:
+
+    ``nfev``
+        The number of function calls
+    ``fvec``
+        The function evaluated at the output
+    ``fjac``
+        A permutation of the R matrix of a QR
+        factorization of the final approximate
+        Jacobian matrix, stored column wise.
+        Together with ipvt, the covariance of the
+        estimate can be approximated.
+    ``ipvt``
+        An integer array of length N which defines
+        a permutation matrix, p, such that
+        fjac*p = q*r, where r is upper triangular
+        with diagonal elements of nonincreasing
+        magnitude. Column j of p is column ipvt(j)
+        of the identity matrix.
+    ``qtf``
+        The vector (transpose(q) * fvec).
+
+mesg : str
+    A string message giving information about the cause of failure.
+ier : int
+    An integer flag.  If it is equal to 1, 2, 3 or 4, the solution was
+    found.  Otherwise, the solution was not found. In either case, the
+    optional output variable 'mesg' gives more information.
+
+Notes
+-----
+"leastsq" is a wrapper around MINPACK's lmdif and lmder algorithms.
+
+cov_x is a Jacobian approximation to the Hessian of the least squares
+objective function.
+This approximation assumes that the objective function is based on the
+difference between some observed target data (ydata) and a (non-linear)
+function of the parameters `f(xdata, params)` ::
+
+       func(params) = ydata - f(xdata, params)
+
+so that the objective function is ::
+
+       min   sum((ydata - f(xdata, params))**2, axis=0)
+     params\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1minpack_aa93b4148ea95eb00585881c3bab37888}{}\index{scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+optimize.\+minpack.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf fsolve}', '{\bf leastsq}', '{\bf fixed\+\_\+point}', '{\bf curve\+\_\+fit}'\mbox{]}}\label{namespacescipy_1_1optimize_1_1minpack_aa93b4148ea95eb00585881c3bab37888}
+\hypertarget{namespacescipy_1_1optimize_1_1minpack_a2e3b2c63236fc8b37929ddbd17b69d7e}{}\index{scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}!error@{error}}
+\index{error@{error}!scipy\+::optimize\+::minpack@{scipy\+::optimize\+::minpack}}
+\subsubsection[{error}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+minpack.\+error = \+\_\+minpack.\+error}\label{namespacescipy_1_1optimize_1_1minpack_a2e3b2c63236fc8b37929ddbd17b69d7e}

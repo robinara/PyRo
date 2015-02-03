@@ -1,0 +1,81 @@
+\hypertarget{cheswapr_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/cheswapr.f File Reference}
+\label{cheswapr_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cheswapr.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cheswapr.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{cheswapr_8f_a955ef3394562af1ae4ae2d113e4423bd}{cheswapr} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I1, I2)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+H\+E\+S\+W\+A\+P\+R} applies an elementary permutation on the rows and columns of a Hermitian matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{cheswapr_8f_a955ef3394562af1ae4ae2d113e4423bd}{}\index{cheswapr.\+f@{cheswapr.\+f}!cheswapr@{cheswapr}}
+\index{cheswapr@{cheswapr}!cheswapr.\+f@{cheswapr.\+f}}
+\subsubsection[{cheswapr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cheswapr (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( lda, {\bf n} )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer}]{I1, }
+\item[{integer}]{I2}
+\end{DoxyParamCaption}
+)}\label{cheswapr_8f_a955ef3394562af1ae4ae2d113e4423bd}
+
+
+{\bfseries C\+H\+E\+S\+W\+A\+P\+R} applies an elementary permutation on the rows and columns of a Hermitian matrix. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CHESWAPR applies an elementary permutation on the rows and the columns of
+ a hermitian matrix.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the details of the factorization are stored
+          as an upper or lower triangular matrix.
+          = 'U':  Upper triangular, form is A = U*D*U**T;
+          = 'L':  Lower triangular, form is A = L*D*L**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          On entry, the NB diagonal matrix D and the multipliers
+          used to obtain the factor U or L as computed by CSYTRF.
+
+          On exit, if INFO = 0, the (symmetric) inverse of the original
+          matrix.  If UPLO = 'U', the upper triangular part of the
+          inverse is formed and the part of A below the diagonal is not
+          referenced; if UPLO = 'L' the lower triangular part of the
+          inverse is formed and the part of A above the diagonal is
+          not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I1} & \begin{DoxyVerb}          I1 is INTEGER
+          Index of the first row to swap\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I2} & \begin{DoxyVerb}          I2 is INTEGER
+          Index of the second row to swap\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

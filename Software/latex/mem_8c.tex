@@ -1,0 +1,187 @@
+\hypertarget{mem_8c}{}\section{packages/scipy-\/0.14.0/scipy/spatial/qhull/src/mem.c File Reference}
+\label{mem_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/mem.\+c@{packages/scipy-\/0.\+14.\+0/scipy/spatial/qhull/src/mem.\+c}}
+{\ttfamily \#include \char`\"{}mem.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structridgeT}{ridge\+T} \hyperlink{mem_8c_a2c1b8a3d33a93131eaaaeb6a4bedb338}{ridge\+T}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} \hyperlink{structfacetT}{facet\+T} \hyperlink{mem_8c_aaf9ef38cb6fc87a81256fbe2e7abfb60}{facet\+T}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mem_8c_a2ac22c326399aa41e4e8c09b9bb9a225}{qh\+\_\+errexit} (int exitcode, \hyperlink{structfacetT}{facet\+T} $\ast$, \hyperlink{structridgeT}{ridge\+T} $\ast$)
+\item 
+void \hyperlink{mem_8c_a0b10c9df60e12aa9251829c10f31f80b}{qh\+\_\+exit} (int exitcode)
+\item 
+void \hyperlink{mem_8c_aca4b59cdb8152b580cb9d258a849288d}{qh\+\_\+fprintf} (F\+I\+L\+E $\ast$fp, int msgcode, const char $\ast$fmt,...)
+\item 
+void \hyperlink{mem_8c_a5b5f2d4219190f044de3f281f4ea4f7c}{qh\+\_\+free} (void $\ast$mem)
+\item 
+void $\ast$ \hyperlink{mem_8c_a1f3385c31ec1ba452f3c4fc9aeec1829}{qh\+\_\+malloc} (size\+\_\+t size)
+\item 
+void $\ast$ \hyperlink{mem_8c_a96451a69e548aa243edf6062a2ac9dcb}{qh\+\_\+memalloc} (int insize)
+\item 
+void \hyperlink{mem_8c_a788af5714481daaa5bc9e96812794e27}{qh\+\_\+memfree} (void $\ast$object, int insize)
+\item 
+void \hyperlink{mem_8c_a27100399f6671cfe24b9cf4d56fe9b78}{qh\+\_\+memfreeshort} (int $\ast$curlong, int $\ast$totlong)
+\item 
+void \hyperlink{mem_8c_aea93e5a662d536f5a6d756efc5ff5a37}{qh\+\_\+meminit} (F\+I\+L\+E $\ast$ferr)
+\item 
+void \hyperlink{mem_8c_ac86cb0e0d14094ab78d912caa89bbaa0}{qh\+\_\+meminitbuffers} (int tracelevel, int alignment, int numsizes, int bufsize, int bufinit)
+\item 
+void \hyperlink{mem_8c_aafcfa704e12fb4af95e24539b6550594}{qh\+\_\+memsetup} (void)
+\item 
+void \hyperlink{mem_8c_a5ea1a7f985efbce779795e27158b258f}{qh\+\_\+memsize} (int size)
+\item 
+void \hyperlink{mem_8c_adff4778cdb44590978fca4012f1d279c}{qh\+\_\+memstatistics} (F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{mem_8c_a55a76a0e6cc675e1add04b510e636174}{qh\+\_\+memtotal} (int $\ast$totlong, int $\ast$curlong, int $\ast$totshort, int $\ast$curshort, int $\ast$maxlong, int $\ast$totbuffer)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structqhmemT}{qhmem\+T} \hyperlink{mem_8c_a144667d86489ffb025b373281674c541}{qhmem}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{mem_8c_aaf9ef38cb6fc87a81256fbe2e7abfb60}{}\index{mem.\+c@{mem.\+c}!facet\+T@{facet\+T}}
+\index{facet\+T@{facet\+T}!mem.\+c@{mem.\+c}}
+\subsubsection[{facet\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf facet\+T} {\bf facet\+T}}\label{mem_8c_aaf9ef38cb6fc87a81256fbe2e7abfb60}
+\hypertarget{mem_8c_a2c1b8a3d33a93131eaaaeb6a4bedb338}{}\index{mem.\+c@{mem.\+c}!ridge\+T@{ridge\+T}}
+\index{ridge\+T@{ridge\+T}!mem.\+c@{mem.\+c}}
+\subsubsection[{ridge\+T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} {\bf ridge\+T} {\bf ridge\+T}}\label{mem_8c_a2c1b8a3d33a93131eaaaeb6a4bedb338}
+
+
+\subsection{Function Documentation}
+\hypertarget{mem_8c_a2ac22c326399aa41e4e8c09b9bb9a225}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+errexit@{qh\+\_\+errexit}}
+\index{qh\+\_\+errexit@{qh\+\_\+errexit}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+errexit}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+errexit (
+\begin{DoxyParamCaption}
+\item[{int}]{exitcode, }
+\item[{{\bf facet\+T} $\ast$}]{, }
+\item[{{\bf ridge\+T} $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{mem_8c_a2ac22c326399aa41e4e8c09b9bb9a225}
+\hypertarget{mem_8c_a0b10c9df60e12aa9251829c10f31f80b}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+exit@{qh\+\_\+exit}}
+\index{qh\+\_\+exit@{qh\+\_\+exit}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+exit}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+exit (
+\begin{DoxyParamCaption}
+\item[{int}]{exitcode}
+\end{DoxyParamCaption}
+)}\label{mem_8c_a0b10c9df60e12aa9251829c10f31f80b}
+\hypertarget{mem_8c_aca4b59cdb8152b580cb9d258a849288d}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+fprintf@{qh\+\_\+fprintf}}
+\index{qh\+\_\+fprintf@{qh\+\_\+fprintf}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+fprintf}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+fprintf (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{int}]{msgcode, }
+\item[{const char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{mem_8c_aca4b59cdb8152b580cb9d258a849288d}
+\hypertarget{mem_8c_a5b5f2d4219190f044de3f281f4ea4f7c}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+free@{qh\+\_\+free}}
+\index{qh\+\_\+free@{qh\+\_\+free}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{mem}
+\end{DoxyParamCaption}
+)}\label{mem_8c_a5b5f2d4219190f044de3f281f4ea4f7c}
+\hypertarget{mem_8c_a1f3385c31ec1ba452f3c4fc9aeec1829}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+malloc@{qh\+\_\+malloc}}
+\index{qh\+\_\+malloc@{qh\+\_\+malloc}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ qh\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{mem_8c_a1f3385c31ec1ba452f3c4fc9aeec1829}
+\hypertarget{mem_8c_a96451a69e548aa243edf6062a2ac9dcb}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+memalloc@{qh\+\_\+memalloc}}
+\index{qh\+\_\+memalloc@{qh\+\_\+memalloc}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+memalloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ qh\+\_\+memalloc (
+\begin{DoxyParamCaption}
+\item[{int}]{insize}
+\end{DoxyParamCaption}
+)}\label{mem_8c_a96451a69e548aa243edf6062a2ac9dcb}
+\hypertarget{mem_8c_a788af5714481daaa5bc9e96812794e27}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+memfree@{qh\+\_\+memfree}}
+\index{qh\+\_\+memfree@{qh\+\_\+memfree}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+memfree}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+memfree (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{object, }
+\item[{int}]{insize}
+\end{DoxyParamCaption}
+)}\label{mem_8c_a788af5714481daaa5bc9e96812794e27}
+\hypertarget{mem_8c_a27100399f6671cfe24b9cf4d56fe9b78}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+memfreeshort@{qh\+\_\+memfreeshort}}
+\index{qh\+\_\+memfreeshort@{qh\+\_\+memfreeshort}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+memfreeshort}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+memfreeshort (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{curlong, }
+\item[{int $\ast$}]{totlong}
+\end{DoxyParamCaption}
+)}\label{mem_8c_a27100399f6671cfe24b9cf4d56fe9b78}
+\hypertarget{mem_8c_aea93e5a662d536f5a6d756efc5ff5a37}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+meminit@{qh\+\_\+meminit}}
+\index{qh\+\_\+meminit@{qh\+\_\+meminit}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+meminit}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+meminit (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{ferr}
+\end{DoxyParamCaption}
+)}\label{mem_8c_aea93e5a662d536f5a6d756efc5ff5a37}
+\hypertarget{mem_8c_ac86cb0e0d14094ab78d912caa89bbaa0}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+meminitbuffers@{qh\+\_\+meminitbuffers}}
+\index{qh\+\_\+meminitbuffers@{qh\+\_\+meminitbuffers}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+meminitbuffers}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+meminitbuffers (
+\begin{DoxyParamCaption}
+\item[{int}]{tracelevel, }
+\item[{int}]{alignment, }
+\item[{int}]{numsizes, }
+\item[{int}]{bufsize, }
+\item[{int}]{bufinit}
+\end{DoxyParamCaption}
+)}\label{mem_8c_ac86cb0e0d14094ab78d912caa89bbaa0}
+\hypertarget{mem_8c_aafcfa704e12fb4af95e24539b6550594}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+memsetup@{qh\+\_\+memsetup}}
+\index{qh\+\_\+memsetup@{qh\+\_\+memsetup}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+memsetup}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+memsetup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{mem_8c_aafcfa704e12fb4af95e24539b6550594}
+\hypertarget{mem_8c_a5ea1a7f985efbce779795e27158b258f}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+memsize@{qh\+\_\+memsize}}
+\index{qh\+\_\+memsize@{qh\+\_\+memsize}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+memsize}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+memsize (
+\begin{DoxyParamCaption}
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\label{mem_8c_a5ea1a7f985efbce779795e27158b258f}
+\hypertarget{mem_8c_adff4778cdb44590978fca4012f1d279c}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+memstatistics@{qh\+\_\+memstatistics}}
+\index{qh\+\_\+memstatistics@{qh\+\_\+memstatistics}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+memstatistics}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+memstatistics (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{mem_8c_adff4778cdb44590978fca4012f1d279c}
+\hypertarget{mem_8c_a55a76a0e6cc675e1add04b510e636174}{}\index{mem.\+c@{mem.\+c}!qh\+\_\+memtotal@{qh\+\_\+memtotal}}
+\index{qh\+\_\+memtotal@{qh\+\_\+memtotal}!mem.\+c@{mem.\+c}}
+\subsubsection[{qh\+\_\+memtotal}]{\setlength{\rightskip}{0pt plus 5cm}void qh\+\_\+memtotal (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{totlong, }
+\item[{int $\ast$}]{curlong, }
+\item[{int $\ast$}]{totshort, }
+\item[{int $\ast$}]{curshort, }
+\item[{int $\ast$}]{maxlong, }
+\item[{int $\ast$}]{totbuffer}
+\end{DoxyParamCaption}
+)}\label{mem_8c_a55a76a0e6cc675e1add04b510e636174}
+
+
+\subsection{Variable Documentation}
+\hypertarget{mem_8c_a144667d86489ffb025b373281674c541}{}\index{mem.\+c@{mem.\+c}!qhmem@{qhmem}}
+\index{qhmem@{qhmem}!mem.\+c@{mem.\+c}}
+\subsubsection[{qhmem}]{\setlength{\rightskip}{0pt plus 5cm}{\bf qhmem\+T} qhmem}\label{mem_8c_a144667d86489ffb025b373281674c541}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{0,0,0,0,0,0,0,0,0,0,0,
+               0,0,0,0,0,0,0,0,0,0,0,
+               0,0,0,0,0,0,0\}
+\end{DoxyCode}

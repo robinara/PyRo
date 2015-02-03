@@ -1,0 +1,81 @@
+\hypertarget{zlapmr_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlapmr.f File Reference}
+\label{zlapmr_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlapmr.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlapmr.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlapmr_8f_a3c713e34423cbe29bbeb1083776f7b8a}{zlapmr} (F\+O\+R\+W\+R\+D, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, X, L\+D\+X, K)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+P\+M\+R} rearranges rows of a matrix as specified by a permutation vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlapmr_8f_a3c713e34423cbe29bbeb1083776f7b8a}{}\index{zlapmr.\+f@{zlapmr.\+f}!zlapmr@{zlapmr}}
+\index{zlapmr@{zlapmr}!zlapmr.\+f@{zlapmr.\+f}}
+\subsubsection[{zlapmr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlapmr (
+\begin{DoxyParamCaption}
+\item[{{\bf logical}}]{F\+O\+R\+W\+R\+D, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( ldx, $\ast$ )}]{X, }
+\item[{integer}]{L\+D\+X, }
+\item[{integer, dimension( $\ast$ )}]{K}
+\end{DoxyParamCaption}
+)}\label{zlapmr_8f_a3c713e34423cbe29bbeb1083776f7b8a}
+
+
+{\bfseries Z\+L\+A\+P\+M\+R} rearranges rows of a matrix as specified by a permutation vector. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLAPMR rearranges the rows of the M by N matrix X as specified
+ by the permutation K(1),K(2),...,K(M) of the integers 1,...,M.
+ If FORWRD = .TRUE.,  forward permutation:
+
+      X(K(I),*) is moved X(I,*) for I = 1,2,...,M.
+
+ If FORWRD = .FALSE., backward permutation:
+
+      X(I,*) is moved to X(K(I),*) for I = 1,2,...,M.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em F\+O\+R\+W\+R\+D} & \begin{DoxyVerb}          FORWRD is LOGICAL
+          = .TRUE., forward permutation
+          = .FALSE., backward permutation\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix X. M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix X. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX*16 array, dimension (LDX,N)
+          On entry, the M by N matrix X.
+          On exit, X contains the permuted matrix X.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+X} & \begin{DoxyVerb}          LDX is INTEGER
+          The leading dimension of the array X, LDX >= MAX(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em K} & \begin{DoxyVerb}          K is INTEGER array, dimension (M)
+          On entry, K contains the permutation vector. K is used as
+          internal workspace, but reset to its original value on
+          output.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

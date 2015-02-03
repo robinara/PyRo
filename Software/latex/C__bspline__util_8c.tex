@@ -1,0 +1,55 @@
+\hypertarget{C__bspline__util_8c}{}\section{packages/scipy-\/0.14.0/scipy/signal/\+C\+\_\+bspline\+\_\+util.c File Reference}
+\label{C__bspline__util_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/signal/\+C\+\_\+bspline\+\_\+util.\+c@{packages/scipy-\/0.\+14.\+0/scipy/signal/\+C\+\_\+bspline\+\_\+util.\+c}}
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stddef.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}numpy/arrayobject.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{C__bspline__util_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}
+\item 
+\#define \hyperlink{C__bspline__util_8c_ac70ebd52806a8b25fa446654eb522e43}{C\+O\+N\+J}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})~($\sim$(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}))
+\item 
+\#define \hyperlink{C__bspline__util_8c_a34faeb641fcc8ccc42af30be61afe859}{A\+B\+S\+Q}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})~(\+\_\+\+\_\+real\+\_\+\+\_\+ (\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}$\ast$\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a26a53d2d0576982e73a770a90087a619}{C\+O\+N\+J}(\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a})))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{C__bspline__util_8c_aa69e5bd2a76e03fbd0ed98d7c946bccd}{compute\+\_\+root\+\_\+from\+\_\+lambda} (double, double $\ast$, double $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{C__bspline__util_8c_a34faeb641fcc8ccc42af30be61afe859}{}\index{C\+\_\+bspline\+\_\+util.\+c@{C\+\_\+bspline\+\_\+util.\+c}!A\+B\+S\+Q@{A\+B\+S\+Q}}
+\index{A\+B\+S\+Q@{A\+B\+S\+Q}!C\+\_\+bspline\+\_\+util.\+c@{C\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{A\+B\+S\+Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+B\+S\+Q(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)~(\+\_\+\+\_\+real\+\_\+\+\_\+ ({\bf a}$\ast${\bf C\+O\+N\+J}({\bf a})))}\label{C__bspline__util_8c_a34faeb641fcc8ccc42af30be61afe859}
+\hypertarget{C__bspline__util_8c_ac70ebd52806a8b25fa446654eb522e43}{}\index{C\+\_\+bspline\+\_\+util.\+c@{C\+\_\+bspline\+\_\+util.\+c}!C\+O\+N\+J@{C\+O\+N\+J}}
+\index{C\+O\+N\+J@{C\+O\+N\+J}!C\+\_\+bspline\+\_\+util.\+c@{C\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{C\+O\+N\+J}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+O\+N\+J(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf a}}
+\end{DoxyParamCaption}
+)~($\sim$({\bf a}))}\label{C__bspline__util_8c_ac70ebd52806a8b25fa446654eb522e43}
+\hypertarget{C__bspline__util_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}{}\index{C\+\_\+bspline\+\_\+util.\+c@{C\+\_\+bspline\+\_\+util.\+c}!N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}}
+\index{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y@{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}!C\+\_\+bspline\+\_\+util.\+c@{C\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+\_\+\+I\+M\+P\+O\+R\+T\+\_\+\+A\+R\+R\+A\+Y}\label{C__bspline__util_8c_ad2cd12e09a08db7cbcae2e74f723d6c4}
+
+
+\subsection{Function Documentation}
+\hypertarget{C__bspline__util_8c_aa69e5bd2a76e03fbd0ed98d7c946bccd}{}\index{C\+\_\+bspline\+\_\+util.\+c@{C\+\_\+bspline\+\_\+util.\+c}!compute\+\_\+root\+\_\+from\+\_\+lambda@{compute\+\_\+root\+\_\+from\+\_\+lambda}}
+\index{compute\+\_\+root\+\_\+from\+\_\+lambda@{compute\+\_\+root\+\_\+from\+\_\+lambda}!C\+\_\+bspline\+\_\+util.\+c@{C\+\_\+bspline\+\_\+util.\+c}}
+\subsubsection[{compute\+\_\+root\+\_\+from\+\_\+lambda}]{\setlength{\rightskip}{0pt plus 5cm}void compute\+\_\+root\+\_\+from\+\_\+lambda (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double $\ast$}]{, }
+\item[{double $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{C__bspline__util_8c_aa69e5bd2a76e03fbd0ed98d7c946bccd}

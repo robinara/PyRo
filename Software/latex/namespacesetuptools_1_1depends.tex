@@ -1,0 +1,80 @@
+\hypertarget{namespacesetuptools_1_1depends}{}\section{setuptools.\+depends Namespace Reference}
+\label{namespacesetuptools_1_1depends}\index{setuptools.\+depends@{setuptools.\+depends}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsetuptools_1_1depends_1_1Require}{Require}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacesetuptools_1_1depends_ae751536d87e0ecb2cb830e47b0470e96}{find\+\_\+module}
+\item 
+def \hyperlink{namespacesetuptools_1_1depends_a8f18cb30241a6017d63d60c8faea6496}{get\+\_\+module\+\_\+constant}
+\item 
+def \hyperlink{namespacesetuptools_1_1depends_ae20f48f1174e65c91250afb8292c246d}{extract\+\_\+constant}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacesetuptools_1_1depends_a12fce1ae40d81e3952ed133393279752}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacesetuptools_1_1depends_ae20f48f1174e65c91250afb8292c246d}{}\index{setuptools\+::depends@{setuptools\+::depends}!extract\+\_\+constant@{extract\+\_\+constant}}
+\index{extract\+\_\+constant@{extract\+\_\+constant}!setuptools\+::depends@{setuptools\+::depends}}
+\subsubsection[{extract\+\_\+constant}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+depends.\+extract\+\_\+constant (
+\begin{DoxyParamCaption}
+\item[{}]{code, }
+\item[{}]{symbol, }
+\item[{}]{default = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1depends_ae20f48f1174e65c91250afb8292c246d}
+\begin{DoxyVerb}Extract the constant value of 'symbol' from 'code'
+
+If the name 'symbol' is bound to a constant value by the Python code
+object 'code', return that value.  If 'symbol' is bound to an expression,
+return 'default'.  Otherwise, return 'None'.
+
+Return value is based on the first assignment to 'symbol'.  'symbol' must
+be a global, or at least a non-"fast" local in the code block.  That is,
+only 'STORE_NAME' and 'STORE_GLOBAL' opcodes are checked, and 'symbol'
+must be present in 'code.co_names'.
+\end{DoxyVerb}
+ \hypertarget{namespacesetuptools_1_1depends_ae751536d87e0ecb2cb830e47b0470e96}{}\index{setuptools\+::depends@{setuptools\+::depends}!find\+\_\+module@{find\+\_\+module}}
+\index{find\+\_\+module@{find\+\_\+module}!setuptools\+::depends@{setuptools\+::depends}}
+\subsubsection[{find\+\_\+module}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+depends.\+find\+\_\+module (
+\begin{DoxyParamCaption}
+\item[{}]{module, }
+\item[{}]{paths = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1depends_ae751536d87e0ecb2cb830e47b0470e96}
+\begin{DoxyVerb}Just like 'imp.find_module()', but with package support\end{DoxyVerb}
+ \hypertarget{namespacesetuptools_1_1depends_a8f18cb30241a6017d63d60c8faea6496}{}\index{setuptools\+::depends@{setuptools\+::depends}!get\+\_\+module\+\_\+constant@{get\+\_\+module\+\_\+constant}}
+\index{get\+\_\+module\+\_\+constant@{get\+\_\+module\+\_\+constant}!setuptools\+::depends@{setuptools\+::depends}}
+\subsubsection[{get\+\_\+module\+\_\+constant}]{\setlength{\rightskip}{0pt plus 5cm}def setuptools.\+depends.\+get\+\_\+module\+\_\+constant (
+\begin{DoxyParamCaption}
+\item[{}]{module, }
+\item[{}]{symbol, }
+\item[{}]{default = {\ttfamily -\/1}, }
+\item[{}]{paths = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacesetuptools_1_1depends_a8f18cb30241a6017d63d60c8faea6496}
+\begin{DoxyVerb}Find 'module' by searching 'paths', and extract 'symbol'
+
+Return 'None' if 'module' does not exist on 'paths', or it does not define
+'symbol'.  If the module defines 'symbol' as a constant, return the
+constant.  Otherwise, return 'default'.\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacesetuptools_1_1depends_a12fce1ae40d81e3952ed133393279752}{}\index{setuptools\+::depends@{setuptools\+::depends}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!setuptools\+::depends@{setuptools\+::depends}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list setuptools.\+depends.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacesetuptools_1_1depends_a12fce1ae40d81e3952ed133393279752}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [
+2     \textcolor{stringliteral}{'Require'}, \textcolor{stringliteral}{'find\_module'}, \textcolor{stringliteral}{'get\_module\_constant'}, \textcolor{stringliteral}{'extract\_constant'}
+3 ]
+\end{DoxyCode}

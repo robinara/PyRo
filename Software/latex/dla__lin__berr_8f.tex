@@ -1,0 +1,79 @@
+\hypertarget{dla__lin__berr_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dla\+\_\+lin\+\_\+berr.f File Reference}
+\label{dla__lin__berr_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dla\+\_\+lin\+\_\+berr.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dla\+\_\+lin\+\_\+berr.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dla__lin__berr_8f_a9ca071e2c37ea415804eceba515a384c}{dla\+\_\+lin\+\_\+berr} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, N\+Z, \hyperlink{example__user_8c_aa0138da002ce2a90360df2f521eb3198}{N\+R\+H\+S}, R\+E\+S, A\+Y\+B, B\+E\+R\+R)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+\_\+\+L\+I\+N\+\_\+\+B\+E\+R\+R} computes a component-\/wise relative backward error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dla__lin__berr_8f_a9ca071e2c37ea415804eceba515a384c}{}\index{dla\+\_\+lin\+\_\+berr.\+f@{dla\+\_\+lin\+\_\+berr.\+f}!dla\+\_\+lin\+\_\+berr@{dla\+\_\+lin\+\_\+berr}}
+\index{dla\+\_\+lin\+\_\+berr@{dla\+\_\+lin\+\_\+berr}!dla\+\_\+lin\+\_\+berr.\+f@{dla\+\_\+lin\+\_\+berr.\+f}}
+\subsubsection[{dla\+\_\+lin\+\_\+berr}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dla\+\_\+lin\+\_\+berr (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{integer}]{N\+Z, }
+\item[{integer}]{N\+R\+H\+S, }
+\item[{double {\bf precision}, dimension( {\bf n}, nrhs )}]{R\+E\+S, }
+\item[{double {\bf precision}, dimension( {\bf n}, nrhs )}]{A\+Y\+B, }
+\item[{double {\bf precision}, dimension( nrhs )}]{B\+E\+R\+R}
+\end{DoxyParamCaption}
+)}\label{dla__lin__berr_8f_a9ca071e2c37ea415804eceba515a384c}
+
+
+{\bfseries D\+L\+A\+\_\+\+L\+I\+N\+\_\+\+B\+E\+R\+R} computes a component-\/wise relative backward error. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb}    DLA_LIN_BERR computes component-wise relative backward error from
+    the formula
+        max(i) ( abs(R(i)) / ( abs(op(A_s))*abs(Y) + abs(B_s) )(i) )
+    where abs(Z) is the component-wise absolute value of the matrix
+    or vector Z.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+     The number of linear equations, i.e., the order of the
+     matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+Z} & \begin{DoxyVerb}          NZ is INTEGER
+     We add (NZ+1)*SLAMCH( 'Safe minimum' ) to R(i) in the numerator to
+     guard against spuriously zero residuals. Default value is N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N\+R\+H\+S} & \begin{DoxyVerb}          NRHS is INTEGER
+     The number of right hand sides, i.e., the number of columns
+     of the matrices AYB, RES, and BERR.  NRHS >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em R\+E\+S} & \begin{DoxyVerb}          RES is DOUBLE PRECISION array, dimension (N,NRHS)
+     The residual matrix, i.e., the matrix R in the relative backward
+     error formula above.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+Y\+B} & \begin{DoxyVerb}          AYB is DOUBLE PRECISION array, dimension (N, NRHS)
+     The denominator in the relative backward error formula above, i.e.,
+     the matrix abs(op(A_s))*abs(Y) + abs(B_s). The matrices A, Y, and B
+     are from iterative refinement (see dla_gerfsx_extended.f).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em B\+E\+R\+R} & \begin{DoxyVerb}          BERR is DOUBLE PRECISION array, dimension (NRHS)
+     The component-wise relative backward error from the formula above.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

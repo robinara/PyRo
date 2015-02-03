@@ -1,0 +1,95 @@
+\hypertarget{zlargv_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zlargv.f File Reference}
+\label{zlargv_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlargv.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zlargv.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zlargv_8f_ae0caa7cd6b28efc87374a5c8381ce21c}{zlargv} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, X, I\+N\+C\+X, Y, I\+N\+C\+Y, C, I\+N\+C\+C)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+L\+A\+R\+G\+V} generates a vector of plane rotations with real cosines and complex sines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zlargv_8f_ae0caa7cd6b28efc87374a5c8381ce21c}{}\index{zlargv.\+f@{zlargv.\+f}!zlargv@{zlargv}}
+\index{zlargv@{zlargv}!zlargv.\+f@{zlargv.\+f}}
+\subsubsection[{zlargv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zlargv (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{Y, }
+\item[{integer}]{I\+N\+C\+Y, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{C, }
+\item[{integer}]{I\+N\+C\+C}
+\end{DoxyParamCaption}
+)}\label{zlargv_8f_ae0caa7cd6b28efc87374a5c8381ce21c}
+
+
+{\bfseries Z\+L\+A\+R\+G\+V} generates a vector of plane rotations with real cosines and complex sines. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZLARGV generates a vector of complex plane rotations with real
+ cosines, determined by elements of the complex vectors x and y.
+ For i = 1,2,...,n
+
+    (        c(i)   s(i) ) ( x(i) ) = ( r(i) )
+    ( -conjg(s(i))  c(i) ) ( y(i) ) = (   0  )
+
+    where c(i)**2 + ABS(s(i))**2 = 1
+
+ The following conventions are used (these are the same as in ZLARTG,
+ but differ from the BLAS1 routine ZROTG):
+    If y(i)=0, then c(i)=1 and s(i)=0.
+    If x(i)=0, then c(i)=0 and s(i) is chosen so that r(i) is real.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of plane rotations to be generated.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX*16 array, dimension (1+(N-1)*INCX)
+          On entry, the vector x.
+          On exit, x(i) is overwritten by r(i), for i = 1,...,n.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between elements of X. INCX > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Y} & \begin{DoxyVerb}          Y is COMPLEX*16 array, dimension (1+(N-1)*INCY)
+          On entry, the vector y.
+          On exit, the sines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+Y} & \begin{DoxyVerb}          INCY is INTEGER
+          The increment between elements of Y. INCY > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION array, dimension (1+(N-1)*INCC)
+          The cosines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+C} & \begin{DoxyVerb}          INCC is INTEGER
+          The increment between elements of C. INCC > 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  6-6-96 - Modified with a new algorithm by W. Kahan and J. Demmel
+
+  This version has a few statements commented out for thread safety
+  (machine parameters are computed on each entry). 10 feb 03, SJH.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

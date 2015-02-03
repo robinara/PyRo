@@ -1,0 +1,113 @@
+\hypertarget{sf__error_8c}{}\section{packages/scipy-\/0.14.0/scipy/special/sf\+\_\+error.c File Reference}
+\label{sf__error_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/special/sf\+\_\+error.\+c@{packages/scipy-\/0.\+14.\+0/scipy/special/sf\+\_\+error.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$Python.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}sf\+\_\+error.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sf__error_8c_ae5dc4cd7cb998ad26e14954d48f611a0}{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+D\+I\+V\+I\+D\+E\+B\+Y\+Z\+E\+R\+O}~1
+\item 
+\#define \hyperlink{sf__error_8c_a69ec21351520436f4e7951f9e575db39}{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W}~2
+\item 
+\#define \hyperlink{sf__error_8c_a5123a2c4364e8d0df582acfc45bb0a21}{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+U\+N\+D\+E\+R\+F\+L\+O\+W}~4
+\item 
+\#define \hyperlink{sf__error_8c_a4908f9d94cf0b3a8702569dad95b590f}{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D}~8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{sf__error_8c_a1f8a969bb8e8ac2224d38e8c7096986e}{wrap\+\_\+\+Py\+U\+Func\+\_\+getfperr} ()
+\item 
+int \hyperlink{sf__error_8c_ad578d3202a878ea783cc073e1e1d0c1f}{sf\+\_\+error\+\_\+set\+\_\+print} (int flag)
+\item 
+int \hyperlink{sf__error_8c_aa4291462dc04abedc7c7fb0d6eb9e61b}{sf\+\_\+error\+\_\+get\+\_\+print} ()
+\item 
+void \hyperlink{sf__error_8c_a5d23ce45525724a9e69128d3ffcb8f84}{sf\+\_\+error} (char $\ast$func\+\_\+name, \hyperlink{sf__error_8h_a3d21232260f753289c91561631ce1d78}{sf\+\_\+error\+\_\+t} code, char $\ast$fmt,...)
+\item 
+void \hyperlink{sf__error_8c_ad2136b78991ce82559976600a2ee876c}{sf\+\_\+error\+\_\+check\+\_\+fpe} (char $\ast$func\+\_\+name)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{sf__error_8c_a86fe6c05e7a91119abe66bcf45a07f80}{sf\+\_\+error\+\_\+messages} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{sf__error_8c_ae5dc4cd7cb998ad26e14954d48f611a0}{}\index{sf\+\_\+error.\+c@{sf\+\_\+error.\+c}!U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+D\+I\+V\+I\+D\+E\+B\+Y\+Z\+E\+R\+O@{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+D\+I\+V\+I\+D\+E\+B\+Y\+Z\+E\+R\+O}}
+\index{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+D\+I\+V\+I\+D\+E\+B\+Y\+Z\+E\+R\+O@{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+D\+I\+V\+I\+D\+E\+B\+Y\+Z\+E\+R\+O}!sf\+\_\+error.\+c@{sf\+\_\+error.\+c}}
+\subsubsection[{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+D\+I\+V\+I\+D\+E\+B\+Y\+Z\+E\+R\+O}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+D\+I\+V\+I\+D\+E\+B\+Y\+Z\+E\+R\+O~1}\label{sf__error_8c_ae5dc4cd7cb998ad26e14954d48f611a0}
+\hypertarget{sf__error_8c_a4908f9d94cf0b3a8702569dad95b590f}{}\index{sf\+\_\+error.\+c@{sf\+\_\+error.\+c}!U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D@{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D}}
+\index{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D@{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D}!sf\+\_\+error.\+c@{sf\+\_\+error.\+c}}
+\subsubsection[{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+I\+N\+V\+A\+L\+I\+D~8}\label{sf__error_8c_a4908f9d94cf0b3a8702569dad95b590f}
+\hypertarget{sf__error_8c_a69ec21351520436f4e7951f9e575db39}{}\index{sf\+\_\+error.\+c@{sf\+\_\+error.\+c}!U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W@{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W}}
+\index{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W@{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W}!sf\+\_\+error.\+c@{sf\+\_\+error.\+c}}
+\subsubsection[{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+O\+V\+E\+R\+F\+L\+O\+W~2}\label{sf__error_8c_a69ec21351520436f4e7951f9e575db39}
+\hypertarget{sf__error_8c_a5123a2c4364e8d0df582acfc45bb0a21}{}\index{sf\+\_\+error.\+c@{sf\+\_\+error.\+c}!U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+U\+N\+D\+E\+R\+F\+L\+O\+W@{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+U\+N\+D\+E\+R\+F\+L\+O\+W}}
+\index{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+U\+N\+D\+E\+R\+F\+L\+O\+W@{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+U\+N\+D\+E\+R\+F\+L\+O\+W}!sf\+\_\+error.\+c@{sf\+\_\+error.\+c}}
+\subsubsection[{U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+U\+N\+D\+E\+R\+F\+L\+O\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+F\+U\+N\+C\+\_\+\+F\+P\+E\+\_\+\+U\+N\+D\+E\+R\+F\+L\+O\+W~4}\label{sf__error_8c_a5123a2c4364e8d0df582acfc45bb0a21}
+
+
+\subsection{Function Documentation}
+\hypertarget{sf__error_8c_a5d23ce45525724a9e69128d3ffcb8f84}{}\index{sf\+\_\+error.\+c@{sf\+\_\+error.\+c}!sf\+\_\+error@{sf\+\_\+error}}
+\index{sf\+\_\+error@{sf\+\_\+error}!sf\+\_\+error.\+c@{sf\+\_\+error.\+c}}
+\subsubsection[{sf\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}void sf\+\_\+error (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{func\+\_\+name, }
+\item[{{\bf sf\+\_\+error\+\_\+t}}]{code, }
+\item[{char $\ast$}]{fmt, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{sf__error_8c_a5d23ce45525724a9e69128d3ffcb8f84}
+\hypertarget{sf__error_8c_ad2136b78991ce82559976600a2ee876c}{}\index{sf\+\_\+error.\+c@{sf\+\_\+error.\+c}!sf\+\_\+error\+\_\+check\+\_\+fpe@{sf\+\_\+error\+\_\+check\+\_\+fpe}}
+\index{sf\+\_\+error\+\_\+check\+\_\+fpe@{sf\+\_\+error\+\_\+check\+\_\+fpe}!sf\+\_\+error.\+c@{sf\+\_\+error.\+c}}
+\subsubsection[{sf\+\_\+error\+\_\+check\+\_\+fpe}]{\setlength{\rightskip}{0pt plus 5cm}void sf\+\_\+error\+\_\+check\+\_\+fpe (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{func\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{sf__error_8c_ad2136b78991ce82559976600a2ee876c}
+\hypertarget{sf__error_8c_aa4291462dc04abedc7c7fb0d6eb9e61b}{}\index{sf\+\_\+error.\+c@{sf\+\_\+error.\+c}!sf\+\_\+error\+\_\+get\+\_\+print@{sf\+\_\+error\+\_\+get\+\_\+print}}
+\index{sf\+\_\+error\+\_\+get\+\_\+print@{sf\+\_\+error\+\_\+get\+\_\+print}!sf\+\_\+error.\+c@{sf\+\_\+error.\+c}}
+\subsubsection[{sf\+\_\+error\+\_\+get\+\_\+print}]{\setlength{\rightskip}{0pt plus 5cm}int sf\+\_\+error\+\_\+get\+\_\+print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{sf__error_8c_aa4291462dc04abedc7c7fb0d6eb9e61b}
+\hypertarget{sf__error_8c_ad578d3202a878ea783cc073e1e1d0c1f}{}\index{sf\+\_\+error.\+c@{sf\+\_\+error.\+c}!sf\+\_\+error\+\_\+set\+\_\+print@{sf\+\_\+error\+\_\+set\+\_\+print}}
+\index{sf\+\_\+error\+\_\+set\+\_\+print@{sf\+\_\+error\+\_\+set\+\_\+print}!sf\+\_\+error.\+c@{sf\+\_\+error.\+c}}
+\subsubsection[{sf\+\_\+error\+\_\+set\+\_\+print}]{\setlength{\rightskip}{0pt plus 5cm}int sf\+\_\+error\+\_\+set\+\_\+print (
+\begin{DoxyParamCaption}
+\item[{int}]{flag}
+\end{DoxyParamCaption}
+)}\label{sf__error_8c_ad578d3202a878ea783cc073e1e1d0c1f}
+\hypertarget{sf__error_8c_a1f8a969bb8e8ac2224d38e8c7096986e}{}\index{sf\+\_\+error.\+c@{sf\+\_\+error.\+c}!wrap\+\_\+\+Py\+U\+Func\+\_\+getfperr@{wrap\+\_\+\+Py\+U\+Func\+\_\+getfperr}}
+\index{wrap\+\_\+\+Py\+U\+Func\+\_\+getfperr@{wrap\+\_\+\+Py\+U\+Func\+\_\+getfperr}!sf\+\_\+error.\+c@{sf\+\_\+error.\+c}}
+\subsubsection[{wrap\+\_\+\+Py\+U\+Func\+\_\+getfperr}]{\setlength{\rightskip}{0pt plus 5cm}int wrap\+\_\+\+Py\+U\+Func\+\_\+getfperr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{sf__error_8c_a1f8a969bb8e8ac2224d38e8c7096986e}
+
+
+\subsection{Variable Documentation}
+\hypertarget{sf__error_8c_a86fe6c05e7a91119abe66bcf45a07f80}{}\index{sf\+\_\+error.\+c@{sf\+\_\+error.\+c}!sf\+\_\+error\+\_\+messages@{sf\+\_\+error\+\_\+messages}}
+\index{sf\+\_\+error\+\_\+messages@{sf\+\_\+error\+\_\+messages}!sf\+\_\+error.\+c@{sf\+\_\+error.\+c}}
+\subsubsection[{sf\+\_\+error\+\_\+messages}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ sf\+\_\+error\+\_\+messages\mbox{[}$\,$\mbox{]}}\label{sf__error_8c_a86fe6c05e7a91119abe66bcf45a07f80}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \textcolor{stringliteral}{"no error"},
+    \textcolor{stringliteral}{"singularity"},
+    \textcolor{stringliteral}{"underflow"},
+    \textcolor{stringliteral}{"overflow"},
+    \textcolor{stringliteral}{"too slow convergence"},
+    \textcolor{stringliteral}{"loss of precision"},
+    \textcolor{stringliteral}{"no result obtained"},
+    \textcolor{stringliteral}{"domain error"},
+    \textcolor{stringliteral}{"invalid input argument"},
+    \textcolor{stringliteral}{"other error"},
+    NULL
+\}
+\end{DoxyCode}

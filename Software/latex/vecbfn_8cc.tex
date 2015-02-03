@@ -1,0 +1,1279 @@
+\hypertarget{vecbfn_8cc}{}\section{packages/scipy-\/0.14.0/scipy/weave/blitz/blitz/vecbfn.cc File Reference}
+\label{vecbfn_8cc}\index{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/vecbfn.\+cc@{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/vecbfn.\+cc}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{vecbfn_8cc_a385c69e54e889013d337a2f63d60e44b}{B\+Z\+\_\+\+V\+E\+C\+B\+F\+N\+\_\+\+C\+C}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a09a9224df6f3da332d8bc68eb10b14c6}{min} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ac073ba1fec590dd4f2844139ffa0d8bf}{min} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ab469994303b26b939362a457b986510a}{min} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_af1c7f2720399170d7384ee7fe079c657}{min} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a7d13a8aa2822d663df63fa598d88bc35}{min} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a96b510311703fd6bf76da267b8d08730}{min} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, int d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, float $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a64c3fd73201226d2d1ff493efa586bb7}{min} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, float d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ab39098eca5a90fa4670bce2fd8683079}{min} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, long double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aef58264167f227b0466cd999362fe8d4}{min} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, long double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a979d4ec9d7184b71bb3b633704931d43}{min} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 , class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a45ff55624e0ace76d1d9fa091292040d}{min} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a2272c1262cf6365336a4c6907fc6a5fb}{min} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a8e0cb9de7d8512f273e568d140bd4ddb}{min} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a6abadbb1c31d88b20f9383f6ee1c6b70}{min} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a65ce022cbeabb6725de1a0804e303bea}{min} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, int d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, float $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a8103f5d3a73d46a5e885654ea0b8bed9}{min} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, float d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a63ac7700de84069cef8ab6427ebcfbb6}{min} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, long double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a29ddcc10134a5350f19f1f6a5684b9bd}{min} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, long double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a5fc41f81a60991d4b162c2f055dde2a7}{min} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a2b6658ca18eaf10ab5b0db2687e34647}{min} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a8143b2af205a24043e210016789a74b7}{min} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a9c9f9d28944429649e038fc7e2bedb67}{min} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a9dc2f4b7b6d4b0c657761a4e9d85da4b}{min} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_af3fb13cc8aede9dedc2f540200ee0591}{min} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, int d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, float $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ac8aa0ce0789cb8d0a693bcc67ccc760a}{min} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, float d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_af3b60005ee948b746495b30d692858b4}{min} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, long double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a6e16affae280f59c745b1b9243e84f4e}{min} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, long double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_af5d73f871637152fbb24f344c122adbc}{min} (\hyperlink{classRange}{Range} d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ace496670d46132749eccd794c1abf99b}{min} (\hyperlink{classRange}{Range} d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a9f5684c3eb5c73f1b2229629102ff625}{min} (\hyperlink{classRange}{Range} d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_af2b1ab784e041a2329d82fe7f82b0901}{min} (\hyperlink{classRange}{Range} d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a4b1079f342d18ae203bce85dfd959590}{min} (\hyperlink{classRange}{Range} d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, float $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ad964cf9aa5d77261e9d5c2e9a5d4a035}{min} (\hyperlink{classRange}{Range} d1, float d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a88a6e529ba4072dbca5ba59785e63c18}{min} (\hyperlink{classRange}{Range} d1, double d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, long double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a33c48a8274ad7885f922f222876d1858}{min} (\hyperlink{classRange}{Range} d1, long double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ac08cb1aaf224583ad6e750e54aa39562}{min} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ac8daf19f62ab8972d8f2bffff24a44bf}{min} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a90feabb2f3fc9565ab4d47e780cdf8b9}{min} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a554918a2d81fe58b47f06f3fa61adc84}{min} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a872d97d6efe0b6ec461e77139be5935c}{min} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ac049668367878284dc2bdd1c77c2bc40}{min} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, int d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, float $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a711e69eef3f86c4ee01d2704b01ee13e}{min} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, float d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_af135efb679aa09d9ea88d4c2cbaec119}{min} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ P\+\_\+numtype1, long double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a7bbda0a46f39eac135752912c6a1da7a}{min} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, long double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ae32805a926d4fbb8497df422e5897da3}{min} (int d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_afc1680f838943e1ad7527e9e20a402ef}{min} (int d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a8540d519d01179301666cac07c1bc1bd}{min} (int d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a8466cdc8f0065194cecd2394fffb5fee}{min} (int d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ float, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ae4a875a32106bc00bd302cef3e575b62}{min} (float d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ float, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a332cf47f103533d8c621bef5c740b22c}{min} (float d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ float, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aab292e104fab1e873a6b27ccb5ba4ab7}{min} (float d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ float, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a33e0d5e400a63b1a349bb51255a756cc}{min} (float d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ float, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ad57bc0a24bcfd4b14c80aa97005a5e37}{min} (float d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a16f398a37f7d31442fd0f86650ee6927}{min} (double d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ double, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ab30f1b138001e2a1220e063041ba2111}{min} (double d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a3eec35e2aa4dc2543cfe418ef7208a7b}{min} (double d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ double, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a78cfcddc4b076cc2b3568fc1294902c6}{min} (double d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_afdb366e475006baef0fc24116287058b}{min} (double d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ long double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a7e38994cb85cf3a6f140a75c82fa88d6}{min} (long double d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ long double, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_abbab185bfa6a84f7cfaaac35d33d82ea}{min} (long double d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ long double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a03c055a2c8d9624f5219b2646c121aed}{min} (long double d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ long double, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a202f2b20e046629064ba160d07abb970}{min} (long double d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Min}{\+\_\+bz\+\_\+\+Min}$<$ long double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aa3e27e02424d28adfcf9d2b934e741a1}{min} (long double d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a954ceb9b8e1a8dba83317f3e9b5e2ecd}{max} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a4c136266f38a447f0d4acb57005b6771}{max} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a573bc5a5cc3ccfe38dd5e871c480a7f7}{max} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a2c8db4307adb62b30228ed1b4f318930}{max} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a5cf2d7b91bd73a11085a6400006f9bd4}{max} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a18cb9c9e25eb9229de252ab05a7d6c66}{max} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, int d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, float $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a3c2b3579fac782ba6e04f8478dd5e7f9}{max} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, float d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a35b5384498e06b6b8fd8f56ad43aa869}{max} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, long double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a21d679c0789370ebd479c3820f8ee447}{max} (const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype1 $>$ \&d1, long double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a3471b1afccf39dfcd62559f4f8c59a85}{max} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 , class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ad6051bcf6c9023a94b099f7a89cc311e}{max} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a23c64bef0bd775845c3116c4d2943e02}{max} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_accabac49c15060fcc90b640dd0766f6a}{max} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a9bb6ed3954fe559d0b8e1339f8ff8962}{max} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a776820cbfa36d9d1317a3c1afef906e4}{max} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, int d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, float $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a362864ce372c2bbce5300e3de3ac922c}{max} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, float d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a25928734a5587cb7c527a314dd673a58}{max} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ typename P\+\_\+expr1\+::\+T\+\_\+numtype, long double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ad20dd58f5a028e9608923bb43ba80e44}{max} (\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$ d1, long double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_af790335c38231878224e492d5c8bae4b}{max} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a5b0669ea0ba7e489945becd3f29afd0c}{max} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a9d5e02d0bc773a0bcbc370bb6f7f38bf}{max} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a5a180ec6a9ba409722fb544b069f5648}{max} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a5ef5e44460af8a3f5a269f6553597ab4}{max} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a62b9852d31fe3f84af006949f924cc2f}{max} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, int d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, float $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a2077e75a8d893bbfb98752d05d034eeb}{max} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, float d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a125dbc9b8145d8a66efa3990e1062784}{max} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, long double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ad37153d1172eda974207416350375ba2}{max} (const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&d1, long double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ad86e2aee8b87eeb36ddf84162d2c22a5}{max} (\hyperlink{classRange}{Range} d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_ab1acd0c870b2f0b99390c125948af7ba}{max} (\hyperlink{classRange}{Range} d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aca6eca545378b9c4a54a165233e5ad43}{max} (\hyperlink{classRange}{Range} d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_af6eb5d7078713760b88526f3511c8490}{max} (\hyperlink{classRange}{Range} d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a5ae28f2bea16c7f479c5082a8a552dc2}{max} (\hyperlink{classRange}{Range} d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, float $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a6c8d93f27d0a2d0827f8d4875ab7d6d8}{max} (\hyperlink{classRange}{Range} d1, float d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a899122b860db896dee4b2c9049da8342}{max} (\hyperlink{classRange}{Range} d1, double d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classRange}{Range}, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, long double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aaa4f4a216ff6a0157c6fb6dc878f690d}{max} (\hyperlink{classRange}{Range} d1, long double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a0cf4b8bdf9066d24627829feeb7adb11}{max} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a5da4048985b16887589b4ce1a9b4ffea}{max} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aedddc020c271b5e69a838752f68d8e1d}{max} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a34d991a735806fd11bfc1bf619550abb}{max} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a816ac9f8f6324b8fa022ce05310c0cdd}{max} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a77533e1bc69ffaa880afef17aec3038c}{max} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, int d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, float $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a168581826aa15f940e4bbfa613f3a513}{max} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, float d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a1e0566feb930b38d2558d13a7063a969}{max} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$, \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ P\+\_\+numtype1, long double $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a0ed7cff28d3d5e4997cf3da969cef2fc}{max} (const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&d1, long double d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_adf62bd0ebb5e1d0a4db8e0833a16beba}{max} (int d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a9408506870be32631b7e9937e5b3de23}{max} (int d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a9404126c9fde0088d1dcadebed4f6e6a}{max} (int d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ int $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ int, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a7b0fa2655ff1bfb097337485a9f194c1}{max} (int d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ float, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a268d7b1cfa2817bc193e23e8d8af2482}{max} (float d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ float, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a244226a97c2455d8a0b835cad1aeaa5d}{max} (float d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ float, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aec128177d36a639196051040472d944c}{max} (float d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ float, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a884df46d948093d9e366747c04477dc5}{max} (float d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ float $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ float, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aa83d87799334fa7db0e80ec72371d968}{max} (float d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a84486f5a119dbaa97ff2bf0dd626f29a}{max} (double d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ double, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a7d2504860bad5df73357f6a0d3b56755}{max} (double d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aa057c47c93f788d5a629900f32a14957}{max} (double d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ double, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a5b122eba9fe6c20c4de2db43b3d76b35}{max} (double d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ double $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a748baf183d4e28dc4d15551e5994aa33}{max} (double d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{classVectorIterConst}{Vector\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ long double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a9ac60d444daa13d675674474b6b79761}{max} (long double d1, const \hyperlink{classVector}{Vector}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+{\footnotesize template$<$class P\+\_\+expr2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ long double, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aa60c5211bd9f18959c267a0f0a084060}{max} (long double d1, \hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$ d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 $>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{classVectorPickIterConst}{Vector\+Pick\+Iter\+Const}$<$ P\+\_\+numtype2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ long double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a459f9826fd318521705e6b0acaf1e696}{max} (long double d1, const \hyperlink{classVectorPick}{Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&d2)
+\item 
+\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{classRange}{Range}, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ long double, int $>$ $>$ $>$ \hyperlink{vecbfn_8cc_aafa3ed1fd568af28004793064f7f4c98}{max} (long double d1, \hyperlink{classRange}{Range} d2)
+\item 
+{\footnotesize template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ }\\\hyperlink{class__bz__VecExpr}{\+\_\+bz\+\_\+\+Vec\+Expr}$<$ \hyperlink{class__bz__VecExprOp}{\+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<$ \hyperlink{class__bz__VecExprConstant}{\+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$ long double $>$, \hyperlink{classTinyVectorIterConst}{Tiny\+Vector\+Iter\+Const}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$, \hyperlink{class__bz__Max}{\+\_\+bz\+\_\+\+Max}$<$ long double, P\+\_\+numtype2 $>$ $>$ $>$ \hyperlink{vecbfn_8cc_a71f214d4a304fdc2089c54dbaf979fe5}{max} (long double d1, const \hyperlink{classTinyVector}{Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&d2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{vecbfn_8cc_a385c69e54e889013d337a2f63d60e44b}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!B\+Z\+\_\+\+V\+E\+C\+B\+F\+N\+\_\+\+C\+C@{B\+Z\+\_\+\+V\+E\+C\+B\+F\+N\+\_\+\+C\+C}}
+\index{B\+Z\+\_\+\+V\+E\+C\+B\+F\+N\+\_\+\+C\+C@{B\+Z\+\_\+\+V\+E\+C\+B\+F\+N\+\_\+\+C\+C}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{B\+Z\+\_\+\+V\+E\+C\+B\+F\+N\+\_\+\+C\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+V\+E\+C\+B\+F\+N\+\_\+\+C\+C}\label{vecbfn_8cc_a385c69e54e889013d337a2f63d60e44b}
+
+
+\subsection{Function Documentation}
+\hypertarget{vecbfn_8cc_a954ceb9b8e1a8dba83317f3e9b5e2ecd}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a954ceb9b8e1a8dba83317f3e9b5e2ecd}
+\hypertarget{vecbfn_8cc_a4c136266f38a447f0d4acb57005b6771}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a4c136266f38a447f0d4acb57005b6771}
+\hypertarget{vecbfn_8cc_a573bc5a5cc3ccfe38dd5e871c480a7f7}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a573bc5a5cc3ccfe38dd5e871c480a7f7}
+\hypertarget{vecbfn_8cc_a2c8db4307adb62b30228ed1b4f318930}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a2c8db4307adb62b30228ed1b4f318930}
+\hypertarget{vecbfn_8cc_a5cf2d7b91bd73a11085a6400006f9bd4}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a5cf2d7b91bd73a11085a6400006f9bd4}
+\hypertarget{vecbfn_8cc_a18cb9c9e25eb9229de252ab05a7d6c66}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{int}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a18cb9c9e25eb9229de252ab05a7d6c66}
+\hypertarget{vecbfn_8cc_a3c2b3579fac782ba6e04f8478dd5e7f9}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, float $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{float}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a3c2b3579fac782ba6e04f8478dd5e7f9}
+\hypertarget{vecbfn_8cc_a35b5384498e06b6b8fd8f56ad43aa869}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, double $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a35b5384498e06b6b8fd8f56ad43aa869}
+\hypertarget{vecbfn_8cc_a21d679c0789370ebd479c3820f8ee447}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, long double $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{long double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a21d679c0789370ebd479c3820f8ee447}
+\hypertarget{vecbfn_8cc_a3471b1afccf39dfcd62559f4f8c59a85}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a3471b1afccf39dfcd62559f4f8c59a85}
+\hypertarget{vecbfn_8cc_ad6051bcf6c9023a94b099f7a89cc311e}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 , class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ad6051bcf6c9023a94b099f7a89cc311e}
+\hypertarget{vecbfn_8cc_a23c64bef0bd775845c3116c4d2943e02}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a23c64bef0bd775845c3116c4d2943e02}
+\hypertarget{vecbfn_8cc_accabac49c15060fcc90b640dd0766f6a}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Max}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_accabac49c15060fcc90b640dd0766f6a}
+\hypertarget{vecbfn_8cc_a9bb6ed3954fe559d0b8e1339f8ff8962}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a9bb6ed3954fe559d0b8e1339f8ff8962}
+\hypertarget{vecbfn_8cc_a776820cbfa36d9d1317a3c1afef906e4}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{int}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a776820cbfa36d9d1317a3c1afef906e4}
+\hypertarget{vecbfn_8cc_a362864ce372c2bbce5300e3de3ac922c}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, float $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{float}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a362864ce372c2bbce5300e3de3ac922c}
+\hypertarget{vecbfn_8cc_a25928734a5587cb7c527a314dd673a58}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, double $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a25928734a5587cb7c527a314dd673a58}
+\hypertarget{vecbfn_8cc_ad20dd58f5a028e9608923bb43ba80e44}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, long double $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{long double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ad20dd58f5a028e9608923bb43ba80e44}
+\hypertarget{vecbfn_8cc_af790335c38231878224e492d5c8bae4b}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_af790335c38231878224e492d5c8bae4b}
+\hypertarget{vecbfn_8cc_a5b0669ea0ba7e489945becd3f29afd0c}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a5b0669ea0ba7e489945becd3f29afd0c}
+\hypertarget{vecbfn_8cc_a9d5e02d0bc773a0bcbc370bb6f7f38bf}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a9d5e02d0bc773a0bcbc370bb6f7f38bf}
+\hypertarget{vecbfn_8cc_a5a180ec6a9ba409722fb544b069f5648}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a5a180ec6a9ba409722fb544b069f5648}
+\hypertarget{vecbfn_8cc_a5ef5e44460af8a3f5a269f6553597ab4}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a5ef5e44460af8a3f5a269f6553597ab4}
+\hypertarget{vecbfn_8cc_a62b9852d31fe3f84af006949f924cc2f}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{int}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a62b9852d31fe3f84af006949f924cc2f}
+\hypertarget{vecbfn_8cc_a2077e75a8d893bbfb98752d05d034eeb}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, float $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{float}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a2077e75a8d893bbfb98752d05d034eeb}
+\hypertarget{vecbfn_8cc_a125dbc9b8145d8a66efa3990e1062784}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, double $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a125dbc9b8145d8a66efa3990e1062784}
+\hypertarget{vecbfn_8cc_ad37153d1172eda974207416350375ba2}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, long double $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{long double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ad37153d1172eda974207416350375ba2}
+\hypertarget{vecbfn_8cc_ad86e2aee8b87eeb36ddf84162d2c22a5}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ad86e2aee8b87eeb36ddf84162d2c22a5}
+\hypertarget{vecbfn_8cc_ab1acd0c870b2f0b99390c125948af7ba}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ab1acd0c870b2f0b99390c125948af7ba}
+\hypertarget{vecbfn_8cc_aca6eca545378b9c4a54a165233e5ad43}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aca6eca545378b9c4a54a165233e5ad43}
+\hypertarget{vecbfn_8cc_af6eb5d7078713760b88526f3511c8490}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Max}$<$int, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_af6eb5d7078713760b88526f3511c8490}
+\hypertarget{vecbfn_8cc_a5ae28f2bea16c7f479c5082a8a552dc2}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a5ae28f2bea16c7f479c5082a8a552dc2}
+\hypertarget{vecbfn_8cc_a6c8d93f27d0a2d0827f8d4875ab7d6d8}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, float $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{float}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a6c8d93f27d0a2d0827f8d4875ab7d6d8}
+\hypertarget{vecbfn_8cc_a899122b860db896dee4b2c9049da8342}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, double $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a899122b860db896dee4b2c9049da8342}
+\hypertarget{vecbfn_8cc_aaa4f4a216ff6a0157c6fb6dc878f690d}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, long double $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{long double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aaa4f4a216ff6a0157c6fb6dc878f690d}
+\hypertarget{vecbfn_8cc_a0cf4b8bdf9066d24627829feeb7adb11}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a0cf4b8bdf9066d24627829feeb7adb11}
+\hypertarget{vecbfn_8cc_a5da4048985b16887589b4ce1a9b4ffea}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a5da4048985b16887589b4ce1a9b4ffea}
+\hypertarget{vecbfn_8cc_aedddc020c271b5e69a838752f68d8e1d}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aedddc020c271b5e69a838752f68d8e1d}
+\hypertarget{vecbfn_8cc_a34d991a735806fd11bfc1bf619550abb}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a34d991a735806fd11bfc1bf619550abb}
+\hypertarget{vecbfn_8cc_a816ac9f8f6324b8fa022ce05310c0cdd}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a816ac9f8f6324b8fa022ce05310c0cdd}
+\hypertarget{vecbfn_8cc_a77533e1bc69ffaa880afef17aec3038c}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{int}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a77533e1bc69ffaa880afef17aec3038c}
+\hypertarget{vecbfn_8cc_a168581826aa15f940e4bbfa613f3a513}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, float $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{float}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a168581826aa15f940e4bbfa613f3a513}
+\hypertarget{vecbfn_8cc_a1e0566feb930b38d2558d13a7063a969}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, double $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a1e0566feb930b38d2558d13a7063a969}
+\hypertarget{vecbfn_8cc_a0ed7cff28d3d5e4997cf3da969cef2fc}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$P\+\_\+numtype1, long double $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{long double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a0ed7cff28d3d5e4997cf3da969cef2fc}
+\hypertarget{vecbfn_8cc_adf62bd0ebb5e1d0a4db8e0833a16beba}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{int}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_adf62bd0ebb5e1d0a4db8e0833a16beba}
+\hypertarget{vecbfn_8cc_a9408506870be32631b7e9937e5b3de23}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{int}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a9408506870be32631b7e9937e5b3de23}
+\hypertarget{vecbfn_8cc_a9404126c9fde0088d1dcadebed4f6e6a}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{int}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a9404126c9fde0088d1dcadebed4f6e6a}
+\hypertarget{vecbfn_8cc_a7b0fa2655ff1bfb097337485a9f194c1}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{int}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a7b0fa2655ff1bfb097337485a9f194c1}
+\hypertarget{vecbfn_8cc_a268d7b1cfa2817bc193e23e8d8af2482}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$float, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{float}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a268d7b1cfa2817bc193e23e8d8af2482}
+\hypertarget{vecbfn_8cc_a244226a97c2455d8a0b835cad1aeaa5d}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$float, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{float}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a244226a97c2455d8a0b835cad1aeaa5d}
+\hypertarget{vecbfn_8cc_aec128177d36a639196051040472d944c}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$float, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{float}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aec128177d36a639196051040472d944c}
+\hypertarget{vecbfn_8cc_a884df46d948093d9e366747c04477dc5}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Max}$<$float, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{float}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a884df46d948093d9e366747c04477dc5}
+\hypertarget{vecbfn_8cc_aa83d87799334fa7db0e80ec72371d968}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$float, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{float}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aa83d87799334fa7db0e80ec72371d968}
+\hypertarget{vecbfn_8cc_a84486f5a119dbaa97ff2bf0dd626f29a}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$double, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{double}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a84486f5a119dbaa97ff2bf0dd626f29a}
+\hypertarget{vecbfn_8cc_a7d2504860bad5df73357f6a0d3b56755}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$double, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{double}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a7d2504860bad5df73357f6a0d3b56755}
+\hypertarget{vecbfn_8cc_aa057c47c93f788d5a629900f32a14957}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$double, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{double}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aa057c47c93f788d5a629900f32a14957}
+\hypertarget{vecbfn_8cc_a5b122eba9fe6c20c4de2db43b3d76b35}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Max}$<$double, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{double}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a5b122eba9fe6c20c4de2db43b3d76b35}
+\hypertarget{vecbfn_8cc_a748baf183d4e28dc4d15551e5994aa33}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$double, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{double}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a748baf183d4e28dc4d15551e5994aa33}
+\hypertarget{vecbfn_8cc_a9ac60d444daa13d675674474b6b79761}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$long double, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{long double}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a9ac60d444daa13d675674474b6b79761}
+\hypertarget{vecbfn_8cc_aa60c5211bd9f18959c267a0f0a084060}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$long double, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{long double}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aa60c5211bd9f18959c267a0f0a084060}
+\hypertarget{vecbfn_8cc_a459f9826fd318521705e6b0acaf1e696}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$long double, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{long double}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a459f9826fd318521705e6b0acaf1e696}
+\hypertarget{vecbfn_8cc_aafa3ed1fd568af28004793064f7f4c98}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Max}$<$long double, int $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{long double}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aafa3ed1fd568af28004793064f7f4c98}
+\hypertarget{vecbfn_8cc_a71f214d4a304fdc2089c54dbaf979fe5}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!max@{max}}
+\index{max@{max}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Max}$<$long double, P\+\_\+numtype2 $>$ $>$ $>$ max (
+\begin{DoxyParamCaption}
+\item[{long double}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a71f214d4a304fdc2089c54dbaf979fe5}
+\hypertarget{vecbfn_8cc_a09a9224df6f3da332d8bc68eb10b14c6}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a09a9224df6f3da332d8bc68eb10b14c6}
+\hypertarget{vecbfn_8cc_ac073ba1fec590dd4f2844139ffa0d8bf}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ac073ba1fec590dd4f2844139ffa0d8bf}
+\hypertarget{vecbfn_8cc_ab469994303b26b939362a457b986510a}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ab469994303b26b939362a457b986510a}
+\hypertarget{vecbfn_8cc_af1c7f2720399170d7384ee7fe079c657}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_af1c7f2720399170d7384ee7fe079c657}
+\hypertarget{vecbfn_8cc_a7d13a8aa2822d663df63fa598d88bc35}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a7d13a8aa2822d663df63fa598d88bc35}
+\hypertarget{vecbfn_8cc_a96b510311703fd6bf76da267b8d08730}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{int}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a96b510311703fd6bf76da267b8d08730}
+\hypertarget{vecbfn_8cc_a64c3fd73201226d2d1ff493efa586bb7}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, float $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{float}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a64c3fd73201226d2d1ff493efa586bb7}
+\hypertarget{vecbfn_8cc_ab39098eca5a90fa4670bce2fd8683079}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, double $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ab39098eca5a90fa4670bce2fd8683079}
+\hypertarget{vecbfn_8cc_aef58264167f227b0466cd999362fe8d4}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, long double $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{long double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aef58264167f227b0466cd999362fe8d4}
+\hypertarget{vecbfn_8cc_a979d4ec9d7184b71bb3b633704931d43}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a979d4ec9d7184b71bb3b633704931d43}
+\hypertarget{vecbfn_8cc_a45ff55624e0ace76d1d9fa091292040d}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 , class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a45ff55624e0ace76d1d9fa091292040d}
+\hypertarget{vecbfn_8cc_a2272c1262cf6365336a4c6907fc6a5fb}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a2272c1262cf6365336a4c6907fc6a5fb}
+\hypertarget{vecbfn_8cc_a8e0cb9de7d8512f273e568d140bd4ddb}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Min}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a8e0cb9de7d8512f273e568d140bd4ddb}
+\hypertarget{vecbfn_8cc_a6abadbb1c31d88b20f9383f6ee1c6b70}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a6abadbb1c31d88b20f9383f6ee1c6b70}
+\hypertarget{vecbfn_8cc_a65ce022cbeabb6725de1a0804e303bea}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{int}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a65ce022cbeabb6725de1a0804e303bea}
+\hypertarget{vecbfn_8cc_a8103f5d3a73d46a5e885654ea0b8bed9}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, float $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{float}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a8103f5d3a73d46a5e885654ea0b8bed9}
+\hypertarget{vecbfn_8cc_a63ac7700de84069cef8ab6427ebcfbb6}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, double $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a63ac7700de84069cef8ab6427ebcfbb6}
+\hypertarget{vecbfn_8cc_a29ddcc10134a5350f19f1f6a5684b9bd}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$typename P\+\_\+expr1\+::\+T\+\_\+numtype, long double $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr1 $>$}]{d1, }
+\item[{long double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a29ddcc10134a5350f19f1f6a5684b9bd}
+\hypertarget{vecbfn_8cc_a5fc41f81a60991d4b162c2f055dde2a7}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a5fc41f81a60991d4b162c2f055dde2a7}
+\hypertarget{vecbfn_8cc_a2b6658ca18eaf10ab5b0db2687e34647}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a2b6658ca18eaf10ab5b0db2687e34647}
+\hypertarget{vecbfn_8cc_a8143b2af205a24043e210016789a74b7}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a8143b2af205a24043e210016789a74b7}
+\hypertarget{vecbfn_8cc_a9c9f9d28944429649e038fc7e2bedb67}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a9c9f9d28944429649e038fc7e2bedb67}
+\hypertarget{vecbfn_8cc_a9dc2f4b7b6d4b0c657761a4e9d85da4b}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a9dc2f4b7b6d4b0c657761a4e9d85da4b}
+\hypertarget{vecbfn_8cc_af3fb13cc8aede9dedc2f540200ee0591}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{int}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_af3fb13cc8aede9dedc2f540200ee0591}
+\hypertarget{vecbfn_8cc_ac8aa0ce0789cb8d0a693bcc67ccc760a}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, float $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{float}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ac8aa0ce0789cb8d0a693bcc67ccc760a}
+\hypertarget{vecbfn_8cc_af3b60005ee948b746495b30d692858b4}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, double $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_af3b60005ee948b746495b30d692858b4}
+\hypertarget{vecbfn_8cc_a6e16affae280f59c745b1b9243e84f4e}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, long double $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype1 $>$ \&}]{d1, }
+\item[{long double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a6e16affae280f59c745b1b9243e84f4e}
+\hypertarget{vecbfn_8cc_af5d73f871637152fbb24f344c122adbc}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_af5d73f871637152fbb24f344c122adbc}
+\hypertarget{vecbfn_8cc_ace496670d46132749eccd794c1abf99b}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ace496670d46132749eccd794c1abf99b}
+\hypertarget{vecbfn_8cc_a9f5684c3eb5c73f1b2229629102ff625}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a9f5684c3eb5c73f1b2229629102ff625}
+\hypertarget{vecbfn_8cc_af2b1ab784e041a2329d82fe7f82b0901}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Min}$<$int, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_af2b1ab784e041a2329d82fe7f82b0901}
+\hypertarget{vecbfn_8cc_a4b1079f342d18ae203bce85dfd959590}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a4b1079f342d18ae203bce85dfd959590}
+\hypertarget{vecbfn_8cc_ad964cf9aa5d77261e9d5c2e9a5d4a035}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, float $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{float}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ad964cf9aa5d77261e9d5c2e9a5d4a035}
+\hypertarget{vecbfn_8cc_a88a6e529ba4072dbca5ba59785e63c18}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, double $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a88a6e529ba4072dbca5ba59785e63c18}
+\hypertarget{vecbfn_8cc_a33c48a8274ad7885f922f222876d1858}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Range}, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, long double $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{{\bf Range}}]{d1, }
+\item[{long double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a33c48a8274ad7885f922f222876d1858}
+\hypertarget{vecbfn_8cc_ac08cb1aaf224583ad6e750e54aa39562}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ac08cb1aaf224583ad6e750e54aa39562}
+\hypertarget{vecbfn_8cc_ac8daf19f62ab8972d8f2bffff24a44bf}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ac8daf19f62ab8972d8f2bffff24a44bf}
+\hypertarget{vecbfn_8cc_a90feabb2f3fc9565ab4d47e780cdf8b9}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a90feabb2f3fc9565ab4d47e780cdf8b9}
+\hypertarget{vecbfn_8cc_a554918a2d81fe58b47f06f3fa61adc84}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a554918a2d81fe58b47f06f3fa61adc84}
+\hypertarget{vecbfn_8cc_a872d97d6efe0b6ec461e77139be5935c}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1, class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a872d97d6efe0b6ec461e77139be5935c}
+\hypertarget{vecbfn_8cc_ac049668367878284dc2bdd1c77c2bc40}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{int}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ac049668367878284dc2bdd1c77c2bc40}
+\hypertarget{vecbfn_8cc_a711e69eef3f86c4ee01d2704b01ee13e}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, float $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{float}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a711e69eef3f86c4ee01d2704b01ee13e}
+\hypertarget{vecbfn_8cc_af135efb679aa09d9ea88d4c2cbaec119}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, double $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_af135efb679aa09d9ea88d4c2cbaec119}
+\hypertarget{vecbfn_8cc_a7bbda0a46f39eac135752912c6a1da7a}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype1 , int N\+\_\+length1$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype1, N\+\_\+length1$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$P\+\_\+numtype1, long double $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype1, N\+\_\+length1 $>$ \&}]{d1, }
+\item[{long double}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a7bbda0a46f39eac135752912c6a1da7a}
+\hypertarget{vecbfn_8cc_ae32805a926d4fbb8497df422e5897da3}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{int}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ae32805a926d4fbb8497df422e5897da3}
+\hypertarget{vecbfn_8cc_afc1680f838943e1ad7527e9e20a402ef}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{int}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_afc1680f838943e1ad7527e9e20a402ef}
+\hypertarget{vecbfn_8cc_a8540d519d01179301666cac07c1bc1bd}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{int}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a8540d519d01179301666cac07c1bc1bd}
+\hypertarget{vecbfn_8cc_a8466cdc8f0065194cecd2394fffb5fee}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$int$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$int, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{int}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a8466cdc8f0065194cecd2394fffb5fee}
+\hypertarget{vecbfn_8cc_ae4a875a32106bc00bd302cef3e575b62}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$float, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{float}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ae4a875a32106bc00bd302cef3e575b62}
+\hypertarget{vecbfn_8cc_a332cf47f103533d8c621bef5c740b22c}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$float, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{float}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a332cf47f103533d8c621bef5c740b22c}
+\hypertarget{vecbfn_8cc_aab292e104fab1e873a6b27ccb5ba4ab7}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$float, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{float}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aab292e104fab1e873a6b27ccb5ba4ab7}
+\hypertarget{vecbfn_8cc_a33e0d5e400a63b1a349bb51255a756cc}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Min}$<$float, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{float}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a33e0d5e400a63b1a349bb51255a756cc}
+\hypertarget{vecbfn_8cc_ad57bc0a24bcfd4b14c80aa97005a5e37}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$float$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$float, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{float}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ad57bc0a24bcfd4b14c80aa97005a5e37}
+\hypertarget{vecbfn_8cc_a16f398a37f7d31442fd0f86650ee6927}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$double, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{double}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a16f398a37f7d31442fd0f86650ee6927}
+\hypertarget{vecbfn_8cc_ab30f1b138001e2a1220e063041ba2111}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$double, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{double}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_ab30f1b138001e2a1220e063041ba2111}
+\hypertarget{vecbfn_8cc_a3eec35e2aa4dc2543cfe418ef7208a7b}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$double, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{double}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a3eec35e2aa4dc2543cfe418ef7208a7b}
+\hypertarget{vecbfn_8cc_a78cfcddc4b076cc2b3568fc1294902c6}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Min}$<$double, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{double}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a78cfcddc4b076cc2b3568fc1294902c6}
+\hypertarget{vecbfn_8cc_afdb366e475006baef0fc24116287058b}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$double$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$double, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{double}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_afdb366e475006baef0fc24116287058b}
+\hypertarget{vecbfn_8cc_a7e38994cb85cf3a6f140a75c82fa88d6}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf Vector\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$long double, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{long double}]{d1, }
+\item[{const {\bf Vector}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a7e38994cb85cf3a6f140a75c82fa88d6}
+\hypertarget{vecbfn_8cc_abbab185bfa6a84f7cfaaac35d33d82ea}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+expr2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$P\+\_\+expr2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$long double, typename P\+\_\+expr2\+::\+T\+\_\+numtype $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{long double}]{d1, }
+\item[{{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<$ P\+\_\+expr2 $>$}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_abbab185bfa6a84f7cfaaac35d33d82ea}
+\hypertarget{vecbfn_8cc_a03c055a2c8d9624f5219b2646c121aed}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 $>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf Vector\+Pick\+Iter\+Const}$<$P\+\_\+numtype2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$long double, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{long double}]{d1, }
+\item[{const {\bf Vector\+Pick}$<$ P\+\_\+numtype2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a03c055a2c8d9624f5219b2646c121aed}
+\hypertarget{vecbfn_8cc_a202f2b20e046629064ba160d07abb970}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf Range}, {\bf \+\_\+bz\+\_\+\+Min}$<$long double, int $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{long double}]{d1, }
+\item[{{\bf Range}}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_a202f2b20e046629064ba160d07abb970}
+\hypertarget{vecbfn_8cc_aa3e27e02424d28adfcf9d2b934e741a1}{}\index{vecbfn.\+cc@{vecbfn.\+cc}!min@{min}}
+\index{min@{min}!vecbfn.\+cc@{vecbfn.\+cc}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class P\+\_\+numtype2 , int N\+\_\+length2$>$ {\bf \+\_\+bz\+\_\+\+Vec\+Expr}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Op}$<${\bf \+\_\+bz\+\_\+\+Vec\+Expr\+Constant}$<$long double$>$, {\bf Tiny\+Vector\+Iter\+Const}$<$P\+\_\+numtype2, N\+\_\+length2$>$, {\bf \+\_\+bz\+\_\+\+Min}$<$long double, P\+\_\+numtype2 $>$ $>$ $>$ min (
+\begin{DoxyParamCaption}
+\item[{long double}]{d1, }
+\item[{const {\bf Tiny\+Vector}$<$ P\+\_\+numtype2, N\+\_\+length2 $>$ \&}]{d2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{vecbfn_8cc_aa3e27e02424d28adfcf9d2b934e741a1}

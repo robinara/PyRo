@@ -1,0 +1,185 @@
+\hypertarget{sreadhb_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sreadhb.c File Reference}
+\label{sreadhb_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sreadhb.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/sreadhb.\+c}}
+
+
+Read a matrix stored in Harwell-\/\+Boeing format.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+sdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{sreadhb_8c_a752858dee322b95e4175c3f5d42ad6cd}{s\+Dump\+Line} (F\+I\+L\+E $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Eat up the rest of the current line. \end{DoxyCompactList}\item 
+int \hyperlink{sreadhb_8c_ab0bd0cdb6d30a7cb74e401aa6ac3bce1}{s\+Parse\+Int\+Format} (char $\ast$buf, int $\ast$num, int $\ast$size)
+\item 
+int \hyperlink{sreadhb_8c_a97275461fb2f2435189f35f5dd7c3fce}{s\+Parse\+Float\+Format} (char $\ast$buf, int $\ast$num, int $\ast$size)
+\item 
+int \hyperlink{sreadhb_8c_ad90abece4b82f3f44fdefa92c28bda09}{s\+Read\+Values} (F\+I\+L\+E $\ast$fp, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, float $\ast$destination, int perline, int persize)
+\item 
+void \hyperlink{sreadhb_8c_aad3b24bf891015e699d67ed53fb3b21b}{sreadhb} (int $\ast$nrow, int $\ast$ncol, int $\ast$nonz, float $\ast$$\ast$nzval, int $\ast$$\ast$rowind, int $\ast$$\ast$colptr)
+\begin{DoxyCompactList}\small\item\em Auxiliary routines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Read a matrix stored in Harwell-\/\+Boeing format. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\subsection*{Purpose
+}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Read a FLOAT PRECISION matrix stored in Harwell-Boeing format 
+as described below.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Line 1 (A72,A8) 
+    Col. 1 - 72   Title (TITLE) 
+ Col. 73 - 80  Key (KEY)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Line 2 (5I14) 
+    Col. 1 - 14   Total number of lines excluding header (TOTCRD) 
+    Col. 15 - 28  Number of lines for pointers (PTRCRD) 
+    Col. 29 - 42  Number of lines for row (or variable) indices (INDCRD) 
+    Col. 43 - 56  Number of lines for numerical values (VALCRD) 
+ Col. 57 - 70  Number of lines for right-hand sides (RHSCRD) 
+                   (including starting guesses and solution vectors 
+           if present) 
+                  (zero indicates no right-hand side data is present)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Line 3 (A3, 11X, 4I14) 
+    Col. 1 - 3    \hyperlink{classMatrix}{Matrix} type (see below) (MXTYPE) 
+    Col. 15 - 28  Number of rows (or variables) (NROW) 
+    Col. 29 - 42  Number of columns (or elements) (NCOL) 
+ Col. 43 - 56  Number of row (or variable) indices (NNZERO) 
+               (equal to number of entries for assembled matrices) 
+    Col. 57 - 70  Number of elemental matrix entries (NELTVL) 
+               (zero in the case of assembled matrices) 
+Line 4 (2A16, 2A20) 
+    Col. 1 - 16   Format for pointers (PTRFMT) 
+ Col. 17 - 32  Format for row (or variable) indices (INDFMT) 
+ Col. 33 - 52  Format for numerical values of coefficient matrix (VALFMT) 
+    Col. 53 - 72 Format for numerical values of right-hand sides (RHSFMT)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Line 5 (A3, 11X, 2I14) Only present if there are right-hand sides present 
+    Col. 1        Right-hand side type: 
+              F for full storage or M for same format as matrix 
+    Col. 2        G if a starting vector(s) (Guess) is supplied. (RHSTYP) 
+    Col. 3        X if an exact solution vector(s) is supplied. 
+ Col. 15 - 28  Number of right-hand sides (NRHS) 
+ Col. 29 - 42  Number of row indices (NRHSIX) 
+                  (ignored in case of unassembled matrices)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}The three character type field on line 3 describes the matrix type. 
+The following table lists the permitted values for each of the three 
+characters. As an example of the type field, RSA denotes that the matrix 
+is real, symmetric, and assembled.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}First Character: 
+ R Real matrix 
+ C Complex matrix 
+ P Pattern only (no numerical values supplied)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Second Character: 
+ S \hyperlink{classSymmetric}{Symmetric} 
+ U Unsymmetric 
+ H Hermitian 
+ Z Skew symmetric 
+ R Rectangular\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Third Character: 
+ \hyperlink{classA}{A} Assembled 
+ E Elemental matrices (unassembled)\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{sreadhb_8c_a752858dee322b95e4175c3f5d42ad6cd}{}\index{sreadhb.\+c@{sreadhb.\+c}!s\+Dump\+Line@{s\+Dump\+Line}}
+\index{s\+Dump\+Line@{s\+Dump\+Line}!sreadhb.\+c@{sreadhb.\+c}}
+\subsubsection[{s\+Dump\+Line}]{\setlength{\rightskip}{0pt plus 5cm}int s\+Dump\+Line (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{sreadhb_8c_a752858dee322b95e4175c3f5d42ad6cd}
+
+
+Eat up the rest of the current line. 
+
+\hypertarget{sreadhb_8c_a97275461fb2f2435189f35f5dd7c3fce}{}\index{sreadhb.\+c@{sreadhb.\+c}!s\+Parse\+Float\+Format@{s\+Parse\+Float\+Format}}
+\index{s\+Parse\+Float\+Format@{s\+Parse\+Float\+Format}!sreadhb.\+c@{sreadhb.\+c}}
+\subsubsection[{s\+Parse\+Float\+Format}]{\setlength{\rightskip}{0pt plus 5cm}int s\+Parse\+Float\+Format (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buf, }
+\item[{int $\ast$}]{num, }
+\item[{int $\ast$}]{size}
+\end{DoxyParamCaption}
+)}\label{sreadhb_8c_a97275461fb2f2435189f35f5dd7c3fce}
+\hypertarget{sreadhb_8c_ab0bd0cdb6d30a7cb74e401aa6ac3bce1}{}\index{sreadhb.\+c@{sreadhb.\+c}!s\+Parse\+Int\+Format@{s\+Parse\+Int\+Format}}
+\index{s\+Parse\+Int\+Format@{s\+Parse\+Int\+Format}!sreadhb.\+c@{sreadhb.\+c}}
+\subsubsection[{s\+Parse\+Int\+Format}]{\setlength{\rightskip}{0pt plus 5cm}int s\+Parse\+Int\+Format (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buf, }
+\item[{int $\ast$}]{num, }
+\item[{int $\ast$}]{size}
+\end{DoxyParamCaption}
+)}\label{sreadhb_8c_ab0bd0cdb6d30a7cb74e401aa6ac3bce1}
+\hypertarget{sreadhb_8c_aad3b24bf891015e699d67ed53fb3b21b}{}\index{sreadhb.\+c@{sreadhb.\+c}!sreadhb@{sreadhb}}
+\index{sreadhb@{sreadhb}!sreadhb.\+c@{sreadhb.\+c}}
+\subsubsection[{sreadhb}]{\setlength{\rightskip}{0pt plus 5cm}void sreadhb (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{nrow, }
+\item[{int $\ast$}]{ncol, }
+\item[{int $\ast$}]{nonz, }
+\item[{float $\ast$$\ast$}]{nzval, }
+\item[{int $\ast$$\ast$}]{rowind, }
+\item[{int $\ast$$\ast$}]{colptr}
+\end{DoxyParamCaption}
+)}\label{sreadhb_8c_aad3b24bf891015e699d67ed53fb3b21b}
+
+
+Auxiliary routines. 
+
+\hypertarget{sreadhb_8c_ad90abece4b82f3f44fdefa92c28bda09}{}\index{sreadhb.\+c@{sreadhb.\+c}!s\+Read\+Values@{s\+Read\+Values}}
+\index{s\+Read\+Values@{s\+Read\+Values}!sreadhb.\+c@{sreadhb.\+c}}
+\subsubsection[{s\+Read\+Values}]{\setlength{\rightskip}{0pt plus 5cm}int s\+Read\+Values (
+\begin{DoxyParamCaption}
+\item[{F\+I\+L\+E $\ast$}]{fp, }
+\item[{int}]{n, }
+\item[{float $\ast$}]{destination, }
+\item[{int}]{perline, }
+\item[{int}]{persize}
+\end{DoxyParamCaption}
+)}\label{sreadhb_8c_ad90abece4b82f3f44fdefa92c28bda09}

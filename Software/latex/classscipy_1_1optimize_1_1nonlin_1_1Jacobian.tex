@@ -1,0 +1,132 @@
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Jacobian}{}\section{scipy.\+optimize.\+nonlin.\+Jacobian Class Reference}
+\label{classscipy_1_1optimize_1_1nonlin_1_1Jacobian}\index{scipy.\+optimize.\+nonlin.\+Jacobian@{scipy.\+optimize.\+nonlin.\+Jacobian}}
+Inheritance diagram for scipy.\+optimize.\+nonlin.\+Jacobian\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.393162cm]{classscipy_1_1optimize_1_1nonlin_1_1Jacobian}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_ab0e4a39d35a1b341c120843fa415bd93}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_a4e2eaa54402ecb02e0ecbcb79d99cc2f}{aspreconditioner}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_a32d16eb28918ec782956d557a720514a}{solve}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_aec88e611895b09e34d5a1e13aa92173e}{update}
+\item 
+def \hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_ac6b95be0fb2e639686890759c94cb6f6}{setup}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_acf4b293f7d8114567d69b61b4cd11b8c}{func}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_a399bcc4bdec38649979fb903ec3c509a}{shape}
+\item 
+\hyperlink{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_ae928f7098e2435baf8380e3148c679cc}{dtype}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Common interface for Jacobians or Jacobian approximations.
+
+The optional methods come useful when implementing trust region
+etc.  algorithms that often require evaluating transposes of the
+Jacobian.
+
+Methods
+-------
+solve
+    Returns J^-1 * v
+update
+    Updates Jacobian to point `x` (where the function has residual `Fx`)
+
+matvec : optional
+    Returns J * v
+rmatvec : optional
+    Returns A^H * v
+rsolve : optional
+    Returns A^-H * v
+matmat : optional
+    Returns A * V, where V is a dense matrix with dimensions (N,K).
+todense : optional
+    Form the dense Jacobian matrix. Necessary for dense trust region
+    algorithms, and useful for testing.
+
+Attributes
+----------
+shape
+    Matrix dimensions (M, N)
+dtype
+    Data type of the matrix.
+func : callable, optional
+    Function the Jacobian corresponds to\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_ab0e4a39d35a1b341c120843fa415bd93}{}\index{scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+nonlin.\+Jacobian.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{kw}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_ab0e4a39d35a1b341c120843fa415bd93}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_a4e2eaa54402ecb02e0ecbcb79d99cc2f}{}\index{scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}!aspreconditioner@{aspreconditioner}}
+\index{aspreconditioner@{aspreconditioner}!scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}}
+\subsubsection[{aspreconditioner}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+nonlin.\+Jacobian.\+aspreconditioner (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_a4e2eaa54402ecb02e0ecbcb79d99cc2f}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_ac6b95be0fb2e639686890759c94cb6f6}{}\index{scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}!setup@{setup}}
+\index{setup@{setup}!scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+nonlin.\+Jacobian.\+setup (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{F, }
+\item[{}]{func}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_ac6b95be0fb2e639686890759c94cb6f6}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_a32d16eb28918ec782956d557a720514a}{}\index{scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}!solve@{solve}}
+\index{solve@{solve}!scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}}
+\subsubsection[{solve}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+nonlin.\+Jacobian.\+solve (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{v, }
+\item[{}]{tol = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_a32d16eb28918ec782956d557a720514a}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_aec88e611895b09e34d5a1e13aa92173e}{}\index{scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}!update@{update}}
+\index{update@{update}!scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+nonlin.\+Jacobian.\+update (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{F}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_aec88e611895b09e34d5a1e13aa92173e}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_ae928f7098e2435baf8380e3148c679cc}{}\index{scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}!dtype@{dtype}}
+\index{dtype@{dtype}!scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}}
+\subsubsection[{dtype}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+nonlin.\+Jacobian.\+dtype}\label{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_ae928f7098e2435baf8380e3148c679cc}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_acf4b293f7d8114567d69b61b4cd11b8c}{}\index{scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}!func@{func}}
+\index{func@{func}!scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}}
+\subsubsection[{func}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+nonlin.\+Jacobian.\+func}\label{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_acf4b293f7d8114567d69b61b4cd11b8c}
+\hypertarget{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_a399bcc4bdec38649979fb903ec3c509a}{}\index{scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}!shape@{shape}}
+\index{shape@{shape}!scipy\+::optimize\+::nonlin\+::\+Jacobian@{scipy\+::optimize\+::nonlin\+::\+Jacobian}}
+\subsubsection[{shape}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+nonlin.\+Jacobian.\+shape}\label{classscipy_1_1optimize_1_1nonlin_1_1Jacobian_a399bcc4bdec38649979fb903ec3c509a}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/optimize/\hyperlink{nonlin_8py}{nonlin.\+py}\end{DoxyCompactItemize}

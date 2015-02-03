@@ -1,0 +1,108 @@
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1SphereBivariateSpline}{}\section{scipy.\+interpolate.\+fitpack2.\+Sphere\+Bivariate\+Spline Class Reference}
+\label{classscipy_1_1interpolate_1_1fitpack2_1_1SphereBivariateSpline}\index{scipy.\+interpolate.\+fitpack2.\+Sphere\+Bivariate\+Spline@{scipy.\+interpolate.\+fitpack2.\+Sphere\+Bivariate\+Spline}}
+Inheritance diagram for scipy.\+interpolate.\+fitpack2.\+Sphere\+Bivariate\+Spline\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.248996cm]{classscipy_1_1interpolate_1_1fitpack2_1_1SphereBivariateSpline}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1SphereBivariateSpline_a88f617f0917682fc0c9eaeacf7441831}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1fitpack2_1_1SphereBivariateSpline_a85d3a95b64c8677e34d74138b52374f5}{ev}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Bivariate spline s(x,y) of degrees 3 on a sphere, calculated from a
+given set of data points (theta,phi,r).
+
+.. versionadded:: 0.11.0
+
+See Also
+--------
+bisplrep, bisplev : an older wrapping of FITPACK
+UnivariateSpline : a similar class for univariate spline interpolation
+SmoothUnivariateSpline :
+    to create a BivariateSpline through the given points
+LSQUnivariateSpline :
+    to create a BivariateSpline using weighted least-squares fitting
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1SphereBivariateSpline_a88f617f0917682fc0c9eaeacf7441831}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Sphere\+Bivariate\+Spline}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::interpolate\+::fitpack2\+::\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Sphere\+Bivariate\+Spline}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Sphere\+Bivariate\+Spline.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{theta, }
+\item[{}]{phi, }
+\item[{}]{dtheta = {\ttfamily 0}, }
+\item[{}]{dphi = {\ttfamily 0}, }
+\item[{}]{grid = {\ttfamily {\bf True}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1SphereBivariateSpline_a88f617f0917682fc0c9eaeacf7441831}
+\begin{DoxyVerb}Evaluate the spline or its derivatives at given positions.
+
+Parameters
+----------
+theta, phi : array-like
+    Input coordinates.
+
+    If `grid` is False, evaluate the spline at points
+    ``(theta[i], phi[i]), i=0, ..., len(x)-1``.  Standard
+    Numpy broadcasting is obeyed.
+
+    If `grid` is True: evaluate spline at the grid points
+    defined by the coordinate arrays theta, phi. The arrays
+    must be sorted to increasing order.
+dtheta : int
+    Order of theta-derivative
+
+    .. versionadded:: 0.14.0
+dphi : int
+    Order of phi-derivative
+
+    .. versionadded:: 0.14.0
+grid : bool
+    Whether to evaluate the results on a grid spanned by the
+    input arrays, or at points specified by the input arrays.
+
+    .. versionadded:: 0.14.0\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1fitpack2_1_1SphereBivariateSpline_a85d3a95b64c8677e34d74138b52374f5}{}\index{scipy\+::interpolate\+::fitpack2\+::\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Sphere\+Bivariate\+Spline}!ev@{ev}}
+\index{ev@{ev}!scipy\+::interpolate\+::fitpack2\+::\+Sphere\+Bivariate\+Spline@{scipy\+::interpolate\+::fitpack2\+::\+Sphere\+Bivariate\+Spline}}
+\subsubsection[{ev}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+fitpack2.\+Sphere\+Bivariate\+Spline.\+ev (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{theta, }
+\item[{}]{phi, }
+\item[{}]{dtheta = {\ttfamily 0}, }
+\item[{}]{dphi = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1fitpack2_1_1SphereBivariateSpline_a85d3a95b64c8677e34d74138b52374f5}
+\begin{DoxyVerb}Evaluate the spline at points
+
+Returns the interpolated value at ``(theta[i], phi[i]),
+i=0,...,len(theta)-1``.
+
+Parameters
+----------
+theta, phi : array-like
+    Input coordinates. Standard Numpy broadcasting is obeyed.
+dtheta : int
+    Order of theta-derivative
+
+    .. versionadded:: 0.14.0
+dphi : int
+    Order of phi-derivative
+
+    .. versionadded:: 0.14.0
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{fitpack2_8py}{fitpack2.\+py}\end{DoxyCompactItemize}

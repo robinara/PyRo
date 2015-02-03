@@ -1,0 +1,94 @@
+\hypertarget{clarfx_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clarfx.f File Reference}
+\label{clarfx_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarfx.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clarfx.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clarfx_8f_a5faaf840490fa40a3a1e7e359d7fc216}{clarfx} (S\+I\+D\+E, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, V, T\+A\+U, C, L\+D\+C, W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+R\+F\+X} applies an elementary reflector to a general rectangular matrix, with loop unrolling when the reflector has order ≤ 10. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clarfx_8f_a5faaf840490fa40a3a1e7e359d7fc216}{}\index{clarfx.\+f@{clarfx.\+f}!clarfx@{clarfx}}
+\index{clarfx@{clarfx}!clarfx.\+f@{clarfx.\+f}}
+\subsubsection[{clarfx}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clarfx (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{V, }
+\item[{{\bf complex}}]{T\+A\+U, }
+\item[{{\bf complex}, dimension( ldc, $\ast$ )}]{C, }
+\item[{integer}]{L\+D\+C, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{clarfx_8f_a5faaf840490fa40a3a1e7e359d7fc216}
+
+
+{\bfseries C\+L\+A\+R\+F\+X} applies an elementary reflector to a general rectangular matrix, with loop unrolling when the reflector has order ≤ 10. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLARFX applies a complex elementary reflector H to a complex m by n
+ matrix C, from either the left or the right. H is represented in the
+ form
+
+       H = I - tau * v * v**H
+
+ where tau is a complex scalar and v is a complex vector.
+
+ If tau = 0, then H is taken to be the unit matrix
+
+ This version uses inline code if H has order < 11.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+          = 'L': form  H * C
+          = 'R': form  C * H\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V} & \begin{DoxyVerb}          V is COMPLEX array, dimension (M) if SIDE = 'L'
+                                        or (N) if SIDE = 'R'
+          The vector v in the representation of H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is COMPLEX
+          The value tau in the representation of H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is COMPLEX array, dimension (LDC,N)
+          On entry, the m by n matrix C.
+          On exit, C is overwritten by the matrix H * C if SIDE = 'L',
+          or C * H if SIDE = 'R'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+C} & \begin{DoxyVerb}          LDC is INTEGER
+          The leading dimension of the array C. LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (N) if SIDE = 'L'
+                                            or (M) if SIDE = 'R'
+          WORK is not referenced if H has order < 11.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

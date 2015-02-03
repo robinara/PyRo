@@ -1,0 +1,82 @@
+\hypertarget{VARIANTS_2cholesky_2TOP_2spotrf_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/\+V\+A\+R\+I\+A\+N\+T\+S/cholesky/\+T\+O\+P/spotrf.f File Reference}
+\label{VARIANTS_2cholesky_2TOP_2spotrf_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/\+V\+A\+R\+I\+A\+N\+T\+S/cholesky/\+T\+O\+P/spotrf.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/\+V\+A\+R\+I\+A\+N\+T\+S/cholesky/\+T\+O\+P/spotrf.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{VARIANTS_2cholesky_2TOP_2spotrf_8f_aaf31db7ab15b4f4ba527a3d31a15a58e}{spotrf} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+P\+O\+T\+R\+F} V\+A\+R\+I\+A\+N\+T\+: top-\/looking block version of the algorithm, calling Level 3 B\+L\+A\+S. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{VARIANTS_2cholesky_2TOP_2spotrf_8f_aaf31db7ab15b4f4ba527a3d31a15a58e}{}\index{V\+A\+R\+I\+A\+N\+T\+S/cholesky/\+T\+O\+P/spotrf.\+f@{V\+A\+R\+I\+A\+N\+T\+S/cholesky/\+T\+O\+P/spotrf.\+f}!spotrf@{spotrf}}
+\index{spotrf@{spotrf}!V\+A\+R\+I\+A\+N\+T\+S/cholesky/\+T\+O\+P/spotrf.\+f@{V\+A\+R\+I\+A\+N\+T\+S/cholesky/\+T\+O\+P/spotrf.\+f}}
+\subsubsection[{spotrf}]{\setlength{\rightskip}{0pt plus 5cm}subroutine spotrf (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{real, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{VARIANTS_2cholesky_2TOP_2spotrf_8f_aaf31db7ab15b4f4ba527a3d31a15a58e}
+
+
+{\bfseries S\+P\+O\+T\+R\+F} V\+A\+R\+I\+A\+N\+T\+: top-\/looking block version of the algorithm, calling Level 3 B\+L\+A\+S. 
+
+{\bfseries Purpose\+:} \begin{DoxyVerb} SPOTRF computes the Cholesky factorization of a real symmetric
+ positive definite matrix A.
+
+ The factorization has the form
+    A = U**T * U,  if UPLO = 'U', or
+    A = L  * L**T,  if UPLO = 'L',
+ where U is an upper triangular matrix and L is lower triangular.
+
+ This is the top-looking block version of the algorithm, calling Level 3 BLAS.\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is REAL array, dimension (LDA,N)
+          On entry, the symmetric matrix A.  If UPLO = 'U', the leading
+          N-by-N upper triangular part of A contains the upper
+          triangular part of the matrix A, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = 'L', the
+          leading N-by-N lower triangular part of A contains the lower
+          triangular part of the matrix A, and the strictly upper
+          triangular part of A is not referenced.\end{DoxyVerb}
+ \begin{DoxyVerb}          On exit, if INFO = 0, the factor U or L from the Cholesky
+          factorization A = U**T*U or A = L*L**T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value
+          > 0:  if INFO = i, the leading minor of order i is not
+                positive definite, and the factorization could not be
+                completed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

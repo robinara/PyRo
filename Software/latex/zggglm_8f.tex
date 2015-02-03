@@ -1,0 +1,154 @@
+\hypertarget{zggglm_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zggglm.f File Reference}
+\label{zggglm_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zggglm.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zggglm.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zggglm_8f_a7e9ce5ea3c8adfc5d28e92904c34984f}{zggglm} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, M, P, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, X, Y, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  Z\+G\+G\+E\+V\+X computes the eigenvalues and, optionally, the left and/or right eigenvectors for G\+E matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zggglm_8f_a7e9ce5ea3c8adfc5d28e92904c34984f}{}\index{zggglm.\+f@{zggglm.\+f}!zggglm@{zggglm}}
+\index{zggglm@{zggglm}!zggglm.\+f@{zggglm.\+f}}
+\subsubsection[{zggglm}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zggglm (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{integer}]{M, }
+\item[{integer}]{P, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}$\ast$16, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{X, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{Y, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zggglm_8f_a7e9ce5ea3c8adfc5d28e92904c34984f}
+
+
+{\bfseries  Z\+G\+G\+E\+V\+X computes the eigenvalues and, optionally, the left and/or right eigenvectors for G\+E matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZGGGLM solves a general Gauss-Markov linear model (GLM) problem:
+
+         minimize || y ||_2   subject to   d = A*x + B*y
+             x
+
+ where A is an N-by-M matrix, B is an N-by-P matrix, and d is a
+ given N-vector. It is assumed that M <= N <= M+P, and
+
+            rank(A) = M    and    rank( A B ) = N.
+
+ Under these assumptions, the constrained equation is always
+ consistent, and there is a unique solution x and a minimal 2-norm
+ solution y, which is obtained using a generalized QR factorization
+ of the matrices (A, B) given by
+
+    A = Q*(R),   B = Q*T*Z.
+          (0)
+
+ In particular, if matrix B is square nonsingular, then the problem
+ GLM is equivalent to the following weighted linear least squares
+ problem
+
+              minimize || inv(B)*(d-A*x) ||_2
+                  x
+
+ where inv(B) denotes the inverse of B.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of rows of the matrices A and B.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of columns of the matrix A.  0 <= M <= N.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P} & \begin{DoxyVerb}          P is INTEGER
+          The number of columns of the matrix B.  P >= N-M.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,M)
+          On entry, the N-by-M matrix A.
+          On exit, the upper triangular part of the array A contains
+          the M-by-M upper triangular matrix R.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A. LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX*16 array, dimension (LDB,P)
+          On entry, the N-by-P matrix B.
+          On exit, if N <= P, the upper triangle of the subarray
+          B(1:N,P-N+1:P) contains the N-by-N upper triangular matrix T;
+          if N > P, the elements on and above the (N-P)th subdiagonal
+          contain the N-by-P upper trapezoidal matrix T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B. LDB >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is COMPLEX*16 array, dimension (N)
+          On entry, D is the left hand side of the GLM equation.
+          On exit, D is destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX*16 array, dimension (M)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Y} & \begin{DoxyVerb}          Y is COMPLEX*16 array, dimension (P)
+
+          On exit, X and Y are the solutions of the GLM problem.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The dimension of the array WORK. LWORK >= max(1,N+M+P).
+          For optimum performance, LWORK >= M+min(N,P)+max(N,P)*NB,
+          where NB is an upper bound for the optimal blocksizes for
+          ZGEQRF, ZGERQF, ZUNMQR and ZUNMRQ.
+
+          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal size of the WORK array, returns
+          this value as the first entry of the WORK array, and no error
+          message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          = 1:  the upper triangular factor R associated with A in the
+                generalized QR factorization of the pair (A, B) is
+                singular, so that rank(A) < M; the least squares
+                solution could not be computed.
+          = 2:  the bottom (N-M) by (N-M) part of the upper trapezoidal
+                factor T associated with B in the generalized QR
+                factorization of the pair (A, B) is singular, so that
+                rank( A B ) < N; the least squares solution could not
+                be computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

@@ -1,0 +1,101 @@
+\hypertarget{dlanv2_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlanv2.f File Reference}
+\label{dlanv2_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlanv2.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlanv2.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlanv2_8f_a0be048656bc24255a136a80361283e02}{dlanv2} (\hyperlink{classA}{A}, B, C, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, R\+T1\+R, R\+T1\+I, R\+T2\+R, R\+T2\+I, C\+S, S\+N)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+N\+V2} computes the Schur factorization of a real 2-\/by-\/2 nonsymmetric matrix in standard form. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlanv2_8f_a0be048656bc24255a136a80361283e02}{}\index{dlanv2.\+f@{dlanv2.\+f}!dlanv2@{dlanv2}}
+\index{dlanv2@{dlanv2}!dlanv2.\+f@{dlanv2.\+f}}
+\subsubsection[{dlanv2}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlanv2 (
+\begin{DoxyParamCaption}
+\item[{double {\bf precision}}]{A, }
+\item[{double {\bf precision}}]{B, }
+\item[{double {\bf precision}}]{C, }
+\item[{double {\bf precision}}]{D, }
+\item[{double {\bf precision}}]{R\+T1\+R, }
+\item[{double {\bf precision}}]{R\+T1\+I, }
+\item[{double {\bf precision}}]{R\+T2\+R, }
+\item[{double {\bf precision}}]{R\+T2\+I, }
+\item[{double {\bf precision}}]{C\+S, }
+\item[{double {\bf precision}}]{S\+N}
+\end{DoxyParamCaption}
+)}\label{dlanv2_8f_a0be048656bc24255a136a80361283e02}
+
+
+{\bfseries D\+L\+A\+N\+V2} computes the Schur factorization of a real 2-\/by-\/2 nonsymmetric matrix in standard form. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLANV2 computes the Schur factorization of a real 2-by-2 nonsymmetric
+ matrix in standard form:
+
+      [ A  B ] = [ CS -SN ] [ AA  BB ] [ CS  SN ]
+      [ C  D ]   [ SN  CS ] [ CC  DD ] [-SN  CS ]
+
+ where either
+ 1) CC = 0 so that AA and DD are real eigenvalues of the matrix, or
+ 2) AA = DD and BB*CC < 0, so that AA + or - sqrt(BB*CC) are complex
+ conjugate eigenvalues.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is DOUBLE PRECISION
+          On entry, the elements of the input matrix.
+          On exit, they are overwritten by the elements of the
+          standardised Schur form.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+T1\+R} & \begin{DoxyVerb}          RT1R is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+T1\+I} & \begin{DoxyVerb}          RT1I is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+T2\+R} & \begin{DoxyVerb}          RT2R is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+T2\+I} & \begin{DoxyVerb}          RT2I is DOUBLE PRECISION
+          The real and imaginary parts of the eigenvalues. If the
+          eigenvalues are a complex conjugate pair, RT1I > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em C\+S} & \begin{DoxyVerb}          CS is DOUBLE PRECISION\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em S\+N} & \begin{DoxyVerb}          SN is DOUBLE PRECISION
+          Parameters of the rotation matrix.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  Modified by V. Sima, Research Institute for Informatics, Bucharest,
+  Romania, to reduce the risk of cancellation errors,
+  when computing real eigenvalues, and to ensure, if possible, that
+  abs(RT1R) >= abs(RT2R).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

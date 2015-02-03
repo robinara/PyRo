@@ -1,0 +1,149 @@
+\hypertarget{cgglse_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/cgglse.f File Reference}
+\label{cgglse_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cgglse.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/cgglse.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{cgglse_8f_a28e4e4fece23da5ddc449699822e5d77}{cgglse} (M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, P, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, C, \hyperlink{odrpack_8h_a7dae6ea403d00f3687f24a874e67d139}{D}, X, W\+O\+R\+K, L\+W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  C\+G\+G\+L\+S\+E solves overdetermined or underdetermined systems for O\+T\+H\+E\+R matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{cgglse_8f_a28e4e4fece23da5ddc449699822e5d77}{}\index{cgglse.\+f@{cgglse.\+f}!cgglse@{cgglse}}
+\index{cgglse@{cgglse}!cgglse.\+f@{cgglse.\+f}}
+\subsubsection[{cgglse}]{\setlength{\rightskip}{0pt plus 5cm}subroutine cgglse (
+\begin{DoxyParamCaption}
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{P, }
+\item[{{\bf complex}, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{{\bf complex}, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{C, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{D, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{X, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{cgglse_8f_a28e4e4fece23da5ddc449699822e5d77}
+
+
+{\bfseries  C\+G\+G\+L\+S\+E solves overdetermined or underdetermined systems for O\+T\+H\+E\+R matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CGGLSE solves the linear equality-constrained least squares (LSE)
+ problem:
+
+         minimize || c - A*x ||_2   subject to   B*x = d
+
+ where A is an M-by-N matrix, B is a P-by-N matrix, c is a given
+ M-vector, and d is a given P-vector. It is assumed that
+ P <= N <= M+P, and
+
+          rank(B) = P and  rank( (A) ) = N.
+                               ( (B) )
+
+ These conditions ensure that the LSE problem has a unique solution,
+ which is obtained using a generalized RQ factorization of the
+ matrices (B, A) given by
+
+    B = (0 R)*Q,   A = Z*T*Q.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix A.  M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrices A and B. N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P} & \begin{DoxyVerb}          P is INTEGER
+          The number of rows of the matrix B. 0 <= P <= N <= M+P.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX array, dimension (LDA,N)
+          On entry, the M-by-N matrix A.
+          On exit, the elements on and above the diagonal of the array
+          contain the min(M,N)-by-N upper trapezoidal matrix T.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A. LDA >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is COMPLEX array, dimension (LDB,N)
+          On entry, the P-by-N matrix B.
+          On exit, the upper triangle of the subarray B(1:P,N-P+1:N)
+          contains the P-by-P upper triangular matrix R.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B. LDB >= max(1,P).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em C} & \begin{DoxyVerb}          C is COMPLEX array, dimension (M)
+          On entry, C contains the right hand side vector for the
+          least squares part of the LSE problem.
+          On exit, the residual sum of squares for the solution
+          is given by the sum of squares of elements N-P+1 to M of
+          vector C.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em D} & \begin{DoxyVerb}          D is COMPLEX array, dimension (P)
+          On entry, D contains the right hand side vector for the
+          constrained equation.
+          On exit, D is destroyed.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX array, dimension (N)
+          On exit, X is the solution of the LSE problem.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+W\+O\+R\+K} & \begin{DoxyVerb}          LWORK is INTEGER
+          The dimension of the array WORK. LWORK >= max(1,M+N+P).
+          For optimum performance LWORK >= P+min(M,N)+max(M,N)*NB,
+          where NB is an upper bound for the optimal blocksizes for
+          CGEQRF, CGERQF, CUNMQR and CUNMRQ.
+
+          If LWORK = -1, then a workspace query is assumed; the routine
+          only calculates the optimal size of the WORK array, returns
+          this value as the first entry of the WORK array, and no error
+          message related to LWORK is issued by XERBLA.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          = 1:  the upper triangular factor R associated with B in the
+                generalized RQ factorization of the pair (B, A) is
+                singular, so that rank(B) < P; the least squares
+                solution could not be computed.
+          = 2:  the (N-P) by (N-P) part of the upper trapezoidal factor
+                T associated with A in the generalized RQ factorization
+                of the pair (B, A) is singular, so that
+                rank( (A) ) < N; the least squares solution could not
+                    ( (B) )
+                be computed.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

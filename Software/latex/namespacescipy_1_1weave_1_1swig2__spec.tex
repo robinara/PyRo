@@ -1,0 +1,116 @@
+\hypertarget{namespacescipy_1_1weave_1_1swig2__spec}{}\section{scipy.\+weave.\+swig2\+\_\+spec Namespace Reference}
+\label{namespacescipy_1_1weave_1_1swig2__spec}\index{scipy.\+weave.\+swig2\+\_\+spec@{scipy.\+weave.\+swig2\+\_\+spec}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1weave_1_1swig2__spec_1_1swig2__converter}{swig2\+\_\+converter}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacescipy_1_1weave_1_1swig2__spec_a8ced6c0ec9978c2a6606ea5c44731cc8}{swig2\+\_\+common\+\_\+code} = \textbackslash{}
+\item 
+\hyperlink{namespacescipy_1_1weave_1_1swig2__spec_afc8a59f295fd5260d8cbdf1cd9030b5c}{swig2\+\_\+py\+\_\+to\+\_\+c\+\_\+template} = \textbackslash{}
+\item 
+string \hyperlink{namespacescipy_1_1weave_1_1swig2__spec_ae4058ddac77e8e030972783bc0359818}{swig2\+\_\+c\+\_\+to\+\_\+py\+\_\+template}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This module allows one to use SWIG2 (SWIG version >= 1.3) wrapped
+objects from Weave.  SWIG-1.3 wraps objects differently from SWIG-1.1.
+
+This module is a template for a SWIG2 wrapped converter.  To wrap any
+special code that uses SWIG the user simply needs to override the
+defaults in the swig2_converter class.  These special circumstances
+arise when one has wrapped code that uses C++ namespaces.  However,
+for most straightforward SWIG wrappers this converter should work fine
+out of the box.
+
+Newer versions of SWIG (>=1.3.22) represent the wrapped object using a
+PyCObject and also a PySwigObject (>=1.3.24).  This code supports all
+of these options transparently.
+
+Since SWIG-1.3.x is under intense development there are several issues
+to consider when using the swig2_converter.
+
+ 1. For SWIG versions <= 1.3.19, the runtime code was built either
+    into the module or into a separate library called libswigpy (or
+    something like that).  In the latter case, the users Python
+    modules were linked to this library and shared type information
+    (this was common for large projects with several modules that
+    needed to share type information).  If you are using multiple
+    inheritance and want to be certain that type coercions from a
+    derived class to a base class are done correctly, you will need to
+    link to the libswigpy library.  You will then need to add these to
+    the keyword arguments passed along to `weave.inline`:
+
+      a. Add a define_macros=[('SWIG_NOINCLUDE', None)]
+
+      b. Add the swigpy library to the libraries like so:
+         libraries=['swigpy']
+
+      c. If the libswigpy is in a non-standard location add the path
+         to the library_dirs argument as
+         `library_dirs=['/usr/local/lib']` or whatever.
+
+    OTOH if you do not need to link to libswigpy (this is likely if
+    you are not using multiple inheritance), then you do not need the
+    above.  However you are likely to get an annoying message of the
+    form::
+
+      WARNING: swig_type_info is NULL.
+
+    for each SWIG object you are inlining (during each call).  To
+    avoid this add a define_macros=[('NO_SWIG_WARN', None)].
+
+ 2. Since keeping track of a separate runtime is a pain, for SWIG
+    versions >= 1.3.23 the type information was stored inside a
+    special module.  Thus in these versions there is no need to link
+    to this special SWIG runtime library.  This module handles these
+    cases automatically and nothing special need be done.
+
+    Using modules wrapped with different SWIG versions simultaneously.
+    Lets say you have library 'A' that is wrapped using SWIG version
+    1.3.20.  Then lets say you have a library 'B' wrapped using
+    version 1.3.24.  Now if you want to use both in weave.inline, we
+    have a serious problem.  The trouble is that both 'A' and 'B' may
+    use different and incompatible runtime layouts.  It is impossible
+    to get the type conversions right in these cases.  Thus it is
+    strongly advised that you use one version of SWIG to wrap all of
+    the code that you intend to inline using weave.  Note that you can
+    certainly use SWIG-1.3.23 for everything and do not have to use
+    the latest and greatest SWIG to use weave.inline.  Just make sure
+    that when inlining SWIG wrapped objects that all such objects use
+    the same runtime layout.  By default, if you are using different
+    versions and do need to inline these objects, the latest layout
+    will be assumed.  This might leave you with holes in your feet,
+    but you have been warned.  You can force the converter to use a
+    specific runtime version if you want (see the
+    `swig2_converter.__init__` method and its documentation).
+
+
+Prabhu Ramachandran <prabhu_r@users.sf.net>
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1weave_1_1swig2__spec_ae4058ddac77e8e030972783bc0359818}{}\index{scipy\+::weave\+::swig2\+\_\+spec@{scipy\+::weave\+::swig2\+\_\+spec}!swig2\+\_\+c\+\_\+to\+\_\+py\+\_\+template@{swig2\+\_\+c\+\_\+to\+\_\+py\+\_\+template}}
+\index{swig2\+\_\+c\+\_\+to\+\_\+py\+\_\+template@{swig2\+\_\+c\+\_\+to\+\_\+py\+\_\+template}!scipy\+::weave\+::swig2\+\_\+spec@{scipy\+::weave\+::swig2\+\_\+spec}}
+\subsubsection[{swig2\+\_\+c\+\_\+to\+\_\+py\+\_\+template}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+weave.\+swig2\+\_\+spec.\+swig2\+\_\+c\+\_\+to\+\_\+py\+\_\+template}\label{namespacescipy_1_1weave_1_1swig2__spec_ae4058ddac77e8e030972783bc0359818}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \textcolor{stringliteral}{"""}
+2 \textcolor{stringliteral}{PyObject* %(type\_name)s\_to\_py(void *obj)}
+3 \textcolor{stringliteral}{\{}
+4 \textcolor{stringliteral}{    swig\_type\_info *ty = Weave\_SWIG\_TypeQuery("%(c\_type)s");}
+5 \textcolor{stringliteral}{    return SWIG\_NewPointerObj(obj, ty, 0);}
+6 \textcolor{stringliteral}{\}}
+7 \textcolor{stringliteral}{"""}
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1weave_1_1swig2__spec_a8ced6c0ec9978c2a6606ea5c44731cc8}{}\index{scipy\+::weave\+::swig2\+\_\+spec@{scipy\+::weave\+::swig2\+\_\+spec}!swig2\+\_\+common\+\_\+code@{swig2\+\_\+common\+\_\+code}}
+\index{swig2\+\_\+common\+\_\+code@{swig2\+\_\+common\+\_\+code}!scipy\+::weave\+::swig2\+\_\+spec@{scipy\+::weave\+::swig2\+\_\+spec}}
+\subsubsection[{swig2\+\_\+common\+\_\+code}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+weave.\+swig2\+\_\+spec.\+swig2\+\_\+common\+\_\+code = \textbackslash{}}\label{namespacescipy_1_1weave_1_1swig2__spec_a8ced6c0ec9978c2a6606ea5c44731cc8}
+\hypertarget{namespacescipy_1_1weave_1_1swig2__spec_afc8a59f295fd5260d8cbdf1cd9030b5c}{}\index{scipy\+::weave\+::swig2\+\_\+spec@{scipy\+::weave\+::swig2\+\_\+spec}!swig2\+\_\+py\+\_\+to\+\_\+c\+\_\+template@{swig2\+\_\+py\+\_\+to\+\_\+c\+\_\+template}}
+\index{swig2\+\_\+py\+\_\+to\+\_\+c\+\_\+template@{swig2\+\_\+py\+\_\+to\+\_\+c\+\_\+template}!scipy\+::weave\+::swig2\+\_\+spec@{scipy\+::weave\+::swig2\+\_\+spec}}
+\subsubsection[{swig2\+\_\+py\+\_\+to\+\_\+c\+\_\+template}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+weave.\+swig2\+\_\+spec.\+swig2\+\_\+py\+\_\+to\+\_\+c\+\_\+template = \textbackslash{}}\label{namespacescipy_1_1weave_1_1swig2__spec_afc8a59f295fd5260d8cbdf1cd9030b5c}

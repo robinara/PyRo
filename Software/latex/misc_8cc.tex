@@ -1,0 +1,73 @@
+\hypertarget{misc_8cc}{}\section{packages/scipy-\/0.14.0/scipy/weave/blitz/blitz/array/misc.cc File Reference}
+\label{misc_8cc}\index{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/misc.\+cc@{packages/scipy-\/0.\+14.\+0/scipy/weave/blitz/blitz/array/misc.\+cc}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{misc_8cc_a00ed2673a7ebaf50051cc3a21f9fa67f}{B\+Z\+\_\+\+A\+R\+R\+A\+Y\+M\+I\+S\+C\+\_\+\+C\+C}
+\item 
+\#define \hyperlink{misc_8cc_a928099432eafd7726c216f9602e210ec}{B\+Z\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+U\+O\+P}(fn,  fnobj)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T\+\_\+numtype , int N\+\_\+rank, typename T\+\_\+cast $>$ }\\\hyperlink{class__bz__ArrayExpr}{\+\_\+bz\+\_\+\+Array\+Expr}$<$ \hyperlink{class__bz__ArrayExprUnaryOp}{\+\_\+bz\+\_\+\+Array\+Expr\+Unary\+Op}$<$ \hyperlink{classFastArrayIterator}{Fast\+Array\+Iterator}$<$ T\+\_\+numtype, N\+\_\+rank $>$, \hyperlink{structCast}{Cast}$<$ T\+\_\+numtype, T\+\_\+cast $>$ $>$ $>$ \hyperlink{misc_8cc_a9daa1412367d529a53568d8f29dc161a}{cast} (const \hyperlink{classArray}{Array}$<$ T\+\_\+numtype, N\+\_\+rank $>$ \&array, T\+\_\+cast)
+\item 
+{\footnotesize template$<$typename T\+\_\+expr , typename T\+\_\+cast $>$ }\\\hyperlink{class__bz__ArrayExpr}{\+\_\+bz\+\_\+\+Array\+Expr}$<$ \hyperlink{class__bz__ArrayExprUnaryOp}{\+\_\+bz\+\_\+\+Array\+Expr\+Unary\+Op}$<$ \hyperlink{class__bz__ArrayExpr}{\+\_\+bz\+\_\+\+Array\+Expr}$<$ T\+\_\+expr $>$, \hyperlink{structCast}{Cast}$<$ \hyperlink{compiler_8h_a1bc40add3e72effc9cf69dbe445cbdfd}{\+\_\+bz\+\_\+typename} T\+\_\+expr\+::\+T\+\_\+numtype, T\+\_\+cast $>$ $>$ $>$ \hyperlink{misc_8cc_a1028bfebf701b453dfc1d69af9d5c723}{cast} (\hyperlink{tuning_8h_a92a6f3aa8f4cd5ac9b4239c449892bb7}{B\+Z\+\_\+\+E\+T\+P\+A\+R\+M}(\hyperlink{class__bz__ArrayExpr}{\+\_\+bz\+\_\+\+Array\+Expr}$<$ T\+\_\+expr $>$) expr, T\+\_\+cast)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{misc_8cc_a928099432eafd7726c216f9602e210ec}{}\index{misc.\+cc@{misc.\+cc}!B\+Z\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+U\+O\+P@{B\+Z\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+U\+O\+P}}
+\index{B\+Z\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+U\+O\+P@{B\+Z\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+U\+O\+P}!misc.\+cc@{misc.\+cc}}
+\subsubsection[{B\+Z\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+U\+O\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+U\+O\+P(
+\begin{DoxyParamCaption}
+\item[{}]{fn, }
+\item[{}]{fnobj}
+\end{DoxyParamCaption}
+)}\label{misc_8cc_a928099432eafd7726c216f9602e210ec}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T\_numtype, \textcolor{keywordtype}{int} N\_rank>                                  \(\backslash\)
+inline                                                                 \(\backslash\)
+\_bz\_ArrayExpr<\_bz\_ArrayExprUnaryOp<FastArrayIterator<T\_numtype,N\_rank>, \(\backslash\)
+    fnobj<T\_numtype> > >                                               \(\backslash\)
+fn(\textcolor{keyword}{const} \hyperlink{classArray}{Array<T\_numtype,N\_rank>}& array)                               \(\backslash\)
+\{                                                                      \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{class__bz__ArrayExprUnaryOp}{\_bz\_ArrayExprUnaryOp<FastArrayIterator<T\_numtype,N\_rank>}
+      ,   \(\backslash\)
+        fnobj<T\_numtype> >(array.beginFast());                         \(\backslash\)
+\}                                                                      \(\backslash\)
+                                                                       \(\backslash\)
+template<typename T\_expr>                                                 \(\backslash\)
+inline                                                                 \(\backslash\)
+\_bz\_ArrayExpr<\_bz\_ArrayExprUnaryOp<\_bz\_ArrayExpr<T\_expr>,              \(\backslash\)
+    fnobj<\_bz\_typename T\_expr::T\_numtype> > >                          \(\backslash\)
+fn(\hyperlink{tuning_8h_a92a6f3aa8f4cd5ac9b4239c449892bb7}{BZ\_ETPARM}(\hyperlink{class__bz__ArrayExpr}{\_bz\_ArrayExpr<T\_expr>}) expr)                              \(\backslash\)
+\{                                                                      \hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{\(\backslash\)}
+\hyperlink{stencilops_8h_af812494997586a6ae8bc75077b1c486f}{    return} \hyperlink{class__bz__ArrayExprUnaryOp}{\_bz\_ArrayExprUnaryOp<\_bz\_ArrayExpr<T\_expr>}, 
+                      \(\backslash\)
+        fnobj<\_bz\_typename T\_expr::T\_numtype> >(expr);                 \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{misc_8cc_a00ed2673a7ebaf50051cc3a21f9fa67f}{}\index{misc.\+cc@{misc.\+cc}!B\+Z\+\_\+\+A\+R\+R\+A\+Y\+M\+I\+S\+C\+\_\+\+C\+C@{B\+Z\+\_\+\+A\+R\+R\+A\+Y\+M\+I\+S\+C\+\_\+\+C\+C}}
+\index{B\+Z\+\_\+\+A\+R\+R\+A\+Y\+M\+I\+S\+C\+\_\+\+C\+C@{B\+Z\+\_\+\+A\+R\+R\+A\+Y\+M\+I\+S\+C\+\_\+\+C\+C}!misc.\+cc@{misc.\+cc}}
+\subsubsection[{B\+Z\+\_\+\+A\+R\+R\+A\+Y\+M\+I\+S\+C\+\_\+\+C\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+Z\+\_\+\+A\+R\+R\+A\+Y\+M\+I\+S\+C\+\_\+\+C\+C}\label{misc_8cc_a00ed2673a7ebaf50051cc3a21f9fa67f}
+
+
+\subsection{Function Documentation}
+\hypertarget{misc_8cc_a9daa1412367d529a53568d8f29dc161a}{}\index{misc.\+cc@{misc.\+cc}!cast@{cast}}
+\index{cast@{cast}!misc.\+cc@{misc.\+cc}}
+\subsubsection[{cast}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+numtype , int N\+\_\+rank, typename T\+\_\+cast $>$ {\bf \+\_\+bz\+\_\+\+Array\+Expr}$<${\bf \+\_\+bz\+\_\+\+Array\+Expr\+Unary\+Op}$<${\bf Fast\+Array\+Iterator}$<$T\+\_\+numtype,N\+\_\+rank$>$, {\bf Cast}$<$T\+\_\+numtype, T\+\_\+cast$>$ $>$ $>$ cast (
+\begin{DoxyParamCaption}
+\item[{const {\bf Array}$<$ T\+\_\+numtype, N\+\_\+rank $>$ \&}]{array, }
+\item[{T\+\_\+cast}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{misc_8cc_a9daa1412367d529a53568d8f29dc161a}
+\hypertarget{misc_8cc_a1028bfebf701b453dfc1d69af9d5c723}{}\index{misc.\+cc@{misc.\+cc}!cast@{cast}}
+\index{cast@{cast}!misc.\+cc@{misc.\+cc}}
+\subsubsection[{cast}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T\+\_\+expr , typename T\+\_\+cast $>$ {\bf \+\_\+bz\+\_\+\+Array\+Expr}$<${\bf \+\_\+bz\+\_\+\+Array\+Expr\+Unary\+Op}$<${\bf \+\_\+bz\+\_\+\+Array\+Expr}$<$T\+\_\+expr$>$, {\bf Cast}$<${\bf \+\_\+bz\+\_\+typename} T\+\_\+expr\+::\+T\+\_\+numtype,T\+\_\+cast$>$ $>$ $>$ cast (
+\begin{DoxyParamCaption}
+\item[{{\bf B\+Z\+\_\+\+E\+T\+P\+A\+R\+M}({\bf \+\_\+bz\+\_\+\+Array\+Expr}$<$ T\+\_\+expr $>$)}]{expr, }
+\item[{T\+\_\+cast}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{misc_8cc_a1028bfebf701b453dfc1d69af9d5c723}

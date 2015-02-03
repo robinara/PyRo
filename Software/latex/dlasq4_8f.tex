@@ -1,0 +1,115 @@
+\hypertarget{dlasq4_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dlasq4.f File Reference}
+\label{dlasq4_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlasq4.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dlasq4.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dlasq4_8f_a1c9c24724eb452f615cd1695e6b9ee3b}{dlasq4} (I0, N0, Z, P\+P, N0\+I\+N, \hyperlink{zeros_8h_af9a0a96e48b21c87d05acd4ed5117ba0}{D\+M\+I\+N}, D\+M\+I\+N1, D\+M\+I\+N2, D\+N, D\+N1, D\+N2, T\+A\+U, T\+T\+Y\+P\+E, G)
+\begin{DoxyCompactList}\small\item\em {\bfseries D\+L\+A\+S\+Q4} computes an approximation to the smallest eigenvalue using values of d from the previous transform. Used by sbdsqr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dlasq4_8f_a1c9c24724eb452f615cd1695e6b9ee3b}{}\index{dlasq4.\+f@{dlasq4.\+f}!dlasq4@{dlasq4}}
+\index{dlasq4@{dlasq4}!dlasq4.\+f@{dlasq4.\+f}}
+\subsubsection[{dlasq4}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dlasq4 (
+\begin{DoxyParamCaption}
+\item[{integer}]{I0, }
+\item[{integer}]{N0, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{Z, }
+\item[{integer}]{P\+P, }
+\item[{integer}]{N0\+I\+N, }
+\item[{double {\bf precision}}]{D\+M\+I\+N, }
+\item[{double {\bf precision}}]{D\+M\+I\+N1, }
+\item[{double {\bf precision}}]{D\+M\+I\+N2, }
+\item[{double {\bf precision}}]{D\+N, }
+\item[{double {\bf precision}}]{D\+N1, }
+\item[{double {\bf precision}}]{D\+N2, }
+\item[{double {\bf precision}}]{T\+A\+U, }
+\item[{integer}]{T\+T\+Y\+P\+E, }
+\item[{double {\bf precision}}]{G}
+\end{DoxyParamCaption}
+)}\label{dlasq4_8f_a1c9c24724eb452f615cd1695e6b9ee3b}
+
+
+{\bfseries D\+L\+A\+S\+Q4} computes an approximation to the smallest eigenvalue using values of d from the previous transform. Used by sbdsqr. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DLASQ4 computes an approximation TAU to the smallest eigenvalue
+ using values of d from the previous transform.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em I0} & \begin{DoxyVerb}          I0 is INTEGER
+        First index.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N0} & \begin{DoxyVerb}          N0 is INTEGER
+        Last index.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array, dimension ( 4*N )
+        Z holds the qd array.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em P\+P} & \begin{DoxyVerb}          PP is INTEGER
+        PP=0 for ping, PP=1 for pong.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N0\+I\+N} & \begin{DoxyVerb}          N0IN is INTEGER
+        The value of N0 at start of EIGTEST.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+M\+I\+N} & \begin{DoxyVerb}          DMIN is DOUBLE PRECISION
+        Minimum value of d.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+M\+I\+N1} & \begin{DoxyVerb}          DMIN1 is DOUBLE PRECISION
+        Minimum value of d, excluding D( N0 ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+M\+I\+N2} & \begin{DoxyVerb}          DMIN2 is DOUBLE PRECISION
+        Minimum value of d, excluding D( N0 ) and D( N0-1 ).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+N} & \begin{DoxyVerb}          DN is DOUBLE PRECISION
+        d(N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+N1} & \begin{DoxyVerb}          DN1 is DOUBLE PRECISION
+        d(N-1)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+N2} & \begin{DoxyVerb}          DN2 is DOUBLE PRECISION
+        d(N-2)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+A\+U} & \begin{DoxyVerb}          TAU is DOUBLE PRECISION
+        This is the shift.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em T\+T\+Y\+P\+E} & \begin{DoxyVerb}          TTYPE is INTEGER
+        Shift type.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em G} & \begin{DoxyVerb}          G is REAL
+        G is passed as an argument in order to save its value between
+        calls to DLASQ4.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  CNST1 = 9/16\end{DoxyVerb}
+ 
+\end{DoxyParagraph}

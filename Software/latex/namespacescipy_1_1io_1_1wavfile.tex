@@ -1,0 +1,121 @@
+\hypertarget{namespacescipy_1_1io_1_1wavfile}{}\section{scipy.\+io.\+wavfile Namespace Reference}
+\label{namespacescipy_1_1io_1_1wavfile}\index{scipy.\+io.\+wavfile@{scipy.\+io.\+wavfile}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1io_1_1wavfile_1_1WavFileWarning}{Wav\+File\+Warning}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1io_1_1wavfile_a18e68d4b62c5eb5ca5828a1b7d4e4d15}{read}
+\item 
+def \hyperlink{namespacescipy_1_1io_1_1wavfile_a6421e983f177f01d91fddc13d703c094}{write}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacescipy_1_1io_1_1wavfile_a0db23481fd345a156d8206bb4c0a2bcb}{\+\_\+big\+\_\+endian} = \hyperlink{libqhull_8h_a306ebd41c0cd1303b1372c6153f0caf8}{False}
+\item 
+int \hyperlink{namespacescipy_1_1io_1_1wavfile_a5b0c25ef569ec977abb01d996200e311}{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+P\+C\+M} = 0x0001
+\item 
+int \hyperlink{namespacescipy_1_1io_1_1wavfile_a26c5fd4aa66f18206b2bd9bd62f95270}{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+I\+E\+E\+E\+\_\+\+F\+L\+O\+A\+T} = 0x0003
+\item 
+int \hyperlink{namespacescipy_1_1io_1_1wavfile_ad7fdc7a13591401cc2f9301a24871ab1}{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+B\+L\+E} = 0xfffe
+\item 
+tuple \hyperlink{namespacescipy_1_1io_1_1wavfile_a7f4fbb31b40e00678344e94c3edd9d47}{K\+N\+O\+W\+N\+\_\+\+W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+S} = (\hyperlink{namespacescipy_1_1io_1_1wavfile_a5b0c25ef569ec977abb01d996200e311}{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+P\+C\+M}, \hyperlink{namespacescipy_1_1io_1_1wavfile_a26c5fd4aa66f18206b2bd9bd62f95270}{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+I\+E\+E\+E\+\_\+\+F\+L\+O\+A\+T})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Module to read / write wav files using numpy arrays
+
+Functions
+---------
+`read`: Return the sample rate (in samples/sec) and data from a WAV file.
+
+`write`: Write a numpy array as a WAV file.\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1io_1_1wavfile_a18e68d4b62c5eb5ca5828a1b7d4e4d15}{}\index{scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}!read@{read}}
+\index{read@{read}!scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+wavfile.\+read (
+\begin{DoxyParamCaption}
+\item[{}]{filename, }
+\item[{}]{mmap = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1io_1_1wavfile_a18e68d4b62c5eb5ca5828a1b7d4e4d15}
+\begin{DoxyVerb}Return the sample rate (in samples/sec) and data from a WAV file
+
+Parameters
+----------
+filename : string or open file handle
+    Input wav file.
+mmap : bool, optional
+    Whether to read data as memory mapped.
+    Only to be used on real files (Default: False)
+
+    .. versionadded:: 0.12.0
+
+Returns
+-------
+rate : int
+    Sample rate of wav file
+data : numpy array
+    Data read from wav file
+
+Notes
+-----
+
+* The file can be an open file or a filename.
+
+* The returned sample rate is a Python integer
+* The data is returned as a numpy array with a
+  data-type determined from the file.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1io_1_1wavfile_a6421e983f177f01d91fddc13d703c094}{}\index{scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}!write@{write}}
+\index{write@{write}!scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+io.\+wavfile.\+write (
+\begin{DoxyParamCaption}
+\item[{}]{filename, }
+\item[{}]{rate, }
+\item[{}]{data}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1io_1_1wavfile_a6421e983f177f01d91fddc13d703c094}
+\begin{DoxyVerb}Write a numpy array as a WAV file
+
+Parameters
+----------
+filename : string or open file handle
+    Output wav file
+rate : int
+    The sample rate (in samples/sec).
+data : ndarray
+    A 1-D or 2-D numpy array of either integer or float data-type.
+
+Notes
+-----
+* The file can be an open file or a filename.
+
+* Writes a simple uncompressed WAV file.
+* The bits-per-sample will be determined by the data-type.
+* To write multiple-channels, use a 2-D array of shape
+  (Nsamples, Nchannels).\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1io_1_1wavfile_a0db23481fd345a156d8206bb4c0a2bcb}{}\index{scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}!\+\_\+big\+\_\+endian@{\+\_\+big\+\_\+endian}}
+\index{\+\_\+big\+\_\+endian@{\+\_\+big\+\_\+endian}!scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}}
+\subsubsection[{\+\_\+big\+\_\+endian}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+io.\+wavfile.\+\_\+big\+\_\+endian = {\bf False}}\label{namespacescipy_1_1io_1_1wavfile_a0db23481fd345a156d8206bb4c0a2bcb}
+\hypertarget{namespacescipy_1_1io_1_1wavfile_a7f4fbb31b40e00678344e94c3edd9d47}{}\index{scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}!K\+N\+O\+W\+N\+\_\+\+W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+S@{K\+N\+O\+W\+N\+\_\+\+W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+S}}
+\index{K\+N\+O\+W\+N\+\_\+\+W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+S@{K\+N\+O\+W\+N\+\_\+\+W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+S}!scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}}
+\subsubsection[{K\+N\+O\+W\+N\+\_\+\+W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+io.\+wavfile.\+K\+N\+O\+W\+N\+\_\+\+W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+S = ({\bf W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+P\+C\+M}, {\bf W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+I\+E\+E\+E\+\_\+\+F\+L\+O\+A\+T})}\label{namespacescipy_1_1io_1_1wavfile_a7f4fbb31b40e00678344e94c3edd9d47}
+\hypertarget{namespacescipy_1_1io_1_1wavfile_ad7fdc7a13591401cc2f9301a24871ab1}{}\index{scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}!W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+B\+L\+E@{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+B\+L\+E}}
+\index{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+B\+L\+E@{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+B\+L\+E}!scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}}
+\subsubsection[{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+B\+L\+E}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+io.\+wavfile.\+W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+X\+T\+E\+N\+S\+I\+B\+L\+E = 0xfffe}\label{namespacescipy_1_1io_1_1wavfile_ad7fdc7a13591401cc2f9301a24871ab1}
+\hypertarget{namespacescipy_1_1io_1_1wavfile_a26c5fd4aa66f18206b2bd9bd62f95270}{}\index{scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}!W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+I\+E\+E\+E\+\_\+\+F\+L\+O\+A\+T@{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+I\+E\+E\+E\+\_\+\+F\+L\+O\+A\+T}}
+\index{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+I\+E\+E\+E\+\_\+\+F\+L\+O\+A\+T@{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+I\+E\+E\+E\+\_\+\+F\+L\+O\+A\+T}!scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}}
+\subsubsection[{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+I\+E\+E\+E\+\_\+\+F\+L\+O\+A\+T}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+io.\+wavfile.\+W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+I\+E\+E\+E\+\_\+\+F\+L\+O\+A\+T = 0x0003}\label{namespacescipy_1_1io_1_1wavfile_a26c5fd4aa66f18206b2bd9bd62f95270}
+\hypertarget{namespacescipy_1_1io_1_1wavfile_a5b0c25ef569ec977abb01d996200e311}{}\index{scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}!W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+P\+C\+M@{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+P\+C\+M}}
+\index{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+P\+C\+M@{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+P\+C\+M}!scipy\+::io\+::wavfile@{scipy\+::io\+::wavfile}}
+\subsubsection[{W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+P\+C\+M}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+io.\+wavfile.\+W\+A\+V\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+P\+C\+M = 0x0001}\label{namespacescipy_1_1io_1_1wavfile_a5b0c25ef569ec977abb01d996200e311}

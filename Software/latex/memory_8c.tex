@@ -1,0 +1,107 @@
+\hypertarget{memory_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/memory.c File Reference}
+\label{memory_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/memory.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/memory.\+c}}
+
+
+Precision-\/independent memory-\/related routines.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+ddefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{memory_8c_a9ab2cc28807c3b5f5ca8eb9b85ea1f3f}{superlu\+\_\+malloc} (size\+\_\+t size)
+\item 
+void \hyperlink{memory_8c_a50cc6d9102542bf48b24f6d21cfa7deb}{superlu\+\_\+free} (void $\ast$addr)
+\item 
+void \hyperlink{memory_8c_adbbe5a57b4ed64564c887fb52d798c54}{Set\+I\+Work} (int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int panel\+\_\+size, int $\ast$iworkptr, int $\ast$$\ast$segrep, int $\ast$$\ast$parent, int $\ast$$\ast$xplore, int $\ast$$\ast$repfnz, int $\ast$$\ast$panel\+\_\+lsub, int $\ast$$\ast$xprune, int $\ast$$\ast$marker)
+\begin{DoxyCompactList}\small\item\em Set up pointers for integer working arrays. \end{DoxyCompactList}\item 
+void \hyperlink{memory_8c_a3b606bbd7cce73c19bffca851721e9ac}{copy\+\_\+mem\+\_\+int} (int howmany, void $\ast$old, void $\ast$new)
+\item 
+void \hyperlink{memory_8c_a9a6637190072609a7dcdec007bd98113}{user\+\_\+bcopy} (char $\ast$src, char $\ast$dest, int bytes)
+\item 
+int $\ast$ \hyperlink{memory_8c_a49bbe20102e5b541c8e8963afa2bd46a}{int\+Malloc} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\item 
+int $\ast$ \hyperlink{memory_8c_aaf51f82a79c361236a2d825a59a63403}{int\+Calloc} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Precision-\/independent memory-\/related routines. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{memory_8c_a3b606bbd7cce73c19bffca851721e9ac}{}\index{memory.\+c@{memory.\+c}!copy\+\_\+mem\+\_\+int@{copy\+\_\+mem\+\_\+int}}
+\index{copy\+\_\+mem\+\_\+int@{copy\+\_\+mem\+\_\+int}!memory.\+c@{memory.\+c}}
+\subsubsection[{copy\+\_\+mem\+\_\+int}]{\setlength{\rightskip}{0pt plus 5cm}void copy\+\_\+mem\+\_\+int (
+\begin{DoxyParamCaption}
+\item[{int}]{howmany, }
+\item[{void $\ast$}]{old, }
+\item[{void $\ast$}]{new}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a3b606bbd7cce73c19bffca851721e9ac}
+\hypertarget{memory_8c_aaf51f82a79c361236a2d825a59a63403}{}\index{memory.\+c@{memory.\+c}!int\+Calloc@{int\+Calloc}}
+\index{int\+Calloc@{int\+Calloc}!memory.\+c@{memory.\+c}}
+\subsubsection[{int\+Calloc}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ int\+Calloc (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{memory_8c_aaf51f82a79c361236a2d825a59a63403}
+\hypertarget{memory_8c_a49bbe20102e5b541c8e8963afa2bd46a}{}\index{memory.\+c@{memory.\+c}!int\+Malloc@{int\+Malloc}}
+\index{int\+Malloc@{int\+Malloc}!memory.\+c@{memory.\+c}}
+\subsubsection[{int\+Malloc}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ int\+Malloc (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a49bbe20102e5b541c8e8963afa2bd46a}
+\hypertarget{memory_8c_adbbe5a57b4ed64564c887fb52d798c54}{}\index{memory.\+c@{memory.\+c}!Set\+I\+Work@{Set\+I\+Work}}
+\index{Set\+I\+Work@{Set\+I\+Work}!memory.\+c@{memory.\+c}}
+\subsubsection[{Set\+I\+Work}]{\setlength{\rightskip}{0pt plus 5cm}void Set\+I\+Work (
+\begin{DoxyParamCaption}
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{panel\+\_\+size, }
+\item[{int $\ast$}]{iworkptr, }
+\item[{int $\ast$$\ast$}]{segrep, }
+\item[{int $\ast$$\ast$}]{parent, }
+\item[{int $\ast$$\ast$}]{xplore, }
+\item[{int $\ast$$\ast$}]{repfnz, }
+\item[{int $\ast$$\ast$}]{panel\+\_\+lsub, }
+\item[{int $\ast$$\ast$}]{xprune, }
+\item[{int $\ast$$\ast$}]{marker}
+\end{DoxyParamCaption}
+)}\label{memory_8c_adbbe5a57b4ed64564c887fb52d798c54}
+
+
+Set up pointers for integer working arrays. 
+
+\hypertarget{memory_8c_a50cc6d9102542bf48b24f6d21cfa7deb}{}\index{memory.\+c@{memory.\+c}!superlu\+\_\+free@{superlu\+\_\+free}}
+\index{superlu\+\_\+free@{superlu\+\_\+free}!memory.\+c@{memory.\+c}}
+\subsubsection[{superlu\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}void superlu\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a50cc6d9102542bf48b24f6d21cfa7deb}
+\hypertarget{memory_8c_a9ab2cc28807c3b5f5ca8eb9b85ea1f3f}{}\index{memory.\+c@{memory.\+c}!superlu\+\_\+malloc@{superlu\+\_\+malloc}}
+\index{superlu\+\_\+malloc@{superlu\+\_\+malloc}!memory.\+c@{memory.\+c}}
+\subsubsection[{superlu\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ superlu\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a9ab2cc28807c3b5f5ca8eb9b85ea1f3f}
+Precision-\/independent memory-\/related routines. (Shared by \mbox{[}sdcz\mbox{]}\hyperlink{memory_8c}{memory.\+c}) \hypertarget{memory_8c_a9a6637190072609a7dcdec007bd98113}{}\index{memory.\+c@{memory.\+c}!user\+\_\+bcopy@{user\+\_\+bcopy}}
+\index{user\+\_\+bcopy@{user\+\_\+bcopy}!memory.\+c@{memory.\+c}}
+\subsubsection[{user\+\_\+bcopy}]{\setlength{\rightskip}{0pt plus 5cm}void user\+\_\+bcopy (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{src, }
+\item[{char $\ast$}]{dest, }
+\item[{int}]{bytes}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a9a6637190072609a7dcdec007bd98113}

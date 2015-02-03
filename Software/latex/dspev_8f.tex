@@ -1,0 +1,105 @@
+\hypertarget{dspev_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/dspev.f File Reference}
+\label{dspev_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dspev.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/dspev.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{dspev_8f_aa31d35b52c937fdbacaa2e034d8bb52b}{dspev} (J\+O\+B\+Z, U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, A\+P, W, Z, L\+D\+Z, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries  D\+S\+P\+E\+V computes the eigenvalues and, optionally, the left and/or right eigenvectors for O\+T\+H\+E\+R matrices} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{dspev_8f_aa31d35b52c937fdbacaa2e034d8bb52b}{}\index{dspev.\+f@{dspev.\+f}!dspev@{dspev}}
+\index{dspev@{dspev}!dspev.\+f@{dspev.\+f}}
+\subsubsection[{dspev}]{\setlength{\rightskip}{0pt plus 5cm}subroutine dspev (
+\begin{DoxyParamCaption}
+\item[{character}]{J\+O\+B\+Z, }
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{A\+P, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W, }
+\item[{double {\bf precision}, dimension( ldz, $\ast$ )}]{Z, }
+\item[{integer}]{L\+D\+Z, }
+\item[{double {\bf precision}, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{dspev_8f_aa31d35b52c937fdbacaa2e034d8bb52b}
+
+
+{\bfseries  D\+S\+P\+E\+V computes the eigenvalues and, optionally, the left and/or right eigenvectors for O\+T\+H\+E\+R matrices} 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} DSPEV computes all the eigenvalues and, optionally, eigenvectors of a
+ real symmetric matrix A in packed storage.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em J\+O\+B\+Z} & \begin{DoxyVerb}          JOBZ is CHARACTER*1
+          = 'N':  Compute eigenvalues only;
+          = 'V':  Compute eigenvalues and eigenvectors.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          = 'U':  Upper triangle of A is stored;
+          = 'L':  Lower triangle of A is stored.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em A\+P} & \begin{DoxyVerb}          AP is DOUBLE PRECISION array, dimension (N*(N+1)/2)
+          On entry, the upper or lower triangle of the symmetric matrix
+          A, packed columnwise in a linear array.  The j-th column of A
+          is stored in the array AP as follows:
+          if UPLO = 'U', AP(i + (j-1)*j/2) = A(i,j) for 1<=i<=j;
+          if UPLO = 'L', AP(i + (j-1)*(2*n-j)/2) = A(i,j) for j<=i<=n.
+
+          On exit, AP is overwritten by values generated during the
+          reduction to tridiagonal form.  If UPLO = 'U', the diagonal
+          and first superdiagonal of the tridiagonal matrix T overwrite
+          the corresponding elements of A, and if UPLO = 'L', the
+          diagonal and first subdiagonal of T overwrite the
+          corresponding elements of A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W} & \begin{DoxyVerb}          W is DOUBLE PRECISION array, dimension (N)
+          If INFO = 0, the eigenvalues in ascending order.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em Z} & \begin{DoxyVerb}          Z is DOUBLE PRECISION array, dimension (LDZ, N)
+          If JOBZ = 'V', then if INFO = 0, Z contains the orthonormal
+          eigenvectors of the matrix A, with the i-th column of Z
+          holding the eigenvector associated with W(i).
+          If JOBZ = 'N', then Z is not referenced.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+Z} & \begin{DoxyVerb}          LDZ is INTEGER
+          The leading dimension of the array Z.  LDZ >= 1, and if
+          JOBZ = 'V', LDZ >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is DOUBLE PRECISION array, dimension (3*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit.
+          < 0:  if INFO = -i, the i-th argument had an illegal value.
+          > 0:  if INFO = i, the algorithm failed to converge; i
+                off-diagonal elements of an intermediate tridiagonal
+                form did not converge to zero.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2011 
+\end{DoxyDate}

@@ -1,0 +1,176 @@
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Data}{}\section{scipy.\+odr.\+odrpack.\+Data Class Reference}
+\label{classscipy_1_1odr_1_1odrpack_1_1Data}\index{scipy.\+odr.\+odrpack.\+Data@{scipy.\+odr.\+odrpack.\+Data}}
+Inheritance diagram for scipy.\+odr.\+odrpack.\+Data\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classscipy_1_1odr_1_1odrpack_1_1Data}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Data_a35306ddd79f29d59cf5ced315f3ef0bd}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Data_a7895a3d9d8a73158d4d7a0beadce1644}{set\+\_\+meta}
+\item 
+def \hyperlink{classscipy_1_1odr_1_1odrpack_1_1Data_a7d9ee1d45768849adcec8f3930cbe49f}{\+\_\+\+\_\+getattr\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1Data_a8be6f83ceeac7832a691aa050c861ecd}{x}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1Data_a552d99ca532d3351ada6e84ffde9fe53}{y}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1Data_aba677c7f1c684326b12b920f62f34a37}{we}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1Data_a621ccbbaea7977020d7eabc40adfd0a5}{wd}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1Data_aed98ff89f22fa65cf045a06e757cc753}{fix}
+\item 
+\hyperlink{classscipy_1_1odr_1_1odrpack_1_1Data_aeb7c2e5ead57779d186665409bd02c58}{meta}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}The data to fit.
+
+Parameters
+----------
+x : array_like
+    Input data for regression.
+y : array_like, optional
+    Input data for regression.
+we : array_like, optional
+    If `we` is a scalar, then that value is used for all data points (and
+    all dimensions of the response variable).
+    If `we` is a rank-1 array of length q (the dimensionality of the
+    response variable), then this vector is the diagonal of the covariant
+    weighting matrix for all data points.
+    If `we` is a rank-1 array of length n (the number of data points), then
+    the i'th element is the weight for the i'th response variable
+    observation (single-dimensional only).
+    If `we` is a rank-2 array of shape (q, q), then this is the full
+    covariant weighting matrix broadcast to each observation.
+    If `we` is a rank-2 array of shape (q, n), then `we[:,i]` is the
+    diagonal of the covariant weighting matrix for the i'th observation.
+    If `we` is a rank-3 array of shape (q, q, n), then `we[:,:,i]` is the
+    full specification of the covariant weighting matrix for each
+    observation.
+    If the fit is implicit, then only a positive scalar value is used.
+wd : array_like, optional
+    If `wd` is a scalar, then that value is used for all data points
+    (and all dimensions of the input variable). If `wd` = 0, then the
+    covariant weighting matrix for each observation is set to the identity
+    matrix (so each dimension of each observation has the same weight).
+    If `wd` is a rank-1 array of length m (the dimensionality of the input
+    variable), then this vector is the diagonal of the covariant weighting
+    matrix for all data points.
+    If `wd` is a rank-1 array of length n (the number of data points), then
+    the i'th element is the weight for the i'th input variable observation
+    (single-dimensional only).
+    If `wd` is a rank-2 array of shape (m, m), then this is the full
+    covariant weighting matrix broadcast to each observation.
+    If `wd` is a rank-2 array of shape (m, n), then `wd[:,i]` is the
+    diagonal of the covariant weighting matrix for the i'th observation.
+    If `wd` is a rank-3 array of shape (m, m, n), then `wd[:,:,i]` is the
+    full specification of the covariant weighting matrix for each
+    observation.
+fix : array_like of ints, optional
+    The `fix` argument is the same as ifixx in the class ODR. It is an
+    array of integers with the same shape as data.x that determines which
+    input observations are treated as fixed. One can use a sequence of
+    length m (the dimensionality of the input observations) to fix some
+    dimensions for all observations. A value of 0 fixes the observation,
+    a value > 0 makes it free.
+meta : dict, optional
+    Free-form dictionary for metadata.
+
+Notes
+-----
+Each argument is attached to the member of the instance of the same name.
+The structures of `x` and `y` are described in the Model class docstring.
+If `y` is an integer, then the Data instance can only be used to fit with
+implicit models where the dimensionality of the response is equal to the
+specified value of `y`.
+
+The `we` argument weights the effect a deviation in the response variable
+has on the fit.  The `wd` argument weights the effect a deviation in the
+input variable has on the fit. To handle multidimensional inputs and
+responses easily, the structure of these arguments has the n'th
+dimensional axis first. These arguments heavily use the structured
+arguments feature of ODRPACK to conveniently and flexibly support all
+options. See the ODRPACK User's Guide for a full explanation of how these
+weights are used in the algorithm. Basically, a higher value of the weight
+for a particular data point makes a deviation at that point more
+detrimental to the fit.\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Data_a35306ddd79f29d59cf5ced315f3ef0bd}{}\index{scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+odr.\+odrpack.\+Data.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y = {\ttfamily None}, }
+\item[{}]{we = {\ttfamily None}, }
+\item[{}]{wd = {\ttfamily None}, }
+\item[{}]{fix = {\ttfamily None}, }
+\item[{}]{meta = {\ttfamily \{\}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1odr_1_1odrpack_1_1Data_a35306ddd79f29d59cf5ced315f3ef0bd}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Data_a7d9ee1d45768849adcec8f3930cbe49f}{}\index{scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}!\+\_\+\+\_\+getattr\+\_\+\+\_\+@{\+\_\+\+\_\+getattr\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+getattr\+\_\+\+\_\+@{\+\_\+\+\_\+getattr\+\_\+\+\_\+}!scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}}
+\subsubsection[{\+\_\+\+\_\+getattr\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+odr.\+odrpack.\+Data.\+\_\+\+\_\+getattr\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{attr}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1odr_1_1odrpack_1_1Data_a7d9ee1d45768849adcec8f3930cbe49f}
+\begin{DoxyVerb}Dispatch attribute access to the metadata dictionary.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1odr_1_1odrpack_1_1Data_a7895a3d9d8a73158d4d7a0beadce1644}{}\index{scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}!set\+\_\+meta@{set\+\_\+meta}}
+\index{set\+\_\+meta@{set\+\_\+meta}!scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}}
+\subsubsection[{set\+\_\+meta}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+odr.\+odrpack.\+Data.\+set\+\_\+meta (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{kwds}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1odr_1_1odrpack_1_1Data_a7895a3d9d8a73158d4d7a0beadce1644}
+\begin{DoxyVerb}Update the metadata dictionary with the keywords and data provided
+by keywords.
+
+Examples
+--------
+>>> data.set_meta(lab="Ph 7; Lab 26", title="Ag110 + Ag108 Decay")
+\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Data_aed98ff89f22fa65cf045a06e757cc753}{}\index{scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}!fix@{fix}}
+\index{fix@{fix}!scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}}
+\subsubsection[{fix}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Data.\+fix}\label{classscipy_1_1odr_1_1odrpack_1_1Data_aed98ff89f22fa65cf045a06e757cc753}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Data_aeb7c2e5ead57779d186665409bd02c58}{}\index{scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}!meta@{meta}}
+\index{meta@{meta}!scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}}
+\subsubsection[{meta}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Data.\+meta}\label{classscipy_1_1odr_1_1odrpack_1_1Data_aeb7c2e5ead57779d186665409bd02c58}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Data_a621ccbbaea7977020d7eabc40adfd0a5}{}\index{scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}!wd@{wd}}
+\index{wd@{wd}!scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}}
+\subsubsection[{wd}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Data.\+wd}\label{classscipy_1_1odr_1_1odrpack_1_1Data_a621ccbbaea7977020d7eabc40adfd0a5}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Data_aba677c7f1c684326b12b920f62f34a37}{}\index{scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}!we@{we}}
+\index{we@{we}!scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}}
+\subsubsection[{we}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Data.\+we}\label{classscipy_1_1odr_1_1odrpack_1_1Data_aba677c7f1c684326b12b920f62f34a37}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Data_a8be6f83ceeac7832a691aa050c861ecd}{}\index{scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}!x@{x}}
+\index{x@{x}!scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Data.\+x}\label{classscipy_1_1odr_1_1odrpack_1_1Data_a8be6f83ceeac7832a691aa050c861ecd}
+\hypertarget{classscipy_1_1odr_1_1odrpack_1_1Data_a552d99ca532d3351ada6e84ffde9fe53}{}\index{scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}!y@{y}}
+\index{y@{y}!scipy\+::odr\+::odrpack\+::\+Data@{scipy\+::odr\+::odrpack\+::\+Data}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+odr.\+odrpack.\+Data.\+y}\label{classscipy_1_1odr_1_1odrpack_1_1Data_a552d99ca532d3351ada6e84ffde9fe53}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/odr/\hyperlink{odrpack_8py}{odrpack.\+py}\end{DoxyCompactItemize}

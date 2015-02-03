@@ -1,0 +1,327 @@
+\hypertarget{zutil_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zutil.c File Reference}
+\label{zutil_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zutil.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/zutil.\+c}}
+
+
+\hyperlink{classMatrix}{Matrix} utility functions.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+zdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{zutil_8c_a349f23fdb4e958cc6da8e890554b9868}{z\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nnz, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$nzval, int $\ast$rowind, int $\ast$colptr, \hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}{Stype\+\_\+t} stype, \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}{Dtype\+\_\+t} dtype, \hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60}{Mtype\+\_\+t} mtype)
+\begin{DoxyCompactList}\small\item\em Supernodal L\+U factor related. \end{DoxyCompactList}\item 
+void \hyperlink{zutil_8c_abbb9f38872629121898fe588e5cf9c46}{z\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nnz, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$nzval, int $\ast$colind, int $\ast$rowptr, \hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}{Stype\+\_\+t} stype, \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}{Dtype\+\_\+t} dtype, \hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60}{Mtype\+\_\+t} mtype)
+\item 
+void \hyperlink{zutil_8c_a6d326511607c3cb8c0b654b675bd3700}{z\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$B)
+\begin{DoxyCompactList}\small\item\em Copy matrix \hyperlink{classA}{A} into matrix B. \end{DoxyCompactList}\item 
+void \hyperlink{zutil_8c_a8316b5e4832ca200a14d14f5ed164695}{z\+Create\+\_\+\+Dense\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$X, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, int ldx, \hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}{Stype\+\_\+t} stype, \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}{Dtype\+\_\+t} dtype, \hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60}{Mtype\+\_\+t} mtype)
+\item 
+void \hyperlink{zutil_8c_a6632ad6334d30a38c9e8b026a3983b65}{z\+Copy\+\_\+\+Dense\+\_\+\+Matrix} (int M, int \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$X, int ldx, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$Y, int ldy)
+\item 
+void \hyperlink{zutil_8c_a43150b5d7a29eebba2f8de5c2a35d645}{z\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nnz, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$nzval, int $\ast$nzval\+\_\+colptr, int $\ast$rowind, int $\ast$rowind\+\_\+colptr, int $\ast$col\+\_\+to\+\_\+sup, int $\ast$sup\+\_\+to\+\_\+col, \hyperlink{supermatrix_8h_a9d2ddedeb2a3d92e950811c61d0b8796}{Stype\+\_\+t} stype, \hyperlink{supermatrix_8h_a7987cb2a28ec879b39a90e9e48e29190}{Dtype\+\_\+t} dtype, \hyperlink{supermatrix_8h_a5962adac634f3feebe487ad443802d60}{Mtype\+\_\+t} mtype)
+\item 
+void \hyperlink{zutil_8c_aee4cad234e4df121da5386a86754dd4d}{z\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col} (int \hyperlink{indexexpr_8h_ab72fdb4031d47b75ab26dd18a437bcdc}{m}, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nnz, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, int $\ast$colind, int $\ast$rowptr, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$$\ast$at, int $\ast$$\ast$rowind, int $\ast$$\ast$colptr)
+\begin{DoxyCompactList}\small\item\em Convert a row compressed storage into a column compressed storage. \end{DoxyCompactList}\item 
+void \hyperlink{zutil_8c_a7f3c67eba79f4d63a7ef19781935985d}{z\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix} (char $\ast$what, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\begin{DoxyCompactList}\small\item\em Routines for debugging. \end{DoxyCompactList}\item 
+void \hyperlink{zutil_8c_a12d2264eb0e17728142e651de7cc8f9c}{z\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix} (char $\ast$what, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\item 
+void \hyperlink{zutil_8c_ad665640e89334e9f7a57355e030ff63d}{z\+Print\+\_\+\+Dense\+\_\+\+Matrix} (char $\ast$what, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A})
+\item 
+void \hyperlink{zutil_8c_a8083f641fd96ede2f54db44d18f984e9}{zprint\+\_\+lu\+\_\+col} (char $\ast$msg, int jcol, int pivrow, int $\ast$xprune, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu)
+\begin{DoxyCompactList}\small\item\em Diagnostic print of column \char`\"{}jcol\char`\"{} in the U/\+L factor. \end{DoxyCompactList}\item 
+void \hyperlink{zutil_8c_abbfe87885f0f664d31b4f6fcf2180127}{zcheck\+\_\+tempv} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$tempv)
+\begin{DoxyCompactList}\small\item\em Check whether tempv\mbox{[}\mbox{]} == 0. This should be true before and after calling any numeric routines, i.\+e., \char`\"{}panel\+\_\+bmod\char`\"{} and \char`\"{}column\+\_\+bmod\char`\"{}. \end{DoxyCompactList}\item 
+void \hyperlink{zutil_8c_aa81fbc4bdd835def817191d94fb8b208}{z\+Gen\+Xtrue} (int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, int nrhs, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, int ldx)
+\item 
+void \hyperlink{zutil_8c_acf2b404121b9a70942631f50b85fd8a1}{z\+Fill\+R\+H\+S} (\hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62}{trans\+\_\+t} trans, int nrhs, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$\hyperlink{vecnorm1_8cc_ac73eed9e41ec09d58f112f06c2d6cb63}{x}, int ldx, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$\hyperlink{classA}{A}, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$B)
+\begin{DoxyCompactList}\small\item\em Let rhs\mbox{[}i\mbox{]} = sum of i-\/th row of \hyperlink{classA}{A}, so the solution vector is all 1's. \end{DoxyCompactList}\item 
+void \hyperlink{zutil_8c_ac1c222f7cb3253d97408d9395d6919d4}{zfill} (\hyperlink{structdoublecomplex}{doublecomplex} $\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, int alen, \hyperlink{structdoublecomplex}{doublecomplex} dval)
+\begin{DoxyCompactList}\small\item\em Fills a doublecomplex precision array with a given value. \end{DoxyCompactList}\item 
+void \hyperlink{zutil_8c_a0c645d9e2d757c5f5fa1ecd67f0c2a07}{zinf\+\_\+norm\+\_\+error} (int nrhs, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$X, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$xtrue)
+\begin{DoxyCompactList}\small\item\em Check the inf-\/norm of the error vector. \end{DoxyCompactList}\item 
+void \hyperlink{zutil_8c_a0807017bff32a20ff59820583a9e038d}{z\+Print\+Perf} (\hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$L, \hyperlink{structSuperMatrix}{Super\+Matrix} $\ast$U, \hyperlink{structmem__usage__t}{mem\+\_\+usage\+\_\+t} $\ast$mem\+\_\+usage, double rpg, double rcond, double $\ast$ferr, double $\ast$berr, char $\ast$equed, \hyperlink{structSuperLUStat__t}{Super\+L\+U\+Stat\+\_\+t} $\ast$stat)
+\begin{DoxyCompactList}\small\item\em Print performance of the code. \end{DoxyCompactList}\item 
+\hyperlink{zutil_8c_ad40a765de4b05c0ab07d3299aa93b6da}{print\+\_\+doublecomplex\+\_\+vec} (char $\ast$what, int \hyperlink{indexexpr_8h_ab427e2e2b4d6cec55fa088ea2a692ace}{n}, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$vec)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classMatrix}{Matrix} utility functions. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 3.1) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+August 1, 2008\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Copyright (c) 1994 by Xerox Corporation.  All rights reserved.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}THIS MATERIAL IS PROVIDED AS IS, WITH ABSOLUTELY NO WARRANTY
+EXPRESSED OR IMPLIED.  ANY USE IS AT YOUR OWN RISK.\end{DoxyPre}
+
+
+
+\begin{DoxyPre}Permission is hereby granted to use or copy this program for any
+purpose, provided the above notices are retained on all copies.
+Permission to modify the code and to distribute modified code is
+granted, provided the above notices are retained, and a notice that
+the code was modified is included with the above copyright notice.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{zutil_8c_ad40a765de4b05c0ab07d3299aa93b6da}{}\index{zutil.\+c@{zutil.\+c}!print\+\_\+doublecomplex\+\_\+vec@{print\+\_\+doublecomplex\+\_\+vec}}
+\index{print\+\_\+doublecomplex\+\_\+vec@{print\+\_\+doublecomplex\+\_\+vec}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{print\+\_\+doublecomplex\+\_\+vec}]{\setlength{\rightskip}{0pt plus 5cm}print\+\_\+doublecomplex\+\_\+vec (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{what, }
+\item[{int}]{n, }
+\item[{{\bf doublecomplex} $\ast$}]{vec}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_ad40a765de4b05c0ab07d3299aa93b6da}
+\hypertarget{zutil_8c_abbfe87885f0f664d31b4f6fcf2180127}{}\index{zutil.\+c@{zutil.\+c}!zcheck\+\_\+tempv@{zcheck\+\_\+tempv}}
+\index{zcheck\+\_\+tempv@{zcheck\+\_\+tempv}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{zcheck\+\_\+tempv}]{\setlength{\rightskip}{0pt plus 5cm}void zcheck\+\_\+tempv (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{{\bf doublecomplex} $\ast$}]{tempv}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_abbfe87885f0f664d31b4f6fcf2180127}
+
+
+Check whether tempv\mbox{[}\mbox{]} == 0. This should be true before and after calling any numeric routines, i.\+e., \char`\"{}panel\+\_\+bmod\char`\"{} and \char`\"{}column\+\_\+bmod\char`\"{}. 
+
+\hypertarget{zutil_8c_aee4cad234e4df121da5386a86754dd4d}{}\index{zutil.\+c@{zutil.\+c}!z\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col@{z\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col}}
+\index{z\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col@{z\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Comp\+Row\+\_\+to\+\_\+\+Comp\+Col (
+\begin{DoxyParamCaption}
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{nnz, }
+\item[{{\bf doublecomplex} $\ast$}]{a, }
+\item[{int $\ast$}]{colind, }
+\item[{int $\ast$}]{rowptr, }
+\item[{{\bf doublecomplex} $\ast$$\ast$}]{at, }
+\item[{int $\ast$$\ast$}]{rowind, }
+\item[{int $\ast$$\ast$}]{colptr}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_aee4cad234e4df121da5386a86754dd4d}
+
+
+Convert a row compressed storage into a column compressed storage. 
+
+\hypertarget{zutil_8c_a6d326511607c3cb8c0b654b675bd3700}{}\index{zutil.\+c@{zutil.\+c}!z\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix@{z\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix}}
+\index{z\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix@{z\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Copy\+\_\+\+Comp\+Col\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_a6d326511607c3cb8c0b654b675bd3700}
+
+
+Copy matrix \hyperlink{classA}{A} into matrix B. 
+
+\hypertarget{zutil_8c_a6632ad6334d30a38c9e8b026a3983b65}{}\index{zutil.\+c@{zutil.\+c}!z\+Copy\+\_\+\+Dense\+\_\+\+Matrix@{z\+Copy\+\_\+\+Dense\+\_\+\+Matrix}}
+\index{z\+Copy\+\_\+\+Dense\+\_\+\+Matrix@{z\+Copy\+\_\+\+Dense\+\_\+\+Matrix}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Copy\+\_\+\+Dense\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Copy\+\_\+\+Dense\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{int}]{M, }
+\item[{int}]{N, }
+\item[{{\bf doublecomplex} $\ast$}]{X, }
+\item[{int}]{ldx, }
+\item[{{\bf doublecomplex} $\ast$}]{Y, }
+\item[{int}]{ldy}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_a6632ad6334d30a38c9e8b026a3983b65}
+Copies a two-\/dimensional matrix X to another matrix Y.\hypertarget{zutil_8c_a349f23fdb4e958cc6da8e890554b9868}{}\index{zutil.\+c@{zutil.\+c}!z\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix@{z\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix}}
+\index{z\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix@{z\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Create\+\_\+\+Comp\+Col\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{nnz, }
+\item[{{\bf doublecomplex} $\ast$}]{nzval, }
+\item[{int $\ast$}]{rowind, }
+\item[{int $\ast$}]{colptr, }
+\item[{{\bf Stype\+\_\+t}}]{stype, }
+\item[{{\bf Dtype\+\_\+t}}]{dtype, }
+\item[{{\bf Mtype\+\_\+t}}]{mtype}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_a349f23fdb4e958cc6da8e890554b9868}
+
+
+Supernodal L\+U factor related. 
+
+\hypertarget{zutil_8c_abbb9f38872629121898fe588e5cf9c46}{}\index{zutil.\+c@{zutil.\+c}!z\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix@{z\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix}}
+\index{z\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix@{z\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Create\+\_\+\+Comp\+Row\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{nnz, }
+\item[{{\bf doublecomplex} $\ast$}]{nzval, }
+\item[{int $\ast$}]{colind, }
+\item[{int $\ast$}]{rowptr, }
+\item[{{\bf Stype\+\_\+t}}]{stype, }
+\item[{{\bf Dtype\+\_\+t}}]{dtype, }
+\item[{{\bf Mtype\+\_\+t}}]{mtype}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_abbb9f38872629121898fe588e5cf9c46}
+\hypertarget{zutil_8c_a8316b5e4832ca200a14d14f5ed164695}{}\index{zutil.\+c@{zutil.\+c}!z\+Create\+\_\+\+Dense\+\_\+\+Matrix@{z\+Create\+\_\+\+Dense\+\_\+\+Matrix}}
+\index{z\+Create\+\_\+\+Dense\+\_\+\+Matrix@{z\+Create\+\_\+\+Dense\+\_\+\+Matrix}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Create\+\_\+\+Dense\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Create\+\_\+\+Dense\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{X, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{{\bf doublecomplex} $\ast$}]{x, }
+\item[{int}]{ldx, }
+\item[{{\bf Stype\+\_\+t}}]{stype, }
+\item[{{\bf Dtype\+\_\+t}}]{dtype, }
+\item[{{\bf Mtype\+\_\+t}}]{mtype}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_a8316b5e4832ca200a14d14f5ed164695}
+\hypertarget{zutil_8c_a43150b5d7a29eebba2f8de5c2a35d645}{}\index{zutil.\+c@{zutil.\+c}!z\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix@{z\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix}}
+\index{z\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix@{z\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Create\+\_\+\+Super\+Node\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{int}]{m, }
+\item[{int}]{n, }
+\item[{int}]{nnz, }
+\item[{{\bf doublecomplex} $\ast$}]{nzval, }
+\item[{int $\ast$}]{nzval\+\_\+colptr, }
+\item[{int $\ast$}]{rowind, }
+\item[{int $\ast$}]{rowind\+\_\+colptr, }
+\item[{int $\ast$}]{col\+\_\+to\+\_\+sup, }
+\item[{int $\ast$}]{sup\+\_\+to\+\_\+col, }
+\item[{{\bf Stype\+\_\+t}}]{stype, }
+\item[{{\bf Dtype\+\_\+t}}]{dtype, }
+\item[{{\bf Mtype\+\_\+t}}]{mtype}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_a43150b5d7a29eebba2f8de5c2a35d645}
+\hypertarget{zutil_8c_ac1c222f7cb3253d97408d9395d6919d4}{}\index{zutil.\+c@{zutil.\+c}!zfill@{zfill}}
+\index{zfill@{zfill}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{zfill}]{\setlength{\rightskip}{0pt plus 5cm}void zfill (
+\begin{DoxyParamCaption}
+\item[{{\bf doublecomplex} $\ast$}]{a, }
+\item[{int}]{alen, }
+\item[{{\bf doublecomplex}}]{dval}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_ac1c222f7cb3253d97408d9395d6919d4}
+
+
+Fills a doublecomplex precision array with a given value. 
+
+\hypertarget{zutil_8c_acf2b404121b9a70942631f50b85fd8a1}{}\index{zutil.\+c@{zutil.\+c}!z\+Fill\+R\+H\+S@{z\+Fill\+R\+H\+S}}
+\index{z\+Fill\+R\+H\+S@{z\+Fill\+R\+H\+S}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Fill\+R\+H\+S}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Fill\+R\+H\+S (
+\begin{DoxyParamCaption}
+\item[{{\bf trans\+\_\+t}}]{trans, }
+\item[{int}]{nrhs, }
+\item[{{\bf doublecomplex} $\ast$}]{x, }
+\item[{int}]{ldx, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A, }
+\item[{{\bf Super\+Matrix} $\ast$}]{B}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_acf2b404121b9a70942631f50b85fd8a1}
+
+
+Let rhs\mbox{[}i\mbox{]} = sum of i-\/th row of \hyperlink{classA}{A}, so the solution vector is all 1's. 
+
+\hypertarget{zutil_8c_aa81fbc4bdd835def817191d94fb8b208}{}\index{zutil.\+c@{zutil.\+c}!z\+Gen\+Xtrue@{z\+Gen\+Xtrue}}
+\index{z\+Gen\+Xtrue@{z\+Gen\+Xtrue}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Gen\+Xtrue}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Gen\+Xtrue (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{int}]{nrhs, }
+\item[{{\bf doublecomplex} $\ast$}]{x, }
+\item[{int}]{ldx}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_aa81fbc4bdd835def817191d94fb8b208}
+\hypertarget{zutil_8c_a0c645d9e2d757c5f5fa1ecd67f0c2a07}{}\index{zutil.\+c@{zutil.\+c}!zinf\+\_\+norm\+\_\+error@{zinf\+\_\+norm\+\_\+error}}
+\index{zinf\+\_\+norm\+\_\+error@{zinf\+\_\+norm\+\_\+error}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{zinf\+\_\+norm\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}void zinf\+\_\+norm\+\_\+error (
+\begin{DoxyParamCaption}
+\item[{int}]{nrhs, }
+\item[{{\bf Super\+Matrix} $\ast$}]{X, }
+\item[{{\bf doublecomplex} $\ast$}]{xtrue}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_a0c645d9e2d757c5f5fa1ecd67f0c2a07}
+
+
+Check the inf-\/norm of the error vector. 
+
+\hypertarget{zutil_8c_a7f3c67eba79f4d63a7ef19781935985d}{}\index{zutil.\+c@{zutil.\+c}!z\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix@{z\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix}}
+\index{z\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix@{z\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Print\+\_\+\+Comp\+Col\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{what, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_a7f3c67eba79f4d63a7ef19781935985d}
+
+
+Routines for debugging. 
+
+\hypertarget{zutil_8c_ad665640e89334e9f7a57355e030ff63d}{}\index{zutil.\+c@{zutil.\+c}!z\+Print\+\_\+\+Dense\+\_\+\+Matrix@{z\+Print\+\_\+\+Dense\+\_\+\+Matrix}}
+\index{z\+Print\+\_\+\+Dense\+\_\+\+Matrix@{z\+Print\+\_\+\+Dense\+\_\+\+Matrix}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Print\+\_\+\+Dense\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Print\+\_\+\+Dense\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{what, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_ad665640e89334e9f7a57355e030ff63d}
+\hypertarget{zutil_8c_a8083f641fd96ede2f54db44d18f984e9}{}\index{zutil.\+c@{zutil.\+c}!zprint\+\_\+lu\+\_\+col@{zprint\+\_\+lu\+\_\+col}}
+\index{zprint\+\_\+lu\+\_\+col@{zprint\+\_\+lu\+\_\+col}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{zprint\+\_\+lu\+\_\+col}]{\setlength{\rightskip}{0pt plus 5cm}void zprint\+\_\+lu\+\_\+col (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg, }
+\item[{int}]{jcol, }
+\item[{int}]{pivrow, }
+\item[{int $\ast$}]{xprune, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_a8083f641fd96ede2f54db44d18f984e9}
+
+
+Diagnostic print of column \char`\"{}jcol\char`\"{} in the U/\+L factor. 
+
+\hypertarget{zutil_8c_a12d2264eb0e17728142e651de7cc8f9c}{}\index{zutil.\+c@{zutil.\+c}!z\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix@{z\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix}}
+\index{z\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix@{z\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Print\+\_\+\+Super\+Node\+\_\+\+Matrix (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{what, }
+\item[{{\bf Super\+Matrix} $\ast$}]{A}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_a12d2264eb0e17728142e651de7cc8f9c}
+\hypertarget{zutil_8c_a0807017bff32a20ff59820583a9e038d}{}\index{zutil.\+c@{zutil.\+c}!z\+Print\+Perf@{z\+Print\+Perf}}
+\index{z\+Print\+Perf@{z\+Print\+Perf}!zutil.\+c@{zutil.\+c}}
+\subsubsection[{z\+Print\+Perf}]{\setlength{\rightskip}{0pt plus 5cm}void z\+Print\+Perf (
+\begin{DoxyParamCaption}
+\item[{{\bf Super\+Matrix} $\ast$}]{L, }
+\item[{{\bf Super\+Matrix} $\ast$}]{U, }
+\item[{{\bf mem\+\_\+usage\+\_\+t} $\ast$}]{mem\+\_\+usage, }
+\item[{double}]{rpg, }
+\item[{double}]{rcond, }
+\item[{double $\ast$}]{ferr, }
+\item[{double $\ast$}]{berr, }
+\item[{char $\ast$}]{equed, }
+\item[{{\bf Super\+L\+U\+Stat\+\_\+t} $\ast$}]{stat}
+\end{DoxyParamCaption}
+)}\label{zutil_8c_a0807017bff32a20ff59820583a9e038d}
+
+
+Print performance of the code. 
+

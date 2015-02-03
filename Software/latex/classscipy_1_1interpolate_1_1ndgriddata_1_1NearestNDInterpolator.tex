@@ -1,0 +1,95 @@
+\hypertarget{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator}{}\section{scipy.\+interpolate.\+ndgriddata.\+Nearest\+N\+D\+Interpolator Class Reference}
+\label{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator}\index{scipy.\+interpolate.\+ndgriddata.\+Nearest\+N\+D\+Interpolator@{scipy.\+interpolate.\+ndgriddata.\+Nearest\+N\+D\+Interpolator}}
+Inheritance diagram for scipy.\+interpolate.\+ndgriddata.\+Nearest\+N\+D\+Interpolator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_af880eac49f4bb6bf97b76fc0ae7f6a92}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_a52d809279d234cbffac25d3cd2cf99ce}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_ac104d3fb6230905a31b6a4fb5438231f}{tree}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_ad15b2dd987145ee7067ec79dd48ae8af}{values}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}NearestNDInterpolator(points, values)
+
+Nearest-neighbour interpolation in N dimensions.
+
+.. versionadded:: 0.9
+
+Methods
+-------
+__call__
+
+Parameters
+----------
+points : (Npoints, Ndims) ndarray of floats
+    Data point coordinates.
+values : (Npoints,) ndarray of float or complex
+    Data values.
+rescale : boolean, optional
+    Rescale points to unit cube before performing interpolation.
+    This is useful if some of the input dimensions have
+    incommensurable units and differ by many orders of magnitude.
+
+    .. versionadded:: 0.14.0
+
+Notes
+-----
+Uses ``scipy.spatial.cKDTree``\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_af880eac49f4bb6bf97b76fc0ae7f6a92}{}\index{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator@{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator@{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+ndgriddata.\+Nearest\+N\+D\+Interpolator.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{rescale = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_af880eac49f4bb6bf97b76fc0ae7f6a92}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_a52d809279d234cbffac25d3cd2cf99ce}{}\index{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator@{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator@{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+ndgriddata.\+Nearest\+N\+D\+Interpolator.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{args}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_a52d809279d234cbffac25d3cd2cf99ce}
+\begin{DoxyVerb}Evaluate interpolator at given points.
+
+Parameters
+----------
+xi : ndarray of float, shape (..., ndim)
+    Points where to interpolate data at.\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_ac104d3fb6230905a31b6a4fb5438231f}{}\index{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator@{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator}!tree@{tree}}
+\index{tree@{tree}!scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator@{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator}}
+\subsubsection[{tree}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+ndgriddata.\+Nearest\+N\+D\+Interpolator.\+tree}\label{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_ac104d3fb6230905a31b6a4fb5438231f}
+\hypertarget{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_ad15b2dd987145ee7067ec79dd48ae8af}{}\index{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator@{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator}!values@{values}}
+\index{values@{values}!scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator@{scipy\+::interpolate\+::ndgriddata\+::\+Nearest\+N\+D\+Interpolator}}
+\subsubsection[{values}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+ndgriddata.\+Nearest\+N\+D\+Interpolator.\+values}\label{classscipy_1_1interpolate_1_1ndgriddata_1_1NearestNDInterpolator_ad15b2dd987145ee7067ec79dd48ae8af}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{ndgriddata_8py}{ndgriddata.\+py}\end{DoxyCompactItemize}

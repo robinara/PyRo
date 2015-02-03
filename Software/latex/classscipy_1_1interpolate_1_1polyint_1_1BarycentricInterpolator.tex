@@ -1,0 +1,182 @@
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator}{}\section{scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator Class Reference}
+\label{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator}\index{scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator@{scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator}}
+Inheritance diagram for scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a9e2b959032a71d9438f0b5b0dfab8a4e}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_afbcaf5fa7eb1c91377a0b960cfb1d559}{set\+\_\+yi}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_af7d96a9d61a6789248ad114172a263a1}{add\+\_\+xi}
+\item 
+def \hyperlink{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a85bf658da10ccf8a9a4ce131bf8595af}{\+\_\+\+\_\+call\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_aaf509dcc7e95b9d62ad7fd5bdda71b5c}{xi}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a74b8bd3f836d884be753a42e6b2cc5a7}{n}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a460e26bb4cb90cb7adda25845b0e2d42}{wi}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a781d8036afd2720c35382b19bbdf1b1d}{yi}
+\item 
+\hyperlink{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a5babc41f34e4f597ca38ab9dc0e42507}{r}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}The interpolating polynomial for a set of points
+
+Constructs a polynomial that passes through a given set of points.
+Allows evaluation of the polynomial, efficient changing of the y
+values to be interpolated, and updating by adding more x values.
+For reasons of numerical stability, this function does not compute
+the coefficients of the polynomial.
+
+The values yi need to be provided before the function is
+evaluated, but none of the preprocessing depends on them, so rapid
+updates are possible.
+
+Parameters
+----------
+xi : array-like
+    1-d array of x coordinates of the points the polynomial
+    should pass through
+yi : array-like
+    The y coordinates of the points the polynomial should pass through.
+    If None, the y values will be supplied later via the `set_y` method.
+axis : int, optional
+    Axis in the yi array corresponding to the x-coordinate values.
+
+Notes
+-----
+This class uses a "barycentric interpolation" method that treats
+the problem as a special case of rational function interpolation.
+This algorithm is quite stable, numerically, but even in a world of
+exact computation, unless the x coordinates are chosen very
+carefully - Chebyshev zeros (e.g. cos(i*pi/n)) are a good choice -
+polynomial interpolation itself is a very ill-conditioned process
+due to the Runge phenomenon.
+
+Based on Berrut and Trefethen 2004, "Barycentric Lagrange Interpolation".\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a9e2b959032a71d9438f0b5b0dfab8a4e}{}\index{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{xi, }
+\item[{}]{yi = {\ttfamily None}, }
+\item[{}]{axis = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a9e2b959032a71d9438f0b5b0dfab8a4e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a85bf658da10ccf8a9a4ce131bf8595af}{}\index{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}!\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+call\+\_\+\+\_\+@{\+\_\+\+\_\+call\+\_\+\+\_\+}!scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}}
+\subsubsection[{\+\_\+\+\_\+call\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator.\+\_\+\+\_\+call\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a85bf658da10ccf8a9a4ce131bf8595af}
+\begin{DoxyVerb}Evaluate the interpolating polynomial at the points x
+
+Parameters
+----------
+x : array-like
+    Points to evaluate the interpolant at.
+
+Returns
+-------
+y : array-like
+    Interpolated values. Shape is determined by replacing
+    the interpolation axis in the original array with the shape of x.
+
+Notes
+-----
+Currently the code computes an outer product between x and the
+weights, that is, it constructs an intermediate array of size
+N by len(x), where N is the degree of the polynomial.
+\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_af7d96a9d61a6789248ad114172a263a1}{}\index{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}!add\+\_\+xi@{add\+\_\+xi}}
+\index{add\+\_\+xi@{add\+\_\+xi}!scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}}
+\subsubsection[{add\+\_\+xi}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator.\+add\+\_\+xi (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{xi, }
+\item[{}]{yi = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_af7d96a9d61a6789248ad114172a263a1}
+\begin{DoxyVerb}Add more x values to the set to be interpolated
+
+The barycentric interpolation algorithm allows easy updating by
+adding more points for the polynomial to pass through.
+
+Parameters
+----------
+xi : array_like
+    The x coordinates of the points that the polynomial should pass
+    through.
+yi : array_like, optional
+    The y coordinates of the points the polynomial should pass through.
+    Should have shape ``(xi.size, R)``; if R > 1 then the polynomial is
+    vector-valued.
+    If `yi` is not given, the y values will be supplied later. `yi` should
+    be given if and only if the interpolator has y values specified.\end{DoxyVerb}
+ \hypertarget{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_afbcaf5fa7eb1c91377a0b960cfb1d559}{}\index{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}!set\+\_\+yi@{set\+\_\+yi}}
+\index{set\+\_\+yi@{set\+\_\+yi}!scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}}
+\subsubsection[{set\+\_\+yi}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator.\+set\+\_\+yi (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{yi, }
+\item[{}]{axis = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_afbcaf5fa7eb1c91377a0b960cfb1d559}
+\begin{DoxyVerb}Update the y values to be interpolated
+
+The barycentric interpolation algorithm requires the calculation
+of weights, but these depend only on the xi. The yi can be changed
+at any time.
+
+Parameters
+----------
+yi : array_like
+    The y coordinates of the points the polynomial should pass through.
+    If None, the y values will be supplied later.
+axis : int, optional
+    Axis in the yi array corresponding to the x-coordinate values.\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a74b8bd3f836d884be753a42e6b2cc5a7}{}\index{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}!n@{n}}
+\index{n@{n}!scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator.\+n}\label{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a74b8bd3f836d884be753a42e6b2cc5a7}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a5babc41f34e4f597ca38ab9dc0e42507}{}\index{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}!r@{r}}
+\index{r@{r}!scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}}
+\subsubsection[{r}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator.\+r}\label{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a5babc41f34e4f597ca38ab9dc0e42507}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a460e26bb4cb90cb7adda25845b0e2d42}{}\index{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}!wi@{wi}}
+\index{wi@{wi}!scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}}
+\subsubsection[{wi}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator.\+wi}\label{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a460e26bb4cb90cb7adda25845b0e2d42}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_aaf509dcc7e95b9d62ad7fd5bdda71b5c}{}\index{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}!xi@{xi}}
+\index{xi@{xi}!scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}}
+\subsubsection[{xi}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator.\+xi}\label{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_aaf509dcc7e95b9d62ad7fd5bdda71b5c}
+\hypertarget{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a781d8036afd2720c35382b19bbdf1b1d}{}\index{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}!yi@{yi}}
+\index{yi@{yi}!scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator@{scipy\+::interpolate\+::polyint\+::\+Barycentric\+Interpolator}}
+\subsubsection[{yi}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+interpolate.\+polyint.\+Barycentric\+Interpolator.\+yi}\label{classscipy_1_1interpolate_1_1polyint_1_1BarycentricInterpolator_a781d8036afd2720c35382b19bbdf1b1d}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/scipy-\/0.\+14.\+0/scipy/interpolate/\hyperlink{polyint_8py}{polyint.\+py}\end{DoxyCompactItemize}

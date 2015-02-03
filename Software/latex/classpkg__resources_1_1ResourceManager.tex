@@ -1,0 +1,242 @@
+\hypertarget{classpkg__resources_1_1ResourceManager}{}\section{pkg\+\_\+resources.\+Resource\+Manager Class Reference}
+\label{classpkg__resources_1_1ResourceManager}\index{pkg\+\_\+resources.\+Resource\+Manager@{pkg\+\_\+resources.\+Resource\+Manager}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_a5e071ae95669bdc091f01f904de5ef25}{\+\_\+\+\_\+init\+\_\+\+\_\+}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_ad4ed2a9a40dd18fdbbddd8effbb80282}{resource\+\_\+exists}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_a387f33b966cafb0466c00798393955ca}{resource\+\_\+isdir}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_ab4fcfdde890b85e00a227a21dabd650b}{resource\+\_\+filename}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_a5814697c16fcb6c955fdee40a9da45e3}{resource\+\_\+stream}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_af20a4e06efd557d50ba76fcb18db0b82}{resource\+\_\+string}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_aa8108ebfd84e546ea40105d6179db2ea}{resource\+\_\+listdir}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_ace89d53444aaa9b47ef7a3554d631b3a}{extraction\+\_\+error}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_aaaa00e9435b58e28cca92ff38676d3af}{get\+\_\+cache\+\_\+path}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_a4486498607ad84aabccde2a3d5e3260a}{postprocess}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_a29647fe8178fe66f77cb57e6696036b8}{set\+\_\+extraction\+\_\+path}
+\item 
+def \hyperlink{classpkg__resources_1_1ResourceManager_a47a3939571eace7295ad02b5baea1813}{cleanup\+\_\+resources}
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpkg__resources_1_1ResourceManager_a73e8a505d671a5662efa4f9213a32c32}{cached\+\_\+files}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpkg__resources_1_1ResourceManager_a6120904625d6624b7ecae0f9175ea9dd}{extraction\+\_\+path} = None
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Manage resource extraction and packages\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classpkg__resources_1_1ResourceManager_a5e071ae95669bdc091f01f904de5ef25}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{\+\_\+\+\_\+init\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_a5e071ae95669bdc091f01f904de5ef25}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classpkg__resources_1_1ResourceManager_a47a3939571eace7295ad02b5baea1813}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!cleanup\+\_\+resources@{cleanup\+\_\+resources}}
+\index{cleanup\+\_\+resources@{cleanup\+\_\+resources}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{cleanup\+\_\+resources}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+cleanup\+\_\+resources (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{force = {\ttfamily {\bf False}}}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_a47a3939571eace7295ad02b5baea1813}
+\begin{DoxyVerb}Delete all extracted resource files and directories, returning a list
+of the file and directory names that could not be successfully removed.
+This function does not have any concurrency protection, so it should
+generally only be called when the extraction path is a temporary
+directory exclusive to a single process.  This method is not
+automatically called; you must call it explicitly or register it as an
+``atexit`` function if you wish to ensure cleanup of a temporary
+directory used for extractions.
+\end{DoxyVerb}
+ \hypertarget{classpkg__resources_1_1ResourceManager_ace89d53444aaa9b47ef7a3554d631b3a}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!extraction\+\_\+error@{extraction\+\_\+error}}
+\index{extraction\+\_\+error@{extraction\+\_\+error}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{extraction\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+extraction\+\_\+error (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_ace89d53444aaa9b47ef7a3554d631b3a}
+\begin{DoxyVerb}Give an error message for problems extracting file(s)\end{DoxyVerb}
+ \hypertarget{classpkg__resources_1_1ResourceManager_aaaa00e9435b58e28cca92ff38676d3af}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!get\+\_\+cache\+\_\+path@{get\+\_\+cache\+\_\+path}}
+\index{get\+\_\+cache\+\_\+path@{get\+\_\+cache\+\_\+path}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{get\+\_\+cache\+\_\+path}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+get\+\_\+cache\+\_\+path (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{archive\+\_\+name, }
+\item[{}]{names = {\ttfamily ()}}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_aaaa00e9435b58e28cca92ff38676d3af}
+\begin{DoxyVerb}Return absolute location in cache for `archive_name` and `names`
+
+The parent directory of the resulting path will be created if it does
+not already exist.  `archive_name` should be the base filename of the
+enclosing egg (which may not be the name of the enclosing zipfile!),
+including its ".egg" extension.  `names`, if provided, should be a
+sequence of path name parts "under" the egg's extraction location.
+
+This method should only be called by resource providers that need to
+obtain an extraction location, and only for names they intend to
+extract, as it tracks the generated names for possible cleanup later.
+\end{DoxyVerb}
+ \hypertarget{classpkg__resources_1_1ResourceManager_a4486498607ad84aabccde2a3d5e3260a}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!postprocess@{postprocess}}
+\index{postprocess@{postprocess}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{postprocess}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+postprocess (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{tempname, }
+\item[{}]{filename}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_a4486498607ad84aabccde2a3d5e3260a}
+\begin{DoxyVerb}Perform any platform-specific postprocessing of `tempname`
+
+This is where Mac header rewrites should be done; other platforms don't
+have anything special they should do.
+
+Resource providers should call this method ONLY after successfully
+extracting a compressed resource.  They must NOT call it on resources
+that are already in the filesystem.
+
+`tempname` is the current (temporary) name of the file, and `filename`
+is the name it will be renamed to by the caller after this routine
+returns.
+\end{DoxyVerb}
+ \hypertarget{classpkg__resources_1_1ResourceManager_ad4ed2a9a40dd18fdbbddd8effbb80282}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!resource\+\_\+exists@{resource\+\_\+exists}}
+\index{resource\+\_\+exists@{resource\+\_\+exists}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{resource\+\_\+exists}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+resource\+\_\+exists (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{package\+\_\+or\+\_\+requirement, }
+\item[{}]{resource\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_ad4ed2a9a40dd18fdbbddd8effbb80282}
+\begin{DoxyVerb}Does the named resource exist?\end{DoxyVerb}
+ \hypertarget{classpkg__resources_1_1ResourceManager_ab4fcfdde890b85e00a227a21dabd650b}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!resource\+\_\+filename@{resource\+\_\+filename}}
+\index{resource\+\_\+filename@{resource\+\_\+filename}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{resource\+\_\+filename}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+resource\+\_\+filename (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{package\+\_\+or\+\_\+requirement, }
+\item[{}]{resource\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_ab4fcfdde890b85e00a227a21dabd650b}
+\begin{DoxyVerb}Return a true filesystem path for specified resource\end{DoxyVerb}
+ \hypertarget{classpkg__resources_1_1ResourceManager_a387f33b966cafb0466c00798393955ca}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!resource\+\_\+isdir@{resource\+\_\+isdir}}
+\index{resource\+\_\+isdir@{resource\+\_\+isdir}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{resource\+\_\+isdir}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+resource\+\_\+isdir (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{package\+\_\+or\+\_\+requirement, }
+\item[{}]{resource\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_a387f33b966cafb0466c00798393955ca}
+\begin{DoxyVerb}Is the named resource an existing directory?\end{DoxyVerb}
+ \hypertarget{classpkg__resources_1_1ResourceManager_aa8108ebfd84e546ea40105d6179db2ea}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!resource\+\_\+listdir@{resource\+\_\+listdir}}
+\index{resource\+\_\+listdir@{resource\+\_\+listdir}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{resource\+\_\+listdir}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+resource\+\_\+listdir (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{package\+\_\+or\+\_\+requirement, }
+\item[{}]{resource\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_aa8108ebfd84e546ea40105d6179db2ea}
+\begin{DoxyVerb}List the contents of the named resource directory\end{DoxyVerb}
+ \hypertarget{classpkg__resources_1_1ResourceManager_a5814697c16fcb6c955fdee40a9da45e3}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!resource\+\_\+stream@{resource\+\_\+stream}}
+\index{resource\+\_\+stream@{resource\+\_\+stream}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{resource\+\_\+stream}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+resource\+\_\+stream (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{package\+\_\+or\+\_\+requirement, }
+\item[{}]{resource\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_a5814697c16fcb6c955fdee40a9da45e3}
+\begin{DoxyVerb}Return a readable file-like object for specified resource\end{DoxyVerb}
+ \hypertarget{classpkg__resources_1_1ResourceManager_af20a4e06efd557d50ba76fcb18db0b82}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!resource\+\_\+string@{resource\+\_\+string}}
+\index{resource\+\_\+string@{resource\+\_\+string}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{resource\+\_\+string}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+resource\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{package\+\_\+or\+\_\+requirement, }
+\item[{}]{resource\+\_\+name}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_af20a4e06efd557d50ba76fcb18db0b82}
+\begin{DoxyVerb}Return specified resource as a string\end{DoxyVerb}
+ \hypertarget{classpkg__resources_1_1ResourceManager_a29647fe8178fe66f77cb57e6696036b8}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!set\+\_\+extraction\+\_\+path@{set\+\_\+extraction\+\_\+path}}
+\index{set\+\_\+extraction\+\_\+path@{set\+\_\+extraction\+\_\+path}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{set\+\_\+extraction\+\_\+path}]{\setlength{\rightskip}{0pt plus 5cm}def pkg\+\_\+resources.\+Resource\+Manager.\+set\+\_\+extraction\+\_\+path (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{path}
+\end{DoxyParamCaption}
+)}\label{classpkg__resources_1_1ResourceManager_a29647fe8178fe66f77cb57e6696036b8}
+\begin{DoxyVerb}Set the base path where resources will be extracted to, if needed.
+
+If you do not call this routine before any extractions take place, the
+path defaults to the return value of ``get_default_cache()``.  (Which
+is based on the ``PYTHON_EGG_CACHE`` environment variable, with various
+platform-specific fallbacks.  See that routine's documentation for more
+details.)
+
+Resources are extracted to subdirectories of this path based upon
+information given by the ``IResourceProvider``.  You may set this to a
+temporary directory, but then you must call ``cleanup_resources()`` to
+delete the extracted files when done.  There is no guarantee that
+``cleanup_resources()`` will be able to remove all extracted files.
+
+(Note: you may not change the extraction path for a given resource
+manager once resources have been extracted, unless you first call
+``cleanup_resources()``.)
+\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\hypertarget{classpkg__resources_1_1ResourceManager_a73e8a505d671a5662efa4f9213a32c32}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!cached\+\_\+files@{cached\+\_\+files}}
+\index{cached\+\_\+files@{cached\+\_\+files}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{cached\+\_\+files}]{\setlength{\rightskip}{0pt plus 5cm}pkg\+\_\+resources.\+Resource\+Manager.\+cached\+\_\+files}\label{classpkg__resources_1_1ResourceManager_a73e8a505d671a5662efa4f9213a32c32}
+\hypertarget{classpkg__resources_1_1ResourceManager_a6120904625d6624b7ecae0f9175ea9dd}{}\index{pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}!extraction\+\_\+path@{extraction\+\_\+path}}
+\index{extraction\+\_\+path@{extraction\+\_\+path}!pkg\+\_\+resources\+::\+Resource\+Manager@{pkg\+\_\+resources\+::\+Resource\+Manager}}
+\subsubsection[{extraction\+\_\+path}]{\setlength{\rightskip}{0pt plus 5cm}pkg\+\_\+resources.\+Resource\+Manager.\+extraction\+\_\+path = None\hspace{0.3cm}{\ttfamily [static]}}\label{classpkg__resources_1_1ResourceManager_a6120904625d6624b7ecae0f9175ea9dd}
+\begin{DoxyVerb}Set the base path where resources will be extracted to, if needed.
+
+If you do not call this routine before any extractions take place, the
+path defaults to the return value of ``get_default_cache()``.  (Which
+is based on the ``PYTHON_EGG_CACHE`` environment variable, with various
+platform-specific fallbacks.  See that routine's documentation for more
+details.)
+
+Resources are extracted to subdirectories of this path based upon
+information given by the ``IResourceProvider``.  You may set this to a
+temporary directory, but then you must call ``cleanup_resources()`` to
+delete the extracted files when done.  There is no guarantee that
+``cleanup_resources()`` will be able to remove all extracted files.
+
+(Note: you may not change the extraction path for a given resource
+manager once resources have been extracted, unless you first call
+``cleanup_resources()``.)
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+packages/pypa-\/setuptools-\/f35c107404b4/\hyperlink{pkg__resources_8py}{pkg\+\_\+resources.\+py}\end{DoxyCompactItemize}

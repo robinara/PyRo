@@ -1,0 +1,283 @@
+\hypertarget{namespacescipy_1_1interpolate_1_1interpolate}{}\section{scipy.\+interpolate.\+interpolate Namespace Reference}
+\label{namespacescipy_1_1interpolate_1_1interpolate}\index{scipy.\+interpolate.\+interpolate@{scipy.\+interpolate.\+interpolate}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1__PPolyBase}{\+\_\+\+P\+Poly\+Base}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1BPoly}{B\+Poly}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1interp1d}{interp1d}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1interp2d}{interp2d}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1ppform}{ppform}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1PPoly}{P\+Poly}
+\item 
+class \hyperlink{classscipy_1_1interpolate_1_1interpolate_1_1RegularGridInterpolator}{Regular\+Grid\+Interpolator}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate_a57b8ac4bb52718947ce6c1d22ce149ad}{reduce\+\_\+sometrue}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate_a38a66c32900b82fab6ead6f69e2d6ec4}{prod}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate_afb60565492d9ff6b51deb4ba9db1fd77}{lagrange}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate_ae6ebd1c2cdc35a4a9fa4982e87627859}{interpn}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate_acf507d22fb6f9eb2a2bbad97eda97afd}{splmake}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate_a30cabdf54a37da7252a8fa0264d435e5}{spleval}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate_ad8c7212e6ef94cb8978bf1573fc35cff}{spltopp}
+\item 
+def \hyperlink{namespacescipy_1_1interpolate_1_1interpolate_a1579df94f4f5c45ae161c7559ae80fa6}{spline}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1interpolate_1_1interpolate_a94c701f1e486488916eaeabb6dc5fe72}{\+\_\+\+\_\+all\+\_\+\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Classes for interpolating values.
+\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1interpolate_ae6ebd1c2cdc35a4a9fa4982e87627859}{}\index{scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}!interpn@{interpn}}
+\index{interpn@{interpn}!scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}}
+\subsubsection[{interpn}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+interpn (
+\begin{DoxyParamCaption}
+\item[{}]{points, }
+\item[{}]{values, }
+\item[{}]{xi, }
+\item[{}]{method = {\ttfamily \char`\"{}linear\char`\"{}}, }
+\item[{}]{bounds\+\_\+error = {\ttfamily {\bf True}}, }
+\item[{}]{fill\+\_\+value = {\ttfamily np.nan}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate_ae6ebd1c2cdc35a4a9fa4982e87627859}
+\begin{DoxyVerb}Multidimensional interpolation on regular grids.
+
+.. versionadded:: 0.14
+
+Parameters
+----------
+points : tuple of ndarray of float, with shapes (m1, ), ..., (mn, )
+    The points defining the regular grid in n dimensions.
+
+values : array_like, shape (m1, ..., mn, ...)
+    The data on the regular grid in n dimensions.
+
+xi : ndarray of shape (..., ndim)
+    The coordinates to sample the gridded data at
+
+method : str
+    The method of interpolation to perform. Supported are "linear" and
+    "nearest", and "splinef2d". "splinef2d" is only supported for
+    2-dimensional data.
+
+bounds_error : bool, optional
+    If True, when interpolated values are requested outside of the
+    domain of the input data, a ValueError is raised.
+    If False, then `fill_value` is used.
+
+fill_value : number, optional
+    If provided, the value to use for points outside of the
+    interpolation domain. If None, values outside
+    the domain are extrapolated.  Extrapolation is not supported by method
+    "splinef2d".
+
+Returns
+-------
+values_x : ndarray, shape xi.shape[:-1] + values.shape[ndim:]
+    Interpolated values at input coordinates.
+
+See also
+--------
+NearestNDInterpolator : Nearest neighbour interpolation on unstructured
+                        data in N dimensions
+
+LinearNDInterpolator : Piecewise linear interpolant on unstructured data
+                       in N dimensions
+
+RegularGridInterpolator : Linear and nearest-neighbor Interpolation on a
+                          regular grid in arbitrary dimensions
+
+RectBivariateSpline : Bivariate spline approximation over a rectangular mesh\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1interpolate_afb60565492d9ff6b51deb4ba9db1fd77}{}\index{scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}!lagrange@{lagrange}}
+\index{lagrange@{lagrange}!scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}}
+\subsubsection[{lagrange}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+lagrange (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{w}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate_afb60565492d9ff6b51deb4ba9db1fd77}
+\begin{DoxyVerb}Return a Lagrange interpolating polynomial.
+
+Given two 1-D arrays `x` and `w,` returns the Lagrange interpolating
+polynomial through the points ``(x, w)``.
+
+Warning: This implementation is numerically unstable. Do not expect to
+be able to use more than about 20 points even if they are chosen optimally.
+
+Parameters
+----------
+x : array_like
+    `x` represents the x-coordinates of a set of datapoints.
+w : array_like
+    `w` represents the y-coordinates of a set of datapoints, i.e. f(`x`).
+
+Returns
+-------
+lagrange : numpy.poly1d instance
+    The Lagrange interpolating polynomial.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1interpolate_a38a66c32900b82fab6ead6f69e2d6ec4}{}\index{scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}!prod@{prod}}
+\index{prod@{prod}!scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}}
+\subsubsection[{prod}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+prod (
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate_a38a66c32900b82fab6ead6f69e2d6ec4}
+\begin{DoxyVerb}Product of a list of numbers; ~40x faster vs np.prod for Python tuples\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1interpolate_a57b8ac4bb52718947ce6c1d22ce149ad}{}\index{scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}!reduce\+\_\+sometrue@{reduce\+\_\+sometrue}}
+\index{reduce\+\_\+sometrue@{reduce\+\_\+sometrue}!scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}}
+\subsubsection[{reduce\+\_\+sometrue}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+reduce\+\_\+sometrue (
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate_a57b8ac4bb52718947ce6c1d22ce149ad}
+\hypertarget{namespacescipy_1_1interpolate_1_1interpolate_a30cabdf54a37da7252a8fa0264d435e5}{}\index{scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}!spleval@{spleval}}
+\index{spleval@{spleval}!scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}}
+\subsubsection[{spleval}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+spleval (
+\begin{DoxyParamCaption}
+\item[{}]{xck, }
+\item[{}]{xnew, }
+\item[{}]{deriv = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate_a30cabdf54a37da7252a8fa0264d435e5}
+\begin{DoxyVerb}Evaluate a fixed spline represented by the given tuple at the new x-values
+
+The `xj` values are the interior knot points.  The approximation
+region is `xj[0]` to `xj[-1]`.  If N+1 is the length of `xj`, then `cvals`
+should have length N+k where `k` is the order of the spline.
+
+Parameters
+----------
+(xj, cvals, k) : tuple
+    Parameters that define the fixed spline
+xj : array_like
+    Interior knot points
+cvals : array_like
+    Curvature
+k : int
+    Order of the spline
+xnew : array_like
+    Locations to calculate spline
+deriv : int
+    Deriv
+
+Returns
+-------
+spleval : ndarray
+    If `cvals` represents more than one curve (`cvals.ndim` > 1) and/or
+    `xnew` is N-d, then the result is `xnew.shape` + `cvals.shape[1:]`
+    providing the interpolation of multiple curves.
+
+Notes
+-----
+Internally, an additional `k`-1 knot points are added on either side of
+the spline.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1interpolate_a1579df94f4f5c45ae161c7559ae80fa6}{}\index{scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}!spline@{spline}}
+\index{spline@{spline}!scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}}
+\subsubsection[{spline}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+spline (
+\begin{DoxyParamCaption}
+\item[{}]{xk, }
+\item[{}]{yk, }
+\item[{}]{xnew, }
+\item[{}]{order = {\ttfamily 3}, }
+\item[{}]{kind = {\ttfamily 'smoothest'}, }
+\item[{}]{conds = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate_a1579df94f4f5c45ae161c7559ae80fa6}
+\begin{DoxyVerb}Interpolate a curve at new points using a spline fit
+
+Parameters
+----------
+xk, yk : array_like
+    The x and y values that define the curve.
+xnew : array_like
+    The x values where spline should estimate the y values.
+order : int
+    Default is 3.
+kind : string
+    One of {'smoothest'}
+conds : Don't know
+    Don't know
+
+Returns
+-------
+spline : ndarray
+    An array of y values; the spline evaluated at the positions `xnew`.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1interpolate_acf507d22fb6f9eb2a2bbad97eda97afd}{}\index{scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}!splmake@{splmake}}
+\index{splmake@{splmake}!scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}}
+\subsubsection[{splmake}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+splmake (
+\begin{DoxyParamCaption}
+\item[{}]{xk, }
+\item[{}]{yk, }
+\item[{}]{order = {\ttfamily 3}, }
+\item[{}]{kind = {\ttfamily 'smoothest'}, }
+\item[{}]{conds = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate_acf507d22fb6f9eb2a2bbad97eda97afd}
+\begin{DoxyVerb}Return a representation of a spline given data-points at internal knots
+
+Parameters
+----------
+xk : array_like
+    The input array of x values of rank 1
+yk : array_like
+    The input array of y values of rank N. `yk` can be an N-d array to
+    represent more than one curve, through the same `xk` points. The first
+    dimension is assumed to be the interpolating dimension and is the same
+    length of `xk`.
+order : int, optional
+    Order of the spline
+kind : str, optional
+    Can be 'smoothest', 'not_a_knot', 'fixed', 'clamped', 'natural',
+    'periodic', 'symmetric', 'user', 'mixed' and it is ignored if order < 2
+conds : optional
+    Conds
+
+Returns
+-------
+splmake : tuple
+    Return a (`xk`, `cvals`, `k`) representation of a spline given
+    data-points where the (internal) knots are at the data-points.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1interpolate_1_1interpolate_ad8c7212e6ef94cb8978bf1573fc35cff}{}\index{scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}!spltopp@{spltopp}}
+\index{spltopp@{spltopp}!scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}}
+\subsubsection[{spltopp}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+interpolate.\+interpolate.\+spltopp (
+\begin{DoxyParamCaption}
+\item[{}]{xk, }
+\item[{}]{cvals, }
+\item[{}]{k}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1interpolate_1_1interpolate_ad8c7212e6ef94cb8978bf1573fc35cff}
+\begin{DoxyVerb}Return a piece-wise polynomial object from a fixed-spline tuple.
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1interpolate_1_1interpolate_a94c701f1e486488916eaeabb6dc5fe72}{}\index{scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::interpolate\+::interpolate@{scipy\+::interpolate\+::interpolate}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+interpolate.\+interpolate.\+\_\+\+\_\+all\+\_\+\+\_\+}\label{namespacescipy_1_1interpolate_1_1interpolate_a94c701f1e486488916eaeabb6dc5fe72}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = [\textcolor{stringliteral}{'interp1d'}, \textcolor{stringliteral}{'interp2d'}, \textcolor{stringliteral}{'spline'}, \textcolor{stringliteral}{'spleval'}, \textcolor{stringliteral}{'splmake'}, \textcolor{stringliteral}{'spltopp'},
+2            \textcolor{stringliteral}{'ppform'}, \textcolor{stringliteral}{'lagrange'}, \textcolor{stringliteral}{'PPoly'}, \textcolor{stringliteral}{'BPoly'}, \textcolor{stringliteral}{'RegularGridInterpolator'},
+3            \textcolor{stringliteral}{'interpn'}]
+\end{DoxyCode}

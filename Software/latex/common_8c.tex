@@ -1,0 +1,210 @@
+\hypertarget{common_8c}{}\section{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/common.c File Reference}
+\label{common_8c}\index{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/common.\+c@{packages/adafruit-\/beaglebone-\/io-\/python-\/master/source/common.\+c}}
+{\ttfamily \#include \char`\"{}Python.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$dirent.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} pins\+\_\+t \hyperlink{common_8c_ae9f7ae30973092fbac691c0fb4617604}{pins\+\_\+t}
+\item 
+typedef \hyperlink{gen__mat5files_8m_aa5a86657308844fba3fe81ef5286ca5f}{struct} uart\+\_\+t \hyperlink{common_8c_a5b31e4fba9e9f4ae1403186737f79709}{uart\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{common_8c_ab151a51a13edd34e6783c7a0e2a0fc6d}{lookup\+\_\+gpio\+\_\+by\+\_\+key} (const char $\ast$key)
+\item 
+int \hyperlink{common_8c_ab407417764764456a22351ee3fff8ed5}{lookup\+\_\+gpio\+\_\+by\+\_\+name} (const char $\ast$name)
+\item 
+int \hyperlink{common_8c_a360bfb9d2ce58c763bf8ea4745bccf53}{lookup\+\_\+ain\+\_\+by\+\_\+key} (const char $\ast$key)
+\item 
+int \hyperlink{common_8c_a296e25022223eea27df36a16071f906d}{lookup\+\_\+ain\+\_\+by\+\_\+name} (const char $\ast$name)
+\item 
+int \hyperlink{common_8c_a9445a073cc1b63c9756811ef0366f8eb}{lookup\+\_\+uart\+\_\+by\+\_\+name} (const char $\ast$input\+\_\+name, char $\ast$dt)
+\item 
+int \hyperlink{common_8c_a670c75758f4345bc32f09e1221b7a1eb}{copy\+\_\+pwm\+\_\+key\+\_\+by\+\_\+key} (const char $\ast$input\+\_\+key, char $\ast$key)
+\item 
+int \hyperlink{common_8c_afb941fdd968bca088026fd4392c6ddb7}{get\+\_\+pwm\+\_\+key\+\_\+by\+\_\+name} (const char $\ast$name, char $\ast$key)
+\item 
+int \hyperlink{common_8c_af07179e804fc4b09ca3d342ae9e0b47d}{get\+\_\+gpio\+\_\+number} (const char $\ast$key, unsigned int $\ast$gpio)
+\item 
+int \hyperlink{common_8c_ab14caef9a565a5532c2d626f48613332}{get\+\_\+pwm\+\_\+key} (const char $\ast$\hyperlink{constants_8h_a1a68120273996c880f8fd414afd17eb4}{input}, char $\ast$key)
+\item 
+int \hyperlink{common_8c_aefedfd4ecc35b4d762843191625e7b9b}{get\+\_\+adc\+\_\+ain} (const char $\ast$key, unsigned int $\ast$ain)
+\item 
+int \hyperlink{common_8c_ac1764bec72b7cd3b4034a12b085ec7c0}{get\+\_\+uart\+\_\+device\+\_\+tree\+\_\+name} (const char $\ast$name, char $\ast$dt)
+\item 
+int \hyperlink{common_8c_a75bc0039782c64fcdb774d927eedcaf2}{build\+\_\+path} (const char $\ast$partial\+\_\+path, const char $\ast$prefix, char $\ast$full\+\_\+path, size\+\_\+t full\+\_\+path\+\_\+len)
+\item 
+int \hyperlink{common_8c_a2f5849b50c9fd1493c943ae1d0f14506}{get\+\_\+spi\+\_\+bus\+\_\+path\+\_\+number} (unsigned int spi)
+\item 
+int \hyperlink{common_8c_ad65b05b7898949b1913ed1e018162b70}{load\+\_\+device\+\_\+tree} (const char $\ast$name)
+\item 
+int \hyperlink{common_8c_ac56a1f43d3a4843560ed9559b85d7bb1}{unload\+\_\+device\+\_\+tree} (const char $\ast$name)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{common_8c_adf33ae15b9503c69be976e65ee3eb33a}{setup\+\_\+error} = 0
+\item 
+int \hyperlink{common_8c_ac902f04d57c6f01444bd122f99f28518}{module\+\_\+setup} = 0
+\item 
+\hyperlink{common_8c_ae9f7ae30973092fbac691c0fb4617604}{pins\+\_\+t} \hyperlink{common_8c_a599269e32411e87b6eba6a6a7183be4b}{table} \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{common_8c_a5b31e4fba9e9f4ae1403186737f79709}{uart\+\_\+t} \hyperlink{common_8c_a2ccfd2c5d5bab2ef07c276c746ffd46c}{uart\+\_\+table} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{common_8c_ae9f7ae30973092fbac691c0fb4617604}{}\index{common.\+c@{common.\+c}!pins\+\_\+t@{pins\+\_\+t}}
+\index{pins\+\_\+t@{pins\+\_\+t}!common.\+c@{common.\+c}}
+\subsubsection[{pins\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} pins\+\_\+t  pins\+\_\+t}\label{common_8c_ae9f7ae30973092fbac691c0fb4617604}
+\hypertarget{common_8c_a5b31e4fba9e9f4ae1403186737f79709}{}\index{common.\+c@{common.\+c}!uart\+\_\+t@{uart\+\_\+t}}
+\index{uart\+\_\+t@{uart\+\_\+t}!common.\+c@{common.\+c}}
+\subsubsection[{uart\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf struct} uart\+\_\+t  uart\+\_\+t}\label{common_8c_a5b31e4fba9e9f4ae1403186737f79709}
+
+
+\subsection{Function Documentation}
+\hypertarget{common_8c_a75bc0039782c64fcdb774d927eedcaf2}{}\index{common.\+c@{common.\+c}!build\+\_\+path@{build\+\_\+path}}
+\index{build\+\_\+path@{build\+\_\+path}!common.\+c@{common.\+c}}
+\subsubsection[{build\+\_\+path}]{\setlength{\rightskip}{0pt plus 5cm}int build\+\_\+path (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{partial\+\_\+path, }
+\item[{const char $\ast$}]{prefix, }
+\item[{char $\ast$}]{full\+\_\+path, }
+\item[{size\+\_\+t}]{full\+\_\+path\+\_\+len}
+\end{DoxyParamCaption}
+)}\label{common_8c_a75bc0039782c64fcdb774d927eedcaf2}
+\hypertarget{common_8c_a670c75758f4345bc32f09e1221b7a1eb}{}\index{common.\+c@{common.\+c}!copy\+\_\+pwm\+\_\+key\+\_\+by\+\_\+key@{copy\+\_\+pwm\+\_\+key\+\_\+by\+\_\+key}}
+\index{copy\+\_\+pwm\+\_\+key\+\_\+by\+\_\+key@{copy\+\_\+pwm\+\_\+key\+\_\+by\+\_\+key}!common.\+c@{common.\+c}}
+\subsubsection[{copy\+\_\+pwm\+\_\+key\+\_\+by\+\_\+key}]{\setlength{\rightskip}{0pt plus 5cm}int copy\+\_\+pwm\+\_\+key\+\_\+by\+\_\+key (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{input\+\_\+key, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\label{common_8c_a670c75758f4345bc32f09e1221b7a1eb}
+\hypertarget{common_8c_aefedfd4ecc35b4d762843191625e7b9b}{}\index{common.\+c@{common.\+c}!get\+\_\+adc\+\_\+ain@{get\+\_\+adc\+\_\+ain}}
+\index{get\+\_\+adc\+\_\+ain@{get\+\_\+adc\+\_\+ain}!common.\+c@{common.\+c}}
+\subsubsection[{get\+\_\+adc\+\_\+ain}]{\setlength{\rightskip}{0pt plus 5cm}int get\+\_\+adc\+\_\+ain (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{unsigned int $\ast$}]{ain}
+\end{DoxyParamCaption}
+)}\label{common_8c_aefedfd4ecc35b4d762843191625e7b9b}
+\hypertarget{common_8c_af07179e804fc4b09ca3d342ae9e0b47d}{}\index{common.\+c@{common.\+c}!get\+\_\+gpio\+\_\+number@{get\+\_\+gpio\+\_\+number}}
+\index{get\+\_\+gpio\+\_\+number@{get\+\_\+gpio\+\_\+number}!common.\+c@{common.\+c}}
+\subsubsection[{get\+\_\+gpio\+\_\+number}]{\setlength{\rightskip}{0pt plus 5cm}int get\+\_\+gpio\+\_\+number (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{unsigned int $\ast$}]{gpio}
+\end{DoxyParamCaption}
+)}\label{common_8c_af07179e804fc4b09ca3d342ae9e0b47d}
+\hypertarget{common_8c_ab14caef9a565a5532c2d626f48613332}{}\index{common.\+c@{common.\+c}!get\+\_\+pwm\+\_\+key@{get\+\_\+pwm\+\_\+key}}
+\index{get\+\_\+pwm\+\_\+key@{get\+\_\+pwm\+\_\+key}!common.\+c@{common.\+c}}
+\subsubsection[{get\+\_\+pwm\+\_\+key}]{\setlength{\rightskip}{0pt plus 5cm}int get\+\_\+pwm\+\_\+key (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{input, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\label{common_8c_ab14caef9a565a5532c2d626f48613332}
+\hypertarget{common_8c_afb941fdd968bca088026fd4392c6ddb7}{}\index{common.\+c@{common.\+c}!get\+\_\+pwm\+\_\+key\+\_\+by\+\_\+name@{get\+\_\+pwm\+\_\+key\+\_\+by\+\_\+name}}
+\index{get\+\_\+pwm\+\_\+key\+\_\+by\+\_\+name@{get\+\_\+pwm\+\_\+key\+\_\+by\+\_\+name}!common.\+c@{common.\+c}}
+\subsubsection[{get\+\_\+pwm\+\_\+key\+\_\+by\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}int get\+\_\+pwm\+\_\+key\+\_\+by\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name, }
+\item[{char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\label{common_8c_afb941fdd968bca088026fd4392c6ddb7}
+\hypertarget{common_8c_a2f5849b50c9fd1493c943ae1d0f14506}{}\index{common.\+c@{common.\+c}!get\+\_\+spi\+\_\+bus\+\_\+path\+\_\+number@{get\+\_\+spi\+\_\+bus\+\_\+path\+\_\+number}}
+\index{get\+\_\+spi\+\_\+bus\+\_\+path\+\_\+number@{get\+\_\+spi\+\_\+bus\+\_\+path\+\_\+number}!common.\+c@{common.\+c}}
+\subsubsection[{get\+\_\+spi\+\_\+bus\+\_\+path\+\_\+number}]{\setlength{\rightskip}{0pt plus 5cm}int get\+\_\+spi\+\_\+bus\+\_\+path\+\_\+number (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{spi}
+\end{DoxyParamCaption}
+)}\label{common_8c_a2f5849b50c9fd1493c943ae1d0f14506}
+\hypertarget{common_8c_ac1764bec72b7cd3b4034a12b085ec7c0}{}\index{common.\+c@{common.\+c}!get\+\_\+uart\+\_\+device\+\_\+tree\+\_\+name@{get\+\_\+uart\+\_\+device\+\_\+tree\+\_\+name}}
+\index{get\+\_\+uart\+\_\+device\+\_\+tree\+\_\+name@{get\+\_\+uart\+\_\+device\+\_\+tree\+\_\+name}!common.\+c@{common.\+c}}
+\subsubsection[{get\+\_\+uart\+\_\+device\+\_\+tree\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}int get\+\_\+uart\+\_\+device\+\_\+tree\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name, }
+\item[{char $\ast$}]{dt}
+\end{DoxyParamCaption}
+)}\label{common_8c_ac1764bec72b7cd3b4034a12b085ec7c0}
+\hypertarget{common_8c_ad65b05b7898949b1913ed1e018162b70}{}\index{common.\+c@{common.\+c}!load\+\_\+device\+\_\+tree@{load\+\_\+device\+\_\+tree}}
+\index{load\+\_\+device\+\_\+tree@{load\+\_\+device\+\_\+tree}!common.\+c@{common.\+c}}
+\subsubsection[{load\+\_\+device\+\_\+tree}]{\setlength{\rightskip}{0pt plus 5cm}int load\+\_\+device\+\_\+tree (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{common_8c_ad65b05b7898949b1913ed1e018162b70}
+\hypertarget{common_8c_a360bfb9d2ce58c763bf8ea4745bccf53}{}\index{common.\+c@{common.\+c}!lookup\+\_\+ain\+\_\+by\+\_\+key@{lookup\+\_\+ain\+\_\+by\+\_\+key}}
+\index{lookup\+\_\+ain\+\_\+by\+\_\+key@{lookup\+\_\+ain\+\_\+by\+\_\+key}!common.\+c@{common.\+c}}
+\subsubsection[{lookup\+\_\+ain\+\_\+by\+\_\+key}]{\setlength{\rightskip}{0pt plus 5cm}int lookup\+\_\+ain\+\_\+by\+\_\+key (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\label{common_8c_a360bfb9d2ce58c763bf8ea4745bccf53}
+\hypertarget{common_8c_a296e25022223eea27df36a16071f906d}{}\index{common.\+c@{common.\+c}!lookup\+\_\+ain\+\_\+by\+\_\+name@{lookup\+\_\+ain\+\_\+by\+\_\+name}}
+\index{lookup\+\_\+ain\+\_\+by\+\_\+name@{lookup\+\_\+ain\+\_\+by\+\_\+name}!common.\+c@{common.\+c}}
+\subsubsection[{lookup\+\_\+ain\+\_\+by\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}int lookup\+\_\+ain\+\_\+by\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{common_8c_a296e25022223eea27df36a16071f906d}
+\hypertarget{common_8c_ab151a51a13edd34e6783c7a0e2a0fc6d}{}\index{common.\+c@{common.\+c}!lookup\+\_\+gpio\+\_\+by\+\_\+key@{lookup\+\_\+gpio\+\_\+by\+\_\+key}}
+\index{lookup\+\_\+gpio\+\_\+by\+\_\+key@{lookup\+\_\+gpio\+\_\+by\+\_\+key}!common.\+c@{common.\+c}}
+\subsubsection[{lookup\+\_\+gpio\+\_\+by\+\_\+key}]{\setlength{\rightskip}{0pt plus 5cm}int lookup\+\_\+gpio\+\_\+by\+\_\+key (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key}
+\end{DoxyParamCaption}
+)}\label{common_8c_ab151a51a13edd34e6783c7a0e2a0fc6d}
+\hypertarget{common_8c_ab407417764764456a22351ee3fff8ed5}{}\index{common.\+c@{common.\+c}!lookup\+\_\+gpio\+\_\+by\+\_\+name@{lookup\+\_\+gpio\+\_\+by\+\_\+name}}
+\index{lookup\+\_\+gpio\+\_\+by\+\_\+name@{lookup\+\_\+gpio\+\_\+by\+\_\+name}!common.\+c@{common.\+c}}
+\subsubsection[{lookup\+\_\+gpio\+\_\+by\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}int lookup\+\_\+gpio\+\_\+by\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{common_8c_ab407417764764456a22351ee3fff8ed5}
+\hypertarget{common_8c_a9445a073cc1b63c9756811ef0366f8eb}{}\index{common.\+c@{common.\+c}!lookup\+\_\+uart\+\_\+by\+\_\+name@{lookup\+\_\+uart\+\_\+by\+\_\+name}}
+\index{lookup\+\_\+uart\+\_\+by\+\_\+name@{lookup\+\_\+uart\+\_\+by\+\_\+name}!common.\+c@{common.\+c}}
+\subsubsection[{lookup\+\_\+uart\+\_\+by\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}int lookup\+\_\+uart\+\_\+by\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{input\+\_\+name, }
+\item[{char $\ast$}]{dt}
+\end{DoxyParamCaption}
+)}\label{common_8c_a9445a073cc1b63c9756811ef0366f8eb}
+\hypertarget{common_8c_ac56a1f43d3a4843560ed9559b85d7bb1}{}\index{common.\+c@{common.\+c}!unload\+\_\+device\+\_\+tree@{unload\+\_\+device\+\_\+tree}}
+\index{unload\+\_\+device\+\_\+tree@{unload\+\_\+device\+\_\+tree}!common.\+c@{common.\+c}}
+\subsubsection[{unload\+\_\+device\+\_\+tree}]{\setlength{\rightskip}{0pt plus 5cm}int unload\+\_\+device\+\_\+tree (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{common_8c_ac56a1f43d3a4843560ed9559b85d7bb1}
+
+
+\subsection{Variable Documentation}
+\hypertarget{common_8c_ac902f04d57c6f01444bd122f99f28518}{}\index{common.\+c@{common.\+c}!module\+\_\+setup@{module\+\_\+setup}}
+\index{module\+\_\+setup@{module\+\_\+setup}!common.\+c@{common.\+c}}
+\subsubsection[{module\+\_\+setup}]{\setlength{\rightskip}{0pt plus 5cm}int module\+\_\+setup = 0}\label{common_8c_ac902f04d57c6f01444bd122f99f28518}
+\hypertarget{common_8c_adf33ae15b9503c69be976e65ee3eb33a}{}\index{common.\+c@{common.\+c}!setup\+\_\+error@{setup\+\_\+error}}
+\index{setup\+\_\+error@{setup\+\_\+error}!common.\+c@{common.\+c}}
+\subsubsection[{setup\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}int setup\+\_\+error = 0}\label{common_8c_adf33ae15b9503c69be976e65ee3eb33a}
+\hypertarget{common_8c_a599269e32411e87b6eba6a6a7183be4b}{}\index{common.\+c@{common.\+c}!table@{table}}
+\index{table@{table}!common.\+c@{common.\+c}}
+\subsubsection[{table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pins\+\_\+t} table\mbox{[}$\,$\mbox{]}}\label{common_8c_a599269e32411e87b6eba6a6a7183be4b}
+\hypertarget{common_8c_a2ccfd2c5d5bab2ef07c276c746ffd46c}{}\index{common.\+c@{common.\+c}!uart\+\_\+table@{uart\+\_\+table}}
+\index{uart\+\_\+table@{uart\+\_\+table}!common.\+c@{common.\+c}}
+\subsubsection[{uart\+\_\+table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uart\+\_\+t} uart\+\_\+table\mbox{[}$\,$\mbox{]}}\label{common_8c_a2ccfd2c5d5bab2ef07c276c746ffd46c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+  \{ \textcolor{stringliteral}{"UART1"}, \textcolor{stringliteral}{"/dev/ttyO1"}, \textcolor{stringliteral}{"ADAFRUIT-UART1"}, \textcolor{stringliteral}{"P9\_26"}, \textcolor{stringliteral}{"P9\_24"}\},
+  \{ \textcolor{stringliteral}{"UART2"}, \textcolor{stringliteral}{"/dev/ttyO2"}, \textcolor{stringliteral}{"ADAFRUIT-UART2"}, \textcolor{stringliteral}{"P9\_22"}, \textcolor{stringliteral}{"P9\_21"}\},
+  \{ \textcolor{stringliteral}{"UART3"}, \textcolor{stringliteral}{"/dev/ttyO3"}, \textcolor{stringliteral}{"ADAFRUIT-UART3"}, \textcolor{stringliteral}{"P9\_42"}, \textcolor{stringliteral}{""}\},
+  \{ \textcolor{stringliteral}{"UART4"}, \textcolor{stringliteral}{"/dev/ttyO4"}, \textcolor{stringliteral}{"ADAFRUIT-UART4"}, \textcolor{stringliteral}{"P9\_11"}, \textcolor{stringliteral}{"P9\_13"}\},
+  \{ \textcolor{stringliteral}{"UART5"}, \textcolor{stringliteral}{"/dev/ttyO5"}, \textcolor{stringliteral}{"ADAFRUIT-UART5"}, \textcolor{stringliteral}{"P8\_38"}, \textcolor{stringliteral}{"P8\_37"}\},
+  \{ NULL, NULL, 0 \}
+\}
+\end{DoxyCode}

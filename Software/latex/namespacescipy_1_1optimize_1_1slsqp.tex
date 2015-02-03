@@ -1,0 +1,307 @@
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp}{}\section{scipy.\+optimize.\+slsqp Namespace Reference}
+\label{namespacescipy_1_1optimize_1_1slsqp}\index{scipy.\+optimize.\+slsqp@{scipy.\+optimize.\+slsqp}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1slsqp_a8bd7e9e2d35f751df61a44c3e0eb445a}{approx\+\_\+jacobian}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1slsqp_ac3dab30d04519a7fb85a62039512e338}{fmin\+\_\+slsqp}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1slsqp_a2b4ee77549a1bda7ea2001f9e1ec26c6}{fun}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1slsqp_a9c97c561709e3ca81b927f8b4231ef75}{feqcon}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1slsqp_a67cf78303222478a831e2b11c591a193}{jeqcon}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1slsqp_a1d304462271b6df17b4adaa71614caca}{fieqcon}
+\item 
+def \hyperlink{namespacescipy_1_1optimize_1_1slsqp_acebb941787a4b0b059a03be7bd77b7a5}{jieqcon}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacescipy_1_1optimize_1_1slsqp_a0adbc74b5e054eeb60085c572ccf14e2}{\+\_\+\+\_\+all\+\_\+\+\_\+} = \mbox{[}'\hyperlink{namespacescipy_1_1optimize_1_1slsqp_a8bd7e9e2d35f751df61a44c3e0eb445a}{approx\+\_\+jacobian}','\hyperlink{namespacescipy_1_1optimize_1_1slsqp_ac3dab30d04519a7fb85a62039512e338}{fmin\+\_\+slsqp}'\mbox{]}
+\item 
+string \hyperlink{namespacescipy_1_1optimize_1_1slsqp_a36bc8377bd7cff39d60937a78a89dbe9}{\+\_\+\+\_\+docformat\+\_\+\+\_\+} = \char`\"{}restructuredtext en\char`\"{}
+\item 
+tuple \hyperlink{namespacescipy_1_1optimize_1_1slsqp_aa973931a73e3dcb40c31ed76fd0a429b}{\+\_\+epsilon} = \hyperlink{vecuops_8cc_ac9f82fdb8cd289615247f897852ee5f2}{sqrt}(finfo(float).eps)
+\item 
+tuple \hyperlink{namespacescipy_1_1optimize_1_1slsqp_afa02366b6ad7291329bb02bd3cdc0528}{bnds} = array(\mbox{[}\mbox{[}-\/inf\mbox{]}$\ast$2, \mbox{[}inf\mbox{]}$\ast$2\mbox{]})
+\item 
+tuple \hyperlink{namespacescipy_1_1optimize_1_1slsqp_afd188328f5f66ce62601132cd699c5a0}{cons}
+\item 
+list \hyperlink{namespacescipy_1_1optimize_1_1slsqp_a456ebd8eb673f37e76bf847157afc98c}{full\+\_\+output} = \hyperlink{libqhull_8h_add3ca9eefe3b5b754426f51d3043e579}{True})\mbox{[}\+:2\mbox{]}
+\item 
+tuple \hyperlink{namespacescipy_1_1optimize_1_1slsqp_ae506e7b125d0eeec39748e2de3d29a26}{res}
+\item 
+\hyperlink{namespacescipy_1_1optimize_1_1slsqp_a23ed43f3b7dfd7741e76077a310c9422}{f\+\_\+eqcons} = \hyperlink{namespacescipy_1_1optimize_1_1slsqp_a67cf78303222478a831e2b11c591a193}{jeqcon},
+\item 
+\hyperlink{namespacescipy_1_1optimize_1_1slsqp_a8bc529ad14da55295d2cf2d17addd929}{f\+\_\+ieqcons} = \hyperlink{namespacescipy_1_1optimize_1_1slsqp_acebb941787a4b0b059a03be7bd77b7a5}{jieqcon},
+\item 
+int \hyperlink{namespacescipy_1_1optimize_1_1slsqp_a03befd427a784ed4840724d1b667f45a}{disp} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This module implements the Sequential Least SQuares Programming optimization
+algorithm (SLSQP), originally developed by Dieter Kraft.
+See http://www.netlib.org/toms/733
+
+Functions
+---------
+.. autosummary::
+   :toctree: generated/
+
+approx_jacobian
+fmin_slsqp\end{DoxyVerb}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_a8bd7e9e2d35f751df61a44c3e0eb445a}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!approx\+\_\+jacobian@{approx\+\_\+jacobian}}
+\index{approx\+\_\+jacobian@{approx\+\_\+jacobian}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{approx\+\_\+jacobian}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+slsqp.\+approx\+\_\+jacobian (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{func, }
+\item[{}]{epsilon, }
+\item[{}]{args}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1slsqp_a8bd7e9e2d35f751df61a44c3e0eb445a}
+\begin{DoxyVerb}Approximate the Jacobian matrix of a callable function.
+
+Parameters
+----------
+x : array_like
+    The state vector at which to compute the Jacobian matrix.
+func : callable f(x,*args)
+    The vector-valued function.
+epsilon : float
+    The perturbation used to determine the partial derivatives.
+args : sequence
+    Additional arguments passed to func.
+
+Returns
+-------
+An array of dimensions ``(lenf, lenx)`` where ``lenf`` is the length
+of the outputs of `func`, and ``lenx`` is the number of elements in
+`x`.
+
+Notes
+-----
+The approximation is done using forward differences.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1slsqp_a9c97c561709e3ca81b927f8b4231ef75}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!feqcon@{feqcon}}
+\index{feqcon@{feqcon}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{feqcon}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+slsqp.\+feqcon (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{b = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1slsqp_a9c97c561709e3ca81b927f8b4231ef75}
+\begin{DoxyVerb}Equality constraint \end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1slsqp_a1d304462271b6df17b4adaa71614caca}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!fieqcon@{fieqcon}}
+\index{fieqcon@{fieqcon}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{fieqcon}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+slsqp.\+fieqcon (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{c = {\ttfamily 10}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1slsqp_a1d304462271b6df17b4adaa71614caca}
+\begin{DoxyVerb}Inequality constraint \end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1slsqp_ac3dab30d04519a7fb85a62039512e338}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!fmin\+\_\+slsqp@{fmin\+\_\+slsqp}}
+\index{fmin\+\_\+slsqp@{fmin\+\_\+slsqp}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{fmin\+\_\+slsqp}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+slsqp.\+fmin\+\_\+slsqp (
+\begin{DoxyParamCaption}
+\item[{}]{func, }
+\item[{}]{x0, }
+\item[{}]{eqcons = {\ttfamily ()}, }
+\item[{}]{f\+\_\+eqcons = {\ttfamily None}, }
+\item[{}]{ieqcons = {\ttfamily ()}, }
+\item[{}]{f\+\_\+ieqcons = {\ttfamily None}, }
+\item[{}]{bounds = {\ttfamily ()}, }
+\item[{}]{fprime = {\ttfamily None}, }
+\item[{}]{fprime\+\_\+eqcons = {\ttfamily None}, }
+\item[{}]{fprime\+\_\+ieqcons = {\ttfamily None}, }
+\item[{}]{args = {\ttfamily ()}, }
+\item[{}]{iter = {\ttfamily 100}, }
+\item[{}]{acc = {\ttfamily 1.0E-\/6}, }
+\item[{}]{iprint = {\ttfamily 1}, }
+\item[{}]{disp = {\ttfamily None}, }
+\item[{}]{full\+\_\+output = {\ttfamily 0}, }
+\item[{}]{epsilon = {\ttfamily \+\_\+epsilon}, }
+\item[{}]{callback = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1slsqp_ac3dab30d04519a7fb85a62039512e338}
+\begin{DoxyVerb}Minimize a function using Sequential Least SQuares Programming
+
+Python interface function for the SLSQP Optimization subroutine
+originally implemented by Dieter Kraft.
+
+Parameters
+----------
+func : callable f(x,*args)
+    Objective function.
+x0 : 1-D ndarray of float
+    Initial guess for the independent variable(s).
+eqcons : list
+    A list of functions of length n such that
+    eqcons[j](x,*args) == 0.0 in a successfully optimized
+    problem.
+f_eqcons : callable f(x,*args)
+    Returns a 1-D array in which each element must equal 0.0 in a
+    successfully optimized problem.  If f_eqcons is specified,
+    eqcons is ignored.
+ieqcons : list
+    A list of functions of length n such that
+    ieqcons[j](x,*args) >= 0.0 in a successfully optimized
+    problem.
+f_ieqcons : callable f(x,*args)
+    Returns a 1-D ndarray in which each element must be greater or
+    equal to 0.0 in a successfully optimized problem.  If
+    f_ieqcons is specified, ieqcons is ignored.
+bounds : list
+    A list of tuples specifying the lower and upper bound
+    for each independent variable [(xl0, xu0),(xl1, xu1),...]
+    Infinite values will be interpreted as large floating values.
+fprime : callable `f(x,*args)`
+    A function that evaluates the partial derivatives of func.
+fprime_eqcons : callable `f(x,*args)`
+    A function of the form `f(x, *args)` that returns the m by n
+    array of equality constraint normals.  If not provided,
+    the normals will be approximated. The array returned by
+    fprime_eqcons should be sized as ( len(eqcons), len(x0) ).
+fprime_ieqcons : callable `f(x,*args)`
+    A function of the form `f(x, *args)` that returns the m by n
+    array of inequality constraint normals.  If not provided,
+    the normals will be approximated. The array returned by
+    fprime_ieqcons should be sized as ( len(ieqcons), len(x0) ).
+args : sequence
+    Additional arguments passed to func and fprime.
+iter : int
+    The maximum number of iterations.
+acc : float
+    Requested accuracy.
+iprint : int
+    The verbosity of fmin_slsqp :
+
+    * iprint <= 0 : Silent operation
+    * iprint == 1 : Print summary upon completion (default)
+    * iprint >= 2 : Print status of each iterate and summary
+disp : int
+    Over-rides the iprint interface (preferred).
+full_output : bool
+    If False, return only the minimizer of func (default).
+    Otherwise, output final objective function and summary
+    information.
+epsilon : float
+    The step size for finite-difference derivative estimates.
+callback : callable, optional
+    Called after each iteration, as ``callback(x)``, where ``x`` is the
+    current parameter vector.
+
+Returns
+-------
+out : ndarray of float
+    The final minimizer of func.
+fx : ndarray of float, if full_output is true
+    The final value of the objective function.
+its : int, if full_output is true
+    The number of iterations.
+imode : int, if full_output is true
+    The exit mode from the optimizer (see below).
+smode : string, if full_output is true
+    Message describing the exit mode from the optimizer.
+
+See also
+--------
+minimize: Interface to minimization algorithms for multivariate
+    functions. See the 'SLSQP' `method` in particular.
+
+Notes
+-----
+Exit modes are defined as follows ::
+
+    -1 : Gradient evaluation required (g & a)
+     0 : Optimization terminated successfully.
+     1 : Function evaluation required (f & c)
+     2 : More equality constraints than independent variables
+     3 : More than 3*n iterations in LSQ subproblem
+     4 : Inequality constraints incompatible
+     5 : Singular matrix E in LSQ subproblem
+     6 : Singular matrix C in LSQ subproblem
+     7 : Rank-deficient equality constraint subproblem HFTI
+     8 : Positive directional derivative for linesearch
+     9 : Iteration limit exceeded
+
+Examples
+--------
+Examples are given :ref:`in the tutorial <tutorial-sqlsp>`.\end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1slsqp_a2b4ee77549a1bda7ea2001f9e1ec26c6}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!fun@{fun}}
+\index{fun@{fun}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{fun}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+slsqp.\+fun (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{r = {\ttfamily \mbox{[}4}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1slsqp_a2b4ee77549a1bda7ea2001f9e1ec26c6}
+\begin{DoxyVerb}Objective function \end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1slsqp_a67cf78303222478a831e2b11c591a193}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!jeqcon@{jeqcon}}
+\index{jeqcon@{jeqcon}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{jeqcon}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+slsqp.\+jeqcon (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{b = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1slsqp_a67cf78303222478a831e2b11c591a193}
+\begin{DoxyVerb}Jacobian of equality constraint \end{DoxyVerb}
+ \hypertarget{namespacescipy_1_1optimize_1_1slsqp_acebb941787a4b0b059a03be7bd77b7a5}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!jieqcon@{jieqcon}}
+\index{jieqcon@{jieqcon}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{jieqcon}]{\setlength{\rightskip}{0pt plus 5cm}def scipy.\+optimize.\+slsqp.\+jieqcon (
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{c = {\ttfamily 10}}
+\end{DoxyParamCaption}
+)}\label{namespacescipy_1_1optimize_1_1slsqp_acebb941787a4b0b059a03be7bd77b7a5}
+\begin{DoxyVerb}Jacobian of Inequality constraint \end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_a0adbc74b5e054eeb60085c572ccf14e2}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+all\+\_\+\+\_\+@{\+\_\+\+\_\+all\+\_\+\+\_\+}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{\+\_\+\+\_\+all\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+optimize.\+slsqp.\+\_\+\+\_\+all\+\_\+\+\_\+ = \mbox{[}'{\bf approx\+\_\+jacobian}','{\bf fmin\+\_\+slsqp}'\mbox{]}}\label{namespacescipy_1_1optimize_1_1slsqp_a0adbc74b5e054eeb60085c572ccf14e2}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_a36bc8377bd7cff39d60937a78a89dbe9}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!\+\_\+\+\_\+docformat\+\_\+\+\_\+@{\+\_\+\+\_\+docformat\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+docformat\+\_\+\+\_\+@{\+\_\+\+\_\+docformat\+\_\+\+\_\+}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{\+\_\+\+\_\+docformat\+\_\+\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}string scipy.\+optimize.\+slsqp.\+\_\+\+\_\+docformat\+\_\+\+\_\+ = \char`\"{}restructuredtext en\char`\"{}}\label{namespacescipy_1_1optimize_1_1slsqp_a36bc8377bd7cff39d60937a78a89dbe9}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_aa973931a73e3dcb40c31ed76fd0a429b}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!\+\_\+epsilon@{\+\_\+epsilon}}
+\index{\+\_\+epsilon@{\+\_\+epsilon}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{\+\_\+epsilon}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+optimize.\+slsqp.\+\_\+epsilon = {\bf sqrt}(finfo(float).eps)}\label{namespacescipy_1_1optimize_1_1slsqp_aa973931a73e3dcb40c31ed76fd0a429b}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_afa02366b6ad7291329bb02bd3cdc0528}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!bnds@{bnds}}
+\index{bnds@{bnds}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{bnds}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+optimize.\+slsqp.\+bnds = array(\mbox{[}\mbox{[}-\/inf\mbox{]}$\ast$2, \mbox{[}inf\mbox{]}$\ast$2\mbox{]})}\label{namespacescipy_1_1optimize_1_1slsqp_afa02366b6ad7291329bb02bd3cdc0528}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_afd188328f5f66ce62601132cd699c5a0}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!cons@{cons}}
+\index{cons@{cons}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{cons}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+optimize.\+slsqp.\+cons}\label{namespacescipy_1_1optimize_1_1slsqp_afd188328f5f66ce62601132cd699c5a0}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = (\{\textcolor{stringliteral}{'type'}: \textcolor{stringliteral}{'eq'}, \textcolor{stringliteral}{'fun'}: feqcon, \textcolor{stringliteral}{'jac'}: jeqcon, \textcolor{stringliteral}{'args'}: (1, )\},
+2           \{\textcolor{stringliteral}{'type'}: \textcolor{stringliteral}{'ineq'}, \textcolor{stringliteral}{'fun'}: fieqcon, \textcolor{stringliteral}{'jac'}: jieqcon, \textcolor{stringliteral}{'args'}: (10,)\})
+\end{DoxyCode}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_a03befd427a784ed4840724d1b667f45a}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!disp@{disp}}
+\index{disp@{disp}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{disp}]{\setlength{\rightskip}{0pt plus 5cm}int scipy.\+optimize.\+slsqp.\+disp = 1}\label{namespacescipy_1_1optimize_1_1slsqp_a03befd427a784ed4840724d1b667f45a}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_a23ed43f3b7dfd7741e76077a310c9422}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!f\+\_\+eqcons@{f\+\_\+eqcons}}
+\index{f\+\_\+eqcons@{f\+\_\+eqcons}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{f\+\_\+eqcons}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+slsqp.\+f\+\_\+eqcons = {\bf jeqcon},}\label{namespacescipy_1_1optimize_1_1slsqp_a23ed43f3b7dfd7741e76077a310c9422}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_a8bc529ad14da55295d2cf2d17addd929}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!f\+\_\+ieqcons@{f\+\_\+ieqcons}}
+\index{f\+\_\+ieqcons@{f\+\_\+ieqcons}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{f\+\_\+ieqcons}]{\setlength{\rightskip}{0pt plus 5cm}scipy.\+optimize.\+slsqp.\+f\+\_\+ieqcons = {\bf jieqcon},}\label{namespacescipy_1_1optimize_1_1slsqp_a8bc529ad14da55295d2cf2d17addd929}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_a456ebd8eb673f37e76bf847157afc98c}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!full\+\_\+output@{full\+\_\+output}}
+\index{full\+\_\+output@{full\+\_\+output}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{full\+\_\+output}]{\setlength{\rightskip}{0pt plus 5cm}list scipy.\+optimize.\+slsqp.\+full\+\_\+output = {\bf True})\mbox{[}\+:2\mbox{]}}\label{namespacescipy_1_1optimize_1_1slsqp_a456ebd8eb673f37e76bf847157afc98c}
+\hypertarget{namespacescipy_1_1optimize_1_1slsqp_ae506e7b125d0eeec39748e2de3d29a26}{}\index{scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}!res@{res}}
+\index{res@{res}!scipy\+::optimize\+::slsqp@{scipy\+::optimize\+::slsqp}}
+\subsubsection[{res}]{\setlength{\rightskip}{0pt plus 5cm}tuple scipy.\+optimize.\+slsqp.\+res}\label{namespacescipy_1_1optimize_1_1slsqp_ae506e7b125d0eeec39748e2de3d29a26}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 = \_minimize\_slsqp(fun, array([-1, 1]), bounds=bnds,
+2                           **\{\textcolor{stringliteral}{'disp'}: \textcolor{keyword}{True}\})
+\end{DoxyCode}

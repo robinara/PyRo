@@ -1,0 +1,83 @@
+\hypertarget{clartv_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/clartv.f File Reference}
+\label{clartv_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clartv.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/clartv.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{clartv_8f_a1cb1e0f8dfefddc7edc4f48badeb35ce}{clartv} (\hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, X, I\+N\+C\+X, Y, I\+N\+C\+Y, C, S, I\+N\+C\+C)
+\begin{DoxyCompactList}\small\item\em {\bfseries C\+L\+A\+R\+T\+V} applies a vector of plane rotations with real cosines and complex sines to the elements of a pair of vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{clartv_8f_a1cb1e0f8dfefddc7edc4f48badeb35ce}{}\index{clartv.\+f@{clartv.\+f}!clartv@{clartv}}
+\index{clartv@{clartv}!clartv.\+f@{clartv.\+f}}
+\subsubsection[{clartv}]{\setlength{\rightskip}{0pt plus 5cm}subroutine clartv (
+\begin{DoxyParamCaption}
+\item[{integer}]{N, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{X, }
+\item[{integer}]{I\+N\+C\+X, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{Y, }
+\item[{integer}]{I\+N\+C\+Y, }
+\item[{real, dimension( $\ast$ )}]{C, }
+\item[{{\bf complex}, dimension( $\ast$ )}]{S, }
+\item[{integer}]{I\+N\+C\+C}
+\end{DoxyParamCaption}
+)}\label{clartv_8f_a1cb1e0f8dfefddc7edc4f48badeb35ce}
+
+
+{\bfseries C\+L\+A\+R\+T\+V} applies a vector of plane rotations with real cosines and complex sines to the elements of a pair of vectors. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} CLARTV applies a vector of complex plane rotations with real cosines
+ to elements of the complex vectors x and y. For i = 1,2,...,n
+
+    ( x(i) ) := (        c(i)   s(i) ) ( x(i) )
+    ( y(i) )    ( -conjg(s(i))  c(i) ) ( y(i) )\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of plane rotations to be applied.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em X} & \begin{DoxyVerb}          X is COMPLEX array, dimension (1+(N-1)*INCX)
+          The vector x.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+X} & \begin{DoxyVerb}          INCX is INTEGER
+          The increment between elements of X. INCX > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em Y} & \begin{DoxyVerb}          Y is COMPLEX array, dimension (1+(N-1)*INCY)
+          The vector y.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+Y} & \begin{DoxyVerb}          INCY is INTEGER
+          The increment between elements of Y. INCY > 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em C} & \begin{DoxyVerb}          C is REAL array, dimension (1+(N-1)*INCC)
+          The cosines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S} & \begin{DoxyVerb}          S is COMPLEX array, dimension (1+(N-1)*INCC)
+          The sines of the plane rotations.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+N\+C\+C} & \begin{DoxyVerb}          INCC is INTEGER
+          The increment between elements of C and S. INCC > 0.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}

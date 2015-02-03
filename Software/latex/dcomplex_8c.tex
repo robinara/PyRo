@@ -1,0 +1,141 @@
+\hypertarget{dcomplex_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dcomplex.c File Reference}
+\label{dcomplex_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dcomplex.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/dcomplex.\+c}}
+
+
+Common arithmetic for complex type.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}slu\+\_\+dcomplex.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{dcomplex_8c_a4cfde2671a83833a15c5b48517781db0}{z\+\_\+div} (\hyperlink{structdoublecomplex}{doublecomplex} $\ast$c, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$\hyperlink{gen__mat5files_8m_aae328bf20413f220e38aec4d95bfd6da}{a}, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$\hyperlink{gen__mat5files_8m_a7b38767b3b6a8dae167e5afa4fc340b0}{b})
+\begin{DoxyCompactList}\small\item\em Complex Division c = a/b. \end{DoxyCompactList}\item 
+double \hyperlink{dcomplex_8c_af701b1c549ee8dcf6767742a91681b55}{z\+\_\+abs} (\hyperlink{structdoublecomplex}{doublecomplex} $\ast$z)
+\begin{DoxyCompactList}\small\item\em Returns sqrt(z.\+r$^\wedge$2 + z.\+i$^\wedge$2) \end{DoxyCompactList}\item 
+double \hyperlink{dcomplex_8c_a47b00c33108809a1a9a94ffea7ef2097}{z\+\_\+abs1} (\hyperlink{structdoublecomplex}{doublecomplex} $\ast$z)
+\begin{DoxyCompactList}\small\item\em Approximates the abs. Returns abs(z.\+r) + abs(z.\+i) \end{DoxyCompactList}\item 
+void \hyperlink{dcomplex_8c_ab03337c37aa8b70db9a3bac9368fb06c}{z\+\_\+exp} (\hyperlink{structdoublecomplex}{doublecomplex} $\ast$\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$z)
+\begin{DoxyCompactList}\small\item\em Return the exponentiation. \end{DoxyCompactList}\item 
+void \hyperlink{dcomplex_8c_a753978ee017e26dbdab16a40cf45b2cb}{d\+\_\+cnjg} (\hyperlink{structdoublecomplex}{doublecomplex} $\ast$\hyperlink{indexexpr_8h_ac434fd11cc2493608d8d91424d60c17e}{r}, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$z)
+\begin{DoxyCompactList}\small\item\em Return the complex conjugate. \end{DoxyCompactList}\item 
+double \hyperlink{dcomplex_8c_a58f08c15442d32d787301386ed99ac01}{d\+\_\+imag} (\hyperlink{structdoublecomplex}{doublecomplex} $\ast$z)
+\begin{DoxyCompactList}\small\item\em Return the imaginary part. \end{DoxyCompactList}\item 
+\hyperlink{structdoublecomplex}{doublecomplex} \hyperlink{dcomplex_8c_a36451f8af6b7bd3a4d5f655ead8d5ee4}{z\+\_\+sgn} (\hyperlink{structdoublecomplex}{doublecomplex} $\ast$z)
+\begin{DoxyCompactList}\small\item\em S\+I\+G\+N functions for complex number. Returns z/abs(z) \end{DoxyCompactList}\item 
+\hyperlink{structdoublecomplex}{doublecomplex} \hyperlink{dcomplex_8c_a29f4b8ea3e1309c47c2b1f783c6efa89}{z\+\_\+sqrt} (\hyperlink{structdoublecomplex}{doublecomplex} $\ast$z)
+\begin{DoxyCompactList}\small\item\em Square-\/root of a complex number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Common arithmetic for complex type. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 2.0) --
+Univ. of California Berkeley, Xerox Palo Alto Research Center,
+and Lawrence Berkeley National Lab.
+November 15, 1997\end{DoxyPre}
+
+
+
+\begin{DoxyPre}This file defines common arithmetic operations for complex type.
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{dcomplex_8c_a753978ee017e26dbdab16a40cf45b2cb}{}\index{dcomplex.\+c@{dcomplex.\+c}!d\+\_\+cnjg@{d\+\_\+cnjg}}
+\index{d\+\_\+cnjg@{d\+\_\+cnjg}!dcomplex.\+c@{dcomplex.\+c}}
+\subsubsection[{d\+\_\+cnjg}]{\setlength{\rightskip}{0pt plus 5cm}void d\+\_\+cnjg (
+\begin{DoxyParamCaption}
+\item[{{\bf doublecomplex} $\ast$}]{r, }
+\item[{{\bf doublecomplex} $\ast$}]{z}
+\end{DoxyParamCaption}
+)}\label{dcomplex_8c_a753978ee017e26dbdab16a40cf45b2cb}
+
+
+Return the complex conjugate. 
+
+\hypertarget{dcomplex_8c_a58f08c15442d32d787301386ed99ac01}{}\index{dcomplex.\+c@{dcomplex.\+c}!d\+\_\+imag@{d\+\_\+imag}}
+\index{d\+\_\+imag@{d\+\_\+imag}!dcomplex.\+c@{dcomplex.\+c}}
+\subsubsection[{d\+\_\+imag}]{\setlength{\rightskip}{0pt plus 5cm}double d\+\_\+imag (
+\begin{DoxyParamCaption}
+\item[{{\bf doublecomplex} $\ast$}]{z}
+\end{DoxyParamCaption}
+)}\label{dcomplex_8c_a58f08c15442d32d787301386ed99ac01}
+
+
+Return the imaginary part. 
+
+\hypertarget{dcomplex_8c_af701b1c549ee8dcf6767742a91681b55}{}\index{dcomplex.\+c@{dcomplex.\+c}!z\+\_\+abs@{z\+\_\+abs}}
+\index{z\+\_\+abs@{z\+\_\+abs}!dcomplex.\+c@{dcomplex.\+c}}
+\subsubsection[{z\+\_\+abs}]{\setlength{\rightskip}{0pt plus 5cm}double z\+\_\+abs (
+\begin{DoxyParamCaption}
+\item[{{\bf doublecomplex} $\ast$}]{z}
+\end{DoxyParamCaption}
+)}\label{dcomplex_8c_af701b1c549ee8dcf6767742a91681b55}
+
+
+Returns sqrt(z.\+r$^\wedge$2 + z.\+i$^\wedge$2) 
+
+\hypertarget{dcomplex_8c_a47b00c33108809a1a9a94ffea7ef2097}{}\index{dcomplex.\+c@{dcomplex.\+c}!z\+\_\+abs1@{z\+\_\+abs1}}
+\index{z\+\_\+abs1@{z\+\_\+abs1}!dcomplex.\+c@{dcomplex.\+c}}
+\subsubsection[{z\+\_\+abs1}]{\setlength{\rightskip}{0pt plus 5cm}double z\+\_\+abs1 (
+\begin{DoxyParamCaption}
+\item[{{\bf doublecomplex} $\ast$}]{z}
+\end{DoxyParamCaption}
+)}\label{dcomplex_8c_a47b00c33108809a1a9a94ffea7ef2097}
+
+
+Approximates the abs. Returns abs(z.\+r) + abs(z.\+i) 
+
+\hypertarget{dcomplex_8c_a4cfde2671a83833a15c5b48517781db0}{}\index{dcomplex.\+c@{dcomplex.\+c}!z\+\_\+div@{z\+\_\+div}}
+\index{z\+\_\+div@{z\+\_\+div}!dcomplex.\+c@{dcomplex.\+c}}
+\subsubsection[{z\+\_\+div}]{\setlength{\rightskip}{0pt plus 5cm}void z\+\_\+div (
+\begin{DoxyParamCaption}
+\item[{{\bf doublecomplex} $\ast$}]{c, }
+\item[{{\bf doublecomplex} $\ast$}]{a, }
+\item[{{\bf doublecomplex} $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\label{dcomplex_8c_a4cfde2671a83833a15c5b48517781db0}
+
+
+Complex Division c = a/b. 
+
+\hypertarget{dcomplex_8c_ab03337c37aa8b70db9a3bac9368fb06c}{}\index{dcomplex.\+c@{dcomplex.\+c}!z\+\_\+exp@{z\+\_\+exp}}
+\index{z\+\_\+exp@{z\+\_\+exp}!dcomplex.\+c@{dcomplex.\+c}}
+\subsubsection[{z\+\_\+exp}]{\setlength{\rightskip}{0pt plus 5cm}void z\+\_\+exp (
+\begin{DoxyParamCaption}
+\item[{{\bf doublecomplex} $\ast$}]{r, }
+\item[{{\bf doublecomplex} $\ast$}]{z}
+\end{DoxyParamCaption}
+)}\label{dcomplex_8c_ab03337c37aa8b70db9a3bac9368fb06c}
+
+
+Return the exponentiation. 
+
+\hypertarget{dcomplex_8c_a36451f8af6b7bd3a4d5f655ead8d5ee4}{}\index{dcomplex.\+c@{dcomplex.\+c}!z\+\_\+sgn@{z\+\_\+sgn}}
+\index{z\+\_\+sgn@{z\+\_\+sgn}!dcomplex.\+c@{dcomplex.\+c}}
+\subsubsection[{z\+\_\+sgn}]{\setlength{\rightskip}{0pt plus 5cm}{\bf doublecomplex} z\+\_\+sgn (
+\begin{DoxyParamCaption}
+\item[{{\bf doublecomplex} $\ast$}]{z}
+\end{DoxyParamCaption}
+)}\label{dcomplex_8c_a36451f8af6b7bd3a4d5f655ead8d5ee4}
+
+
+S\+I\+G\+N functions for complex number. Returns z/abs(z) 
+
+\hypertarget{dcomplex_8c_a29f4b8ea3e1309c47c2b1f783c6efa89}{}\index{dcomplex.\+c@{dcomplex.\+c}!z\+\_\+sqrt@{z\+\_\+sqrt}}
+\index{z\+\_\+sqrt@{z\+\_\+sqrt}!dcomplex.\+c@{dcomplex.\+c}}
+\subsubsection[{z\+\_\+sqrt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf doublecomplex} z\+\_\+sqrt (
+\begin{DoxyParamCaption}
+\item[{{\bf doublecomplex} $\ast$}]{z}
+\end{DoxyParamCaption}
+)}\label{dcomplex_8c_a29f4b8ea3e1309c47c2b1f783c6efa89}
+
+
+Square-\/root of a complex number. 
+

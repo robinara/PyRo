@@ -1,0 +1,60 @@
+\hypertarget{ilu__zcopy__to__ucol_8c}{}\section{packages/scipy-\/0.14.0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.c File Reference}
+\label{ilu__zcopy__to__ucol_8c}\index{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.\+c@{packages/scipy-\/0.\+14.\+0/scipy/sparse/linalg/dsolve/\+Super\+L\+U/\+S\+R\+C/ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.\+c}}
+
+
+Copy a computed column of U to the compressed data structure and drop some small entries.  
+
+
+{\ttfamily \#include \char`\"{}slu\+\_\+zdefs.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ilu__zcopy__to__ucol_8c_aad105755c4a253c2d6dbce95720abb48}{zcopy\+\_\+} (int $\ast$, \hyperlink{structdoublecomplex}{doublecomplex}\mbox{[}$\,$\mbox{]}, int $\ast$, \hyperlink{structdoublecomplex}{doublecomplex}\mbox{[}$\,$\mbox{]}, int $\ast$)
+\item 
+int \hyperlink{ilu__zcopy__to__ucol_8c_ab3c195f1b0db2f8686e3be3dc5107007}{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol} (int jcol, int nseg, int $\ast$segrep, int $\ast$repfnz, int $\ast$perm\+\_\+r, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$dense, int drop\+\_\+rule, \hyperlink{superlu__enum__consts_8h_a0cb73c13a7c2390c3a9a0a8913477ff0}{milu\+\_\+t} milu, double drop\+\_\+tol, int quota, \hyperlink{structdoublecomplex}{doublecomplex} $\ast$\hyperlink{vecsum_8cc_a208c561460f0b32ffa279a7ed7b7afa4}{sum}, int $\ast$nnz\+Uj, \hyperlink{structGlobalLU__t}{Global\+L\+U\+\_\+t} $\ast$Glu, double $\ast$work)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copy a computed column of U to the compressed data structure and drop some small entries. 
+
+
+\begin{DoxyPre}
+-- SuperLU routine (version 4.1) --
+Lawrence Berkeley National Laboratory
+November, 2010
+\end{DoxyPre}
+ 
+
+\subsection{Function Documentation}
+\hypertarget{ilu__zcopy__to__ucol_8c_ab3c195f1b0db2f8686e3be3dc5107007}{}\index{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.\+c}!ilu\+\_\+zcopy\+\_\+to\+\_\+ucol@{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol}}
+\index{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol@{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol}!ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.\+c}}
+\subsubsection[{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol}]{\setlength{\rightskip}{0pt plus 5cm}int ilu\+\_\+zcopy\+\_\+to\+\_\+ucol (
+\begin{DoxyParamCaption}
+\item[{int}]{jcol, }
+\item[{int}]{nseg, }
+\item[{int $\ast$}]{segrep, }
+\item[{int $\ast$}]{repfnz, }
+\item[{int $\ast$}]{perm\+\_\+r, }
+\item[{{\bf doublecomplex} $\ast$}]{dense, }
+\item[{int}]{drop\+\_\+rule, }
+\item[{{\bf milu\+\_\+t}}]{milu, }
+\item[{double}]{drop\+\_\+tol, }
+\item[{int}]{quota, }
+\item[{{\bf doublecomplex} $\ast$}]{sum, }
+\item[{int $\ast$}]{nnz\+Uj, }
+\item[{{\bf Global\+L\+U\+\_\+t} $\ast$}]{Glu, }
+\item[{double $\ast$}]{work}
+\end{DoxyParamCaption}
+)}\label{ilu__zcopy__to__ucol_8c_ab3c195f1b0db2f8686e3be3dc5107007}
+\hypertarget{ilu__zcopy__to__ucol_8c_aad105755c4a253c2d6dbce95720abb48}{}\index{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.\+c}!zcopy\+\_\+@{zcopy\+\_\+}}
+\index{zcopy\+\_\+@{zcopy\+\_\+}!ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.\+c@{ilu\+\_\+zcopy\+\_\+to\+\_\+ucol.\+c}}
+\subsubsection[{zcopy\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}void zcopy\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{, }
+\item[{{\bf doublecomplex}}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{, }
+\item[{{\bf doublecomplex}}]{\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}\label{ilu__zcopy__to__ucol_8c_aad105755c4a253c2d6dbce95720abb48}

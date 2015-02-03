@@ -1,0 +1,102 @@
+\hypertarget{zhecon__rook_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/zhecon\+\_\+rook.f File Reference}
+\label{zhecon__rook_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhecon\+\_\+rook.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/zhecon\+\_\+rook.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{zhecon__rook_8f_a9619174545a84dde14babb1b195e6a4c}{zhecon\+\_\+rook} (U\+P\+L\+O, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, I\+P\+I\+V, A\+N\+O\+R\+M, \hyperlink{superlu__enum__consts_8h_af00a42ecad444bbda75cde1b64bd7e72a9b5c151728d8512307565994c89919d5}{R\+C\+O\+N\+D}, W\+O\+R\+K, I\+N\+F\+O)
+\begin{DoxyCompactList}\small\item\em {\bfseries Z\+H\+E\+C\+O\+N\+\_\+\+R\+O\+O\+K} estimates the reciprocal of the condition number fort H\+E matrices using factorization obtained with one of the bounded diagonal pivoting methods (max 2 interchanges) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{zhecon__rook_8f_a9619174545a84dde14babb1b195e6a4c}{}\index{zhecon\+\_\+rook.\+f@{zhecon\+\_\+rook.\+f}!zhecon\+\_\+rook@{zhecon\+\_\+rook}}
+\index{zhecon\+\_\+rook@{zhecon\+\_\+rook}!zhecon\+\_\+rook.\+f@{zhecon\+\_\+rook.\+f}}
+\subsubsection[{zhecon\+\_\+rook}]{\setlength{\rightskip}{0pt plus 5cm}subroutine zhecon\+\_\+rook (
+\begin{DoxyParamCaption}
+\item[{character}]{U\+P\+L\+O, }
+\item[{integer}]{N, }
+\item[{{\bf complex}$\ast$16, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{integer, dimension( $\ast$ )}]{I\+P\+I\+V, }
+\item[{double {\bf precision}}]{A\+N\+O\+R\+M, }
+\item[{double {\bf precision}}]{R\+C\+O\+N\+D, }
+\item[{{\bf complex}$\ast$16, dimension( $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{I\+N\+F\+O}
+\end{DoxyParamCaption}
+)}\label{zhecon__rook_8f_a9619174545a84dde14babb1b195e6a4c}
+
+
+{\bfseries Z\+H\+E\+C\+O\+N\+\_\+\+R\+O\+O\+K} estimates the reciprocal of the condition number fort H\+E matrices using factorization obtained with one of the bounded diagonal pivoting methods (max 2 interchanges) 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} ZHECON_ROOK estimates the reciprocal of the condition number of a complex
+ Hermitian matrix A using the factorization A = U*D*U**H or
+ A = L*D*L**H computed by CHETRF_ROOK.
+
+ An estimate is obtained for norm(inv(A)), and the reciprocal of the
+ condition number is computed as RCOND = 1 / (ANORM * norm(inv(A))).\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em U\+P\+L\+O} & \begin{DoxyVerb}          UPLO is CHARACTER*1
+          Specifies whether the details of the factorization are stored
+          as an upper or lower triangular matrix.
+          = 'U':  Upper triangular, form is A = U*D*U**H;
+          = 'L':  Lower triangular, form is A = L*D*L**H.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The order of the matrix A.  N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is COMPLEX*16 array, dimension (LDA,N)
+          The block diagonal matrix D and the multipliers used to
+          obtain the factor U or L as computed by CHETRF_ROOK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A.  LDA >= max(1,N).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em I\+P\+I\+V} & \begin{DoxyVerb}          IPIV is INTEGER array, dimension (N)
+          Details of the interchanges and the block structure of D
+          as determined by CHETRF_ROOK.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em A\+N\+O\+R\+M} & \begin{DoxyVerb}          ANORM is DOUBLE PRECISION
+          The 1-norm of the original matrix A.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em R\+C\+O\+N\+D} & \begin{DoxyVerb}          RCOND is DOUBLE PRECISION
+          The reciprocal of the condition number of the matrix A,
+          computed as RCOND = 1/(ANORM * AINVNM), where AINVNM is an
+          estimate of the 1-norm of inv(A) computed in this routine.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is COMPLEX*16 array, dimension (2*N)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em I\+N\+F\+O} & \begin{DoxyVerb}          INFO is INTEGER
+          = 0:  successful exit
+          < 0:  if INFO = -i, the i-th argument had an illegal value\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+November 2013 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Contributors\+: }
+
+\end{DoxyParagraph}
+November 2013, Igor Kozachenko, Computer Science Division, University of California, Berkeley
+
+September 2007, Sven Hammarling, Nicholas J. Higham, Craig Lucas, School of Mathematics, University of Manchester

@@ -1,0 +1,209 @@
+\hypertarget{stprfb_8f}{}\section{packages/lapack-\/3.5.0/\+S\+R\+C/stprfb.f File Reference}
+\label{stprfb_8f}\index{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/stprfb.\+f@{packages/lapack-\/3.\+5.\+0/\+S\+R\+C/stprfb.\+f}}
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \hyperlink{stprfb_8f_af633e78eeb9a85e068655abd15f04ca5}{stprfb} (S\+I\+D\+E, \hyperlink{superlu__enum__consts_8h_a0c4e17b2d5cea33f9991ccc6a6678d62a1f61e3015bfe0f0c2c3fda4c5a0cdf58}{T\+R\+A\+N\+S}, D\+I\+R\+E\+C\+T, S\+T\+O\+R\+E\+V, M, \hyperlink{polmisc_8c_a0240ac851181b84ac374872dc5434ee4}{N}, K, L, V, L\+D\+V, T, L\+D\+T, \hyperlink{classA}{A}, \hyperlink{example__user_8c_ae946da542ce0db94dced19b2ecefd1aa}{L\+D\+A}, B, \hyperlink{example__user_8c_a50e90a7104df172b5a89a06c47fcca04}{L\+D\+B}, W\+O\+R\+K, L\+D\+W\+O\+R\+K)
+\begin{DoxyCompactList}\small\item\em {\bfseries S\+T\+P\+R\+F\+B} applies a real or complex \char`\"{}triangular-\/pentagonal\char`\"{} blocked reflector to a real or complex matrix, which is composed of two blocks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\hypertarget{stprfb_8f_af633e78eeb9a85e068655abd15f04ca5}{}\index{stprfb.\+f@{stprfb.\+f}!stprfb@{stprfb}}
+\index{stprfb@{stprfb}!stprfb.\+f@{stprfb.\+f}}
+\subsubsection[{stprfb}]{\setlength{\rightskip}{0pt plus 5cm}subroutine stprfb (
+\begin{DoxyParamCaption}
+\item[{character}]{S\+I\+D\+E, }
+\item[{character}]{T\+R\+A\+N\+S, }
+\item[{character}]{D\+I\+R\+E\+C\+T, }
+\item[{character}]{S\+T\+O\+R\+E\+V, }
+\item[{integer}]{M, }
+\item[{integer}]{N, }
+\item[{integer}]{K, }
+\item[{integer}]{L, }
+\item[{real, dimension( ldv, $\ast$ )}]{V, }
+\item[{integer}]{L\+D\+V, }
+\item[{real, dimension( ldt, $\ast$ )}]{T, }
+\item[{integer}]{L\+D\+T, }
+\item[{real, dimension( lda, $\ast$ )}]{A, }
+\item[{integer}]{L\+D\+A, }
+\item[{real, dimension( ldb, $\ast$ )}]{B, }
+\item[{integer}]{L\+D\+B, }
+\item[{real, dimension( ldwork, $\ast$ )}]{W\+O\+R\+K, }
+\item[{integer}]{L\+D\+W\+O\+R\+K}
+\end{DoxyParamCaption}
+)}\label{stprfb_8f_af633e78eeb9a85e068655abd15f04ca5}
+
+
+{\bfseries S\+T\+P\+R\+F\+B} applies a real or complex \char`\"{}triangular-\/pentagonal\char`\"{} blocked reflector to a real or complex matrix, which is composed of two blocks. 
+
+ \begin{DoxyParagraph}{Purpose\+: }
+\begin{DoxyVerb} STPRFB applies a real "triangular-pentagonal" block reflector H or its 
+ conjugate transpose H^H to a real matrix C, which is composed of two 
+ blocks A and B, either from the left or right.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em S\+I\+D\+E} & \begin{DoxyVerb}          SIDE is CHARACTER*1
+          = 'L': apply H or H^H from the Left
+          = 'R': apply H or H^H from the Right\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T\+R\+A\+N\+S} & \begin{DoxyVerb}          TRANS is CHARACTER*1
+          = 'N': apply H (No transpose)
+          = 'C': apply H^H (Conjugate transpose)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em D\+I\+R\+E\+C\+T} & \begin{DoxyVerb}          DIRECT is CHARACTER*1
+          Indicates how H is formed from a product of elementary
+          reflectors
+          = 'F': H = H(1) H(2) . . . H(k) (Forward)
+          = 'B': H = H(k) . . . H(2) H(1) (Backward)\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em S\+T\+O\+R\+E\+V} & \begin{DoxyVerb}          STOREV is CHARACTER*1
+          Indicates how the vectors which define the elementary
+          reflectors are stored:
+          = 'C': Columns
+          = 'R': Rows\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em M} & \begin{DoxyVerb}          M is INTEGER
+          The number of rows of the matrix B.  
+          M >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em N} & \begin{DoxyVerb}          N is INTEGER
+          The number of columns of the matrix B.  
+          N >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em K} & \begin{DoxyVerb}          K is INTEGER
+          The order of the matrix T, i.e. the number of elementary
+          reflectors whose product defines the block reflector.  
+          K >= 0.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L} & \begin{DoxyVerb}          L is INTEGER
+          The order of the trapezoidal part of V.  
+          K >= L >= 0.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em V} & \begin{DoxyVerb}          V is REAL array, dimension
+                                (LDV,K) if STOREV = 'C'
+                                (LDV,M) if STOREV = 'R' and SIDE = 'L'
+                                (LDV,N) if STOREV = 'R' and SIDE = 'R'
+          The pentagonal matrix V, which contains the elementary reflectors
+          H(1), H(2), ..., H(K).  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+V} & \begin{DoxyVerb}          LDV is INTEGER
+          The leading dimension of the array V.
+          If STOREV = 'C' and SIDE = 'L', LDV >= max(1,M);
+          if STOREV = 'C' and SIDE = 'R', LDV >= max(1,N);
+          if STOREV = 'R', LDV >= K.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em T} & \begin{DoxyVerb}          T is REAL array, dimension (LDT,K)
+          The triangular K-by-K matrix T in the representation of the
+          block reflector.  \end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+T} & \begin{DoxyVerb}          LDT is INTEGER
+          The leading dimension of the array T. 
+          LDT >= K.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em \hyperlink{classA}{A}} & \begin{DoxyVerb}          A is REAL array, dimension
+          (LDA,N) if SIDE = 'L' or (LDA,K) if SIDE = 'R'
+          On entry, the K-by-N or M-by-K matrix A.
+          On exit, A is overwritten by the corresponding block of 
+          H*C or H^H*C or C*H or C*H^H.  See Futher Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+A} & \begin{DoxyVerb}          LDA is INTEGER
+          The leading dimension of the array A. 
+          If SIDE = 'L', LDC >= max(1,K);
+          If SIDE = 'R', LDC >= max(1,M). \end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in,out}  & {\em B} & \begin{DoxyVerb}          B is REAL array, dimension (LDB,N)
+          On entry, the M-by-N matrix B.
+          On exit, B is overwritten by the corresponding block of
+          H*C or H^H*C or C*H or C*H^H.  See Further Details.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+B} & \begin{DoxyVerb}          LDB is INTEGER
+          The leading dimension of the array B. 
+          LDB >= max(1,M).\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt out}  & {\em W\+O\+R\+K} & \begin{DoxyVerb}          WORK is REAL array, dimension
+          (LDWORK,N) if SIDE = 'L',
+          (LDWORK,K) if SIDE = 'R'.\end{DoxyVerb}
+\\
+\hline
+\mbox{\tt in}  & {\em L\+D\+W\+O\+R\+K} & \begin{DoxyVerb}          LDWORK is INTEGER
+          The leading dimension of the array WORK.
+          If SIDE = 'L', LDWORK >= K; 
+          if SIDE = 'R', LDWORK >= M.\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Univ. of Tennessee 
+
+Univ. of California Berkeley 
+
+Univ. of Colorado Denver 
+
+N\+A\+G Ltd. 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+September 2012 
+\end{DoxyDate}
+\begin{DoxyParagraph}{Further Details\+: }
+\begin{DoxyVerb}  The matrix C is a composite matrix formed from blocks A and B.
+  The block B is of size M-by-N; if SIDE = 'R', A is of size M-by-K, 
+  and if SIDE = 'L', A is of size K-by-N.
+
+  If SIDE = 'R' and DIRECT = 'F', C = [A B].
+
+  If SIDE = 'L' and DIRECT = 'F', C = [A] 
+                                      [B].
+
+  If SIDE = 'R' and DIRECT = 'B', C = [B A].
+
+  If SIDE = 'L' and DIRECT = 'B', C = [B]
+                                      [A]. 
+
+  The pentagonal matrix V is composed of a rectangular block V1 and a 
+  trapezoidal block V2.  The size of the trapezoidal block is determined by 
+  the parameter L, where 0<=L<=K.  If L=K, the V2 block of V is triangular;
+  if L=0, there is no trapezoidal block, thus V = V1 is rectangular.
+
+  If DIRECT = 'F' and STOREV = 'C':  V = [V1]
+                                         [V2]
+     - V2 is upper trapezoidal (first L rows of K-by-K upper triangular)
+
+  If DIRECT = 'F' and STOREV = 'R':  V = [V1 V2]
+
+     - V2 is lower trapezoidal (first L columns of K-by-K lower triangular)
+
+  If DIRECT = 'B' and STOREV = 'C':  V = [V2]
+                                         [V1]
+     - V2 is lower trapezoidal (last L rows of K-by-K lower triangular)
+
+  If DIRECT = 'B' and STOREV = 'R':  V = [V2 V1]
+    
+     - V2 is upper trapezoidal (last L columns of K-by-K upper triangular)
+
+  If STOREV = 'C' and SIDE = 'L', V is M-by-K with V2 L-by-K.
+
+  If STOREV = 'C' and SIDE = 'R', V is N-by-K with V2 L-by-K.
+
+  If STOREV = 'R' and SIDE = 'L', V is K-by-M with V2 K-by-L.
+
+  If STOREV = 'R' and SIDE = 'R', V is K-by-N with V2 K-by-L.\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
