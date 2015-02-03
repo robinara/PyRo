@@ -1,0 +1,70 @@
+import threading
+#import numpy as np
+
+
+class uav(threading.Thread):
+
+
+	def __init__(self,MODEL):
+		threading.Thread.__init__(self)
+		self.parent 		= "None"
+		self.num 		= 1
+		self.isRunning 	= True
+		self.model	= MODEL
+		print "UAV controller ready"
+
+	def run(self):
+
+		while self.isRunning:
+			self.stabilize(self.model.x_accel,self.model.y_accel,self.model.z_accel)
+
+
+
+	def hover(self,height):
+		#pick a height value and stabilize()
+		return
+
+
+
+
+	def stabilize(self,x,y,z):
+		rng = self.model.m_max-self.model.m_min
+		zero=rng
+		mid=self.model.m_min+zero/2.0
+
+		if x<-100:
+			#x=-x
+			#self.model.m1_power = mid+zero*((x/1000.0))
+			#self.model.m3_power = mid-zero*((x/1000.0))
+			self.model.m1_power = self.model.m_min
+			self.model.m3_power = self.model.m_max
+			
+
+		if x>=100:
+			#self.model.m1_power = mid-zero*((x/1000.0))
+			#self.model.m3_power = mid+zero*((x/1000.0))
+			self.model.m1_power = self.model.m_max
+			self.model.m3_power = self.model.m_min
+
+		if ((x<99) and (x>-199)):
+			self.model.m1_power = self.model.m_min
+			self.model.m3_power = self.model.m_min
+
+		if y<-100:
+			#x=-x
+			#self.model.m1_power = mid+zero*((x/1000.0))
+			#self.model.m3_power = mid-zero*((x/1000.0))
+			self.model.m2_power = self.model.m_min
+			self.model.m4_power = self.model.m_max
+			
+
+		if y>=100:
+			#self.model.m1_power = mid-zero*((x/1000.0))
+			#self.model.m3_power = mid+zero*((x/1000.0))
+			self.model.m2_power = self.model.m_max
+			self.model.m4_power = self.model.m_min
+
+		if ((y<99) and (y>-199)):
+			self.model.m2_power = self.model.m_min
+			self.model.m4_power = self.model.m_min
+

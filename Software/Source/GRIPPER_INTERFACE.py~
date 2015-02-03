@@ -1,0 +1,86 @@
+import time
+import GRIPPER_MODEL
+import GRIPPER_CONTROLLER
+import network.I2C
+import threading
+
+class gripper(threading.Thread):
+	i2cAddr = 0x40
+
+	def __init__(self):
+		threading.Thread.__init__(self)
+		self.parent 		= "None"
+		self.num 		= 1
+		self.model		= GRIPPER_MODEL.gripper()
+		self.isRunning 		= True
+		self.i2c 		= network.I2C.i2c(self.i2cAddr)
+		self.controller		= GRIPPER_CONTROLLER.gripper(self.model,self.i2cAddr)
+		#self.model.right_min	=0.25
+		#self.model.right_max	=0.33
+		#self.model.left_min	=0.25
+		#self.model.left_max	=0.33
+		#self.model.left_servo_ID=0
+		#self.model.right_servo_ID=1
+		#self.model.roll_servo_ID=2
+
+
+	def run(self):
+		self.controller.start()
+		while self.isRunning:
+		#have some check on pantilt behaviour like switching between manual and scan mode
+			#print "running"
+			time.sleep(1)
+			if self.controller.isRunning==False:
+				self.isRunning=False
+
+	def act(self):
+		input = raw_input()
+
+		if input=="quad"
+			self.model.mode="quad"
+		if input=="op":
+			self.model.mode="open"
+		if input=="s":
+			self.model.mode="close"
+		if input=="d":
+			self.model.mode="rollRight"
+		if input=="a":
+			self.model.mode="rollLeft"
+		if input=="demo":
+			self.model.mode="demo"
+		if input=="q":
+			self.model.demo="off"
+			self.model.mode="stop"
+		if input=="e":
+			self.model.twist="on"
+		if input=="twop":
+			self.model.mode="twistOpenDemo"
+		if input=="pokh":
+			self.model.mode="pokh"#here 
+
+		else:
+			self.model.twist="off"
+		return
+
+	
+ 
+			
+if __name__ == "__main__":
+
+	device = gripper()
+	device2 = gripper()
+	device.start()
+	
+	try:
+		while True:
+			device.act()
+			print device.model.mode
+
+	except KeyboardInterrupt:
+		device.isRunning = False
+		device.controller.isRunning=False
+		print "Device Terminated"
+
+
+
+		

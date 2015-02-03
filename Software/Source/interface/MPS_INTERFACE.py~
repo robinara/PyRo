@@ -1,0 +1,89 @@
+import network.utilities
+import driver.LCD_DRIVER
+import model.MPS_MODEL
+import time
+import threading 
+
+base_station="192.168.1.101"
+timeout=2
+
+class MPS(threading.Thread):
+		
+	def __init__(self):
+		#Define model parameters
+
+		threading.Thread.__init__(self)
+		self.isRunning=True
+		self.num=1
+		self.HARDWARE="HW"
+		self.BIOMETRICS="BIO"
+		self.NAV="NAV"
+		self.parent=None
+		self.display="HW"
+		self.linkTag = "Latency"
+		self.tempTag = "Temperature"
+		self.lcd = driver.LCD_DRIVER.LCD()
+		self.link = network.utitlies.linkStat()
+		self.lcd.writeLine("RoboDisplay ACTIVE", 1)
+		#lcd.lcd_backlight(1)
+		time.sleep(0.5)
+		#lcd.lcd_backlight(0)
+		j=1
+		i=1
+		#clear_line="                     "
+		waiting="."
+		while j<10:
+		
+			self.lcd.writeLine("Initializing"+waiting, 2)
+			waiting+="."
+			#print waiting
+			i+=1
+			if i>4:
+				#lcd.lcd_display_string("Initializing     ",2)
+				waiting="."
+				i=1	
+			j+=1
+			time.sleep(1)
+		#clear_line="                     "
+		#lcd.lcd_display_string(clear_line,2)	
+		self.lcd.lcd_display_string(stuffline("Complete"), 2)
+		time.sleep(1)
+
+	def run(self):
+		print "Display running"
+		while self.isRunning:
+			if self.display==self.HARDWARE:
+				print "HW selected"
+				self.hardwareDisplay()
+			if self.display==self.BIOMETRICS:
+				print "BIO Selected"
+				self.bioDisplay()
+			if self.display==self.NAV:
+				print "NAV Selected"
+				self.navDisplay()
+
+	def end(self):
+		self.isRunning=False
+
+	def hardwareDisplay(self):
+
+		self.lcd.writeLine("System Operational",1)
+		self.lcd.writeLine("TEMP: "+str(self.model.temperature)+"C",2)
+		self.lcd.writeLine("POWER: "+str(self.model.power)+"%", 3)
+		self.lcd.writeLine(self.linkTag+str(self.model.link_delay)+"ms", 4)
+
+	def bioDisplay(self):
+
+		self.lcd.writeLine(("OXYGEN: "+str(self.model.O2)+"L"),1)
+		self.lcd.writeLine(("BODY TEMP : "str(self.model.temperature+"C"),4)
+		self.lcd.writeLine(("HR: "+str(self.model.BPM)+"BPM"), 3)
+		self.lcd.writeLine(("CO2: "+str(self.model.CO2)+"ppm"), 2)
+
+	def navDisplay(self):
+		loc = str(self.model.lat)+" N "+str(self.model.long) + " E" 
+		self.lcd.writeLine(str("HEADING: "+str(self.model.heading_current),1)
+		self.lcd.writeLine((str(self.model.heading_wpt),2)
+		self.lcd.writeLine(self.positionTag+loc, 3)
+		self.lcd.writeLine(self.lcd.stuffline("WPD"+str(self.model.WPdistance)+"m"), 4)
+
+
